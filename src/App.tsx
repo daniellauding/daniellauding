@@ -14,6 +14,12 @@ const markdown = `
 
 function App() {
 
+  const [isShow, setIsShow] = React.useState(true);
+
+  const handleClick = () => {
+    setIsShow(!isShow);
+  };
+
   const file_name = 'test.md';
   const [post, setPost] = useState('');
 
@@ -37,8 +43,21 @@ function App() {
   return (
     <div className="box-border">
       <div className="flex flex-row justify-center h-screen w-screen fixed">
+
         <div className="w-1/2 bg-cover" style={{backgroundImage: `url(${me})`}} />
+
         <div className="w-1/2 fle x flex-col justify-center align-center">
+
+          <button onClick={handleClick}>Toggle</button>
+
+          {isShow ?
+            <></>
+          :
+            <section className="content">
+              testar detta va
+            </section>
+          }
+
           <div className="overflow-y-scroll h-100">
             <img src={logo} className="logo mx-auto" alt="logo" />
               <h1 className="pt-0 mt-8 mb-0 text-3xl text-center text-black lg:font-bold">{data.hero.title}</h1>
@@ -101,7 +120,9 @@ function App() {
                 </li>
               </ul>
           </div>
+
         </div>
+
       </div>
     </div>
   );
