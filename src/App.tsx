@@ -1,10 +1,33 @@
-import React from 'react';
+import Markdown from 'markdown-to-jsx';
+import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import me from './me.jpg';
 import './App.css';
 import { SocialIcon } from 'react-social-icons';
 
+const markdown = `
+# Header
+
+<Text>Hello world!</Text>
+<a href="https://www.grover.com/de-en" rel="noopener noreferer" target="_blank">Grover site</a>
+`;
+
 function App() {
+
+  const file_name = 'test.md';
+  const [post, setPost] = useState('');
+
+  useEffect(() => {
+    import(`./markdown/${file_name}`)
+        .then(res => {
+            fetch(res.default)
+                .then(res => res.text())
+                .then(res => setPost(res))
+                .catch(err => console.log(err));
+        })
+        .catch(err => console.log(err));
+  });
+
   const data = {
     hero: {
       title: 'Daniel Lauding',
@@ -15,8 +38,8 @@ function App() {
     <div className="box-border">
       <div className="flex flex-row justify-center h-screen w-screen fixed">
         <div className="w-1/2 bg-cover" style={{backgroundImage: `url(${me})`}} />
-        <div className="w-1/2 flex flex-col justify-center align-center">
-          <div className="overflow-y-scroll h-auto">
+        <div className="w-1/2 fle x flex-col justify-center align-center">
+          <div className="overflow-y-scroll h-100">
             <img src={logo} className="logo mx-auto" alt="logo" />
               <h1 className="pt-0 mt-8 mb-0 text-3xl text-center text-black lg:font-bold">{data.hero.title}</h1>
               <p className="pt-0 mb-0 text-center text-black lg:font-light"><a href="mailto:daniel@lauding.se">daniel@lauding.se</a></p>
@@ -57,6 +80,14 @@ function App() {
                 </li>
               </ul>
               <p className="pt-0 mb-0 mt-16 text-center text-black text-sm lg:font-light"><a href="https://www.linkedin.com/in/daniellauding">Visit my LinkedIn</a></p>
+
+              <Markdown>
+                {markdown}
+              </Markdown>
+
+              <Markdown>
+                {post}
+              </Markdown>
 
               <ul className="mt-40 mt-32 flex flex-row justify-center align-center">
                 <li className="mx-2">
