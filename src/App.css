@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.social-svg-mask {
+  fill: rgba(0,0,0,0.2) !important;
+}
+
+.social-svg-mask:hover {
+  fill: rgba(0,0,0,0.7) !important;
+}

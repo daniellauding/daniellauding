@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
+import me from './me.jpg';
 import './App.css';
+import { SocialIcon } from 'react-social-icons';
 
 function App() {
   const data = {
@@ -11,9 +13,64 @@ function App() {
   }
   return (
     <div className="box-border">
-      <div className="flex flex-col justify-center h-screen">
-        <img src={logo} className="App-logo" alt="logo" />
-        <div className="pt-20 mb-20 text-3xl font-semibold text-center text-black lg:font-bold"> {data.hero.title}</div>
+      <div className="flex flex-row justify-center h-screen w-screen fixed">
+        <div className="w-1/2 bg-cover" style={{backgroundImage: `url(${me})`}} />
+        <div className="w-1/2 flex flex-col justify-center align-center">
+          <div className="overflow-y-scroll h-auto">
+            <img src={logo} className="logo mx-auto" alt="logo" />
+              <h1 className="pt-0 mt-8 mb-0 text-3xl text-center text-black lg:font-bold">{data.hero.title}</h1>
+              <p className="pt-0 mb-0 text-center text-black lg:font-light"><a href="mailto:daniel@lauding.se">daniel@lauding.se</a></p>
+              <p className="pt-0 mb-8 mx-32 mt-16 text-center text-black lg:font-light text-4xl leading-snug font-serif">I am a hybrid* designer who enjoys prototyping, conceptualizing and designing interfaces</p>
+              {/* <h4 className="pt-8 mb-0 text-1xl text-center text-black lg:font-bold">Experiences</h4> */}
+              <ul className="flex flex-col justify-center align-center px-32 mt-16">
+                <li className="flex flex-row py-4">
+                  <p className="pt-0 mb-0 text-left text-black lg:font-medium w-40">
+                    <a href="https://www.asteria.ai">Asteria</a>
+                  </p>
+                  <p className="pt-0 mb-0 ml-8 text-center text-black lg:font-light">Lead Product Designer</p>
+                  <p className="pt-0 mb-0 ml-auto  text-center text-black lg:font-light">2017 – Present</p>
+                  {/* <p className="pt-0 mb-0 fontregular text-center text-black lg:font-light">Add description here, problems, market, why, achivements</p> */}
+                </li>
+                <li className="flex flex-row py-4">
+                  <p className="pt-0 mb-0 text-left text-black lg:font-medium w-40">
+                    <a href="https://www.daniellauding.se">Instinctly</a>
+                  </p>
+                  <p className="pt-0 mb-0 ml-8 text-center text-black lg:font-light">Lead Product Designer / Consultant</p>
+                  <p className="pt-0 mb-0 ml-auto  text-center text-black lg:font-light">2007 – Present</p>
+                  {/* <p className="pt-0 mb-0 fontregular text-center text-black lg:font-light">Add description here, problems, market, why, achivements</p> */}
+                </li>
+                <li className="flex flex-row py-4">
+                  <p className="pt-0 mb-0 text-left text-black lg:font-medium w-40">
+                    <a href="https://www.spotify.com">Spotify</a>
+                  </p>
+                  <p className="pt-0 mb-0 ml-8 text-center text-black lg:font-light">Product Design Consultant</p>
+                  <p className="pt-0 mb-0 ml-auto  text-center text-black lg:font-light">Mar 2017 – Jun 2017</p>
+                  {/* <p className="pt-0 mb-0 fontregular text-center text-black lg:font-light">Add description here, problems, market, why, achivements</p> */}
+                </li>
+                <li className="flex flex-row py-4">
+                  <p className="pt-0 mb-0 text-left text-black lg:font-medium w-40">
+                    <a href="https://www.lansforsakringar.se">Länsförsäkringar</a>
+                  </p>
+                  <p className="pt-0 mb-0 ml-8 text-center text-black lg:font-light">Art Director Consultant</p>
+                  <p className="pt-0 mb-0 ml-auto  text-center text-black lg:font-light">2016 – 2017</p>
+                  {/* <p className="pt-0 mb-0 fontregular text-center text-black lg:font-light">Add description here, problems, market, why, achivements</p> */}
+                </li>
+              </ul>
+              <p className="pt-0 mb-0 mt-16 text-center text-black text-sm lg:font-light"><a href="https://www.linkedin.com/in/daniellauding">Visit my LinkedIn</a></p>
+
+              <ul className="mt-40 mt-32 flex flex-row justify-center align-center">
+                <li className="mx-2">
+                  <SocialIcon style={{ height: 32, width: 32 }} network="spotify" url="https://open.spotify.com/artist/4cDYlG9sl8IYOGsoXWKkGt?si=PREJisoNRWuwWeSYSL3dZQ" label="My images" />
+                </li>
+                <li className="mx-2">
+                  <SocialIcon style={{ height: 32, width: 32, fill: 'rgba(0,0,0,0.3)' }} network="instagram" url="https://www.instagram.com/daniellauding/" label="My music" />
+                </li>
+                <li className="mx-2">
+                  <SocialIcon style={{ height: 32, width: 32 }} network="linkedin" url="https://www.linkedin.com/in/daniellauding" label="My career" />
+                </li>
+              </ul>
+          </div>
+        </div>
       </div>
     </div>
   );
