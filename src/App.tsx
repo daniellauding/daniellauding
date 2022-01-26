@@ -103,6 +103,17 @@ function App() {
       setActive(value);
   }, [setActive]);
 
+// Todo
+// 0. felsök varför de är ingen auto reload eller, byggfel, iframe ligger framför alla klickevent
+// 1. Hover på en rad i listan byter ut bild på mig till preview
+// 2. Klick på en rad ändrar vänster till bild/spel och höger till content tillhörande dessa, med pil går till föregående och nästa projekt, x stänger till start
+// 3. markdown loopia innehållen
+// 4. 3d spinnande logotyp
+// 5. lösenord eller puzzla för att se innehåll, eller qr?
+// 6. darkmode
+// 7. mobilt
+
+
   return (
     <div className="box-border">
       <div className="flex flex-row justify-center h-screen w-screen fixed">
