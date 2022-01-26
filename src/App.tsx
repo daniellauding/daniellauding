@@ -131,16 +131,11 @@ function App() {
                 {/* {cases.map(item => (
                   <Case key={item.id} item={item} active={active === item.id} setActive={selectedChanged} />
                 ))} */}
+
                 {cases.map(item => (
-                  <li key={item.id} className="flex flex-row py-4">
-                    <p className="pt-0 mb-0 text-left text-black lg:font-medium w-40">
-                      <a href={item.url}>{item.client}</a>
-                    </p>
-                    <p className="pt-0 mb-0 ml-8 text-center text-black lg:font-light">{item.role}</p>
-                    <p className="pt-0 mb-0 ml-auto  text-center text-black lg:font-light">{item.date}</p>
-                    {/* <p className="pt-0 mb-0 fontregular text-center text-black lg:font-light">Add description here, problems, market, why, achivements</p> */}
-                  </li>
+                  <Case key={item.id} item={item} active={active === item.id} setActive={selectedChanged} />
                 ))}
+
               </ul>
               <p className="pt-0 mb-0 mt-16 text-center text-black text-sm lg:font-light"><a href="https://www.linkedin.com/in/daniellauding">Visit my LinkedIn</a></p>
 
