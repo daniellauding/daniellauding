@@ -61,7 +61,7 @@ function App() {
         role: 'Product Design Consultant',
         date: 'Mar 2017 – Jun 2017',
         url: 'https://www.spotify.com',
-        desc: 'Nisse',
+        desc: 'Lorem ipsum dolor sit amet, legendos mandamus duo ut, duo ne solum gloriatur, ea ius inani intellegebat. Vidit putant forensibus ei usu, detracto aliquando vel id. Ea putant eripuit senserit vim, ea amet euismod vocibus eam, per alia assentior ex. Ut cum errem integre oportere, diam quidam mea eu. Ceteros posidonium necessitatibus nam in, ad dolor sanctus laoreet nec. Sea eu sanctus intellegebat. Cu pri omnesque scaevola singulis, at zril doming theophrastus ius. At paulo inermis gloriatur vis, dicta nihil electram ne est. Ea fabulas scaevola invidunt nec, vis liber mundi scripserit ut. Laudem democritum mea et, ex quem debet putent pro. Malorum nostrum consetetur et qui, ad facer putent oblique est, id duo percipit pertinacia. At his nihil sensibus persecuti, idque volumus cu qui. Vix ea facilis apeirian, ne esse legimus cum. Persius prompta discere ne vim, case nonumes percipitur vim ei. Qui et assum utinam intellegat, vix ad wisi nonumy lucilius. Ea mel partem dictas, tollit decore verear sea ea. Percipit perfecto sed cu, fugit homero sea at. Consul salutandi adolescens ut sit, eius causae mediocritatem mel an, mea ut meis iudicabit. Mazim nihil blandit at sit, invenire consequuntur an quo. Eam an meis tation dicant, nostrum quaestio contentiones eu mel, an mucius cetero consulatu cum. Everti molestiae ea qui. Pro ex autem alienum. Eum ea modo gloriatur, mei harum mnesarchum dissentiet ad. Ei quo debitis facilisi. Lorem ipsum dolor sit amet, legendos mandamus duo ut, duo ne solum gloriatur, ea ius inani intellegebat. Vidit putant forensibus ei usu, detracto aliquando vel id. Ea putant eripuit senserit vim, ea amet euismod vocibus eam, per alia assentior ex. Ut cum errem integre oportere, diam quidam mea eu. Ceteros posidonium necessitatibus nam in, ad dolor sanctus laoreet nec. Sea eu sanctus intellegebat. Cu pri omnesque scaevola singulis, at zril doming theophrastus ius. At paulo inermis gloriatur vis, dicta nihil electram ne est. Ea fabulas scaevola invidunt nec, vis liber mundi scripserit ut. Laudem democritum mea et, ex quem debet putent pro. Malorum nostrum consetetur et qui, ad facer putent oblique est, id duo percipit pertinacia. At his nihil sensibus persecuti, idque volumus cu qui. Vix ea facilis apeirian, ne esse legimus cum. Persius prompta discere ne vim, case nonumes percipitur vim ei. Qui et assum utinam intellegat, vix ad wisi nonumy lucilius. Ea mel partem dictas, tollit decore verear sea ea. Percipit perfecto sed cu, fugit homero sea at. Consul salutandi adolescens ut sit, eius causae mediocritatem mel an, mea ut meis iudicabit. Mazim nihil blandit at sit, invenire consequuntur an quo. Eam an meis tation dicant, nostrum quaestio contentiones eu mel, an mucius cetero consulatu cum. Everti molestiae ea qui. Pro ex autem alienum. Eum ea modo gloriatur, mei harum mnesarchum dissentiet ad. Ei quo debitis facilisi. Lorem ipsum dolor sit amet, legendos mandamus duo ut, duo ne solum gloriatur, ea ius inani intellegebat. Vidit putant forensibus ei usu, detracto aliquando vel id. Ea putant eripuit senserit vim, ea amet euismod vocibus eam, per alia assentior ex. Ut cum errem integre oportere, diam quidam mea eu. Ceteros posidonium necessitatibus nam in, ad dolor sanctus laoreet nec. Sea eu sanctus intellegebat. Cu pri omnesque scaevola singulis, at zril doming theophrastus ius. At paulo inermis gloriatur vis, dicta nihil electram ne est. Ea fabulas scaevola invidunt nec, vis liber mundi scripserit ut. Laudem democritum mea et, ex quem debet putent pro. Malorum nostrum consetetur et qui, ad facer putent oblique est, id duo percipit pertinacia. At his nihil sensibus persecuti, idque volumus cu qui. Vix ea facilis apeirian, ne esse legimus cum. Persius prompta discere ne vim, case nonumes percipitur vim ei. Qui et assum utinam intellegat, vix ad wisi nonumy lucilius. Ea mel partem dictas, tollit decore verear sea ea. Percipit perfecto sed cu, fugit homero sea at. Consul salutandi adolescens ut sit, eius causae mediocritatem mel an, mea ut meis iudicabit. Mazim nihil blandit at sit, invenire consequuntur an quo. Eam an meis tation dicant, nostrum quaestio contentiones eu mel, an mucius cetero consulatu cum. Everti molestiae ea qui. Pro ex autem alienum. Eum ea modo gloriatur, mei harum mnesarchum dissentiet ad. Ei quo debitis facilisi. Lorem ipsum dolor sit amet, legendos mandamus duo ut, duo ne solum gloriatur, ea ius inani intellegebat. Vidit putant forensibus ei usu, detracto aliquando vel id. Ea putant eripuit senserit vim, ea amet euismod vocibus eam, per alia assentior ex. Ut cum errem integre oportere, diam quidam mea eu. Ceteros posidonium necessitatibus nam in, ad dolor sanctus laoreet nec. Sea eu sanctus intellegebat. Cu pri omnesque scaevola singulis, at zril doming theophrastus ius. At paulo inermis gloriatur vis, dicta nihil electram ne est. Ea fabulas scaevola invidunt nec, vis liber mundi scripserit ut. Laudem democritum mea et, ex quem debet putent pro. Malorum nostrum consetetur et qui, ad facer putent oblique est, id duo percipit pertinacia. At his nihil sensibus persecuti, idque volumus cu qui. Vix ea facilis apeirian, ne esse legimus cum. Persius prompta discere ne vim, case nonumes percipitur vim ei. Qui et assum utinam intellegat, vix ad wisi nonumy lucilius. Ea mel partem dictas, tollit decore verear sea ea. Percipit perfecto sed cu, fugit homero sea at. Consul salutandi adolescens ut sit, eius causae mediocritatem mel an, mea ut meis iudicabit. Mazim nihil blandit at sit, invenire consequuntur an quo. Eam an meis tation dicant, nostrum quaestio contentiones eu mel, an mucius cetero consulatu cum. Everti molestiae ea qui. Pro ex autem alienum. Eum ea modo gloriatur, mei harum mnesarchum dissentiet ad. Ei quo debitis facilisi. Lorem ipsum dolor sit amet, legendos mandamus duo ut, duo ne solum gloriatur, ea ius inani intellegebat. Vidit putant forensibus ei usu, detracto aliquando vel id. Ea putant eripuit senserit vim, ea amet euismod vocibus eam, per alia assentior ex. Ut cum errem integre oportere, diam quidam mea eu. Ceteros posidonium necessitatibus nam in, ad dolor sanctus laoreet nec. Sea eu sanctus intellegebat. Cu pri omnesque scaevola singulis, at zril doming theophrastus ius. At paulo inermis gloriatur vis, dicta nihil electram ne est. Ea fabulas scaevola invidunt nec, vis liber mundi scripserit ut. Laudem democritum mea et, ex quem debet putent pro. Malorum nostrum consetetur et qui, ad facer putent oblique est, id duo percipit pertinacia. At his nihil sensibus persecuti, idque volumus cu qui. Vix ea facilis apeirian, ne esse legimus cum. Persius prompta discere ne vim, case nonumes percipitur vim ei. Qui et assum utinam intellegat, vix ad wisi nonumy lucilius. Ea mel partem dictas, tollit decore verear sea ea. Percipit perfecto sed cu, fugit homero sea at. Consul salutandi adolescens ut sit, eius causae mediocritatem mel an, mea ut meis iudicabit. Mazim nihil blandit at sit, invenire consequuntur an quo. Eam an meis tation dicant, nostrum quaestio contentiones eu mel, an mucius cetero consulatu cum. Everti molestiae ea qui. Pro ex autem alienum. Eum ea modo gloriatur, mei harum mnesarchum dissentiet ad. Ei quo debitis facilisi.',
         bg: '/bg_spotify.jpeg',
       },
       {
@@ -83,15 +83,6 @@ function App() {
       desc: 'Johan',
       bg: '/bg_lf.png'
     },
-    {
-      id: 4,
-      client: 'Pelle',
-      role: 'Här var jag snickare',
-      date: '1337',
-      url: 'https://www.lansforsakringar.se',
-      desc: 'Arne',
-      bg: ''
-    },
   ],
   []
   );
@@ -111,6 +102,8 @@ function App() {
 // Todo
 // 0. felsök varför de är ingen auto reload eller, byggfel, iframe ligger framför alla klickevent
 // 1. Hover på en rad i listan byter ut bild på mig till preview
+// ----- Släpper man hover ska den visa bilden på mig
+
 // 2. Klick på en rad ändrar vänster till bild/spel och höger till content tillhörande dessa, med pil går till föregående och nästa projekt, x stänger till start
 // 3. markdown loopia innehållen
 // 4. 3d spinnande logotyp
@@ -120,17 +113,19 @@ function App() {
 
   return (
     <div className="box-border">
-      <div className={classNames("flex flex-row justify-center h-screen w-screen fixed", {'case-active': active})}>
+      <div className={classNames("flex flex-row justify-center h-screen w-screen fixed", {'case-active relative justify-start h-auto': active})}>
 
         {/*cases.map(item => (
             <img key={item.id} src={item.bg} alt="" active={active === item.id} setActive={selectedChanged} />
         ))*/}
-}
-        <img style={{ width: '300px' }} src={active?.bg || previewCase?.bg || me} alt="" onClick={() => selectedChanged(previewCase || null)} />
+        
+        <div className="w-1/2 bg-cover">
+          <img style={{ width: '300px' }} src={active?.bg || previewCase?.bg || me} alt="" onClick={() => selectedChanged(previewCase || null)} />
+        </div>
 
-        {/* <div className="w-1/2 bg-cover" style={{backgroundImage: `url(${me})`}} /> */}
+        {/* <div className="w-1/2 bg-cover" style={{backgroundImage: `url(${active?.bg || previewCase?.bg || me})`}} onClick={() => selectedChanged(previewCase || null)} /> */}
 
-        <div className="w-1/2 fle x flex-col justify-center align-center">
+        <div className={classNames("w-1/2 flex flex-col justify-center align-center", {'justify-start': active})}>
 
           {/* </div></div></div>button onClick={handleClick}>Toggle</> */}
 
