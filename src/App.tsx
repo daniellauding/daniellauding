@@ -52,46 +52,44 @@ function App() {
         date: '2017 – Present',
         url: 'https://www.asteria.ai',
         desc: '',
+        bg: '/bg_asteria.png'
       },
       {
-      id: 1,
+        id: 1,
+        client: 'Spotify',
+        role: 'Product Design Consultant',
+        date: 'Mar 2017 – Jun 2017',
+        url: 'https://www.spotify.com',
+        desc: '',
+        bg: '/bg_spotify.jpeg',
+      },
+      {
+      id: 2,
       client: 'Instinctly',
       role: 'Lead Product Designer / Consultant',
       date: '2007 – Present',
       url: 'https://www.daniellauding.se',
       desc: '',
+      bg: '/bg_instinctly.jpg',
     },
-    {
-      id: 2,
-      client: 'Spotify',
-      role: 'Product Design Consultant',
-      date: 'Mar 2017 – Jun 2017',
-      url: 'https://www.spotify.com',
-      desc: '',
-    },
+
     {
       id: 3,
-      client: 'Spotify',
-      role: 'Product Design Consultant',
-      date: 'Mar 2017 – Jun 2017',
-      url: 'https://www.spotify.com',
-      desc: '',
-    },
-    {
-      id: 4,
       client: 'Länsförsäkringar',
       role: 'Art Director Consultant',
       date: '2016 – 2017',
       url: 'https://www.lansforsakringar.se',
       desc: '',
+      bg: '/bg_lf.png'
     },
     {
-      id: 5,
+      id: 4,
       client: 'Pelle',
       role: 'Här var jag snickare',
       date: '1337',
       url: 'https://www.lansforsakringar.se',
       desc: '',
+      bg: ''
     },
   ],
   []
@@ -118,7 +116,11 @@ function App() {
     <div className="box-border">
       <div className="flex flex-row justify-center h-screen w-screen fixed">
 
-        <div className="w-1/2 bg-cover" style={{backgroundImage: `url(${me})`}} />
+        {cases.map(item => (
+            <img key={item.id} src={item.bg} alt="" active={active === item.id} setActive={selectedChanged} />
+        ))}
+
+        {/* <div className="w-1/2 bg-cover" style={{backgroundImage: `url(${me})`}} /> */}
 
         <div className="w-1/2 fle x flex-col justify-center align-center">
 
