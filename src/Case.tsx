@@ -1,11 +1,16 @@
 import React, {useCallback} from 'react';
 import classNames from 'classnames';
 
-const Case = ({item, active, setActive}) => {
+const Case = ({item, active, setActive, onHover}) => {
     const onClick = useCallback((e) => {
         e.preventDefault();
-        setActive(item.id);
+        setActive(item);
     }, [item, setActive]);
+
+    const setPreview = useCallback(() => {
+        onHover(item);
+    }, [item, onHover]);
+
     return (
         <li
             key={item.id}
@@ -14,6 +19,7 @@ const Case = ({item, active, setActive}) => {
                 active ? 'bg-gray-100 text-gray-900' : 'block px-4 py-2 text-sm text-gray-700'
             )}
             onClick={onClick}
+            onMouseEnter={setPreview}
         >
             <p className={classNames(
                 `pt-0 mb-0 text-left text-black lg:font-medium w-40`,

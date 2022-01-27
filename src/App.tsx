@@ -1,5 +1,6 @@
 import Markdown from 'markdown-to-jsx';
 import React, { useCallback, useState, useEffect, useMemo } from 'react';
+import classNames from 'classnames';
 import logo from './logo.svg';
 import me from './me.jpg';
 import './App.css';
@@ -15,7 +16,7 @@ import Case from './Case';
 // `;
 
 function App() {
-
+  const [previewCase, setPreviewCase] = useState(null);
   // const [isShow, setIsShow] = React.useState(true);
 
   // const handleClick = () => {
@@ -51,7 +52,7 @@ function App() {
         role: 'Lead Product Designer',
         date: '2017 – Present',
         url: 'https://www.asteria.ai',
-        desc: '',
+        desc: 'Pelle',
         bg: '/bg_asteria.png'
       },
       {
@@ -60,7 +61,7 @@ function App() {
         role: 'Product Design Consultant',
         date: 'Mar 2017 – Jun 2017',
         url: 'https://www.spotify.com',
-        desc: '',
+        desc: 'Nisse',
         bg: '/bg_spotify.jpeg',
       },
       {
@@ -69,7 +70,7 @@ function App() {
       role: 'Lead Product Designer / Consultant',
       date: '2007 – Present',
       url: 'https://www.daniellauding.se',
-      desc: '',
+      desc: 'Apa',
       bg: '/bg_instinctly.jpg',
     },
 
@@ -79,7 +80,7 @@ function App() {
       role: 'Art Director Consultant',
       date: '2016 – 2017',
       url: 'https://www.lansforsakringar.se',
-      desc: '',
+      desc: 'Johan',
       bg: '/bg_lf.png'
     },
     {
@@ -88,17 +89,23 @@ function App() {
       role: 'Här var jag snickare',
       date: '1337',
       url: 'https://www.lansforsakringar.se',
-      desc: '',
+      desc: 'Arne',
       bg: ''
     },
   ],
   []
   );
 
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(null);
 
   const selectedChanged = useCallback((value) => {
-      setActive(value);
+      setActive(value || null);
+      setPreviewCase(null);
+  }, [setActive]);
+
+  const clearActive = useCallback(() => {
+    setActive(null);
+    setPreviewCase(null);
   }, [setActive]);
 
 // Todo
@@ -111,14 +118,15 @@ function App() {
 // 6. darkmode
 // 7. mobilt
 
-
   return (
     <div className="box-border">
-      <div className="flex flex-row justify-center h-screen w-screen fixed">
+      <div className={classNames("flex flex-row justify-center h-screen w-screen fixed", {'case-active': active})}>
 
-        {cases.map(item => (
+        {/*cases.map(item => (
             <img key={item.id} src={item.bg} alt="" active={active === item.id} setActive={selectedChanged} />
-        ))}
+        ))*/}
+}
+        <img style={{ width: '300px' }} src={active?.bg || previewCase?.bg || me} alt="" onClick={() => selectedChanged(previewCase || null)} />
 
         {/* <div className="w-1/2 bg-cover" style={{backgroundImage: `url(${me})`}} /> */}
 
@@ -134,7 +142,7 @@ function App() {
             </section>
           } */}
 
-          <div className="overflow-y-scroll h-100">
+          {!active && (<div className="overflow-y-scroll h-100">
             <img src={logo} className="logo mx-auto" alt="logo" />
               <h1 className="pt-0 mt-8 mb-0 text-3xl text-center text-black lg:font-bold">{data.hero.title}</h1>
               <p className="pt-0 mb-0 text-center text-black lg:font-light"><a href="mailto:daniel@lauding.se">daniel@lauding.se</a></p>
@@ -146,7 +154,7 @@ function App() {
                 ))} */}
 
                 {cases.map(item => (
-                  <Case key={item.id} item={item} active={active === item.id} setActive={selectedChanged} />
+                  <Case key={item.id} item={item} active={active === item.id} setActive={selectedChanged} onHover={setPreviewCase} />
                 ))}
 
               </ul>
@@ -171,8 +179,15 @@ function App() {
                   <SocialIcon style={{ height: 32, width: 32 }} network="linkedin" url="https://www.linkedin.com/in/daniellauding" label="My career" />
                 </li>
               </ul>
-          </div>
-
+          </div>)}
+          {active && (
+            <div>
+              <h2>{active.client}</h2>
+              Case details:
+              <p>{active.desc}</p>
+              <button onClick={clearActive}>Back</button>
+            </div>
+          )}
         </div>
 
       </div>
