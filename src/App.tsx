@@ -7,6 +7,7 @@ import './App.css';
 import { SocialIcon } from 'react-social-icons';
 
 import Case from './Case';
+import Content from './Content';
 
 // const markdown = `
 // # Header
@@ -37,6 +38,8 @@ function App() {
   //       .catch(err => console.log(err));
   // });
 
+  const clearPreview = useCallback(() => setPreviewCase(null), [setPreviewCase]);
+
   const data = {
     hero: {
       title: 'Daniel Lauding',
@@ -52,7 +55,25 @@ function App() {
         role: 'Lead Product Designer',
         date: '2017 – Present',
         url: 'https://www.asteria.ai',
-        desc: 'Pelle',
+        desc: '',
+        content: [
+          {
+            type: 'h1',
+            value: 'Rubriken här är en headline 1',
+          },
+          {
+            type: 'p',
+            value: 'en liten desc',
+          },
+          {
+            type: 'h2',
+            value: 'sub-rub',
+          },
+          {
+            type: 'img',
+            value: '/bg_asteria.png',
+          },
+        ],
         bg: '/bg_asteria.png'
       },
       {
@@ -102,7 +123,9 @@ function App() {
 // Todo
 // 0. felsök varför de är ingen auto reload eller, byggfel, iframe ligger framför alla klickevent
 // 1. Hover på en rad i listan byter ut bild på mig till preview
+
 // ----- Släpper man hover ska den visa bilden på mig
+// --- Få ut aktiva kunden i wrapper klass och på cover bild?
 
 // 2. Klick på en rad ändrar vänster till bild/spel och höger till content tillhörande dessa, med pil går till föregående och nästa projekt, x stänger till start
 // 3. markdown loopia innehållen
@@ -112,20 +135,25 @@ function App() {
 // 7. mobilt
 
   return (
-    <div className="box-border">
-      <div className={classNames("flex flex-row justify-center h-screen w-screen fixed", {'case-active relative justify-start h-auto': active})}>
+    <div className="wrapper box-border">
+      <div className={classNames("flex flex-row justify-center h-screen w-screen fixed", {[`client-${active?.client?.toLowerCase()} case-active relative justify-start h-auto`]: active})}>
 
         {/*cases.map(item => (
             <img key={item.id} src={item.bg} alt="" active={active === item.id} setActive={selectedChanged} />
         ))*/}
         
-        <div className="w-1/2 bg-cover">
-          <img style={{ width: '300px' }} src={active?.bg || previewCase?.bg || me} alt="" onClick={() => selectedChanged(previewCase || null)} />
+        <div className="cover w-1/2 bg-cover">
+          <img
+            src={active?.bg || previewCase?.bg || me}
+            className={classNames("object-cover", { [`client-${active?.client?.toLowerCase()}`] : active})}
+            alt=""
+            onClick={() => selectedChanged(previewCase || null)}
+          />
         </div>
 
         {/* <div className="w-1/2 bg-cover" style={{backgroundImage: `url(${active?.bg || previewCase?.bg || me})`}} onClick={() => selectedChanged(previewCase || null)} /> */}
 
-        <div className={classNames("w-1/2 flex flex-col justify-center align-center", {'justify-start': active})}>
+        <div className={classNames("description w-1/2 flex flex-col justify-center align-center", {'justify-start': active})} onMouseEnter={clearPreview}>
 
           {/* </div></div></div>button onClick={handleClick}>Toggle</> */}
 
@@ -176,12 +204,7 @@ function App() {
               </ul>
           </div>)}
           {active && (
-            <div>
-              <h2>{active.client}</h2>
-              Case details:
-              <p>{active.desc}</p>
-              <button onClick={clearActive}>Back</button>
-            </div>
+            <Content item={active} clearActive={clearActive} />
           )}
         </div>
 

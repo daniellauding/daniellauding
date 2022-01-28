@@ -7,9 +7,15 @@ const Case = ({item, active, setActive, onHover}) => {
         setActive(item);
     }, [item, setActive]);
 
-    const setPreview = useCallback(() => {
+    const setPreview = useCallback((e) => {
+        e.stopPropagation();
         onHover(item);
     }, [item, onHover]);
+
+    const clearPreview = useCallback((e) => {
+        e.stopPropagation();
+        onHover(null);
+    }, [onHover]);
 
     return (
         <li
@@ -20,6 +26,7 @@ const Case = ({item, active, setActive, onHover}) => {
             )}
             onClick={onClick}
             onMouseEnter={setPreview}
+            onMouseLeave={clearPreview}
         >
             <p className={classNames(
                 `pt-0 mb-0 text-left text-black lg:font-medium w-40`,
