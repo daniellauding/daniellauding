@@ -59,15 +59,35 @@ function App() {
         content: [
           {
             type: 'h1',
-            value: 'Rubriken här är en headline 1',
+            value: 'Jag gjorde det här åt spotify',
           },
           {
             type: 'p',
-            value: 'en liten desc',
+            value: 'Lorem ipsum dolor sit amet, nullam eruditi assueverit id per. Sed te hinc philosophia. Facer consulatu sea et, alii gloriatur et eum, noster aliquip viderer te eam. Primis adipisci suscipiantur sea ad.',
           },
           {
             type: 'h2',
             value: 'sub-rub',
+          },
+          {
+            type: 'p',
+            value: 'At case partiendo quo, at his melius democritum, prima feugait ut has. Bonorum dolores in duo. Audiam euismod abhorreant usu ad, falli qualisque ne eam, sea detraxit conclusionemque id. Vix nisl putant qualisque no, assum deleniti eam te, iudico cetero nam at. Eu nonumy doctus efficiendi per, regione fabulas definitionem mei ex. Et cum modo populo. Quaeque delenit est ne, eu eum stet aliquando consetetur.',
+          },
+          {
+            type: 'p',
+            value: 'At case partiendo quo, at his melius democritum, prima feugait ut has. Bonorum dolores in duo. Audiam euismod abhorreant usu ad, falli qualisque ne eam, sea detraxit conclusionemque id. Vix nisl putant qualisque no, assum deleniti eam te, iudico cetero nam at. Eu nonumy doctus efficiendi per, regione fabulas definitionem mei ex. Et cum modo populo. Quaeque delenit est ne, eu eum stet aliquando consetetur.',
+          },
+          {
+            type: 'p',
+            value: 'At case partiendo quo, at his melius democritum, prima feugait ut has. Bonorum dolores in duo. Audiam euismod abhorreant usu ad, falli qualisque ne eam, sea detraxit conclusionemque id. Vix nisl putant qualisque no, assum deleniti eam te, iudico cetero nam at. Eu nonumy doctus efficiendi per, regione fabulas definitionem mei ex. Et cum modo populo. Quaeque delenit est ne, eu eum stet aliquando consetetur.',
+          },
+          {
+            type: 'h3',
+            value: 'Sen detta',
+          },
+          {
+            type: 'p',
+            value: 'At case partiendo quo, at his melius democritum, prima feugait ut has. Bonorum dolores in duo. Audiam euismod abhorreant usu ad, falli qualisque ne eam, sea detraxit conclusionemque id. Vix nisl putant qualisque no, assum deleniti eam te, iudico cetero nam at. Eu nonumy doctus efficiendi per, regione fabulas definitionem mei ex. Et cum modo populo. Quaeque delenit est ne, eu eum stet aliquando consetetur.',
           },
           {
             type: 'img',
@@ -145,7 +165,7 @@ function App() {
         <div className="cover w-1/2 bg-cover">
           <img
             src={active?.bg || previewCase?.bg || me}
-            className={classNames("object-cover", { [`client-${active?.client?.toLowerCase()}`] : active})}
+            className={classNames("object-cover w-full h-full", { [`client-${active?.client?.toLowerCase()}`] : active})}
             alt=""
             onClick={() => selectedChanged(previewCase || null)}
           />
@@ -153,7 +173,7 @@ function App() {
 
         {/* <div className="w-1/2 bg-cover" style={{backgroundImage: `url(${active?.bg || previewCase?.bg || me})`}} onClick={() => selectedChanged(previewCase || null)} /> */}
 
-        <div className={classNames("description w-1/2 flex flex-col justify-center align-center", {'justify-start': active})} onMouseEnter={clearPreview}>
+        <div className={classNames("description w-1/2 flex flex-col align-center", active ? 'justify-start' : 'justify-center')} onMouseEnter={clearPreview}>
 
           {/* </div></div></div>button onClick={handleClick}>Toggle</> */}
 
