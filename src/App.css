@@ -8,9 +8,15 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
+<<<<<<< HEAD
   /* .App-logo {
     animation: App-logo-spin infinite 20s linear;
   } */
+=======
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+>>>>>>> develop
 }
 
 .App-header {
@@ -36,6 +42,7 @@
     transform: rotate(360deg);
   }
 }
+<<<<<<< HEAD
 
 .social-svg-mask {
   fill: rgba(0,0,0,0.2) !important;
@@ -70,3 +77,5 @@
 .cover {
   
 }
+=======
+>>>>>>> develop
