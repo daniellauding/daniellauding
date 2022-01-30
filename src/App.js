@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect, useMemo } from 'react';
+import React, { useCallback, useState } from 'react';
 import { about, cases } from './constant';
 
 import classNames from 'classnames';

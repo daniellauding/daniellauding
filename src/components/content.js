@@ -1,5 +1,4 @@
-import React, {useCallback} from 'react';
-import classNames from 'classnames';
+import React from 'react';
 
 const Component = ({type, value}) => {
     if (type === 'h1') {
