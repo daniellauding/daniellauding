@@ -30,6 +30,7 @@ const Content = ({item, clearActive}) => {
                 {item?.content?.map((row, index) => <Component key={index} {...row} />)}
             </div>
             <button onClick={clearActive}>Back</button>
+            <p>Protected: {item.protected ? 'yes' : 'no'}</p>
         </div>
     );
 }
