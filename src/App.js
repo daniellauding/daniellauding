@@ -47,9 +47,9 @@ function App() {
           />
         </div>
 
-        <div className={classNames("description w-1/2 py-8 flex flex-col align-center", active ? 'justify-start' : 'justify-center')} onMouseEnter={clearPreview}>
+        <div className={classNames("description w-1/2 flex flex-col align-center", active ? 'justify-start' : 'justify-center')} onMouseEnter={clearPreview}>
           {!active && (
-            <div className="overflow-y-scroll h-100">
+            <div className="overflow-y-scroll h-100 py-8">
 
               {about.map(intro => (
                 <div key={intro.id} intro={intro} active={active === intro.id}>
