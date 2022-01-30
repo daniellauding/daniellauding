@@ -57,7 +57,7 @@ const cases =
         date: '2017 – Present',
         url: 'https://www.asteria.ai',
         desc: '',
-        protected: true,
+        protected: false,
         content: [
           {
             type: 'h1',
