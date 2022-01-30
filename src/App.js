@@ -62,13 +62,13 @@ function App() {
                 </div>
               ))}
 
-              <div className="about w-2/4 m-auto flex flex-col align-center justify-center">
+              {/* <div className="about w-2/4 m-auto flex flex-col align-center justify-center">
                 <button onClick={selectReadMore}>Read more</button>
 
                 {!readMore && (
                   <p>Spotta ut content grej som i case, dölj allt annat, gör en höger swipe / scroll story</p>
                 )}
-              </div>
+              </div> */}
 
               <ul className="flex flex-col justify-center align-center px-32 mt-16">
 
