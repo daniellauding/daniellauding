@@ -9,6 +9,15 @@ import Social from './components/social';
 
 import './App.css';
 
+// TODO
+// ! REM CSS FONT SCALING
+// ! PASSWORD PROTECT 
+// ! MOBILE FIRST
+// ! ADD CONTENT
+// ! ??
+// * ?
+// ? asd 
+
 function App() {
 
   const [previewCase, setPreviewCase] = useState(null);
