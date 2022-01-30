@@ -45,7 +45,7 @@ function App() {
 
   return (
     <div className="wrapper box-border">
-      <div className={classNames("flex flex-row justify-center h-screen w-screen fixed", {[`client-${active?.client?.toLowerCase()} case-active relative justify-start h-auto`]: active})}>
+      <div className={classNames("flex flex-row justify-center h-screen w-screen fixed", {[`client-${active?.client?.toLowerCase()} case-active relative justify-start min-h-screen h-auto`]: active})}>
 
         <div className="cover w-1/2 bg-cover">
           <img
@@ -67,7 +67,7 @@ function App() {
                   <p className="pt-0 mb-0 text-center text-black lg:font-light">
                     <a href={`mailto:${intro.email}`}>{intro.email}</a>
                   </p>
-                  <p className="pt-0 mb-8 mx-32 mt-16 text-center text-black lg:font-light text-4xl leading-snug font-serif">{intro.description}</p>
+                  <p className="pt-0 mb-8 sm:mx-8 mx-32 mt-16 text-center text-black lg:font-light sm:text-3xl text-4xl leading-snug font-serif">{intro.description}</p>
                 </div>
               ))}
 
@@ -79,7 +79,7 @@ function App() {
                 )}
               </div> */}
 
-              <ul className="flex flex-col justify-center align-center px-32 mt-16">
+              <ul className="flex flex-col justify-center align-center sm:px-8 px-32 mt-16">
 
                 {cases.map(item => (
                   <Case key={item.id} item={item} active={active === item.id} setActive={selectedChanged} onHover={setPreviewCase} />

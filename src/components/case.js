@@ -29,14 +29,14 @@ const Case = ({item, active, setActive, onHover}) => {
             onMouseLeave={clearPreview}
         >
             <p className={classNames(
-                `pt-0 mb-0 text-left text-black lg:font-medium w-40`,
+                `pt-0 mb-0 text-left text-black lg:font-medium sm:w-24 w-40`,
             )}>
                 <a href={item.url} onClick={onClick}>{item.client}</a>
             </p>
             <p className="pt-0 mb-0 ml-8 text-center text-black lg:font-light">
                 {item.role}
             </p>
-            <p className="pt-0 mb-0 ml-auto  text-center text-black lg:font-light">
+            <p className="pt-0 mb-0 ml-auto text-center text-black lg:font-light">
                 {item.date}
             </p>
             {/* <p className="pt-0 mb-0 fontregular text-center text-black lg:font-light">Add description here, problems, market, why, achivements</p> */}
