@@ -31,12 +31,12 @@ const Content = ({item, clearActive}) => {
             </div>
             <button onClick={clearActive}>Back</button>
             <p>Protected: {item.protected ? 'yes' : 'no'}</p>
-            {item.protected ? (
+            {/* {item.protected ? (
                 <p>yes protected</p>
             ) : (
                 <p>no protected</p>
             )
-            }
+            } */}
         </div>
     );
 }
