@@ -37,11 +37,11 @@ function App() {
     setPreviewCase(null);
   }, [setActive]);
 
-  const [readMore, setReadMore] = useState(true);
+  // const [readMore, setReadMore] = useState(true);
 
-  const selectReadMore = () => {
-    setReadMore(!readMore);
-  };
+  // const selectReadMore = () => {
+  //   setReadMore(!readMore);
+  // };
 
   return (
     <div className="wrapper box-border">
