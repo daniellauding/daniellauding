@@ -15,7 +15,7 @@ import './App.css';
 // ! MOBILE FIRST
 // ! ADD CONTENT
 // ! ??
-// * ?
+// * SETUP ESLINT OCH PRETTIER
 // ? asd 
 
 function App() {
