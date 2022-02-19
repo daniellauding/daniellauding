@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 
 const Component = ({type, value}) => {
@@ -22,6 +22,12 @@ const Component = ({type, value}) => {
 
 const Content = ({item, clearActive}) => {
 
+    const [value, setValue] = useState("");
+
+    const onChange = (event) => {
+        setValue(event.target.value);
+    };
+
     return (
         <div className="overflow-y-scroll h-100 py-8 px-16">
             <button onClick={clearActive} className="pt-0 mb-0 mt-16 text-center text-black text-sm lg:font-light">← Back</button>
@@ -39,7 +45,25 @@ const Content = ({item, clearActive}) => {
             </ul>
             <p className="pt-0 mb-8 mt-0 text-left text-black lg:font-light text-3xl leading-snug font-serif">{item.desc}</p>
             {item.protected ? (
-                <p>You need permission to access this case.</p>
+                <>
+                    {/* <p>You need permission to access this case.</p> */}
+                    <input
+                        className="border-b border-b-2 border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full"
+                        placeholder="Enter passcode to access this case"
+                        value={value}
+                        onChange={onChange}
+                    />
+
+                    {value === '123' ? (
+                        <div>
+                            {item?.content?.map((row, index) => <Component key={index} {...row} />)}
+                        </div>
+                        // ) : (
+                        //     `${value}`
+                        // )
+                        ): null
+                    }
+                </>
             ) : (
                 <div>
                     {item?.content?.map((row, index) => <Component key={index} {...row} />)}

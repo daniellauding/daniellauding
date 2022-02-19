@@ -129,15 +129,21 @@ const cases =
         bg: '/images/case/spotify/bg_spotify.jpeg',
       },
       {
-      id: 2,
-      client: 'Instinctly',
-      role: 'Lead Product Designer / Consultant',
-      date: '2007 – Present',
-      location: 'World wide',
-      url: 'https://www.daniellauding.se',
-      desc: 'Traveling the world while working with beautiful projects and clients. Nomad lifestyle / location independent. Over the years I have had the privilege of working on and leading projects for brands such as Spotify, Länsförsäkringar, KLM Royal Dutch Airlines, Åbro, United Overseas Bank and IKEA in collaboration with agencies such as DDB, AKQA, Apegroup and Identity Works.',
-      protected: true,
-      bg: '/images/case/instinctly/bg_instinctly.png',
+        id: 2,
+        client: 'Instinctly',
+        role: 'Lead Product Designer / Consultant',
+        date: '2007 – Present',
+        location: 'World wide',
+        url: 'https://www.daniellauding.se',
+        desc: 'Traveling the world while working with beautiful projects and clients. Nomad lifestyle / location independent. Over the years I have had the privilege of working on and leading projects for brands such as Spotify, Länsförsäkringar, KLM Royal Dutch Airlines, Åbro, United Overseas Bank and IKEA in collaboration with agencies such as DDB, AKQA, Apegroup and Identity Works.',
+        protected: false,
+        // content: [
+        //   {
+        //     type:'p',
+        //     value: 'testar',
+        //   }
+        // ],
+        bg: '/images/case/instinctly/bg_instinctly.png',
     },
     {
       id: 3,
@@ -159,7 +165,7 @@ const cases =
       url: 'https://www.backbase.com',
       desc: 'Working on making the experience of online banking sexier and enjoyable. Clear2Pay, UniCredit, AirBus, Hapoalim, NedBank, Sberbank, ČSOB, Standard Chartered, UOB (on location in Singapore 1 month), Olympus, CertusBank, Hiscox, Swisscard',
       protected: true,
-      bg: '/images/case/lansforsakringar/bg_backbase.png'
+      bg: '/images/case/backbase/bg_backbase.png'
     },
   ]
 
