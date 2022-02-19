@@ -53,7 +53,7 @@ const cases =
       {
         id: 0,
         client: 'Asteria',
-        role: 'Co-Founder & Lead Product Designer',
+        role: 'Co-Founder & Lead Product Design',
         date: '2017 – Present',
         location: 'Stockholm, Sweden',
         url: 'https://www.asteria.ai',
@@ -158,6 +158,34 @@ const cases =
       url: 'https://www.lansforsakringar.se',
       desc: 'Länsförsäkringar Swedish bank and insurance company with 23 customer-owned regional companies. I was lead on the new cross-platform digital design language. Setting up new UI/UX and styleguide LFUI used in mobile app, online bank, public website and various LF projects',
       protected: true,
+      content: [
+        // {
+        //   type: 'img',
+        //   value: '/images/case/spotify/hero_spotify.png',
+        // },
+        {
+          type: 'p',
+          size: 'large',
+          value: 'I was hired by Identity Works, as a Senior designer consultant for the swedish insurance & bank company Länsförsäkringar AB. Identity Works was working on the new brand identity.',
+        },
+        {
+          type: 'p',
+          size: 'medium',
+          value: 'The challenge was for five weeks to work on the new digital visual identity. Each week was a new platform. During this weeks we worked on the public facing website, banking environment, mobile app and for the watch.',
+        },
+        {
+          type: 'p',
+          size: 'medium',
+          value: 'After the first phase Länsförsäkringar hired me as a Art Director consultant. My role was to make sure we kept the new visual identity across all platforms and teams while working closely with the developers and stakeholders.',
+        },
+        {
+          type: 'p',
+          size: 'medium',
+          value: 'The new visual identity will be released in Q4 of 2016 on various platforms',
+        },
+      ],
+      bg: '/images/case/spotify/bg_spotify.jpeg',
+      tags: ['UX', 'UI', 'Prototyping', 'User testing', 'Art Direction'],
       bg: '/images/case/lansforsakringar/bg_lf.png'
     },
     {

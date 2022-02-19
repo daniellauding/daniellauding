@@ -3,19 +3,19 @@ import classNames from 'classnames';
 
 const Component = ({type, value, size}) => {
     if (type === 'h1') {
-        return <h1 className="pt-0 mt-8 mb-16 text-3xl text-left text-black lg:font-bold">{value}</h1>
+        return <h1 className="pt-0 mt-8 mb-16 text-3xl text-left dark:text-gray-200 text-black lg:font-bold">{value}</h1>
     }
     if (type === 'h2') {
-        return <h2 className="pt-0 mt-8 mb-16 text-2xl text-left text-black lg:font-bold">{value}</h2>
+        return <h2 className="pt-0 mt-8 mb-16 text-2xl text-left dark:text-gray-200 text-black lg:font-bold">{value}</h2>
     }
     if (type === 'h3') {
-        return <h3 className="pt-0 mt-8 mb-8 text-1xl text-left text-black lg:font-bold">{value}</h3>
+        return <h3 className="pt-0 mt-8 mb-8 text-1xl text-left dark:text-gray-200 text-black lg:font-bold">{value}</h3>
     }
     if (type === 'p') {
         return <p className={classNames(
-            `pt-0 mb-8 text-left text-black lg:font-light`,
-            size === 'large' ? 'text-3xl' : size,
-            size === 'medium' ? 'text-2xl' : size,
+            `pt-0 mb-8 text-left dark:text-gray-300 text-black lg:font-light`,
+            size === 'large' ? 'text-2xl md:text-3xl' : size,
+            size === 'medium' ? 'text-1xl md:text-2xl' : size,
             size === 'small' ? 'text-sm' : size
         )}>{value}</p>
     }
@@ -35,29 +35,29 @@ const Content = ({item, clearActive}) => {
 
     return (
         <div className="md:overflow-y-scroll md:h-100 py-8 px-8 md:px-16">
-            <button onClick={clearActive} className="pt-0 mb-0 mt-16 text-center text-black text-sm lg:font-light">← Back</button>
+            <button onClick={clearActive} className="pt-0 mb-0 mt-16 text-center dark:text-gray-500 text-black text-sm lg:font-light">← Back</button>
             <h1 className="pt-0 mt-8 mb-2 text-4xl md:text-5xl text-left text-primary font-bold">{item.client}</h1>
-            <p className="pt-0 mt-0 mb-2 ml-0 text-left text-xs text-black lg:font-light"><a href={item.url}>{item.url}</a></p>
+            <p className="pt-0 mt-0 mb-2 ml-0 text-left text-xs dark:text-gray-500 text-black lg:font-light"><a href={item.url}>{item.url}</a></p>
             <ul>
                 <li
                     className={classNames(
                         `flex flex-col md:flex-row py-0 mb-0`
                     )}
                 >
-                    <p className="pt-0 mb-0 ml-0 text-left text-black lg:font-light">{item.role}</p>
-                    <p className="pt-0 mb-0 md:ml-auto text-xs text-left md:text-right text-black lg:font-light">{item.date}</p>
+                    <p className="pt-0 mb-0 ml-0 text-left dark:text-gray-500 text-black lg:font-light">{item.role}</p>
+                    <p className="pt-0 mb-0 md:ml-auto text-xs text-left md:text-right dark:text-gray-500 text-black lg:font-light">{item.date}</p>
                 </li>
             </ul>
-            <p className="pt-0 mt-0 mb-4 ml-0 text-left text-xs text-black lg:font-light">{item.location}</p>
+            <p className="pt-0 mt-0 mb-4 ml-0 text-left text-xs dark:text-gray-500 text-black lg:font-light">{item.location}</p>
 
             {item.tags ? (
                 <ul className="flex-wrap flex md:flex-row w-auto py-0 mb-8 gap-2">
                     {item.tags.map((tag, index) => (
                         <li
                             key={index}
-                            className="px-4 py-1 mb-2 md:mb-0 ml-0 text-left text-black lg:font-light rounded-full bg-gray-100"
+                            className="px-4 py-1 mb-2 md:mb-0 ml-0 text-left text-black lg:font-light rounded-full dark:bg-gray-900 bg-gray-100"
                         >
-                            <p className="text-xs text-gray-500 font-bold">
+                            <p className="text-xs dark:text-gray-400 text-gray-500 font-bold">
                                 {tag}
                             </p>
                         </li>
@@ -66,7 +66,7 @@ const Content = ({item, clearActive}) => {
             ) : null}
 
             {value !== '123' ? (
-                <p className="pt-0 mb-8 mt-0 text-left text-black lg:font-light text-3xl leading-snug font-serif">{item.desc}</p>
+                <p className="pt-0 mb-8 mt-0 text-left dark:text-gray-300 text-black lg:font-light text-3xl leading-snug font-serif">{item.desc}</p>
             ): null}
             {item.protected ? (
                 <>
@@ -80,7 +80,7 @@ const Content = ({item, clearActive}) => {
                         // )
                         ): (
                             <input
-                                className="border-b border-b-2 border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full"
+                                className="border-b border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full"
                                 placeholder="Enter passcode to access this case"
                                 value={value}
                                 onChange={onChange}
