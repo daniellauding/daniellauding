@@ -11,12 +11,13 @@ import './App.css';
 
 // TODO
 // ! REM CSS FONT SCALING
-// ! PASSWORD PROTECT 
 // ! MOBILE FIRST
+// Om jag klickar på ett case och fyller i rätt lösenord, byta ut vänstra bilden till en hero img om det finns en (sixten ?)
 // ! ADD CONTENT
 // ! ??
 // * SETUP ESLINT OCH PRETTIER
 // ? asd 
+// Filter på taggarna visar de projekten ? 
 
 function App() {
 

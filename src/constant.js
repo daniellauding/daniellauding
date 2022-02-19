@@ -110,23 +110,27 @@ const cases =
         protected: true,
         content: [
           {
+            type: 'img',
+            value: '/images/case/spotify/hero_spotify.png',
+          },
+          {
             type: 'p',
+            size: 'large',
             value: 'In 2017 Spotify’s goal was to enable more free users in emerging markets. To understand what and how, me and my team traveled to Brazil for two weeks local field research. We did in-home interviews and user testing on prototypes with quick iterations of potential solutions.',
           },
           {
-            type: 'img',
-            value: 'https://dummyimage.com/600x400.png/000/fff',
+            type: 'p',
+            size: 'medium',
+            value: 'We understood that free users on year class phones (older androids) still where downloading mp3s and was afraid of streaming when not on Wi-Fi. A hypothesis to gain trust to stream on cellular was to build a solution that uses less data consumption.',
           },
           {
             type: 'p',
-            value: 'We understood that free users on year class phones (older androids) still where downloading mp3s and was afraid of  streaming when not on Wi-Fi. A hypothesis to gain trust to stream on cellular was to build a solution that uses less data consumption.',
+            size: 'medium',
+            value: 'One of our solutions we ran A/B tests on would serve 4 playlists on-demand and when playing songs from those it only consumed 1% of their data. The design is branded with dark-blue to build awareness throughtout the flow.',
           },
-          {
-            type: 'p',
-            value: 'One of our solutions we ran A/B tests on would serve 4 playlists on-demand and when playing songs from those it only consumed 1% of their data. The design is branded with dark-blue to build awareness throughtout the flow. ',
-          }
         ],
         bg: '/images/case/spotify/bg_spotify.jpeg',
+        tags: ['UX', 'UI', 'Prototyping', 'User testing', 'Field research'],
       },
       {
         id: 2,

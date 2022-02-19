@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 
-const Component = ({type, value}) => {
+const Component = ({type, value, size}) => {
     if (type === 'h1') {
         return <h1 className="pt-0 mt-8 mb-16 text-3xl text-left text-black lg:font-bold">{value}</h1>
     }
@@ -12,7 +12,12 @@ const Component = ({type, value}) => {
         return <h3 className="pt-0 mt-8 mb-8 text-1xl text-left text-black lg:font-bold">{value}</h3>
     }
     if (type === 'p') {
-        return <p className="pt-0 mb-8 text-left text-black lg:font-light">{value}</p>
+        return <p className={classNames(
+            `pt-0 mb-8 text-left text-black lg:font-light`,
+            size === 'large' ? 'text-3xl' : size,
+            size === 'medium' ? 'text-2xl' : size,
+            size === 'small' ? 'text-sm' : size
+        )}>{value}</p>
     }
     if (type === 'img') {
         return <img className="mt-4 mb-4" src={value} alt="" />
@@ -43,17 +48,28 @@ const Content = ({item, clearActive}) => {
                     <p className="pt-0 mb-0 ml-auto text-xs text-right text-black lg:font-light">{item.date}</p>
                 </li>
             </ul>
-            <p className="pt-0 mb-8 mt-0 text-left text-black lg:font-light text-3xl leading-snug font-serif">{item.desc}</p>
+
+            {item.tags ? (
+                <ul className="flex flex-row py-0 mb-8 gap-1">
+                    {item.tags.map((tag, index) => (
+                        <li
+                            key={index}
+                            className="px-4 py-1 mb-0 ml-0 text-left text-black lg:font-light rounded-full bg-gray-100"
+                        >
+                            <p className="text-xs text-gray-500 font-bold">
+                                {tag}
+                            </p>
+                        </li>
+                    ))}
+                </ul>
+            ) : null}
+
+            {value !== '123' ? (
+                <p className="pt-0 mb-8 mt-0 text-left text-black lg:font-light text-3xl leading-snug font-serif">{item.desc}</p>
+            ): null}
             {item.protected ? (
                 <>
                     {/* <p>You need permission to access this case.</p> */}
-                    <input
-                        className="border-b border-b-2 border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full"
-                        placeholder="Enter passcode to access this case"
-                        value={value}
-                        onChange={onChange}
-                    />
-
                     {value === '123' ? (
                         <div>
                             {item?.content?.map((row, index) => <Component key={index} {...row} />)}
@@ -61,7 +77,14 @@ const Content = ({item, clearActive}) => {
                         // ) : (
                         //     `${value}`
                         // )
-                        ): null
+                        ): (
+                            <input
+                                className="border-b border-b-2 border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full"
+                                placeholder="Enter passcode to access this case"
+                                value={value}
+                                onChange={onChange}
+                            />
+                        )
                     }
                 </>
             ) : (
