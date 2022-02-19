@@ -34,27 +34,28 @@ const Content = ({item, clearActive}) => {
     };
 
     return (
-        <div className="overflow-y-scroll h-100 py-8 px-16">
+        <div className="md:overflow-y-scroll md:h-100 py-8 px-8 md:px-16">
             <button onClick={clearActive} className="pt-0 mb-0 mt-16 text-center text-black text-sm lg:font-light">← Back</button>
-            <h1 className="pt-0 mt-8 mb-0 text-3xl text-left text-black lg:font-bold">{item.client}</h1>
-            <p className="pt-0 mt-0 mb-4 ml-0 text-left text-xs text-black lg:font-light"><a href={item.url}>{item.url}</a> – {item.location}</p>
+            <h1 className="pt-0 mt-8 mb-2 text-4xl md:text-5xl text-left text-primary font-bold">{item.client}</h1>
+            <p className="pt-0 mt-0 mb-2 ml-0 text-left text-xs text-black lg:font-light"><a href={item.url}>{item.url}</a></p>
             <ul>
                 <li
                     className={classNames(
-                        `flex flex-row py-0 mb-8`
+                        `flex flex-col md:flex-row py-0 mb-0`
                     )}
                 >
                     <p className="pt-0 mb-0 ml-0 text-left text-black lg:font-light">{item.role}</p>
-                    <p className="pt-0 mb-0 ml-auto text-xs text-right text-black lg:font-light">{item.date}</p>
+                    <p className="pt-0 mb-0 md:ml-auto text-xs text-left md:text-right text-black lg:font-light">{item.date}</p>
                 </li>
             </ul>
+            <p className="pt-0 mt-0 mb-4 ml-0 text-left text-xs text-black lg:font-light">{item.location}</p>
 
             {item.tags ? (
-                <ul className="flex flex-row py-0 mb-8 gap-1">
+                <ul className="flex-wrap flex md:flex-row w-auto py-0 mb-8 gap-2">
                     {item.tags.map((tag, index) => (
                         <li
                             key={index}
-                            className="px-4 py-1 mb-0 ml-0 text-left text-black lg:font-light rounded-full bg-gray-100"
+                            className="px-4 py-1 mb-2 md:mb-0 ml-0 text-left text-black lg:font-light rounded-full bg-gray-100"
                         >
                             <p className="text-xs text-gray-500 font-bold">
                                 {tag}

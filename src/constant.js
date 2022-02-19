@@ -53,7 +53,7 @@ const cases =
       {
         id: 0,
         client: 'Asteria',
-        role: 'Lead Product Designer',
+        role: 'Co-Founder & Lead Product Designer',
         date: '2017 – Present',
         location: 'Stockholm, Sweden',
         url: 'https://www.asteria.ai',
@@ -103,7 +103,7 @@ const cases =
         id: 1,
         client: 'Spotify',
         role: 'Product Design Consultant',
-        date: 'Mar 2017 – Jun 2017',
+        date: '2017',
         location: 'Stockholm, Sweden',
         url: 'https://www.spotify.com',
         desc: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
@@ -135,7 +135,7 @@ const cases =
       {
         id: 2,
         client: 'Instinctly',
-        role: 'Lead Product Designer / Consultant',
+        role: 'Product Design Consultant',
         date: '2007 – Present',
         location: 'World wide',
         url: 'https://www.daniellauding.se',
