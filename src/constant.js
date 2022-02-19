@@ -184,7 +184,6 @@ const cases =
           value: 'The new visual identity will be released in Q4 of 2016 on various platforms',
         },
       ],
-      bg: '/images/case/spotify/bg_spotify.jpeg',
       tags: ['UX', 'UI', 'Prototyping', 'User testing', 'Art Direction'],
       bg: '/images/case/lansforsakringar/bg_lf.png'
     },
