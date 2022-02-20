@@ -128,6 +128,14 @@ const cases =
             size: 'medium',
             value: 'One of our solutions we ran A/B tests on would serve 4 playlists on-demand and when playing songs from those it only consumed 1% of their data. The design is branded with dark-blue to build awareness throughtout the flow.',
           },
+          {
+            type: 'img',
+            value: '/images/case/spotify/case_01.png',
+          },
+          {
+            type: 'img',
+            value: '/images/case/spotify/case_02.png',
+          },
         ],
         bg: '/images/case/spotify/bg_spotify.jpeg',
         tags: ['UX', 'UI', 'Prototyping', 'User testing', 'Field research'],
@@ -140,13 +148,30 @@ const cases =
         location: 'World wide',
         url: 'https://www.daniellauding.se',
         desc: 'Traveling the world while working with beautiful projects and clients. Nomad lifestyle / location independent. Over the years I have had the privilege of working on and leading projects for brands such as Spotify, Länsförsäkringar, KLM Royal Dutch Airlines, Åbro, United Overseas Bank and IKEA in collaboration with agencies such as DDB, AKQA, Apegroup and Identity Works.',
-        protected: false,
+        protected: true,
         // content: [
         //   {
         //     type:'p',
         //     value: 'testar',
         //   }
         // ],
+        content: [
+          {
+            type: 'accordion',
+            title: 'Some selected projects',
+            accordionItem: [
+              {
+                title: 'KLM',
+                description: 'I was hired by AKQA Amsterdam, as a Senior designer consultant for the dutch airline KLM new web platform.',
+                active: true,
+              },
+              {
+                title: 'Pelle nisses bilfirma',
+                description: 'Labore culpa incididunt voluptate nostrud dolor do occaecat velit aliquip occaecat ullamco laboris excepteur et. Qui ex consequat elit sit. Aliqua aute cillum proident ex incididunt non cillum.',
+              },
+            ],
+          },
+        ],
         bg: '/images/case/instinctly/bg_instinctly.png',
     },
     {

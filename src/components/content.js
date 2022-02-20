@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 
-const Component = ({type, value, size}) => {
+const Component = ({type, value, size, title, accordionItem}) => {
     if (type === 'h1') {
         return <h1 className="pt-0 mt-8 mb-16 text-3xl text-left dark:text-gray-200 text-black lg:font-bold">{value}</h1>
     }
@@ -13,7 +13,7 @@ const Component = ({type, value, size}) => {
     }
     if (type === 'p') {
         return <p className={classNames(
-            `pt-0 mb-8 text-left dark:text-gray-300 text-black lg:font-light`,
+            `pt-0 mb-8 text-left text-1xl md:text-2xl dark:text-gray-300 text-black lg:font-light`,
             size === 'large' ? 'text-2xl md:text-3xl' : size,
             size === 'medium' ? 'text-1xl md:text-2xl' : size,
             size === 'small' ? 'text-sm' : size
@@ -21,6 +21,38 @@ const Component = ({type, value, size}) => {
     }
     if (type === 'img') {
         return <img className="mt-4 mb-4" src={value} alt="" />
+    }
+    if (type === 'accordion') {
+        return (
+            <div>
+                <p>{title}</p>
+                {accordionItem.map((item, index) => (
+                    <div
+                        key={index}
+                        className={classNames(
+                            ``,
+                            item.active ? 'active' : item.active
+                        )}
+                    >
+                        <div>
+                        <h3
+                            className="pt-0 mt-8 mb-0 text-2xl text-center dark:text-white text-black lg:font-bold"
+                        >
+                            {item.title}
+                        </h3>
+                        </div>
+                        <div
+                            className={classNames(
+                                ``,
+                                item.active ? 'visible' : 'hidden'
+                            )}
+                        >
+                            <p>{item.description}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        )
     }
     return null;
 }
@@ -34,7 +66,7 @@ const Content = ({item, clearActive}) => {
     };
 
     return (
-        <div className="md:overflow-y-scroll md:h-100 py-8 px-8 md:px-16">
+        <>
             <button onClick={clearActive} className="pt-0 mb-0 mt-16 text-center dark:text-gray-500 text-black text-sm lg:font-light">← Back</button>
             <h1 className="pt-0 mt-8 mb-2 text-4xl md:text-5xl text-left text-primary font-bold">{item.client}</h1>
             <p className="pt-0 mt-0 mb-2 ml-0 text-left text-xs dark:text-gray-500 text-black lg:font-light"><a href={item.url}>{item.url}</a></p>
@@ -94,7 +126,7 @@ const Content = ({item, clearActive}) => {
                 </div>
             )
             }
-        </div>
+        </>
     );
 }
 
