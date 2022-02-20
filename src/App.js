@@ -10,6 +10,10 @@ import Social from './components/social';
 import './App.css';
 
 // TODO
+
+// 1. Hur gör jag en accordion som jag kan använda utanför arrayn? Nu gjort i content if satsen
+// 2. Hur gör jag om jag vill ha ett bildspel som kan återanvändas på samma sätt
+
 // ! REM CSS FONT SCALING
 // ! MOBILE FIRST
 // Om jag klickar på ett case och fyller i rätt lösenord, byta ut vänstra bilden till en hero img om det finns en (sixten ?)
