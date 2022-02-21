@@ -52,14 +52,27 @@ function App() {
     <div className="wrapper box-border">
       <div className={classNames("flex flex-col md:flex-row justify-center md:h-screen w-screen md:fixed", {[`client-${active?.client?.toLowerCase()} case-active md:relative justify-start min-h-screen h-auto grid grid-cols-4 grid-rows-2`]: active})}>
 
-        <div className={classNames("cover bg-cover", active ? 'col-span-2' : 'md:w-1/2' )}>
+        {/* <div className={classNames("cover bg-cover", active ? 'col-span-2' : 'md:w-1/2' )}>
           <img
             src={active?.bg || previewCase?.bg || heroImg}
             className={classNames("object-cover", active ? 'w-full h-auto' : 'w-full h-full')}
             alt=""
             onClick={() => selectedChanged(previewCase || null)}
           />
-        </div>
+        </div> */}
+
+        {!active ? (
+
+          <div className={classNames("cover bg-cover", active ? 'col-span-2' : 'md:w-1/2' )}>
+          <img
+            src={active?.bg || previewCase?.bg || heroImg}
+            className={classNames("object-cover", active ? 'w-full h-auto' : 'w-full h-full')}
+            alt=""
+            onClick={() => selectedChanged(previewCase || null)}
+          />
+          </div>
+
+        ) : null}
 
         <div className={classNames("description align-center", active ? 'justify-start col-span-2' : 'md:w-1/2 flex md:flex-col justify-center')} onMouseEnter={clearPreview}>
           {!active && (

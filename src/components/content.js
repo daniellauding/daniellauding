@@ -103,6 +103,9 @@ const Content = ({item, clearActive}) => {
             {item.protected ? (
                 <>
                     {/* <p>You need permission to access this case.</p> */}
+                    <div className="col-span-1 row-span-3">
+                        <img src={item.hero} className="logo mx-auto" alt="logo" />
+                    </div>
                     {value === '123' ? (
                         <div>
                             {item?.content?.map((row, index) => <Component key={index} {...row} />)}
