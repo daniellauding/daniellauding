@@ -2,37 +2,24 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import Slider from './slider';
 import Accordion from './accordion';
+import Text, {Title} from './typography';
+import Image from './image';
 
 const Component = ({type, value, size, title, accordionItem, slides}) => {
-    if (type === 'h1') {
-        return <h1 className="pt-0 mt-8 mb-16 text-3xl text-left dark:text-gray-200 text-black lg:font-bold">{value}</h1>
+    if (type === 'text') {
+        return <Text value={value} size={size} />
     }
-    if (type === 'h2') {
-        return <h2 className="pt-0 mt-8 mb-16 text-2xl text-left dark:text-gray-200 text-black lg:font-bold">{value}</h2>
-    }
-    if (type === 'h3') {
-        return <h3 className="pt-0 mt-8 mb-8 text-1xl text-left dark:text-gray-200 text-black lg:font-bold">{value}</h3>
-    }
-    if (type === 'p') {
-        return <p className={classNames(
-            `pt-0 mb-8 text-left text-1xl md:text-2xl dark:text-gray-300 text-black lg:font-light`,
-            size === 'large' ? 'text-2xl md:text-3xl' : size,
-            size === 'medium' ? 'text-1xl md:text-2xl' : size,
-            size === 'small' ? 'text-sm' : size
-        )}>{value}</p>
+    if (type === 'title') {
+        return <Title value={value} size={size} />
     }
     if (type === 'img') {
-        return <img className="mt-4 mb-4" src={value} alt="" />
+        return <Image value={value} />
     }
     if (type === 'slider') {
-        return (
-            <Slider slides={slides} />
-        )
+        return <Slider slides={slides} />
     }
     if (type === 'accordion') {
-        return (
-            <Accordion accordionItem={accordionItem} title={title} />
-        )
+        return <Accordion accordionItem={accordionItem} title={title} />
     }
     return null;
 }

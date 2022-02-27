@@ -74,35 +74,37 @@ const cases =
             ],
           },
           {
-            type: 'h1',
+            type: 'title',
             value: 'Jag gjorde det här åt spotify',
           },
           {
-            type: 'p',
+            type: 'text',
             value: 'Lorem ipsum dolor sit amet, nullam eruditi assueverit id per. Sed te hinc philosophia. Facer consulatu sea et, alii gloriatur et eum, noster aliquip viderer te eam. Primis adipisci suscipiantur sea ad.',
           },
           {
-            type: 'h2',
+            type: 'title',
+            size: 'medium',
             value: 'sub-rub',
           },
           {
-            type: 'p',
+            type: 'textp',
+            size: 'small',
             value: 'At case partiendo quo, at his melius democritum, prima feugait ut has. Bonorum dolores in duo. Audiam euismod abhorreant usu ad, falli qualisque ne eam, sea detraxit conclusionemque id. Vix nisl putant qualisque no, assum deleniti eam te, iudico cetero nam at. Eu nonumy doctus efficiendi per, regione fabulas definitionem mei ex. Et cum modo populo. Quaeque delenit est ne, eu eum stet aliquando consetetur.',
           },
           {
-            type: 'p',
+            type: 'text',
             value: 'At case partiendo quo, at his melius democritum, prima feugait ut has. Bonorum dolores in duo. Audiam euismod abhorreant usu ad, falli qualisque ne eam, sea detraxit conclusionemque id. Vix nisl putant qualisque no, assum deleniti eam te, iudico cetero nam at. Eu nonumy doctus efficiendi per, regione fabulas definitionem mei ex. Et cum modo populo. Quaeque delenit est ne, eu eum stet aliquando consetetur.',
           },
           {
-            type: 'p',
+            type: 'text',
             value: 'At case partiendo quo, at his melius democritum, prima feugait ut has. Bonorum dolores in duo. Audiam euismod abhorreant usu ad, falli qualisque ne eam, sea detraxit conclusionemque id. Vix nisl putant qualisque no, assum deleniti eam te, iudico cetero nam at. Eu nonumy doctus efficiendi per, regione fabulas definitionem mei ex. Et cum modo populo. Quaeque delenit est ne, eu eum stet aliquando consetetur.',
           },
           {
-            type: 'h3',
+            type: 'title',
             value: 'Sen detta',
           },
           {
-            type: 'p',
+            type: 'text',
             value: 'At case partiendo quo, at his melius democritum, prima feugait ut has. Bonorum dolores in duo. Audiam euismod abhorreant usu ad, falli qualisque ne eam, sea detraxit conclusionemque id. Vix nisl putant qualisque no, assum deleniti eam te, iudico cetero nam at. Eu nonumy doctus efficiendi per, regione fabulas definitionem mei ex. Et cum modo populo. Quaeque delenit est ne, eu eum stet aliquando consetetur.',
           },
           {
@@ -124,17 +126,17 @@ const cases =
         hero: '/images/case/spotify/hero_spotify.png',
         content: [
           {
-            type: 'p',
+            type: 'text',
             size: 'large',
             value: 'In 2017 Spotify’s goal was to enable more free users in emerging markets. To understand what and how, me and my team traveled to Brazil for two weeks local field research. We did in-home interviews and user testing on prototypes with quick iterations of potential solutions.',
           },
           {
-            type: 'p',
+            type: 'text',
             size: 'medium',
             value: 'We understood that free users on year class phones (older androids) still where downloading mp3s and was afraid of streaming when not on Wi-Fi. A hypothesis to gain trust to stream on cellular was to build a solution that uses less data consumption.',
           },
           {
-            type: 'p',
+            type: 'text',
             size: 'medium',
             value: 'One of our solutions we ran A/B tests on would serve 4 playlists on-demand and when playing songs from those it only consumed 1% of their data. The design is branded with dark-blue to build awareness throughtout the flow.',
           },
@@ -199,22 +201,22 @@ const cases =
         //   value: '/images/case/spotify/hero_spotify.png',
         // },
         {
-          type: 'p',
+          type: 'text',
           size: 'large',
           value: 'I was hired by Identity Works, as a Senior designer consultant for the swedish insurance & bank company Länsförsäkringar AB. Identity Works was working on the new brand identity.',
         },
         {
-          type: 'p',
+          type: 'text',
           size: 'medium',
           value: 'The challenge was for five weeks to work on the new digital visual identity. Each week was a new platform. During this weeks we worked on the public facing website, banking environment, mobile app and for the watch.',
         },
         {
-          type: 'p',
+          type: 'text',
           size: 'medium',
           value: 'After the first phase Länsförsäkringar hired me as a Art Director consultant. My role was to make sure we kept the new visual identity across all platforms and teams while working closely with the developers and stakeholders.',
         },
         {
-          type: 'p',
+          type: 'text',
           size: 'medium',
           value: 'The new visual identity will be released in Q4 of 2016 on various platforms',
         },

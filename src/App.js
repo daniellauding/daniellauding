@@ -7,8 +7,6 @@ import Case from './components/case';
 import Content from './components/content';
 import Social from './components/social';
 
-import Slider from './components/slider';
-
 import './App.css';
 
 // TODO
