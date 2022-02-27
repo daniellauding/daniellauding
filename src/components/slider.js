@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 
 const Pagination = ({slides, activeSlide, setActiveSlide, index}) => {
