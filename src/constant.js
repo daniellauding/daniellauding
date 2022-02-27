@@ -61,6 +61,19 @@ const cases =
         protected: true,
         content: [
           {
+            type: 'slider',
+            slides: [
+              {
+                description: 'hej hej',
+                asset: 'https://dummyimage.com/600x400/000/fff',
+              },
+              {
+                description: 'hej hej',
+                asset: 'https://dummyimage.com/600x400/fff/000',
+              },
+            ],
+          },
+          {
             type: 'h1',
             value: 'Jag gjorde det här åt spotify',
           },

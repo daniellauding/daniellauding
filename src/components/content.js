@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
+import Slider from './slider';
+import Accordion from './accordion';
 
-const Component = ({type, value, size, title, accordionItem}) => {
+const Component = ({type, value, size, title, accordionItem, slides}) => {
     if (type === 'h1') {
         return <h1 className="pt-0 mt-8 mb-16 text-3xl text-left dark:text-gray-200 text-black lg:font-bold">{value}</h1>
     }
@@ -22,36 +24,14 @@ const Component = ({type, value, size, title, accordionItem}) => {
     if (type === 'img') {
         return <img className="mt-4 mb-4" src={value} alt="" />
     }
+    if (type === 'slider') {
+        return (
+            <Slider slides={slides} />
+        )
+    }
     if (type === 'accordion') {
         return (
-            <div>
-                <p>{title}</p>
-                {accordionItem.map((item, index) => (
-                    <div
-                        key={index}
-                        className={classNames(
-                            ``,
-                            item.active ? 'active' : item.active
-                        )}
-                    >
-                        <div>
-                        <h3
-                            className="pt-0 mt-8 mb-0 text-2xl text-center dark:text-white text-black lg:font-bold"
-                        >
-                            {item.title}
-                        </h3>
-                        </div>
-                        <div
-                            className={classNames(
-                                ``,
-                                item.active ? 'visible' : 'hidden'
-                            )}
-                        >
-                            <p>{item.description}</p>
-                        </div>
-                    </div>
-                ))}
-            </div>
+            <Accordion accordionItem={accordionItem} title={title} />
         )
     }
     return null;

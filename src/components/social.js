@@ -32,7 +32,7 @@ const Social = () => {
 
     return (
         <div>
-            <ul className="mt-8 mb-8 md:mt-40 md:mt-32 flex flex-row justify-center align-center">
+            <ul className="mt-8 mb-4 md:mt-8 flex flex-row justify-center align-center">
                 {Links.map(link => (
                     <li className="mx-2" key={link.id}>
                         <SocialIcon style={{ height: 32, width: 32, fill: 'rgba(0,0,0,0.3)' }} network={link.network} url={link.url} label={link.label} />

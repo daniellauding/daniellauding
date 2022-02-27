@@ -7,10 +7,12 @@ import Case from './components/case';
 import Content from './components/content';
 import Social from './components/social';
 
+import Slider from './components/slider';
+
 import './App.css';
 
 // TODO
-
+// https://codepen.io/tutsplus/pen/oqpyBE
 // 1. Hur gör jag en accordion som jag kan använda utanför arrayn? Nu gjort i content if satsen
 // 2. Hur gör jag om jag vill ha ett bildspel som kan återanvändas på samma sätt
 
@@ -42,6 +44,8 @@ function App() {
     setPreviewCase(null);
   }, [setActive]);
 
+  // console.log(cases.map(content => content.accordion));
+
   // const [readMore, setReadMore] = useState(true);
 
   // const selectReadMore = () => {
@@ -49,6 +53,7 @@ function App() {
   // };
 
   return (
+
     <div className="wrapper box-border">
       <div className={classNames("flex flex-col md:flex-row justify-center md:h-screen w-screen md:fixed", {[`client-${active?.client?.toLowerCase()} case-active md:relative justify-start min-h-screen h-auto grid grid-cols-4 grid-rows-2`]: active})}>
 
@@ -64,12 +69,12 @@ function App() {
         {!active ? (
 
           <div className={classNames("cover bg-cover", active ? 'col-span-2' : 'md:w-1/2' )}>
-          <img
-            src={active?.bg || previewCase?.bg || heroImg}
-            className={classNames("object-cover", active ? 'w-full h-auto' : 'w-full h-full')}
-            alt=""
-            onClick={() => selectedChanged(previewCase || null)}
-          />
+            <img
+              src={active?.bg || previewCase?.bg || heroImg}
+              className={classNames("object-cover", active ? 'w-full h-auto' : 'w-full h-full')}
+              alt=""
+              onClick={() => selectedChanged(previewCase || null)}
+            />
           </div>
 
         ) : null}
@@ -77,7 +82,6 @@ function App() {
         <div className={classNames("description align-center", active ? 'justify-start col-span-2' : 'md:w-1/2 flex md:flex-col justify-center')} onMouseEnter={clearPreview}>
           {!active && (
             <div className="md:overflow-y-scroll md:h-100 py-8">
-
               {about.map(intro => (
                 <div key={intro.id} intro={intro} active={active === intro.id}>
                   <img src={intro.logo} className="logo mx-auto" alt="logo" />
@@ -99,7 +103,7 @@ function App() {
                 )}
               </div> */}
 
-              <ul className="flex flex-col justify-center align-center px-8 md:px-32 mt-16">
+              <ul className="flex flex-col justify-center align-center px-8 md:px-16 mt-16">
 
                 {cases.map(item => (
                   <Case key={item.id} item={item} active={active === item.id} setActive={selectedChanged} onHover={setPreviewCase} />
@@ -107,7 +111,7 @@ function App() {
 
               </ul>
 
-              <p className="pt-0 mb-0 mt-16 text-center dark:text-gray-500 text-black text-sm lg:font-light"
+              <p className="pt-0 mb-0 mt-8 text-center dark:text-gray-500 text-black text-sm lg:font-light"
                 ><a href="https://www.linkedin.com/in/daniellauding">Visit my LinkedIn</a>
               </p>
 
