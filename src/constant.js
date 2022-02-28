@@ -171,6 +171,7 @@ const cases =
           {
             type: 'accordion',
             title: 'Some selected projects',
+            //Hur får jag tex denna att komma undan password?
             accordionItem: [
               {
                 title: 'KLM',
@@ -181,6 +182,7 @@ const cases =
                 title: 'Pelle nisses bilfirma',
                 description: 'Labore culpa incididunt voluptate nostrud dolor do occaecat velit aliquip occaecat ullamco laboris excepteur et. Qui ex consequat elit sit. Aliqua aute cillum proident ex incididunt non cillum.',
               },
+              //Wrappa i en specifik sektion, column eller row? Class?
             ],
           },
         ],
