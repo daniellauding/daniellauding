@@ -34,7 +34,7 @@ const Accordion = ({accordionItem, title}) => {
                             item.active ? 'visible' : item.active
                         )}
                     >
-                        <p>{item.title}</p>
+                        <p>{item.description}</p>
                     </div>
                 </div>
             ))}
