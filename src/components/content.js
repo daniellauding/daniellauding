@@ -33,7 +33,7 @@ const Content = ({item, clearActive}) => {
     };
 
     return (
-        <>
+        <div className="section">
             <button onClick={clearActive} className="pt-0 mb-0 mt-16 text-center dark:text-gray-500 text-black text-sm lg:font-light">← Back</button>
             <h1 className="pt-0 mt-8 mb-2 text-4xl md:text-5xl text-left text-primary font-bold">{item.client}</h1>
             <p className="pt-0 mt-0 mb-2 ml-0 text-left text-xs dark:text-gray-500 text-black lg:font-light"><a href={item.url}>{item.url}</a></p>
@@ -75,7 +75,14 @@ const Content = ({item, clearActive}) => {
                     </div>
                     {value === '123' ? (
                         <div>
-                            {item?.content?.map((row, index) => <Component key={index} {...row} />)}
+                            {item?.content?.map((row, index) => (
+                                <div
+                                    className={classNames("section", item.layout ? item.layout : 'vertical')}
+                                >
+                                    <Component key={index} {...row} />
+                                </div>
+                            ))
+                        }
                         </div>
                         // ) : (
                         //     `${value}`
@@ -96,7 +103,7 @@ const Content = ({item, clearActive}) => {
                 </div>
             )
             }
-        </>
+        </div>
     );
 }
 

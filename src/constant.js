@@ -167,6 +167,7 @@ const cases =
         //     value: 'testar',
         //   }
         // ],
+        layout: 'horizontal',
         content: [
           {
             type: 'accordion',
