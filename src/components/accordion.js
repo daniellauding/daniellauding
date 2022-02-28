@@ -15,12 +15,18 @@ const Accordion = ({accordionItem, title}) => {
                     )}
                 >
                     <div>
-                    <h3
-                        className="pt-0 mt-8 mb-0 text-2xl text-center dark:text-white text-black lg:font-bold"
-                        onClick={() => setActiveAccordion(index)}
-                    >
-                        {item.title}
-                    </h3>
+                        <button
+                                type="button"
+                                role="tab"
+                                tabIndex="0"
+                                onClick={() => setActiveAccordion(index)}
+                            >
+                            <h3
+                                className="pt-0 mt-8 mb-0 text-2xl text-center dark:text-white text-black lg:font-bold"
+                            >
+                                {item.title}
+                            </h3>
+                        </button>
                     </div>
                     <div
                         className={classNames(
@@ -30,8 +36,9 @@ const Accordion = ({accordionItem, title}) => {
                                 'accordion-item-active': activeAccordion === index,
                                 'visible': activeAccordion === index,
                                 'hidden': activeAccordion !== index,
+                                // kan inte få hidden att försvinna om jag har satt flera active
+                                'visible': item.active == item.active,
                             },
-                            item.active ? 'visible' : item.active
                         )}
                     >
                         <p>{item.description}</p>
