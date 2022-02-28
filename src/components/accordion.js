@@ -37,7 +37,7 @@ const Accordion = ({accordionItem, title}) => {
                                 'visible': activeAccordion === index,
                                 'hidden': activeAccordion !== index,
                                 // kan inte få hidden att försvinna om jag har satt flera active
-                                'visible': item.active == item.active,
+                                //'visible': item.active == item.active,
                             },
                         )}
                     >
