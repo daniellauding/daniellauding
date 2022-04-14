@@ -148,6 +148,35 @@ const cases =
             type: 'img',
             value: '/images/case/spotify/case_02.png',
           },
+          {
+            type: 'grid',
+            columns: 4,
+            rows: 3,
+            gap: 6,
+            flowRows: 'auto-rows-min',
+            flowColumns: 'auto-cols-auto',
+            autoFlow: 'grid-flow-row',
+            content: [
+              {
+                title: 'Column 1',
+                description: 'I should be presented as the first column',
+              },
+              {
+                title: 'Column 2',
+                description: 'I should be presented as the second column',
+                columns: 2,
+              },
+              {
+                title: 'Column 3',
+                description: 'I should be presented as the third column',
+                rows: 3,
+              },
+              {
+                title: 'Column 4',
+                description: 'I should be presented as the fourth column',
+              },
+            ],
+          }
         ],
         bg: '/images/case/spotify/bg_spotify.jpeg',
         tags: ['UX', 'UI', 'Prototyping', 'User testing', 'Field research'],

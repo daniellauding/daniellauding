@@ -4,8 +4,9 @@ import Slider from './slider';
 import Accordion from './accordion';
 import Text, {Title} from './typography';
 import Image from './image';
+import Grid from './grid';
 
-const Component = ({type, value, size, title, accordionItem, slides}) => {
+const Component = ({type, value, size, title, accordionItem, slides, content, columns, rows, flowRows, flowColumns, autoFlow, gap, gapX, gapY}) => {
     if (type === 'text') {
         return <Text value={value} size={size} />
     }
@@ -20,6 +21,9 @@ const Component = ({type, value, size, title, accordionItem, slides}) => {
     }
     if (type === 'accordion') {
         return <Accordion accordionItem={accordionItem} title={title} />
+    }
+    if (type === 'grid') {
+        return <Grid content={content} columns={columns} rows={rows} flowRows={flowRows} flowColumns={flowColumns} autoFlow={autoFlow} gap={gap} gapY={gapY} gapX={gapX} />
     }
     return null;
 }
@@ -74,13 +78,12 @@ const Content = ({item, clearActive}) => {
                         <img src={item.hero} className="logo mx-auto" alt="logo" />
                     </div>
                     {value === '123' ? (
-                        <div>
+                        <div
+                            className={classNames("section", item.layout ? item.layout : 'vertical')}
+                        >
                             {item?.content?.map((row, index) => (
-                                <div
-                                    className={classNames("section", item.layout ? item.layout : 'vertical')}
-                                >
+
                                     <Component key={index} {...row} />
-                                </div>
                             ))
                         }
                         </div>

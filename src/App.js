@@ -53,7 +53,7 @@ function App() {
   return (
 
     <div className="wrapper box-border">
-      <div className={classNames("flex flex-col md:flex-row justify-center md:h-screen w-screen md:fixed", {[`client-${active?.client?.toLowerCase()} case-active md:relative justify-start min-h-screen h-auto grid grid-cols-4 grid-rows-2`]: active})}>
+      <div className={classNames("flex flex-col md:flex-row justify-center md:h-screen w-screen md:fixed", {[`client-${active?.client?.toLowerCase()} case-active md:relative justify-start min-h-screen h-auto`]: active})}>
 
         {/* <div className={classNames("cover bg-cover", active ? 'col-span-2' : 'md:w-1/2' )}>
           <img
@@ -77,7 +77,7 @@ function App() {
 
         ) : null}
 
-        <div className={classNames("description align-center", active ? 'justify-start col-span-2' : 'md:w-1/2 flex md:flex-col justify-center')} onMouseEnter={clearPreview}>
+        <div className={classNames("description align-center", active ? 'justify-start' : 'md:w-1/2 flex md:flex-col justify-center')} onMouseEnter={clearPreview}>
           {!active && (
             <div className="md:overflow-y-scroll md:h-100 py-8">
               {about.map(intro => (
