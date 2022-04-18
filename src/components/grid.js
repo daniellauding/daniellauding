@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 
-const Grid = ({content, columns, rows, gap, gapY, gapX, flowRows, flowColumns, autoFlow}) => {
+const Grid = ({content, columns, rows, gap, gapY, gapX, flowRows, flowColumns, autoFlow, colEnd, colStart, rowStart, rowEnd}) => {
     return (
         <div
             className={classNames(
@@ -22,7 +22,11 @@ const Grid = ({content, columns, rows, gap, gapY, gapX, flowRows, flowColumns, a
                     className={classNames(
                         `grid-item`,
                         item.columns ? `col-span-${item.columns}` : item.columns,
+                        item.colStart ? `col-start-${item.colStart}` : item.colStart,
+                        item.colEnd ? `col-end-${item.colEnd}` : item.colEnd,
                         item.rows ? `row-span-${item.rows}` : item.rows,
+                        item.rowStart ? `row-start-${item.rowStart}` : item.rowStart,
+                        item.rowEnd ? `row-end-${item.rowEnd}` : item.rowEnd,
                     )}
                 >
                     <p>{item.description}</p>
