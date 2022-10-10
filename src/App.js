@@ -7,7 +7,7 @@ import Case from './components/case';
 import Content from './components/content';
 import Social from './components/social';
 
-import Pages from "./components/pages";
+//import Pages from "./components/pages";
 
 import './App.css';
 
