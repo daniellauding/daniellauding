@@ -123,7 +123,7 @@ const cases =
         url: 'https://www.spotify.com',
         desc: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
         protected: true,
-        hero: '/images/case/spotify/hero_spotify.png',
+        // hero: '/images/case/spotify/hero_spotify.png',
         content: [
           {
             type: 'text',

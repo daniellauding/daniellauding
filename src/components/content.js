@@ -74,9 +74,9 @@ const Content = ({item, clearActive}) => {
             {item.protected ? (
                 <>
                     {/* <p>You need permission to access this case.</p> */}
-                    <div className="col-span-1 row-span-3">
+                    {/* <div className="col-span-1 row-span-3">
                         <img src={item.hero} className="logo mx-auto" alt="logo" />
-                    </div>
+                    </div> */}
                     {value === '123' ? (
                         <div
                             className={classNames("section", item.layout ? item.layout : 'vertical')}
