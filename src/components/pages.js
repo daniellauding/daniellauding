@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Text, {Title} from './typography';
 import axios from "axios";
 const Pages = () => {
   const [pages, setPages] = useState([]);
@@ -24,7 +25,8 @@ const Pages = () => {
       {pages.map((page) => {
         return (
           <div key={page.id}>
-            <h1>{page.title}</h1>
+            <Text value={page.title} />
+            {/* Spotta ut array med en ny map här */}
           </div>
         )
       })}
