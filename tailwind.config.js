@@ -22,6 +22,137 @@ module.exports = {
     variants: {
         extend: {},
     },
+    safelist: [
+        {
+            pattern: /p-*/,
+        },
+        {
+            pattern: /px-*/,
+        },
+        {
+            pattern: /py-*/,
+        },
+        {
+            pattern: /pt-*/,
+        },
+        {
+            pattern: /pr-*/,
+        },
+        {
+            pattern: /pb-*/,
+        },
+        {
+            pattern: /pl-*/,
+        },
+        {
+            pattern: /m-*/,
+        },
+        {
+            pattern: /mx-*/,
+        },
+        {
+            pattern: /my-*/,
+        },
+        {
+            pattern: /mt-*/,
+        },
+        {
+            pattern: /mr-*/,
+        },
+        {
+            pattern: /mb-*/,
+        },
+        {
+            pattern: /ml-*/,
+        },
+        {
+            pattern: /rounded-*/,
+        },
+        {
+            pattern: /border-*/,
+        },
+        {
+            pattern: /shadow-*/,
+        },
+        {
+            pattern: /w-*/,
+        },
+        {
+            pattern: /gap-*/,
+        },
+        {
+            pattern: /h-*/,
+        },
+        {
+            pattern: /text-*/,
+        },
+        {
+            pattern: /justify-*/,
+        },
+        {
+            pattern: /align-*/,
+        },
+        {
+            pattern: /row-*/,
+        },
+        {
+            pattern: /col-*/,
+        },
+        {
+            pattern: /grid-*/,
+        },
+        {
+            pattern: /bg-.*/,
+        },
+        {
+            pattern: /order-*/,
+        },
+        {
+            pattern: /max-*/,
+        },
+        {
+            pattern: /min-*/,
+        },
+        {
+            pattern: /rounded-*/,
+        },
+        {
+            pattern: /drop-*/,
+        },
+        {
+            pattern: /opacity-*/,
+        },
+        {
+            pattern: /overflow-*/,
+        },
+        {
+            pattern: /from-*/,
+        },
+        {
+            pattern: /via-*/,
+        },
+        {
+            pattern: /to-*/,
+        },
+        {
+            pattern: /underline-*/,
+        },
+        {
+            pattern: /overflow-*/,
+        },
+        {
+            pattern: /font-*/,
+        },
+        'auto',
+        'uppercase',
+        'lowercase',
+        'capitalize',
+        'normal-case',
+        'truncate',
+        'visible',
+        'invisible',
+        'collapse',
+    ],
     plugins: [
         function({ addBase, config }) {
             addBase({
