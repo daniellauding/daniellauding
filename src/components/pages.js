@@ -8,6 +8,7 @@ const Pages = () => {
       query: `query {
         Pages {
           docs {
+            title
             content
             id
           }
@@ -24,6 +25,8 @@ const Pages = () => {
       {pages.map((page) => {
         return (
           <div key={page.id}>
+            <Title value={page.title} />
+            <Text value={page.title} />
             {/* Spotta ut array med en ny map här */}
           </div>
         )
