@@ -121,6 +121,7 @@ const cases =
         date: '2017',
         location: 'Stockholm, Sweden',
         url: 'https://www.spotify.com',
+        title: 'Optimize product value for existing markets with growth potential',
         desc: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
         protected: true,
         // hero: '/images/case/spotify/hero_spotify.png',
