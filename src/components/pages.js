@@ -8,7 +8,6 @@ const Pages = () => {
       query: `query {
         Pages {
           docs {
-            title
             content
             id
           }
