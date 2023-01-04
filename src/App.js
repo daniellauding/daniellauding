@@ -91,7 +91,7 @@ function App() {
                     <a href={`mailto:${intro.email}`}>{intro.email}</a>
                   </p>
                   <p className="pt-0 mb-8 sm:mx-8 mx-8 md:mx-32 mt-16 text-center dark:text-gray-100 text-black lg:font-light text-3xl md:text-4xl leading-snug font-serif">
-                    {intro.description}
+                    {intro.text}
                   </p>
                 </div>
               ))}

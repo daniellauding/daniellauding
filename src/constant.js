@@ -64,11 +64,11 @@ const cases =
             type: 'slider',
             slides: [
               {
-                description: 'hej hej',
+                text: 'hej hej',
                 asset: 'https://dummyimage.com/600x400/000/fff',
               },
               {
-                description: 'hej hej',
+                text: 'hej hej',
                 asset: 'https://dummyimage.com/600x400/fff/000',
               },
             ],
@@ -126,29 +126,29 @@ const cases =
         protected: true,
         // hero: '/images/case/spotify/hero_spotify.png',
         content: [
-          {
-            type: 'text',
-            size: 'large',
-            value: 'In 2017 Spotify’s goal was to enable more free users in emerging markets. To understand what and how, me and my team traveled to Brazil for two weeks local field research. We did in-home interviews and user testing on prototypes with quick iterations of potential solutions.',
-          },
-          {
-            type: 'text',
-            size: 'medium',
-            value: 'We understood that free users on year class phones (older androids) still where downloading mp3s and was afraid of streaming when not on Wi-Fi. A hypothesis to gain trust to stream on cellular was to build a solution that uses less data consumption.',
-          },
-          {
-            type: 'text',
-            size: 'medium',
-            value: 'One of our solutions we ran A/B tests on would serve 4 playlists on-demand and when playing songs from those it only consumed 1% of their data. The design is branded with dark-blue to build awareness throughtout the flow.',
-          },
-          {
-            type: 'img',
-            value: '/images/case/spotify/case_01.png',
-          },
-          {
-            type: 'img',
-            value: '/images/case/spotify/case_02.png',
-          },
+          // {
+          //   type: 'text',
+          //   size: 'large',
+          //   value: 'In 2017 Spotify’s goal was to enable more free users in emerging markets. To understand what and how, me and my team traveled to Brazil for two weeks local field research. We did in-home interviews and user testing on prototypes with quick iterations of potential solutions.',
+          // },
+          // {
+          //   type: 'text',
+          //   size: 'medium',
+          //   value: 'We understood that free users on year class phones (older androids) still where downloading mp3s and was afraid of streaming when not on Wi-Fi. A hypothesis to gain trust to stream on cellular was to build a solution that uses less data consumption.',
+          // },
+          // {
+          //   type: 'text',
+          //   size: 'medium',
+          //   value: 'One of our solutions we ran A/B tests on would serve 4 playlists on-demand and when playing songs from those it only consumed 1% of their data. The design is branded with dark-blue to build awareness throughtout the flow.',
+          // },
+          // {
+          //   type: 'img',
+          //   value: '/images/case/spotify/case_01.png',
+          // },
+          // {
+          //   type: 'img',
+          //   value: '/images/case/spotify/case_02.png',
+          // },
           {
             type: 'grid',
             columns: 4,
@@ -159,20 +159,25 @@ const cases =
             autoFlow: '',
             content: [
               {
-                title: 'Lorem ipsum dolor sit amet, eu vis habemus vituperata',
-                description: 'Modo esse graecis qui te, vim reque saperet postulant et. Te alienum consequuntur cum. Dolores mnesarchum theophrastus ei sit, his graece salutatus in, vidit labores ut est. At pro porro commune liberavisse, accusam oporteat ut nam.',
+                title: 'Brief',
+                // titleStyle
+                text: 'In 2017 Spotify’s goal was to enable more free users in emerging markets. To understand what and how, me and my team traveled to Brazil for two weeks local field research. We did in-home interviews and user testing on prototypes with quick iterations of potential solutions.',
+                // mer text sub array?
+                // textStyle
+                // icon?
+                colStart: 1,
+                columns: 2,
+                style: 'h-screen justify-center flex flex-col',
+              },
+              {
+                title: 'Takeaways',
+                text: 'Modo esse graecis qui te, vim reque saperet postulant et. Te alienum consequuntur cum. Dolores mnesarchum theophrastus ei sit, his graece salutatus in, vidit labores ut est. At pro porro commune liberavisse, accusam oporteat ut nam.',
                 colStart: 2,
                 columns: 2,
               },
               {
                 title: 'Lorem ipsum dolor sit amet, eu vis habemus vituperata',
-                description: 'Modo esse graecis qui te, vim reque saperet postulant et. Te alienum consequuntur cum. Dolores mnesarchum theophrastus ei sit, his graece salutatus in, vidit labores ut est. At pro porro commune liberavisse, accusam oporteat ut nam.',
-                colStart: 2,
-                columns: 2,
-              },
-              {
-                title: 'Lorem ipsum dolor sit amet, eu vis habemus vituperata',
-                description: 'Modo esse graecis qui te, vim reque saperet postulant et. Te alienum consequuntur cum. Dolores mnesarchum theophrastus ei sit, his graece salutatus in, vidit labores ut est. At pro porro commune liberavisse, accusam oporteat ut nam.',
+                text: 'Modo esse graecis qui te, vim reque saperet postulant et. Te alienum consequuntur cum. Dolores mnesarchum theophrastus ei sit, his graece salutatus in, vidit labores ut est. At pro porro commune liberavisse, accusam oporteat ut nam.',
                 colStart: 2,
                 colEnd: 1,
                 columns: 2,
@@ -208,25 +213,25 @@ const cases =
             accordionItem: [
               {
                 title: 'KLM',
-                description: 'I was hired by AKQA Amsterdam, as a Senior designer consultant for the dutch airline KLM new web platform.',
+                text: 'I was hired by AKQA Amsterdam, as a Senior designer consultant for the dutch airline KLM new web platform.',
                 active: true,
               },
               {
                 title: 'Pelle nisses bilfirma',
-                description: 'Labore culpa incididunt voluptate nostrud dolor do occaecat velit aliquip occaecat ullamco laboris excepteur et. Qui ex consequat elit sit. Aliqua aute cillum proident ex incididunt non cillum.',
+                text: 'Labore culpa incididunt voluptate nostrud dolor do occaecat velit aliquip occaecat ullamco laboris excepteur et. Qui ex consequat elit sit. Aliqua aute cillum proident ex incididunt non cillum.',
               },
               {
                 title: 'Pelle nisses bilfirma',
-                description: 'Labore culpa incididunt voluptate nostrud dolor do occaecat velit aliquip occaecat ullamco laboris excepteur et. Qui ex consequat elit sit. Aliqua aute cillum proident ex incididunt non cillum.',
+                text: 'Labore culpa incididunt voluptate nostrud dolor do occaecat velit aliquip occaecat ullamco laboris excepteur et. Qui ex consequat elit sit. Aliqua aute cillum proident ex incididunt non cillum.',
               },
               {
                 title: 'Olles',
-                description: 'Labore culpa incididunt voluptate nostrud dolor do occaecat velit aliquip occaecat ullamco laboris excepteur et. Qui ex consequat elit sit. Aliqua aute cillum proident ex incididunt non cillum.',
+                text: 'Labore culpa incididunt voluptate nostrud dolor do occaecat velit aliquip occaecat ullamco laboris excepteur et. Qui ex consequat elit sit. Aliqua aute cillum proident ex incididunt non cillum.',
                 active: true,
               },
               {
                 title: 'Pelle nisses bilfirma',
-                description: 'Labore culpa incididunt voluptate nostrud dolor do occaecat velit aliquip occaecat ullamco laboris excepteur et. Qui ex consequat elit sit. Aliqua aute cillum proident ex incididunt non cillum.',
+                text: 'Labore culpa incididunt voluptate nostrud dolor do occaecat velit aliquip occaecat ullamco laboris excepteur et. Qui ex consequat elit sit. Aliqua aute cillum proident ex incididunt non cillum.',
               },
               //Wrappa i en specifik sektion, column eller row? Class?
             ],

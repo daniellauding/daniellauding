@@ -5,7 +5,7 @@ const Grid = ({content, columns, rows, gap, gapY, gapX, flowRows, flowColumns, a
     return (
         <div
             className={classNames(
-                `grid-container grid`,
+                `container mx-auto grid`,
                 columns ? `grid-cols-${columns}` : columns,
                 rows ? `grid-rows-${rows}` : rows,
                 flowRows ? flowRows : flowRows,
@@ -27,9 +27,11 @@ const Grid = ({content, columns, rows, gap, gapY, gapX, flowRows, flowColumns, a
                         item.rows ? `row-span-${item.rows}` : item.rows,
                         item.rowStart ? `row-start-${item.rowStart}` : item.rowStart,
                         item.rowEnd ? `row-end-${item.rowEnd}` : item.rowEnd,
+                        item.style ? `${item.style}` : item.style,
                     )}
                 >
-                    <p>{item.description}</p>
+                    <h3 className="pt-0 mt-8 mb-2 text-4xl md:text-2xl text-left text-primary font-bold">{item.title}</h3>
+                    <p className="pt-0 mt-8 mb-16 text-4xl md:text-4xl text-left text-gray-400 font-thin">{item.text}</p>
                 </div>
             ))}
         </div>

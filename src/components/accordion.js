@@ -41,7 +41,7 @@ const Accordion = ({accordionItem, title}) => {
                             },
                         )}
                     >
-                        <p>{item.description}</p>
+                        <p>{item.text}</p>
                     </div>
                 </div>
             ))}
