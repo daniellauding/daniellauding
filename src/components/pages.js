@@ -24,7 +24,6 @@ const Pages = () => {
       {pages.map((page) => {
         return (
           <div key={page.id}>
-            <Text value={page.title} />
             {/* Spotta ut array med en ny map här */}
           </div>
         )
