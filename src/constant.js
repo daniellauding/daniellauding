@@ -168,6 +168,10 @@ const cases =
                 colStart: 1,
                 columns: 2,
                 style: 'h-screen justify-center flex flex-col',
+                // container ?
+                // type
+                // image ?
+                // section ?
               },
               {
                 title: 'Takeaways',

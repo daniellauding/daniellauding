@@ -120,7 +120,8 @@ function App() {
             </div>
           )}
           {active && (
-            <div className="py-8 px-8 md:px-16">
+            <div className="wrapper">
+              {/* <div className="py-8 px-8 md:px-16"> */}
               <Content item={active} clearActive={clearActive} />
             </div>
           )}
