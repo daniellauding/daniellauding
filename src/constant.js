@@ -174,10 +174,16 @@ const cases =
                 // section ?
               },
               {
+                cover: '/images/case/backbase/bg_backbase.png',
+              },
+              {
                 title: 'Takeaways',
                 text: 'Modo esse graecis qui te, vim reque saperet postulant et. Te alienum consequuntur cum. Dolores mnesarchum theophrastus ei sit, his graece salutatus in, vidit labores ut est. At pro porro commune liberavisse, accusam oporteat ut nam.',
                 colStart: 2,
                 columns: 2,
+              },
+              {
+                //cover: '/images/case/backbase/bg_backbase.png', type?
               },
               {
                 title: 'Lorem ipsum dolor sit amet, eu vis habemus vituperata',

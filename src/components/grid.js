@@ -32,6 +32,7 @@ const Grid = ({content, columns, rows, gap, gapY, gapX, flowRows, flowColumns, a
                 >
                     <h3 className="pt-0 mt-8 mb-2 text-4xl md:text-2xl text-left text-primary font-bold">{item.title}</h3>
                     <p className="pt-0 mt-8 mb-16 text-4xl md:text-4xl text-left text-gray-400 font-thin">{item.text}</p>
+                    {item.cover}
                 </div>
             ))}
         </div>
