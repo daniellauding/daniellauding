@@ -126,29 +126,35 @@ const cases =
         protected: true,
         // hero: '/images/case/spotify/hero_spotify.png',
         content: [
-          // {
-          //   type: 'text',
-          //   size: 'large',
-          //   value: 'In 2017 Spotify’s goal was to enable more free users in emerging markets. To understand what and how, me and my team traveled to Brazil for two weeks local field research. We did in-home interviews and user testing on prototypes with quick iterations of potential solutions.',
-          // },
-          // {
-          //   type: 'text',
-          //   size: 'medium',
-          //   value: 'We understood that free users on year class phones (older androids) still where downloading mp3s and was afraid of streaming when not on Wi-Fi. A hypothesis to gain trust to stream on cellular was to build a solution that uses less data consumption.',
-          // },
-          // {
-          //   type: 'text',
-          //   size: 'medium',
-          //   value: 'One of our solutions we ran A/B tests on would serve 4 playlists on-demand and when playing songs from those it only consumed 1% of their data. The design is branded with dark-blue to build awareness throughtout the flow.',
-          // },
-          // {
-          //   type: 'img',
-          //   value: '/images/case/spotify/case_01.png',
-          // },
-          // {
-          //   type: 'img',
-          //   value: '/images/case/spotify/case_02.png',
-          // },
+          {
+            type: 'title',
+            size: 'large',
+            value: 'första In 2017 Spotify’s goal was to enable more free users in emerging markets. To understand what and how, me and my team traveled to Brazil for two weeks local field research. We did in-home interviews and user testing on prototypes with quick iterations of potential solutions.',
+          },
+          {
+            type: 'text',
+            size: 'medium',
+            value: 'första We understood that free users on year class phones (older androids) still where downloading mp3s and was afraid of streaming when not on Wi-Fi. A hypothesis to gain trust to stream on cellular was to build a solution that uses less data consumption.',
+          },
+          {
+            type: 'text',
+            size: 'medium',
+            value: 'One of our solutions we ran A/B tests on would serve 4 playlists on-demand and when playing songs from those it only consumed 1% of their data. The design is branded with dark-blue to build awareness throughtout the flow.',
+          },
+          {
+            type: 'img',
+            value: '/images/case/dummy-img.png',
+          },
+          {
+            type: 'img',
+            value: '/images/case/spotify/case_02.png',
+            style: 'cover',
+          },
+          {
+            type: 'text',
+            size: 'large',
+            value: 'Lite mer grejer här va',
+          },
           {
             type: 'grid',
             columns: 4,
@@ -159,32 +165,36 @@ const cases =
             autoFlow: '',
             content: [
               {
-                title: 'Brief',
-                // titleStyle
-                text: 'In 2017 Spotify’s goal was to enable more free users in emerging markets. To understand what and how, me and my team traveled to Brazil for two weeks local field research. We did in-home interviews and user testing on prototypes with quick iterations of potential solutions.',
-                // mer text sub array?
-                // textStyle
-                // icon?
-                colStart: 1,
-                columns: 2,
-                style: 'h-screen justify-center flex flex-col',
-                // container ?
-                // type
-                // image ?
-                // section ?
+                value: 'Brief',
+                type: 'title',
+                style: 'px-4',
               },
               {
-                cover: '/images/case/backbase/bg_backbase.png',
+                value: 'In 2017 Spotify’s goal was to enable more free users in emerging markets. To understand what and how, me and my team traveled to Brazil for two weeks local field research. We did in-home interviews and user testing on prototypes with quick iterations of potential solutions.',
+                type: 'text',
+                style: 'px-0 text-black',
               },
+              // {
+              //   title: 'Brief',
+              //   // titleStyle
+              //   text: 'In 2017 Spotify’s goal was to enable more free users in emerging markets. To understand what and how, me and my team traveled to Brazil for two weeks local field research. We did in-home interviews and user testing on prototypes with quick iterations of potential solutions.',
+              //   // mer text sub array?
+              //   // textStyle
+              //   // icon?
+              //   cover: '/images/case/backbase/bg_backbase.png',
+              //   colStart: 1,
+              //   columns: 2,
+              //   style: 'h-screen justify-center flex flex-col',
+              // },
               {
                 title: 'Takeaways',
                 text: 'Modo esse graecis qui te, vim reque saperet postulant et. Te alienum consequuntur cum. Dolores mnesarchum theophrastus ei sit, his graece salutatus in, vidit labores ut est. At pro porro commune liberavisse, accusam oporteat ut nam.',
                 colStart: 2,
                 columns: 2,
               },
-              {
-                //cover: '/images/case/backbase/bg_backbase.png', type?
-              },
+              // {
+              //   cover: '/images/case/backbase/bg_backbase.png',
+              // },
               {
                 title: 'Lorem ipsum dolor sit amet, eu vis habemus vituperata',
                 text: 'Modo esse graecis qui te, vim reque saperet postulant et. Te alienum consequuntur cum. Dolores mnesarchum theophrastus ei sit, his graece salutatus in, vidit labores ut est. At pro porro commune liberavisse, accusam oporteat ut nam.',
