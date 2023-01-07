@@ -56,7 +56,7 @@ function App() {
 
     <div className="wrapper box-border">
       <Pages />
-      <div className={classNames("flex flex-col md:flex-row justify-center md:h-screen w-screen md:fixed", {[`client-${active?.client?.toLowerCase()} case-active md:relative justify-start min-h-screen h-auto`]: active})}>
+      <div className={classNames("flex flex-col md:flex-row justify-center md:h-screen w-screen md:fixed", {[`client-${active?.client?.toLowerCase()} case-active md:relative justify-start h-auto`]: active})}>
 
         {/* <div className={classNames("cover bg-cover", active ? 'col-span-2' : 'md:w-1/2' )}>
           <img
