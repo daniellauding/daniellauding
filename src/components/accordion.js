@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 
+// eslint-disable-next-line react/prop-types
 const Accordion = ({accordionItem, title}) => {
     const [activeAccordion = 0, setActiveAccordion] = useState(0);
     return (
