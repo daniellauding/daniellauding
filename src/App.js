@@ -1,14 +1,15 @@
-import React from "react";
+import React from 'react';
 
-import classNames from "classnames";
+import classNames from 'classnames';
 
 // import Content from "./components/content";
 // import Avatar from './components/avatar';
+import About from './components/about';
+
+// import Pages from "./components/pages";
 // import About from "./components/about";
 
-import Pages from "./components/pages";
-
-import "./App.css";
+import './App.css';
 
 // TODO
 // https://codepen.io/tutsplus/pen/oqpyBE
@@ -25,40 +26,37 @@ import "./App.css";
 // Filter på taggarna visar de projekten ?
 
 function App() {
-  // function App({active, clearActive, clearPreview}) {
+	// function App({active, clearActive, clearPreview}) {
 
-  // console.log(cases.map(content => content.accordion));
+	// console.log(cases.map(content => content.accordion));
 
-  // const [readMore, setReadMore] = useState(true);
+	// const [readMore, setReadMore] = useState(true);
 
-  // const selectReadMore = () => {
-  //   setReadMore(!readMore);
-  // };
+	// const selectReadMore = () => {
+	//   setReadMore(!readMore);
+	// };
 
-  return (
-    <div className="wrapper box-border">
-      <Pages />
-      <div
-        className={classNames(
-          "flex flex-col md:flex-row justify-center md:h-screen w-screen md:fixed"
-          // {
-          //   [`client-${active?.client?.toLowerCase()} case-active md:relative justify-start h-auto`]:
-          //     active,
-          // }
-        )}
-      >
+	return (
+		<div className="wrapper box-border">
+			<div
+				className={classNames(
+					'flex flex-col md:flex-row justify-center md:h-screen w-screen md:fixed',
+					// {
+					//   [`client-${active?.client?.toLowerCase()} case-active md:relative justify-start h-auto`]:
+					//     active,
+					// }
+				)}>
+				<About />
 
-        Start from here
+				{/* clear up this file, can we use react router ?  */}
 
-        {/* clear up this file, can we use react router ?  */}
-
-        {/* {!active ? (
+				{/* {!active ? (
 
           <Avatar />
 
         ) : null} */}
 
-        {/* <div className={classNames("description align-center", active ? 'justify-start' : 'md:w-1/2 flex md:flex-col justify-center')} onMouseEnter={clearPreview}>
+				{/* <div className={classNames("description align-center", active ? 'justify-start' : 'md:w-1/2 flex md:flex-col justify-center')} onMouseEnter={clearPreview}>
           {!active && (
             <About />
           )}
@@ -68,9 +66,9 @@ function App() {
             </div>
           )}
         </div> */}
-      </div>
-    </div>
-  );
+			</div>
+		</div>
+	);
 }
 
 export default App;

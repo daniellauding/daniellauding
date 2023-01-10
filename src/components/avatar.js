@@ -22,6 +22,8 @@ const Avatar = () => {
         active ? "col-span-2" : "md:w-1/2"
       )}
     >
+
+      <div>ollesaasdadasd</div>
       <img
         src={active?.bg || previewCase?.bg || heroImg}
         className={classNames(
