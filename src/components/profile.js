@@ -1,0 +1,26 @@
+import React from 'react';
+// import classNames from 'classnames';
+import { about } from '../constant';
+
+const Profile = () => {
+	return (
+		<>
+			{about.map((intro) => (
+				<div key={intro.id}>
+					<img src={intro.logo} className="logo mx-auto" alt="logo" />
+					<h1 className="pt-0 mt-8 mb-0 text-3xl text-center dark:text-white text-black lg:font-bold">
+						{intro.name}
+					</h1>
+					<p className="pt-0 mb-0 text-center dark:text-gray-500 text-black lg:font-light">
+						<a href={`mailto:${intro.email}`}>{intro.email}</a>
+					</p>
+					<p className="pt-0 mb-8 sm:mx-8 mx-8 md:mx-32 mt-16 text-center dark:text-gray-100 text-black lg:font-light text-3xl md:text-4xl leading-snug font-serif">
+						{intro.description}
+					</p>
+				</div>
+			))}
+		</>
+	);
+};
+
+export default Profile;

@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 
 import classNames from 'classnames';
 
 // import Content from "./components/content";
-// import Avatar from './components/avatar';
 import About from './components/about';
+import Case from './components/case';
 
 // import Pages from "./components/pages";
-// import About from "./components/about";
 
 import './App.css';
 
@@ -27,6 +26,13 @@ import './App.css';
 
 function App() {
 	// function App({active, clearActive, clearPreview}) {
+	const [previewCase, setPreviewCase] = useState(null);
+	const [active, setActive] = useState(null);
+
+	const clearActive = useCallback(() => {
+		setActive(null);
+		setPreviewCase(null);
+	}, [setActive]);
 
 	// console.log(cases.map(content => content.accordion));
 
@@ -46,7 +52,18 @@ function App() {
 					//     active,
 					// }
 				)}>
-				<About />
+				{active ? (
+					// place case page here, maybe use react router
+					<>
+						{/* Swap profile to case on click */}
+						{/* Loop case + deep */}
+						<Case item={active} clearActive={clearActive} />
+					</>
+				) : (
+					<>
+						<About setActive={setActive} previewCase={previewCase} />
+					</>
+				)}
 
 				{/* clear up this file, can we use react router ?  */}
 
