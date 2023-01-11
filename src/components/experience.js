@@ -1,10 +1,7 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import classNames from 'classnames';
 
 const Experience = ({ item, active, setActive, onHover }) => {
-	const [hovered, setHovered] = useState(false);
-	const toggleHover = () => setHovered(!hovered);
-
 	const onClick = useCallback(
 		(e) => {
 			e.preventDefault();
@@ -15,7 +12,6 @@ const Experience = ({ item, active, setActive, onHover }) => {
 
 	const setPreview = useCallback(
 		(e) => {
-			toggleHover();
 			e.stopPropagation();
 			onHover(item);
 		},
@@ -24,7 +20,6 @@ const Experience = ({ item, active, setActive, onHover }) => {
 
 	const clearPreview = useCallback(
 		(e) => {
-			toggleHover();
 			e.stopPropagation();
 			onHover(null);
 		},
@@ -37,7 +32,6 @@ const Experience = ({ item, active, setActive, onHover }) => {
 			className={classNames(
 				`grid grid-cols-3 md:flex md:flex-row py-4`,
 				active ? 'bg-gray-100 text-gray-900' : 'block px-4 py-2 text-sm text-gray-700',
-				hovered ? 'yes' : 'no',
 			)}
 			onClick={onClick}
 			onMouseEnter={setPreview}

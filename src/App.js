@@ -28,11 +28,20 @@ function App() {
 	// function App({active, clearActive, clearPreview}) {
 	const [previewCase, setPreviewCase] = useState(null);
 	const [active, setActive] = useState(null);
+	const clearPreview = useCallback(() => setPreviewCase(null), [setPreviewCase]);
 
 	const clearActive = useCallback(() => {
 		setActive(null);
 		setPreviewCase(null);
 	}, [setActive]);
+
+	const selectedChanged = useCallback(
+		(value) => {
+			setActive(value || null);
+			setPreviewCase(null);
+		},
+		[setActive],
+	);
 
 	// console.log(cases.map(content => content.accordion));
 
@@ -61,7 +70,15 @@ function App() {
 					</>
 				) : (
 					<>
-						<About setActive={setActive} previewCase={previewCase} />
+						<About
+							active={active}
+							setActive={setActive}
+							previewCase={previewCase}
+							selectedChanged={selectedChanged}
+							setPreviewCase={setPreviewCase}
+							clearPreview={clearPreview}
+							clearActive={clearActive}
+						/>
 					</>
 				)}
 
