@@ -1,7 +1,17 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import classNames from 'classnames';
 
 const Experience = ({ item, active, setActive, onHover }) => {
+	const [isHovering, setIsHovering] = useState(false);
+
+	const handleMouseOver = () => {
+		setIsHovering(true);
+	};
+
+	const handleMouseOut = () => {
+		setIsHovering(false);
+	};
+
 	const onClick = useCallback(
 		(e) => {
 			e.preventDefault();
@@ -30,12 +40,15 @@ const Experience = ({ item, active, setActive, onHover }) => {
 		<li
 			key={item.id}
 			className={classNames(
-				`grid grid-cols-3 md:flex md:flex-row py-4`,
+				`experience grid grid-cols-3 md:flex md:flex-row py-4`,
 				active ? 'bg-gray-100 text-gray-900' : 'block px-4 py-2 text-sm text-gray-700',
+				isHovering ? 'hovering' : 'no-hover',
 			)}
 			onClick={onClick}
 			onMouseEnter={setPreview}
-			onMouseLeave={clearPreview}>
+			onMouseLeave={clearPreview}
+			onMouseOver={handleMouseOver}
+			onMouseOut={handleMouseOut}>
 			<p
 				className={classNames(
 					`col-span-3 pt-0 mb-0 text-left dark:text-gray-300 md:text-black text-2xl md:text-base md:font-medium sm:w-24 md:w-40`,

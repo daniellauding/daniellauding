@@ -1,11 +1,7 @@
-import React from "react";
-import classNames from "classnames";
+import React from 'react';
+import classNames from 'classnames';
 
-const Hero = ({
-  item,
-  toggle,
-  setToggle,
-}) => {
+const Hero = ({ item, toggle, setToggle }) => {
   return (
     <>
       <h3 className="pt-0 mt-8 mb-2 text-4xl md:text-2xl text-left text-primary font-bold">
@@ -25,8 +21,7 @@ const Hero = ({
             {!toggle && (
               <button
                 onClick={() => setToggle(!toggle)}
-                className="bg-primary hover:primary text-white font-bold py-5 px-8 rounded-full"
-              >
+                className="bg-primary hover:primary text-white font-bold py-5 px-8 rounded-full">
                 Read more
               </button>
             )}
@@ -55,11 +50,8 @@ const Hero = ({
                 {item.tags.map((tag, index) => (
                   <li
                     key={index}
-                    className="px-4 py-1 mb-2 md:mb-0 ml-0 text-left text-black lg:font-light rounded-full dark:bg-gray-900 bg-gray-100 w-max"
-                  >
-                    <p className="text-xs dark:text-gray-400 text-gray-500 font-bold">
-                      {tag}
-                    </p>
+                    className="px-4 py-1 mb-2 md:mb-0 ml-0 text-left text-black lg:font-light rounded-full dark:bg-gray-900 bg-gray-100 w-max">
+                    <p className="text-xs dark:text-gray-400 text-gray-500 font-bold">{tag}</p>
                   </li>
                 ))}
               </ul>

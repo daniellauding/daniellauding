@@ -8,7 +8,7 @@ import Case from './components/case';
 
 // import Pages from "./components/pages";
 
-import './App.css';
+import './styles/main.scss';
 
 // TODO
 // https://codepen.io/tutsplus/pen/oqpyBE
@@ -25,72 +25,72 @@ import './App.css';
 // Filter på taggarna visar de projekten ?
 
 function App() {
-	// function App({active, clearActive, clearPreview}) {
-	const [previewCase, setPreviewCase] = useState(null);
-	const [active, setActive] = useState(null);
-	const clearPreview = useCallback(() => setPreviewCase(null), [setPreviewCase]);
+  // function App({active, clearActive, clearPreview}) {
+  const [previewCase, setPreviewCase] = useState(null);
+  const [active, setActive] = useState(null);
+  const clearPreview = useCallback(() => setPreviewCase(null), [setPreviewCase]);
 
-	const clearActive = useCallback(() => {
-		setActive(null);
-		setPreviewCase(null);
-	}, [setActive]);
+  const clearActive = useCallback(() => {
+    setActive(null);
+    setPreviewCase(null);
+  }, [setActive]);
 
-	const selectedChanged = useCallback(
-		(value) => {
-			setActive(value || null);
-			setPreviewCase(null);
-		},
-		[setActive],
-	);
+  const selectedChanged = useCallback(
+    (value) => {
+      setActive(value || null);
+      setPreviewCase(null);
+    },
+    [setActive]
+  );
 
-	// console.log(cases.map(content => content.accordion));
+  // console.log(cases.map(content => content.accordion));
 
-	// const [readMore, setReadMore] = useState(true);
+  // const [readMore, setReadMore] = useState(true);
 
-	// const selectReadMore = () => {
-	//   setReadMore(!readMore);
-	// };
+  // const selectReadMore = () => {
+  //   setReadMore(!readMore);
+  // };
 
-	return (
-		<div className="wrapper box-border">
-			<div
-				className={classNames(
-					'flex flex-col md:flex-row justify-center md:h-screen w-screen md:fixed',
-					// {
-					//   [`client-${active?.client?.toLowerCase()} case-active md:relative justify-start h-auto`]:
-					//     active,
-					// }
-				)}>
-				{active ? (
-					// place case page here, maybe use react router
-					<>
-						{/* Swap profile to case on click */}
-						{/* Loop case + deep */}
-						<Case item={active} clearActive={clearActive} />
-					</>
-				) : (
-					<>
-						<About
-							active={active}
-							setActive={setActive}
-							previewCase={previewCase}
-							selectedChanged={selectedChanged}
-							setPreviewCase={setPreviewCase}
-							clearPreview={clearPreview}
-							clearActive={clearActive}
-						/>
-					</>
-				)}
+  return (
+    <div className="wrapper box-border">
+      <div
+        className={classNames(
+          'flex flex-col md:flex-row justify-center md:h-screen w-screen md:fixed'
+          // {
+          //   [`client-${active?.client?.toLowerCase()} case-active md:relative justify-start h-auto`]:
+          //     active,
+          // }
+        )}>
+        {active ? (
+          // place case page here, maybe use react router
+          <>
+            {/* Swap profile to case on click */}
+            {/* Loop case + deep */}
+            <Case item={active} clearActive={clearActive} />
+          </>
+        ) : (
+          <>
+            <About
+              active={active}
+              setActive={setActive}
+              previewCase={previewCase}
+              selectedChanged={selectedChanged}
+              setPreviewCase={setPreviewCase}
+              clearPreview={clearPreview}
+              clearActive={clearActive}
+            />
+          </>
+        )}
 
-				{/* clear up this file, can we use react router ?  */}
+        {/* clear up this file, can we use react router ?  */}
 
-				{/* {!active ? (
+        {/* {!active ? (
 
           <Avatar />
 
         ) : null} */}
 
-				{/* <div className={classNames("description align-center", active ? 'justify-start' : 'md:w-1/2 flex md:flex-col justify-center')} onMouseEnter={clearPreview}>
+        {/* <div className={classNames("description align-center", active ? 'justify-start' : 'md:w-1/2 flex md:flex-col justify-center')} onMouseEnter={clearPreview}>
           {!active && (
             <About />
           )}
@@ -100,9 +100,9 @@ function App() {
             </div>
           )}
         </div> */}
-			</div>
-		</div>
-	);
+      </div>
+    </div>
+  );
 }
 
 export default App;
