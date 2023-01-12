@@ -48,6 +48,208 @@ const about = [
 	},
 ];
 
+const work = [
+  {
+		id: 0,
+		client: 'Asteria',
+		role: 'Co-Founder & Lead Product Design',
+		date: '2017 – Present',
+		location: 'Remote / Sweden',
+		tags: ['UX', 'UI', 'Prototyping', 'User testing', 'Field research'],
+		bg: '/images/case/asteria/bg_asteria.png',
+		url: 'https://www.spotify.com',
+    request: true,
+	},
+	{
+		id: 1,
+		client: 'Spotify',
+		role: 'Product Design Consultant',
+		date: '2017',
+		location: 'Brazil / Sweden',
+		tags: ['UX', 'UI', 'Prototyping', 'User testing', 'Field research'],
+		bg: '/images/case/spotify/bg_spotify.jpeg',
+		url: 'https://www.spotify.com',
+		protected: true,
+		cases: [
+			// eller är dessa cases knutna clients / work? vad är bäst
+			{
+				id: 0,
+        case: 'growth-test',
+				title: 'Optimize product value for existing markets with growth potential',
+				lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+				protected: true,
+				content: [
+					// Sections
+					{
+            id: 1,
+						title: 'Optimize product value for existing markets with growth potential',
+						lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+						columns: 3,
+						gap: 2,
+						variant: 'hero',
+					},
+					{
+						// Section
+            id: 2,
+						section: 'brief',
+						title: 'Optimize product value for existing markets with growth potential',
+						lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+					},
+					{
+						// Section
+            id: 3,
+						section: 'discovery',
+						title: 'Identify ways to attract new freemium users',
+						lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+					},
+					{
+						// Section
+            id: 4,
+						section: 'solution',
+						title: 'asdf',
+						lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+					},
+					{
+						// Section
+            id: 5,
+						section: 'validation',
+						title: 'asdf',
+						lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+					},
+					{
+						// Section
+            id: 6,
+						section: 'takeaways',
+						title: 'Optimize product value for existing markets with growth potential',
+						lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+						columns: 3,
+						gap: 2,
+						groups: [
+							// Groups
+							{
+								// Group
+                id: 0,
+								colStart: 1,
+								colEnd: 1,
+								title: {
+									variant: 'large',
+									value: 'Takeaway #1',
+								},
+								text: {
+									variant: 'large',
+									value: 'Nunc sed sagittis arcu, eget fringilla tellus.',
+								},
+							},
+              {
+								// Group
+                id: 1,
+								colStart: 2,
+								colEnd: 2,
+								title: {
+									variant: 'large',
+									value: 'Takeaway #2',
+								},
+								text: {
+									variant: 'large',
+									value: 'PELLE.',
+								},
+                columns: 3,
+                gap: 2,
+                groups: [
+                  // Groups
+                  {
+                    // Group
+                    id: 0,
+                    colStart: 1,
+                    colEnd: 1,
+                    title: {
+                      variant: 'large',
+                      value: 'Takeaway #1',
+                    },
+                    text: {
+                      variant: 'large',
+                      value: 'Nunc sed sagittis arcu, eget fringilla tellus.',
+                    },
+                  },
+                  {
+                    // Group
+                    id: 1,
+                    colStart: 2,
+                    colEnd: 2,
+                    title: {
+                      variant: 'large',
+                      value: 'Takeaway #2',
+                    },
+                    text: {
+                      variant: 'large',
+                      value: 'PELLE.',
+                    },
+                  },
+                ],
+							},
+						],
+					},
+				],
+			},
+			{
+				id: 1,
+				title: 'Synlig göra radio i spotify',
+				protected: false,
+				content: [
+					// Sections
+					{
+						title: 'Share story as music',
+					},
+				],
+			},
+		],
+	},
+  {
+		id: 2,
+		client: 'Record Union',
+		role: 'Senior Product Design Consultant',
+		date: '2017 – 2018',
+		location: 'Remote / Sweden',
+		tags: ['UX', 'UI', 'Prototyping', 'User testing', 'Field research'],
+		bg: '/images/case/recordunion/bg_recordunion.png',
+		url: 'https://www.recordunion.com',
+		protected: false,
+	},
+  {
+		id: 3,
+		client: 'Länsförsäkringar',
+		role: 'Art Director Consultant',
+		date: '2016 – 2017',
+		location: 'Stockholm / Sweden',
+		tags: ['UX', 'UI', 'Prototyping', 'User testing', 'Field research'],
+		bg: '/images/case/lansforsakringar/bg_lf.png',
+		url: 'https://www.lansforsakringar.se',
+		protected: false,
+	},
+  {
+		id: 4,
+		client: 'Instinctly',
+		role: 'Senior Product Design ConsultantSenior',
+		date: '2007 – Present',
+		location: 'Remote / Sweden',
+		tags: ['UX', 'UI', 'Prototyping', 'User testing', 'Field research'],
+		bg: '/images/case/instinctly/bg_instinctly.png',
+		url: 'https://www.daniellauding.se',
+		protected: false,
+	},
+  {
+		id: 5,
+		client: 'Backbase',
+		role: 'Lead Visual Designer Consultant',
+		date: '2012 – 2017',
+		location: 'Remote / Amsterdam, Netherlands',
+		tags: ['UX', 'UI', 'Prototyping', 'User testing', 'Field research'],
+		bg: '/images/case/backbase/bg_backbase.png',
+		url: 'https://www.backbase.com',
+		protected: false,
+	},
+];
+
 const cases = [
 	{
 		id: 0,
@@ -114,100 +316,74 @@ const cases = [
 		bg: '/images/case/asteria/bg_asteria.png',
 	},
 	{
+		// Case
 		id: 1,
 		client: 'Spotify',
 		role: 'Product Design Consultant',
 		date: '2017',
 		location: 'Stockholm, Sweden',
+		tags: ['UX', 'UI', 'Prototyping', 'User testing', 'Field research'],
+		bg: '/images/case/spotify/bg_spotify.jpeg',
 		url: 'https://www.spotify.com',
-		title: 'Optimize product value for existing markets with growth potential',
-		desc: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
 		protected: true,
-		// hero: '/images/case/spotify/hero_spotify.png',
 		content: [
+			// Sections
 			{
-				//type: 'grid',
-				columns: 4,
-				// rows: 3,
+				title: 'Optimize product value for existing markets with growth potential',
+				lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+				columns: 3,
 				gap: 2,
-				flowRows: 'auto-rows-fr',
-				flowColumns: '',
-				autoFlow: '',
-				style: 'test',
-				content: [
+				variant: 'hero',
+			},
+			{
+				// Section
+				section: 'brief',
+				title: 'Optimize product value for existing markets with growth potential',
+				lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+			},
+			{
+				// Section
+				section: 'discovery',
+				title: 'Identify ways to attract new freemium users',
+				lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+			},
+			{
+				// Section
+				section: 'solution',
+				title: 'asdf',
+				lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+			},
+			{
+				// Section
+				section: 'validation',
+				title: 'asdf',
+				lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+			},
+			{
+				// Section
+				section: 'takeaways',
+				title: 'Optimize product value for existing markets with growth potential',
+				lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+				columns: 3,
+				gap: 2,
+				groups: [
+					// Groups
 					{
-						type: 'title',
-						size: 'large',
-						value: 'första In 2017 Spotify’s goal was to enable more free users in emerging markets. To understand what and how, me and my team traveled to Brazil for two weeks local field research. We did in-home interviews and user testing on prototypes with quick iterations of potential solutions.',
+						// Group
+						colStart: 1,
+						colEnd: 1,
+						title: {
+							variant: 'large',
+							value: 'Takeaway #1',
+						},
+						text: {
+							variant: 'large',
+							value: 'Nunc sed sagittis arcu, eget fringilla tellus.',
+						},
 					},
-					{
-						type: 'text',
-						size: 'medium',
-						value: 'första We understood that free users on year class phones (older androids) still where downloading mp3s and was afraid of streaming when not on Wi-Fi. A hypothesis to gain trust to stream on cellular was to build a solution that uses less data consumption.',
-					},
-					{
-						type: 'text',
-						size: 'medium',
-						value: 'One of our solutions we ran A/B tests on would serve 4 playlists on-demand and when playing songs from those it only consumed 1% of their data. The design is branded with dark-blue to build awareness throughtout the flow.',
-					},
-					{
-						type: 'img',
-						value: '/images/case/dummy-img.png',
-					},
-					{
-						type: 'img',
-						value: '/images/case/spotify/case_02.png',
-						style: 'cover',
-					},
-					{
-						type: 'text',
-						size: 'large',
-						value: 'Lite mer grejer här va',
-					},
-					// {
-					//   value: 'Brief',
-					//   type: 'title',
-					//   style: 'px-4',
-					// },
-					// {
-					//   value: 'In 2017 Spotify’s goal was to enable more free users in emerging markets. To understand what and how, me and my team traveled to Brazil for two weeks local field research. We did in-home interviews and user testing on prototypes with quick iterations of potential solutions.',
-					//   type: 'text',
-					//   style: 'px-0 text-black',
-					// },
-					// // {
-					// //   title: 'Brief',
-					// //   // titleStyle
-					// //   text: 'In 2017 Spotify’s goal was to enable more free users in emerging markets. To understand what and how, me and my team traveled to Brazil for two weeks local field research. We did in-home interviews and user testing on prototypes with quick iterations of potential solutions.',
-					// //   // mer text sub array?
-					// //   // textStyle
-					// //   // icon?
-					// //   cover: '/images/case/backbase/bg_backbase.png',
-					// //   colStart: 1,
-					// //   columns: 2,
-					// //   style: 'h-screen justify-center flex flex-col',
-					// // },
-					// {
-					//   title: 'Takeaways',
-					//   text: 'Modo esse graecis qui te, vim reque saperet postulant et. Te alienum consequuntur cum. Dolores mnesarchum theophrastus ei sit, his graece salutatus in, vidit labores ut est. At pro porro commune liberavisse, accusam oporteat ut nam.',
-					//   colStart: 2,
-					//   columns: 2,
-					// },
-					// // {
-					// //   cover: '/images/case/backbase/bg_backbase.png',
-					// // },
-					// {
-					//   title: 'Lorem ipsum dolor sit amet, eu vis habemus vituperata',
-					//   text: 'Modo esse graecis qui te, vim reque saperet postulant et. Te alienum consequuntur cum. Dolores mnesarchum theophrastus ei sit, his graece salutatus in, vidit labores ut est. At pro porro commune liberavisse, accusam oporteat ut nam.',
-					//   colStart: 2,
-					//   colEnd: 1,
-					//   columns: 2,
-					//   rowStart: 3,
-					// },
 				],
 			},
 		],
-		bg: '/images/case/spotify/bg_spotify.jpeg',
-		tags: ['UX', 'UI', 'Prototyping', 'User testing', 'Field research'],
 	},
 	{
 		id: 2,
@@ -310,4 +486,4 @@ const cases = [
 	},
 ];
 
-export { about, cases };
+export { about, cases, work };

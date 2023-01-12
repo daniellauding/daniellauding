@@ -16,7 +16,7 @@ const Text = ({ size, value, style }) => {
   );
 };
 
-const Title = ({ size, value, style }) => {
+const Title = ({ size = 'medium', value, style }) => {
   if (size === 'large') {
     return (
       <h1
