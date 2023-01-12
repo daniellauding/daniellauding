@@ -70,139 +70,139 @@ const work = [
 		bg: '/images/case/spotify/bg_spotify.jpeg',
 		url: 'https://www.spotify.com',
 		protected: true,
-		cases: [
-			// eller är dessa cases knutna clients / work? vad är bäst
-			{
-				id: 0,
-        case: 'growth-test',
-				title: 'Optimize product value for existing markets with growth potential',
-				lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
-				protected: true,
-				content: [
-					// Sections
-					{
-            id: 1,
-						title: 'Optimize product value for existing markets with growth potential',
-						lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
-						columns: 3,
-						gap: 2,
-						variant: 'hero',
-					},
-					{
-						// Section
-            id: 2,
-						section: 'brief',
-						title: 'Optimize product value for existing markets with growth potential',
-						lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
-					},
-					{
-						// Section
-            id: 3,
-						section: 'discovery',
-						title: 'Identify ways to attract new freemium users',
-						lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
-					},
-					{
-						// Section
-            id: 4,
-						section: 'solution',
-						title: 'asdf',
-						lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
-					},
-					{
-						// Section
-            id: 5,
-						section: 'validation',
-						title: 'asdf',
-						lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
-					},
-					{
-						// Section
-            id: 6,
-						section: 'takeaways',
-						title: 'Optimize product value for existing markets with growth potential',
-						lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
-						columns: 3,
-						gap: 2,
-						groups: [
-							// Groups
-							{
-								// Group
-                id: 0,
-								colStart: 1,
-								colEnd: 1,
-								title: {
-									variant: 'large',
-									value: 'Takeaway #1',
-								},
-								text: {
-									variant: 'large',
-									value: 'Nunc sed sagittis arcu, eget fringilla tellus.',
-								},
-							},
-              {
-								// Group
-                id: 1,
-								colStart: 2,
-								colEnd: 2,
-								title: {
-									variant: 'large',
-									value: 'Takeaway #2',
-								},
-								text: {
-									variant: 'large',
-									value: 'PELLE.',
-								},
-                columns: 3,
-                gap: 2,
-                groups: [
-                  // Groups
-                  {
-                    // Group
-                    id: 0,
-                    colStart: 1,
-                    colEnd: 1,
-                    title: {
-                      variant: 'large',
-                      value: 'Takeaway #1',
-                    },
-                    text: {
-                      variant: 'large',
-                      value: 'Nunc sed sagittis arcu, eget fringilla tellus.',
-                    },
-                  },
-                  {
-                    // Group
-                    id: 1,
-                    colStart: 2,
-                    colEnd: 2,
-                    title: {
-                      variant: 'large',
-                      value: 'Takeaway #2',
-                    },
-                    text: {
-                      variant: 'large',
-                      value: 'PELLE.',
-                    },
-                  },
-                ],
-							},
-						],
-					},
-				],
-			},
-			{
-				id: 1,
-				title: 'Synlig göra radio i spotify',
-				protected: false,
-				content: [
-					// Sections
-					{
-						title: 'Share story as music',
-					},
-				],
-			},
-		],
+		// cases: [
+		// 	// eller är dessa cases knutna clients / work? vad är bäst
+		// 	{
+		// 		id: 0,
+    //     case: 'growth-test',
+		// 		title: 'Optimize product value for existing markets with growth potential',
+		// 		lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+		// 		protected: true,
+		// 		content: [
+		// 			// Sections
+		// 			{
+    //         id: 1,
+		// 				title: 'Optimize product value for existing markets with growth potential',
+		// 				lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+		// 				columns: 3,
+		// 				gap: 2,
+		// 				variant: 'hero',
+		// 			},
+		// 			{
+		// 				// Section
+    //         id: 2,
+		// 				section: 'brief',
+		// 				title: 'Optimize product value for existing markets with growth potential',
+		// 				lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+		// 			},
+		// 			{
+		// 				// Section
+    //         id: 3,
+		// 				section: 'discovery',
+		// 				title: 'Identify ways to attract new freemium users',
+		// 				lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+		// 			},
+		// 			{
+		// 				// Section
+    //         id: 4,
+		// 				section: 'solution',
+		// 				title: 'asdf',
+		// 				lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+		// 			},
+		// 			{
+		// 				// Section
+    //         id: 5,
+		// 				section: 'validation',
+		// 				title: 'asdf',
+		// 				lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+		// 			},
+		// 			{
+		// 				// Section
+    //         id: 6,
+		// 				section: 'takeaways',
+		// 				title: 'Optimize product value for existing markets with growth potential',
+		// 				lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+		// 				columns: 3,
+		// 				gap: 2,
+		// 				groups: [
+		// 					// Groups
+		// 					{
+		// 						// Group
+    //             id: 0,
+		// 						colStart: 1,
+		// 						colEnd: 1,
+		// 						title: {
+		// 							variant: 'large',
+		// 							value: 'Takeaway #1',
+		// 						},
+		// 						text: {
+		// 							variant: 'large',
+		// 							value: 'Nunc sed sagittis arcu, eget fringilla tellus.',
+		// 						},
+		// 					},
+    //           {
+		// 						// Group
+    //             id: 1,
+		// 						colStart: 2,
+		// 						colEnd: 2,
+		// 						title: {
+		// 							variant: 'large',
+		// 							value: 'Takeaway #2',
+		// 						},
+		// 						text: {
+		// 							variant: 'large',
+		// 							value: 'PELLE.',
+		// 						},
+    //             columns: 3,
+    //             gap: 2,
+    //             groups: [
+    //               // Groups
+    //               {
+    //                 // Group
+    //                 id: 0,
+    //                 colStart: 1,
+    //                 colEnd: 1,
+    //                 title: {
+    //                   variant: 'large',
+    //                   value: 'Takeaway #1',
+    //                 },
+    //                 text: {
+    //                   variant: 'large',
+    //                   value: 'Nunc sed sagittis arcu, eget fringilla tellus.',
+    //                 },
+    //               },
+    //               {
+    //                 // Group
+    //                 id: 1,
+    //                 colStart: 2,
+    //                 colEnd: 2,
+    //                 title: {
+    //                   variant: 'large',
+    //                   value: 'Takeaway #2',
+    //                 },
+    //                 text: {
+    //                   variant: 'large',
+    //                   value: 'PELLE.',
+    //                 },
+    //               },
+    //             ],
+		// 					},
+		// 				],
+		// 			},
+		// 		],
+		// 	},
+		// 	{
+		// 		id: 1,
+		// 		title: 'Synlig göra radio i spotify',
+		// 		protected: false,
+		// 		content: [
+		// 			// Sections
+		// 			{
+		// 				title: 'Share story as music',
+		// 			},
+		// 		],
+		// 	},
+		// ],
 	},
   {
 		id: 2,

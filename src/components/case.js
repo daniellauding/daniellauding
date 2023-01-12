@@ -71,7 +71,7 @@ const Case = ({ item, clearActive }) => {
         </h1>
 
         <p className="pt-0 mt-8 mb-16 text-4xl md:text-4xl text-left text-gray-400 font-thin">
-          {item.desc}
+          {item.lead}
         </p>
         {item?.content?.map(
           (section) => (
@@ -84,7 +84,7 @@ const Case = ({ item, clearActive }) => {
 
 const CaseSelector = ({ item, onSelect }) => {
   return (
-    <div className="case-wrapper gap-20 flex flex-col">
+    <div className="case-wrapper gap-20 flex flex-col h-full overflow-y-auto">
       <div className={classNames(`section py-20 px-20 section-${item?.case}`)}>
         <h3 className="pt-0 mt-8 mb-2 text-4xl md:text-2xl text-left text-primary font-bold">
           {item.client}
