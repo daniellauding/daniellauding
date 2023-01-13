@@ -48,6 +48,20 @@ const about = [
 	},
 ];
 
+// I have 6+ years of experience in front-end development.
+// I love working on smooth 2D animations and challenging layouts.
+
+// Technologies I commonly use : SCSS, Javascript (ES6), Wordpress, GSAP, Webpack.
+
+// Selected
+// Projects
+// (2015 — Today)
+
+// I'm currently looking for a job in Montreal but still available for freelance work in the meantime.
+// Feel free to contact me if you want to collaborate on future projects or have a little chat.
+
+
+
 const work = [
   {
 		id: 0,
@@ -58,7 +72,6 @@ const work = [
 		tags: ['UX', 'UI', 'Prototyping', 'User testing', 'Field research'],
 		bg: '/images/case/asteria/bg_asteria.png',
 		url: 'https://www.spotify.com',
-    request: true,
 	},
 	{
 		id: 1,
@@ -69,140 +82,140 @@ const work = [
 		tags: ['UX', 'UI', 'Prototyping', 'User testing', 'Field research'],
 		bg: '/images/case/spotify/bg_spotify.jpeg',
 		url: 'https://www.spotify.com',
-		protected: true,
-		// cases: [
-		// 	// eller är dessa cases knutna clients / work? vad är bäst
-		// 	{
-		// 		id: 0,
-    //     case: 'growth-test',
-		// 		title: 'Optimize product value for existing markets with growth potential',
-		// 		lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
-		// 		protected: true,
-		// 		content: [
-		// 			// Sections
-		// 			{
-    //         id: 1,
-		// 				title: 'Optimize product value for existing markets with growth potential',
-		// 				lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
-		// 				columns: 3,
-		// 				gap: 2,
-		// 				variant: 'hero',
-		// 			},
-		// 			{
-		// 				// Section
-    //         id: 2,
-		// 				section: 'brief',
-		// 				title: 'Optimize product value for existing markets with growth potential',
-		// 				lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
-		// 			},
-		// 			{
-		// 				// Section
-    //         id: 3,
-		// 				section: 'discovery',
-		// 				title: 'Identify ways to attract new freemium users',
-		// 				lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
-		// 			},
-		// 			{
-		// 				// Section
-    //         id: 4,
-		// 				section: 'solution',
-		// 				title: 'asdf',
-		// 				lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
-		// 			},
-		// 			{
-		// 				// Section
-    //         id: 5,
-		// 				section: 'validation',
-		// 				title: 'asdf',
-		// 				lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
-		// 			},
-		// 			{
-		// 				// Section
-    //         id: 6,
-		// 				section: 'takeaways',
-		// 				title: 'Optimize product value for existing markets with growth potential',
-		// 				lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
-		// 				columns: 3,
-		// 				gap: 2,
-		// 				groups: [
-		// 					// Groups
-		// 					{
-		// 						// Group
-    //             id: 0,
-		// 						colStart: 1,
-		// 						colEnd: 1,
-		// 						title: {
-		// 							variant: 'large',
-		// 							value: 'Takeaway #1',
-		// 						},
-		// 						text: {
-		// 							variant: 'large',
-		// 							value: 'Nunc sed sagittis arcu, eget fringilla tellus.',
-		// 						},
-		// 					},
-    //           {
-		// 						// Group
-    //             id: 1,
-		// 						colStart: 2,
-		// 						colEnd: 2,
-		// 						title: {
-		// 							variant: 'large',
-		// 							value: 'Takeaway #2',
-		// 						},
-		// 						text: {
-		// 							variant: 'large',
-		// 							value: 'PELLE.',
-		// 						},
-    //             columns: 3,
-    //             gap: 2,
-    //             groups: [
-    //               // Groups
-    //               {
-    //                 // Group
-    //                 id: 0,
-    //                 colStart: 1,
-    //                 colEnd: 1,
-    //                 title: {
-    //                   variant: 'large',
-    //                   value: 'Takeaway #1',
-    //                 },
-    //                 text: {
-    //                   variant: 'large',
-    //                   value: 'Nunc sed sagittis arcu, eget fringilla tellus.',
-    //                 },
-    //               },
-    //               {
-    //                 // Group
-    //                 id: 1,
-    //                 colStart: 2,
-    //                 colEnd: 2,
-    //                 title: {
-    //                   variant: 'large',
-    //                   value: 'Takeaway #2',
-    //                 },
-    //                 text: {
-    //                   variant: 'large',
-    //                   value: 'PELLE.',
-    //                 },
-    //               },
-    //             ],
-		// 					},
-		// 				],
-		// 			},
-		// 		],
-		// 	},
-		// 	{
-		// 		id: 1,
-		// 		title: 'Synlig göra radio i spotify',
-		// 		protected: false,
-		// 		content: [
-		// 			// Sections
-		// 			{
-		// 				title: 'Share story as music',
-		// 			},
-		// 		],
-		// 	},
-		// ],
+    index: true,
+		cases: [
+			// eller är dessa cases knutna clients / work? vad är bäst
+			{
+				id: 0,
+        case: 'growth-test',
+				title: 'Optimize product value for existing markets with growth potential',
+				lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+				protected: true,
+				content: [
+					// Sections
+					{
+            id: 1,
+						title: 'Optimize product value for existing markets with growth potential',
+						lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+						columns: 3,
+						gap: 2,
+						variant: 'hero',
+					},
+					{
+						// Section
+            id: 2,
+						section: 'brief',
+						title: 'Optimize product value for existing markets with growth potential',
+						lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+					},
+					{
+						// Section
+            id: 3,
+						section: 'discovery',
+						title: 'Identify ways to attract new freemium users',
+						lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+					},
+					{
+						// Section
+            id: 4,
+						section: 'solution',
+						title: 'asdf',
+						lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+					},
+					{
+						// Section
+            id: 5,
+						section: 'validation',
+						title: 'asdf',
+						lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+					},
+					{
+						// Section
+            id: 6,
+						section: 'takeaways',
+						title: 'Optimize product value for existing markets with growth potential',
+						lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+						columns: 3,
+						gap: 2,
+						groups: [
+							// Groups
+							{
+								// Group
+                id: 0,
+								colStart: 1,
+								colEnd: 1,
+								title: {
+									variant: 'large',
+									value: 'Takeaway #1',
+								},
+								text: {
+									variant: 'large',
+									value: 'Nunc sed sagittis arcu, eget fringilla tellus.',
+								},
+							},
+              {
+								// Group
+                id: 1,
+								colStart: 2,
+								colEnd: 2,
+								title: {
+									variant: 'large',
+									value: 'Takeaway #2',
+								},
+								text: {
+									variant: 'large',
+									value: 'PELLE.',
+								},
+                columns: 3,
+                gap: 2,
+                groups: [
+                  // Groups
+                  {
+                    // Group
+                    id: 0,
+                    colStart: 1,
+                    colEnd: 1,
+                    title: {
+                      variant: 'large',
+                      value: 'Takeaway #1',
+                    },
+                    text: {
+                      variant: 'large',
+                      value: 'Nunc sed sagittis arcu, eget fringilla tellus.',
+                    },
+                  },
+                  {
+                    // Group
+                    id: 1,
+                    colStart: 2,
+                    colEnd: 2,
+                    title: {
+                      variant: 'large',
+                      value: 'Takeaway #2',
+                    },
+                    text: {
+                      variant: 'large',
+                      value: 'PELLE.',
+                    },
+                  },
+                ],
+							},
+						],
+					},
+				],
+			},
+			{
+				id: 1,
+				title: 'Synlig göra radio i spotify',
+				protected: false,
+				content: [
+					// Sections
+					{
+						title: 'Share story as music',
+					},
+				],
+			},
+		],
 	},
   {
 		id: 2,
@@ -213,7 +226,7 @@ const work = [
 		tags: ['UX', 'UI', 'Prototyping', 'User testing', 'Field research'],
 		bg: '/images/case/recordunion/bg_recordunion.png',
 		url: 'https://www.recordunion.com',
-		protected: false,
+    index: true,
 	},
   {
 		id: 3,
@@ -224,7 +237,6 @@ const work = [
 		tags: ['UX', 'UI', 'Prototyping', 'User testing', 'Field research'],
 		bg: '/images/case/lansforsakringar/bg_lf.png',
 		url: 'https://www.lansforsakringar.se',
-		protected: false,
 	},
   {
 		id: 4,
@@ -235,7 +247,6 @@ const work = [
 		tags: ['UX', 'UI', 'Prototyping', 'User testing', 'Field research'],
 		bg: '/images/case/instinctly/bg_instinctly.png',
 		url: 'https://www.daniellauding.se',
-		protected: false,
 	},
   {
 		id: 5,
@@ -246,7 +257,18 @@ const work = [
 		tags: ['UX', 'UI', 'Prototyping', 'User testing', 'Field research'],
 		bg: '/images/case/backbase/bg_backbase.png',
 		url: 'https://www.backbase.com',
-		protected: false,
+    index: true,
+	},
+  {
+		id: 6,
+		client: 'Playground',
+		role: 'Some fun stuff',
+		date: 'Never and forever',
+		location: 'www',
+		tags: ['UX', 'UI', 'Prototyping', 'User testing', 'Field research'],
+		bg: '/images/case/backbase/bg_backbase.png',
+		url: 'https://www.backbase.com',
+    index: false,
 	},
 ];
 
