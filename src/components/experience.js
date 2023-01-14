@@ -9,7 +9,7 @@ const test = new UIfx(
     volume: 0.0, // number between 0.0 ~ 1.0
     throttleMs: 100
   }
-)
+);
 
 const Experience = ({ item, active, setActive, onHover }) => {
 	const [isHovering, setIsHovering] = useState(false);
