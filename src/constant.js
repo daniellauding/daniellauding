@@ -7,6 +7,30 @@ const about = [
 		hero: '/images/me.jpg',
 		description:
 			'I am a hybrid* designer who enjoys prototyping, conceptualizing and designing interfaces',
+    content: [
+      {
+        groups: [
+          {
+            group: [
+              {
+                text: [
+                  {
+                    value: '* I love to build and design. part designer & part developer – the unicorn of the internet Solving problems and creating new visual languages is my favorite part of the job. My main focus is designing large scale web projects, tools and experiences that lots of people will use for a very long time. I am an advocate for a proper user experience, structured design and extremely detailed execution. I have a background as a Digital Media student at Hyper Island and as a front-end developer. I draw inspiration from many different sources, travel, the internet, the streets or just a casual drink with friends. During my career I ́ve lived and worked in Stockholm, Gothenburg, New York, Amsterdam and Singapore.'
+                  ,}
+                ],
+              },
+              {
+                text: [
+                  {
+                    value: 'The work below has been done either as a consultant or as a freelancer with direct contact to clients.'
+                  }
+                ]
+              }
+            ],
+          },
+        ],
+      },
+    ],
     skills: [
       {
         design: [
@@ -69,7 +93,7 @@ const work = [
 			// eller är dessa cases knutna clients / work? vad är bäst
 			{
 				id: 0,
-        case: 'growth-test',
+        case: 'growth-enable-more-free-users-emerging-markets',
 				title: 'Optimize product value for existing markets with growth potential',
 				lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
 				protected: true,
@@ -77,114 +101,99 @@ const work = [
         // index: false 
 					// Sections
 					{
+						// Section
             id: 1,
-						title: 'Optimize product value for existing markets with growth potential',
-						lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
-						columns: 3,
-						gap: 2,
-						variant: 'hero',
+						section: 'brief',
+						title: 'Enable more free users in emerging markets',
+						lead: 'In 2017 Spotify’s goal was to enable more free users in emerging markets. To understand what and how, me and my team traveled to Brazil for two weeks local field research. We did in-home interviews and user testing on prototypes with quick iterations of potential solutions.',
 					},
 					{
 						// Section
             id: 2,
-						section: 'brief',
-						title: 'Optimize product value for existing markets with growth potential',
-						lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+						section: 'discovery',
+						title: 'Identify ways to attract new freemium users',
+						lead: 'We understood that free users on year class phones (older androids) still where downloading mp3s and was afraid of streaming when not on Wi-Fi. A hypothesis to gain trust to stream on cellular was to build a solution that uses less data consumption.',
 					},
 					{
 						// Section
             id: 3,
-						section: 'discovery',
-						title: 'Identify ways to attract new freemium users',
-						lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
-					},
-					{
-						// Section
-            id: 4,
 						section: 'solution',
-						title: 'asdf',
-						lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+						title: 'Consume 1% of data',
+						lead: 'One of our solutions we ran A/B tests on would serve 4 playlists on-demand and when playing songs from those it only consumed 1% of their data. The design is branded with dark-blue to build awareness throughtout the flow.',
 					},
-					{
-						// Section
-            id: 5,
-						section: 'validation',
-						title: 'asdf',
-						lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
-					},
-					{
-						// Section
-            id: 6,
-						section: 'takeaways',
-						title: 'Optimize product value for existing markets with growth potential',
-						lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
-						columns: 3,
-						gap: 2,
-						groups: [
-							// Groups
-							{
-								// Group
-                id: 0,
-								colStart: 1,
-								colEnd: 1,
-								title: {
-									variant: 'large',
-									value: 'Takeaway #1',
-								},
-								text: {
-									variant: 'large',
-									value: 'Nunc sed sagittis arcu, eget fringilla tellus.',
-								},
-							},
-              {
-								// Group
-                id: 1,
-								colStart: 2,
-								colEnd: 2,
-								title: {
-									variant: 'large',
-									value: 'Takeaway #2',
-								},
-								text: {
-									variant: 'large',
-									value: 'PELLE.',
-								},
-                columns: 3,
-                gap: 2,
-                groups: [
-                  // Groups
-                  {
-                    // Group
-                    id: 0,
-                    colStart: 1,
-                    colEnd: 1,
-                    title: {
-                      variant: 'large',
-                      value: 'Takeaway #1',
-                    },
-                    text: {
-                      variant: 'large',
-                      value: 'Nunc sed sagittis arcu, eget fringilla tellus.',
-                    },
-                  },
-                  {
-                    // Group
-                    id: 1,
-                    colStart: 2,
-                    colEnd: 2,
-                    title: {
-                      variant: 'large',
-                      value: 'Takeaway #2',
-                    },
-                    text: {
-                      variant: 'large',
-                      value: 'PELLE.',
-                    },
-                  },
-                ],
-							},
-						],
-					},
+					// {
+					// 	// Section
+          //   id: 6,
+					// 	section: 'takeaways',
+					// 	title: 'Optimize product value for existing markets with growth potential',
+					// 	lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+					// 	columns: 3,
+					// 	gap: 2,
+					// 	groups: [
+					// 		// Groups
+					// 		{
+					// 			// Group
+          //       id: 0,
+					// 			colStart: 1,
+					// 			colEnd: 1,
+					// 			title: {
+					// 				variant: 'large',
+					// 				value: 'Takeaway #1',
+					// 			},
+					// 			text: {
+					// 				variant: 'large',
+					// 				value: 'Nunc sed sagittis arcu, eget fringilla tellus.',
+					// 			},
+					// 		},
+          //     {
+					// 			// Group
+          //       id: 1,
+					// 			colStart: 2,
+					// 			colEnd: 2,
+					// 			title: {
+					// 				variant: 'large',
+					// 				value: 'Takeaway #2',
+					// 			},
+					// 			text: {
+					// 				variant: 'large',
+					// 				value: 'PELLE.',
+					// 			},
+          //       columns: 3,
+          //       gap: 2,
+          //       groups: [
+          //         // Groups
+          //         {
+          //           // Group
+          //           id: 0,
+          //           colStart: 1,
+          //           colEnd: 1,
+          //           title: {
+          //             variant: 'large',
+          //             value: 'Takeaway #1',
+          //           },
+          //           text: {
+          //             variant: 'large',
+          //             value: 'Nunc sed sagittis arcu, eget fringilla tellus.',
+          //           },
+          //         },
+          //         {
+          //           // Group
+          //           id: 1,
+          //           colStart: 2,
+          //           colEnd: 2,
+          //           title: {
+          //             variant: 'large',
+          //             value: 'Takeaway #2',
+          //           },
+          //           text: {
+          //             variant: 'large',
+          //             value: 'PELLE.',
+          //           },
+          //         },
+          //       ],
+					// 		},
+					// 	],
+					// },
 				],
 			},
 			{
