@@ -2,9 +2,10 @@ import React from 'react';
 // import ContentType from './contentType';
 import classNames from 'classnames';
 import Text, { Title } from './typography'
+import DummyImage from 'react-dummy-image';
 
 const Group = ({group}) => {
-  const {title, text, ...rest} = group;
+  const {title, text, dummyimage, ...rest} = group;
   console.log(group);
   return (
     <div className={classNames(`group`, {
@@ -18,6 +19,7 @@ const Group = ({group}) => {
     })}>
       {title && (<Title value={title?.value} variant={title?.variant} style={title?.style} />)}
       {text && (<Text value={text?.value} variant={text?.variant} style={text?.style} />)}
+      {dummyimage && (<DummyImage color={dummyimage?.color} format={dummyimage?.format} width={dummyimage?.width} height={dummyimage?.height} text={dummyimage?.text} textColor={dummyimage?.textcolor} />)}
       {rest?.groups && (<Groups section={rest} />)}
     </div>
   )

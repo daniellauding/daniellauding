@@ -25,7 +25,6 @@ const Access = ({ clearActive, password, onChange, emailInput, item }) => {
               value={password}
               onChange={onChange}
               ref={emailInput}
-              autoFocus
             />
             <button
               onClick={() => window.location = `mailto:daniel@laudig.se?subject=${item.case}&body=I want to know more about the work you did in this project.`}

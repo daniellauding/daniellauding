@@ -5,11 +5,17 @@ import classNames from 'classnames';
 import Slider from './slider';
 import Accordion from './accordion';
 import Text, { Title } from './typography';
+import DummyImage from 'react-dummy-image';
 import Image from './image';
 import Section from './section';
 import Hero from './hero';
 
-const Component = ({ type, style, value, size, title, accordionItem, slides }) => {
+// Carousel
+// Image gallery
+// Modal
+// Accordion
+
+const Component = ({ type, style, value, width, height size, title, accordionItem, slides, format, className, color, textColor }) => {
   if (type === 'text') {
     return <Text value={value} size={size} style={style} />;
   }
@@ -18,6 +24,9 @@ const Component = ({ type, style, value, size, title, accordionItem, slides }) =
   }
   if (type === 'img') {
     return <Image value={value} style={style} />;
+  }
+  if (type === 'dummyimg') {
+    return <DummyImage text={value} width={width} height={height} format={format} className={className} color={color} textColor={textColor} />;
   }
   if (type === 'slider') {
     return <Slider slides={slides} />;

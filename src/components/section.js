@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import Groups from './groups';
 import Text, { Title } from './typography';
+import DummyImage from 'react-dummy-image';
 
 // const Section = ({
 //   style,
@@ -64,19 +65,50 @@ import Text, { Title } from './typography';
 // };
 
 const Section = ({section}) => {
-  return (
-    <div className={classNames(`py-16 section`,
-      {
-        [`variant-${section.variant}`] : section.variant,
-        [`${section.className}`] : section.className,
-      })} id={section?.name}>
-      <div className={classNames(`mx-auto`, section?.container ? `container-${section?.container}` : 'container') }>
-        {section?.title && (<Title value={section?.title} />)}
-        {section?.lead && (<Text value={section?.lead} />)}
-        <Groups section={section} />
+
+  if (section?.variant === 'full') {
+
+    return (
+      <div className={classNames(`py-16 section variant-full h-screen w-screen overflow-hidden flex items-center justify-center`)}>
+
+        <div className={classNames(`mx-auto container-full`)}>
+
+          {section?.title && (<Title value={section?.title} />)}
+          {section?.lead && (<Text value={section?.lead} />)}
+          {section?.dummyimage && (<DummyImage color={section?.dummyimage?.color} format={section?.dummyimage?.format} width={section?.dummyimage?.width} height={section?.dummyimage?.height} text={section?.dummyimage?.text} textColor={section?.dummyimage?.textColor} />)}
+
+          <Groups section={section} />
+
+        </div>
+
       </div>
-    </div>
-  )
+    )
+
+  }
+
+  return (
+
+    <div className={classNames(`py-16 section`,
+        {
+          [`variant-${section.variant}`] : section.variant,
+          [`${section.className}`] : section.className,
+        })} id={section?.name}
+      >
+
+        <div className={classNames(`mx-auto`, section?.container ? `container-${section?.container}` : 'container')}>
+
+          {section?.title && (<Title value={section?.title} />)}
+          {section?.lead && (<Text value={section?.lead} />)}
+          {section?.dummyimage && (<DummyImage color={section?.dummyimage?.color} format={section?.dummyimage?.format} width={section?.dummyimage?.width} height={section?.dummyimage?.height} text={section?.dummyimage?.text} textColor={section?.dummyimage?.textColor} />)}
+
+          <Groups section={section} />
+
+        </div>
+      
+      </div>
+ 
+    )
+
 }
 
 export default Section;
