@@ -35,7 +35,7 @@ function App() {
         className={classNames(
           // 'flex flex-col md:flex-row justify-center md:h-screen w-screen md:fixed'
           // 'flex flex-col md:flex-row justify-center w-screen h-screen'
-          'grid auto-rows-auto md:grid-flow-col pt-96 md:p-0 md:auto-cols-fr md:h-screen'
+          'grid auto-rows-auto md:grid-flow-col pt-96 md:p-0 md:auto-cols-fr md:h-screen md:overflow-hidden'
           // {
           //   [`client-${active?.client?.toLowerCase()} case-active md:relative justify-start h-auto`]:
           //     active,

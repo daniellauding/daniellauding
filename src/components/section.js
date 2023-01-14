@@ -65,10 +65,16 @@ import Text, { Title } from './typography';
 
 const Section = ({section}) => {
   return (
-    <div className={classNames(`section`)}>
-      {section?.title && (<Title value={section?.title} />)}
-      {section?.lead && (<Text value={section?.lead} />)}
-      <Groups section={section} />
+    <div className={classNames(`py-16 section`,
+      {
+        [`variant-${section.variant}`] : section.variant,
+        [`${section.className}`] : section.className,
+      })} id={section?.name}>
+      <div className={classNames(`mx-auto`, section?.container ? `container-${section?.container}` : 'container') }>
+        {section?.title && (<Title value={section?.title} />)}
+        {section?.lead && (<Text value={section?.lead} />)}
+        <Groups section={section} />
+      </div>
     </div>
   )
 }
