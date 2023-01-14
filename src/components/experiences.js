@@ -13,6 +13,8 @@ const Experiences = ({ active, selectedChanged, setPreviewCase }) => {
           setActive={selectedChanged}
           onHover={setPreviewCase}
         />
+
+        // List more like a longer one, a cv, maybe list projects as a accordion, a full page view / sidebar / replace traditional cv
       ))}
 		</ul>
 	);

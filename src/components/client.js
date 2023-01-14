@@ -22,9 +22,11 @@ const Client = ({ item, clearActive }) => {
         ← Back
       </button>
       {!cases?.length && (<Soon item={item} />)}
+      {/* Visa "soon" om item.index !== false */}
+
       {!cases?.length < 1 && (
         <div className="case-wrapper grid grid-flow-col gap-16 auto-cols-fr h-screen max-h-screen overflow-hidden">
-          {cases.map((item) => <CaseSelector onSelect={setCase} key={item.id} item={item} clearActive={clearActive} />)}
+          {cases.filter(item => item.index !== false).map((item) => <CaseSelector onSelect={setCase} key={item.id} item={item} clearActive={clearActive} />)}
         </div>
       )}
     </div>

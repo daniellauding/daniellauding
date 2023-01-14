@@ -7,7 +7,7 @@ const Avatar = ({ active, selectedChanged, previewCase }) => {
   const heroImg = about.map((intro) => intro.hero);
 
   return (
-    <div className={classNames('cover bg-cover', active ? 'col-span-2' : 'md:w-1/2')}>
+    <div className={classNames('cover bg-cover fixed top-0 md:top-auto md:relative', active ? '' : '')}>
       <img
         src={active?.bg || previewCase?.bg || heroImg}
         className={classNames('object-cover', active ? 'w-full h-auto' : 'w-full h-full')}
