@@ -110,12 +110,10 @@ const work = [
           {
 						// Section
             id: 2,
-						section: '',
-						// title: 'Enable more free users in emerging markets',
-						// lead: 'In 2017 Spotify’s goal was to enable more free users in emerging markets. To understand what and how, me and my team traveled to Brazil for two weeks local field research. We did in-home interviews and user testing on prototypes with quick iterations of potential solutions.',
-            // className: 'olle petter nicklas',
+						section: 'scene-imagery',
             variant: 'full',
-            dummyimage: {
+            image: {
+              variant: 'dummy',
               text: 'Ny bild',
               width: '1920',
               height: '1050',
@@ -143,6 +141,76 @@ const work = [
 						section: 'solution',
 						title: 'Consume 1% of data',
 						lead: 'One of our solutions we ran A/B tests on would serve 4 playlists on-demand and when playing songs from those it only consumed 1% of their data. The design is branded with dark-blue to build awareness throughtout the flow.',
+					},
+          {
+						// Section
+            id: 5,
+						section: 'designs',
+						title: 'Designs',
+            groups: [
+              {
+                id: 0,
+                image: {
+                  variant: 'dummy',
+                  text: 'Bild #1',
+                  width: '784',
+                  height: '784x1353',
+                  color: '#20232a',
+                  textColor: '#737373',
+                  format: 'png',
+                },
+              },
+              {
+                id: 1,
+                image: {
+                  variant: 'dummy',
+                  text: 'Bild #2',
+                  width: '784',
+                  height: '784x1353',
+                  color: '#20232a',
+                  textColor: '#737373',
+                  format: 'png',
+                },
+                groups: [
+                  {
+                    id: 1,
+                    image: {
+                      variant: 'dummy',
+                      text: 'Bild #2',
+                      width: '784',
+                      height: '784x1353',
+                      color: '#20232a',
+                      textColor: '#737373',
+                      format: 'png',
+                    },
+                  },
+                  {
+                    id: 2,
+                    image: {
+                      variant: 'dummy',
+                      text: 'Bild #3',
+                      width: '784',
+                      height: '784x1353',
+                      color: '#20232a',
+                      textColor: '#737373',
+                      format: 'png',
+                    },
+                  },
+                  {
+                    id: 3,
+                    image: {
+                      variant: 'dummy',
+                      text: 'Bild #4',
+                      width: '784',
+                      height: '784x1353',
+                      color: '#20232a',
+                      textColor: '#737373',
+                      format: 'png',
+                    },
+                  },
+                ],
+              },
+            ],
 					},
 					// {
 					// 	// Section
@@ -217,18 +285,6 @@ const work = [
 					// 		},
 					// 	],
 					// },
-				],
-			},
-			{
-				id: 1,
-				title: 'Synlig göra radio i spotify',
-				protected: false,
-        index: false,
-				content: [
-					// Sections
-					{
-						title: 'Share story as music',
-					},
 				],
 			},
 		],
@@ -351,7 +407,7 @@ const work = [
 				protected: true,
       },
       {
-				id: 1,
+				id: 2,
         case: 'abro',
         date: '2014',
         location: 'Remote',

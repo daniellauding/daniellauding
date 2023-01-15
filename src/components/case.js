@@ -42,6 +42,9 @@ const Case = ({ item, clearActive }) => {
         <p className="pt-0 mt-8 mb-16 text-4xl md:text-4xl text-left text-gray-400 font-thin">
           {item.lead}
         </p>
+        <p className="pt-0 mt-8 mb-16 text-4xl md:text-2xl text-left text-gray-400 font-normal">
+          {item.desc}
+        </p>
         {item?.content?.map(
           (section) => (
             <Section key={section?.id} section={section} />

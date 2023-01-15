@@ -80,6 +80,7 @@
 }
 
 .scroll-container {
+  display: none;
   @apply overflow-hidden;
   width: calc(100% - 40px);
   &:nth-of-type(1) {

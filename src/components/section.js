@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import Groups from './groups';
 import Text, { Title } from './typography';
-import DummyImage from 'react-dummy-image';
+import Image from './image';
 
 // const Section = ({
 //   style,
@@ -75,7 +75,8 @@ const Section = ({section}) => {
 
           {section?.title && (<Title value={section?.title} />)}
           {section?.lead && (<Text value={section?.lead} />)}
-          {section?.dummyimage && (<DummyImage color={section?.dummyimage?.color} format={section?.dummyimage?.format} width={section?.dummyimage?.width} height={section?.dummyimage?.height} text={section?.dummyimage?.text} textColor={section?.dummyimage?.textColor} />)}
+          {section?.desc && (<Text value={section?.desc} />)}
+          {section?.image && (<Image variant={section?.image?.variant} color={section?.image?.color} format={section?.image?.format} width={section?.image?.width} height={section?.image?.height} text={section?.image?.text} textColor={section?.image?.textColor} />)}
 
           <Groups section={section} />
 
@@ -99,7 +100,8 @@ const Section = ({section}) => {
 
           {section?.title && (<Title value={section?.title} />)}
           {section?.lead && (<Text value={section?.lead} />)}
-          {section?.dummyimage && (<DummyImage color={section?.dummyimage?.color} format={section?.dummyimage?.format} width={section?.dummyimage?.width} height={section?.dummyimage?.height} text={section?.dummyimage?.text} textColor={section?.dummyimage?.textColor} />)}
+          {section?.desc && (<Text value={section?.desc} />)}
+          {section?.image && (<Image variant={section?.image?.variant} color={section?.image?.color} format={section?.image?.format} width={section?.image?.width} height={section?.image?.height} text={section?.image?.text} textColor={section?.image?.textColor} />)}
 
           <Groups section={section} />
 
