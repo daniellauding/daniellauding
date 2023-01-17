@@ -154,7 +154,7 @@ const work = [
                   variant: 'dummy',
                   text: 'Bild #1',
                   width: '784',
-                  height: '784x1353',
+                  height: '1353',
                   color: '#20232a',
                   textColor: '#737373',
                   format: 'png',
@@ -178,7 +178,7 @@ const work = [
                       variant: 'dummy',
                       text: 'Bild #2',
                       width: '784',
-                      height: '784x1353',
+                      height: '1353',
                       color: '#20232a',
                       textColor: '#737373',
                       format: 'png',
@@ -190,7 +190,7 @@ const work = [
                       variant: 'dummy',
                       text: 'Bild #3',
                       width: '784',
-                      height: '784x1353',
+                      height: '1353',
                       color: '#20232a',
                       textColor: '#737373',
                       format: 'png',
@@ -202,7 +202,7 @@ const work = [
                       variant: 'dummy',
                       text: 'Bild #4',
                       width: '784',
-                      height: '784x1353',
+                      height: '1353',
                       color: '#20232a',
                       textColor: '#737373',
                       format: 'png',
@@ -299,16 +299,22 @@ const work = [
 		bg: '/images/case/recordunion/bg_recordunion.png',
 		url: 'https://www.recordunion.com',
     index: true,
-    content: [
-      // Sections
-      {
-        // Section
-        id: 1,
-        section: 'asdf',
-        title: 'asdf',
-        lead: 'asdf',
-      },
-    ],
+		cases: [
+			// eller är dessa cases knutna clients / work? vad är bäst
+			{
+				id: 0,
+        case: 'growth-enable-more-free-users-emerging-markets',
+				title: 'Optimize product value for existing markets with growth potential',
+				lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+				protected: true,
+        image: {
+          variant: 'loop',
+          // client: ?
+          // folder: ?
+          // path: ?
+        },
+			},
+		],
 	},
   {
 		id: 3,
@@ -415,6 +421,15 @@ const work = [
 				title: 'Åbro website & CMS',
 				lead: 'I was hired together with my team Producks by Folkets Stockholm, to design and develop a custom CMS and a new web for Åbro bryggeri. Producks was responsible for the user experience, interface design and development. The new web was released in beginning of 2015. Check it out on www.abro.se',
 				protected: true,
+        image: {
+          variant: 'dummy',
+          text: 'Bild',
+          width: '1440',
+          height: '730',
+          color: '#20232a',
+          textColor: '#737373',
+          format: 'png',
+        },
       },
     ],
 	},

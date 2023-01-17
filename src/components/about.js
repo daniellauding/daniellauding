@@ -27,6 +27,8 @@ const About = ({ previewCase, setPreviewCase, active, selectedChanged, clearPrev
             active={active}
             previewCase={previewCase}
           />
+
+          {/* <TagsList /> */}
         </div>
       </div>
     </>

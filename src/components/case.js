@@ -2,8 +2,15 @@ import React, { useState, useRef, useEffect } from 'react';
 import classNames from 'classnames';
 import Section from './section';
 import Access from './access';
+import Text, { Title } from './typography';
+import Image from './image';
 
 const Case = ({ item, clearActive }) => {
+  const [show, setShow] = useState(true);
+
+  const openModal = () => setShow(true);
+  const closeModal = () => setShow(false);
+
   const [password, setPassword] = useState(null);
 
   const emailInput = useRef(null);
@@ -19,7 +26,8 @@ const Case = ({ item, clearActive }) => {
   };
 
   if (item.protected && password !== '123') {
-    return <Access clearActive={clearActive} item={item} password={password} onChange={onChange} emailInput={emailInput} />;
+    // hur får jag denna att lägga sig ovanpå existerande innehåll, nu byts sida ut?
+    return <Access clearActive={clearActive} closeModal={closeModal} openModal={openModal} show={show} item={item} password={password} onChange={onChange} emailInput={emailInput} />;
   }
 
   return (
@@ -31,25 +39,18 @@ const Case = ({ item, clearActive }) => {
           ← Back
         </button>
 
-        <h3 className="pt-0 mt-8 mb-2 text-4xl md:text-2xl text-left text-primary font-bold">
-          {item.client}
-        </h3>
+        {item?.client && (<Title value={item.client} />)}
+        {item?.title && (<Title value={item.title} />)}
+        {item?.lead && (<Text value={item.lead} />)}
+        {item?.desc && (<Text value={item.desc} />)}
+        {item?.image && (<Image variant={item?.image?.variant} color={item?.image?.color} format={item?.image?.format} width={item?.image?.width} height={item?.image?.height} text={item?.image?.text} textColor={item?.image?.textColor} />)}
 
-        <h1 className="pt-0 mt-8 mb-16 text-4xl md:text-9xl text-left text-white font-bold">
-          {item.title}
-        </h1>
-
-        <p className="pt-0 mt-8 mb-16 text-4xl md:text-4xl text-left text-gray-400 font-thin">
-          {item.lead}
-        </p>
-        <p className="pt-0 mt-8 mb-16 text-4xl md:text-2xl text-left text-gray-400 font-normal">
-          {item.desc}
-        </p>
         {item?.content?.map(
           (section) => (
             <Section key={section?.id} section={section} />
           )
         )}
+
     </div>
   );
 }

@@ -2,7 +2,16 @@ import React from 'react';
 import DummyImage from 'react-dummy-image';
 //import classNames from 'classnames';
 
-const Image = ({ variant, color, format, width, height, text, textColor, value }) => {
+const Image = ({ item, variant, color, format, width, height, text, textColor, value }) => {
+
+  if (loop === true) {
+    return (
+      <img
+        src={`../images/${item.client}/${item.name}.jpg`}
+        alt='Beer picture'
+      />
+    );
+  }
 
   if (variant === 'dummy') {
     return (
