@@ -1,39 +1,43 @@
 module.exports = {
-	env: {
-		browser: true,
-		es2021: true,
-	},
 	extends: [
 		'eslint:recommended',
+		'plugin:import/errors',
 		'plugin:react/recommended',
-		'plugin:react-hooks/recommended',
-		'plugin:prettier/recommended',
+		'plugin:jsx-a11y/recommended',
+		'plugin:prettier/recommended'
 	],
-	overrides: [],
-	parserOptions: {
-		ecmaVersion: 'latest',
-		sourceType: 'module',
-	},
-	plugins: ['react', 'react-hooks', 'jsx-a11y', 'import', 'prettier'],
+	plugins: ['react', 'import', 'jsx-a11y', 'prettier'],
 	rules: {
 		'prettier/prettier': [
-			'warn',
+			'error',
 			{
 				singleQuote: true,
-				trailingComma: 'all',
 				useTabs: true,
-				tabWidth: 4,
-			},
+				tabWidth: 4
+			}
 		],
-		indent: 'off',
-		semi: 'off',
+		'react/prop-types': 0,
+		indent: ['warn', 'tab'],
 		'no-tabs': 'off',
 		'linebreak-style': ['error', 'unix'],
 		quotes: ['error', 'single', { allowTemplateLiterals: true }],
-		'no-console': ['warn'],
-		'react/prop-types': 'warn',
-		// 'react/prop-types': ['warn'],
-		// 'no-unused-vars': ['warn'],
+		'no-console': ['warn']
 	},
-	settings: { react: { version: 'detect' } },
+	parserOptions: {
+		ecmaVersion: 2021,
+		sourceType: 'module',
+		ecmaFeatures: {
+			jsx: true
+		}
+	},
+	env: {
+		es6: true,
+		browser: true,
+		node: true
+	},
+	settings: {
+		react: {
+			version: 'detect'
+		}
+	}
 };

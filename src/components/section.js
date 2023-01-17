@@ -64,53 +64,66 @@ import Image from './image';
 //   );
 // };
 
-const Section = ({section}) => {
+const Section = ({ section }) => {
+	if (section?.variant === 'full') {
+		return (
+			<div
+				className={classNames(
+					`py-16 section variant-full h-screen w-screen overflow-hidden flex items-center justify-center`
+				)}>
+				<div className={classNames(`mx-auto container-full`)}>
+					{section?.title && <Title value={section?.title} />}
+					{section?.lead && <Text value={section?.lead} />}
+					{section?.desc && <Text value={section?.desc} />}
+					{section?.image && (
+						<Image
+							variant={section?.image?.variant}
+							color={section?.image?.color}
+							format={section?.image?.format}
+							width={section?.image?.width}
+							height={section?.image?.height}
+							text={section?.image?.text}
+							textColor={section?.image?.textColor}
+						/>
+					)}
 
-  if (section?.variant === 'full') {
+					<Groups section={section} />
+				</div>
+			</div>
+		);
+	}
 
-    return (
-      <div className={classNames(`py-16 section variant-full h-screen w-screen overflow-hidden flex items-center justify-center`)}>
+	return (
+		<div
+			className={classNames(`py-16 section`, {
+				[`variant-${section.variant}`]: section.variant,
+				[`${section.className}`]: section.className
+			})}
+			id={section?.name}>
+			<div
+				className={classNames(
+					`mx-auto`,
+					section?.container ? `container-${section?.container}` : 'container'
+				)}>
+				{section?.title && <Title value={section?.title} />}
+				{section?.lead && <Text value={section?.lead} />}
+				{section?.desc && <Text value={section?.desc} />}
+				{section?.image && (
+					<Image
+						variant={section?.image?.variant}
+						color={section?.image?.color}
+						format={section?.image?.format}
+						width={section?.image?.width}
+						height={section?.image?.height}
+						text={section?.image?.text}
+						textColor={section?.image?.textColor}
+					/>
+				)}
 
-        <div className={classNames(`mx-auto container-full`)}>
-
-          {section?.title && (<Title value={section?.title} />)}
-          {section?.lead && (<Text value={section?.lead} />)}
-          {section?.desc && (<Text value={section?.desc} />)}
-          {section?.image && (<Image variant={section?.image?.variant} color={section?.image?.color} format={section?.image?.format} width={section?.image?.width} height={section?.image?.height} text={section?.image?.text} textColor={section?.image?.textColor} />)}
-
-          <Groups section={section} />
-
-        </div>
-
-      </div>
-    )
-
-  }
-
-  return (
-
-    <div className={classNames(`py-16 section`,
-        {
-          [`variant-${section.variant}`] : section.variant,
-          [`${section.className}`] : section.className,
-        })} id={section?.name}
-      >
-
-        <div className={classNames(`mx-auto`, section?.container ? `container-${section?.container}` : 'container')}>
-
-          {section?.title && (<Title value={section?.title} />)}
-          {section?.lead && (<Text value={section?.lead} />)}
-          {section?.desc && (<Text value={section?.desc} />)}
-          {section?.image && (<Image variant={section?.image?.variant} color={section?.image?.color} format={section?.image?.format} width={section?.image?.width} height={section?.image?.height} text={section?.image?.text} textColor={section?.image?.textColor} />)}
-
-          <Groups section={section} />
-
-        </div>
-      
-      </div>
- 
-    )
-
-}
+				<Groups section={section} />
+			</div>
+		</div>
+	);
+};
 
 export default Section;

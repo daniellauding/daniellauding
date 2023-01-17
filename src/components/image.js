@@ -2,24 +2,48 @@ import React from 'react';
 import DummyImage from 'react-dummy-image';
 //import classNames from 'classnames';
 
-const Image = ({ item, variant, color, format, width, height, text, textColor, value }) => {
+const files = [];
 
-  if (loop === true) {
-    return (
-      <img
-        src={`../images/${item.client}/${item.name}.jpg`}
-        alt='Beer picture'
-      />
-    );
-  }
+function importAll(r) {
+	// r.keys().forEach((key) => (cache[key] = r(key)));
 
-  if (variant === 'dummy') {
-    return (
-      <DummyImage color={color} format={format} width={width} height={height} text={text} textColor={textColor} />
-    );
-  }
+	r.keys().forEach((key) => {
+		files.push(key.substring(2));
+	});
+}
 
-  return <img className="mt-4 mb-4" src={value} alt="" />;
+importAll(require.context('../../public/images/case/', true, /\.(png|jpe?g|svg)$/));
+
+const Image = ({ item = {} }) => {
+	const { variant, color, format, width, height, text, textColor, value } = item;
+	if (variant === 'loop') {
+		const images = files.filter((image) => image.includes(item.folder));
+
+		return (
+			<div className="">
+				{images.map((src, index) => (
+					<img key={index} src={`/images/case/${src}`} alt="Beer" />
+				))}
+			</div>
+		);
+	}
+
+	console.log(files);
+
+	if (variant === 'dummy') {
+		return (
+			<DummyImage
+				color={color}
+				format={format}
+				width={width}
+				height={height}
+				text={text}
+				textColor={textColor}
+			/>
+		);
+	}
+
+	return <img className="mt-4 mb-4" src={value} alt="" />;
 };
 
 export default Image;
