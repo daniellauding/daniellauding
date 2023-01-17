@@ -316,7 +316,7 @@ const work = [
 					'Prototyping',
 					'User testing',
 					'Field research',
-					'Penis',
+					'Amazing',
 				],
 				protected: true,
 				image: {
