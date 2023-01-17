@@ -37,10 +37,10 @@ const Soon = ({ item }) => {
 						options={{
 							strings: [
 								'Something exciting is cooking here!',
-								'Details will be served soon.'
+								'Details will be served soon.',
 							],
 							autoStart: true,
-							loop: true
+							loop: true,
 						}}
 					/>
 				</div>
@@ -50,7 +50,8 @@ const Soon = ({ item }) => {
 				onClick={() =>
 					(window.location = `mailto:daniel@laudig.se?subject=${item.client}&body=I want to know more about the work you did for this client.`)
 				}
-				className="bg-primary hover:primary text-white font-bold py-5 px-8 rounded-full">
+				className="bg-primary hover:primary text-white font-bold py-5 px-8 rounded-full"
+			>
 				Request walkthrough
 			</button>
 		</div>

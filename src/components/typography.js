@@ -11,7 +11,8 @@ const Text = ({ size, value, className }) => {
 				size === 'medium' ? 'text-1xl md:text-2xl' : undefined,
 				size === 'small' ? 'text-sm' : undefined,
 				className
-			)}>
+			)}
+		>
 			{value}
 		</p>
 	);
@@ -24,7 +25,8 @@ const Title = ({ size = 'medium', value, className }) => {
 				className={classNames(
 					`pt-0 mt-8 mb-16 text-4xl text-left dark:text-gray-200 text-black lg:font-bold`,
 					className
-				)}>
+				)}
+			>
 				{value}
 			</h1>
 		);
@@ -35,7 +37,8 @@ const Title = ({ size = 'medium', value, className }) => {
 				className={classNames(
 					`pt-0 mt-0 mb-2 text-4xl dark:text-gray-200 text-black lg:font-bold`,
 					className
-				)}>
+				)}
+			>
 				{value}
 			</h1>
 		);
@@ -46,7 +49,8 @@ const Title = ({ size = 'medium', value, className }) => {
 				className={classNames(
 					`pt-0 mt-0 mb-2 text-3xl dark:text-gray-200 text-black lg:font-bold`,
 					className
-				)}>
+				)}
+			>
 				{value}
 			</h2>
 		);
@@ -57,7 +61,8 @@ const Title = ({ size = 'medium', value, className }) => {
 				className={classNames(
 					`pt-0 mt-0 mb-2 text-1xl dark:text-gray-200 text-black lg:font-bold`,
 					className
-				)}>
+				)}
+			>
 				{value}
 			</h3>
 		);

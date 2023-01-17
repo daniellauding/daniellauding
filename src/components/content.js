@@ -29,7 +29,7 @@ const Component = ({
 	format,
 	className,
 	color,
-	textColor
+	textColor,
 }) => {
 	if (type === 'text') {
 		return <Text value={value} size={size} style={style} />;
@@ -81,11 +81,16 @@ const Content = ({ item, clearActive }) => {
 
 	return (
 		<div className="case-wrapper gap-20 flex flex-col">
-			<div className={classNames(`section py-20 px-20 section-${item.client.toLowerCase()}`)}>
+			<div
+				className={classNames(
+					`section py-20 px-20 section-${item.client.toLowerCase()}`
+				)}
+			>
 				<Hero item={item} toggle={toggle} setToggle={setToggle} />
 				<button
 					onClick={clearActive}
-					className="pt-0 mb-0 mt-0 text-center dark:text-gray-500 text-black text-sm lg:font-light">
+					className="pt-0 mb-0 mt-0 text-center dark:text-gray-500 text-black text-sm lg:font-light"
+				>
 					← Back
 				</button>
 			</div>
@@ -98,7 +103,8 @@ const Content = ({ item, clearActive }) => {
 								className={classNames(
 									'section-wrapper',
 									item.layout ? item.layout : 'vertical'
-								)}>
+								)}
+							>
 								{item?.content?.map(
 									(
 										style,
@@ -133,7 +139,8 @@ const Content = ({ item, clearActive }) => {
 											gap={gap}
 											gapY={gapY}
 											gapX={gapX}
-											style={style}>
+											style={style}
+										>
 											<Component key={index} {...row} />
 										</Section>
 									)
@@ -145,7 +152,8 @@ const Content = ({ item, clearActive }) => {
 							<div
 								tabIndex="-1"
 								aria-hidden="true"
-								className="fixed inset-0 z-10 overflow-y-auto">
+								className="fixed inset-0 z-10 overflow-y-auto"
+							>
 								<div className="modal flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
 									<div className="modal-wrapper z-20 relative transform overflow-hidden rounded-2xl bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
 										<button
@@ -153,14 +161,16 @@ const Content = ({ item, clearActive }) => {
 											type="button"
 											className="absolute top-4 right-4 ml-auto btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline z-20"
 											data-bs-dismiss="modal"
-											aria-label="Close">
+											aria-label="Close"
+										>
 											<XMarkIcon className="h-5 w-5 text-black" />
 										</button>
 										<div className="modal-body relative p-10">
 											<p className="pt-0 mb-8 ml-0 text-left text-2xl dark:text-gray-500 text-black lg:font-light">
-												This case is under a non-disclosure agreement and
-												some information has been masked to protect its
-												confidentiality.
+												This case is under a
+												non-disclosure agreement and
+												some information has been masked
+												to protect its confidentiality.
 											</p>
 											<input
 												className="border-b border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"

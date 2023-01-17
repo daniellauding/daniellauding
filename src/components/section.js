@@ -70,7 +70,8 @@ const Section = ({ section }) => {
 			<div
 				className={classNames(
 					`py-16 section variant-full h-screen w-screen overflow-hidden flex items-center justify-center`
-				)}>
+				)}
+			>
 				<div className={classNames(`mx-auto container-full`)}>
 					{section?.title && <Title value={section?.title} />}
 					{section?.lead && <Text value={section?.lead} />}
@@ -97,14 +98,18 @@ const Section = ({ section }) => {
 		<div
 			className={classNames(`py-16 section`, {
 				[`variant-${section.variant}`]: section.variant,
-				[`${section.className}`]: section.className
+				[`${section.className}`]: section.className,
 			})}
-			id={section?.name}>
+			id={section?.name}
+		>
 			<div
 				className={classNames(
 					`mx-auto`,
-					section?.container ? `container-${section?.container}` : 'container'
-				)}>
+					section?.container
+						? `container-${section?.container}`
+						: 'container'
+				)}
+			>
 				{section?.title && <Title value={section?.title} />}
 				{section?.lead && <Text value={section?.lead} />}
 				{section?.desc && <Text value={section?.desc} />}

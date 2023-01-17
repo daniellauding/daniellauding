@@ -42,10 +42,16 @@ const Case = ({ item, clearActive }) => {
 	}
 
 	return (
-		<div className={classNames('section-wrapper', item.layout ? item.layout : 'vertical')}>
+		<div
+			className={classNames(
+				'section-wrapper',
+				item.layout ? item.layout : 'vertical'
+			)}
+		>
 			<button
 				onClick={clearActive}
-				className="pt-0 mb-0 mt-0 text-center dark:text-gray-500 text-black text-sm lg:font-light">
+				className="pt-0 mb-0 mt-0 text-center dark:text-gray-500 text-black text-sm lg:font-light"
+			>
 				← Back
 			</button>
 
@@ -65,7 +71,11 @@ const Case = ({ item, clearActive }) => {
 const CaseSelector = ({ item, onSelect }) => {
 	return (
 		<div className="case-wrapper gap-20 flex flex-col h-full overflow-y-auto">
-			<div className={classNames(`section py-20 px-20 section-${item?.case}`)}>
+			<div
+				className={classNames(
+					`section py-20 px-20 section-${item?.case}`
+				)}
+			>
 				<h3 className="pt-0 mt-8 mb-2 text-4xl md:text-2xl text-left text-primary font-bold">
 					{item.client}
 				</h3>
@@ -82,7 +92,8 @@ const CaseSelector = ({ item, onSelect }) => {
 							</p>
 							<button
 								onClick={() => onSelect(item)}
-								className="bg-primary hover:primary text-white font-bold py-5 px-8 rounded-full">
+								className="bg-primary hover:primary text-white font-bold py-5 px-8 rounded-full"
+							>
 								Read more
 							</button>
 						</div>
@@ -92,7 +103,11 @@ const CaseSelector = ({ item, onSelect }) => {
 								<a href={item.url}>{item.url}</a>
 							</p>
 							<ul>
-								<li className={classNames(`flex flex-col md:flex-col py-0 mb-0`)}>
+								<li
+									className={classNames(
+										`flex flex-col md:flex-col py-0 mb-0`
+									)}
+								>
 									<p className="pt-0 mb-0 ml-0 text-left dark:text-gray-500 text-black lg:font-light">
 										{item.role}
 									</p>
@@ -110,7 +125,8 @@ const CaseSelector = ({ item, onSelect }) => {
 									{item.tags.map((tag, index) => (
 										<li
 											key={index}
-											className="px-4 py-1 mb-2 md:mb-0 ml-0 text-left text-black lg:font-light rounded-full dark:bg-gray-900 bg-gray-100 w-max">
+											className="px-4 py-1 mb-2 md:mb-0 ml-0 text-left text-black lg:font-light rounded-full dark:bg-gray-900 bg-gray-100 w-max"
+										>
 											<p className="text-xs dark:text-gray-400 text-gray-500 font-bold">
 												{tag}
 											</p>

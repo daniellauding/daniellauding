@@ -4,7 +4,15 @@ import Accordion from './accordion';
 import Text, { Title } from './typography';
 import Image from './image';
 
-const ContentType = ({ type, style, value, size, title, accordionItem, slides }) => {
+const ContentType = ({
+	type,
+	style,
+	value,
+	size,
+	title,
+	accordionItem,
+	slides,
+}) => {
 	if (type === 'text') {
 		return <Text value={value} size={size} style={style} />;
 	}

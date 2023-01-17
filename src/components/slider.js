@@ -13,14 +13,21 @@ const Pagination = ({ slides, activeSlide, setActiveSlide, index }) => {
 				{slides.map((slide, index) => (
 					<li
 						key={index}
-						className={classNames('slides-steps-step', `slides-steps-step-${index}`, {
-							'slides-steps-step-active': activeSlide === index
-						})}>
+						className={classNames(
+							'slides-steps-step',
+							`slides-steps-step-${index}`,
+							{
+								'slides-steps-step-active':
+									activeSlide === index,
+							}
+						)}
+					>
 						<button
 							type="button"
 							role="tab"
 							tabIndex="0"
-							onClick={() => setActiveSlide(index)}>
+							onClick={() => setActiveSlide(index)}
+						>
 							<span
 								className="rounded-full bg-white w-4 h-4 flex"
 								//Sätt aktiv färg osv
@@ -56,11 +63,16 @@ const Slider = ({ slides, index }) => {
 			{slides.map((slide, index) => (
 				<div
 					key={index}
-					className={classNames('slider-item', `slider-item-${index}`, {
-						'slider-item-active': activeSlide === index,
-						visible: activeSlide === index,
-						hidden: activeSlide !== index
-					})}>
+					className={classNames(
+						'slider-item',
+						`slider-item-${index}`,
+						{
+							'slider-item-active': activeSlide === index,
+							visible: activeSlide === index,
+							hidden: activeSlide !== index,
+						}
+					)}
+				>
 					<img src={slide.asset} alt="" />
 				</div>
 			))}

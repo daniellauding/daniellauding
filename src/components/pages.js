@@ -15,7 +15,7 @@ const Pages = () => {
           }
         }
       }`,
-				variables: {}
+				variables: {},
 			})
 			.then((data) => {
 				//console.log(data.data);

@@ -18,7 +18,8 @@ const Client = ({ item, clearActive }) => {
 		<div>
 			<button
 				onClick={clearActive}
-				className="fixed top-8 left-8 pt-0 mb-0 mt-0 text-center dark:text-gray-500 text-black text-sm lg:font-light">
+				className="fixed top-8 left-8 pt-0 mb-0 mt-0 text-center dark:text-gray-500 text-black text-sm lg:font-light"
+			>
 				← Back
 			</button>
 			{!cases?.length && <Soon item={item} />}

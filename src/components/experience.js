@@ -53,18 +53,22 @@ const Experience = ({ item, active, setActive, onHover }) => {
 			key={item.id}
 			className={classNames(
 				`experience grid grid-cols-3 md:flex md:flex-row py-4`,
-				active ? 'bg-gray-100 text-gray-900' : 'block px-4 py-2 text-sm text-gray-700',
+				active
+					? 'bg-gray-100 text-gray-900'
+					: 'block px-4 py-2 text-sm text-gray-700',
 				isHovering ? 'hovering' : 'no-hover'
 			)}
 			onClick={onClick}
 			onMouseEnter={setPreview}
 			onMouseLeave={clearPreview}
 			onMouseOver={handleMouseOver}
-			onMouseOut={handleMouseOut}>
+			onMouseOut={handleMouseOut}
+		>
 			<p
 				className={classNames(
 					`col-span-3 pt-0 mb-0 text-left dark:text-gray-300 md:text-black text-2xl md:text-base md:font-medium sm:w-24 md:w-40`
-				)}>
+				)}
+			>
 				<a href={item.url} onClick={onClick}>
 					{item.client}
 				</a>

@@ -12,10 +12,13 @@ function importAll(r) {
 	});
 }
 
-importAll(require.context('../../public/images/case/', true, /\.(png|jpe?g|svg)$/));
+importAll(
+	require.context('../../public/images/case/', true, /\.(png|jpe?g|svg)$/)
+);
 
 const Image = ({ item = {} }) => {
-	const { variant, color, format, width, height, text, textColor, value } = item;
+	const { variant, color, format, width, height, text, textColor, value } =
+		item;
 	if (variant === 'loop') {
 		const images = files.filter((image) => image.includes(item.folder));
 

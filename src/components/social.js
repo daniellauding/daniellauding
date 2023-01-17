@@ -8,7 +8,7 @@ const Links = [
 		network: 'spotify',
 		url: 'https://open.spotify.com/artist/4cDYlG9sl8IYOGsoXWKkGt?si=PREJisoNRWuwWeSYSL3dZQ',
 		icon: 'spotify',
-		label: 'My music'
+		label: 'My music',
 	},
 	{
 		id: '1',
@@ -16,7 +16,7 @@ const Links = [
 		network: 'instagram',
 		url: 'https://www.instagram.com/daniellauding/',
 		icon: 'instagram',
-		label: 'My images'
+		label: 'My images',
 	},
 	{
 		id: '2',
@@ -24,8 +24,8 @@ const Links = [
 		network: 'linkedin',
 		url: 'https://www.linkedin.com/in/daniellauding',
 		icon: 'linkedin',
-		label: 'My career'
-	}
+		label: 'My career',
+	},
 ];
 
 const Social = () => {
@@ -38,7 +38,7 @@ const Social = () => {
 							style={{
 								height: 32,
 								width: 32,
-								fill: 'rgba(0,0,0,0.3)'
+								fill: 'rgba(0,0,0,0.3)',
 							}}
 							network={link.network}
 							url={link.url}

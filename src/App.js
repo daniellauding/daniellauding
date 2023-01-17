@@ -8,7 +8,10 @@ import './styles/main.scss';
 function App() {
 	const [previewCase, setPreviewCase] = useState(null);
 	const [active, setActive] = useState(null);
-	const clearPreview = useCallback(() => setPreviewCase(null), [setPreviewCase]);
+	const clearPreview = useCallback(
+		() => setPreviewCase(null),
+		[setPreviewCase]
+	);
 
 	const clearActive = useCallback(() => {
 		setActive(null);
@@ -40,7 +43,8 @@ function App() {
 						//   [`client-${active?.client?.toLowerCase()} case-active md:relative justify-start h-auto`]:
 						//     active,
 						// }
-					)}>
+					)}
+				>
 					<About
 						active={active}
 						setActive={setActive}

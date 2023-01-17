@@ -6,12 +6,22 @@ import Experiences from './experiences';
 
 // Hur tar jag reda på vad som körs, för att ta bort och förenkla kod?
 
-const About = ({ previewCase, setPreviewCase, active, selectedChanged, clearPreview }) => {
+const About = ({
+	previewCase,
+	setPreviewCase,
+	active,
+	selectedChanged,
+	clearPreview,
+}) => {
 	// const [active, setActive] = useState(null);
 
 	return (
 		<>
-			<Avatar previewCase={previewCase} selectedChanged={selectedChanged} active={active} />
+			<Avatar
+				previewCase={previewCase}
+				selectedChanged={selectedChanged}
+				active={active}
+			/>
 
 			<div
 				className={classNames(
@@ -20,7 +30,8 @@ const About = ({ previewCase, setPreviewCase, active, selectedChanged, clearPrev
 						? 'justify-start'
 						: 'flex md:flex-col justify-center rounded-2xl md:rounded-none md:h-screen'
 				)}
-				onMouseEnter={clearPreview}>
+				onMouseEnter={clearPreview}
+			>
 				<div className="md:overflow-y-scroll md:h-100 py-8">
 					<Profile />
 					<Experiences

@@ -17,10 +17,23 @@ const Group = ({ group }) => {
 				[`row-span-${group.rows}`]: group.rows,
 				[`row-start-${group.rowStart}`]: group.rowStart,
 				[`row-end-${group.rowEnd}`]: group.rowEnd,
-				[`${group.style}`]: group.style
-			})}>
-			{title && <Title value={title?.value} variant={title?.variant} style={title?.style} />}
-			{text && <Text value={text?.value} variant={text?.variant} style={text?.style} />}
+				[`${group.style}`]: group.style,
+			})}
+		>
+			{title && (
+				<Title
+					value={title?.value}
+					variant={title?.variant}
+					style={title?.style}
+				/>
+			)}
+			{text && (
+				<Text
+					value={text?.value}
+					variant={text?.variant}
+					style={text?.style}
+				/>
+			)}
 			{image && (
 				<Image
 					variant={image?.variant}
@@ -52,9 +65,10 @@ const Groups = ({ section }) => {
 					[`grid-rows-${section.rows}`]: section.rows,
 					[`gap-${section.gap}`]: section.gap,
 					[`gap-y-${section.gapY}`]: section.gapY,
-					[`gap-x-${section.gapX}`]: section.gapX
+					[`gap-x-${section.gapX}`]: section.gapX,
 				}
-			)}>
+			)}
+		>
 			{groups.map((group) => (
 				<Group key={group?.id} group={group} />
 			))}
