@@ -75,7 +75,6 @@ const work = [
 		role: 'Co-Founder & Lead Product Design',
 		date: '2017 – Present',
 		location: 'Remote / Sweden',
-		tags: ['UX', 'UI', 'Prototyping', 'User testing', 'Field research'],
 		bg: '/images/case/asteria/bg_asteria.png',
 		url: 'https://www.spotify.com',
 	},
@@ -85,7 +84,6 @@ const work = [
 		role: 'Product Design Consultant',
 		date: '2017',
 		location: 'Brazil / Sweden',
-		tags: ['UX', 'UI', 'Prototyping', 'User testing', 'Field research'],
 		bg: '/images/case/spotify/bg_spotify.jpeg',
 		url: 'https://www.spotify.com',
     index: true,
@@ -96,6 +94,7 @@ const work = [
         case: 'growth-enable-more-free-users-emerging-markets',
 				title: 'Optimize product value for existing markets with growth potential',
 				lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+        tags: ['UX', 'UI', 'Prototyping', 'User testing', 'Field research'],
 				protected: true,
 				content: [
         // index: false 
@@ -295,7 +294,6 @@ const work = [
 		role: 'Senior Product Design Consultant',
 		date: '2017 – 2018',
 		location: 'Remote / Sweden',
-		tags: ['UX', 'UI', 'Prototyping', 'User testing', 'Field research'],
 		bg: '/images/case/recordunion/bg_recordunion.png',
 		url: 'https://www.recordunion.com',
     index: true,
@@ -306,6 +304,7 @@ const work = [
         case: 'growth-enable-more-free-users-emerging-markets',
 				title: 'Optimize product value for existing markets with growth potential',
 				lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+        tags: ['UX', 'UI', 'Prototyping', 'User testing', 'Field research'],
 				protected: true,
         image: {
           variant: 'loop',
@@ -322,7 +321,6 @@ const work = [
 		role: 'Art Director Consultant',
 		date: '2016 – 2017',
 		location: 'Stockholm / Sweden',
-		tags: ['UX', 'UI', 'Prototyping', 'User testing', 'Field research'],
 		bg: '/images/case/lansforsakringar/bg_lf.png',
 		url: 'https://www.lansforsakringar.se',
     cases: [
@@ -332,6 +330,7 @@ const work = [
         case: 'digital-identity',
 				title: 'New multi-channel digital visual identity',
 				lead: 'I was hired by Identity Works, as a Senior designer consultant for the swedish insurance & bank company Länsförsäkringar AB. Identity Works was working on the new brand identity.',
+        tags: ['UX', 'UI', 'Prototyping', 'User testing', 'Field research'],
 				protected: true,
 				content: [
         // index: false 
@@ -367,7 +366,6 @@ const work = [
 		role: 'Senior Product Design ConsultantSenior',
 		date: '2007 – Present',
 		location: 'Remote / Sweden',
-		tags: ['UX', 'UI', 'Prototyping', 'User testing', 'Field research'],
 		bg: '/images/case/instinctly/bg_instinctly.png',
 		url: 'https://www.daniellauding.se',
     cases: [
@@ -406,7 +404,6 @@ const work = [
         case: 'mrUsta',
         date: '2015',
         location: 'Remote',
-        tags: ['UX', 'UI', 'Prototyping', 'User testing'],
 				title: 'Find the right service provider in Dubai',
 				lead: 'I was hired by mrUsta, a startup in Dubai that helps you find the right service provider or person for a job. Do you need help with your car? Do you need to find a plumber?',
         desc: 'My job was to design the user experience and interface design based on mrUstas new brand guide. All the flows inside the app was prototyped with Pixate. I handed over the prototype to the developers, together with my sketch files and with Zeplin.',
@@ -417,7 +414,6 @@ const work = [
         case: 'abro',
         date: '2014',
         location: 'Remote',
-        tags: ['UX', 'UI', 'Prototyping', 'User testing'],
 				title: 'Åbro website & CMS',
 				lead: 'I was hired together with my team Producks by Folkets Stockholm, to design and develop a custom CMS and a new web for Åbro bryggeri. Producks was responsible for the user experience, interface design and development. The new web was released in beginning of 2015. Check it out on www.abro.se',
 				protected: true,
@@ -439,7 +435,6 @@ const work = [
 		role: 'Lead Visual Designer Consultant',
 		date: '2012 – 2017',
 		location: 'Remote / Amsterdam, Netherlands',
-		tags: ['UX', 'UI', 'Prototyping', 'User testing', 'Field research'],
 		bg: '/images/case/backbase/bg_backbase.png',
 		url: 'https://www.backbase.com',
     index: true,
@@ -450,7 +445,6 @@ const work = [
 		role: 'Some fun stuff',
 		date: 'Never and forever',
 		location: 'www',
-		tags: ['UX', 'UI', 'Prototyping', 'User testing', 'Field research'],
 		bg: '/images/case/backbase/bg_backbase.png',
 		url: 'https://www.backbase.com',
     index: false,
