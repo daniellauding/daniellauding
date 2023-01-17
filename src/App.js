@@ -73,8 +73,13 @@ function App() {
 				/>
 			)}
 			{active && !active.client && (
-				<div className="case-wrapper grid grid-flow-col gap-16 auto-cols-fr h-screen max-h-screen overflow-hidden bg-blue-100">
-					<button onClick={clearActive}>Back</button>
+				<div className="case-wrapper grid grid-flow-col gap-16 auto-cols-fr h-screen max-h-screen overflow-hidden">
+					<button
+						className="fixed top-8 left-8 pt-0 mb-0 mt-0 text-center dark:text-gray-500 text-black text-sm lg:font-light"
+						onClick={clearActive}
+					>
+						← Back
+					</button>
 					<TagsList
 						tags={tags}
 						selectedChanged={selectedChanged}

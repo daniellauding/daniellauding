@@ -27,7 +27,7 @@ const TagsList = ({ className, selectedChanged, tags = [], active }) => {
 	return (
 		<ul
 			className={classNames(
-				'flex-wrap flex md:flex-row w-auto py-0 mb-8 gap-2',
+				'flex-wrap flex md:flex-row w-auto py-0 mb-8 gap-2 hidden',
 				className
 			)}
 		>

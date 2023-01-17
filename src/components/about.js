@@ -45,6 +45,7 @@ const About = ({
 			>
 				<div className="md:overflow-y-scroll md:h-100 py-8">
 					<Profile />
+
 					<Experiences
 						selectedChanged={selectedChanged}
 						setPreviewCase={setPreviewCase}
