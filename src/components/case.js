@@ -6,7 +6,7 @@ import Text, { Title } from './typography';
 import Image from './image';
 import TagsList from './tags';
 
-const Case = ({ item, clearActive }) => {
+const Case = ({ item, clearActive, selectedChanged }) => {
 	const [show, setShow] = useState(true);
 
 	const openModal = () => setShow(true);
@@ -61,7 +61,7 @@ const Case = ({ item, clearActive }) => {
 			{item?.lead && <Text value={item.lead} />}
 			{item?.desc && <Text value={item.desc} />}
 			{item?.image && <Image item={item?.image} />}
-			<TagsList tags={item?.tags} />
+			<TagsList tags={item?.tags} selectedChanged={selectedChanged} />
 
 			{item?.content?.map((section) => (
 				<Section key={section?.id} section={section} />
@@ -70,7 +70,7 @@ const Case = ({ item, clearActive }) => {
 	);
 };
 
-const CaseSelector = ({ item, onSelect }) => {
+const CaseSelector = ({ item, onSelect, selectedChanged }) => {
 	return (
 		<div className="case-wrapper gap-20 flex flex-col h-full overflow-y-auto">
 			<div
@@ -122,20 +122,10 @@ const CaseSelector = ({ item, onSelect }) => {
 								{item.location}
 							</p>
 
-							{item.tags ? (
-								<ul className="tags flex-wrap flex md:flex-col w-auto py-0 mb-8 gap-2">
-									{item.tags.map((tag, index) => (
-										<li
-											key={index}
-											className="px-4 py-1 mb-2 md:mb-0 ml-0 text-left text-black lg:font-light rounded-full dark:bg-gray-900 bg-gray-100 w-max"
-										>
-											<p className="text-xs dark:text-gray-400 text-gray-500 font-bold">
-												{tag}
-											</p>
-										</li>
-									))}
-								</ul>
-							) : null}
+							<TagsList
+								tags={item.tags}
+								selectedChanged={selectedChanged}
+							/>
 						</div>
 					</div>
 				</div>

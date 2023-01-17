@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useMemo } from 'react';
 import classNames from 'classnames';
+import lodash from 'lodash';
 import About from './components/about';
 import Client from './components/client';
 
@@ -7,10 +8,12 @@ import { work } from './constant';
 
 import './styles/main.scss';
 import CaseSelector from './components/case';
+import TagsList from './components/tags';
 
 function App() {
 	const [previewCase, setPreviewCase] = useState(null);
 	const [active, setActive] = useState(null);
+	const [selectedCase, setCase] = useState(null);
 	const clearPreview = useCallback(
 		() => setPreviewCase(null),
 		[setPreviewCase]
@@ -19,6 +22,7 @@ function App() {
 	const clearActive = useCallback(() => {
 		setActive(null);
 		setPreviewCase(null);
+		setCase(null);
 	}, [setActive]);
 
 	const selectedChanged = useCallback(
@@ -35,23 +39,54 @@ function App() {
 		);
 	}, [active]);
 
-	console.log(active, cases, active && !active.client);
+	const tags = useMemo(() => {
+		return lodash.uniq(
+			work.flatMap(({ cases = [] }) => {
+				return cases.flatMap(({ tags = [] }) => tags);
+			})
+		);
+	}, []);
+
+	const selectCase = useCallback((selectedCase) => {
+		setCase(selectedCase);
+		setActive(
+			work.find((client) => {
+				if (client?.cases?.includes(selectedCase)) {
+					return true;
+				}
+
+				return false;
+			})
+		);
+	}, []);
 
 	// Fun: Press arrow on keyboard swappes layout of avatar and image top left right bottom
 
 	return (
 		<div className="wrapper box-border">
 			{active && active.client && (
-				<Client item={active} clearActive={clearActive} />
+				<Client
+					item={active}
+					clearActive={clearActive}
+					selectedCase={selectedCase}
+					selectedChanged={selectedChanged}
+				/>
 			)}
 			{active && !active.client && (
 				<div className="case-wrapper grid grid-flow-col gap-16 auto-cols-fr h-screen max-h-screen overflow-hidden bg-blue-100">
 					<button onClick={clearActive}>Back</button>
+					<TagsList
+						tags={tags}
+						selectedChanged={selectedChanged}
+						active={active}
+					/>
 					{cases.map((item, index) => (
 						<CaseSelector
 							key={index}
 							item={item}
 							clearActive={clearActive}
+							onSelect={selectCase}
+							selectedChanged={selectedChanged}
 						/>
 					))}
 				</div>

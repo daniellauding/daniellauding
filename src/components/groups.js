@@ -7,7 +7,6 @@ import Image from './image';
 
 const Group = ({ group }) => {
 	const { title, text, image, ...rest } = group;
-	console.log(group);
 	return (
 		<div
 			className={classNames(`group`, {

@@ -18,7 +18,6 @@ const Pages = () => {
 				variables: {},
 			})
 			.then((data) => {
-				//console.log(data.data);
 				setPages(data.data.data.Pages.docs);
 			});
 	});

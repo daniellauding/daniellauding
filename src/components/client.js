@@ -1,17 +1,29 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import CaseSelector, { Case } from './case';
 import Soon from './soon';
 
-const Client = ({ item, clearActive }) => {
+const Client = ({ item, clearActive, selectedCase, selectedChanged }) => {
 	const { cases = [] } = item;
 	const [selected, setCase] = useState(null);
+
+	useEffect(() => {
+		if (selectedCase) {
+			setCase(selectedCase);
+		}
+	}, []);
 
 	const clearSelected = useCallback(() => {
 		setCase(null);
 	}, []);
 
 	if (selected) {
-		return <Case item={selected} clearActive={clearSelected} />;
+		return (
+			<Case
+				item={selected}
+				clearActive={clearSelected}
+				selectedChanged={selectedChanged}
+			/>
+		);
 	}
 
 	return (
@@ -35,6 +47,7 @@ const Client = ({ item, clearActive }) => {
 								key={item.id}
 								item={item}
 								clearActive={clearActive}
+								selectedChanged={selectedChanged}
 							/>
 						))}
 				</div>

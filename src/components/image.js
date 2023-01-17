@@ -31,8 +31,6 @@ const Image = ({ item = {} }) => {
 		);
 	}
 
-	console.log(files);
-
 	if (variant === 'dummy') {
 		return (
 			<DummyImage
