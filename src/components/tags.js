@@ -1,40 +1,36 @@
+import classNames from 'classnames';
 import React from 'react';
-import { work } from '../constant';
 
-const Tag = () => {
+const Tag = ({ tag, onClick }) => {
 	return (
-		
+		<li
+			className="px-4 py-1 mb-2 md:mb-0 ml-0 text-left text-black lg:font-light rounded-full dark:bg-gray-900 bg-gray-100"
+			onClick={() => onClick(tag)}
+		>
+			<p className="text-xs dark:text-gray-400 text-gray-500 font-bold">
+				{tag}
+			</p>
+		</li>
 	);
 };
 
-const TagsList = () => {
+const TagsList = ({ className, selectedChanged, tags = [] }) => {
+	if (!tags) {
+		return null;
+	}
+
 	return (
-    // cases tags, index false ej visas
-    // click på en tag visar en ny sida med case-preview under dess tags och tag menyn för att kunna byta
-    {item.tags ? (
-      <ul className="flex-wrap flex md:flex-row w-auto py-0 mb-8 gap-2">
-        {item.tags.map((tag, index) => (
-          <li
-              key={index}
-              className="px-4 py-1 mb-2 md:mb-0 ml-0 text-left text-black lg:font-light rounded-full dark:bg-gray-900 bg-gray-100"
-          >
-            <p className="text-xs dark:text-gray-400 text-gray-500 font-bold">
-              {tag}
-            </p>
-          </li>
-        ))}
-      </ul>
-    ) : null}
+		<ul
+			className={classNames(
+				'flex-wrap flex md:flex-row w-auto py-0 mb-8 gap-2',
+				className
+			)}
+		>
+			{tags.map((tag) => (
+				<Tag tag={tag} key={tag} onClick={selectedChanged} />
+			))}
+		</ul>
 	);
 };
-
-const Tags = () => {
-	return (
-    // Tagslist med active på och en 'all'
-		// Visa projekten och tags lista vy ?
-	);
-};
-
-export { Tags, Tag };
 
 export default TagsList;

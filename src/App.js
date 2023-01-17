@@ -1,9 +1,12 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import classNames from 'classnames';
 import About from './components/about';
 import Client from './components/client';
 
+import { work } from './constant';
+
 import './styles/main.scss';
+import CaseSelector from './components/case';
 
 function App() {
 	const [previewCase, setPreviewCase] = useState(null);
@@ -26,14 +29,34 @@ function App() {
 		[setActive]
 	);
 
+	const cases = useMemo(() => {
+		return work.flatMap(({ cases = [] }) =>
+			cases.filter(({ tags = [] }) => tags.includes(active))
+		);
+	}, [active]);
+
+	console.log(active, cases, active && !active.client);
+
 	// Fun: Press arrow on keyboard swappes layout of avatar and image top left right bottom
 
 	return (
 		<div className="wrapper box-border">
-			{active ? (
-				// place case page here, maybe use react router
+			{active && active.client && (
 				<Client item={active} clearActive={clearActive} />
-			) : (
+			)}
+			{active && !active.client && (
+				<div className="case-wrapper grid grid-flow-col gap-16 auto-cols-fr h-screen max-h-screen overflow-hidden bg-blue-100">
+					<button onClick={clearActive}>Back</button>
+					{cases.map((item, index) => (
+						<CaseSelector
+							key={index}
+							item={item}
+							clearActive={clearActive}
+						/>
+					))}
+				</div>
+			)}
+			{!active && (
 				<div
 					className={classNames(
 						// 'flex flex-col md:flex-row justify-center md:h-screen w-screen md:fixed'

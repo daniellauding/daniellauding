@@ -4,6 +4,7 @@ import Section from './section';
 import Access from './access';
 import Text, { Title } from './typography';
 import Image from './image';
+import TagsList from './tags';
 
 const Case = ({ item, clearActive }) => {
 	const [show, setShow] = useState(true);
@@ -60,6 +61,7 @@ const Case = ({ item, clearActive }) => {
 			{item?.lead && <Text value={item.lead} />}
 			{item?.desc && <Text value={item.desc} />}
 			{item?.image && <Image item={item?.image} />}
+			<TagsList tags={item?.tags} />
 
 			{item?.content?.map((section) => (
 				<Section key={section?.id} section={section} />

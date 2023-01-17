@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import classNames from 'classnames';
+import lodash from 'lodash';
+
 import Avatar from './avatar';
 import Profile from './profile';
 import Experiences from './experiences';
+import { work } from '../constant';
+import TagsList from './tags';
 
 // Hur tar jag reda på vad som körs, för att ta bort och förenkla kod?
 
@@ -14,6 +18,13 @@ const About = ({
 	clearPreview,
 }) => {
 	// const [active, setActive] = useState(null);
+	const tags = useMemo(() => {
+		return lodash.uniq(
+			work.flatMap(({ cases = [] }) => {
+				return cases.flatMap(({ tags = [] }) => tags);
+			})
+		);
+	}, []);
 
 	return (
 		<>
@@ -41,7 +52,7 @@ const About = ({
 						previewCase={previewCase}
 					/>
 
-					{/* <TagsList /> */}
+					<TagsList tags={tags} selectedChanged={selectedChanged} />
 				</div>
 			</div>
 		</>
