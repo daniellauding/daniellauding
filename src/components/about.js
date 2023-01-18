@@ -43,7 +43,7 @@ const About = ({
 				)}
 				onMouseEnter={clearPreview}
 			>
-				<div className="md:overflow-y-scroll md:h-100 py-8">
+				<div className="md:overflow-y-scroll md:h-100 flex flex-col py-8 gap-12">
 					<Profile />
 
 					<Experiences

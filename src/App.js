@@ -73,27 +73,33 @@ function App() {
 				/>
 			)}
 			{active && !active.client && (
-				<div className="case-wrapper grid grid-flow-col gap-16 auto-cols-fr h-screen max-h-screen overflow-hidden">
-					<button
-						className="fixed top-8 left-8 pt-0 mb-0 mt-0 text-center dark:text-gray-500 text-black text-sm lg:font-light"
-						onClick={clearActive}
-					>
-						← Back
-					</button>
-					<TagsList
-						tags={tags}
-						selectedChanged={selectedChanged}
-						active={active}
-					/>
-					{cases.map((item, index) => (
-						<CaseSelector
-							key={index}
-							item={item}
-							clearActive={clearActive}
-							onSelect={selectCase}
-							selectedChanged={selectedChanged}
-						/>
-					))}
+				<div className="cases flex flex-col h-screen max-h-screen overflow-hidden">
+					<div className="case-header flex flex-row p-6 gap-8">
+						<button
+							className="relative whitespace-nowrap pt-0 mb-0 mt-0 text-center dark:text-gray-500 text-black text-sm lg:font-light"
+							onClick={clearActive}
+						>
+							← Back
+						</button>
+						<div className="case-filters flex w-full items-center justify-center">
+							<TagsList
+								tags={tags}
+								selectedChanged={selectedChanged}
+								active={active}
+							/>
+						</div>
+					</div>
+					<div className="case-wrapper grid grid-flow-col gap-16 auto-cols-fr h-screen max-h-screen overflow-hidden">
+						{cases.map((item, index) => (
+							<CaseSelector
+								key={index}
+								item={item}
+								clearActive={clearActive}
+								onSelect={selectCase}
+								selectedChanged={selectedChanged}
+							/>
+						))}
+					</div>
 				</div>
 			)}
 			{!active && (
