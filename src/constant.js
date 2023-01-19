@@ -101,6 +101,9 @@ const work = [
 					'User testing',
 					'Field research',
 				],
+				library: {
+					folder: 'spotify',
+				},
 				protected: true,
 				content: [
 					// index: false
@@ -316,15 +319,14 @@ const work = [
 					'Prototyping',
 					'User testing',
 					'Field research',
-					'Amazing',
 				],
 				protected: true,
-				image: {
+				// image: {
+				// 	folder: 'recordunion',
+				// 	variant: 'loop',
+				// },
+				library: {
 					folder: 'recordunion',
-					variant: 'loop',
-					// client: ?
-					// folder: ?
-					// path: ?
 				},
 			},
 		],
@@ -351,6 +353,9 @@ const work = [
 					'User testing',
 					'Field research',
 				],
+				library: {
+					folder: 'lansforsakringar',
+				},
 				protected: true,
 				content: [
 					// index: false
@@ -388,6 +393,7 @@ const work = [
 		location: 'Remote / Sweden',
 		bg: '/images/case/instinctly/bg_instinctly.png',
 		url: 'https://www.daniellauding.se',
+		index: true,
 		cases: [
 			// eller är dessa cases knutna clients / work? vad är bäst
 			{
@@ -398,7 +404,9 @@ const work = [
 				tags: ['UX', 'UI', 'Prototyping', 'User testing'],
 				title: 'New experience for travelers',
 				lead: 'I was hired by AKQA Amsterdam, as a Senior designer consultant for the dutch airline KLM new web platform.',
-				protected: true,
+				library: {
+					folder: 'instinctly/klm',
+				},
 				content: [
 					// index: false
 					// Sections
@@ -421,13 +429,15 @@ const work = [
 			},
 			{
 				id: 1,
-				case: 'mrUsta',
+				case: 'mrusta',
 				date: '2015',
-				location: 'Remote',
-				title: 'Find the right service provider in Dubai',
-				lead: 'I was hired by mrUsta, a startup in Dubai that helps you find the right service provider or person for a job. Do you need help with your car? Do you need to find a plumber?',
-				desc: 'My job was to design the user experience and interface design based on mrUstas new brand guide. All the flows inside the app was prototyped with Pixate. I handed over the prototype to the developers, together with my sketch files and with Zeplin.',
-				protected: true,
+				location: 'Amsterdam, Netherlands',
+				tags: ['UX', 'UI', 'Prototyping', 'User testing'],
+				title: 'mrUsta',
+				lead: 'TBA',
+				library: {
+					folder: 'instinctly/mrusta',
+				},
 			},
 			{
 				id: 2,
@@ -436,15 +446,107 @@ const work = [
 				location: 'Remote',
 				title: 'Åbro website & CMS',
 				lead: 'I was hired together with my team Producks by Folkets Stockholm, to design and develop a custom CMS and a new web for Åbro bryggeri. Producks was responsible for the user experience, interface design and development. The new web was released in beginning of 2015. Check it out on www.abro.se',
-				protected: true,
-				image: {
-					variant: 'dummy',
-					text: 'Bild',
-					width: '1440',
-					height: '730',
-					color: '#20232a',
-					textColor: '#737373',
-					format: 'png',
+				library: {
+					folder: 'instinctly/abro',
+				},
+			},
+			{
+				id: 3,
+				case: 'actic',
+				date: '2014',
+				location: 'Remote',
+				title: 'Actic',
+				lead: '',
+				library: {
+					folder: 'instinctly/actic',
+				},
+			},
+			{
+				id: 4,
+				case: 'recurify',
+				date: '2014',
+				location: 'Remote',
+				title: 'Recurify',
+				lead: '',
+				library: {
+					folder: 'instinctly/recurify',
+				},
+			},
+			{
+				id: 5,
+				case: 'resrobot',
+				date: '2014',
+				location: 'Remote',
+				title: 'Resrobot',
+				lead: '',
+				library: {
+					folder: 'instinctly/resrobot',
+				},
+			},
+			{
+				id: 6,
+				case: 'nexus',
+				date: '2014',
+				location: 'Remote',
+				title: 'Nexus',
+				lead: '',
+				library: {
+					folder: 'instinctly/nexus',
+				},
+			},
+			{
+				id: 7,
+				case: 'leosoderberg',
+				date: '2014',
+				location: 'Remote',
+				title: 'Leo Söderberg',
+				lead: '',
+				library: {
+					folder: 'instinctly/leosoderberg',
+				},
+			},
+			{
+				id: 8,
+				case: 'producks',
+				date: '2014',
+				location: 'Remote',
+				title: 'Producks',
+				lead: '',
+				library: {
+					folder: 'producks',
+				},
+			},
+			{
+				id: 9,
+				case: 'steem',
+				date: '2014',
+				location: 'Remote',
+				title: 'Steem',
+				lead: '',
+				library: {
+					folder: 'steem',
+				},
+			},
+			{
+				id: 10,
+				case: 'tripppen',
+				date: '2014',
+				location: 'Remote',
+				title: 'Tripppen',
+				lead: '',
+				library: {
+					folder: 'tripppen',
+				},
+			},
+			{
+				id: 11,
+				case: 'misc',
+				date: '2014',
+				location: 'Remote',
+				title: 'Misc',
+				lead: '',
+				library: {
+					folder: 'misc',
 				},
 			},
 		],
@@ -458,6 +560,24 @@ const work = [
 		bg: '/images/case/backbase/bg_backbase.png',
 		url: 'https://www.backbase.com',
 		index: true,
+		cases: [
+			// eller är dessa cases knutna clients / work? vad är bäst
+			{
+				id: 0,
+				case: 'TBA',
+				title: 'TBA',
+				lead: 'TBA.',
+				tags: ['UX', 'UI'],
+				protected: true,
+				// image: {
+				// 	folder: 'recordunion',
+				// 	variant: 'loop',
+				// },
+				library: {
+					folder: 'backbase',
+				},
+			},
+		],
 	},
 	{
 		id: 6,

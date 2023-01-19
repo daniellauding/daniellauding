@@ -73,7 +73,7 @@ function App() {
 				/>
 			)}
 			{active && !active.client && (
-				<div className="cases flex flex-col h-screen max-h-screen overflow-hidden">
+				<div className="cases flex flex-col">
 					<div className="case-header flex flex-row p-6 gap-8">
 						<button
 							className="relative whitespace-nowrap pt-0 mb-0 mt-0 text-center dark:text-gray-500 text-black text-sm lg:font-light"
@@ -89,9 +89,10 @@ function App() {
 							/>
 						</div>
 					</div>
-					<div className="case-wrapper grid grid-flow-col gap-16 auto-cols-fr h-screen max-h-screen overflow-hidden">
+					<div className="case-wrapper grid grid gap-2 mx-auto grid-cols-3 p-20 space-y-2 lg:space-y-0 lg:grid lg:gap-3 lg:grid-rows-3">
 						{cases.map((item, index) => (
 							<CaseSelector
+								titleClassName="mb-4 text-2xl md:text-xl"
 								key={index}
 								item={item}
 								clearActive={clearActive}
