@@ -6,8 +6,16 @@ import Text, { Title } from './typography';
 import Image from './image';
 import Library from './library';
 import TagsList from './tags';
+// import { work } from '../constant';
+
+// how do i render client info like, role, date, name, its in parent of array?
+// const ClientName = () => {
+// 	return work.map((item, i) => <h3 key={i}>{item.client}</h3>);
+// };
 
 const Case = ({ item, clearActive, selectedChanged }) => {
+	// console.log(item);
+
 	const [show, setShow] = useState(true);
 
 	const openModal = () => setShow(true);
@@ -47,6 +55,8 @@ const Case = ({ item, clearActive, selectedChanged }) => {
 		<div
 			className={classNames(
 				'section-wrapper',
+				`section-${item?.case}`,
+				`section-${item?.client}`,
 				item.layout ? item.layout : 'vertical'
 			)}
 		>
@@ -57,13 +67,30 @@ const Case = ({ item, clearActive, selectedChanged }) => {
 				← Back
 			</button>
 
-			{item?.client && <Title value={item.client} />}
-			{item?.title && <Title value={item.title} />}
-			{item?.lead && <Text value={item.lead} />}
-			{item?.desc && <Text value={item.desc} />}
-			{item?.library && <Library item={item?.library} />}
-			{item?.image && <Image item={item?.image} />}
-			<TagsList tags={item?.tags} selectedChanged={selectedChanged} />
+			<div
+				className={classNames(
+					`section section-hero grid grid-flow-col gap-16 auto-cols-fr relative h-screen py-20 px-20`
+				)}
+			>
+				{/* <ClientName /> */}
+				<div className="case-header">
+					{item?.title && <Title size="xl" value={item.title} />}
+					{item?.lead && <Text size="large" value={item.lead} />}
+				</div>
+
+				<div className="case-description">
+					{item?.desc && <Text value={item.desc} />}
+					{item?.image && <Image item={item?.image} />}
+					{item?.library && <Library item={item?.library} />}
+				</div>
+
+				<div className="case-tags rotate-90 origin-top-right absolute right-3 top-full w-screen">
+					<TagsList
+						tags={item?.tags}
+						selectedChanged={selectedChanged}
+					/>
+				</div>
+			</div>
 
 			{item?.content?.map((section) => (
 				<Section key={section?.id} section={section} />

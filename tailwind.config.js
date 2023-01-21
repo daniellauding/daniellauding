@@ -141,6 +141,9 @@ module.exports = {
 			pattern: /overflow-*/,
 		},
 		{
+			pattern: /rotate-*/,
+		},
+		{
 			pattern: /font-*/,
 		},
 		'auto',

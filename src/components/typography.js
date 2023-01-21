@@ -7,7 +7,7 @@ const Text = ({ size, value, className }) => {
 			className={classNames(
 				`pt-0 mb-2 text-1xl md:text-2xl dark:text-gray-300 text-black lg:font-light`,
 				size === 'xl' ? 'text-2xl md:text-4xl' : undefined,
-				size === 'large' ? 'text-2xl md:text-3xl' : undefined,
+				size === 'large' ? 'text-2xl md:text-5xl' : undefined,
 				size === 'medium' ? 'text-1xl md:text-2xl' : undefined,
 				size === 'small' ? 'text-sm' : undefined,
 				className
@@ -23,7 +23,7 @@ const Title = ({ size = 'medium', value, className }) => {
 		return (
 			<h1
 				className={classNames(
-					`pt-0 mt-8 mb-16 text-4xl text-left dark:text-gray-200 text-black lg:font-bold`,
+					`pt-0 mt-8 mb-16 text-8xl text-left dark:text-gray-200 text-black lg:font-bold`,
 					className
 				)}
 			>
