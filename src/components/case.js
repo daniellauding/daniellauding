@@ -69,7 +69,7 @@ const Case = ({ item, clearActive, selectedChanged }) => {
 
 			<div
 				className={classNames(
-					`section section-hero grid grid-flow-col gap-16 auto-cols-fr relative h-screen py-20 px-20`
+					`section section-hero grid grid-flow-col gap-16 auto-cols-fr relative py-20 px-20`
 				)}
 			>
 				{/* <ClientName /> */}
@@ -91,6 +91,39 @@ const Case = ({ item, clearActive, selectedChanged }) => {
 					/>
 				</div>
 			</div>
+
+			{item?.goals && (
+				<div className="section-goals grid gap-2 mx-auto grid-cols-3 p-20 space-y-2 lg:space-y-0 lg:grid lg:gap-3 lg:grid-rows-3">
+					{item?.goals?.map((goal) => (
+						<div className="goal" key={goal?.id}>
+							{goal?.title && <Title value={goal.title} />}
+							{goal?.text && <Text value={goal.text} />}
+						</div>
+					))}
+				</div>
+			)}
+
+			{item?.insights && (
+				<div className="section-insights grid gap-2 mx-auto grid-cols-3 p-20 space-y-2 lg:space-y-0 lg:grid lg:gap-3 lg:grid-rows-3">
+					{item?.insights?.map((insight) => (
+						<div className="insight" key={insight?.id}>
+							{insight?.title && <Title value={insight.title} />}
+							{insight?.text && <Text value={insight.text} />}
+						</div>
+					))}
+				</div>
+			)}
+
+			{item?.outcomes && (
+				<div className="section-outcomesgrid gap-2 mx-auto grid-cols-3 p-20 space-y-2 lg:space-y-0 lg:grid lg:gap-3 lg:grid-rows-3">
+					{item?.outcomes?.map((outcome) => (
+						<div className="outcomes" key={outcome?.id}>
+							{outcome?.title && <Title value={outcome.title} />}
+							{outcome?.text && <Text value={outcome.text} />}
+						</div>
+					))}
+				</div>
+			)}
 
 			{item?.content?.map((section) => (
 				<Section key={section?.id} section={section} />

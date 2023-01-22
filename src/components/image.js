@@ -33,14 +33,17 @@ const Image = ({ item = {} }) => {
 
 	if (variant === 'dummy') {
 		return (
-			<DummyImage
-				color={color}
-				format={format}
-				width={width}
-				height={height}
-				text={text}
-				textColor={textColor}
-			/>
+			<>
+				Jag är dummy image
+				<DummyImage
+					color={color}
+					format={format}
+					width={width}
+					height={height}
+					text={text}
+					textColor={textColor}
+				/>
+			</>
 		);
 	}
 
