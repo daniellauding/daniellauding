@@ -14,10 +14,7 @@ function App() {
 	const [previewCase, setPreviewCase] = useState(null);
 	const [active, setActive] = useState(null);
 	const [selectedCase, setCase] = useState(null);
-	const clearPreview = useCallback(
-		() => setPreviewCase(null),
-		[setPreviewCase]
-	);
+	const clearPreview = useCallback(() => setPreviewCase(null), [setPreviewCase]);
 
 	const clearActive = useCallback(() => {
 		setActive(null);
@@ -77,8 +74,7 @@ function App() {
 					<div className="case-header flex flex-row p-6 gap-8">
 						<button
 							className="relative whitespace-nowrap pt-0 mb-0 mt-0 text-center dark:text-gray-500 text-black text-sm lg:font-light"
-							onClick={clearActive}
-						>
+							onClick={clearActive}>
 							← Back
 						</button>
 						<div className="case-filters flex w-full items-center justify-center">
@@ -113,8 +109,7 @@ function App() {
 						//   [`client-${active?.client?.toLowerCase()} case-active md:relative justify-start h-auto`]:
 						//     active,
 						// }
-					)}
-				>
+					)}>
 					<About
 						active={active}
 						setActive={setActive}

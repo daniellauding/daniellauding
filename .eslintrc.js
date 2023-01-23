@@ -4,7 +4,7 @@ module.exports = {
 		'plugin:import/errors',
 		'plugin:react/recommended',
 		'plugin:jsx-a11y/recommended',
-		'plugin:prettier/recommended',
+		'plugin:prettier/recommended'
 	],
 	plugins: ['react', 'import', 'jsx-a11y', 'prettier'],
 	rules: {
@@ -13,8 +13,8 @@ module.exports = {
 			{
 				singleQuote: true,
 				useTabs: true,
-				tabWidth: 4,
-			},
+				tabWidth: 4
+			}
 		],
 		'jsx-a11y/click-events-have-key-events': 'off',
 		'jsx-a11y/no-static-element-interactions': 'off',
@@ -25,23 +25,23 @@ module.exports = {
 		'no-tabs': 'off',
 		'linebreak-style': ['error', 'unix'],
 		quotes: ['error', 'single', { allowTemplateLiterals: true }],
-		'no-console': ['warn'],
+		'no-console': ['warn']
 	},
 	parserOptions: {
 		ecmaVersion: 2021,
 		sourceType: 'module',
 		ecmaFeatures: {
-			jsx: true,
-		},
+			jsx: true
+		}
 	},
 	env: {
 		es6: true,
 		browser: true,
-		node: true,
+		node: true
 	},
 	settings: {
 		react: {
-			version: 'detect',
-		},
-	},
+			version: 'detect'
+		}
+	}
 };
