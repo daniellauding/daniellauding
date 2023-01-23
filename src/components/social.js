@@ -30,8 +30,8 @@ const Links = [
 
 const Social = () => {
 	return (
-		<div>
-			<ul className="mt-8 mb-4 md:mt-8 flex flex-row justify-center align-center">
+		<div className="mt-auto">
+			<ul className="m-0 flex flex-row justify-center align-center">
 				{Links.map((link) => (
 					<li className="mx-2" key={link.id}>
 						<SocialIcon
