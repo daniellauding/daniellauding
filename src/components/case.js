@@ -155,8 +155,10 @@ const CaseSelector = ({
 			>
 				<h3
 					className={classNames(
-						`pt-0 mt-8 mb-2 text-4xl md:text-2xl text-left text-primary font-bold`,
+						`olle`,
 						clientClassName
+							? clientClassName
+							: 'pt-0 mt-8 mb-2 text-4xl md:text-2xl text-left text-primary font-bold'
 					)}
 				>
 					{item.client}
@@ -164,8 +166,10 @@ const CaseSelector = ({
 
 				<h1
 					className={classNames(
-						`pt-0 mt-8 mb-16 text-4xl md:text-9xl text-left text-white font-bold`,
+						`case-title`,
 						titleClassName
+							? titleClassName
+							: 'pt-0 mt-8 mb-16 text-4xl md:text-9xl text-left text-white font-bold'
 					)}
 				>
 					{item.title}

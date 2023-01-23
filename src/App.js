@@ -89,10 +89,11 @@ function App() {
 							/>
 						</div>
 					</div>
-					<div className="case-wrapper grid gap-2 mx-auto grid-cols-3 p-20 space-y-2 lg:space-y-0 lg:grid lg:gap-3 lg:grid-rows-3">
+					<div className="case-container grid gap-2 mx-auto grid-cols-3 p-20 space-y-2 lg:space-y-0 lg:grid lg:gap-3 lg:grid-rows-3">
 						{cases.map((item, index) => (
+							// Gör en preview case selector här som inte har samma markup som fulla-caset
 							<CaseSelector
-								titleClassName="mb-4 text-2xl md:text-xl"
+								titleClassName="mb-4 text-2xl md:text-4xl font-medium"
 								key={index}
 								item={item}
 								clearActive={clearActive}

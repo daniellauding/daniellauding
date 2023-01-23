@@ -65,6 +65,7 @@ import Image from './image';
 // };
 
 const Section = ({ section }) => {
+	console.log(section);
 	if (section?.variant === 'full') {
 		return (
 			<div
@@ -77,15 +78,19 @@ const Section = ({ section }) => {
 					{section?.lead && <Text value={section?.lead} />}
 					{section?.desc && <Text value={section?.desc} />}
 					{section?.image && (
-						<Image
-							variant={section?.image?.variant}
-							color={section?.image?.color}
-							format={section?.image?.format}
-							width={section?.image?.width}
-							height={section?.image?.height}
-							text={section?.image?.text}
-							textColor={section?.image?.textColor}
-						/>
+						<>
+							testar
+							<Image
+								variant={section?.image?.variant}
+								color={section?.image?.color}
+								format={section?.image?.format}
+								width={section?.image?.width}
+								height={section?.image?.height}
+								text={section?.image?.text}
+								textColor={section?.image?.textColor}
+								value={section?.image?.value}
+							/>
+						</>
 					)}
 
 					<Groups section={section} />

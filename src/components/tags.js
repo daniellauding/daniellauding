@@ -1,9 +1,12 @@
 import classNames from 'classnames';
 import React from 'react';
+// import Tooltip from './tooltip';
 
 const Tag = ({ tag, active, onClick = () => {} }) => {
+	// const Tag = ({ tag, active, tooltip, onClick = () => {} }) => {
 	return (
 		<li>
+			{/* <Tooltip content={tooltip} direction="top"> */}
 			<button
 				className={classNames(
 					'tag px-4 py-1 mb-2 md:mb-0 ml-0 text-left text-black lg:font-light rounded-full dark:bg-gray-900 bg-gray-100 hover:bg-gray-200 dark:hover:dark:bg-gray-700',
@@ -17,6 +20,7 @@ const Tag = ({ tag, active, onClick = () => {} }) => {
 					{tag}
 				</p>
 			</button>
+			{/* </Tooltip> */}
 		</li>
 	);
 };
@@ -36,9 +40,11 @@ const TagsList = ({ className, selectedChanged, tags = [], active }) => {
 			{tags.map((tag) => (
 				<Tag
 					tag={tag}
+					// tag={tag.name}
 					key={tag}
 					onClick={selectedChanged}
 					active={active === tag}
+					// tooltip={tag.tooltip}
 				/>
 			))}
 		</ul>
