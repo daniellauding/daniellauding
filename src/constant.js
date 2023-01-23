@@ -94,6 +94,57 @@ const work = [
 				case: 'growth-enable-more-free-users-emerging-markets',
 				title: 'Optimize product value for existing markets with growth potential',
 				lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+				goals: [
+					{
+						id: 0,
+						title: 'Goal #1',
+						text: 'Enable more free users in emerging markets',
+					},
+					{
+						id: 1,
+						title: 'Goal #2',
+						text: 'Cras dictum ultrices quam quis ultrices',
+					},
+					{
+						id: 2,
+						title: 'Goal #3',
+						text: 'Curabitur convallis orci nec feugiat malesuada',
+					},
+				],
+				insights: [
+					{
+						id: 0,
+						title: 'Insight #1',
+						text: 'People dont do shit',
+					},
+					{
+						id: 1,
+						title: 'Insight #2',
+						text: 'Dogs are crazy',
+					},
+					{
+						id: 2,
+						title: 'Insight #3',
+						text: 'We won',
+					},
+				],
+				outcomes: [
+					{
+						id: 0,
+						title: 'Outcome #1',
+						text: 'It just works',
+					},
+					{
+						id: 1,
+						title: 'Outcome #2',
+						text: 'No more',
+					},
+					{
+						id: 2,
+						title: 'Outcome #3',
+						text: 'We won',
+					},
+				],
 				tags: [
 					'UX',
 					'UI',
@@ -114,6 +165,7 @@ const work = [
 						section: 'brief',
 						title: 'Enable more free users in emerging markets',
 						lead: 'In 2017 Spotify’s goal was to enable more free users in emerging markets. To understand what and how, me and my team traveled to Brazil for two weeks local field research. We did in-home interviews and user testing on prototypes with quick iterations of potential solutions.',
+						style: 'hero',
 					},
 					{
 						// Section
@@ -142,6 +194,20 @@ const work = [
 						section: 'discovery',
 						title: 'Identify ways to attract new freemium users',
 						lead: 'We understood that free users on year class phones (older androids) still where downloading mp3s and was afraid of streaming when not on Wi-Fi. A hypothesis to gain trust to stream on cellular was to build a solution that uses less data consumption.',
+						style: 'hero',
+						groups: [
+							{
+								id: 0,
+								title: {
+									variant: 'medium',
+									value: 'Jag är en rubrik i en grupp',
+								},
+								text: {
+									variant: 'large',
+									value: 'Jag är texten i denna grupp',
+								},
+							},
+						],
 					},
 					{
 						// Section
@@ -149,6 +215,7 @@ const work = [
 						section: 'solution',
 						title: 'Consume 1% of data',
 						lead: 'One of our solutions we ran A/B tests on would serve 4 playlists on-demand and when playing songs from those it only consumed 1% of their data. The design is branded with dark-blue to build awareness throughtout the flow.',
+						style: 'hero',
 					},
 					{
 						// Section

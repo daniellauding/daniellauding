@@ -69,7 +69,7 @@ const Section = ({ section }) => {
 		return (
 			<div
 				className={classNames(
-					`py-16 section variant-full h-screen w-screen overflow-hidden flex items-center justify-center`
+					`py-16 section variant-full h-screen w-screen overflow-hidden flex items-center justify-start`
 				)}
 			>
 				<div className={classNames(`mx-auto container-full`)}>
@@ -110,9 +110,34 @@ const Section = ({ section }) => {
 						: 'container'
 				)}
 			>
-				{section?.title && <Title value={section?.title} />}
-				{section?.lead && <Text value={section?.lead} />}
-				{section?.desc && <Text value={section?.desc} />}
+				{section?.style === 'hero' && (
+					<div
+						className={classNames(
+							`style`,
+							`grid grid-flow-col gap-16 auto-cols-fr items-start justify-items-center`,
+							`style-${section.style}`
+						)}
+					>
+						<div className="col">
+							{section?.title && (
+								<Title size="large" value={section?.title} />
+							)}
+						</div>
+
+						<div className="col">
+							{section?.lead && <Text value={section?.lead} />}
+							{section?.desc && <Text value={section?.desc} />}
+						</div>
+					</div>
+				)}
+				{!section?.style && (
+					<div className={classNames(`style-default`)}>
+						{section?.title && <Title value={section?.title} />}
+						{section?.lead && <Text value={section?.lead} />}
+						{section?.desc && <Text value={section?.desc} />}
+					</div>
+				)}
+
 				{section?.image && (
 					<Image
 						variant={section?.image?.variant}
