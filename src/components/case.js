@@ -55,6 +55,7 @@ const Case = ({ item, clearActive, selectedChanged }) => {
 		<div
 			className={classNames(
 				'section-wrapper',
+				'overflow-x-hidden',
 				`section-${item?.case}`,
 				`section-${item?.client}`,
 				item.layout ? item.layout : 'vertical'
@@ -146,7 +147,13 @@ const CaseSelector = ({
 	selectedChanged,
 }) => {
 	return (
-		<div className="case-wrapper gap-20 flex flex-col h-full overflow-y-auto">
+		<div
+			className={classNames(
+				`case-wrapper gap-20 flex flex-col h-full overflow-y-auto`,
+				`${item?.bg && 'bg-center bg-cover'}`
+			)}
+			style={{ backgroundImage: item?.bg && `url(${item?.bg})` }}
+		>
 			<div
 				className={classNames(
 					`case-selector section py-20 px-20 section-${item?.case}`,
@@ -155,7 +162,7 @@ const CaseSelector = ({
 			>
 				<h3
 					className={classNames(
-						`olle`,
+						`case-client`,
 						clientClassName
 							? clientClassName
 							: 'pt-0 mt-8 mb-2 text-4xl md:text-2xl text-left text-primary font-bold'

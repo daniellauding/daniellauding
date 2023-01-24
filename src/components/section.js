@@ -65,13 +65,18 @@ import Image from './image';
 // };
 
 const Section = ({ section }) => {
-	console.log(section);
 	if (section?.variant === 'full') {
 		return (
 			<div
 				className={classNames(
-					`py-16 section variant-full h-screen w-screen overflow-hidden flex items-center justify-start`
+					`py-16 section variant-full h-screen w-screen overflow-hidden flex items-center justify-start`,
+					{
+						'bg-center bg-cover': section?.bg,
+					}
 				)}
+				style={{
+					backgroundImage: section?.bg && `url(${section?.bg})`,
+				}}
 			>
 				<div className={classNames(`mx-auto container-full`)}>
 					{section?.title && <Title value={section?.title} />}
@@ -79,7 +84,6 @@ const Section = ({ section }) => {
 					{section?.desc && <Text value={section?.desc} />}
 					{section?.image && (
 						<>
-							testar
 							<Image
 								variant={section?.image?.variant}
 								color={section?.image?.color}
@@ -89,6 +93,7 @@ const Section = ({ section }) => {
 								text={section?.image?.text}
 								textColor={section?.image?.textColor}
 								value={section?.image?.value}
+								item={section?.image}
 							/>
 						</>
 					)}
@@ -104,7 +109,11 @@ const Section = ({ section }) => {
 			className={classNames(`py-16 section`, {
 				[`variant-${section.variant}`]: section.variant,
 				[`${section.className}`]: section.className,
+				'bg-center bg-cover': section?.bg,
 			})}
+			style={{
+				backgroundImage: section?.bg && `url(${section?.bg})`,
+			}}
 			id={section?.name}
 		>
 			<div
@@ -152,6 +161,7 @@ const Section = ({ section }) => {
 						height={section?.image?.height}
 						text={section?.image?.text}
 						textColor={section?.image?.textColor}
+						item={section?.image}
 					/>
 				)}
 

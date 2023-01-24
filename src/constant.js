@@ -87,226 +87,241 @@ const work = [
 		bg: '/images/case/spotify/bg_spotify.jpeg',
 		url: 'https://www.spotify.com',
 		index: true,
-		// cases: [
-		// 	{
-		// 		id: 0,
-		// 		case: 'growth-enable-more-free-users-emerging-markets',
-		// 		title: 'Optimize product value for existing markets with growth potential',
-		// 		lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
-		// 		image: {
-		// 			variant: 'dummy',
-		// 			text: 'Ny bild',
-		// 			width: '1920',
-		// 			height: '1050',
-		// 			color: '#20232a',
-		// 			textColor: '#737373',
-		// 			format: 'png',
-		// 		},
-		// 		goals: [
-		// 			{
-		// 				id: 0,
-		// 				title: 'Goal #1',
-		// 				text: 'Enable more free users in emerging markets',
-		// 			},
-		// 			{
-		// 				id: 1,
-		// 				title: 'Goal #2',
-		// 				text: 'Cras dictum ultrices quam quis ultrices',
-		// 			},
-		// 			{
-		// 				id: 2,
-		// 				title: 'Goal #3',
-		// 				text: 'Curabitur convallis orci nec feugiat malesuada',
-		// 			},
-		// 		],
-		// 		insights: [
-		// 			{
-		// 				id: 0,
-		// 				title: 'Insight #1',
-		// 				text: 'People dont do shit',
-		// 			},
-		// 			{
-		// 				id: 1,
-		// 				title: 'Insight #2',
-		// 				text: 'Dogs are crazy',
-		// 			},
-		// 			{
-		// 				id: 2,
-		// 				title: 'Insight #3',
-		// 				text: 'We won',
-		// 			},
-		// 		],
-		// 		outcomes: [
-		// 			{
-		// 				id: 0,
-		// 				title: 'Outcome #1',
-		// 				text: 'It just works',
-		// 			},
-		// 			{
-		// 				id: 1,
-		// 				title: 'Outcome #2',
-		// 				text: 'No more',
-		// 			},
-		// 			{
-		// 				id: 2,
-		// 				title: 'Outcome #3',
-		// 				text: 'We won',
-		// 			},
-		// 		],
-		// 		tags: [
-		// 			'UX',
-		// 			'UI',
-		// 			// {
-		// 			// 	id: '0',
-		// 			// 	name: 'UX',
-		// 			// 	tooltip: 'How it feels',
-		// 			// },
-		// 			// {
-		// 			// 	id: '1',
-		// 			// 	name: 'UI',
-		// 			// 	tooltip: 'How it shines',
-		// 			// },
-		// 			// {
-		// 			// 	id: '2',
-		// 			// 	name: 'Prototyping',
-		// 			// 	tooltip: 'Put some duct tape around it',
-		// 			// },
-		// 			// {
-		// 			// 	id: '2',
-		// 			// 	name: 'Prototyping',
-		// 			// 	tooltip: 'Put some duct tape around it',
-		// 			// },
-		// 			// 'User testing',
-		// 			// 'Field research',
-		// 		],
-		// 		library: {
-		// 			folder: 'spotify',
-		// 		},
-		// 		protected: true,
-		// 		content: [
-		// 			{
-		// 				id: 1,
-		// 				section: 'brief',
-		// 				title: 'Enable more free users in emerging markets',
-		// 				lead: 'In 2017 Spotify’s goal was to enable more free users in emerging markets. To understand what and how, me and my team traveled to Brazil for two weeks local field research. We did in-home interviews and user testing on prototypes with quick iterations of potential solutions.',
-		// 				style: 'hero',
-		// 				image: {
-		// 					value: '/images/me.jpg',
-		// 				},
-		// 			},
-		// 			{
-		// 				id: 2,
-		// 				section: 'scene-imagery',
-		// 				variant: 'full',
-		// 				image: {
-		// 					variant: 'dummy',
-		// 					text: 'Ny bild',
-		// 					width: '1920',
-		// 					height: '1050',
-		// 					color: '#20232a',
-		// 					textColor: '#737373',
-		// 					format: 'png',
-		// 				},
-		// 			},
-		// 			{
-		// 				id: 3,
-		// 				section: 'discovery',
-		// 				title: 'Identify ways to attract new freemium users',
-		// 				lead: 'We understood that free users on year class phones (older androids) still where downloading mp3s and was afraid of streaming when not on Wi-Fi. A hypothesis to gain trust to stream on cellular was to build a solution that uses less data consumption.',
-		// 				style: 'hero',
-		// 				groups: [
-		// 					{
-		// 						id: 0,
-		// 						title: {
-		// 							variant: 'medium',
-		// 							value: 'Jag är en rubrik i en grupp',
-		// 						},
-		// 						text: {
-		// 							variant: 'large',
-		// 							value: 'Jag är texten i denna grupp',
-		// 						},
-		// 					},
-		// 				],
-		// 			},
-		// 			{
-		// 				id: 4,
-		// 				section: 'solution',
-		// 				title: 'Consume 1% of data',
-		// 				lead: 'One of our solutions we ran A/B tests on would serve 4 playlists on-demand and when playing songs from those it only consumed 1% of their data. The design is branded with dark-blue to build awareness throughtout the flow.',
-		// 				style: 'hero',
-		// 			},
-		// 			{
-		// 				id: 5,
-		// 				section: 'designs',
-		// 				title: 'Designs',
-		// 				groups: [
-		// 					{
-		// 						id: 0,
-		// 						image: {
-		// 							variant: 'dummy',
-		// 							text: 'Bild #1',
-		// 							width: '784',
-		// 							height: '1353',
-		// 							color: '#20232a',
-		// 							textColor: '#737373',
-		// 							format: 'png',
-		// 						},
-		// 					},
-		// 					{
-		// 						id: 1,
-		// 						image: {
-		// 							variant: 'dummy',
-		// 							text: 'Bild #2',
-		// 							width: '784',
-		// 							height: '784x1353',
-		// 							color: '#20232a',
-		// 							textColor: '#737373',
-		// 							format: 'png',
-		// 						},
-		// 						groups: [
-		// 							{
-		// 								id: 1,
-		// 								image: {
-		// 									variant: 'dummy',
-		// 									text: 'Bild #2',
-		// 									width: '784',
-		// 									height: '1353',
-		// 									color: '#20232a',
-		// 									textColor: '#737373',
-		// 									format: 'png',
-		// 								},
-		// 							},
-		// 							{
-		// 								id: 2,
-		// 								image: {
-		// 									variant: 'dummy',
-		// 									text: 'Bild #3',
-		// 									width: '784',
-		// 									height: '1353',
-		// 									color: '#20232a',
-		// 									textColor: '#737373',
-		// 									format: 'png',
-		// 								},
-		// 							},
-		// 							{
-		// 								id: 3,
-		// 								image: {
-		// 									variant: 'dummy',
-		// 									text: 'Bild #4',
-		// 									width: '784',
-		// 									height: '1353',
-		// 									color: '#20232a',
-		// 									textColor: '#737373',
-		// 									format: 'png',
-		// 								},
-		// 							},
-		// 						],
-		// 					},
-		// 				],
-		// 			},
-		// 		],
-		// 	},
-		// ],
+		cases: [
+			{
+				id: 0,
+				case: 'growth-enable-more-free-users-emerging-markets',
+				title: 'Optimize product value for existing markets with growth potential',
+				lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+				bg: '/images/case/spotify/bg_spotify.jpeg',
+				// image: {
+				// 	variant: 'dummy',
+				// 	text: 'Ny bild',
+				// 	width: '1920',
+				// 	height: '1050',
+				// 	color: '#20232a',
+				// 	textColor: '#737373',
+				// 	format: 'png',
+				// },
+				image: {
+					value: '/images/case/spotify/bg_spotify.jpeg',
+				},
+				goals: [
+					{
+						// Setup hero icons import { XMarkIcon } from '@heroicons/react/24/solid';
+						id: 0,
+						title: 'Goal #1',
+						text: 'Enable more free users in emerging markets',
+					},
+					{
+						id: 1,
+						title: 'Goal #2',
+						text: 'Cras dictum ultrices quam quis ultrices',
+					},
+					{
+						id: 2,
+						title: 'Goal #3',
+						text: 'Curabitur convallis orci nec feugiat malesuada',
+					},
+				],
+				insights: [
+					{
+						id: 0,
+						title: 'Insight #1',
+						text: 'People dont do shit',
+					},
+					{
+						id: 1,
+						title: 'Insight #2',
+						text: 'Dogs are crazy',
+					},
+					{
+						id: 2,
+						title: 'Insight #3',
+						text: 'We won',
+					},
+				],
+				outcomes: [
+					{
+						id: 0,
+						title: 'Outcome #1',
+						text: 'It just works',
+					},
+					{
+						id: 1,
+						title: 'Outcome #2',
+						text: 'No more',
+					},
+					{
+						id: 2,
+						title: 'Outcome #3',
+						text: 'We won',
+					},
+				],
+				tags: [
+					'UX',
+					'UI',
+					// {
+					// 	id: '0',
+					// 	name: 'UX',
+					// 	tooltip: 'How it feels',
+					// },
+					// {
+					// 	id: '1',
+					// 	name: 'UI',
+					// 	tooltip: 'How it shines',
+					// },
+					// {
+					// 	id: '2',
+					// 	name: 'Prototyping',
+					// 	tooltip: 'Put some duct tape around it',
+					// },
+					// {
+					// 	id: '2',
+					// 	name: 'Prototyping',
+					// 	tooltip: 'Put some duct tape around it',
+					// },
+					// 'User testing',
+					// 'Field research',
+				],
+				library: {
+					folder: 'spotify',
+				},
+				protected: true,
+				content: [
+					{
+						id: 1,
+						section: 'brief',
+						title: 'Enable more free users in emerging markets',
+						lead: 'In 2017 Spotify’s goal was to enable more free users in emerging markets. To understand what and how, me and my team traveled to Brazil for two weeks local field research. We did in-home interviews and user testing on prototypes with quick iterations of potential solutions.',
+						style: 'hero',
+						image: {
+							value: '/images/case/spotify/bg_spotify.jpeg',
+						},
+						bg: '/images/case/spotify/bg_spotify.jpeg',
+					},
+					{
+						id: 2,
+						section: 'scene-imagery',
+						variant: 'full',
+						bg: '/images/case/spotify/bg_spotify.jpeg',
+						image: {
+							variant: 'dummy',
+							text: 'Ny bild',
+							width: '1920',
+							height: '1050',
+							color: '#20232a',
+							textColor: '#737373',
+							format: 'png',
+						},
+					},
+					{
+						id: 3,
+						section: 'discovery',
+						title: 'Identify ways to attract new freemium users',
+						lead: 'We understood that free users on year class phones (older androids) still where downloading mp3s and was afraid of streaming when not on Wi-Fi. A hypothesis to gain trust to stream on cellular was to build a solution that uses less data consumption.',
+						style: 'hero',
+						groups: [
+							{
+								id: 0,
+								title: {
+									variant: 'medium',
+									value: 'Jag är en rubrik i en grupp',
+								},
+								text: {
+									variant: 'large',
+									value: 'Jag är texten i denna grupp',
+								},
+							},
+						],
+					},
+					{
+						id: 4,
+						section: 'solution',
+						title: 'Consume 1% of data',
+						lead: 'One of our solutions we ran A/B tests on would serve 4 playlists on-demand and when playing songs from those it only consumed 1% of their data. The design is branded with dark-blue to build awareness throughtout the flow.',
+						style: 'hero',
+					},
+					{
+						id: 5,
+						section: 'designs',
+						title: 'Designs',
+						groups: [
+							{
+								id: 0,
+								image: {
+									variant: 'dummy',
+									text: 'Bild #1',
+									width: '784',
+									height: '1353',
+									color: '#20232a',
+									textColor: '#737373',
+									format: 'png',
+								},
+							},
+							{
+								id: 1,
+								title: {
+									variant: 'medium',
+									value: 'Jag är en rubrik i en grupp',
+								},
+								text: {
+									variant: 'large',
+									value: 'Jag är texten i denna grupp',
+								},
+								image: {
+									variant: 'dummy',
+									text: 'Bild #2',
+									width: '784',
+									height: '784x1353',
+									color: '#20232a',
+									textColor: '#737373',
+									format: 'png',
+								},
+								groups: [
+									{
+										id: 1,
+										image: {
+											variant: 'dummy',
+											text: 'Bild #2',
+											width: '784',
+											height: '1353',
+											color: '#20232a',
+											textColor: '#737373',
+											format: 'png',
+										},
+									},
+									{
+										id: 2,
+										image: {
+											variant: 'dummy',
+											text: 'Bild #3',
+											width: '784',
+											height: '1353',
+											color: '#20232a',
+											textColor: '#737373',
+											format: 'png',
+										},
+									},
+									{
+										id: 3,
+										image: {
+											variant: 'dummy',
+											text: 'Bild #4',
+											width: '784',
+											height: '1353',
+											color: '#20232a',
+											textColor: '#737373',
+											format: 'png',
+										},
+									},
+								],
+							},
+						],
+					},
+				],
+			},
+		],
 	},
 	{
 		id: 2,
@@ -317,23 +332,19 @@ const work = [
 		bg: '/images/case/recordunion/bg_recordunion.png',
 		url: 'https://www.recordunion.com',
 		index: true,
-		// cases: [
-		// 	{
-		// 		id: 0,
-		// 		case: 'growth-enable-more-free-users-emerging-markets',
-		// 		title: 'Release your music. Get discovered',
-		// 		lead: '',
-		// 		tags: [
-		// 			'UX',
-		// 			'UI',
-		// 			'Prototyping',
-		// 		],
-		// 		protected: true,
-		// 		library: {
-		// 			folder: 'recordunion',
-		// 		},
-		// 	},
-		// ],
+		cases: [
+			{
+				id: 0,
+				case: 'growth-enable-more-free-users-emerging-markets',
+				title: 'Release your music. Get discovered',
+				lead: '',
+				tags: ['UX', 'UI', 'Prototyping'],
+				protected: true,
+				library: {
+					folder: 'recordunion',
+				},
+			},
+		],
 	},
 	{
 		id: 3,
@@ -501,17 +512,17 @@ const work = [
 			// 		folder: 'producks',
 			// 	},
 			// },
-			// {
-			// 	id: 9,
-			// 	case: 'steem',
-			// 	date: '2014',
-			// 	location: 'Remote',
-			// 	title: 'Steem',
-			// 	lead: '',
-			// 	library: {
-			// 		folder: 'steem',
-			// 	},
-			// },
+			{
+				id: 9,
+				case: 'steem',
+				date: '2014',
+				location: 'Remote',
+				title: 'Steem',
+				lead: '',
+				library: {
+					folder: 'steem',
+				},
+			},
 			// {
 			// 	id: 10,
 			// 	case: 'tripppen',
@@ -545,18 +556,18 @@ const work = [
 		bg: '/images/case/backbase/bg_backbase.png',
 		url: 'https://www.backbase.com',
 		index: true,
-		// cases: [
-		// 	{
-		// 		id: 0,
-		// 		case: '',
-		// 		title: '',
-		// 		lead: '',
-		// 		protected: true,
-		// 		library: {
-		// 			folder: 'backbase',
-		// 		},
-		// 	},
-		// ],
+		cases: [
+			{
+				id: 0,
+				case: '',
+				title: '',
+				lead: '',
+				protected: true,
+				library: {
+					folder: 'backbase',
+				},
+			},
+		],
 	},
 	{
 		id: 6,

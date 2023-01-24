@@ -33,19 +33,18 @@ const Image = ({ item = {} }) => {
 
 	if (variant === 'dummy') {
 		return (
-			<>
-				Jag är dummy image
-				<DummyImage
-					color={color}
-					format={format}
-					width={width}
-					height={height}
-					text={text}
-					textColor={textColor}
-				/>
-			</>
+			<DummyImage
+				color={color}
+				format={format}
+				width={width}
+				height={height}
+				text={text}
+				textColor={textColor}
+			/>
 		);
 	}
+
+	// images (slider?)
 
 	return <img className="mt-4 mb-4" src={value} alt="" />;
 };
