@@ -78,7 +78,11 @@ const Section = ({ section }) => {
 					backgroundImage: section?.bg && `url(${section?.bg})`,
 				}}
 			>
-				<div className={classNames(`mx-auto container-full`)}>
+				<div
+					className={classNames(
+						`mx-auto container-full w-full h-full`
+					)}
+				>
 					{section?.title && <Title value={section?.title} />}
 					{section?.lead && <Text value={section?.lead} />}
 					{section?.desc && <Text value={section?.desc} />}
