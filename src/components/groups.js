@@ -43,6 +43,7 @@ const Group = ({ group }) => {
 					text={image?.text}
 					textColor={image?.textColor}
 					item={image}
+					src={image?.src}
 				/>
 			)}
 			{/* {image && (<image color={image?.color} format={image?.format} width={image?.width} height={image?.height} text={image?.text} textColor={image?.textcolor} />)} */}

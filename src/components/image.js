@@ -2,6 +2,8 @@ import React from 'react';
 import DummyImage from 'react-dummy-image';
 //import classNames from 'classnames';
 
+import ImageMapper from 'react-img-mapper';
+
 const files = [];
 
 function importAll(r) {
@@ -17,8 +19,21 @@ importAll(
 );
 
 const Image = ({ item = {} }) => {
-	const { variant, color, format, width, height, text, textColor, value } =
-		item;
+	const {
+		variant,
+		color,
+		format,
+		width,
+		height,
+		text,
+		textColor,
+		src,
+		map,
+		imgWidth,
+		natural,
+		responsive,
+		parentWidth,
+	} = item;
 	if (variant === 'loop') {
 		const images = files.filter((image) => image.includes(item.folder));
 
@@ -28,6 +43,24 @@ const Image = ({ item = {} }) => {
 					<img key={index} src={`/images/case/${src}`} alt="Beer" />
 				))}
 			</div>
+		);
+	}
+
+	// https://bobbyhadz.com/blog/react-get-width-of-element
+	// https://www.npmjs.com/package/react-use-measure
+
+	if (variant === 'mapper') {
+		return (
+			<ImageMapper
+				src={src}
+				map={map}
+				width={width}
+				height={height}
+				imgWidth={imgWidth}
+				natural={natural}
+				responsive={responsive}
+				parentWidth={parentWidth}
+			/>
 		);
 	}
 
@@ -46,7 +79,7 @@ const Image = ({ item = {} }) => {
 
 	// images (slider?)
 
-	return <img className="mt-4 mb-4" src={value} alt="" />;
+	return <img className="mt-4 mb-4" src={src} alt="" />;
 };
 
 export default Image;

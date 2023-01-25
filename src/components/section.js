@@ -92,7 +92,7 @@ const Section = ({ section }) => {
 								height={section?.image?.height}
 								text={section?.image?.text}
 								textColor={section?.image?.textColor}
-								value={section?.image?.value}
+								src={section?.image?.src}
 								item={section?.image}
 							/>
 						</>
@@ -161,6 +161,7 @@ const Section = ({ section }) => {
 						height={section?.image?.height}
 						text={section?.image?.text}
 						textColor={section?.image?.textColor}
+						src={section?.src}
 						item={section?.image}
 					/>
 				)}

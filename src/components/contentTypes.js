@@ -7,7 +7,7 @@ import Image from './image';
 const ContentType = ({
 	type,
 	style,
-	value,
+	src: ,
 	size,
 	title,
 	accordionItem,
@@ -20,7 +20,7 @@ const ContentType = ({
 		return <Title value={value} size={size} style={style} />;
 	}
 	if (type === 'img') {
-		return <Image value={value} style={style} />;
+		return <Image src={src} style={style} />;
 	}
 	if (type === 'slider') {
 		return <Slider slides={slides} />;

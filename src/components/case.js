@@ -67,7 +67,6 @@ const Case = ({ item, clearActive, selectedChanged }) => {
 			>
 				← Back
 			</button>
-
 			<div
 				className={classNames(
 					`section section-hero grid grid-flow-col gap-16 auto-cols-fr relative py-20 px-20`
@@ -92,7 +91,12 @@ const Case = ({ item, clearActive, selectedChanged }) => {
 					/>
 				</div>
 			</div>
-
+			{/*
+        Below
+        Goals / Insights / Outcomes
+        maybe make a variant of section
+        instead to be able to arrange freely?
+      */}
 			{item?.goals && (
 				<div className="section-goals grid gap-2 mx-auto grid-cols-3 p-20 space-y-2 lg:space-y-0 lg:grid lg:gap-3 lg:grid-rows-3">
 					{item?.goals?.map((goal) => (
@@ -103,7 +107,6 @@ const Case = ({ item, clearActive, selectedChanged }) => {
 					))}
 				</div>
 			)}
-
 			{item?.insights && (
 				<div className="section-insights grid gap-2 mx-auto grid-cols-3 p-20 space-y-2 lg:space-y-0 lg:grid lg:gap-3 lg:grid-rows-3">
 					{item?.insights?.map((insight) => (
@@ -114,7 +117,6 @@ const Case = ({ item, clearActive, selectedChanged }) => {
 					))}
 				</div>
 			)}
-
 			{item?.outcomes && (
 				<div className="section-outcomesgrid gap-2 mx-auto grid-cols-3 p-20 space-y-2 lg:space-y-0 lg:grid lg:gap-3 lg:grid-rows-3">
 					{item?.outcomes?.map((outcome) => (
@@ -125,6 +127,9 @@ const Case = ({ item, clearActive, selectedChanged }) => {
 					))}
 				</div>
 			)}
+
+			{/*
+			 */}
 
 			{item?.content?.map((section) => (
 				<Section key={section?.id} section={section} />
