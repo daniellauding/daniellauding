@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { AnimationOnScroll } from 'react-animation-on-scroll';
 import classNames from 'classnames';
 import Section from './section';
 import Access from './access';
@@ -15,6 +16,58 @@ import TagsList from './tags';
 
 const Case = ({ item, clearActive, selectedChanged }) => {
 	// console.log(item);
+
+	// const getInAnimation = ({ custom = {}, animateIn }) => {
+	//   let animations = [];
+	//   if (custom && custom.animateIn) {
+	//     animations = custom.animateIn;
+	//   } else if (animateIn) {
+	//     animations = animateIn;
+	//   }
+
+	//   animations = Array.isArray(animations) ? animations : [animations];
+
+	//   return animations
+	//     .filter((item) => !item.startsWith('bg-'))
+	//     .map((item) => (item.includes('animate__') ? item : `animate__${item}`))
+	//     .join(' ');
+	// };
+
+	// const getOutAnimation = ({ custom = {}, animateOut }) => {
+	//   let animations = [];
+	//   if (custom && custom.animateOut) {
+	//     animations = custom.animateOut;
+	//   } else if (animateOut) {
+	//     animations = animateOut;
+	//   }
+
+	//   animations = Array.isArray(animations) ? animations : [animations];
+
+	//   return animations
+	//     .filter((item) => !item.startsWith('bg-'))
+	//     .map((item) => (item.includes('animate__') ? item : `animate__${item}`))
+	//     .join(' ');
+	// };
+
+	// const getDelayAnimation = ({ custom = {}, animateDelay }) => {
+	//   if (custom && custom.animateDelay) {
+	//     return custom.animateDelay;
+	//   } else if (animateDelay) {
+	//     return animateDelay;
+	//   }
+
+	//   return;
+	// };
+
+	// const getDurationAnimation = ({ custom = {}, animateDuration }) => {
+	//   if (custom && custom.animateDuration) {
+	//     return custom.animateDuration;
+	//   } else if (animateDuration) {
+	//     return animateDuration;
+	//   }
+
+	//   return;
+	// };
 
 	const [show, setShow] = useState(true);
 
@@ -131,8 +184,54 @@ const Case = ({ item, clearActive, selectedChanged }) => {
 			{/*
 			 */}
 
+			{/* https://codesandbox.io/s/3d-react-store-oee0r fore scroll i block */}
+
+			{/* https://www.npmjs.com/package/react-reveal */}
+			{/* https://www.npmjs.com/package/react-animation-on-scroll */}
+
+			{/* https://www.react-spring.dev/ */}
+			{/* https://www.npmjs.com/package/react-is-visible */}
+			{/* https://www.npmjs.com/package/react-compare-image */}
+			{/* https://www.npmjs.com/package/react-animation-on-scroll */}
+			{/* https://image-mapper.myshopify.com/ */}
+			{/* https://medium.com/@luke.cooley/image-mapper-an-effective-way-to-promote-your-products-on-shopify-b7ec7db00fa0 */}
+			{/* https://www.codecademy.com/resources/blog/10-javascript-code-challenges-for-beginners/?utm_source=linkedin&utm_medium=organic-social&utm_content=li_01_25_22_javascript_code_challenges */}
+
+			{/* https://news.stanford.edu/2022/12/05/explains-recent-tech-layoffs-worried/ */}
+
+			{/* https://media.monks.com/case-studies/climate-pledge */}
+
+			{/* https://codepen.io/bramus/pen/PobmGme */}
+
+			{/* https://blog.logrocket.com/guide-to-css-animations-using-clip-path/ */}
+
+			{/* https://webdesign.tutsplus.com/tutorials/scrolling-animations-with-css-clip-path-property--cms-36449 */}
+
+			{/* https://css-tricks.com/animating-with-clip-path/ */}
+
+			{/* https://www.semplice.com/best-portfolios-of-2022 */}
+
 			{item?.content?.map((section) => (
-				<Section key={section?.id} section={section} />
+				<>
+					{item?.content?.animate ? (
+						<Section key={section?.id} section={section} />
+					) : (
+						<AnimationOnScroll
+							animateIn="fadeIn"
+							animateOut="fadeOut"
+							// delay={800 * key}
+							// animateIn={getInAnimation(item)}
+							// animateOut={getOutAnimation(item)}
+							// duration={getDurationAnimation(item)}
+							// delay={getDelayAnimation(item)}
+							// animateOnce={!getOutAnimation(item)}
+							// animateOnce={true}
+						>
+							asdf
+							<Section key={section?.id} section={section} />
+						</AnimationOnScroll>
+					)}
+				</>
 			))}
 		</div>
 	);

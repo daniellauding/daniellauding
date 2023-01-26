@@ -195,6 +195,7 @@ const work = [
 						title: 'Enable more free users in emerging markets',
 						lead: 'In 2017 Spotify’s goal was to enable more free users in emerging markets. To understand what and how, me and my team traveled to Brazil for two weeks local field research. We did in-home interviews and user testing on prototypes with quick iterations of potential solutions.',
 						style: 'hero',
+						animate: true,
 						image: {
 							src: '/images/case/spotify/bg_spotify.jpeg',
 						},
