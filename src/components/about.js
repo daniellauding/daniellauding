@@ -40,7 +40,7 @@ const About = ({
 					'content align-center sticky z-10 md:relative dark:bg-black light:bg-white md:light:bg-transparent md:dark:bg-transparent',
 					active
 						? 'justify-start'
-						: 'flex md:flex-col justify-top rounded-2xl md:rounded-none md:h-screen'
+						: 'flex md:flex-col justify-center rounded-2xl md:rounded-none md:h-screen'
 				)}
 				onMouseEnter={clearPreview}
 			>

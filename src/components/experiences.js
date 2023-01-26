@@ -4,7 +4,7 @@ import Experience from './experience';
 
 const Experiences = ({ active, selectedChanged, setPreviewCase }) => {
 	return (
-		<ul className="experiences flex flex-col justify-center align-center px-8 md:px-16 mt-4 mb-4 md:overflow-y-auto md:mx-4">
+		<ul className="experiences flex flex-col justify-start align-center px-8 md:px-16 mt-4 mb-4 md:overflow-y-auto md:mx-4">
 			{work
 				.filter((item) => item.index !== false)
 				.map((item) => (
