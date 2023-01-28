@@ -213,23 +213,26 @@ const Case = ({ item, clearActive, selectedChanged }) => {
 
 			{item?.content?.map((section) => (
 				<>
-					{item?.content?.animate ? (
-						<Section key={section?.id} section={section} />
-					) : (
+					{section?.animate ? (
 						<AnimationOnScroll
-							animateIn="fadeIn"
-							animateOut="fadeOut"
-							// delay={800 * key}
-							// animateIn={getInAnimation(item)}
-							// animateOut={getOutAnimation(item)}
-							// duration={getDurationAnimation(item)}
-							// delay={getDelayAnimation(item)}
-							// animateOnce={!getOutAnimation(item)}
-							// animateOnce={true}
+							animateIn={
+								section?.animateIn
+									? section?.animateIn
+									: 'animate__fadeIn'
+							}
+							animateOut={section?.animateOut}
+							delay={section?.delay}
+							duration={section?.duration}
+							animateOnce={
+								section?.animateOnce
+									? section?.animateOnce
+									: true
+							}
 						>
-							asdf
 							<Section key={section?.id} section={section} />
 						</AnimationOnScroll>
+					) : (
+						<Section key={section?.id} section={section} />
 					)}
 				</>
 			))}

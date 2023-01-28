@@ -1,6 +1,7 @@
 import React from 'react';
 // import ContentType from './contentType';
 import classNames from 'classnames';
+import { AnimationOnScroll } from 'react-animation-on-scroll';
 import Text, { Title } from './typography';
 // import DummyImage from 'react-dummy-image';
 import Image from './image';
@@ -71,7 +72,27 @@ const Groups = ({ section }) => {
 			)}
 		>
 			{groups.map((group) => (
-				<Group key={group?.id} group={group} />
+				<>
+					{group?.animate ? (
+						<AnimationOnScroll
+							animateIn={
+								group?.animateIn
+									? group?.animateIn
+									: 'animate__fadeIn'
+							}
+							animateOut={group?.animateOut}
+							delay={group?.delay}
+							duration={group?.duration}
+							animateOnce={
+								group?.animateOnce ? group?.animateOnce : true
+							}
+						>
+							<Group key={group?.id} group={group} />
+						</AnimationOnScroll>
+					) : (
+						<Group key={group?.id} group={group} />
+					)}
+				</>
 			))}
 		</div>
 	);

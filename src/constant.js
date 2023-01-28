@@ -1362,6 +1362,7 @@ const work = [
 						groups: [
 							{
 								id: 0,
+								animate: true,
 								title: {
 									variant: 'medium',
 									value: 'Jag är en rubrik i en grupp',

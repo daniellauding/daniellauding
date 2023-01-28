@@ -10,6 +10,8 @@ import './styles/main.scss';
 import CaseSelector from './components/case';
 import TagsList from './components/tags';
 
+import './styles/animate.min.css';
+
 function App() {
 	const [previewCase, setPreviewCase] = useState(null);
 	const [active, setActive] = useState(null);
