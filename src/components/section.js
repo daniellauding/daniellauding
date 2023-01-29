@@ -98,6 +98,7 @@ const Section = ({ section }) => {
 								textColor={section?.image?.textColor}
 								src={section?.image?.src}
 								item={section?.image}
+								images={section?.image?.images}
 							/>
 						</>
 					)}
@@ -167,6 +168,7 @@ const Section = ({ section }) => {
 						textColor={section?.image?.textColor}
 						src={section?.src}
 						item={section?.image}
+						images={section?.image?.images}
 					/>
 				)}
 

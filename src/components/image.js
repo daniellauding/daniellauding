@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect, useLayoutEffect } from 'react';
 import DummyImage from 'react-dummy-image';
 //import classNames from 'classnames';
-
+import Text, { Title } from './typography';
 import ImageMapper from 'react-img-mapper';
 
 const files = [];
@@ -29,6 +29,7 @@ const Image = ({ item = {} }) => {
 		textColor,
 		src,
 		map,
+		images,
 		// imgWidth,
 		// responsive,
 		// parentWidth,
@@ -39,6 +40,8 @@ const Image = ({ item = {} }) => {
 	const [w, setWidth] = useState(0);
 	const [tooltip, setTooltip] = useState(null);
 	// const [h, setHeight] = useState(0);
+
+	console.log(item);
 
 	useLayoutEffect(() => {
 		// console.log(ref.current);
@@ -70,7 +73,7 @@ const Image = ({ item = {} }) => {
 		const images = files.filter((image) => image.includes(item.folder));
 
 		return (
-			<div className="">
+			<div className="image-loop">
 				{images.map((src, index) => (
 					<img key={index} src={`/images/case/${src}`} alt="Beer" />
 				))}
@@ -115,6 +118,20 @@ const Image = ({ item = {} }) => {
 						})
 					}
 				/>
+			</div>
+		);
+	}
+
+	if (variant === 'gallery') {
+		return (
+			<div className="gallery">
+				{images.map((image) => (
+					<>
+						<img key={image.id} src={image.src} alt={image.title} />
+						{image.title && <Title value={image?.title} />}
+						{image.text && <Text value={image?.text} />}
+					</>
+				))}
 			</div>
 		);
 	}

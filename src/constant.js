@@ -218,6 +218,47 @@ const work = [
 					},
 					{
 						id: 3,
+						section: 'loop-image-gallery',
+						image: {
+							variant: 'loop',
+							folder: 'spotify/looptest',
+						},
+					},
+					{
+						id: 4,
+						section: 'image-gallery',
+						image: {
+							variant: 'gallery',
+							images: [
+								{
+									id: 0,
+									src: '/images/case/spotify/looptest/01.png',
+									title: 'Test image title #1',
+									text: 'Här har vi gjort lite tester för att se hur användarna tycker',
+								},
+								{
+									id: 1,
+									src: '/images/case/spotify/looptest/02.png',
+									title: 'Test image title #2',
+									text: 'Asdf lite test',
+								},
+								{
+									id: 2,
+									src: '/images/case/spotify/looptest/03.png',
+									title: 'Test image title #3',
+									text: 'Asdf lite test',
+								},
+								{
+									id: 3,
+									src: '/images/case/spotify/looptest/04.png',
+									title: 'Test image title #4',
+									text: 'Hej hej hemskt mycket hej',
+								},
+							],
+						},
+					},
+					{
+						id: 5,
 						section: 'scene-imagery',
 						variant: 'full',
 						image: {
@@ -1354,7 +1395,7 @@ const work = [
 						},
 					},
 					{
-						id: 4,
+						id: 6,
 						section: 'discovery',
 						title: 'Identify ways to attract new freemium users',
 						lead: 'We understood that free users on year class phones (older androids) still where downloading mp3s and was afraid of streaming when not on Wi-Fi. A hypothesis to gain trust to stream on cellular was to build a solution that uses less data consumption.',
@@ -1375,7 +1416,7 @@ const work = [
 						],
 					},
 					{
-						id: 5,
+						id: 7,
 						section: 'solution',
 						title: 'Consume 1% of data',
 						lead: 'One of our solutions we ran A/B tests on would serve 4 playlists on-demand and when playing songs from those it only consumed 1% of their data. The design is branded with dark-blue to build awareness throughtout the flow.',
