@@ -73,9 +73,18 @@ const Image = ({ item = {} }) => {
 		const images = files.filter((image) => image.includes(item.folder));
 
 		return (
-			<div className="image-loop">
+			<div className="image-loop grid gap-2 mx-auto grid-cols-3 p-20 space-y-2 lg:space-y-0 lg:grid lg:gap-3 lg:grid-rows-3">
 				{images.map((src, index) => (
-					<img key={index} src={`/images/case/${src}`} alt="Beer" />
+					<div
+						key={index}
+						className="w-full flex justify-center flex-col items-center h-full"
+					>
+						<img
+							src={`/images/case/${src}`}
+							alt={`/images/case/${src}`}
+							className="object-cover mx-auto w-full max-w-full max-h-full"
+						/>
+					</div>
 				))}
 			</div>
 		);
@@ -122,15 +131,34 @@ const Image = ({ item = {} }) => {
 		);
 	}
 
+	// if (variant === 'compare') {
+	// 	return (
+
+	// 	);
+	// }
+
 	if (variant === 'gallery') {
 		return (
-			<div className="gallery">
+			<div className="gallery grid gap-2 mx-auto grid-cols-3 p-20 space-y-2 lg:space-y-0 lg:grid lg:gap-3 lg:grid-rows-3">
 				{images.map((image) => (
-					<>
-						<img key={image.id} src={image.src} alt={image.title} />
-						{image.title && <Title value={image?.title} />}
-						{image.text && <Text value={image?.text} />}
-					</>
+					<div
+						key={image.id}
+						className="w-full flex justify-center gap-4 flex-col items-center h-full"
+					>
+						<div className="gallery-image w-full h-full">
+							<img
+								src={image.src}
+								alt={image.title}
+								className="object-cover mx-auto w-full max-w-full max-h-full"
+							/>
+						</div>
+						<div className="gallery-content w-full h-full">
+							{image.title && <Title value={image?.title} />}
+							{image.text && <Text value={image?.text} />}
+						</div>
+					</div>
+
+					// Click to open image in modal, press previous and back, set active
 				))}
 			</div>
 		);
