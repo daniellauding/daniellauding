@@ -7,8 +7,17 @@ const Profile = () => {
 		<>
 			{about.map((intro) => (
 				<div key={intro.id}>
-					<img src={intro.logo} className="logo mx-auto" alt="logo" />
-					<h1 className="pt-0 mt-8 mb-0 text-3xl text-center dark:text-white text-black lg:font-bold">
+					<div className="logo w-20 h-20 mx-auto">
+						<video loop muted autoPlay controls="">
+							<source src={intro.logoMov} type="video/mp4" />
+						</video>
+						<img
+							src={intro.logo}
+							className="logo mx-auto hidden"
+							alt="logo"
+						/>
+					</div>
+					<h1 className="pt-0 mt-4 mb-0 text-3xl text-center dark:text-white text-black lg:font-bold">
 						{intro.name}
 					</h1>
 					<p className="pt-0 mb-0 text-center dark:text-gray-500 text-black lg:font-light">
