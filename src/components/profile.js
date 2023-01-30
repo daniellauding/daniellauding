@@ -17,6 +17,7 @@ const Profile = () => {
 						>
 							<source src={intro.logoMov} type="video/mp4" />
 						</video>
+						{/* Click, enlarge logo animate out things and position of logo */}
 						<img
 							src={intro.logo}
 							className="logo mx-auto md:hidden"
