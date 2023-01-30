@@ -4,7 +4,7 @@ const about = [
 		name: 'Daniel Lauding',
 		email: 'daniel@lauding.se',
 		logo: '/images/logo.svg',
-		logoMov: '/images/logo.mov',
+		logoMov: '/images/logoH.mov',
 		hero: '/images/me.jpg',
 		description:
 			'I am a hybrid* designer who enjoys prototyping, conceptualizing and designing interfaces',

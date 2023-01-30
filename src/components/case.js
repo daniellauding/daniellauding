@@ -7,6 +7,7 @@ import Text, { Title } from './typography';
 import Image from './image';
 import Library from './library';
 import TagsList from './tags';
+import Logo from './logo';
 // import { work } from '../constant';
 
 // how do i render client info like, role, date, name, its in parent of array?
@@ -114,12 +115,15 @@ const Case = ({ item, clearActive, selectedChanged }) => {
 				item.layout ? item.layout : 'vertical'
 			)}
 		>
-			<button
-				onClick={clearActive}
-				className="pt-0 mb-0 mt-0 text-center dark:text-gray-500 text-black text-sm lg:font-light"
-			>
-				← Back
-			</button>
+			<div className="client-header top-8 left-8 fixed flex flex-row p-6 gap-8">
+				<Logo />
+				<button
+					onClick={clearActive}
+					className="pt-0 mb-0 mt-0 text-center dark:text-gray-500 text-black text-sm lg:font-light"
+				>
+					← Back
+				</button>
+			</div>
 			<div
 				className={classNames(
 					`section section-hero grid grid-flow-col gap-16 auto-cols-fr relative py-20 px-20`

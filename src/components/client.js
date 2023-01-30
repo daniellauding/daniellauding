@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import CaseSelector, { Case } from './case';
 import Soon from './soon';
+import Logo from './logo';
 
 const Client = ({ item, clearActive, selectedCase, selectedChanged }) => {
 	const { cases = [] } = item;
@@ -27,13 +28,16 @@ const Client = ({ item, clearActive, selectedCase, selectedChanged }) => {
 	}
 
 	return (
-		<div>
-			<button
-				onClick={clearActive}
-				className="fixed top-8 left-8 pt-0 mb-0 mt-0 text-center dark:text-gray-500 text-black text-sm lg:font-light"
-			>
-				← Back
-			</button>
+		<div className="client-overview">
+			<div className="client-header top-8 left-8 fixed flex flex-row p-6 gap-8">
+				<Logo />
+				<button
+					onClick={clearActive}
+					className="pt-0 mb-0 mt-0 text-center dark:text-gray-500 text-black text-sm lg:font-light"
+				>
+					← Back
+				</button>
+			</div>
 			{!cases?.length && <Soon item={item} />}
 			{/* Visa "soon" om item.index !== false */}
 
