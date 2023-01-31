@@ -3,6 +3,7 @@ import DummyImage from 'react-dummy-image';
 //import classNames from 'classnames';
 import Text, { Title } from './typography';
 import ImageMapper from 'react-img-mapper';
+import Modal from './modal';
 
 const files = [];
 
@@ -34,6 +35,8 @@ const Image = ({ item = {} }) => {
 		// responsive,
 		// parentWidth,
 	} = item;
+
+	const [showModal, setShowModal] = useState(false);
 
 	const ref = useRef(null);
 
@@ -141,24 +144,38 @@ const Image = ({ item = {} }) => {
 		return (
 			<div className="gallery grid gap-2 mx-auto grid-cols-3 p-20 space-y-2 lg:space-y-0 lg:grid lg:gap-3 lg:grid-rows-3">
 				{images.map((image) => (
-					<div
-						key={image.id}
-						className="w-full flex justify-center gap-4 flex-col items-center h-full"
-					>
-						<div className="gallery-image w-full h-full">
+					<>
+						<div
+							key={image.id}
+							className="w-full flex justify-center gap-4 flex-col items-center h-full"
+							onClick={() => setShowModal(true)}
+						>
+							<div className="gallery-image w-full h-full">
+								<img
+									src={image.src}
+									alt={image.title}
+									className="object-cover mx-auto w-full max-w-full max-h-full"
+								/>
+							</div>
+							<div className="gallery-content w-full h-full">
+								{image.title && <Title value={image?.title} />}
+								{image.text && <Text value={image?.text} />}
+							</div>
+						</div>
+						<Modal
+							btnClose="Close"
+							open={showModal}
+							onClose={() => setShowModal(false)}
+						>
 							<img
 								src={image.src}
 								alt={image.title}
 								className="object-cover mx-auto w-full max-w-full max-h-full"
+								//store which image i press on, and do next prev
 							/>
-						</div>
-						<div className="gallery-content w-full h-full">
-							{image.title && <Title value={image?.title} />}
-							{image.text && <Text value={image?.text} />}
-						</div>
-					</div>
-
-					// Click to open image in modal, press previous and back, set active
+						</Modal>
+						{/* // Click to open image in modal, press previous and back, set active */}
+					</>
 				))}
 			</div>
 		);
