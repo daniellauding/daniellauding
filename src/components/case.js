@@ -247,7 +247,6 @@ const Case = ({ item, clearActive, selectedChanged }) => {
 const CaseSelector = ({
 	descClassName,
 	buttonReadMoreClassName,
-	clientClassName,
 	caseSelectorClassName,
 	urlClassName,
 	titleClassName,
@@ -271,17 +270,6 @@ const CaseSelector = ({
 					caseSelectorClassName
 				)}
 			>
-				<h3
-					className={classNames(
-						`case-client`,
-						clientClassName
-							? clientClassName
-							: 'pt-0 mt-8 mb-2 text-4xl md:text-2xl text-left text-primary font-bold'
-					)}
-				>
-					{item.client}
-				</h3>
-
 				<h1
 					className={classNames(
 						`case-title`,

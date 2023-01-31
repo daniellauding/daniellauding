@@ -1,29 +1,14 @@
 import React from 'react';
 // import classNames from 'classnames';
 import { about } from '../constant';
+import Logo from './logo';
 
 const Profile = () => {
 	return (
 		<>
 			{about.map((intro) => (
 				<div key={intro.id}>
-					<div className="logo w-20 h-20 mx-auto">
-						<video
-							loop
-							muted
-							autoPlay
-							controls=""
-							className="hidden md:flex"
-						>
-							<source src={intro.logoMov} type="video/mp4" />
-						</video>
-						{/* Click, enlarge logo animate out things and position of logo */}
-						<img
-							src={intro.logo}
-							className="logo mx-auto md:hidden"
-							alt="logo"
-						/>
-					</div>
+					<Logo />
 					<h1 className="pt-0 mt-4 mb-0 text-3xl text-center dark:text-white text-black lg:font-bold">
 						{intro.name}
 					</h1>

@@ -1,11 +1,19 @@
 import React from 'react';
 import { about } from '../constant';
 
+const goHome = () => {
+	window.location.href = '/';
+};
+
 const Logo = () => {
 	return (
 		<>
 			{about.map((intro) => (
-				<div className="logo w-20 h-20 mx-auto" key={intro.id}>
+				<div
+					className="logo w-20 h-20 mx-auto cursor-pointer"
+					key={intro.id}
+					onClick={goHome}
+				>
 					<video
 						loop
 						muted
