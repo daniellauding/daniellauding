@@ -1,9 +1,16 @@
-import React, { useRef, useState, useEffect, useLayoutEffect } from 'react';
+import React, {
+	useRef,
+	useState,
+	useEffect,
+	useLayoutEffect,
+	// useCallback,
+} from 'react';
 import DummyImage from 'react-dummy-image';
 //import classNames from 'classnames';
 import Text, { Title } from './typography';
 import ImageMapper from 'react-img-mapper';
-import Modal from './modal';
+// import Modal from './modal';
+import classNames from 'classnames';
 
 const files = [];
 
@@ -36,7 +43,8 @@ const Image = ({ item = {} }) => {
 		// parentWidth,
 	} = item;
 
-	const [showModal, setShowModal] = useState(false);
+	// const [showModal, setShowModal] = useState(false);
+	const [activeImg = 0, setActiveImg] = useState(0);
 
 	const ref = useRef(null);
 
@@ -44,7 +52,16 @@ const Image = ({ item = {} }) => {
 	const [tooltip, setTooltip] = useState(null);
 	// const [h, setHeight] = useState(0);
 
-	console.log(item);
+	// console.log(item);
+
+	// const onClick = useCallback(
+	// 	(e) => {
+	// 		e.preventDefault();
+	// 		// setActive(active);
+	// 		setShowModal(true);
+	// 	},
+	// 	[item, setActive]
+	// );
 
 	useLayoutEffect(() => {
 		// console.log(ref.current);
@@ -71,6 +88,8 @@ const Image = ({ item = {} }) => {
 			window.removeEventListener('resize', handleWindowResize);
 		};
 	}, []);
+
+	console.log(activeImg);
 
 	if (variant === 'loop') {
 		const images = files.filter((image) => image.includes(item.folder));
@@ -143,17 +162,25 @@ const Image = ({ item = {} }) => {
 	if (variant === 'gallery') {
 		return (
 			<div className="gallery grid gap-2 mx-auto grid-cols-3 p-20 space-y-2 lg:space-y-0 lg:grid lg:gap-3 lg:grid-rows-3">
-				{images.map((image) => (
+				{activeImg}
+				{images.map((image, index) => (
 					<>
 						<div
 							key={image.id}
-							className="w-full flex justify-center gap-4 flex-col items-center h-full"
-							onClick={() => setShowModal(true)}
+							className={classNames(
+								`w-full flex justify-center gap-4 flex-col items-center h-full`,
+								{
+									active: activeImg === index,
+									'not-active': activeImg !== index,
+								}
+							)}
+							onClick={() => setActiveImg(index)}
 						>
 							<div className="gallery-image w-full h-full">
 								<img
 									src={image.src}
 									alt={image.title}
+									// className="object-cover mx-auto w-full max-w-full max-h-full"
 									className="object-cover mx-auto w-full max-w-full max-h-full"
 								/>
 							</div>
@@ -162,19 +189,6 @@ const Image = ({ item = {} }) => {
 								{image.text && <Text value={image?.text} />}
 							</div>
 						</div>
-						<Modal
-							btnClose="Close"
-							open={showModal}
-							onClose={() => setShowModal(false)}
-						>
-							<img
-								src={image.src}
-								alt={image.title}
-								className="object-cover mx-auto w-full max-w-full max-h-full"
-								//store which image i press on, and do next prev
-							/>
-						</Modal>
-						{/* // Click to open image in modal, press previous and back, set active */}
 					</>
 				))}
 			</div>
