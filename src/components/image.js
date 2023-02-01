@@ -44,7 +44,16 @@ const Image = ({ item = {} }) => {
 	} = item;
 
 	// const [showModal, setShowModal] = useState(false);
-	const [activeImg = 0, setActiveImg] = useState(0);
+	// const [activeImg = 0, setActiveImg] = useState(0);
+
+	const [indexOfImages, setIndexOfImages] = useState(0);
+	const [showModal, setShowModal] = useState(false);
+
+	const openModalAndSetIndex = (index) => {
+		setIndexOfImages(index);
+		setShowModal(true);
+		return;
+	};
 
 	const ref = useRef(null);
 
@@ -88,8 +97,6 @@ const Image = ({ item = {} }) => {
 			window.removeEventListener('resize', handleWindowResize);
 		};
 	}, []);
-
-	console.log(activeImg);
 
 	if (variant === 'loop') {
 		const images = files.filter((image) => image.includes(item.folder));
@@ -162,19 +169,20 @@ const Image = ({ item = {} }) => {
 	if (variant === 'gallery') {
 		return (
 			<div className="gallery grid gap-2 mx-auto grid-cols-3 p-20 space-y-2 lg:space-y-0 lg:grid lg:gap-3 lg:grid-rows-3">
-				{activeImg}
+				{/* {activeImg} */}
 				{images.map((image, index) => (
 					<>
+						{/* <p>klickad på {activeImg}</p> */}
 						<div
 							key={image.id}
 							className={classNames(
-								`w-full flex justify-center gap-4 flex-col items-center h-full`,
-								{
-									active: activeImg === index,
-									'not-active': activeImg !== index,
-								}
+								`w-full flex justify-center gap-4 flex-col items-center h-full`
+								// {
+								// 	active: activeImg === index,
+								// 	'not-active': activeImg !== index,
+								// }
 							)}
-							onClick={() => setActiveImg(index)}
+							onClick={() => openModalAndSetIndex(index)}
 						>
 							<div className="gallery-image w-full h-full">
 								<img
@@ -191,6 +199,48 @@ const Image = ({ item = {} }) => {
 						</div>
 					</>
 				))}
+
+				{showModal && (
+					<>
+						{images.map((image) => (
+							<div
+								key={image?.id}
+								className="modal fixed top-0 left-0 botton-0 right-0 modal-contact z-90 flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0 bg-neutral-800 bg-opacity-70 flex flex-col"
+							>
+								<p>
+									testar, visas på img click, jag ska eg visa
+									bilden som jag klickade på {indexOfImages}{' '}
+									{image[indexOfImages]}
+								</p>
+								<img src={image[indexOfImages]} alt="testar" />
+								<span
+									onClick={() =>
+										setIndexOfImages(
+											(indexOfImages + image.length + 1) %
+												image.length
+										)
+									}
+								>
+									Visa nästa
+								</span>
+								<span
+									onClick={() =>
+										setIndexOfImages(
+											(indexOfImages + image.length - 1) %
+												image.length
+										)
+									}
+								>
+									Visa föregående
+								</span>
+								<span onClick={() => setShowModal(false)}>
+									Stäng
+								</span>
+								<p>1 av 3</p>
+							</div>
+						))}
+					</>
+				)}
 			</div>
 		);
 	}

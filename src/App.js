@@ -11,8 +11,6 @@ import CaseSelector from './components/case';
 import TagsList from './components/tags';
 import Logo from './components/logo';
 
-import Calendar from './components/calendar';
-
 import './styles/animate.min.css';
 
 function App() {
@@ -69,7 +67,6 @@ function App() {
 
 	return (
 		<div className="wrapper box-border">
-			<Calendar />
 			{active && active.client && (
 				<Client
 					item={active}
