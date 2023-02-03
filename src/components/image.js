@@ -176,11 +176,11 @@ const Image = ({ item = {} }) => {
 						<div
 							key={image.id}
 							className={classNames(
-								`w-full flex justify-center gap-4 flex-col items-center h-full`
-								// {
-								// 	active: activeImg === index,
-								// 	'not-active': activeImg !== index,
-								// }
+								`w-full flex justify-center gap-4 flex-col items-center h-full`,
+								{
+									active: indexOfImages === index,
+									'not-active': indexOfImages !== index,
+								}
 							)}
 							onClick={() => openModalAndSetIndex(index)}
 						>
@@ -202,43 +202,53 @@ const Image = ({ item = {} }) => {
 
 				{showModal && (
 					<>
-						{images.map((image) => (
-							<div
-								key={image?.id}
-								className="modal fixed top-0 left-0 botton-0 right-0 modal-contact z-90 flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0 bg-neutral-800 bg-opacity-70 flex flex-col"
-							>
-								<p>
-									testar, visas på img click, jag ska eg visa
-									bilden som jag klickade på {indexOfImages}{' '}
-									{image[indexOfImages]}
-								</p>
-								<img src={image[indexOfImages]} alt="testar" />
-								<span
-									onClick={() =>
-										setIndexOfImages(
-											(indexOfImages + image.length + 1) %
-												image.length
-										)
-									}
+						<div className="modal fixed top-0 left-0 botton-0 right-0 modal-contact z-90 flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0 bg-neutral-800 bg-opacity-70 flex flex-col">
+							{images.map((image, index) => (
+								<div
+									key={image?.id}
+									className={classNames(
+										`w-full flex justify-center gap-4 flex-col items-center h-full`,
+										{
+											'active block':
+												indexOfImages === index,
+											'not-active hidden':
+												indexOfImages !== index,
+										}
+									)}
+									onClick={() => setShowModal(false)}
 								>
-									Visa nästa
-								</span>
-								<span
-									onClick={() =>
-										setIndexOfImages(
-											(indexOfImages + image.length - 1) %
-												image.length
-										)
-									}
-								>
-									Visa föregående
-								</span>
-								<span onClick={() => setShowModal(false)}>
-									Stäng
-								</span>
-								<p>1 av 3</p>
-							</div>
-						))}
+									<img src={image.src} alt="testar" />
+									<span
+										onClick={() =>
+											setIndexOfImages(
+												(indexOfImages +
+													image.length +
+													1) %
+													image.length
+											)
+										}
+									>
+										Visa nästa
+									</span>
+									<span
+										onClick={() =>
+											setIndexOfImages(
+												(indexOfImages +
+													image.length -
+													1) %
+													image.length
+											)
+										}
+									>
+										Visa föregående
+									</span>
+									<span onClick={() => setShowModal(false)}>
+										Stäng
+									</span>
+									<p>1 av 3</p>
+								</div>
+							))}
+						</div>
 					</>
 				)}
 			</div>
