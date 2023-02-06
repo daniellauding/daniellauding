@@ -11,6 +11,11 @@ import Text, { Title } from './typography';
 import ImageMapper from 'react-img-mapper';
 // import Modal from './modal';
 import classNames from 'classnames';
+import {
+	XMarkIcon,
+	ArrowLeftIcon,
+	ArrowRightIcon,
+} from '@heroicons/react/24/solid';
 
 const files = [];
 
@@ -201,55 +206,109 @@ const Image = ({ item = {} }) => {
 				))}
 
 				{showModal && (
-					<>
-						<div className="modal fixed top-0 left-0 botton-0 right-0 modal-contact z-90 flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0 bg-neutral-800 bg-opacity-70 flex flex-col">
-							{images.map((image, index) => (
-								<div
-									key={image?.id}
-									className={classNames(
-										`w-full flex justify-center gap-4 flex-col items-center h-full`,
-										{
-											'active block':
-												indexOfImages === index,
-											'not-active hidden':
-												indexOfImages !== index,
-										}
-									)}
-									onClick={() => setShowModal(false)}
-								>
-									<img src={image.src} alt="testar" />
-									<span
-										onClick={() =>
-											setIndexOfImages(
-												(indexOfImages +
-													image.length +
-													1) %
-													image.length
-											)
-										}
+					<div
+						tabIndex="-1"
+						aria-hidden="true"
+						className={classNames(
+							'fixed inset-0 z-10 overflow-y-auto'
+						)}
+					>
+						<div className="modal modal-enter-access-code flex min-h-full items-end justify-center p-12 text-center sm:items-center h-screen">
+							<div className="modal-wrapper z-20 relative transform overflow-hidden rounded-2xl bg-white text-left shadow-xl transition-all h-full max-w-2xl">
+								<div className="modal-header relative p-10 pb-4 mx-auto">
+									<button
+										// onClick={clearActive}
+										onClick={() => setShowModal(false)}
+										type="button"
+										className="absolute top-4 right-4 ml-auto btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline z-20"
+										data-bs-dismiss="modal"
+										aria-label="Close"
 									>
-										Visa nästa
-									</span>
-									<span
-										onClick={() =>
-											setIndexOfImages(
-												(indexOfImages +
-													image.length -
-													1) %
-													image.length
-											)
-										}
-									>
-										Visa föregående
-									</span>
-									<span onClick={() => setShowModal(false)}>
-										Stäng
-									</span>
-									<p>1 av 3</p>
+										<XMarkIcon className="h-5 w-5 text-black" />
+									</button>
 								</div>
-							))}
+								<div className="modal-body h-full relative pt-0 py-4 px-10 mx-auto">
+									{images.map((image, index) => (
+										<div
+											key={image?.id}
+											className={classNames(
+												`w-full h-full justify-center gap-4 flex-col items-center overflow-y-auto`,
+												{
+													'active block':
+														indexOfImages ===
+														images.length,
+													'not-active hidden':
+														indexOfImages !== index,
+												}
+											)}
+										>
+											<div className="gallery-image w-full h-full overflow-y-auto flex flex-1">
+												<img
+													src={image.src}
+													alt={image.title}
+													// className="object-cover mx-auto w-full max-w-full max-h-full"
+													className="object-cover mx-auto w-full max-w-full max-h-full"
+												/>
+											</div>
+											<div className="gallery-content w-full">
+												{image.title && (
+													<Title
+														value={image?.title}
+													/>
+												)}
+												{image.text && (
+													<Text value={image?.text} />
+												)}
+											</div>
+										</div>
+									))}
+
+									<div className="flex">
+										<button
+											onClick={() =>
+												setIndexOfImages(
+													(indexOfImages +
+														images.length -
+														1) %
+														images.length
+												)
+											}
+											type="button"
+											className="absolute top-1/2 left-0 btn-prev box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline z-20"
+											data-bs-dismiss="modal"
+											aria-label="Previous"
+										>
+											<ArrowLeftIcon className="h-5 w-5 text-black" />
+										</button>
+										<button
+											onClick={() =>
+												setIndexOfImages(
+													(indexOfImages +
+														images.length +
+														1) %
+														images.length
+												)
+											}
+											type="button"
+											className="absolute top-1/2 right-0 btn-next box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline z-20"
+											data-bs-dismiss="modal"
+											aria-label="Next"
+										>
+											<ArrowRightIcon className="h-5 w-5 text-black" />
+										</button>
+									</div>
+
+									<p>
+										{indexOfImages} / {images.length}
+									</p>
+								</div>
+							</div>
+							<div
+								onClick={() => setShowModal(false)}
+								className="modal-backdrop w-full h-full min-h-full fixed top-0 left-0 bottom-0 right-0 z-10 bg-opacity-90 bg-neutral-800 backdrop-blur"
+							/>
 						</div>
-					</>
+					</div>
 				)}
 			</div>
 		);

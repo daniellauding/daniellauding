@@ -129,6 +129,9 @@ module.exports = {
 			pattern: /from-*/,
 		},
 		{
+			pattern: /flex-*/,
+		},
+		{
 			pattern: /via-*/,
 		},
 		{
