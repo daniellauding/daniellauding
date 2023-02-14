@@ -32,6 +32,56 @@ const about = [
 				],
 			},
 		],
+		timeline: [
+			{
+				id: 0,
+				date: '9 December 1986',
+				title: 'Im born',
+				text: 'Born in Västerås, Sweden',
+			},
+			{
+				id: 1,
+				date: '13 February 2023',
+				title: 'Im sitting in India learning how to make a timeline',
+				text: 'Goal with this timeline is to be able to quickly see my career throughtout my professional career. Be able to click to view a project that is in this portfolio.',
+			},
+			{
+				id: 2,
+				date: '14 February 2023',
+				title: 'TODO',
+				text: 'ADD EXPERIENCES FROM LINKEDIN + PERSONAL GOALS + ACTIVE STATE + KLICK TO GO TO A CASE',
+			},
+			{
+				id: 3,
+				date: '14 February 2023',
+				title: 'TODO',
+				text: 'Nunc dignissim vel neque a sodales. Nulla ornare finibus massa sed dignissim. Sed at facilisis augue, non maximus odio. Vestibulum rhoncus est sapien, at vehicula sapien lobortis quis. Morbi in orci eget odio tempor lacinia nec eget justo. Duis non diam lorem. Aliquam erat volutpat. Donec gravida at nisi at rhoncus. Suspendisse potenti.',
+			},
+			{
+				id: 4,
+				date: '14 February 2023',
+				title: 'TODO',
+				text: 'Nunc dignissim vel neque a sodales. Nulla ornare finibus massa sed dignissim. Sed at facilisis augue, non maximus odio. Vestibulum rhoncus est sapien, at vehicula sapien lobortis quis. Morbi in orci eget odio tempor lacinia nec eget justo. Duis non diam lorem. Aliquam erat volutpat. Donec gravida at nisi at rhoncus. Suspendisse potenti.',
+			},
+			{
+				id: 5,
+				date: '14 February 2023',
+				title: 'TODO',
+				text: 'Nunc dignissim vel neque a sodales. Nulla ornare finibus massa sed dignissim. Sed at facilisis augue, non maximus odio. Vestibulum rhoncus est sapien, at vehicula sapien lobortis quis. Morbi in orci eget odio tempor lacinia nec eget justo. Duis non diam lorem. Aliquam erat volutpat. Donec gravida at nisi at rhoncus. Suspendisse potenti.',
+			},
+			{
+				id: 6,
+				date: '14 February 2023',
+				title: 'TODO',
+				text: 'Nunc dignissim vel neque a sodales. Nulla ornare finibus massa sed dignissim. Sed at facilisis augue, non maximus odio. Vestibulum rhoncus est sapien, at vehicula sapien lobortis quis. Morbi in orci eget odio tempor lacinia nec eget justo. Duis non diam lorem. Aliquam erat volutpat. Donec gravida at nisi at rhoncus. Suspendisse potenti.',
+			},
+			{
+				id: 7,
+				date: '14 February 2023',
+				title: 'TODO',
+				text: 'Nunc dignissim vel neque a sodales. Nulla ornare finibus massa sed dignissim. Sed at facilisis augue, non maximus odio. Vestibulum rhoncus est sapien, at vehicula sapien lobortis quis. Morbi in orci eget odio tempor lacinia nec eget justo. Duis non diam lorem. Aliquam erat volutpat. Donec gravida at nisi at rhoncus. Suspendisse potenti.',
+			},
+		],
 		skills: [
 			{
 				design: [

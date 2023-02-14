@@ -11,6 +11,8 @@ import CaseSelector from './components/case';
 import TagsList from './components/tags';
 import Logo from './components/logo';
 
+import Timeline from './components/timeline';
+
 import './styles/animate.min.css';
 
 function App() {
@@ -129,6 +131,9 @@ function App() {
 						clearPreview={clearPreview}
 						clearActive={clearActive}
 					/>
+
+					<Timeline />
+					<Timeline direction="vertical" />
 				</div>
 			)}
 
@@ -150,6 +155,8 @@ function App() {
           </div>
         )}
       </div> */}
+
+			<Timeline />
 		</div>
 	);
 }

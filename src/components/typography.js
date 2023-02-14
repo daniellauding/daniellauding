@@ -2,20 +2,82 @@ import React from 'react';
 import classNames from 'classnames';
 
 const Text = ({ size, value, className }) => {
-	return (
-		<p
-			className={classNames(
-				`pt-0 mb-2 text-1xl md:text-2xl dark:text-gray-300 text-black lg:font-light`,
-				size === 'xl' ? 'text-2xl md:text-4xl' : undefined,
-				size === 'large' ? 'text-2xl md:text-5xl' : undefined,
-				size === 'medium' ? 'text-1xl md:text-2xl' : undefined,
-				size === 'small' ? 'text-sm' : undefined,
-				className
-			)}
-		>
-			{value}
-		</p>
-	);
+	// return (
+	// 	<p
+	// 		className={classNames(
+	// 			`pt-0 mb-2 text-1xl md:text-2xl dark:text-gray-300 text-black lg:font-light`,
+	// 			size === 'xl' ? 'text-2xl md:text-4xl' : undefined,
+	// 			size === 'large' ? 'text-2xl md:text-5xl' : undefined,
+	// 			size === 'medium' ? 'text-1xl md:text-2xl' : undefined,
+	// 			size === 'small' ? 'text-sm' : undefined,
+	// 			size === 'xs' ? 'text-xs' : undefined,
+	// 			className
+	// 		)}
+	// 	>
+	// 		{value}
+	// 	</p>
+	// );
+	if (size === 'xl') {
+		return (
+			<p
+				className={classNames(
+					`text-2xl md:text-4xl dark:text-gray-300 text-black lg:font-light pt-0 mb-2`,
+					className
+				)}
+			>
+				{value}
+			</p>
+		);
+	}
+	if (size === 'large') {
+		return (
+			<p
+				className={classNames(
+					`text-2xl md:text-5xl dark:text-gray-300 text-black lg:font-light pt-0 mb-2`,
+					className
+				)}
+			>
+				{value}
+			</p>
+		);
+	}
+	if (size === 'medium') {
+		return (
+			<p
+				className={classNames(
+					`text-1xl md:text-2xl dark:text-gray-300 text-black lg:font-light pt-0 mb-2`,
+					className
+				)}
+			>
+				{value}
+			</p>
+		);
+	}
+	if (size === 'small') {
+		return (
+			<p
+				className={classNames(
+					`text-xs dark:text-gray-300 text-black lg:font-light pt-0 mb-2`,
+					className
+				)}
+			>
+				{value}
+			</p>
+		);
+	}
+	if (size === 'xs') {
+		return (
+			<p
+				className={classNames(
+					`text-sm dark:text-gray-300 text-black lg:font-light pt-0 mb-2`,
+					className
+				)}
+			>
+				{value}
+			</p>
+		);
+	}
+	return null;
 };
 
 const Title = ({ size = 'medium', value, className }) => {

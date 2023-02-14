@@ -149,6 +149,9 @@ module.exports = {
 		{
 			pattern: /font-*/,
 		},
+		{
+			pattern: /resize-*/,
+		},
 		'auto',
 		'uppercase',
 		'lowercase',
