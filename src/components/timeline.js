@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import Text, { Title } from './typography';
 import { about } from '../constant';
+import { XMarkIcon } from '@heroicons/react/24/solid';
 
 const Time = ({ item, direction }) => {
 	return (
@@ -50,58 +51,71 @@ const Time = ({ item, direction }) => {
 	);
 };
 
-const Timeline = ({ direction, resize }) => {
+const Timeline = ({ direction, resize, showTimeline, setShowTimeline }) => {
 	return (
-		<div
-			className={classNames(
-				'flex relative border-l border-gray-200 dark:border-gray-700',
-				resize === 'x' && 'resize-x overflow-x-auto',
-				resize === 'y' && 'resize-y overflow-y-auto',
-				resize === 'both' && 'resize overflow-auto'
-				// How do we make other elements follow and set width auto to dragging size
-			)}
-		>
-			{about.map((item) => {
-				return (
+		<>
+			{showTimeline ? (
+				<div className="timeline">
+					<button
+						onClick={() => setShowTimeline(false)}
+						className="text-white font-bold p-2 w-2 h-2 rounded-full fixed top-4 right-8"
+					>
+						<XMarkIcon className="h-5 w-5 dark:text-gray-300 dark:hover:dark:text-white" />
+					</button>
 					<div
-						key={item.id}
 						className={classNames(
-							'flex flex-col',
-							direction ? 'h-screen' : 'w-full overflow-hidden'
+							'flex relative border-l border-gray-200 dark:border-gray-700 h-full ',
+							resize === 'x' && 'resize-x overflow-x-auto',
+							resize === 'y' && 'resize-y overflow-y-auto',
+							resize === 'both' && 'resize overflow-auto'
+							// How do we make other elements follow and set width auto to dragging size
 						)}
 					>
-						<p>{item.name}</p>
-						<div
-							className={classNames(
-								'flex flex-grow-1 flex-shrink-0',
-								direction
-									? 'flex-col overflow-y-auto h-full'
-									: 'flex-row overflow-x-auto h-full'
-							)}
-						>
-							<div
-								className={classNames(
-									'grid',
-									direction
-										? 'grid-flow-row auto-rows-fr relative border-l border-gray-200 dark:border-gray-700'
-										: 'grid-flow-col auto-cols-max'
-								)}
-							>
-								{item.timeline.map((item) => {
-									return (
-										<Time
-											key={item.id}
-											item={item}
-											direction={direction}
-										/>
-									);
-								})}
-							</div>
-						</div>
+						{about.map((item) => {
+							return (
+								<div
+									key={item.id}
+									className={classNames(
+										'flex flex-col',
+										direction
+											? 'h-screen'
+											: 'w-full overflow-hidden'
+									)}
+								>
+									<div
+										className={classNames(
+											'flex flex-grow-1 flex-shrink-0',
+											direction
+												? 'flex-col overflow-y-auto h-full'
+												: 'flex-row overflow-x-auto h-full'
+										)}
+									>
+										<div
+											className={classNames(
+												'grid',
+												direction
+													? 'grid-flow-row auto-rows-fr relative border-l border-gray-200 dark:border-gray-700'
+													: 'grid-flow-col auto-cols-max'
+											)}
+										>
+											{item.timeline.map((item) => {
+												return (
+													<Time
+														key={item.id}
+														item={item}
+														direction={direction}
+													/>
+												);
+											})}
+										</div>
+									</div>
+								</div>
+							);
+						})}
 					</div>
-				);
-			})}
-		</div>
+				</div>
+			) : null}
+		</>
 	);
 };
 

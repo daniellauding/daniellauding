@@ -12,6 +12,7 @@ import TagsList from './components/tags';
 import Logo from './components/logo';
 
 import Timeline from './components/timeline';
+import { Bars3BottomRightIcon } from '@heroicons/react/24/solid';
 
 import './styles/animate.min.css';
 
@@ -23,6 +24,8 @@ function App() {
 		() => setPreviewCase(null),
 		[setPreviewCase]
 	);
+
+	const [showTimeline, setShowTimeline] = useState(false);
 
 	const clearActive = useCallback(() => {
 		setActive(null);
@@ -132,8 +135,24 @@ function App() {
 						clearActive={clearActive}
 					/>
 
-					<Timeline />
-					<Timeline direction="vertical" />
+					{!showTimeline && (
+						<button
+							onClick={() => setShowTimeline(true)}
+							className="text-white font-bold p-2 w-2 h-2 rounded-full fixed top-4 right-8 z-10 invisible"
+						>
+							<Bars3BottomRightIcon className="h-5 w-5 dark:text-gray-300 dark:hover:dark:text-white" />
+						</button>
+					)}
+
+					<Timeline
+						showTimeline={showTimeline}
+						setShowTimeline={setShowTimeline}
+					/>
+					<Timeline
+						showTimeline={showTimeline}
+						setShowTimeline={setShowTimeline}
+						direction="vertical"
+					/>
 				</div>
 			)}
 
@@ -156,7 +175,10 @@ function App() {
         )}
       </div> */}
 
-			<Timeline />
+			<Timeline
+				showTimeline={showTimeline}
+				setShowTimeline={setShowTimeline}
+			/>
 		</div>
 	);
 }
