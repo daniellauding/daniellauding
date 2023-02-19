@@ -53,6 +53,18 @@ const Text = ({ size, value, className }) => {
 			</p>
 		);
 	}
+	if (size === 'base') {
+		return (
+			<p
+				className={classNames(
+					`text-base md:text-base dark:text-gray-300 text-black lg:font-light pt-0 mb-2`,
+					className
+				)}
+			>
+				{value}
+			</p>
+		);
+	}
 	if (size === 'small') {
 		return (
 			<p
@@ -110,6 +122,18 @@ const Title = ({ size = 'medium', value, className }) => {
 			<h2
 				className={classNames(
 					`pt-0 mt-0 mb-2 text-3xl dark:text-gray-200 text-black lg:font-bold`,
+					className
+				)}
+			>
+				{value}
+			</h2>
+		);
+	}
+	if (size === 'base') {
+		return (
+			<h2
+				className={classNames(
+					`pt-0 mt-0 mb-2 text-base dark:text-gray-200 text-black lg:font-bold`,
 					className
 				)}
 			>

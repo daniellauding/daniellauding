@@ -138,7 +138,7 @@ function App() {
 					{!showTimeline && (
 						<button
 							onClick={() => setShowTimeline(true)}
-							className="text-white font-bold p-2 w-2 h-2 rounded-full fixed top-4 right-8 z-10 invisible"
+							className="text-white font-bold p-2 w-2 h-2 rounded-full fixed top-4 right-8 z-10"
 						>
 							<Bars3BottomRightIcon className="h-5 w-5 dark:text-gray-300 dark:hover:dark:text-white" />
 						</button>

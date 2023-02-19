@@ -132,10 +132,37 @@ const Image = ({ item = {} }) => {
 			<div ref={ref} className="w-full h-full">
 				{tooltip && (
 					<div
-						className="tooltip absolute z-10"
+						className="tooltip-tip z-10 w-96 opacity-80"
 						style={{ top: tooltip.y, left: tooltip.x }}
+						onClick={() => setTooltip(false)}
 					>
-						{tooltip.area.title}
+						<button
+							className="btn-medium btn-link btn absolute right-4 top-4"
+							type="button"
+							onClick={() => setTooltip(false)}
+						>
+							<XMarkIcon className="h-5 w-5 dark:text-gray-300 dark:hover:dark:text-white" />
+						</button>
+						<div className="tooltip-inner w-full whitespace-normal p-4">
+							{tooltip.area.title && (
+								<Title value={tooltip.area.title} size="base" />
+							)}
+							{tooltip.area.description && (
+								<Text
+									value={tooltip.area.description}
+									size="base"
+								/>
+							)}
+							{tooltip.area.image && (
+								<img
+									src={tooltip.area.image}
+									alt={tooltip.area.title}
+								/>
+							)}
+						</div>
+						{/* add tour like behavior, click to open next? */}
+						{/* position of tooltip */}
+						{/* BUG: have to resize screen before it can be visible? */}
 					</div>
 				)}
 				<ImageMapper
