@@ -96,16 +96,21 @@ const Client = ({ item, clearActive, selectedCase, selectedChanged }) => {
 				)}
 
 				<div className="case-client-selector flex flex-row">
-					<Tooltip content={item?.client} direction="top">
+					<Tooltip
+						content={`Go to prev client ${item.client}`}
+						direction="top"
+					>
 						<button
 							className="pt-0 mb-0 mt-0 text-center dark:text-gray-500 text-black text-sm lg:font-light"
 							onClick={prevClient}
-							title={item.client}
 						>
 							<ArrowLeftIcon className="h-5 w-5 text-white" />
 						</button>
 					</Tooltip>
-					<Tooltip content={item?.client} direction="top">
+					<Tooltip
+						content={`Go to next client ${item.client}`}
+						direction="top"
+					>
 						<button
 							className="pt-0 mb-0 mt-0 text-center dark:text-gray-500 text-black text-sm lg:font-light"
 							onClick={nextClient}
