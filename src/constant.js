@@ -144,7 +144,7 @@ const work = [
 				case: 'growth-enable-more-free-users-emerging-markets',
 				title: 'Optimize product value for existing markets with growth potential',
 				lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
-				bg: '/images/case/spotify/bg_spotify.jpeg',
+				bg: '/images/case/spotify/bg_favela.jpg',
 				// image: {
 				// 	variant: 'dummy',
 				// 	text: 'Ny bild',
@@ -502,7 +502,7 @@ const work = [
 	{
 		id: 4,
 		client: 'Instinctly',
-		role: 'Senior Product Design ConsultantSenior',
+		role: 'CEO & Senior Product Design Consultant',
 		date: '2007 – Present',
 		location: 'Remote / Sweden',
 		bg: '/images/case/instinctly/bg_instinctly.png',
@@ -601,28 +601,29 @@ const work = [
 			// 		folder: 'instinctly/nexus',
 			// 	},
 			// },
-			// {
-			// 	id: 7,
-			// 	case: 'leosoderberg',
-			// 	date: '2014',
-			// 	location: 'Remote',
-			// 	title: 'Leo Söderberg',
-			// 	lead: '',
-			// 	library: {
-			// 		folder: 'instinctly/leosoderberg',
-			// 	},
-			// },
-			// {
-			// 	id: 8,
-			// 	case: 'producks',
-			// 	date: '2014',
-			// 	location: 'Remote',
-			// 	title: 'Producks',
-			// 	lead: '',
-			// 	library: {
-			// 		folder: 'producks',
-			// 	},
-			// },
+			{
+				id: 7,
+				case: 'leosoderberg',
+				date: '2014',
+				location: 'Remote',
+				title: 'Leo Söderberg',
+				lead: '',
+				library: {
+					folder: 'instinctly/leosoderberg',
+				},
+				index: false,
+			},
+			{
+				id: 8,
+				case: 'producks',
+				date: '2014',
+				location: 'Remote',
+				title: 'Producks',
+				lead: '',
+				library: {
+					folder: 'producks',
+				},
+			},
 			{
 				id: 9,
 				case: 'steem',
