@@ -253,7 +253,7 @@ const CaseSelector = ({
 	return (
 		<div
 			className={classNames(
-				`case-wrapper gap-20 flex flex-col h-full overflow-y-auto`,
+				`case-wrapper gap-20 flex flex-col h-full overflow-y-auto justify-center`,
 				`${item?.bg && 'bg-center bg-cover'}`
 			)}
 			style={{ backgroundImage: item?.bg && `url(${item?.bg})` }}
@@ -275,7 +275,7 @@ const CaseSelector = ({
 					{item.title}
 				</h1>
 
-				<div className="container mx-auto">
+				<div className="container w-full">
 					<div className="grid grid-cols-4 gap-4">
 						<div className="desc col-span-2">
 							<p
@@ -306,30 +306,36 @@ const CaseSelector = ({
 							>
 								<a href={item.url}>{item.url}</a>
 							</p>
-							<ul>
-								<li
-									className={classNames(
-										`flex flex-col md:flex-col py-0 mb-0`
-									)}
-								>
-									<p
+							{item?.role && item?.date && (
+								<ul>
+									<li
 										className={classNames(
-											`pt-0 mb-0 ml-0 text-left dark:text-gray-500 text-black lg:font-light`,
-											roleClassName
+											`flex flex-col md:flex-col py-0 mb-0`
 										)}
 									>
-										{item.role}
-									</p>
-									<p
-										className={classNames(
-											`pt-0 mb-0 md:ml-0 text-xs text-left md:text-left dark:text-gray-500 text-black lg:font-light`,
-											dateClassName
+										{item?.role && (
+											<p
+												className={classNames(
+													`pt-0 mb-0 ml-0 text-left dark:text-gray-500 text-black lg:font-light`,
+													roleClassName
+												)}
+											>
+												{item.role}
+											</p>
 										)}
-									>
-										{item.date}
-									</p>
-								</li>
-							</ul>
+										{item?.date && (
+											<p
+												className={classNames(
+													`pt-0 mb-0 md:ml-0 text-xs text-left md:text-left dark:text-gray-500 text-black lg:font-light`,
+													dateClassName
+												)}
+											>
+												{item.date}
+											</p>
+										)}
+									</li>
+								</ul>
+							)}
 							<p className="pt-0 mt-0 mb-4 ml-0 text-left text-xs dark:text-gray-500 text-black lg:font-light">
 								{item.location}
 							</p>

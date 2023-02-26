@@ -20,7 +20,7 @@ const Select = (props) => {
 			<select
 				value={option.id}
 				onChange={handleChange}
-				className="bg-transparent text-white"
+				className="bg-transparent text-white -ml-1"
 			>
 				{options.map((option) => (
 					<option key={option.id} value={option.id}>

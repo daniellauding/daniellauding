@@ -5,7 +5,13 @@ import Logo from './logo';
 import Select from './select';
 import classNames from 'classnames';
 import { work } from '../constant';
-import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
+import {
+	ArrowLeftIcon,
+	ArrowRightIcon,
+	Bars3BottomRightIcon,
+	ArrowLongLeftIcon,
+	XMarkIcon,
+} from '@heroicons/react/24/solid';
 import Tooltip from './tooltip';
 
 // const clients = [
@@ -16,10 +22,14 @@ import Tooltip from './tooltip';
 
 const Client = ({ item, clearActive, selectedCase, selectedChanged }) => {
 	const clients = work.filter((item) => item.index !== false);
-	// console.log('clients loop', clients);
+	const currIndex = clients.findIndex((c) => c === item);
+	const prevIndex = currIndex > 0 ? currIndex - 1 : clients.length - 1;
+	const nextIndex = (currIndex + 1) % (clients.length - 1);
 
 	const { cases = [] } = item;
 	const [selected, setCase] = useState(null);
+
+	const [toggleNav, setToggleNav] = useState(false);
 
 	useEffect(() => {
 		if (selectedCase) {
@@ -32,15 +42,11 @@ const Client = ({ item, clearActive, selectedCase, selectedChanged }) => {
 	}, []);
 
 	const nextClient = () => {
-		const handleNextClient = (item.id + 1) % clients.length;
-		setCase(handleNextClient);
-		console.log('nästa kund', handleNextClient);
+		selectedChanged(clients[nextIndex]);
 	};
 
 	const prevClient = () => {
-		const handlePrevClient = (item.id - 1) % clients.length;
-		setCase(handlePrevClient);
-		console.log('nästa kund', handlePrevClient);
+		selectedChanged(clients[prevIndex]);
 	};
 
 	if (selected) {
@@ -53,124 +59,150 @@ const Client = ({ item, clearActive, selectedCase, selectedChanged }) => {
 		);
 	}
 
-	console.log('vart är vi nu', item);
-	console.log('nästa kund är', item);
-	console.log(
-		'föregående kund är',
-		clients.map((client, index) => clients[index - 1])
-	);
-
 	return (
-		<div className="case-overview ">
-			<div className="case-header top-0 left-0 fixed flex flex-row p-0 gap-8 w-full pr-12 bg-black items-center">
+		<div className="navigation">
+			<div
+				className={classNames(
+					'nav top-2 fixed flex flex-row py-0 px-8 bg-black items-center rounded-full shadow left-1/2 -translate-x-1/2',
+					toggleNav ? 'w-8/12 mx-auto rounded-none' : ''
+				)}
+			>
 				<div className="app-logo flex flex-row items-center">
-					<button
-						onClick={clearActive}
-						className="pt-0 mb-0 mt-0 w-12 h-16 align-end justify-center text-right dark:text-gray-500 text-black text-base lg:font-light"
-					>
-						←
-					</button>
+					<Tooltip content="Back to overview" direction="top">
+						<button
+							onClick={clearActive}
+							className="pt-0 mb-0 mt-0 items-center text-center dark:text-gray-500 text-black text-base lg:font-light"
+						>
+							<ArrowLongLeftIcon className="h-5 w-5 dark:text-gray-400 text-gray-500" />
+						</button>
+					</Tooltip>
 					<Logo />
+					{!toggleNav && (
+						<Tooltip content="Navgation" direction="top">
+							<button
+								className="pt-0 mb-0 mt-0 text-center items-center dark:text-gray-500 text-black text-sm lg:font-light"
+								onClick={() => setToggleNav(!toggleNav)}
+							>
+								<Bars3BottomRightIcon className="h-5 w-5 dark:text-gray-400 text-gray-500" />
+							</button>
+						</Tooltip>
+					)}
 				</div>
 
-				{item?.client && (
-					<h3
-						className={classNames(
-							`case-client text-xs md:text-base md:text-center dark:text-gray-300 text-black lg:font-light flex flex-col items-start`
-						)}
-					>
-						<span className="text-xs dark:text-gray-400 text-gray-500 font-bold uppercase">
-							Client
-						</span>
-						<Select
-							options={clients}
-							option={item}
-							onSelect={selectedChanged}
-						/>
-						{/* {item?.url ? (
+				<div
+					className={classNames(
+						'client-overview w-full gap-8',
+						toggleNav ? 'flex' : 'hidden'
+					)}
+				>
+					{item?.client && (
+						<h3
+							className={classNames(
+								`client-client text-xs md:text-base md:text-center dark:text-gray-300 text-black lg:font-light flex flex-col items-start`
+							)}
+						>
+							<div className="flex items-center w-full">
+								<span className="text-xs dark:text-gray-400 text-gray-500 font-bold uppercase mr-auto">
+									Client
+								</span>
+								<div className="flex ml-auto gap-1">
+									<Tooltip
+										content={`${clients[prevIndex].client}`}
+										direction="top"
+									>
+										<button
+											className="pt-0 mb-0 mt-0 text-center items-center dark:text-gray-500 text-black text-sm lg:font-light"
+											onClick={prevClient}
+										>
+											<ArrowLeftIcon className="h-3 w-3 dark:text-gray-400 text-gray-500" />
+										</button>
+									</Tooltip>
+									<Tooltip
+										content={`${clients[nextIndex].client}`}
+										direction="top"
+									>
+										<button
+											className="pt-0 mb-0 mt-0 text-center items-center dark:text-gray-500 text-black text-sm lg:font-light"
+											onClick={nextClient}
+										>
+											<ArrowRightIcon className="h-3 w-3 dark:text-gray-400 text-gray-500" />
+										</button>
+									</Tooltip>
+								</div>
+							</div>
+							<Select
+								options={clients}
+								option={item}
+								onSelect={selectedChanged}
+							/>
+							{/* {item?.url ? (
 									<a href={item?.url}>{item?.client}</a>
 								) : (
 									item?.client
 								)} */}
-					</h3>
-				)}
+						</h3>
+					)}
 
-				<div className="case-client-selector flex flex-row">
-					<Tooltip
-						content={`Go to prev client ${item.client}`}
-						direction="top"
-					>
-						<button
-							className="pt-0 mb-0 mt-0 text-center dark:text-gray-500 text-black text-sm lg:font-light"
-							onClick={prevClient}
+					{item?.role && (
+						<h3
+							className={classNames(
+								`client-role text-xs md:text-base md:text-center dark:text-gray-300 text-black lg:font-light flex flex-col items-start`
+							)}
 						>
-							<ArrowLeftIcon className="h-5 w-5 text-white" />
-						</button>
-					</Tooltip>
-					<Tooltip
-						content={`Go to next client ${item.client}`}
-						direction="top"
+							<span className="text-xs dark:text-gray-400 text-gray-500 font-bold uppercase">
+								Role
+							</span>
+							{item?.role}
+						</h3>
+					)}
+					<h3
+						className={classNames(
+							`client-cases text-xs md:text-base md:text-center dark:text-gray-300 text-black lg:font-light flex flex-col items-start`
+						)}
 					>
-						<button
-							className="pt-0 mb-0 mt-0 text-center dark:text-gray-500 text-black text-sm lg:font-light"
-							onClick={nextClient}
+						<span className="text-xs dark:text-gray-400 text-gray-500 font-bold uppercase">
+							Cases
+						</span>
+						{
+							cases.filter((c) => {
+								return c.index !== false;
+							}).length
+						}
+					</h3>
+					{/* .filter((item) => item.index !== false) */}
+					{item?.location && (
+						<h3
+							className={classNames(
+								`client-location text-xs md:text-base md:text-center dark:text-gray-300 text-black lg:font-light flex flex-col items-start ml-auto`
+							)}
 						>
-							<ArrowRightIcon className="h-5 w-5 text-white" />
+							<span className="text-xs dark:text-gray-400 text-gray-500 font-bold uppercase">
+								Location
+							</span>
+							{item?.location}
+						</h3>
+					)}
+					{item?.date && (
+						<h3
+							className={classNames(
+								`client-date text-xs md:text-base md:text-center dark:text-gray-300 text-black lg:font-light flex flex-col items-start`
+							)}
+						>
+							<span className="text-xs dark:text-gray-400 text-gray-500 font-bold uppercase">
+								Date
+							</span>
+							{item?.date}
+						</h3>
+					)}
+					<Tooltip content="Hide" direction="top">
+						<button
+							className="pt-0 mb-0 mt-0 text-center items-center dark:text-gray-500 text-black text-sm lg:font-light"
+							onClick={() => setToggleNav(!toggleNav)}
+						>
+							<XMarkIcon className="h-5 w-5 dark:text-gray-400 text-gray-500" />
 						</button>
 					</Tooltip>
 				</div>
-
-				{item?.role && (
-					<h3
-						className={classNames(
-							`case-role text-xs md:text-base md:text-center dark:text-gray-300 text-black lg:font-light flex flex-col items-start`
-						)}
-					>
-						<span className="text-xs dark:text-gray-400 text-gray-500 font-bold uppercase">
-							Role
-						</span>
-						{item?.role}
-					</h3>
-				)}
-				<h3
-					className={classNames(
-						`case-cases text-xs md:text-base md:text-center dark:text-gray-300 text-black lg:font-light flex flex-col items-start`
-					)}
-				>
-					<span className="text-xs dark:text-gray-400 text-gray-500 font-bold uppercase">
-						Cases
-					</span>
-					{
-						cases.filter((c) => {
-							return c.index !== false;
-						}).length
-					}
-				</h3>
-				{/* .filter((item) => item.index !== false) */}
-				{item?.location && (
-					<h3
-						className={classNames(
-							`case-location text-xs md:text-base md:text-center dark:text-gray-300 text-black lg:font-light flex flex-col items-start ml-auto`
-						)}
-					>
-						<span className="text-xs dark:text-gray-400 text-gray-500 font-bold uppercase">
-							Location
-						</span>
-						{item?.location}
-					</h3>
-				)}
-				{item?.date && (
-					<h3
-						className={classNames(
-							`case-date text-xs md:text-base md:text-center dark:text-gray-300 text-black lg:font-light flex flex-col items-start`
-						)}
-					>
-						<span className="text-xs dark:text-gray-400 text-gray-500 font-bold uppercase">
-							Date
-						</span>
-						{item?.date}
-					</h3>
-				)}
 			</div>
 
 			{!cases?.length && (
@@ -180,18 +212,20 @@ const Client = ({ item, clearActive, selectedCase, selectedChanged }) => {
 			)}
 
 			{!cases?.length < 1 && (
-				<div className="case-wrapper grid grid-flow-col gap-16 auto-cols-fr h-screen max-h-screen overflow-hidden">
-					{cases
-						.filter((item) => item.index !== false)
-						.map((item) => (
-							<CaseSelector
-								onSelect={setCase}
-								key={item.id}
-								item={item}
-								clearActive={clearActive}
-								selectedChanged={selectedChanged}
-							/>
-						))}
+				<div className="case-wrapper grid grid-flow-col gap-16 auto-cols-fr h-screen max-h-screen overflow-hidden p-12">
+					<div className="rounded-2xl overflow-hidden">
+						{cases
+							.filter((item) => item.index !== false)
+							.map((item) => (
+								<CaseSelector
+									onSelect={setCase}
+									key={item.id}
+									item={item}
+									clearActive={clearActive}
+									selectedChanged={selectedChanged}
+								/>
+							))}
+					</div>
 				</div>
 			)}
 		</div>
