@@ -145,6 +145,15 @@ const work = [
 				title: 'Optimize product value for existing markets with growth potential',
 				lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
 				bg: '/images/case/spotify/bg_favela.jpg',
+				// image: {
+				// 	variant: 'dummy',
+				// 	text: 'Ny bild',
+				// 	width: 1920,
+				// 	height: 1050,
+				// 	color: '#20232a',
+				// 	textColor: '#737373',
+				// 	format: 'png',
+				// },
 				image: {
 					src: '/images/case/spotify/bg_spotify.jpeg',
 				},

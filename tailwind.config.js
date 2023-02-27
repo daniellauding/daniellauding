@@ -10,6 +10,14 @@ module.exports = {
 			colors: {
 				primary: '#B2387B',
 			},
+			zIndex: {
+				auto: 'auto',
+				n2: -2,
+				n1: -1,
+				0: 0,
+				1: 1,
+				2: 2,
+			},
 		},
 		// fontFamily: {
 		//     'sans': ['Roboto', 'sans-serif'],

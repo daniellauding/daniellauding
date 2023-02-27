@@ -256,11 +256,10 @@ const CaseSelector = ({
 				`case-wrapper gap-20 flex flex-col h-full overflow-y-auto justify-center`,
 				`${item?.bg && 'bg-center bg-cover'}`
 			)}
-			style={{ backgroundImage: item?.bg && `url(${item?.bg})` }}
 		>
 			<div
 				className={classNames(
-					`case-selector section py-20 px-20 section-${item?.case}`,
+					`case-selector section py-20 px-20 relative section-${item?.case}`,
 					caseSelectorClassName
 				)}
 			>
@@ -274,6 +273,17 @@ const CaseSelector = ({
 				>
 					{item.title}
 				</h1>
+
+				<p
+					className={classNames(
+						`case-desc`,
+						descClassName
+							? descClassName
+							: 'pt-0 mt-8 mb-16 text-1xl md:text-2xl text-left text-white font-normal'
+					)}
+				>
+					{item.lead}
+				</p>
 
 				<div className="container w-full">
 					<div className="grid grid-cols-4 gap-4">
@@ -347,6 +357,11 @@ const CaseSelector = ({
 						</div>
 					</div>
 				</div>
+
+				<div
+					className="case-background absolute z-n1 left-0 top-0 right-0 bottom-0 h-full w-full bg-cover bg-center bg-no-repeat"
+					style={{ backgroundImage: item?.bg && `url(${item?.bg})` }}
+				/>
 			</div>
 		</div>
 	);
