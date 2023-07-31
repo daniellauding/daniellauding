@@ -97,7 +97,7 @@ const Request = (props) => {
 							been processed, an access code will be sent to the
 							provided email.
 						</p>
-						<ContactForm />
+						<ContactForm closeRequestModal={closeRequestModal} />
 					</div>
 				</div>
 				<div

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ContactForm = ({ onClose }) => {
+const ContactForm = ({ closeRequestModal }) => {
 	const [formState, setFormState] = useState({
 		name: '',
 		company: '',
@@ -49,6 +49,7 @@ const ContactForm = ({ onClose }) => {
 			{submitted ? (
 				<p className="pt-0 mb-8 ml-0 text-left text-2xl dark:text-gray-500 text-black lg:font-light">
 					Thank you for contacting us!
+					<button onClick={closeRequestModal}>Dismiss</button>
 				</p>
 			) : (
 				<form
