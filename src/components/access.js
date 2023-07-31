@@ -96,7 +96,7 @@ const Request = (props) => {
 							been processed, an access code will be sent to the
 							provided email.
 						</p>
-						<form name="contact" method="post">
+						<form name="contact" method="post" data-netlify="true">
 							<input
 								className="border-b border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
 								placeholder="Full name"
