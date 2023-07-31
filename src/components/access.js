@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import { XMarkIcon } from '@heroicons/react/24/solid';
+import ContactForm from './contactform';
 
 const Code = (props) => {
 	const {
@@ -65,7 +66,7 @@ const Code = (props) => {
 };
 
 const Request = (props) => {
-	const { showRequestModal, closeRequestModal, item } = props;
+	const { showRequestModal, closeRequestModal } = props;
 
 	return (
 		<div
@@ -96,49 +97,7 @@ const Request = (props) => {
 							been processed, an access code will be sent to the
 							provided email.
 						</p>
-						<form name="contact" method="post" data-netlify="true">
-							<input
-								type="hidden"
-								name="contact"
-								value="contact"
-							/>
-							<input
-								className="border-b border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
-								placeholder="Full name"
-								type="text"
-								id="name"
-								name="name"
-								required
-							/>
-							<input
-								className="border-b border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
-								placeholder="Company"
-								type="text"
-								id="company"
-								name="company"
-								required
-							/>
-							<input
-								className="border-b border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
-								placeholder="E-mail"
-								type="email"
-								id="email"
-								name="email"
-								required
-							/>
-							<input
-								className="border-b border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
-								value={`I want to see more about the project ${item} please send me a code`}
-								type="textarea"
-								id="message"
-								name="message"
-							/>
-							<input
-								className="bg-primary hover:primary text-white font-bold py-5 px-8 mt-8 rounded-full cursor-pointer"
-								type="submit"
-								value="Request access"
-							/>
-						</form>
+						<ContactForm />
 					</div>
 				</div>
 				<div
