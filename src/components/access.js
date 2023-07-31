@@ -99,7 +99,7 @@ const Request = (props) => {
 						<form name="contact" method="post" data-netlify="true">
 							<input
 								type="hidden"
-								name="form-name"
+								name="contact"
 								value="contact"
 							/>
 							<input
