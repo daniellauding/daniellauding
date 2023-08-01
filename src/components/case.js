@@ -154,8 +154,8 @@ const Case = ({ item, selectedChanged }) => {
 				<div className="section-goals grid gap-2 mx-auto grid-cols-3 p-20 space-y-2 lg:space-y-0 lg:grid lg:gap-3 lg:grid-rows-3">
 					{item?.goals?.map((goal) => (
 						<div className="goal" key={goal?.id}>
-							{goal?.title && <Title value={goal.title} />}
-							{goal?.text && <Text value={goal.text} />}
+							{goal?.title && <Title value={goal?.title} />}
+							{goal?.text && <Text value={goal?.text} />}
 						</div>
 					))}
 				</div>
@@ -164,8 +164,8 @@ const Case = ({ item, selectedChanged }) => {
 				<div className="section-insights grid gap-2 mx-auto grid-cols-3 p-20 space-y-2 lg:space-y-0 lg:grid lg:gap-3 lg:grid-rows-3">
 					{item?.insights?.map((insight) => (
 						<div className="insight" key={insight?.id}>
-							{insight?.title && <Title value={insight.title} />}
-							{insight?.text && <Text value={insight.text} />}
+							{insight?.title && <Title value={insight?.title} />}
+							{insight?.text && <Text value={insight?.text} />}
 						</div>
 					))}
 				</div>
@@ -174,8 +174,8 @@ const Case = ({ item, selectedChanged }) => {
 				<div className="section-outcomesgrid gap-2 mx-auto grid-cols-3 p-20 space-y-2 lg:space-y-0 lg:grid lg:gap-3 lg:grid-rows-3">
 					{item?.outcomes?.map((outcome) => (
 						<div className="outcomes" key={outcome?.id}>
-							{outcome?.title && <Title value={outcome.title} />}
-							{outcome?.text && <Text value={outcome.text} />}
+							{outcome?.title && <Title value={outcome?.title} />}
+							{outcome?.text && <Text value={outcome?.text} />}
 						</div>
 					))}
 				</div>
@@ -304,7 +304,7 @@ const CaseSelector = ({
 							: 'pt-0 mt-8 mb-16 text-4xl md:text-9xl text-left text-white font-bold'
 					)}
 				>
-					{item.title}
+					{item?.title}
 				</h1>
 
 				<p
@@ -315,7 +315,7 @@ const CaseSelector = ({
 							: 'pt-0 mt-8 mb-16 text-1xl md:text-2xl text-left text-white font-normal'
 					)}
 				>
-					{item.lead}
+					{item?.lead}
 				</p>
 
 				<div className="container w-full">
@@ -329,7 +329,7 @@ const CaseSelector = ({
 								)}
 							>
 								Read more{' '}
-								{item.protected && (
+								{item?.protected && (
 									<LockClosedIcon className="ml-2 h-4 w-4 text-white" />
 								)}
 							</button>
@@ -342,7 +342,7 @@ const CaseSelector = ({
 									urlClassName
 								)}
 							>
-								<a href={item.url}>{item.url}</a>
+								<a href={item?.url}>{item?.url}</a>
 							</p>
 							{item?.role && item?.date && (
 								<ul>
@@ -358,7 +358,7 @@ const CaseSelector = ({
 													roleClassName
 												)}
 											>
-												{item.role}
+												{item?.role}
 											</p>
 										)}
 										{item?.date && (
@@ -368,18 +368,18 @@ const CaseSelector = ({
 													dateClassName
 												)}
 											>
-												{item.date}
+												{item?.date}
 											</p>
 										)}
 									</li>
 								</ul>
 							)}
 							<p className="pt-0 mt-0 mb-4 ml-0 text-left text-xs dark:text-gray-500 text-black lg:font-light">
-								{item.location}
+								{item?.location}
 							</p>
 
 							<TagsList
-								tags={item.tags}
+								tags={item?.tags}
 								selectedChanged={selectedChanged}
 							/>
 						</div>
