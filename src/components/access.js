@@ -77,7 +77,7 @@ const Code = (props) => {
 };
 
 const Request = (props) => {
-	const { showRequestModal, closeRequestModal } = props;
+	const { showRequestModal, closeRequestModal, item } = props;
 
 	return (
 		<div
@@ -100,7 +100,10 @@ const Request = (props) => {
 						<XMarkIcon className="h-5 w-5 text-black" />
 					</button>
 					<div className="modal-body relative p-10">
-						<ContactForm closeRequestModal={closeRequestModal} />
+						<ContactForm
+							closeRequestModal={closeRequestModal}
+							item={item}
+						/>
 					</div>
 				</div>
 				<div

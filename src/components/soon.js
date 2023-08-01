@@ -58,6 +58,7 @@ const Soon = ({ item }) => {
 
 			{show && (
 				<Request
+					item={item}
 					showRequestModal
 					closeRequestModal={() => setShow(false)}
 				/>

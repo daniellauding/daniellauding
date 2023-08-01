@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ContactForm = ({ closeRequestModal }) => {
+const ContactForm = ({ closeRequestModal, item }) => {
 	const [formState, setFormState] = useState({
 		name: '',
 		company: '',
@@ -120,7 +120,7 @@ const ContactForm = ({ closeRequestModal }) => {
 								Message:
 								<textarea
 									name="message"
-									placeholder="I want to see more about the project ${item} please send me a code"
+									placeholder={`I want to see more about the project ${item?.client} ${item?.case} please send me a code`}
 									value={formState.message}
 									required
 									onChange={handleChange}
