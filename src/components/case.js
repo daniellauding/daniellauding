@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useCallback } from 'react';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 import classNames from 'classnames';
 import { LockClosedIcon } from '@heroicons/react/24/solid';
@@ -257,19 +257,20 @@ const CaseSelector = ({
 
 	const openModal = () => setShow(true);
 	const closeModal = () => setShow(false);
-	const [password, setPassword] = useState(null);
+	const [showAccess, setShowAccess] = useState(null);
+	const onOpen = useCallback(() => {
+		if (item.protected) {
+			setShowAccess(true);
+		} else {
+			onSelect(item);
+		}
+	}, [item, onSelect]);
 
 	const onChange = (event) => {
-		setPassword(event.target.value);
-	};
-
-	const emailInput = useRef(null);
-
-	useEffect(() => {
-		if (emailInput.current) {
-			emailInput.current.focus();
+		if (event.target.value === '123') {
+			onSelect(item);
 		}
-	}, []);
+	};
 
 	return (
 		<div
@@ -278,16 +279,14 @@ const CaseSelector = ({
 				`${item?.bg && 'bg-center bg-cover'}`
 			)}
 		>
-			{item.protected && password !== '123' && (
+			{showAccess && (
 				<Access
 					clearActive={clearActive}
 					closeModal={closeModal}
 					openModal={openModal}
 					show={show}
 					item={item}
-					password={password}
 					onChange={onChange}
-					emailInput={emailInput}
 				/>
 			)}
 
@@ -323,7 +322,7 @@ const CaseSelector = ({
 					<div className="grid grid-cols-4 gap-4">
 						<div className="actions col-span-2">
 							<button
-								onClick={() => onSelect(item)}
+								onClick={() => onOpen(item)}
 								className={classNames(
 									`bg-primary hover:primary text-white font-bold py-5 px-8 rounded-full items-center flex`,
 									buttonReadMoreClassName

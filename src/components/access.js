@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useLayoutEffect } from 'react';
 import classNames from 'classnames';
 import { XMarkIcon } from '@heroicons/react/24/solid';
 import ContactForm from './contactform';
@@ -8,11 +8,18 @@ const Code = (props) => {
 		clearActive,
 		password,
 		onChange,
-		emailInput,
 		show,
 		closeModal,
 		openRequestModal,
 	} = props;
+
+	const emailInput = useRef(null);
+
+	useLayoutEffect(() => {
+		if (emailInput.current) {
+			emailInput.current.focus();
+		}
+	}, []);
 
 	return (
 		<div
@@ -141,3 +148,4 @@ const Access = ({
 };
 
 export default Access;
+export { Request };

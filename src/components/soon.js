@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Text, { Title } from './typography';
 import Typewriter from 'typewriter-effect';
+import { Request } from './access';
 
 const Soon = ({ item }) => {
+	const [show, setShow] = useState(false);
+
 	return (
 		<div className="soon flex flex-col h-screen max-h-screen overflow-hidden justify-center items-center p-12">
 			<div className="scroll-container invisible md:visible absolute top-0 left-0 right-0 opacity-50 p-4">
@@ -47,13 +50,18 @@ const Soon = ({ item }) => {
 			</div>
 
 			<button
-				onClick={() =>
-					(window.location = `mailto:daniel@laudig.se?subject=${item.client}&body=I want to know more about the work you did for this client.`)
-				}
+				onClick={() => setShow(true)}
 				className="bg-primary hover:primary text-white font-bold py-5 px-8 rounded-full"
 			>
 				Request walkthrough
 			</button>
+
+			{show && (
+				<Request
+					showRequestModal
+					closeRequestModal={() => setShow(false)}
+				/>
+			)}
 		</div>
 	);
 };
