@@ -213,7 +213,7 @@ const Client = ({ item, clearActive, selectedCase, selectedChanged }) => {
 
 			{!cases?.length < 1 && (
 				<div className="case-wrapper grid grid-flow-col gap-16 auto-cols-fr h-screen max-h-screen overflow-hidden p-12">
-					<div className="rounded-2xl overflow-hidden">
+					<div className="rounded-2xl overflow-hidden flex">
 						{cases
 							.filter((item) => item.index !== false)
 							.map((item) => (

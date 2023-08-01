@@ -111,7 +111,7 @@ const Section = ({ section }) => {
 
 	return (
 		<div
-			className={classNames(`py-16 section`, {
+			className={classNames(`py-16 section section-${section.section}`, {
 				[`variant-${section.variant}`]: section.variant,
 				[`${section.className}`]: section.className,
 				'bg-center bg-cover': section?.bg,

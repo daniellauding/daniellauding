@@ -128,6 +128,7 @@ const work = [
 		location: 'Remote / Sweden',
 		bg: '/images/case/asteria/bg_asteria.png',
 		url: 'https://www.spotify.com',
+		// add so that "coming soon" is a setting so i can build content on the way
 	},
 	{
 		id: 1,
@@ -610,10 +611,20 @@ const work = [
 				date: '2014',
 				location: 'Remote',
 				title: 'Producks',
-				lead: '',
+				lead: 'Donec quis lacinia lectus. Morbi vel est eget ligula blandit pellentesque nec eu erat.',
+				excerpt: 'Donec quis lacinia lectus.',
+				desc: 'Donec quis lacinia lectus. Morbi vel est eget ligula blandit pellentesque nec eu erat. Etiam sit amet sem et massa condimentum viverra. Quisque hendrerit ex at dictum aliquam. Quisque vehicula mi eros, in posuere neque condimentum a. In interdum porttitor sagittis. Fusce dictum mattis ex eget laoreet.',
 				library: {
 					folder: 'producks',
 				},
+				content: [
+					{
+						id: 1,
+						section: 'testar',
+						title: 'Olle',
+					},
+				],
+				tags: ['UX', 'UI'],
 			},
 			{
 				id: 9,
@@ -622,6 +633,7 @@ const work = [
 				location: 'Remote',
 				title: 'Steem',
 				lead: '',
+				protected: true,
 				library: {
 					folder: 'steem',
 				},

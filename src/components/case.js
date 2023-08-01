@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 import classNames from 'classnames';
+import { LockClosedIcon } from '@heroicons/react/24/solid';
 import Section from './section';
 import Access from './access';
 import Text, { Title } from './typography';
@@ -15,7 +16,7 @@ import Logo from './logo';
 // 	return work.map((item, i) => <h3 key={i}>{item.client}</h3>);
 // };
 
-const Case = ({ item, clearActive, selectedChanged }) => {
+const Case = ({ item, selectedChanged }) => {
 	// console.log(item);
 
 	// const getInAnimation = ({ custom = {}, animateIn }) => {
@@ -70,40 +71,40 @@ const Case = ({ item, clearActive, selectedChanged }) => {
 	//   return;
 	// };
 
-	const [show, setShow] = useState(true);
+	// const [show, setShow] = useState(true);
 
-	const openModal = () => setShow(true);
-	const closeModal = () => setShow(false);
+	// const openModal = () => setShow(true);
+	// const closeModal = () => setShow(false);
 
-	const [password, setPassword] = useState(null);
+	// const [password, setPassword] = useState(null);
 
-	const emailInput = useRef(null);
+	// const emailInput = useRef(null);
 
-	useEffect(() => {
-		if (emailInput.current) {
-			emailInput.current.focus();
-		}
-	}, []);
+	// useEffect(() => {
+	// 	if (emailInput.current) {
+	// 		emailInput.current.focus();
+	// 	}
+	// }, []);
 
-	const onChange = (event) => {
-		setPassword(event.target.value);
-	};
+	// const onChange = (event) => {
+	// 	setPassword(event.target.value);
+	// };
 
-	if (item.protected && password !== '123') {
-		// hur får jag denna att lägga sig ovanpå existerande innehåll, nu byts sida ut?
-		return (
-			<Access
-				clearActive={clearActive}
-				closeModal={closeModal}
-				openModal={openModal}
-				show={show}
-				item={item}
-				password={password}
-				onChange={onChange}
-				emailInput={emailInput}
-			/>
-		);
-	}
+	// if (item.protected && password !== '123') {
+	// 	// hur får jag denna att lägga sig ovanpå existerande innehåll, nu byts sida ut?
+	// 	return (
+	// 		<Access
+	// 			clearActive={clearActive}
+	// 			closeModal={closeModal}
+	// 			openModal={openModal}
+	// 			show={show}
+	// 			item={item}
+	// 			password={password}
+	// 			onChange={onChange}
+	// 			emailInput={emailInput}
+	// 		/>
+	// 	);
+	// }
 
 	return (
 		<div
@@ -127,10 +128,11 @@ const Case = ({ item, clearActive, selectedChanged }) => {
 				<div className="case-header">
 					{item?.title && <Title size="xl" value={item.title} />}
 					{item?.lead && <Text size="large" value={item.lead} />}
+					{item?.desc && <Text size="medium" value={item.desc} />}
 				</div>
 
-				<div className="case-description">
-					{item?.desc && <Text value={item.desc} />}
+				<div className="case-teaser">
+					{item?.excerpt && <Text value={item.excerpt} />}
 					{item?.image && <Image item={item?.image} />}
 					{item?.library && <Library item={item?.library} />}
 				</div>
@@ -248,15 +250,47 @@ const CaseSelector = ({
 	onSelect,
 	dateClassName,
 	roleClassName,
+	clearActive,
 	selectedChanged,
 }) => {
+	const [show, setShow] = useState(true);
+
+	const openModal = () => setShow(true);
+	const closeModal = () => setShow(false);
+	const [password, setPassword] = useState(null);
+
+	const onChange = (event) => {
+		setPassword(event.target.value);
+	};
+
+	const emailInput = useRef(null);
+
+	useEffect(() => {
+		if (emailInput.current) {
+			emailInput.current.focus();
+		}
+	}, []);
+
 	return (
 		<div
 			className={classNames(
-				`case-wrapper gap-20 flex flex-col h-full overflow-y-auto justify-center`,
+				`case-wrapper case-teaser gap-20 flex flex-col h-full overflow-y-auto justify-center`,
 				`${item?.bg && 'bg-center bg-cover'}`
 			)}
 		>
+			{item.protected && password !== '123' && (
+				<Access
+					clearActive={clearActive}
+					closeModal={closeModal}
+					openModal={openModal}
+					show={show}
+					item={item}
+					password={password}
+					onChange={onChange}
+					emailInput={emailInput}
+				/>
+			)}
+
 			<div
 				className={classNames(
 					`case-selector section py-20 px-20 relative section-${item?.case}`,
@@ -276,7 +310,7 @@ const CaseSelector = ({
 
 				<p
 					className={classNames(
-						`case-desc`,
+						`case-lead`,
 						descClassName
 							? descClassName
 							: 'pt-0 mt-8 mb-16 text-1xl md:text-2xl text-left text-white font-normal'
@@ -287,23 +321,18 @@ const CaseSelector = ({
 
 				<div className="container w-full">
 					<div className="grid grid-cols-4 gap-4">
-						<div className="desc col-span-2">
-							<p
-								className={classNames(
-									`pt-0 mt-8 mb-16 text-4xl md:text-4xl text-left text-gray-400 font-thin`,
-									descClassName
-								)}
-							>
-								{item.desc}
-							</p>
+						<div className="actions col-span-2">
 							<button
 								onClick={() => onSelect(item)}
 								className={classNames(
-									`bg-primary hover:primary text-white font-bold py-5 px-8 rounded-full`,
+									`bg-primary hover:primary text-white font-bold py-5 px-8 rounded-full items-center flex`,
 									buttonReadMoreClassName
 								)}
 							>
-								Read more
+								Read more{' '}
+								{item.protected && (
+									<LockClosedIcon className="ml-2 h-4 w-4 text-white" />
+								)}
 							</button>
 						</div>
 
