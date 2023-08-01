@@ -49,7 +49,12 @@ const ContactForm = ({ closeRequestModal }) => {
 			{submitted ? (
 				<p className="pt-0 mb-8 ml-0 text-left text-2xl dark:text-gray-500 text-black lg:font-light">
 					Thank you for contacting us!
-					<button onClick={closeRequestModal}>Dismiss</button>
+					<button
+						onClick={closeRequestModal}
+						className="bg-primary hover:primary text-white font-bold py-5 px-8 mt-8 rounded-full cursor-pointer"
+					>
+						Dismiss
+					</button>
 				</p>
 			) : (
 				<form
@@ -67,6 +72,7 @@ const ContactForm = ({ closeRequestModal }) => {
 								name="name"
 								placeholder="Full name"
 								value={formState.name}
+								required
 								onChange={handleChange}
 								className="border-b border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
 							/>
@@ -80,6 +86,7 @@ const ContactForm = ({ closeRequestModal }) => {
 								name="company"
 								placeholder="Company name"
 								value={formState.company}
+								required
 								onChange={handleChange}
 								className="border-b border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
 							/>
@@ -93,6 +100,7 @@ const ContactForm = ({ closeRequestModal }) => {
 								name="email"
 								placeholder="E-mail"
 								value={formState.email}
+								required
 								onChange={handleChange}
 								className="border-b border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
 							/>
@@ -105,6 +113,7 @@ const ContactForm = ({ closeRequestModal }) => {
 								name="message"
 								placeholder="I want to see more about the project ${item} please send me a code"
 								value={formState.message}
+								required
 								onChange={handleChange}
 								className="border-b border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
 							/>
