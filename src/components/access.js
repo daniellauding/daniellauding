@@ -48,9 +48,13 @@ const Code = (props) => {
 							onChange={onChange}
 							ref={emailInput}
 						/>
+
+						<p className="pt-0 mt-12 ml-0 text-left text-xl dark:text-gray-500 text-black lg:font-light">
+							No access code?
+						</p>
 						<button
 							onClick={openRequestModal}
-							className="bg-primary hover:primary text-white font-bold py-5 px-8 mt-8 rounded-full"
+							className="bg-primary hover:primary text-white font-bold py-5 px-8 mt-4 rounded-full"
 						>
 							Request access
 						</button>
@@ -89,14 +93,6 @@ const Request = (props) => {
 						<XMarkIcon className="h-5 w-5 text-black" />
 					</button>
 					<div className="modal-body relative p-10">
-						<p className="pt-0 mb-8 ml-0 text-left text-2xl dark:text-gray-500 text-black lg:font-light">
-							In order to access this case, you will need to
-							provide your contact information. This is due to the
-							non-confidentiality agreement associated with the
-							case. Once your information is submitted and has
-							been processed, an access code will be sent to the
-							provided email.
-						</p>
 						<ContactForm closeRequestModal={closeRequestModal} />
 					</div>
 				</div>
