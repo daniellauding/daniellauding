@@ -72,12 +72,12 @@ const ContactForm = ({ closeRequestModal, item }) => {
 						email.
 					</p>
 					<form
-						name="contact"
+						name="request"
 						method="post"
 						data-netlify="true"
 						onSubmit={handleSubmit}
 					>
-						<input type="hidden" name="contact" value="contact" />
+						<input type="hidden" name="request" value="contact" />
 						<input
 							type="hidden"
 							name="client"
