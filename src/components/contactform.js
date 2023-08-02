@@ -78,17 +78,15 @@ const ContactForm = ({ closeRequestModal, item }) => {
 						onSubmit={handleSubmit}
 					>
 						<input type="hidden" name="contact" value="contact" />
-						<input
+						{/* <input
 							type="hidden"
 							name="client"
 							value={formState.client}
-							onChange={handleChange}
-						/>
+						/> */}
 						<input
 							type="hidden"
 							name="project"
 							value={formState.project}
-							onChange={handleChange}
 						/>
 
 						<p>
@@ -99,6 +97,20 @@ const ContactForm = ({ closeRequestModal, item }) => {
 									name="name"
 									placeholder="Full name"
 									value={formState.name}
+									required
+									onChange={handleChange}
+									className="border-b border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
+								/>
+							</label>
+						</p>
+						<p>
+							<label>
+								Your Name:
+								<input
+									type="text"
+									name="client"
+									placeholder="Client"
+									value={formState.client}
 									required
 									onChange={handleChange}
 									className="border-b border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
