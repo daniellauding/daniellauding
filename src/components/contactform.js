@@ -76,12 +76,12 @@ const ContactForm = ({ closeRequestModal, item }) => {
 						<input
 							type="hidden"
 							name="client"
-							value={item?.client || ''}
+							value={item?.client}
 						/>
 						<input
 							type="hidden"
 							name="project"
-							value={item?.title || ''}
+							value={item?.title}
 						/>
 
 						<p>
@@ -132,10 +132,11 @@ const ContactForm = ({ closeRequestModal, item }) => {
 								<textarea
 									name="message"
 									placeholder={`I want to see more about the project ${
-										item?.client ? `"${item.client}` : ''
-									} ${
-										item?.title ? `– ${item.title}"` : ''
-									} please send me a code`}
+										(item?.client
+											? `"${item.client}`
+											: '') +
+										(item?.title ? ` – ${item.title}` : '')
+									}" please send me a code`}
 									value={formState.message}
 									required
 									onChange={handleChange}
