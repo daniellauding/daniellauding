@@ -1,7 +1,7 @@
 import React, { useState, useRef, useLayoutEffect } from 'react';
 import classNames from 'classnames';
 import { XMarkIcon } from '@heroicons/react/24/solid';
-import ContactForm from './contactform';
+import RequestForm from './contactform';
 
 const Code = (props) => {
 	const {
@@ -100,7 +100,7 @@ const Request = (props) => {
 						<XMarkIcon className="h-5 w-5 text-black" />
 					</button>
 					<div className="modal-body relative p-10">
-						<ContactForm
+						<RequestForm
 							closeRequestModal={closeRequestModal}
 							item={item}
 						/>
