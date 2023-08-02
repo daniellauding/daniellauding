@@ -82,11 +82,13 @@ const ContactForm = ({ closeRequestModal, item }) => {
 							type="hidden"
 							name="client"
 							value={formState.client}
+							onChange={handleChange}
 						/>
 						<input
 							type="hidden"
 							name="project"
 							value={formState.project}
+							onChange={handleChange}
 						/>
 
 						<p>
