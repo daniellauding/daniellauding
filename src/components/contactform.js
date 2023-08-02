@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const RequestForm = ({ closeRequestModal, item }) => {
+const ContactForm = ({ closeRequestModal, item }) => {
 	const [formState, setFormState] = useState({
 		name: '',
 		company: '',
@@ -26,7 +26,7 @@ const RequestForm = ({ closeRequestModal, item }) => {
 		fetch('/', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-			body: encode({ 'form-name': 'request', ...formState }),
+			body: encode({ 'form-name': 'contact', ...formState }),
 		})
 			.then(() => {
 				setSubmitted(true);
@@ -53,7 +53,7 @@ const RequestForm = ({ closeRequestModal, item }) => {
 		<div>
 			{submitted ? (
 				<p className="pt-0 mb-8 ml-0 text-left text-2xl dark:text-gray-500 text-black lg:font-light">
-					Thank you for contacting me!
+					Thank you for contacting us!
 					<button
 						onClick={closeRequestModal}
 						className="bg-primary hover:primary text-white font-bold py-5 px-8 mt-8 rounded-full cursor-pointer"
@@ -72,12 +72,12 @@ const RequestForm = ({ closeRequestModal, item }) => {
 						email.
 					</p>
 					<form
-						name="request"
+						name="contact"
 						method="post"
 						data-netlify="true"
 						onSubmit={handleSubmit}
 					>
-						<input type="hidden" name="request" value="contact" />
+						<input type="hidden" name="contact" value="contact" />
 						<input
 							type="hidden"
 							name="client"
@@ -165,4 +165,4 @@ const RequestForm = ({ closeRequestModal, item }) => {
 	);
 };
 
-export default RequestForm;
+export default ContactForm;
