@@ -5,7 +5,9 @@ const ContactForm = ({ closeRequestModal, item }) => {
 		name: '',
 		company: '',
 		email: '',
-		message: `I want to see more about the project ${
+		client: item?.client,
+		project: item?.title,
+		message: `I want to see more about ${
 			(item?.client ? `"${item.client}` : '') +
 			(item?.title ? ` – ${item.title}` : '')
 		}" please send me a code`,
@@ -79,12 +81,12 @@ const ContactForm = ({ closeRequestModal, item }) => {
 						<input
 							type="hidden"
 							name="client"
-							value={item?.client}
+							value={formState.client}
 						/>
 						<input
 							type="hidden"
 							name="project"
-							value={item?.title}
+							value={formState.project}
 						/>
 
 						<p>
