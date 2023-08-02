@@ -5,7 +5,10 @@ const ContactForm = ({ closeRequestModal, item }) => {
 		name: '',
 		company: '',
 		email: '',
-		message: '',
+		message: `I want to see more about the project ${
+			(item?.client ? `"${item.client}` : '') +
+			(item?.title ? ` – ${item.title}` : '')
+		}" please send me a code`,
 	});
 
 	const [submitting, setSubmitting] = useState(false);
@@ -131,12 +134,12 @@ const ContactForm = ({ closeRequestModal, item }) => {
 								Message:
 								<textarea
 									name="message"
-									placeholder={`I want to see more about the project ${
-										(item?.client
-											? `"${item.client}`
-											: '') +
-										(item?.title ? ` – ${item.title}` : '')
-									}" please send me a code`}
+									// placeholder={`I want to see more about the project ${
+									// 	(item?.client
+									// 		? `"${item.client}`
+									// 		: '') +
+									// 	(item?.title ? ` – ${item.title}` : '')
+									// }" please send me a code`}
 									value={formState.message}
 									required
 									onChange={handleChange}
