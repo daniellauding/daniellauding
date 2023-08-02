@@ -9,102 +9,17 @@ import Image from './image';
 import Library from './library';
 import TagsList from './tags';
 import Logo from './logo';
-// import { work } from '../constant';
+import { work } from '../constant';
 
 // how do i render client info like, role, date, name, its in parent of array?
-// const ClientName = () => {
-// 	return work.map((item, i) => <h3 key={i}>{item.client}</h3>);
-// };
+const ClientName = () => {
+	return work.map((item, i) => <h3 key={i}>{item.client}</h3>);
+};
+
+// const Clients = work.filter((item) => item.index !== false);
 
 const Case = ({ item, selectedChanged }) => {
-	// console.log(item);
-
-	// const getInAnimation = ({ custom = {}, animateIn }) => {
-	//   let animations = [];
-	//   if (custom && custom.animateIn) {
-	//     animations = custom.animateIn;
-	//   } else if (animateIn) {
-	//     animations = animateIn;
-	//   }
-
-	//   animations = Array.isArray(animations) ? animations : [animations];
-
-	//   return animations
-	//     .filter((item) => !item.startsWith('bg-'))
-	//     .map((item) => (item.includes('animate__') ? item : `animate__${item}`))
-	//     .join(' ');
-	// };
-
-	// const getOutAnimation = ({ custom = {}, animateOut }) => {
-	//   let animations = [];
-	//   if (custom && custom.animateOut) {
-	//     animations = custom.animateOut;
-	//   } else if (animateOut) {
-	//     animations = animateOut;
-	//   }
-
-	//   animations = Array.isArray(animations) ? animations : [animations];
-
-	//   return animations
-	//     .filter((item) => !item.startsWith('bg-'))
-	//     .map((item) => (item.includes('animate__') ? item : `animate__${item}`))
-	//     .join(' ');
-	// };
-
-	// const getDelayAnimation = ({ custom = {}, animateDelay }) => {
-	//   if (custom && custom.animateDelay) {
-	//     return custom.animateDelay;
-	//   } else if (animateDelay) {
-	//     return animateDelay;
-	//   }
-
-	//   return;
-	// };
-
-	// const getDurationAnimation = ({ custom = {}, animateDuration }) => {
-	//   if (custom && custom.animateDuration) {
-	//     return custom.animateDuration;
-	//   } else if (animateDuration) {
-	//     return animateDuration;
-	//   }
-
-	//   return;
-	// };
-
-	// const [show, setShow] = useState(true);
-
-	// const openModal = () => setShow(true);
-	// const closeModal = () => setShow(false);
-
-	// const [password, setPassword] = useState(null);
-
-	// const emailInput = useRef(null);
-
-	// useEffect(() => {
-	// 	if (emailInput.current) {
-	// 		emailInput.current.focus();
-	// 	}
-	// }, []);
-
-	// const onChange = (event) => {
-	// 	setPassword(event.target.value);
-	// };
-
-	// if (item.protected && password !== '123') {
-	// 	// hur får jag denna att lägga sig ovanpå existerande innehåll, nu byts sida ut?
-	// 	return (
-	// 		<Access
-	// 			clearActive={clearActive}
-	// 			closeModal={closeModal}
-	// 			openModal={openModal}
-	// 			show={show}
-	// 			item={item}
-	// 			password={password}
-	// 			onChange={onChange}
-	// 			emailInput={emailInput}
-	// 		/>
-	// 	);
-	// }
+	console.log(item);
 
 	return (
 		<div
@@ -119,12 +34,19 @@ const Case = ({ item, selectedChanged }) => {
 			<div className="client-header top-8 left-8 fixed flex flex-col p-6 gap-8">
 				<Logo />
 			</div>
+
+			<p className="client-info">NEED CLIENT NAME HERE</p>
+			<p className="client-info">CLIENT NAV</p>
+
 			<div
 				className={classNames(
 					`section section-hero grid grid-flow-col gap-16 auto-cols-fr relative py-20 px-20`
 				)}
 			>
-				{/* <ClientName /> */}
+				<p className="client-info">
+					<ClientName />
+				</p>
+
 				<div className="case-header">
 					{item?.title && <Title size="xl" value={item.title} />}
 					{item?.lead && <Text size="large" value={item.lead} />}
@@ -144,12 +66,7 @@ const Case = ({ item, selectedChanged }) => {
 					/>
 				</div>
 			</div>
-			{/*
-        Below
-        Goals / Insights / Outcomes
-        maybe make a variant of section
-        instead to be able to arrange freely?
-      */}
+
 			{item?.goals && (
 				<div className="section-goals grid gap-2 mx-auto grid-cols-3 p-20 space-y-2 lg:space-y-0 lg:grid lg:gap-3 lg:grid-rows-3">
 					{item?.goals?.map((goal) => (
@@ -296,6 +213,7 @@ const CaseSelector = ({
 					caseSelectorClassName
 				)}
 			>
+				<p className="client-info">{item?.client}</p>
 				<h1
 					className={classNames(
 						`case-title`,

@@ -142,6 +142,7 @@ const work = [
 		cases: [
 			{
 				id: 0,
+				client: 'Spotify',
 				case: 'growth-enable-more-free-users-emerging-markets',
 				title: 'Optimize product value for existing markets with growth potential',
 				lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
@@ -596,6 +597,7 @@ const work = [
 			{
 				id: 7,
 				case: 'leosoderberg',
+				client: 'Mobb learning',
 				date: '2014',
 				location: 'Remote',
 				title: 'Leo Söderberg',
@@ -609,6 +611,7 @@ const work = [
 				id: 8,
 				case: 'producks',
 				date: '2014',
+				client: 'Producks',
 				location: 'Remote',
 				title: 'Producks',
 				lead: 'Donec quis lacinia lectus. Morbi vel est eget ligula blandit pellentesque nec eu erat.',
@@ -629,6 +632,7 @@ const work = [
 			{
 				id: 9,
 				case: 'steem',
+				client: 'Steem',
 				date: '2014',
 				location: 'Remote',
 				title: 'Steem',

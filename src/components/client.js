@@ -14,12 +14,6 @@ import {
 } from '@heroicons/react/24/solid';
 import Tooltip from './tooltip';
 
-// const clients = [
-// 	{ key: '1', text: 'Option 1', value: 'option_1' },
-// 	{ key: '2', text: 'Option 2', value: 'option_2' },
-// 	{ key: '3', text: 'Option 3', value: 'option_3' },
-// ];
-
 const Client = ({ item, clearActive, selectedCase, selectedChanged }) => {
 	const clients = work.filter((item) => item.index !== false);
 	const currIndex = clients.findIndex((c) => c === item);

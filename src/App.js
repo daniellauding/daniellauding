@@ -41,6 +41,18 @@ function App() {
 		[setActive]
 	);
 
+	const selectCase = useCallback((selectedCase) => {
+		setCase(selectedCase);
+		setActive(
+			work.find((client) => {
+				if (client?.cases?.includes(selectedCase)) {
+					return true;
+				}
+				return false;
+			})
+		);
+	}, []);
+
 	const cases = useMemo(() => {
 		return work.flatMap(({ cases = [] }) =>
 			cases.filter(({ tags = [] }) => tags.includes(active))
@@ -54,21 +66,6 @@ function App() {
 			})
 		);
 	}, []);
-
-	const selectCase = useCallback((selectedCase) => {
-		setCase(selectedCase);
-		setActive(
-			work.find((client) => {
-				if (client?.cases?.includes(selectedCase)) {
-					return true;
-				}
-
-				return false;
-			})
-		);
-	}, []);
-
-	// Fun: Press arrow on keyboard swappes layout of avatar and image top left right bottom
 
 	return (
 		<div className="wrapper box-border">
@@ -100,7 +97,6 @@ function App() {
 					</div>
 					<div className="case-container grid gap-2 mx-auto grid-cols-3 p-20 space-y-2 lg:space-y-0 lg:grid lg:gap-3 lg:grid-rows-3">
 						{cases.map((item, index) => (
-							// Gör en preview case selector här som inte har samma markup som fulla-caset
 							<CaseSelector
 								titleClassName="mb-4 text-2xl md:text-4xl font-medium"
 								key={index}
@@ -116,13 +112,7 @@ function App() {
 			{!active && (
 				<div
 					className={classNames(
-						// 'flex flex-col md:flex-row justify-center md:h-screen w-screen md:fixed'
-						// 'flex flex-col md:flex-row justify-center w-screen h-screen'
 						'grid auto-rows-auto md:grid-flow-col pt-96 md:p-0 md:auto-cols-fr md:h-screen md:overflow-hidden'
-						// {
-						//   [`client-${active?.client?.toLowerCase()} case-active md:relative justify-start h-auto`]:
-						//     active,
-						// }
 					)}
 				>
 					<About
@@ -155,25 +145,6 @@ function App() {
 					/>
 				</div>
 			)}
-
-			{/* clear up this file, can we use react router ?  */}
-
-			{/* {!active ? (
-
-        <Avatar />
-
-      ) : null} */}
-
-			{/* <div className={classNames("description align-center", active ? 'justify-start' : 'md:w-1/2 flex md:flex-col justify-center')} onMouseEnter={clearPreview}>
-        {!active && (
-          <About />
-        )}
-        {active && (
-          <div className="wrapper">
-            <Content item={active} clearActive={clearActive} />
-          </div>
-        )}
-      </div> */}
 
 			<Timeline
 				showTimeline={showTimeline}

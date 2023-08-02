@@ -73,6 +73,17 @@ const ContactForm = ({ closeRequestModal, item }) => {
 						onSubmit={handleSubmit}
 					>
 						<input type="hidden" name="contact" value="contact" />
+						<input
+							type="hidden"
+							name="client"
+							value={item?.client || ''}
+						/>
+						<input
+							type="hidden"
+							name="project"
+							value={item?.title || ''}
+						/>
+
 						<p>
 							<label>
 								Your Name:
@@ -120,7 +131,11 @@ const ContactForm = ({ closeRequestModal, item }) => {
 								Message:
 								<textarea
 									name="message"
-									placeholder={`I want to see more about the project ${item?.client} ${item?.case} please send me a code`}
+									placeholder={`I want to see more about the project ${
+										item?.client ? `"${item.client}` : ''
+									} ${
+										item?.title ? `– ${item.title}"` : ''
+									} please send me a code`}
 									value={formState.message}
 									required
 									onChange={handleChange}
