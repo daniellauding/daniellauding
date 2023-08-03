@@ -136,7 +136,7 @@ const AboutShort = ({
 					{!showProfile && (
 						<button
 							onClick={() => setShowProfile(true)}
-							className="text-white font-bold p-2 w-2 h-2 text-center mx-auto w-auto"
+							className="text-white font-bold p-2 w-2 h-2 text-center mx-auto w-auto hidden"
 						>
 							Read more
 						</button>
