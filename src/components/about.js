@@ -1,22 +1,108 @@
-import React, { useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import classNames from 'classnames';
 import lodash from 'lodash';
 
 import Avatar from './avatar';
 import Profile from './profile';
-import Experiences from './experiences';
-import { work } from '../constant';
+import ExperiencesShort, { Experiences } from './experiences';
+import { about, work } from '../constant';
 import TagsList from './tags';
 import Social from './social';
+import Nav from './nav';
+import Contact, { Offert } from './contact';
 
-// Hur tar jag reda på vad som körs, för att ta bort och förenkla kod?
+const About = ({ setShowProfile, active, selectedChanged }) => {
+	const [showExperiencesFull, setShowExperiencesFull] = useState(null);
+	const [showOffert, setShowOffert] = useState(false);
+	const [showContact, setShowContact] = useState(false);
+	return (
+		<div className="section-wrapper">
+			<div
+				className={classNames(
+					'nav top-8 left-8 fixed flex flex-row p-6 gap-8 z-10'
+				)}
+			>
+				<Nav
+					setShowProfile={setShowProfile}
+					showExperiencesFull={showExperiencesFull}
+					setShowExperiencesFull={setShowExperiencesFull}
+				/>
+			</div>
 
-const About = ({
+			<Experiences
+				showExperiencesFull={showExperiencesFull}
+				setShowExperiencesFull={setShowExperiencesFull}
+				selectedChanged={selectedChanged}
+				active={active}
+			/>
+
+			<button
+				onClick={() => setShowOffert(true)}
+				className="bg-primary hover:primary text-white font-bold py-5 px-8 rounded-full"
+			>
+				Ive got a project
+			</button>
+
+			<button
+				onClick={() => setShowContact(true)}
+				className="bg-primary hover:primary text-white font-bold py-5 px-8 rounded-full"
+			>
+				Contact me
+			</button>
+
+			{showContact && (
+				<Contact
+					showContactModal
+					closeContactModal={() => setShowContact(false)}
+				/>
+			)}
+
+			{showOffert && (
+				<Offert
+					showOffertModal
+					closeOffertModal={() => setShowOffert(false)}
+				/>
+			)}
+
+			<Avatar />
+
+			<div
+				className={classNames(
+					'content align-center sticky z-10 md:relative dark:bg-black light:bg-white md:light:bg-transparent md:dark:bg-transparent'
+				)}
+			>
+				<div className="md:h-100 md:h-screen flex flex-col py-8 gap-4">
+					<Profile />
+
+					{about.map((intro) => (
+						<div key={intro.id}>
+							<h1 className="pt-0 mt-4 mb-0 text-3xl text-center dark:text-white text-black lg:font-bold">
+								{intro.name}
+							</h1>
+							<p className="pt-0 mb-0 text-center dark:text-gray-500 text-black lg:font-light">
+								<a href={`mailto:${intro.email}`}>
+									{intro.email}
+								</a>
+							</p>
+							<p className="pt-0 mb-4 sm:mx-8 mx-8 md:mx-32 mt-8 text-center dark:text-gray-100 text-black lg:font-light text-3xl md:text-4xl leading-snug font-serif">
+								{intro.description}
+							</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	);
+};
+
+const AboutShort = ({
 	previewCase,
 	setPreviewCase,
 	active,
 	selectedChanged,
 	clearPreview,
+	setShowProfile,
+	showProfile,
 }) => {
 	// const [active, setActive] = useState(null);
 	const tags = useMemo(() => {
@@ -47,7 +133,16 @@ const About = ({
 				<div className="md:h-100 md:h-screen flex flex-col py-8 gap-4">
 					<Profile />
 
-					<Experiences
+					{!showProfile && (
+						<button
+							onClick={() => setShowProfile(true)}
+							className="text-white font-bold p-2 w-2 h-2 text-center mx-auto w-auto"
+						>
+							Read more
+						</button>
+					)}
+
+					<ExperiencesShort
 						selectedChanged={selectedChanged}
 						setPreviewCase={setPreviewCase}
 						active={active}
@@ -63,4 +158,5 @@ const About = ({
 	);
 };
 
-export default About;
+export default AboutShort;
+export { About };

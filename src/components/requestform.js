@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 
-const ContactForm = ({ closeContactModal }) => {
+const RequestForm = ({ closeRequestModal, item }) => {
 	const [formState, setFormState] = useState({
 		name: '',
 		company: '',
 		email: '',
-		message: `Please i need to talk to you`,
+		client: item?.client,
+		project: item?.title,
+		message: `I want to see more about ${
+			(item?.client ? `"${item.client}` : '') +
+			(item?.title ? ` – ${item.title}` : '')
+		}" please send me a code`,
 	});
 
 	const [submitting, setSubmitting] = useState(false);
@@ -21,7 +26,7 @@ const ContactForm = ({ closeContactModal }) => {
 		fetch('/', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-			body: encode({ 'form-name': 'contact', ...formState }),
+			body: encode({ 'form-name': 'request', ...formState }),
 		})
 			.then(() => {
 				setSubmitted(true);
@@ -48,9 +53,9 @@ const ContactForm = ({ closeContactModal }) => {
 		<div>
 			{submitted ? (
 				<p className="pt-0 mb-8 ml-0 text-left text-2xl dark:text-gray-500 text-black lg:font-light">
-					Thank you for contacting me!
+					Thank you for your request!
 					<button
-						onClick={closeContactModal}
+						onClick={closeRequestModal}
 						className="bg-primary hover:primary text-white font-bold py-5 px-8 mt-8 rounded-full cursor-pointer"
 					>
 						Dismiss
@@ -59,15 +64,30 @@ const ContactForm = ({ closeContactModal }) => {
 			) : (
 				<div>
 					<p className="pt-0 mb-0 ml-0 text-left text-2xl dark:text-gray-500 text-black lg:font-light">
-						Contact me with anything
+						In order to access this case, you will need to provide
+						your contact information. This is due to the
+						non-confidentiality agreement associated with the case.
+						Once your information is submitted and has been
+						processed, an access code will be sent to the provided
+						email.
 					</p>
 					<form
-						name="contact"
+						name="request"
 						method="post"
 						data-netlify="true"
 						onSubmit={handleSubmit}
 					>
-						<input type="hidden" name="contact" value="contact" />
+						<input type="hidden" name="request" value="request" />
+						<input
+							type="hidden"
+							name="client"
+							value={formState.client}
+						/>
+						<input
+							type="hidden"
+							name="project"
+							value={formState.project}
+						/>
 
 						<p>
 							<label>
@@ -116,6 +136,12 @@ const ContactForm = ({ closeContactModal }) => {
 								Message:
 								<textarea
 									name="message"
+									// placeholder={`I want to see more about the project ${
+									// 	(item?.client
+									// 		? `"${item.client}`
+									// 		: '') +
+									// 	(item?.title ? ` – ${item.title}` : '')
+									// }" please send me a code`}
 									value={formState.message}
 									required
 									onChange={handleChange}
@@ -129,7 +155,7 @@ const ContactForm = ({ closeContactModal }) => {
 								disabled={submitting || submitted}
 								className="bg-primary hover:primary text-white font-bold py-5 px-8 mt-8 rounded-full cursor-pointer"
 							>
-								Send
+								Request access
 							</button>
 						</p>
 					</form>
@@ -139,4 +165,4 @@ const ContactForm = ({ closeContactModal }) => {
 	);
 };
 
-export default ContactForm;
+export default RequestForm;

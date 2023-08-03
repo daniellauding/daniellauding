@@ -128,7 +128,7 @@ const work = [
 		location: 'Remote / Sweden',
 		bg: '/images/case/asteria/bg_asteria.png',
 		url: 'https://www.spotify.com',
-		// add so that "coming soon" is a setting so i can build content on the way
+		soon: true,
 	},
 	{
 		id: 1,

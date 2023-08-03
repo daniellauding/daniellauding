@@ -14,7 +14,45 @@ import {
 } from '@heroicons/react/24/solid';
 import Tooltip from './tooltip';
 
-const Client = ({ item, clearActive, selectedCase, selectedChanged }) => {
+const Nav = ({
+	setShowProfile,
+	showExperiencesFull,
+	setShowExperiencesFull,
+}) => {
+	return (
+		<div className="navigation">
+			<div
+				className={classNames(
+					'nav top-2 fixed flex flex-row py-0 px-8 bg-black items-center rounded-full shadow left-1/2 -translate-x-1/2'
+				)}
+			>
+				<div className="app-logo flex flex-row items-center">
+					<Tooltip content="Back to overview" direction="top">
+						<button
+							onClick={() => setShowProfile(false)}
+							className="pt-0 mb-0 mt-0 items-center text-center dark:text-gray-500 text-black text-base lg:font-light"
+						>
+							<ArrowLongLeftIcon className="h-5 w-5 dark:text-gray-400 text-gray-500" />
+						</button>
+					</Tooltip>
+
+					<Logo />
+
+					{!showExperiencesFull && (
+						<button
+							onClick={() => setShowExperiencesFull(true)}
+							className="pt-0 mb-0 mt-0 text-center items-center dark:text-gray-500 text-black text-sm lg:font-light"
+						>
+							<Bars3BottomRightIcon className="h-5 w-5 dark:text-gray-400 text-gray-500" />
+						</button>
+					)}
+				</div>
+			</div>
+		</div>
+	);
+};
+
+const NavClient = ({ item, clearActive, selectedCase, selectedChanged }) => {
 	const clients = work.filter((item) => item.index !== false);
 	const currIndex = clients.findIndex((c) => c === item);
 	const prevIndex = currIndex > 0 ? currIndex - 1 : clients.length - 1;
@@ -205,6 +243,8 @@ const Client = ({ item, clearActive, selectedCase, selectedChanged }) => {
 				</>
 			)}
 
+			{item?.soon && <Soon item={item} />}
+
 			{!cases?.length < 1 && (
 				<div className="case-wrapper grid grid-flow-col gap-16 auto-cols-fr h-screen max-h-screen overflow-hidden p-12">
 					<div className="rounded-2xl overflow-hidden flex">
@@ -226,4 +266,5 @@ const Client = ({ item, clearActive, selectedCase, selectedChanged }) => {
 	);
 };
 
-export default Client;
+export default Nav;
+export { NavClient };

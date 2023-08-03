@@ -1,8 +1,8 @@
 import React, { useState, useCallback, useMemo } from 'react';
 import classNames from 'classnames';
 import lodash from 'lodash';
-import About from './components/about';
-import Client from './components/client';
+import AboutShort, { About } from './components/about';
+import { NavClient } from './components/nav';
 
 import { work } from './constant';
 
@@ -25,7 +25,9 @@ function App() {
 		[setPreviewCase]
 	);
 
-	const [showTimeline, setShowTimeline] = useState(false);
+	const [showTimeline, setShowTimeline] = useState(null);
+
+	const [showProfile, setShowProfile] = useState(null);
 
 	const clearActive = useCallback(() => {
 		setActive(null);
@@ -70,7 +72,7 @@ function App() {
 	return (
 		<div className="wrapper box-border">
 			{active && active.client && (
-				<Client
+				<NavClient
 					item={active}
 					clearActive={clearActive}
 					selectedCase={selectedCase}
@@ -109,13 +111,23 @@ function App() {
 					</div>
 				</div>
 			)}
-			{!active && (
+			{showProfile && !active && (
+				<div className="profile-header flex flex-row p-6 gap-8">
+					<About
+						setShowProfile={setShowProfile}
+						active={active}
+						setActive={setActive}
+						selectedChanged={selectedChanged}
+					/>
+				</div>
+			)}
+			{!active && !showProfile && (
 				<div
 					className={classNames(
 						'grid auto-rows-auto md:grid-flow-col pt-96 md:p-0 md:auto-cols-fr md:h-screen md:overflow-hidden'
 					)}
 				>
-					<About
+					<AboutShort
 						active={active}
 						setActive={setActive}
 						previewCase={previewCase}
@@ -123,6 +135,8 @@ function App() {
 						setPreviewCase={setPreviewCase}
 						clearPreview={clearPreview}
 						clearActive={clearActive}
+						setShowProfile={setShowProfile}
+						showProfile={showProfile}
 					/>
 
 					{!showTimeline && (

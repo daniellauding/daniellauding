@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 
-const ContactForm = ({ closeContactModal }) => {
+const OffertForm = ({ closeOffertModal }) => {
 	const [formState, setFormState] = useState({
 		name: '',
 		company: '',
 		email: '',
-		message: `Please i need to talk to you`,
+		message: `I have this project`,
+		file: null,
 	});
 
 	const [submitting, setSubmitting] = useState(false);
@@ -18,10 +19,15 @@ const ContactForm = ({ closeContactModal }) => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		setSubmitting(true);
+
+		const formData = new FormData();
+		Object.keys(formState).forEach((key) => {
+			formData.append(key, formState[key]);
+		});
+
 		fetch('/', {
 			method: 'POST',
-			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-			body: encode({ 'form-name': 'contact', ...formState }),
+			body: formData,
 		})
 			.then(() => {
 				setSubmitted(true);
@@ -33,24 +39,17 @@ const ContactForm = ({ closeContactModal }) => {
 			});
 	};
 
-	const encode = (data) => {
-		return Object.keys(data)
-			.map(
-				(key) =>
-					encodeURIComponent(key) +
-					'=' +
-					encodeURIComponent(data[key])
-			)
-			.join('&');
+	const handleFileChange = (e) => {
+		setFormState({ ...formState, file: e.target.files[0] });
 	};
 
 	return (
 		<div>
 			{submitted ? (
 				<p className="pt-0 mb-8 ml-0 text-left text-2xl dark:text-gray-500 text-black lg:font-light">
-					Thank you for contacting me!
+					Thank you for asking me!
 					<button
-						onClick={closeContactModal}
+						onClick={closeOffertModal}
 						className="bg-primary hover:primary text-white font-bold py-5 px-8 mt-8 rounded-full cursor-pointer"
 					>
 						Dismiss
@@ -59,15 +58,15 @@ const ContactForm = ({ closeContactModal }) => {
 			) : (
 				<div>
 					<p className="pt-0 mb-0 ml-0 text-left text-2xl dark:text-gray-500 text-black lg:font-light">
-						Contact me with anything
+						Give me a project
 					</p>
 					<form
-						name="contact"
+						name="offert"
 						method="post"
 						data-netlify="true"
 						onSubmit={handleSubmit}
 					>
-						<input type="hidden" name="contact" value="contact" />
+						<input type="hidden" name="offert" value="offert" />
 
 						<p>
 							<label>
@@ -113,6 +112,17 @@ const ContactForm = ({ closeContactModal }) => {
 						</p>
 						<p>
 							<label>
+								Upload File:
+								<input
+									type="file"
+									name="file"
+									onChange={handleFileChange}
+									className="border-b border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
+								/>
+							</label>
+						</p>
+						<p>
+							<label>
 								Message:
 								<textarea
 									name="message"
@@ -139,4 +149,4 @@ const ContactForm = ({ closeContactModal }) => {
 	);
 };
 
-export default ContactForm;
+export default OffertForm;
