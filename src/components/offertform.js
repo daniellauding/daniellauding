@@ -19,10 +19,18 @@ const OffertForm = ({ closeOffertModal }) => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		setSubmitting(true);
+
+		const formData = new FormData();
+		formData.append('form-name', 'offert');
+		formData.append('name', formState.name);
+		formData.append('company', formState.company);
+		formData.append('email', formState.email);
+		formData.append('message', formState.message);
+		formData.append('file', formState.file);
+
 		fetch('/', {
 			method: 'POST',
-			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-			body: encode({ 'form-name': 'offert', ...formState }),
+			body: formData, // Use formData here, not the encoded string
 		})
 			.then(() => {
 				setSubmitted(true);
@@ -32,17 +40,6 @@ const OffertForm = ({ closeOffertModal }) => {
 				console.error(error);
 				setSubmitting(false);
 			});
-	};
-
-	const encode = (data) => {
-		return Object.keys(data)
-			.map(
-				(key) =>
-					encodeURIComponent(key) +
-					'=' +
-					encodeURIComponent(data[key])
-			)
-			.join('&');
 	};
 
 	const handleFileChange = (e) => {
