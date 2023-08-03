@@ -19,15 +19,10 @@ const OffertForm = ({ closeOffertModal }) => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		setSubmitting(true);
-
-		const formData = new FormData();
-		Object.keys(formState).forEach((key) => {
-			formData.append(key, formState[key]);
-		});
-
 		fetch('/', {
 			method: 'POST',
-			body: formData,
+			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+			body: encode({ 'form-name': 'offert', ...formState }),
 		})
 			.then(() => {
 				setSubmitted(true);
@@ -37,6 +32,17 @@ const OffertForm = ({ closeOffertModal }) => {
 				console.error(error);
 				setSubmitting(false);
 			});
+	};
+
+	const encode = (data) => {
+		return Object.keys(data)
+			.map(
+				(key) =>
+					encodeURIComponent(key) +
+					'=' +
+					encodeURIComponent(data[key])
+			)
+			.join('&');
 	};
 
 	const handleFileChange = (e) => {
