@@ -1,8 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 import { XMarkIcon } from '@heroicons/react/24/solid';
-import ContactForm from './contactform';
-import OffertForm from './offertform';
+import ContactForm from './form';
+import { OffertForm } from './form';
 // merge to Forms file
 
 const Contact = (props) => {
