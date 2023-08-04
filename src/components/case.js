@@ -9,22 +9,30 @@ import Image from './image';
 import Library from './library';
 import TagsList from './tags';
 import Logo from './logo';
-import { work } from '../constant';
+import Soon from './soon';
 
 // how do i render client info like, role, date, name, its in parent of array?
-const ClientName = () => {
-	return work.map((item, i) => <h3 key={i}>{item.client}</h3>);
-};
+// const ClientName = () => {
+// 	return work.map((item, i) => <h3 key={i}>{item.client}</h3>);
+// };
 
-const Case = ({ item, selectedChanged }) => {
+const Case = ({ item, selectedChanged, work }) => {
 	// console.log(item);
+
+	if (item.soon) {
+		return (
+			<>
+				<Soon item={item} />
+			</>
+		);
+	}
 
 	return (
 		<div
 			className={classNames(
 				'case',
 				`case-${item?.case}`,
-				`client-${item?.client.toLowerCase()}`
+				`client-${work?.client.toLowerCase?.()}`
 			)}
 		>
 			<div
@@ -46,9 +54,7 @@ const Case = ({ item, selectedChanged }) => {
 						`section section-hero grid grid-flow-col gap-16 auto-cols-fr relative py-20 px-20`
 					)}
 				>
-					<p className="client-info">
-						<ClientName />
-					</p>
+					<p className="client-info">{work?.client}</p>
 
 					<div className="case-header">
 						{item?.title && <Title size="xl" value={item.title} />}
@@ -181,6 +187,7 @@ const CaseSelector = ({
 	roleClassName,
 	clearActive,
 	selectedChanged,
+	work,
 }) => {
 	const [show, setShow] = useState(true);
 
@@ -205,7 +212,8 @@ const CaseSelector = ({
 		<div
 			className={classNames(
 				`case-wrapper case-teaser gap-20 flex flex-col h-full overflow-y-auto justify-center`,
-				`${item?.bg && 'bg-center bg-cover'}`
+				`${item?.bg && 'bg-center bg-cover'}`,
+				`client-${work?.client?.toLowerCase?.()}`
 			)}
 		>
 			{showAccess && (

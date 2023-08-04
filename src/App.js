@@ -110,6 +110,7 @@ function App() {
 												titleClassName="mb-4 text-2xl md:text-4xl font-medium"
 												key={index}
 												item={item}
+												work={workItem}
 												clearActive={clearActive}
 												onSelect={selectCase}
 												selectedChanged={

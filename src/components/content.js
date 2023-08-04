@@ -83,7 +83,7 @@ const Content = ({ item, clearActive }) => {
 		<div className="case-wrapper gap-20 flex flex-col">
 			<div
 				className={classNames(
-					`section py-20 px-20 section-${item.client.toLowerCase()}`
+					`section py-20 px-20 section-${item.client.toLowerCase?.()}`
 				)}
 			>
 				<Hero item={item} toggle={toggle} setToggle={setToggle} />
