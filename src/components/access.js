@@ -131,21 +131,24 @@ const Access = ({
 
 	return (
 		<>
-			<Code
-				clearActive={clearActive}
-				password={password}
-				onChange={onChange}
-				emailInput={emailInput}
-				show={show}
-				closeModal={closeModal}
-				openRequestModal={openRequestModal}
-			/>
-			<Request
-				item={item}
-				closeRequestModal={closeRequestModal}
-				showRequestModal={showRequestModal}
-				openRequestModal={openRequestModal}
-			/>
+			{showRequestModal ? (
+				<Request
+					item={item}
+					closeRequestModal={closeRequestModal}
+					showRequestModal={showRequestModal}
+					openRequestModal={openRequestModal}
+				/>
+			) : (
+				<Code
+					clearActive={clearActive}
+					password={password}
+					onChange={onChange}
+					emailInput={emailInput}
+					show={show}
+					closeModal={closeModal}
+					openRequestModal={openRequestModal}
+				/>
+			)}
 		</>
 	);
 };

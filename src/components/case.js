@@ -16,143 +16,155 @@ const ClientName = () => {
 	return work.map((item, i) => <h3 key={i}>{item.client}</h3>);
 };
 
-// const Clients = work.filter((item) => item.index !== false);
-
 const Case = ({ item, selectedChanged }) => {
-	console.log(item);
+	// console.log(item);
 
 	return (
 		<div
 			className={classNames(
-				'section-wrapper',
-				'overflow-x-hidden',
-				`section-${item?.case}`,
-				`section-${item?.client}`,
-				item.layout ? item.layout : 'vertical'
+				'case',
+				`case-${item?.case}`,
+				`client-${item?.client.toLowerCase()}`
 			)}
 		>
-			<div className="client-header top-8 left-8 fixed flex flex-col p-6 gap-8">
-				<Logo />
-			</div>
-
-			<p className="client-info">NEED CLIENT NAME HERE</p>
-			<p className="client-info">CLIENT NAV</p>
-
 			<div
 				className={classNames(
-					`section section-hero grid grid-flow-col gap-16 auto-cols-fr relative py-20 px-20`
+					'case-wrapper',
+					'overflow-x-hidden',
+					item.layout ? item.layout : 'vertical'
 				)}
 			>
-				<p className="client-info">
-					<ClientName />
-				</p>
-
-				<div className="case-header">
-					{item?.title && <Title size="xl" value={item.title} />}
-					{item?.lead && <Text size="large" value={item.lead} />}
-					{item?.desc && <Text size="medium" value={item.desc} />}
+				<div className="client-header top-8 left-8 fixed flex flex-col p-6 gap-8">
+					<Logo />
 				</div>
 
-				<div className="case-teaser">
-					{item?.excerpt && <Text value={item.excerpt} />}
-					{item?.image && <Image item={item?.image} />}
-					{item?.library && <Library item={item?.library} />}
-				</div>
+				<p className="client-info">NEED CLIENT NAME HERE</p>
+				<p className="client-info">CLIENT NAV</p>
 
-				<div className="case-tags rotate-90 origin-top-right absolute right-3 top-full w-screen">
-					<TagsList
-						tags={item?.tags}
-						selectedChanged={selectedChanged}
-					/>
-				</div>
-			</div>
-
-			{item?.goals && (
-				<div className="section-goals grid gap-2 mx-auto grid-cols-3 p-20 space-y-2 lg:space-y-0 lg:grid lg:gap-3 lg:grid-rows-3">
-					{item?.goals?.map((goal) => (
-						<div className="goal" key={goal?.id}>
-							{goal?.title && <Title value={goal?.title} />}
-							{goal?.text && <Text value={goal?.text} />}
-						</div>
-					))}
-				</div>
-			)}
-			{item?.insights && (
-				<div className="section-insights grid gap-2 mx-auto grid-cols-3 p-20 space-y-2 lg:space-y-0 lg:grid lg:gap-3 lg:grid-rows-3">
-					{item?.insights?.map((insight) => (
-						<div className="insight" key={insight?.id}>
-							{insight?.title && <Title value={insight?.title} />}
-							{insight?.text && <Text value={insight?.text} />}
-						</div>
-					))}
-				</div>
-			)}
-			{item?.outcomes && (
-				<div className="section-outcomesgrid gap-2 mx-auto grid-cols-3 p-20 space-y-2 lg:space-y-0 lg:grid lg:gap-3 lg:grid-rows-3">
-					{item?.outcomes?.map((outcome) => (
-						<div className="outcomes" key={outcome?.id}>
-							{outcome?.title && <Title value={outcome?.title} />}
-							{outcome?.text && <Text value={outcome?.text} />}
-						</div>
-					))}
-				</div>
-			)}
-
-			{/*
-			 */}
-
-			{/* https://codesandbox.io/s/3d-react-store-oee0r fore scroll i block */}
-
-			{/* https://www.npmjs.com/package/react-reveal */}
-			{/* https://www.npmjs.com/package/react-animation-on-scroll */}
-
-			{/* https://www.react-spring.dev/ */}
-			{/* https://www.npmjs.com/package/react-is-visible */}
-			{/* https://www.npmjs.com/package/react-compare-image */}
-			{/* https://www.npmjs.com/package/react-animation-on-scroll */}
-			{/* https://image-mapper.myshopify.com/ */}
-			{/* https://medium.com/@luke.cooley/image-mapper-an-effective-way-to-promote-your-products-on-shopify-b7ec7db00fa0 */}
-			{/* https://www.codecademy.com/resources/blog/10-javascript-code-challenges-for-beginners/?utm_source=linkedin&utm_medium=organic-social&utm_content=li_01_25_22_javascript_code_challenges */}
-
-			{/* https://news.stanford.edu/2022/12/05/explains-recent-tech-layoffs-worried/ */}
-
-			{/* https://media.monks.com/case-studies/climate-pledge */}
-
-			{/* https://codepen.io/bramus/pen/PobmGme */}
-
-			{/* https://blog.logrocket.com/guide-to-css-animations-using-clip-path/ */}
-
-			{/* https://webdesign.tutsplus.com/tutorials/scrolling-animations-with-css-clip-path-property--cms-36449 */}
-
-			{/* https://css-tricks.com/animating-with-clip-path/ */}
-
-			{/* https://www.semplice.com/best-portfolios-of-2022 */}
-
-			{item?.content?.map((section) => (
-				<>
-					{section?.animate ? (
-						<AnimationOnScroll
-							animateIn={
-								section?.animateIn
-									? section?.animateIn
-									: 'animate__fadeIn'
-							}
-							animateOut={section?.animateOut}
-							delay={section?.delay}
-							duration={section?.duration}
-							animateOnce={
-								section?.animateOnce
-									? section?.animateOnce
-									: true
-							}
-						>
-							<Section key={section?.id} section={section} />
-						</AnimationOnScroll>
-					) : (
-						<Section key={section?.id} section={section} />
+				<div
+					className={classNames(
+						`section section-hero grid grid-flow-col gap-16 auto-cols-fr relative py-20 px-20`
 					)}
-				</>
-			))}
+				>
+					<p className="client-info">
+						<ClientName />
+					</p>
+
+					<div className="case-header">
+						{item?.title && <Title size="xl" value={item.title} />}
+						{item?.lead && <Text size="large" value={item.lead} />}
+						{item?.desc && <Text size="medium" value={item.desc} />}
+					</div>
+
+					<div className="case-teaser">
+						{item?.excerpt && <Text value={item.excerpt} />}
+						{item?.image && <Image item={item?.image} />}
+						{item?.library && <Library item={item?.library} />}
+					</div>
+
+					<div className="case-tags rotate-90 origin-top-right absolute right-3 top-full w-screen">
+						<TagsList
+							tags={item?.tags}
+							selectedChanged={selectedChanged}
+						/>
+					</div>
+				</div>
+
+				{item?.goals && (
+					<div className="section-goals grid gap-2 mx-auto grid-cols-3 p-20 space-y-2 lg:space-y-0 lg:grid lg:gap-3 lg:grid-rows-3">
+						{item?.goals?.map((goal) => (
+							<div className="goal" key={goal?.id}>
+								{goal?.title && <Title value={goal?.title} />}
+								{goal?.text && <Text value={goal?.text} />}
+							</div>
+						))}
+					</div>
+				)}
+				{item?.insights && (
+					<div className="section-insights grid gap-2 mx-auto grid-cols-3 p-20 space-y-2 lg:space-y-0 lg:grid lg:gap-3 lg:grid-rows-3">
+						{item?.insights?.map((insight) => (
+							<div className="insight" key={insight?.id}>
+								{insight?.title && (
+									<Title value={insight?.title} />
+								)}
+								{insight?.text && (
+									<Text value={insight?.text} />
+								)}
+							</div>
+						))}
+					</div>
+				)}
+				{item?.outcomes && (
+					<div className="section-outcomesgrid gap-2 mx-auto grid-cols-3 p-20 space-y-2 lg:space-y-0 lg:grid lg:gap-3 lg:grid-rows-3">
+						{item?.outcomes?.map((outcome) => (
+							<div className="outcomes" key={outcome?.id}>
+								{outcome?.title && (
+									<Title value={outcome?.title} />
+								)}
+								{outcome?.text && (
+									<Text value={outcome?.text} />
+								)}
+							</div>
+						))}
+					</div>
+				)}
+
+				{/*
+				 */}
+
+				{/* https://codesandbox.io/s/3d-react-store-oee0r fore scroll i block */}
+
+				{/* https://www.npmjs.com/package/react-reveal */}
+				{/* https://www.npmjs.com/package/react-animation-on-scroll */}
+
+				{/* https://www.react-spring.dev/ */}
+				{/* https://www.npmjs.com/package/react-is-visible */}
+				{/* https://www.npmjs.com/package/react-compare-image */}
+				{/* https://www.npmjs.com/package/react-animation-on-scroll */}
+				{/* https://image-mapper.myshopify.com/ */}
+				{/* https://medium.com/@luke.cooley/image-mapper-an-effective-way-to-promote-your-products-on-shopify-b7ec7db00fa0 */}
+				{/* https://www.codecademy.com/resources/blog/10-javascript-code-challenges-for-beginners/?utm_source=linkedin&utm_medium=organic-social&utm_content=li_01_25_22_javascript_code_challenges */}
+
+				{/* https://news.stanford.edu/2022/12/05/explains-recent-tech-layoffs-worried/ */}
+
+				{/* https://media.monks.com/case-studies/climate-pledge */}
+
+				{/* https://codepen.io/bramus/pen/PobmGme */}
+
+				{/* https://blog.logrocket.com/guide-to-css-animations-using-clip-path/ */}
+
+				{/* https://webdesign.tutsplus.com/tutorials/scrolling-animations-with-css-clip-path-property--cms-36449 */}
+
+				{/* https://css-tricks.com/animating-with-clip-path/ */}
+
+				{/* https://www.semplice.com/best-portfolios-of-2022 */}
+
+				{item?.content?.map((section) => (
+					<>
+						{section?.animate ? (
+							<AnimationOnScroll
+								animateIn={
+									section?.animateIn
+										? section?.animateIn
+										: 'animate__fadeIn'
+								}
+								animateOut={section?.animateOut}
+								delay={section?.delay}
+								duration={section?.duration}
+								animateOnce={
+									section?.animateOnce
+										? section?.animateOnce
+										: true
+								}
+							>
+								<Section key={section?.id} section={section} />
+							</AnimationOnScroll>
+						) : (
+							<Section key={section?.id} section={section} />
+						)}
+					</>
+				))}
+			</div>
 		</div>
 	);
 };
