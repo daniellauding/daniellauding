@@ -500,6 +500,7 @@ const work = [
 		location: 'Remote / Sweden',
 		bg: '/images/case/instinctly/bg_instinctly.png',
 		url: 'https://www.daniellauding.se',
+		protected: true,
 		index: true,
 		cases: [
 			// {

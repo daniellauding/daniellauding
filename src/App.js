@@ -98,15 +98,28 @@ function App() {
 						</div>
 					</div>
 					<div className="case-container grid gap-2 mx-auto grid-cols-3 p-20 space-y-2 lg:space-y-0 lg:grid lg:gap-3 lg:grid-rows-3">
-						{cases.map((item, index) => (
-							<CaseSelector
-								titleClassName="mb-4 text-2xl md:text-4xl font-medium"
-								key={index}
-								item={item}
-								clearActive={clearActive}
-								onSelect={selectCase}
-								selectedChanged={selectedChanged}
-							/>
+						{/* denna går inte till client overview */}
+						{work.map((workItem, index) => (
+							<div key={index}>
+								{workItem.protected ? (
+									'no'
+								) : (
+									<>
+										{cases.map((item, index) => (
+											<CaseSelector
+												titleClassName="mb-4 text-2xl md:text-4xl font-medium"
+												key={index}
+												item={item}
+												clearActive={clearActive}
+												onSelect={selectCase}
+												selectedChanged={
+													selectedChanged
+												}
+											/>
+										))}
+									</>
+								)}
+							</div>
 						))}
 					</div>
 				</div>
