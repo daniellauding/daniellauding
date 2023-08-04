@@ -1,7 +1,7 @@
 import React, { useState, useRef, useLayoutEffect } from 'react';
 import classNames from 'classnames';
 import { XMarkIcon } from '@heroicons/react/24/solid';
-import RequestForm from './requestform';
+import { RequestForm } from './form';
 
 const Code = (props) => {
 	const {

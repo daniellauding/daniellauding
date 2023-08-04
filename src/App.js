@@ -2,7 +2,7 @@ import React, { useState, useCallback, useMemo } from 'react';
 import classNames from 'classnames';
 import lodash from 'lodash';
 import AboutShort, { About } from './components/about';
-import { NavClient } from './components/nav';
+import Client from './components/client';
 
 import { work } from './constant';
 
@@ -72,7 +72,7 @@ function App() {
 	return (
 		<div className="wrapper box-border">
 			{active && active.client && (
-				<NavClient
+				<Client
 					item={active}
 					clearActive={clearActive}
 					selectedCase={selectedCase}
