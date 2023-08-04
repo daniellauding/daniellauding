@@ -51,7 +51,7 @@ const Client = ({ item, clearActive, selectedCase, selectedChanged }) => {
 				<>
 					{item.protected ? (
 						<>
-							<Protected item={item} />
+							<Protected item={item} work={item} />
 						</>
 					) : (
 						<div className="client-wrapper grid grid-flow-col gap-16 auto-cols-fr h-screen max-h-screen overflow-hidden p-12">

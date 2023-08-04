@@ -1,28 +1,13 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import Text, { Title } from './typography';
 import Typewriter from 'typewriter-effect';
 import classNames from 'classnames';
 import { Request } from './access';
-import Access from './access';
+import { LockClosedIcon } from '@heroicons/react/24/solid';
 
-const Protected = ({ item, clearActive, onSelect }) => {
+const Protected = ({ item }) => {
 	const [show, setShow] = useState(false);
-	const [showAccess, setShowAccess] = useState(null);
-	const openModal = () => setShow(true);
-	const closeModal = () => setShow(false);
-	const onOpen = useCallback(() => {
-		if (item.protected) {
-			setShowAccess(true);
-		} else {
-			onSelect(item);
-		}
-	}, [item, onSelect]);
 
-	const onChange = (event) => {
-		if (event.target.value === '123') {
-			onSelect(item);
-		}
-	};
 	return (
 		<div className="soon flex flex-col h-screen max-h-screen overflow-hidden justify-center items-center p-12">
 			<div className="scroll-container invisible md:visible absolute top-0 left-0 right-0 opacity-50 p-4">
@@ -67,31 +52,24 @@ const Protected = ({ item, clearActive, onSelect }) => {
 			</div>
 
 			<button
-				onClick={() => onOpen(item)}
+				onClick={() => setShow(true)}
 				className={classNames(
 					`bg-primary hover:primary text-white font-bold py-5 px-8 rounded-full items-center flex`
 				)}
 			>
 				Read more{' '}
+				{item?.protected && (
+					<LockClosedIcon className="ml-2 h-4 w-4 text-white" />
+				)}
 			</button>
 
-			{showAccess && (
-				<Access
-					clearActive={clearActive}
-					closeModal={closeModal}
-					openModal={openModal}
-					show={show}
+			{show && (
+				<Request
 					item={item}
-					onChange={onChange}
+					showRequestModal
+					closeRequestModal={() => setShow(false)}
 				/>
 			)}
-
-			<button
-				onClick={() => setShow(true)}
-				className="bg-primary hover:primary text-white font-bold py-5 px-8 rounded-full"
-			>
-				Request walkthrough
-			</button>
 
 			{show && (
 				<Request
