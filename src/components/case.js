@@ -10,13 +10,14 @@ import Library from './library';
 import TagsList from './tags';
 import Logo from './logo';
 import Soon from './soon';
+import { NavCase } from './nav';
 
 // how do i render client info like, role, date, name, its in parent of array?
 // const ClientName = () => {
 // 	return work.map((item, i) => <h3 key={i}>{item.client}</h3>);
 // };
 
-const Case = ({ item, selectedChanged, work }) => {
+const Case = ({ item, selectedChanged, work, clearActive, selectedCase }) => {
 	// console.log(item);
 
 	if (item.soon) {
@@ -35,6 +36,13 @@ const Case = ({ item, selectedChanged, work }) => {
 				`client-${work?.client.toLowerCase?.()}`
 			)}
 		>
+			<NavCase
+				item={item}
+				work={item}
+				clearActive={clearActive}
+				selectedCase={selectedCase}
+				selectedChanged={selectedChanged}
+			/>
 			<div
 				className={classNames(
 					'case-wrapper',

@@ -31,7 +31,12 @@ const Client = ({ item, clearActive, selectedCase, selectedChanged }) => {
 	}
 
 	return (
-		<div className={classNames('client', `client-${item?.client}`)}>
+		<div
+			className={classNames(
+				'client',
+				`client-${item?.client.toLowerCase?.()}`
+			)}
+		>
 			<NavClient
 				item={item}
 				clearActive={clearActive}
