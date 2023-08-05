@@ -8,7 +8,6 @@ import Text, { Title } from './typography';
 import Image from './image';
 import Library from './library';
 import TagsList from './tags';
-import Logo from './logo';
 import Soon from './soon';
 import { NavCase } from './nav';
 
@@ -50,13 +49,6 @@ const Case = ({ item, selectedChanged, work, clearActive, selectedCase }) => {
 					item.layout ? item.layout : 'vertical'
 				)}
 			>
-				<div className="client-header top-8 left-8 fixed flex flex-col p-6 gap-8">
-					<Logo />
-				</div>
-
-				<p className="client-info">NEED CLIENT NAME HERE</p>
-				<p className="client-info">CLIENT NAV</p>
-
 				<div
 					className={classNames(
 						`section section-hero grid grid-flow-col gap-16 auto-cols-fr relative py-20 px-20`

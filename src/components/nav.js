@@ -18,7 +18,7 @@ const Nav = ({
 	setShowExperiencesFull,
 }) => {
 	return (
-		<div className="navigation">
+		<div className="navigation z-10 relative">
 			<div
 				className={classNames(
 					'nav top-2 fixed flex flex-row py-0 px-8 bg-black items-center rounded-full shadow left-1/2 -translate-x-1/2'
@@ -70,7 +70,7 @@ const NavClient = ({ item, clearActive, selectedChanged }) => {
 
 	return (
 		<>
-			<div className="navigation">
+			<div className="navigation z-10 relative">
 				<div
 					className={classNames(
 						'nav top-2 fixed flex flex-row py-0 px-8 bg-black items-center rounded-full shadow left-1/2 -translate-x-1/2',
@@ -106,51 +106,65 @@ const NavClient = ({ item, clearActive, selectedChanged }) => {
 						)}
 					>
 						{item?.client && (
-							<h3
+							<div
 								className={classNames(
-									`client-client text-xs md:text-base md:text-center dark:text-gray-300 text-black lg:font-light flex flex-col items-start`
+									`client-client flex flex-row items-start gap-8`
 								)}
 							>
-								<div className="flex items-center w-full">
-									<span className="text-xs dark:text-gray-400 text-gray-500 font-bold uppercase mr-auto">
-										Client
-									</span>
-									<div className="flex ml-auto gap-1">
-										<Tooltip
-											content={`${clients[prevIndex].client}`}
-											direction="top"
-										>
-											<button
-												className="pt-0 mb-0 mt-0 text-center items-center dark:text-gray-500 text-black text-sm lg:font-light"
-												onClick={prevClient}
+								<div className="flex flex-col items-center">
+									<div className="flex items-center w-full">
+										<span className="text-xs dark:text-gray-400 text-gray-500 font-bold uppercase mr-auto">
+											Client
+										</span>
+										<div className="flex ml-auto gap-1">
+											<Tooltip
+												content={`${clients[prevIndex].client}`}
+												direction="top"
 											>
-												<ArrowLeftIcon className="h-3 w-3 dark:text-gray-400 text-gray-500" />
-											</button>
-										</Tooltip>
-										<Tooltip
-											content={`${clients[nextIndex].client}`}
-											direction="top"
-										>
-											<button
-												className="pt-0 mb-0 mt-0 text-center items-center dark:text-gray-500 text-black text-sm lg:font-light"
-												onClick={nextClient}
+												<button
+													className="pt-0 mb-0 mt-0 text-center items-center dark:text-gray-500 text-black text-sm lg:font-light"
+													onClick={prevClient}
+												>
+													<ArrowLeftIcon className="h-3 w-3 dark:text-gray-400 text-gray-500" />
+												</button>
+											</Tooltip>
+											<Tooltip
+												content={`${clients[nextIndex].client}`}
+												direction="top"
 											>
-												<ArrowRightIcon className="h-3 w-3 dark:text-gray-400 text-gray-500" />
-											</button>
-										</Tooltip>
+												<button
+													className="pt-0 mb-0 mt-0 text-center items-center dark:text-gray-500 text-black text-sm lg:font-light"
+													onClick={nextClient}
+												>
+													<ArrowRightIcon className="h-3 w-3 dark:text-gray-400 text-gray-500" />
+												</button>
+											</Tooltip>
+										</div>
 									</div>
+									<Select
+										options={clients}
+										option={item}
+										onSelect={selectedChanged}
+									/>
+									{/* {item?.url ? (
+                      <a href={item?.url}>{item?.client}</a>
+                    ) : (
+                      item?.client
+                    )} */}
 								</div>
-								<Select
-									options={clients}
-									option={item}
-									onSelect={selectedChanged}
-								/>
-								{/* {item?.url ? (
-                    <a href={item?.url}>{item?.client}</a>
-                  ) : (
-                    item?.client
-                  )} */}
-							</h3>
+								<div className="flex flex-col items-center">
+									<div className="flex items-center w-full">
+										<span className="text-xs dark:text-gray-400 text-gray-500 font-bold uppercase mr-auto">
+											Case
+										</span>
+									</div>
+									<Select
+										options={clients}
+										option={item}
+										onSelect={selectedChanged}
+									/>
+								</div>
+							</div>
 						)}
 
 						{item?.role && (
@@ -239,7 +253,7 @@ const NavCase = ({ item, clearActive, selectedChanged }) => {
 
 	return (
 		<>
-			<div className="navigation">
+			<div className="navigation z-10 relative">
 				<div
 					className={classNames(
 						'nav top-2 fixed flex flex-row py-0 px-8 bg-black items-center rounded-full shadow left-1/2 -translate-x-1/2',
@@ -275,51 +289,84 @@ const NavCase = ({ item, clearActive, selectedChanged }) => {
 						)}
 					>
 						{item?.client && (
-							<h3
+							<div
 								className={classNames(
-									`client-client text-xs md:text-base md:text-center dark:text-gray-300 text-black lg:font-light flex flex-col items-start`
+									`client-client flex flex-row items-start gap-8`
 								)}
 							>
-								<div className="flex items-center w-full">
-									<span className="text-xs dark:text-gray-400 text-gray-500 font-bold uppercase mr-auto">
-										Client
-									</span>
-									<div className="flex ml-auto gap-1">
-										<Tooltip
-											content={`${clients[prevIndex].client}`}
-											direction="top"
-										>
-											<button
-												className="pt-0 mb-0 mt-0 text-center items-center dark:text-gray-500 text-black text-sm lg:font-light"
-												onClick={prevClient}
+								<div className="flex flex-col items-center">
+									<div className="flex items-center w-full">
+										<span className="text-xs dark:text-gray-400 text-gray-500 font-bold uppercase mr-auto">
+											Client
+										</span>
+										<div className="flex ml-auto gap-1">
+											<Tooltip
+												content={`${clients[prevIndex].client}`}
+												direction="top"
 											>
-												<ArrowLeftIcon className="h-3 w-3 dark:text-gray-400 text-gray-500" />
-											</button>
-										</Tooltip>
-										<Tooltip
-											content={`${clients[nextIndex].client}`}
-											direction="top"
-										>
-											<button
-												className="pt-0 mb-0 mt-0 text-center items-center dark:text-gray-500 text-black text-sm lg:font-light"
-												onClick={nextClient}
+												<button
+													className="pt-0 mb-0 mt-0 text-center items-center dark:text-gray-500 text-black text-sm lg:font-light"
+													onClick={prevClient}
+												>
+													<ArrowLeftIcon className="h-3 w-3 dark:text-gray-400 text-gray-500" />
+												</button>
+											</Tooltip>
+											<Tooltip
+												content={`${clients[nextIndex].client}`}
+												direction="top"
 											>
-												<ArrowRightIcon className="h-3 w-3 dark:text-gray-400 text-gray-500" />
-											</button>
-										</Tooltip>
+												<button
+													className="pt-0 mb-0 mt-0 text-center items-center dark:text-gray-500 text-black text-sm lg:font-light"
+													onClick={nextClient}
+												>
+													<ArrowRightIcon className="h-3 w-3 dark:text-gray-400 text-gray-500" />
+												</button>
+											</Tooltip>
+										</div>
 									</div>
+									<Select
+										options={clients}
+										option={item}
+										onSelect={selectedChanged}
+									/>
 								</div>
-								<Select
-									options={clients}
-									option={item}
-									onSelect={selectedChanged}
-								/>
-								{/* {item?.url ? (
-                    <a href={item?.url}>{item?.client}</a>
-                  ) : (
-                    item?.client
-                  )} */}
-							</h3>
+								<div className="flex flex-col items-center">
+									<div className="flex items-center w-full">
+										<span className="text-xs dark:text-gray-400 text-gray-500 font-bold uppercase mr-auto">
+											Case
+										</span>
+										<div className="flex ml-auto gap-1">
+											<Tooltip
+												content={`${clients[prevIndex].client}`}
+												direction="top"
+											>
+												<button
+													className="pt-0 mb-0 mt-0 text-center items-center dark:text-gray-500 text-black text-sm lg:font-light"
+													onClick={prevClient}
+												>
+													<ArrowLeftIcon className="h-3 w-3 dark:text-gray-400 text-gray-500" />
+												</button>
+											</Tooltip>
+											<Tooltip
+												content={`${clients[nextIndex].client}`}
+												direction="top"
+											>
+												<button
+													className="pt-0 mb-0 mt-0 text-center items-center dark:text-gray-500 text-black text-sm lg:font-light"
+													onClick={nextClient}
+												>
+													<ArrowRightIcon className="h-3 w-3 dark:text-gray-400 text-gray-500" />
+												</button>
+											</Tooltip>
+										</div>
+									</div>
+									<Select
+										options={clients}
+										option={item}
+										onSelect={selectedChanged}
+									/>
+								</div>
+							</div>
 						)}
 
 						{item?.role && (
@@ -340,7 +387,7 @@ const NavCase = ({ item, clearActive, selectedChanged }) => {
 							)}
 						>
 							<span className="text-xs dark:text-gray-400 text-gray-500 font-bold uppercase">
-								Cases
+								Date
 							</span>
 							{
 								cases.filter((c) => {
