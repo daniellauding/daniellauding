@@ -13,6 +13,7 @@ import Logo from './components/logo';
 
 import Timeline from './components/timeline';
 import { Bars3BottomRightIcon } from '@heroicons/react/24/solid';
+import Protected from './components/protected';
 
 import './styles/animate.min.css';
 
@@ -102,7 +103,10 @@ function App() {
 						{work.map((workItem, index) => (
 							<div key={index}>
 								{workItem.protected ? (
-									'no'
+									<Protected
+										item={workItem}
+										work={workItem}
+									/>
 								) : (
 									<>
 										{cases.map((item, index) => (

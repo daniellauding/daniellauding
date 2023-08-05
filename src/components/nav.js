@@ -68,6 +68,28 @@ const NavClient = ({ item, clearActive, selectedChanged }) => {
 		selectedChanged(clients[prevIndex]);
 	};
 
+	const handleCaseSelect = (selectedCase) => {
+		// Do something with the selected case here
+		console.log('Selected case:', selectedCase); // For debugging
+		selectedChanged(selectedCase); // If this makes sense for your application
+	};
+
+	{
+		cases.map((item, index) => {
+			console.log('Item at index', index, 'is', item);
+			// Example rendering, assuming `item` has a `name` property
+			return <div key={index}>{item.name}</div>;
+		});
+	}
+
+	{
+		cases.map((caseItem, index) => {
+			console.log(index, caseItem.id, caseItem.title);
+		});
+	}
+
+	console.log(clients);
+
 	return (
 		<>
 			<div className="navigation z-10 relative">
@@ -142,8 +164,14 @@ const NavClient = ({ item, clearActive, selectedChanged }) => {
 										</div>
 									</div>
 									<Select
-										options={clients}
-										option={item}
+										options={clients.map((client) => ({
+											value: client.id, // Assuming 'id' is a property of a client object
+											label: client.client, // Assuming 'client' is a property of a client object for the label
+										}))}
+										option={{
+											value: item.id,
+											label: item.client,
+										}}
 										onSelect={selectedChanged}
 									/>
 									{/* {item?.url ? (
@@ -159,9 +187,15 @@ const NavClient = ({ item, clearActive, selectedChanged }) => {
 										</span>
 									</div>
 									<Select
-										options={clients}
-										option={item}
-										onSelect={selectedChanged}
+										options={cases.map((caseItem) => ({
+											value: caseItem.id, // Using the 'id' field as the value
+											label: caseItem.title, // Using the 'title' field as the label
+										}))}
+										option={{
+											value: item.id,
+											label: item.client,
+										}}
+										onChange={handleCaseSelect}
 									/>
 								</div>
 							</div>
