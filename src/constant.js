@@ -321,25 +321,33 @@ const work = [
 					},
 					{
 						id: 6,
-						section: 'discovery',
-						title: 'Identify ways to attract new freemium users',
-						lead: 'We understood that free users on year class phones (older androids) still where downloading mp3s and was afraid of streaming when not on Wi-Fi. A hypothesis to gain trust to stream on cellular was to build a solution that uses less data consumption.',
-						style: 'hero',
-						groups: [
-							{
-								id: 0,
-								animate: true,
-								title: {
-									variant: 'medium',
-									value: 'Jag är en rubrik i en grupp',
-								},
-								text: {
-									variant: 'large',
-									value: 'Jag är texten i denna grupp',
-								},
-							},
-						],
+						section: 'problem',
+						title: 'The problem',
+						lead: `In 2017, Spotify was grappling with the challenge of broadening its reach among free users in emerging markets. The issue was deeply rooted in users' mobile data consumption fears, and their preference for downloading mp3s over streaming, especially among individuals with older Android phones - a phenomenon we termed "year class phones." Users were hesitant to stream content when not connected to Wi-Fi, resulting in limited user growth in these markets.`,
+						text: 'problem va',
 					},
+					// {
+					// 	id: 6,
+					// 	section: 'discovery',
+					// 	title: 'Identify ways to attract new freemium users',
+					// 	text: 'asdf',
+					// 	lead: 'We understood that free users on year class phones (older androids) still where downloading mp3s and was afraid of streaming when not on Wi-Fi. A hypothesis to gain trust to stream on cellular was to build a solution that uses less data consumption.',
+					// 	style: 'hero',
+					// 	groups: [
+					// 		{
+					// 			id: 0,
+					// 			animate: true,
+					// 			title: {
+					// 				variant: 'medium',
+					// 				value: 'Jag är en rubrik i en grupp',
+					// 			},
+					// 			text: {
+					// 				variant: 'large',
+					// 				value: 'Jag är texten i denna grupp',
+					// 			},
+					// 		},
+					// 	],
+					// },
 					{
 						id: 7,
 						section: 'solution',

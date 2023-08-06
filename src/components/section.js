@@ -85,6 +85,7 @@ const Section = ({ section }) => {
 				>
 					{section?.title && <Title value={section?.title} />}
 					{section?.lead && <Text value={section?.lead} />}
+					{section?.text && <Text value={section?.text} />}
 					{section?.desc && <Text value={section?.desc} />}
 					{section?.image && (
 						<>
@@ -141,10 +142,17 @@ const Section = ({ section }) => {
 							{section?.title && (
 								<Title size="large" value={section?.title} />
 							)}
+							{section?.lead && (
+								<Text size="medium" value={section?.lead} />
+							)}
+							{section?.text && (
+								<Text size="small" value={section?.text} />
+							)}
 						</div>
 
 						<div className="col">
 							{section?.lead && <Text value={section?.lead} />}
+							{section?.text && <Text value={section?.text} />}
 							{section?.desc && <Text value={section?.desc} />}
 						</div>
 					</div>
@@ -152,8 +160,9 @@ const Section = ({ section }) => {
 				{!section?.style && (
 					<div className={classNames(`style-default`)}>
 						{section?.title && <Title value={section?.title} />}
-						{section?.lead && <Text value={section?.lead} />}
-						{section?.desc && <Text value={section?.desc} />}
+						{section?.lead && <Title value={section?.lead} />}
+						{section?.text && <Title value={section?.text} />}
+						{section?.desc && <Title value={section?.desc} />}
 					</div>
 				)}
 
