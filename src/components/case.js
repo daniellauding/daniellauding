@@ -16,7 +16,13 @@ import { NavCase } from './nav';
 // 	return work.map((item, i) => <h3 key={i}>{item.client}</h3>);
 // };
 
-const Case = ({ item, selectedChanged, work, clearActive, selectedCase }) => {
+const Case = ({
+	item,
+	selectedChanged,
+	work,
+	clearActive,
+	selectedCaseChanged,
+}) => {
 	// console.log(item);
 
 	if (item.soon) {
@@ -36,11 +42,12 @@ const Case = ({ item, selectedChanged, work, clearActive, selectedCase }) => {
 			)}
 		>
 			<NavCase
-				item={item}
-				work={item}
+				item={work}
 				clearActive={clearActive}
-				selectedCase={selectedCase}
+				selectedCase={item}
 				selectedChanged={selectedChanged}
+				selectedCaseChanged={selectedCaseChanged}
+				workCase={item}
 			/>
 			<div
 				className={classNames(

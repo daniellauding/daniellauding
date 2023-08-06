@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import Logo from './logo';
 import Select from './select';
 import classNames from 'classnames';
@@ -50,7 +50,14 @@ const Nav = ({
 	);
 };
 
-const NavClient = ({ item, clearActive, selectedChanged }) => {
+const NavClient = ({
+	workCase,
+	item,
+	clearActive,
+	selectedChanged,
+	selectedCaseChanged,
+	authenticated,
+}) => {
 	const clients = work.filter((item) => item.index !== false);
 	const currIndex = clients.findIndex((c) => c === item);
 	const prevIndex = currIndex > 0 ? currIndex - 1 : clients.length - 1;
@@ -61,17 +68,17 @@ const NavClient = ({ item, clearActive, selectedChanged }) => {
 	const [toggleNav, setToggleNav] = useState(false);
 
 	const nextClient = () => {
-		selectedChanged(clients[nextIndex]);
+		selectedChanged(clients[nextIndex].id);
 	};
 
 	const prevClient = () => {
-		selectedChanged(clients[prevIndex]);
+		selectedChanged(clients[prevIndex].id);
 	};
 
 	const handleCaseSelect = (selectedCase) => {
 		// Do something with the selected case here
 		console.log('Selected case:', selectedCase); // For debugging
-		selectedChanged(selectedCase); // If this makes sense for your application
+		selectedCaseChanged(selectedCase); // If this makes sense for your application
 	};
 
 	{
@@ -81,6 +88,21 @@ const NavClient = ({ item, clearActive, selectedChanged }) => {
 			return <div key={index}>{item.name}</div>;
 		});
 	}
+
+	const selectedCaseOption = workCase
+		? { value: workCase.id, label: workCase.title }
+		: null;
+
+	const casesOptions = useMemo(() => {
+		return [{ value: null, label: 'Choose' }].concat(
+			cases
+				.filter((item) => item.index !== false)
+				.map((caseItem) => ({
+					value: caseItem.id, // Using the 'id' field as the value
+					label: caseItem.title, // Using the 'title' field as the label
+				}))
+		);
+	}, [cases, authenticated]);
 
 	{
 		cases.map((caseItem, index) => {
@@ -187,15 +209,10 @@ const NavClient = ({ item, clearActive, selectedChanged }) => {
 										</span>
 									</div>
 									<Select
-										options={cases.map((caseItem) => ({
-											value: caseItem.id, // Using the 'id' field as the value
-											label: caseItem.title, // Using the 'title' field as the label
-										}))}
-										option={{
-											value: item.id,
-											label: item.client,
-										}}
-										onChange={handleCaseSelect}
+										options={casesOptions}
+										option={selectedCaseOption}
+										onSelect={handleCaseSelect}
+										disabled={!authenticated}
 									/>
 								</div>
 							</div>
@@ -267,7 +284,13 @@ const NavClient = ({ item, clearActive, selectedChanged }) => {
 	);
 };
 
-const NavCase = ({ item, clearActive, selectedChanged }) => {
+const NavCase = ({
+	workCase,
+	item,
+	clearActive,
+	selectedChanged,
+	selectedCaseChanged,
+}) => {
 	const clients = work.filter((item) => item.index !== false);
 	const currIndex = clients.findIndex((c) => c === item);
 	const prevIndex = currIndex > 0 ? currIndex - 1 : clients.length - 1;
@@ -278,12 +301,47 @@ const NavCase = ({ item, clearActive, selectedChanged }) => {
 	const [toggleNav, setToggleNav] = useState(false);
 
 	const nextClient = () => {
-		selectedChanged(clients[nextIndex]);
+		selectedChanged(clients[nextIndex].id);
 	};
 
 	const prevClient = () => {
-		selectedChanged(clients[prevIndex]);
+		selectedChanged(clients[prevIndex].id);
 	};
+
+	const handleCaseSelect = (selectedCase) => {
+		// Do something with the selected case here
+		console.log('Selected case:', selectedCase); // For debugging
+		selectedCaseChanged(selectedCase); // If this makes sense for your application
+	};
+
+	const selectedCaseOption = workCase
+		? { value: workCase.id, label: workCase.title }
+		: null;
+
+	{
+		cases.map((item, index) => {
+			console.log('Item at index', index, 'is', item);
+			// Example rendering, assuming `item` has a `name` property
+			return <div key={index}>{item.name}</div>;
+		});
+	}
+
+	const casesOptions = useMemo(() => {
+		return cases
+			.filter((item) => item.index !== false)
+			.map((caseItem) => ({
+				value: caseItem.id, // Using the 'id' field as the value
+				label: caseItem.title, // Using the 'title' field as the label
+			}));
+	}, [cases]);
+
+	{
+		cases.map((caseItem, index) => {
+			console.log(index, caseItem.id, caseItem.title);
+		});
+	}
+
+	console.log(clients);
 
 	return (
 		<>
@@ -359,10 +417,21 @@ const NavCase = ({ item, clearActive, selectedChanged }) => {
 										</div>
 									</div>
 									<Select
-										options={clients}
-										option={item}
+										options={clients.map((client) => ({
+											value: client.id, // Assuming 'id' is a property of a client object
+											label: client.client, // Assuming 'client' is a property of a client object for the label
+										}))}
+										option={{
+											value: item.id,
+											label: item.client,
+										}}
 										onSelect={selectedChanged}
 									/>
+									{/* {item?.url ? (
+                      <a href={item?.url}>{item?.client}</a>
+                    ) : (
+                      item?.client
+                    )} */}
 								</div>
 								<div className="flex flex-col items-center">
 									<div className="flex items-center w-full">
@@ -395,9 +464,9 @@ const NavCase = ({ item, clearActive, selectedChanged }) => {
 										</div>
 									</div>
 									<Select
-										options={clients}
-										option={item}
-										onSelect={selectedChanged}
+										options={casesOptions}
+										option={selectedCaseOption}
+										onSelect={handleCaseSelect}
 									/>
 								</div>
 							</div>
@@ -421,7 +490,7 @@ const NavCase = ({ item, clearActive, selectedChanged }) => {
 							)}
 						>
 							<span className="text-xs dark:text-gray-400 text-gray-500 font-bold uppercase">
-								Date
+								Cases
 							</span>
 							{
 								cases.filter((c) => {

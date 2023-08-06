@@ -26,7 +26,7 @@ const Experience = ({ item, active, setActive, onHover }) => {
 	const onClick = useCallback(
 		(e) => {
 			e.preventDefault();
-			setActive(item);
+			setActive(item.id);
 			// test.play();
 		},
 		[item, setActive]

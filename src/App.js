@@ -38,10 +38,31 @@ function App() {
 
 	const selectedChanged = useCallback(
 		(value) => {
-			setActive(value || null);
+			setActive(
+				work.find((item) => {
+					return item.id === value;
+				})
+			);
 			setPreviewCase(null);
+			setCase(null);
 		},
 		[setActive]
+	);
+
+	const selectedCaseChanged = useCallback(
+		(value) => {
+			console.log(
+				active.cases.find((item) => {
+					return item.id === value;
+				})
+			);
+			setCase(
+				active.cases.find((item) => {
+					return item.id === value;
+				})
+			);
+		},
+		[setCase, active]
 	);
 
 	const selectCase = useCallback((selectedCase) => {
@@ -78,6 +99,7 @@ function App() {
 					clearActive={clearActive}
 					selectedCase={selectedCase}
 					selectedChanged={selectedChanged}
+					selectedCaseChanged={selectedCaseChanged}
 				/>
 			)}
 			{active && !active.client && (

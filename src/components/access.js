@@ -19,7 +19,11 @@ const Code = (props) => {
 		if (emailInput.current) {
 			emailInput.current.focus();
 		}
-	}, []);
+	}, [show]);
+
+	if (!show) {
+		return null;
+	}
 
 	return (
 		<div

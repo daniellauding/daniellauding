@@ -5,14 +5,27 @@ import classNames from 'classnames';
 import Access from './access';
 import { LockClosedIcon } from '@heroicons/react/24/solid';
 
-const Protected = ({ item, clearActive, closeModal, openModal, onSelect }) => {
+const Protected = ({
+	item,
+	clearActive,
+	openModal,
+	children,
+	onAuthenticated,
+}) => {
 	const [show, setShow] = useState(false);
+	const [authenticated, setAuthenticated] = useState(false);
 
 	const onChange = (event) => {
 		if (event.target.value === '123') {
-			onSelect(item);
+			// onSelect(item);
+			setAuthenticated(true);
+			onAuthenticated?.(true);
 		}
 	};
+
+	if (!item.protected || authenticated) {
+		return children;
+	}
 
 	return (
 		<div className="soon flex flex-col h-screen max-h-screen overflow-hidden justify-center items-center p-12">
@@ -69,19 +82,17 @@ const Protected = ({ item, clearActive, closeModal, openModal, onSelect }) => {
 				)}
 			</button>
 
-			{show && (
-				<Access
-					item={item}
-					onChange={onChange}
-					clearActive={clearActive}
-					closeModal={closeModal}
-					openModal={openModal}
-					show={show}
-					showRequestModal
-					closeRequestModal={() => setShow(false)}
-					// byt namn på "close/showRequestModal...", request är request, kod-access är kod-access, access är samlingen
-				/>
-			)}
+			<Access
+				item={item}
+				onChange={onChange}
+				clearActive={clearActive}
+				closeModal={() => setShow(false)}
+				openModal={openModal}
+				show={show}
+				showRequestModal
+				closeRequestModal={() => setShow(false)}
+				// byt namn på "close/showRequestModal...", request är request, kod-access är kod-access, access är samlingen
+			/>
 		</div>
 	);
 };
