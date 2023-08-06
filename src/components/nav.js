@@ -118,7 +118,7 @@ const NavClient = ({
 				<div
 					className={classNames(
 						'nav top-2 fixed flex flex-row py-0 px-8 bg-black items-center rounded-full shadow left-1/2 -translate-x-1/2',
-						toggleNav ? 'w-8/12 mx-auto rounded-none' : ''
+						toggleNav ? 'w-full mx-auto rounded-none' : ''
 					)}
 				>
 					<div className="app-logo flex flex-row items-center">
@@ -202,6 +202,20 @@ const NavClient = ({
                       item?.client
                     )} */}
 								</div>
+								{item?.role && (
+									<h3
+										className={classNames(
+											`client-role text-xs md:text-base md:text-center dark:text-gray-300 text-black lg:font-light flex flex-col items-start`
+										)}
+									>
+										<span className="text-xs dark:text-gray-400 text-gray-500 font-bold uppercase">
+											Role
+										</span>
+										<span className="text-white">
+											{item?.role}
+										</span>
+									</h3>
+								)}
 								<div className="flex flex-col items-center">
 									<div className="flex items-center w-full">
 										<span className="text-xs dark:text-gray-400 text-gray-500 font-bold uppercase mr-auto">
@@ -218,19 +232,7 @@ const NavClient = ({
 							</div>
 						)}
 
-						{item?.role && (
-							<h3
-								className={classNames(
-									`client-role text-xs md:text-base md:text-center dark:text-gray-300 text-black lg:font-light flex flex-col items-start`
-								)}
-							>
-								<span className="text-xs dark:text-gray-400 text-gray-500 font-bold uppercase">
-									Role
-								</span>
-								{item?.role}
-							</h3>
-						)}
-						<h3
+						{/* <h3
 							className={classNames(
 								`client-cases text-xs md:text-base md:text-center dark:text-gray-300 text-black lg:font-light flex flex-col items-start`
 							)}
@@ -243,7 +245,7 @@ const NavClient = ({
 									return c.index !== false;
 								}).length
 							}
-						</h3>
+						</h3> */}
 						{/* .filter((item) => item.index !== false) */}
 						{item?.location && (
 							<h3
@@ -254,7 +256,9 @@ const NavClient = ({
 								<span className="text-xs dark:text-gray-400 text-gray-500 font-bold uppercase">
 									Location
 								</span>
-								{item?.location}
+								<span className="text-white">
+									{item?.location}
+								</span>
 							</h3>
 						)}
 						{item?.date && (
@@ -266,7 +270,7 @@ const NavClient = ({
 								<span className="text-xs dark:text-gray-400 text-gray-500 font-bold uppercase">
 									Date
 								</span>
-								{item?.date}
+								<span className="text-white">{item?.date}</span>
 							</h3>
 						)}
 						<Tooltip content="Hide" direction="top">
@@ -349,7 +353,7 @@ const NavCase = ({
 				<div
 					className={classNames(
 						'nav top-2 fixed flex flex-row py-0 px-8 bg-black items-center rounded-full shadow left-1/2 -translate-x-1/2',
-						toggleNav ? 'w-8/12 mx-auto rounded-none' : ''
+						toggleNav ? 'w-full mx-auto rounded-none' : ''
 					)}
 				>
 					<div className="app-logo flex flex-row items-center">
@@ -433,6 +437,20 @@ const NavCase = ({
                       item?.client
                     )} */}
 								</div>
+								{item?.role && (
+									<h3
+										className={classNames(
+											`client-role text-xs md:text-base md:text-center dark:text-gray-300 text-black lg:font-light flex flex-col items-start`
+										)}
+									>
+										<span className="text-xs dark:text-gray-400 text-gray-500 font-bold uppercase">
+											Role
+										</span>
+										<span className="text-white">
+											{item?.role}
+										</span>
+									</h3>
+								)}
 								<div className="flex flex-col items-center">
 									<div className="flex items-center w-full">
 										<span className="text-xs dark:text-gray-400 text-gray-500 font-bold uppercase mr-auto">
@@ -472,19 +490,7 @@ const NavCase = ({
 							</div>
 						)}
 
-						{item?.role && (
-							<h3
-								className={classNames(
-									`client-role text-xs md:text-base md:text-center dark:text-gray-300 text-black lg:font-light flex flex-col items-start`
-								)}
-							>
-								<span className="text-xs dark:text-gray-400 text-gray-500 font-bold uppercase">
-									Role
-								</span>
-								{item?.role}
-							</h3>
-						)}
-						<h3
+						{/* <h3
 							className={classNames(
 								`client-cases text-xs md:text-base md:text-center dark:text-gray-300 text-black lg:font-light flex flex-col items-start`
 							)}
@@ -497,7 +503,7 @@ const NavCase = ({
 									return c.index !== false;
 								}).length
 							}
-						</h3>
+						</h3> */}
 						{/* .filter((item) => item.index !== false) */}
 						{item?.location && (
 							<h3
@@ -508,7 +514,9 @@ const NavCase = ({
 								<span className="text-xs dark:text-gray-400 text-gray-500 font-bold uppercase">
 									Location
 								</span>
-								{item?.location}
+								<span className="text-white">
+									{item?.location}
+								</span>
 							</h3>
 						)}
 						{item?.date && (
@@ -520,7 +528,7 @@ const NavCase = ({
 								<span className="text-xs dark:text-gray-400 text-gray-500 font-bold uppercase">
 									Date
 								</span>
-								{item?.date}
+								<span className="text-white">{item?.date}</span>
 							</h3>
 						)}
 						<Tooltip content="Hide" direction="top">

@@ -138,6 +138,7 @@ const work = [
 		location: 'Brazil / Sweden',
 		bg: '/images/case/spotify/bg_spotify.jpeg',
 		url: 'https://www.spotify.com',
+		protected: true,
 		index: true,
 		cases: [
 			{
@@ -435,6 +436,7 @@ const work = [
 		location: 'Remote / Sweden',
 		bg: '/images/case/recordunion/bg_recordunion.png',
 		url: 'https://www.recordunion.com',
+		protected: true,
 		index: true,
 		cases: [
 			{
@@ -457,6 +459,9 @@ const work = [
 		date: '2016 – 2017',
 		location: 'Stockholm / Sweden',
 		bg: '/images/case/lansforsakringar/bg_lf.png',
+		protected: true,
+		index: true,
+		soon: true,
 		url: 'https://www.lansforsakringar.se',
 		// cases: [
 		// 	{
@@ -676,6 +681,7 @@ const work = [
 		location: 'Remote / Amsterdam, Netherlands',
 		bg: '/images/case/backbase/bg_backbase.png',
 		url: 'https://www.backbase.com',
+		protected: true,
 		index: true,
 		cases: [
 			{
