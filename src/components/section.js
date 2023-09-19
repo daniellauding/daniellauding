@@ -160,9 +160,15 @@ const Section = ({ section }) => {
 				{!section?.style && (
 					<div className={classNames(`style-default`)}>
 						{section?.title && <Title value={section?.title} />}
-						{section?.lead && <Title value={section?.lead} />}
-						{section?.text && <Title value={section?.text} />}
-						{section?.desc && <Title value={section?.desc} />}
+						{section?.lead && (
+							<Text size="large" value={section?.lead} />
+						)}
+						{section?.text && (
+							<Text size="medium" value={section?.lead} />
+						)}
+						{section?.desc && (
+							<Text size="medium" value={section?.desc} />
+						)}
 					</div>
 				)}
 

@@ -10,6 +10,7 @@ import TagsList from './tags';
 import Social from './social';
 import Nav from './nav';
 import Contact, { Offert } from './contact';
+import Groups from './groups';
 
 const About = ({ setShowProfile, active, selectedChanged }) => {
 	const [showExperiencesFull, setShowExperiencesFull] = useState(null);
@@ -87,6 +88,8 @@ const About = ({ setShowProfile, active, selectedChanged }) => {
 							<p className="pt-0 mb-4 sm:mx-8 mx-8 md:mx-32 mt-8 text-center dark:text-gray-100 text-black lg:font-light text-3xl md:text-4xl leading-snug font-serif">
 								{intro.description}
 							</p>
+
+							<Groups section={intro.content} />
 						</div>
 					))}
 				</div>

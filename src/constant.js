@@ -16,14 +16,28 @@ const about = [
 							{
 								text: [
 									{
-										value: '* I love to build and design. part designer & part developer – the unicorn of the internet Solving problems and creating new visual languages is my favorite part of the job. My main focus is designing large scale web projects, tools and experiences that lots of people will use for a very long time. I am an advocate for a proper user experience, structured design and extremely detailed execution. I have a background as a Digital Media student at Hyper Island and as a front-end developer. I draw inspiration from many different sources, travel, the internet, the streets or just a casual drink with friends. During my career I ́ve lived and worked in Stockholm, Gothenburg, New York, Amsterdam and Singapore.',
+										value: 'I am a Lead Product Designer with a passion for bringing creative concepts to life through intricate design and efficient prototyping. Often regarded as a hybrid designer, I find fulfillment in delving deep into multiple facets of the design process, continuously pushing boundaries and challenging norms.',
 									},
 								],
 							},
 							{
 								text: [
 									{
-										value: 'The work below has been done either as a consultant or as a freelancer with direct contact to clients.',
+										value: `What sets me apart is my penchant for exploration. I'm at my best when charting unfamiliar terrains, whether it's designing a new feature, creating an innovative prototype, or shaping an entire design system. This exploratory zeal is where my creativity meets purpose, resulting in designs that not only look appealing but also function seamlessly.`,
+									},
+								],
+							},
+							{
+								text: [
+									{
+										value: `Over the years, I have developed comprehensive design systems, utilizing various design tools to provide cohesive, user-centric experiences. My skill set also extends to frontend development, with proficiency in React and basic HTML, underscoring my ability to understand and implement technical aspects of design.`,
+									},
+								],
+							},
+							{
+								text: [
+									{
+										value: `In essence, I am a design enthusiast driven by the thrill of creation and the satisfaction of seeing my prototypes come to life. My work is a fusion of aesthetics, functionality, and innovation - a testament to my commitment towards creating impactful user experiences.`,
 									},
 								],
 							},
@@ -151,58 +165,6 @@ const work = [
 				image: {
 					src: '/images/case/spotify/bg_spotify.jpeg',
 				},
-				goals: [
-					{
-						// Setup hero icons import { XMarkIcon } from '@heroicons/react/24/solid';
-						id: 0,
-						title: 'Goal #1',
-						text: 'Enable more free users in emerging markets',
-					},
-					{
-						id: 1,
-						title: 'Goal #2',
-						text: 'Cras dictum ultrices quam quis ultrices',
-					},
-					{
-						id: 2,
-						title: 'Goal #3',
-						text: 'Curabitur convallis orci nec feugiat malesuada',
-					},
-				],
-				insights: [
-					{
-						id: 0,
-						title: 'Insight #1',
-						text: 'People dont do shit',
-					},
-					{
-						id: 1,
-						title: 'Insight #2',
-						text: 'Dogs are crazy',
-					},
-					{
-						id: 2,
-						title: 'Insight #3',
-						text: 'We won',
-					},
-				],
-				outcomes: [
-					{
-						id: 0,
-						title: 'Outcome #1',
-						text: 'It just works',
-					},
-					{
-						id: 1,
-						title: 'Outcome #2',
-						text: 'No more',
-					},
-					{
-						id: 2,
-						title: 'Outcome #3',
-						text: 'We won',
-					},
-				],
 				tags: [
 					'UX',
 					'UI',
@@ -348,90 +310,114 @@ const work = [
 					// 		},
 					// 	],
 					// },
+					// {
+					// 	id: 7,
+					// 	section: 'solution',
+					// 	title: 'Consume 1% of data',
+					// 	lead: 'One of our solutions we ran A/B tests on would serve 4 playlists on-demand and when playing songs from those it only consumed 1% of their data. The design is branded with dark-blue to build awareness throughtout the flow.',
+					// 	style: 'hero',
+					// },
 					{
 						id: 7,
-						section: 'solution',
-						title: 'Consume 1% of data',
-						lead: 'One of our solutions we ran A/B tests on would serve 4 playlists on-demand and when playing songs from those it only consumed 1% of their data. The design is branded with dark-blue to build awareness throughtout the flow.',
-						style: 'hero',
+						section: 'goal',
+						title: 'Goal',
+						lead: `Our main objective was to alleviate users' concerns about high data consumption during streaming and transform their music listening behavior from downloading mp3s to streaming songs on Spotify. The end goal was to expand Spotify's user base and increase engagement in emerging markets, specifically Brazil.`,
 					},
 					{
-						id: 6,
-						section: 'designs',
-						title: 'Designs',
-						groups: [
-							{
-								id: 0,
-								image: {
-									variant: 'dummy',
-									text: 'Bild #1',
-									width: 784,
-									height: 1353,
-									color: '#20232a',
-									textColor: '#737373',
-									format: 'png',
-								},
-							},
-							{
-								id: 1,
-								title: {
-									variant: 'medium',
-									value: 'Jag är en rubrik i en grupp',
-								},
-								text: {
-									variant: 'large',
-									value: 'Jag är texten i denna grupp',
-								},
-								image: {
-									variant: 'dummy',
-									text: 'Bild #2',
-									width: 784,
-									height: 1353,
-									color: '#20232a',
-									textColor: '#737373',
-									format: 'png',
-								},
-								groups: [
-									{
-										id: 1,
-										image: {
-											variant: 'dummy',
-											text: 'Bild #2',
-											width: 784,
-											height: 1353,
-											color: '#20232a',
-											textColor: '#737373',
-											format: 'png',
-										},
-									},
-									{
-										id: 2,
-										image: {
-											variant: 'dummy',
-											text: 'Bild #3',
-											width: 784,
-											height: 1353,
-											color: '#20232a',
-											textColor: '#737373',
-											format: 'png',
-										},
-									},
-									{
-										id: 3,
-										image: {
-											variant: 'dummy',
-											text: 'Bild #4',
-											width: 784,
-											height: 1353,
-											color: '#20232a',
-											textColor: '#737373',
-											format: 'png',
-										},
-									},
-								],
-							},
-						],
+						id: 8,
+						section: 'insights',
+						title: 'Insights',
+						lead: `My team and I embarked on a two-week local field research trip to Brazil to gain a firsthand understanding of our users and their behavior. This involved conducting in-home interviews and user testing on various prototypes. Through these rigorous investigations, we discovered the users' concern about mobile data consumption and their need for a streaming solution that was both data-efficient and trustworthy.`,
 					},
+					{
+						id: 9,
+						section: 'approach',
+						title: 'The Approach',
+						lead: `Based on our insights, we formulated a hypothesis - if we could design a feature that ensured minimal data consumption, we could gain the users' trust and encourage them to stream over cellular networks. We rapidly iterated potential solutions and developed prototypes for testing.`,
+					},
+					{
+						id: 10,
+						section: 'outcome',
+						title: 'Outcome',
+						lead: `One solution we conceived and tested was a feature that allowed users to access four on-demand playlists, and when songs were played from these, it only consumed 1% of their data. The design was given a distinct dark-blue branding for easy identification and to build awareness throughout the user flow. We conducted A/B testing on this feature to evaluate its effectiveness. By providing users with a low data consumption solution, we addressed their concerns and provided a user-friendly solution that facilitated streaming even when not connected to Wi-Fi. This initiative significantly contributed to Spotify's efforts in expanding its reach to free users in emerging markets.`,
+					},
+					// {
+					// 	id: 6,
+					// 	section: 'designs',
+					// 	title: 'Designs',
+					// 	groups: [
+					// 		{
+					// 			id: 0,
+					// 			image: {
+					// 				variant: 'dummy',
+					// 				text: 'Bild #1',
+					// 				width: 784,
+					// 				height: 1353,
+					// 				color: '#20232a',
+					// 				textColor: '#737373',
+					// 				format: 'png',
+					// 			},
+					// 		},
+					// 		{
+					// 			id: 1,
+					// 			title: {
+					// 				variant: 'medium',
+					// 				value: 'Jag är en rubrik i en grupp',
+					// 			},
+					// 			text: {
+					// 				variant: 'large',
+					// 				value: 'Jag är texten i denna grupp',
+					// 			},
+					// 			image: {
+					// 				variant: 'dummy',
+					// 				text: 'Bild #2',
+					// 				width: 784,
+					// 				height: 1353,
+					// 				color: '#20232a',
+					// 				textColor: '#737373',
+					// 				format: 'png',
+					// 			},
+					// 			groups: [
+					// 				{
+					// 					id: 1,
+					// 					image: {
+					// 						variant: 'dummy',
+					// 						text: 'Bild #2',
+					// 						width: 784,
+					// 						height: 1353,
+					// 						color: '#20232a',
+					// 						textColor: '#737373',
+					// 						format: 'png',
+					// 					},
+					// 				},
+					// 				{
+					// 					id: 2,
+					// 					image: {
+					// 						variant: 'dummy',
+					// 						text: 'Bild #3',
+					// 						width: 784,
+					// 						height: 1353,
+					// 						color: '#20232a',
+					// 						textColor: '#737373',
+					// 						format: 'png',
+					// 					},
+					// 				},
+					// 				{
+					// 					id: 3,
+					// 					image: {
+					// 						variant: 'dummy',
+					// 						text: 'Bild #4',
+					// 						width: 784,
+					// 						height: 1353,
+					// 						color: '#20232a',
+					// 						textColor: '#737373',
+					// 						format: 'png',
+					// 					},
+					// 				},
+					// 			],
+					// 		},
+					// 	],
+					// },
 				],
 			},
 		],
@@ -469,7 +455,6 @@ const work = [
 		bg: '/images/case/lansforsakringar/bg_lf.png',
 		protected: true,
 		index: true,
-		soon: true,
 		url: 'https://www.lansforsakringar.se',
 		// cases: [
 		// 	{
@@ -504,6 +489,52 @@ const work = [
 		// ],
 		// 	},
 		// ],
+		cases: [
+			{
+				id: 0,
+				date: '2015',
+				case: 'revamping-their-brand-identity',
+				title: 'Revamping their brand identity',
+				lead: 'I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company.',
+				// bg: '/images/case/spotify/bg_favela.jpg',
+				// image: {
+				// 	src: '/images/case/spotify/bg_spotify.jpeg',
+				// },
+				tags: ['UX', 'UI'],
+				content: [
+					{
+						id: 1,
+						section: 'problem',
+						title: 'The problem',
+						lead: `I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company. The company was facing a challenging task of completely revamping their brand identity and establishing a cohesive, modern, and visually appealing digital presence across various platforms, including their public-facing website, banking environment, mobile app, and watch interface.`,
+					},
+					{
+						id: 2,
+						section: 'goal',
+						title: 'Goal',
+						lead: `The primary objective was to create and implement a fresh and unified digital visual identity for Länsförsäkringar AB, thereby enhancing user experience and interaction across all digital touchpoints. The new identity needed to embody the brand’s ethos and values while being adaptable and visually consistent across platforms.`,
+					},
+					{
+						id: 3,
+						section: 'insights',
+						title: 'Insights',
+						lead: `Over a period of five weeks, each week dedicated to a different platform, we delved into the existing brand aesthetics, user engagement patterns, and digital interfaces. The intention was to understand the elements that resonate with their audience and identify areas of inconsistency and potential improvement.`,
+					},
+					{
+						id: 4,
+						section: 'approach',
+						title: 'The Approach',
+						lead: `Building on the insights, we worked on crafting a new digital visual identity. Ensuring the visual language was consistent and adaptable across different platforms was crucial. Following the design phase, Länsförsäkringar AB hired me as an Art Director consultant. My primary responsibility was to oversee the accurate application of the new visual identity across all platforms and teams, closely collaborating with developers and stakeholders to ensure the maintenance of visual integrity.`,
+					},
+					{
+						id: 5,
+						section: 'outcome',
+						title: 'Outcome',
+						lead: `The new visual identity, finalized and ready for implementation, was scheduled to be launched in Q4 of 2016 across multiple platforms. The unified and revitalized digital brand identity was a significant milestone in enhancing Länsförsäkringar AB's digital user experience. My role as the Art Director consultant played a pivotal part in ensuring the successful and consistent roll-out of the new identity, paving the way for the brand's modernized digital presence.`,
+					},
+				],
+			},
+		],
 	},
 	{
 		id: 4,
@@ -516,54 +547,136 @@ const work = [
 		protected: true,
 		index: true,
 		cases: [
-			// {
-			// 	id: 0,
-			// 	case: 'klm',
-			// 	date: '2015',
-			// 	location: 'Amsterdam, Netherlands',
-			// 	tags: ['UX', 'UI', 'Prototyping', 'User testing'],
-			// 	title: 'New experience for travelers',
-			// 	lead: 'I was hired by AKQA Amsterdam, as a Senior designer consultant for the dutch airline KLM new web platform.',
-			// 	library: {
-			// 		folder: 'instinctly/klm',
-			// 	},
-			// content: [
-			// 	{
-			// 		id: 1,
-			// 		section: 'brief',
-			// 		title: 'Design sprint',
-			// 		lead: 'For two months I worked together with a User Experience designer from AKQA in the headquarters of KLM. Every two weeks we had sprints together with a team of developers. In the end of each sprints we had demo presentation for the stakeholders of KLM',
-			// 	},
-			// 	{
-			// 		id: 1,
-			// 		section: 'deliverables',
-			// 		title: 'deliverables',
-			// 		lead: 'All the flows was prototyped with Proto.io. I handed over prototypes to the developers, together with my sketch files and with Zeplin.',
-			// 	},
-			// ],
-			// },
-			// {
-			// 	id: 1,
-			// 	case: 'mrusta',
-			// 	date: '2015',
-			// 	location: '',
-			// 	title: 'mrUsta',
-			// 	lead: '',
-			// 	library: {
-			// 		folder: 'instinctly/mrusta',
-			// 	},
-			// },
-			// {
-			// 	id: 2,
-			// 	case: 'abro',
-			// 	date: '2014',
-			// 	location: 'Remote',
-			// 	title: 'Åbro website & CMS',
-			// 	lead: 'I was hired together with my team Producks by Folkets Stockholm, to design and develop a custom CMS and a new web for Åbro bryggeri. Producks was responsible for the user experience, interface design and development. The new web was released in beginning of 2015. Check it out on www.abro.se',
-			// 	library: {
-			// 		folder: 'instinctly/abro',
-			// 	},
-			// },
+			{
+				id: 0,
+				case: 'klm',
+				date: '2015',
+				location: 'Amsterdam, Netherlands',
+				tags: ['UX', 'UI', 'Prototyping', 'User testing'],
+				title: 'New experience for travelers',
+				lead: 'I was hired by AKQA Amsterdam, as a Senior designer consultant for the dutch airline KLM new web platform.',
+				library: {
+					folder: 'instinctly/klm',
+				},
+				content: [
+					{
+						id: 1,
+						section: 'problem',
+						title: 'The problem',
+						lead: `I was contracted as a Senior Designer Consultant by AKQA Amsterdam to work on the Dutch airline company, KLM's new web platform. The task was to reimagine and revitalize KLM's digital presence. The existing web platform needed a comprehensive overhaul to meet modern user expectations and enhance the overall user experience.`,
+					},
+					{
+						id: 2,
+						section: 'goal',
+						title: 'Goal',
+						lead: `The primary objective was to design a new, intuitive, and user-friendly web platform that would offer a superior customer experience while embodying KLM's brand identity. The ultimate goal was to improve user engagement and satisfaction, streamline online processes, and elevate KLM's digital touchpoints.`,
+					},
+					{
+						id: 3,
+						section: 'insights',
+						title: 'Insights',
+						lead: `To gain a holistic understanding of the project, I collaborated closely with a User Experience Designer from AKQA and the in-house team at KLM's headquarters. Through biweekly sprints, we were able to gauge the specific needs, challenges, and expectations, ensuring our design solutions were firmly rooted in user-centered design principles.`,
+					},
+					{
+						id: 4,
+						section: 'approach',
+						title: 'The Approach',
+						lead: `Over two months, we engaged in iterative design processes, involving regular sprints, each culminating with a demo presentation for KLM's stakeholders. This process fostered transparency, real-time feedback, and facilitated adjustments as needed. All workflow processes were prototyped using Proto.io, and I handed over the final design prototypes to developers along with the sketch files using Zeplin. This ensured a smooth and efficient transition from design to development.`,
+					},
+					{
+						id: 5,
+						section: 'outcome',
+						title: 'Outcome',
+						lead: `The newly designed web platform was scheduled to be launched in early 2016 at beta.klm.com. With this update, KLM aimed to provide an improved user experience that aligns with modern customer needs and expectations. My role in this project, bridging the gap between design and development, was instrumental in ensuring a consistent and high-quality user experience across the new platform.`,
+					},
+				],
+			},
+			{
+				id: 1,
+				case: 'mrusta',
+				date: '2015',
+				location: '',
+				title: 'mrUsta',
+				lead: '',
+				library: {
+					folder: 'instinctly/mrusta',
+				},
+				content: [
+					{
+						id: 1,
+						section: 'problem',
+						title: 'The problem',
+						lead: `I was recruited by mrUsta, a Dubai-based startup dedicated to connecting users with the right service providers for various tasks, ranging from automotive help to plumbing services. As a nascent platform, mrUsta needed to build a user-friendly and intuitive application that would embody its newly formulated brand guidelines and provide a seamless user experience.`,
+					},
+					{
+						id: 2,
+						section: 'goal',
+						title: 'Goal',
+						lead: `The goal of this project was to design an intuitive and user-centric interface that made finding and hiring the right service provider a smooth and hassle-free process. The app design needed to resonate with mrUsta's brand ethos and guidelines, ensuring consistency and creating a recognizable brand identity.`,
+					},
+					{
+						id: 3,
+						section: 'insights',
+						title: 'Insights',
+						lead: `I began by thoroughly understanding the mrUsta brand guidelines and the unique needs of the target user demographic. I identified key elements for the app's UX/UI design that would enhance the process of searching for, selecting, and hiring a service provider.`,
+					},
+					{
+						id: 4,
+						section: 'approach',
+						title: 'The Approach',
+						lead: `Building on these insights, I designed the user experience and interface of the app. I employed Pixate for prototyping, enabling the creation of interactive and high-fidelity prototypes to visualize and test the user flow. Once the design was refined and finalized, I handed over the prototypes to the developers along with the sketch files, using Zeplin to ensure a seamless handoff.`,
+					},
+					{
+						id: 5,
+						section: 'outcome',
+						title: 'Outcome',
+						lead: `The design and launch of the mrUsta app marked a significant milestone in the company's journey. The user-centric design approach significantly improved the ease of finding and hiring service providers through the platform. The app embodied the new brand guidelines, creating a consistent brand identity across the digital touchpoints. My work in UX/UI design and close collaboration with the developers played a crucial role in creating a user-friendly and brand-consistent app that meets the users' needs.`,
+					},
+				],
+			},
+			{
+				id: 2,
+				case: 'abro',
+				date: '2014',
+				location: 'Remote',
+				title: 'Åbro website & CMS',
+				lead: 'I was hired together with my team Producks by Folkets Stockholm, to design and develop a custom CMS and a new web for Åbro bryggeri. Producks was responsible for the user experience, interface design and development. The new web was released in beginning of 2015. Check it out on www.abro.se',
+				library: {
+					folder: 'instinctly/abro',
+				},
+				content: [
+					{
+						id: 1,
+						section: 'problem',
+						title: 'The problem',
+						lead: `Folkets Stockholm recruited me and my team at Producks for an important task - redesigning and developing a new website and a custom Content Management System (CMS) for Åbro Bryggeri, one of the most renowned breweries in Sweden. The existing digital infrastructure of Åbro Bryggeri needed an overhaul to offer an improved user experience and streamline their content management process.`,
+					},
+					{
+						id: 2,
+						section: 'goal',
+						title: 'Goal',
+						lead: `Our primary objective was twofold - to build a user-friendly, visually appealing, and intuitive website that aligns with Åbro Bryggeri's brand and to develop a custom CMS that would provide a streamlined platform for managing their digital content.`,
+					},
+					{
+						id: 3,
+						section: 'insights',
+						title: 'Insights',
+						lead: `We delved into Åbro Bryggeri's brand, their digital presence, and the unique requirements of their content management process. Understanding these elements helped us identify key features and functionalities that needed to be incorporated into the website and the CMS.`,
+					},
+					{
+						id: 4,
+						section: 'approach',
+						title: 'The Approach',
+						lead: `As a team, Producks was responsible for managing all aspects of the project, including user experience, interface design, and development. We used our insights to craft a comprehensive digital solution that addressed the needs of Åbro Bryggeri. By creating iterative designs and leveraging our development skills, we ensured a cohesive, user-centric, and brand-consistent outcome.`,
+					},
+					{
+						id: 5,
+						section: 'outcome',
+						title: 'Outcome',
+						lead: `The new website, along with the custom CMS, was successfully launched in early 2015 (www.abro.se). This marked a significant improvement in Åbro Bryggeri's digital presence, enhancing the user experience and making content management more efficient. Our holistic approach to design and development played a crucial role in achieving a successful outcome that met Åbro Bryggeri's specific needs and expectations.`,
+					},
+				],
+			},
 			// {
 			// 	id: 3,
 			// 	case: 'actic',
