@@ -443,6 +443,38 @@ const work = [
 				library: {
 					folder: 'recordunion',
 				},
+				content: [
+					{
+						id: 1,
+						section: 'problem',
+						title: 'The problem',
+						lead: `Record Union, in its quest to provide a platform for artists to distribute their music across popular digital stores, identified that their existing user interface was becoming dated. This realization posed a challenge, especially in a saturated market where user experience could significantly impact an artist's choice of platform.`,
+					},
+					{
+						id: 2,
+						section: 'goal',
+						title: 'Goal',
+						lead: `The primary aim was to rejuvenate the user interface and cultivate a cohesive design system that would resonate with both newcomers and seasoned artists. Beyond just a visual refresh, the intention was to infuse innovation and structure into the design to bolster user engagement and efficiency.`,
+					},
+					{
+						id: 3,
+						section: 'insights',
+						title: 'Insights',
+						lead: `The existing interface, while functional, lacked modern design cues and fluidity. The absence of a cohesive design system meant inconsistency across various parts of the platform. The challenge was to collaborate with the in-house art director, ensuring the revamped design echoed the brand's essence while bringing fresh perspectives.`,
+					},
+					{
+						id: 4,
+						section: 'approach',
+						title: 'The Approach',
+						lead: `Upon being contacted by Record Union, I worked hand-in-hand with their art director, focusing on brainstorming innovative ideas while structuring a fresh design. Our collaborative efforts led to the development of a cohesive design system. Using Sketch, I revamped the older UI and prototyped both web and mobile portals, constantly iterating based on feedback and ensuring that the design remained aligned with our envisioned structure.`,
+					},
+					{
+						id: 5,
+						section: 'outcome',
+						title: 'Outcome',
+						lead: `The collaborative effort resulted in a refreshed and streamlined user interface for Record Union. The cohesive design system brought uniformity across the platform, enhancing the user experience. Artists, both new and experienced, found the revamped platform more intuitive and engaging, further solidifying Record Union's position in the market.`,
+					},
+				],
 			},
 		],
 	},
@@ -677,17 +709,17 @@ const work = [
 					},
 				],
 			},
-			// {
-			// 	id: 3,
-			// 	case: 'actic',
-			// 	date: '2014',
-			// 	location: 'Remote',
-			// 	title: 'Actic',
-			// 	lead: '',
-			// 	library: {
-			// 		folder: 'instinctly/actic',
-			// 	},
-			// },
+			{
+				id: 3,
+				case: 'actic',
+				date: '2014',
+				location: 'Remote',
+				title: 'Actic',
+				lead: '',
+				library: {
+					folder: 'instinctly/actic',
+				},
+			},
 			// {
 			// 	id: 4,
 			// 	case: 'recurify',
@@ -700,16 +732,40 @@ const work = [
 			// 	},
 			// },
 			// {
-			// 	id: 5,
-			// 	case: 'resrobot',
-			// 	date: '2014',
-			// 	location: 'Remote',
-			// 	title: 'Resrobot',
-			// 	lead: '',
-			// 	library: {
-			// 		folder: 'instinctly/resrobot',
-			// 	},
+			// 	id: ,
+			// 	case: 'Instinctly as app',
 			// },
+			// {
+			// 	id: ,
+			// 	case: 'MDH',
+			// },
+			// {
+			// 	id: ,
+			// 	case: 'Resrobot',
+			// },
+			// {
+			// 	id: ,
+			// 	case: 'Prolounge',
+			// },
+			// {
+			// 	id: ,
+			// 	case: 'samsung',
+			// },
+			// {
+			// 	id: ,
+			// 	case: 'Prolounge',
+			// },
+			{
+				id: 5,
+				case: 'resrobot',
+				date: '2014',
+				location: 'Remote',
+				title: 'Resrobot',
+				lead: '',
+				library: {
+					folder: 'instinctly/resrobot',
+				},
+			},
 			// {
 			// 	id: 6,
 			// 	case: 'nexus',
@@ -721,42 +777,42 @@ const work = [
 			// 		folder: 'instinctly/nexus',
 			// 	},
 			// },
-			{
-				id: 7,
-				case: 'leosoderberg',
-				client: 'Mobb learning',
-				date: '2014',
-				location: 'Remote',
-				title: 'Leo Söderberg',
-				lead: '',
-				library: {
-					folder: 'instinctly/leosoderberg',
-				},
-				index: false,
-			},
-			{
-				id: 8,
-				case: 'producks',
-				date: '2014',
-				client: 'Producks',
-				location: 'Remote',
-				title: 'Producks',
-				soon: true,
-				lead: 'Donec quis lacinia lectus. Morbi vel est eget ligula blandit pellentesque nec eu erat.',
-				excerpt: 'Donec quis lacinia lectus.',
-				desc: 'Donec quis lacinia lectus. Morbi vel est eget ligula blandit pellentesque nec eu erat. Etiam sit amet sem et massa condimentum viverra. Quisque hendrerit ex at dictum aliquam. Quisque vehicula mi eros, in posuere neque condimentum a. In interdum porttitor sagittis. Fusce dictum mattis ex eget laoreet.',
-				library: {
-					folder: 'producks',
-				},
-				content: [
-					{
-						id: 1,
-						section: 'testar',
-						title: 'Olle',
-					},
-				],
-				tags: ['UX', 'UI'],
-			},
+			// {
+			// 	id: 7,
+			// 	case: 'leosoderberg',
+			// 	client: 'Mobb learning',
+			// 	date: '2014',
+			// 	location: 'Remote',
+			// 	title: 'Leo Söderberg',
+			// 	lead: '',
+			// 	library: {
+			// 		folder: 'instinctly/leosoderberg',
+			// 	},
+			// 	index: false,
+			// },
+			// {
+			// 	id: 8,
+			// 	case: 'producks',
+			// 	date: '2014',
+			// 	client: 'Producks',
+			// 	location: 'Remote',
+			// 	title: 'Producks',
+			// 	soon: true,
+			// 	lead: 'Donec quis lacinia lectus. Morbi vel est eget ligula blandit pellentesque nec eu erat.',
+			// 	excerpt: 'Donec quis lacinia lectus.',
+			// 	desc: 'Donec quis lacinia lectus. Morbi vel est eget ligula blandit pellentesque nec eu erat. Etiam sit amet sem et massa condimentum viverra. Quisque hendrerit ex at dictum aliquam. Quisque vehicula mi eros, in posuere neque condimentum a. In interdum porttitor sagittis. Fusce dictum mattis ex eget laoreet.',
+			// 	library: {
+			// 		folder: 'producks',
+			// 	},
+			// 	content: [
+			// 		{
+			// 			id: 1,
+			// 			section: 'testar',
+			// 			title: 'Olle',
+			// 		},
+			// 	],
+			// 	tags: ['UX', 'UI'],
+			// },
 			{
 				id: 9,
 				case: 'steem',
@@ -769,6 +825,38 @@ const work = [
 				library: {
 					folder: 'steem',
 				},
+				content: [
+					{
+						id: 1,
+						section: 'problem',
+						title: 'The problem',
+						lead: `By 2011, many Swedish organizations, especially big names like political parties, struggled to easily customize and order their marketing materials online.`,
+					},
+					{
+						id: 2,
+						section: 'goal',
+						title: 'Goal',
+						lead: `Our aim was to create a platform that would simplify the ordering and personalizing process for marketing materials.`,
+					},
+					{
+						id: 3,
+						section: 'insights',
+						title: 'Insights',
+						lead: `To ensure we hit the mark, we traveled across Sweden, getting companies to test our initial platform. Their feedback was invaluable, pointing out both the strengths and areas needing improvement.`,
+					},
+					{
+						id: 4,
+						section: 'approach',
+						title: 'The Approach',
+						lead: `With the feedback in hand, we developed an online storefront for customers to view and select print products. Simultaneously, we provided admins a backend tool, allowing them to upload design templates and mark specific parts as "editable" for the end-users.`,
+					},
+					{
+						id: 5,
+						section: 'outcome',
+						title: 'Outcome',
+						lead: `Our platform became quite popular. It was even adopted by big parties, like 'Centerpartiet', for their marketing needs. And as a recognition of our hard work, Steem was nominated as Sweden's best Web to Print tool at the Graphic Awards in November 2011.`,
+					},
+				],
 			},
 			// {
 			// 	id: 10,
@@ -814,6 +902,40 @@ const work = [
 				library: {
 					folder: 'backbase',
 				},
+				content: [
+					{
+						id: 1,
+						section: 'problem',
+						title: 'The problem',
+						lead: `Backbase, a global leader in digital banking solutions, faced the challenge of crafting sales and implementation-ready UI/UX for major banking clients worldwide. These clients had diverse requirements and tight timelines, necessitating swift design turnarounds. The existing platform required enhancement to cater to the emerging needs of a modern banking ecosystem, integrating a comprehensive user experience across devices.`,
+					},
+					{
+						id: 2,
+						section: 'goal',
+						title: 'Goal',
+						lead: `To rapidly design and implement robust, responsive UI/UX solutions for key banking clients, including ABN Amro, UniCredit, Standard Chartered, and UOB. Another objective was to breathe life into "Launchpad", an internal platform aimed at streamlining the online and mobile project delivery timeline, with the added complexity of ensuring a consistent user experience across multiple devices.`,
+					},
+					{
+						id: 3,
+						section: 'insights',
+						title: 'Insights',
+						lead: `Considering the evolving landscape of digital banking and the need for a flexible yet consistent user experience, there was a requirement to bridge the gap between core banking systems and a modern front-end. Furthermore, the banking personnel needed an intuitive CMS platform, enabling them to tailor the content and user interface effortlessly.`,
+					},
+					{
+						id: 4,
+						section: 'approach',
+						title: 'The Approach',
+						lead: `Working in high-paced environments, I quickly responded to design requests, often within 3-4 days, leveraging Photoshop to craft design solutions and establishing a design system. For certain projects, I developed working HTML and CSS prototypes to give stakeholders a tangible feel of the final product.
+
+            I played a pivotal role in the development of "Launchpad," ensuring it delivered a consistent UX across devices. This platform integrated the latest in design innovation, ensuring easy management by the e-business and digital teams. Furthermore, I contributed to the Backbase CMS, focusing on its drag-and-drop widget functionality, simplifying the process for banking and content teams. My involvement also extended to redesigning the Backbase website to better market their innovative solutions.`,
+					},
+					{
+						id: 5,
+						section: 'outcome',
+						title: 'Outcome',
+						lead: `My contributions led to the successful delivery of UI/UX designs for prominent banking clients on stringent timelines. "Launchpad" emerged as a groundbreaking tool, optimizing time-to-market for online and mobile projects and cementing Backbase's reputation as an innovator in the banking technology sector. The revamped CMS provided banking personnel with a more intuitive platform, while the redesigned website bolstered Backbase's market presence. My association with Backbase didn't end with my full-time role, as I continued to provide freelance services remotely for over five years, fostering a lasting relationship.`,
+					},
+				],
 			},
 		],
 	},
