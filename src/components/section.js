@@ -110,6 +110,125 @@ const Section = ({ section }) => {
 		);
 	}
 
+	if (section?.variant === 'description') {
+		return (
+			<div
+				className={classNames(
+					`py-16 section section-${section.section}`,
+					{
+						[`variant-${section.variant}`]: section.variant,
+						[`${section.className}`]: section.className,
+						'bg-center bg-cover': section?.bg,
+					}
+				)}
+				style={{
+					backgroundImage: section?.bg && `url(${section?.bg})`,
+				}}
+				id={section?.name}
+			>
+				<div
+					className={classNames(
+						`mx-auto`,
+						section?.container
+							? `container-${section?.container}`
+							: 'container'
+					)}
+				>
+					{section?.style === 'hero' && (
+						<div
+							className={classNames(
+								`style`,
+								`grid grid-flow-col gap-16 auto-cols-fr items-start justify-items-center`,
+								`style-${section.style}`
+							)}
+						>
+							<div className="col">
+								{section?.title && (
+									<Title
+										size="large"
+										value={section?.title}
+									/>
+								)}
+								{section?.lead && (
+									<Text size="medium" value={section?.lead} />
+								)}
+								{section?.text && (
+									<Text size="small" value={section?.text} />
+								)}
+							</div>
+
+							<div className="col">
+								{section?.lead && (
+									<Text value={section?.lead} />
+								)}
+								{section?.text && (
+									<Text value={section?.text} />
+								)}
+								{section?.desc && (
+									<Text value={section?.desc} />
+								)}
+							</div>
+						</div>
+					)}
+					{!section?.style && (
+						<div
+							className={classNames(
+								`style-default grid grid-cols-3 gap-4`
+							)}
+						>
+							{section?.title && (
+								<div className="description-title">
+									<Title value={section?.title} />
+								</div>
+							)}
+							{(section?.lead ||
+								section?.text ||
+								section?.desc) && (
+								<div className="description-text col-span-2">
+									{section?.lead && (
+										<Text
+											size="large"
+											value={section?.lead}
+										/>
+									)}
+									{section?.text && (
+										<Text
+											size="medium"
+											value={section?.text}
+										/>
+									)}
+									{section?.desc && (
+										<Text
+											size="medium"
+											value={section?.desc}
+										/>
+									)}
+								</div>
+							)}
+						</div>
+					)}
+
+					{section?.image && (
+						<Image
+							variant={section?.image?.variant}
+							color={section?.image?.color}
+							format={section?.image?.format}
+							width={section?.image?.width}
+							height={section?.image?.height}
+							text={section?.image?.text}
+							textColor={section?.image?.textColor}
+							src={section?.src}
+							item={section?.image}
+							images={section?.image?.images}
+						/>
+					)}
+
+					<Groups section={section} />
+				</div>
+			</div>
+		);
+	}
+
 	return (
 		<div
 			className={classNames(`py-16 section section-${section.section}`, {
