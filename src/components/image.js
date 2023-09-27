@@ -169,7 +169,7 @@ const Image = ({ item = {} }) => {
 		const isHorizontal = item?.style === 'horizontal';
 
 		return (
-			<div className="asd">
+			<div className="image-loop-container">
 				<div
 					ref={containerRef}
 					className={classNames(containerClasses, {
@@ -189,16 +189,16 @@ const Image = ({ item = {} }) => {
 					))}
 				</div>
 				{isHorizontal && (
-					<div>
+					<div className="relative">
 						<button
 							onClick={handleScrollLeft}
-							className="fixed bg-white top-1/2 left-4 transform -translate-y-1/2 p-2 text-primary font-semibold hover:underline focus:outline-none"
+							className="absolute bg-white top-1/2 left-4 transform -translate-y-1/2 p-2 text-primary font-semibold hover:underline focus:outline-none"
 						>
 							<ArrowLeftIcon className="h-5 w-5 text-black" />
 						</button>
 						<button
 							onClick={handleScrollRight}
-							className="fixed bg-white top-1/2 right-4 transform -translate-y-1/2 p-2 text-primary font-semibold hover:underline focus:outline-none"
+							className="absolute bg-white top-1/2 right-4 transform -translate-y-1/2 p-2 text-primary font-semibold hover:underline focus:outline-none"
 						>
 							<ArrowRightIcon className="h-5 w-5 text-black" />
 						</button>

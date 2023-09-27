@@ -1030,6 +1030,7 @@ const work = [
 					{
 						id: 6,
 						section: 'image-loop',
+						container: 'fluid',
 						image: {
 							variant: 'loop',
 							folder: 'backbase/screens/',
