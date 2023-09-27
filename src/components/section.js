@@ -65,6 +65,11 @@ import Image from './image';
 // };
 
 const Section = ({ section }) => {
+	if (!section) {
+		// Handle the case where section is undefined or null
+		return null; // or any other appropriate fallback
+	}
+
 	if (section?.variant === 'full') {
 		return (
 			<div
@@ -72,10 +77,12 @@ const Section = ({ section }) => {
 					`py-16 section variant-full h-screen w-screen overflow-hidden flex items-center justify-start`,
 					{
 						'bg-center bg-cover': section?.bg,
-					}
+					},
+					section?.class?.trim() // Add a null check here
 				)}
 				style={{
 					backgroundImage: section?.bg && `url(${section?.bg})`,
+					backgroundColor: section?.backgroundColor,
 				}}
 			>
 				<div

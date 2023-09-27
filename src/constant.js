@@ -543,13 +543,24 @@ const work = [
 				// 	src: '/images/case/spotify/bg_spotify.jpeg',
 				// },
 				tags: ['UX', 'UI'],
+				image: {
+					src: '/images/case/lansforsakringar/hero_dark.png',
+				},
 				content: [
+					{
+						id: 0,
+						bg: '/images/case/lansforsakringar/intro.png',
+						variant: 'full',
+						class: 'bg-contain bg-fixed bg-no-repeat bg-center',
+						backgroundColor: '#F3F3F3',
+					},
 					{
 						id: 1,
 						section: 'problem',
 						title: 'The problem',
 						lead: `I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company. The company was facing a challenging task of completely revamping their brand identity and establishing a cohesive, modern, and visually appealing digital presence across various platforms, including their public-facing website, banking environment, mobile app, and watch interface.`,
 						variant: 'description',
+						anchor: '#problem',
 					},
 					{
 						id: 2,
@@ -578,6 +589,48 @@ const work = [
 						title: 'Outcome',
 						lead: `The new visual identity, finalized and ready for implementation, was scheduled to be launched in Q4 of 2016 across multiple platforms. The unified and revitalized digital brand identity was a significant milestone in enhancing Länsförsäkringar AB's digital user experience. My role as the Art Director consultant played a pivotal part in ensuring the successful and consistent roll-out of the new identity, paving the way for the brand's modernized digital presence.`,
 						variant: 'description',
+					},
+					{
+						id: 6,
+						section: 'image-loop',
+						image: {
+							variant: 'loop',
+							folder: 'lansforsakringar/mobile/',
+							// Click to open a image in modal
+						},
+					},
+					{
+						id: 7,
+						section: 'image-gallery',
+						image: {
+							variant: 'gallery',
+							images: [
+								{
+									id: 0,
+									src: '/images/case/spotify/looptest/01.png',
+									title: 'Test image title #1',
+									text: 'Här har vi gjort lite tester för att se hur användarna tycker',
+								},
+								{
+									id: 1,
+									src: '/images/case/spotify/looptest/02.png',
+									title: 'Test image title #2',
+									text: 'Asdf lite test',
+								},
+								{
+									id: 2,
+									src: '/images/case/spotify/looptest/03.png',
+									title: 'Test image title #3',
+									text: 'Asdf lite test',
+								},
+								{
+									id: 3,
+									src: '/images/case/spotify/looptest/04.png',
+									title: 'Test image title #4',
+									text: 'Hej hej hemskt mycket hej',
+								},
+							],
+						},
 					},
 				],
 			},
@@ -973,6 +1026,16 @@ const work = [
 						title: 'Outcome',
 						lead: `My contributions led to the successful delivery of UI/UX designs for prominent banking clients on stringent timelines. "Launchpad" emerged as a groundbreaking tool, optimizing time-to-market for online and mobile projects and cementing Backbase's reputation as an innovator in the banking technology sector. The revamped CMS provided banking personnel with a more intuitive platform, while the redesigned website bolstered Backbase's market presence. My association with Backbase didn't end with my full-time role, as I continued to provide freelance services remotely for over five years, fostering a lasting relationship.`,
 						variant: 'description',
+					},
+					{
+						id: 6,
+						section: 'image-loop',
+						image: {
+							variant: 'loop',
+							folder: 'backbase/screens/',
+							// Click to open a image in modal
+							style: 'horizontal',
+						},
 					},
 				],
 			},
