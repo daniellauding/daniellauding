@@ -89,7 +89,16 @@ const Text = ({ size, value, className }) => {
 			</p>
 		);
 	}
-	return null;
+	return (
+		<p
+			className={classNames(
+				`text-base md:text-base dark:text-gray-300 text-black lg:font-light pt-0 mb-2`,
+				className
+			)}
+		>
+			{value}
+		</p>
+	);
 };
 
 const Title = ({ size = 'medium', value, className }) => {

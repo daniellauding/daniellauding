@@ -632,6 +632,226 @@ const work = [
 							],
 						},
 					},
+					{
+						id: 8,
+						section: 'testar 123',
+						title: 'The problem',
+						lead: `I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company. The company was facing a challenging task of completely revamping their brand identity and establishing a cohesive, modern, and visually appealing digital presence across various platforms, including their public-facing website, banking environment, mobile app, and watch interface.`,
+						groups: [
+							{
+								id: 0,
+								image: {
+									variant: 'dummy',
+									text: 'Bild #1',
+									width: 784,
+									height: 1353,
+									color: '#20232a',
+									textColor: '#737373',
+									format: 'png',
+								},
+							},
+							{
+								id: 1,
+								title: {
+									variant: 'medium',
+									value: 'Jag Ã¤r en rubrik i en grupp',
+								},
+								text: {
+									variant: 'large',
+									value: 'Jag Ã¤r texten i denna grupp',
+								},
+								image: {
+									variant: 'dummy',
+									text: 'Bild #2',
+									width: 784,
+									height: 1353,
+									color: '#20232a',
+									textColor: '#737373',
+									format: 'png',
+								},
+								groups: [
+									{
+										id: 1,
+										image: {
+											variant: 'dummy',
+											text: 'Bild #2',
+											width: 784,
+											height: 1353,
+											color: '#20232a',
+											textColor: '#737373',
+											format: 'png',
+										},
+									},
+									{
+										id: 2,
+										image: {
+											variant: 'dummy',
+											text: 'Bild #3',
+											width: 784,
+											height: 1353,
+											color: '#20232a',
+											textColor: '#737373',
+											format: 'png',
+										},
+									},
+									{
+										id: 3,
+										image: {
+											variant: 'dummy',
+											text: 'Bild #4',
+											width: 784,
+											height: 1353,
+											color: '#20232a',
+											textColor: '#737373',
+											format: 'png',
+										},
+									},
+								],
+							},
+						],
+					},
+					{
+						id: 9,
+						section: 'testar 123',
+						columns: 3,
+						gap: 4,
+						groups: [
+							{
+								id: 0,
+								columns: 2,
+								image: {
+									variant: 'dummy',
+									text: 'Bild #2',
+									width: 784,
+									height: 1353,
+									color: '#20232a',
+									textColor: '#737373',
+									format: 'png',
+								},
+							},
+							{
+								id: 1,
+								// text: {
+								// 	variant: 'large',
+								// 	value: `I was contracted as a Senior Designer Consultant by AKQA Amsterdam to work on the Dutch airline company, KLM's new web platform. The task was to reimagine and revitalize KLM's digital presence. The existing web platform needed a comprehensive overhaul to meet modern user expectations and enhance the overall user experience.`,
+								// },
+								// text: {
+								// 	variant: 'large',
+								// 	value: `I was contracted as a Senior Designer Consultant by AKQA Amsterdam to work on the Dutch airline company, KLM's new web platform. The task was to reimagine and revitalize KLM's digital presence. The existing web platform needed a comprehensive overhaul to meet modern user expectations and enhance the overall user experience.`,
+								// },
+								columns: 2,
+								title: {
+									variant: 'large',
+									value: 'The problem',
+								},
+								lead: `I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company. The company was facing a challenging task of completely revamping their brand identity and establishing a cohesive, modern, and visually appealing digital presence across various platforms, including their public-facing website, banking environment, mobile app, and watch interface.`,
+							},
+						],
+					},
+					{
+						id: 10,
+						section: 'testar 123',
+						columns: 3,
+						gap: 4,
+						groups: [
+							{
+								id: 0,
+								// text: {
+								// 	variant: 'large',
+								// 	value: `I was contracted as a Senior Designer Consultant by AKQA Amsterdam to work on the Dutch airline company, KLM's new web platform. The task was to reimagine and revitalize KLM's digital presence. The existing web platform needed a comprehensive overhaul to meet modern user expectations and enhance the overall user experience.`,
+								// },
+								// text: {
+								// 	variant: 'large',
+								// 	value: `I was contracted as a Senior Designer Consultant by AKQA Amsterdam to work on the Dutch airline company, KLM's new web platform. The task was to reimagine and revitalize KLM's digital presence. The existing web platform needed a comprehensive overhaul to meet modern user expectations and enhance the overall user experience.`,
+								// },
+								columns: 2,
+								title: {
+									variant: 'large',
+									value: 'The problem',
+								},
+								lead: `I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company. The company was facing a challenging task of completely revamping their brand identity and establishing a cohesive, modern, and visually appealing digital presence across various platforms, including their public-facing website, banking environment, mobile app, and watch interface.`,
+							},
+							{
+								id: 1,
+								columns: 2,
+								image: {
+									variant: 'dummy',
+									text: 'Bild #2',
+									width: 784,
+									height: 1353,
+									color: '#20232a',
+									textColor: '#737373',
+									format: 'png',
+								},
+							},
+						],
+					},
+					{
+						id: 10,
+						section: 'testar 123',
+						columns: 3,
+						container: 'fluid',
+						gap: 4,
+						groups: [
+							{
+								id: 0,
+								// text: {
+								// 	variant: 'large',
+								// 	value: `I was contracted as a Senior Designer Consultant by AKQA Amsterdam to work on the Dutch airline company, KLM's new web platform. The task was to reimagine and revitalize KLM's digital presence. The existing web platform needed a comprehensive overhaul to meet modern user expectations and enhance the overall user experience.`,
+								// },
+								// text: {
+								// 	variant: 'large',
+								// 	value: `I was contracted as a Senior Designer Consultant by AKQA Amsterdam to work on the Dutch airline company, KLM's new web platform. The task was to reimagine and revitalize KLM's digital presence. The existing web platform needed a comprehensive overhaul to meet modern user expectations and enhance the overall user experience.`,
+								// },
+								columns: 2,
+								title: {
+									variant: 'large',
+									value: 'The problem',
+								},
+								style: 'px-8',
+								lead: `I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company. The company was facing a challenging task of completely revamping their brand identity and establishing a cohesive, modern, and visually appealing digital presence across various platforms, including their public-facing website, banking environment, mobile app, and watch interface.`,
+							},
+							{
+								id: 1,
+								columns: 2,
+								image: {
+									src: '/images/case/spotify/bg_spotify.jpeg',
+									width: 784,
+									height: 1353,
+									imgClass: 'object-fill',
+								},
+							},
+						],
+					},
+					{
+						id: 12,
+						section: 'testar 123',
+						columns: 3,
+						gap: 4,
+						groups: [
+							{
+								id: 0,
+								columns: 1,
+								title: {
+									variant: 'large',
+									value: 'The problem',
+								},
+							},
+							{
+								id: 1,
+								// text: {
+								// 	variant: 'large',
+								// 	value: `I was contracted as a Senior Designer Consultant by AKQA Amsterdam to work on the Dutch airline company, KLM's new web platform. The task was to reimagine and revitalize KLM's digital presence. The existing web platform needed a comprehensive overhaul to meet modern user expectations and enhance the overall user experience.`,
+								// },
+								// text: {
+								// 	variant: 'large',
+								// 	value: `I was contracted as a Senior Designer Consultant by AKQA Amsterdam to work on the Dutch airline company, KLM's new web platform. The task was to reimagine and revitalize KLM's digital presence. The existing web platform needed a comprehensive overhaul to meet modern user expectations and enhance the overall user experience.`,
+								// },
+								columns: 2,
+								lead: `I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company. The company was facing a challenging task of completely revamping their brand identity and establishing a cohesive, modern, and visually appealing digital presence across various platforms, including their public-facing website, banking environment, mobile app, and watch interface.`,
+							},
+						],
+					},
 				],
 			},
 		],

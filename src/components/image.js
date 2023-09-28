@@ -43,6 +43,7 @@ const Image = ({ item = {} }) => {
 		src,
 		map,
 		images,
+		imgClass,
 		// imgWidth,
 		// responsive,
 		// parentWidth,
@@ -509,13 +510,22 @@ const Image = ({ item = {} }) => {
 				height={height}
 				text={text}
 				textColor={textColor}
+				className={imgClass}
 			/>
 		);
 	}
 
 	// images (slider?)
 
-	return <img className="mt-4 mb-4" src={src} alt="" />;
+	return (
+		<img
+			className={classNames(`mt-4 mb-4`, {
+				[imgClass?.trim()]: imgClass, // Add the class conditionally
+			})}
+			src={src}
+			alt=""
+		/>
+	);
 };
 
 export default Image;

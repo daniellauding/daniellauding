@@ -7,7 +7,8 @@ import Text, { Title } from './typography';
 import Image from './image';
 
 const Group = ({ group }) => {
-	const { title, text, image, ...rest } = group;
+	const { title, text, lead, image, ...rest } = group;
+	console.log('group', group);
 	return (
 		<div
 			className={classNames(`group`, {
@@ -30,10 +31,11 @@ const Group = ({ group }) => {
 			{text && (
 				<Text
 					value={text?.value}
-					variant={text?.variant}
+					size={text?.size}
 					style={text?.style}
 				/>
 			)}
+			{lead && <Text size="large" value={lead} />}
 			{image && (
 				<Image
 					variant={image?.variant}
@@ -55,6 +57,7 @@ const Group = ({ group }) => {
 
 const Groups = ({ section }) => {
 	const { groups = [] } = section;
+	console.log('groups', groups);
 	if (groups.length === 0) {
 		return null;
 	}
