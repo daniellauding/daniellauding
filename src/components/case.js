@@ -173,7 +173,9 @@ const Case = ({
 								<Section key={section?.id} section={section} />
 							</AnimationOnScroll>
 						) : (
-							<Section key={section?.id} section={section} />
+							<>
+								<Section key={section?.id} section={section} />
+							</>
 						)}
 					</>
 				))}

@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import Groups from './groups';
 import Text, { Title } from './typography';
 import Image from './image';
+import TabbedContent from './tab';
 
 // const Section = ({
 //   style,
@@ -80,6 +81,7 @@ const Section = ({ section }) => {
 					},
 					section?.class?.trim() // Add a null check here
 				)}
+				id={section?.anchor}
 				style={{
 					backgroundImage: section?.bg && `url(${section?.bg})`,
 					backgroundColor: section?.backgroundColor,
@@ -246,7 +248,8 @@ const Section = ({ section }) => {
 			style={{
 				backgroundImage: section?.bg && `url(${section?.bg})`,
 			}}
-			id={section?.name}
+			// id={section?.name}
+			id={section?.anchor}
 		>
 			<div
 				className={classNames(
@@ -256,6 +259,12 @@ const Section = ({ section }) => {
 						: 'container'
 				)}
 			>
+				{section?.tabs ? (
+					<TabbedContent tabs={section.tabs} />
+				) : (
+					// Render a fallback component or message when tabs are undefined
+					<p>No tabs available</p>
+				)}
 				{section?.style === 'hero' && (
 					<div
 						className={classNames(

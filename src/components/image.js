@@ -114,7 +114,7 @@ const Image = ({ item = {} }) => {
 			containerClasses = 'flex overflow-x-scroll space-x-4 h-64';
 			imageClasses = 'object-cover w-full h-full';
 			innerDivClasses =
-				'relative flex-shrink-0 w-1/4 md:w-1/3 lg:w-1/4 xl:w-1/5 ml-[-20px]';
+				'relative flex-shrink-0 w-1/4 md:w-1/3 lg:w-1/4 xl:w-1/5 ml-[-20px] hover:scale-110 transition-transform';
 		} else if (item?.style === 'vertical') {
 			containerClasses = '';
 			imageClasses =

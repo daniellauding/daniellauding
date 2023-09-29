@@ -555,40 +555,136 @@ const work = [
 						backgroundColor: '#F3F3F3',
 					},
 					{
-						id: 1,
+						id: 2,
 						section: 'problem',
-						title: 'The problem',
-						lead: `I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company. The company was facing a challenging task of completely revamping their brand identity and establishing a cohesive, modern, and visually appealing digital presence across various platforms, including their public-facing website, banking environment, mobile app, and watch interface.`,
-						variant: 'description',
 						anchor: '#problem',
+						columns: 3,
+						gap: 4,
+						tabs: [
+							{
+								section: 'Overview',
+								title: 'Introduction',
+								lead: 'This is the overview section.',
+							},
+							{
+								section: 'Details',
+								title: 'Details',
+								lead: 'This is the details section.',
+							},
+							// Add more tabs as needed
+						],
+						groups: [
+							{
+								id: 0,
+								columns: 1,
+								title: {
+									value: 'The problem',
+								},
+							},
+							{
+								id: 1,
+								columns: 2,
+								text: {
+									value: `I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company. The company was facing a challenging task of completely revamping their brand identity and establishing a cohesive, modern, and visually appealing digital presence across various platforms, including their public-facing website, banking environment, mobile app, and watch interface.`,
+									size: 'large',
+								},
+							},
+						],
 					},
 					{
 						id: 2,
 						section: 'goal',
-						title: 'Goal',
-						lead: `The primary objective was to create and implement a fresh and unified digital visual identity for Länsförsäkringar AB, thereby enhancing user experience and interaction across all digital touchpoints. The new identity needed to embody the brand’s ethos and values while being adaptable and visually consistent across platforms.`,
-						variant: 'description',
+						anchor: '#goal',
+						columns: 3,
+						gap: 4,
+						groups: [
+							{
+								id: 0,
+								columns: 1,
+								title: {
+									value: 'Goal',
+								},
+							},
+							{
+								id: 1,
+								columns: 2,
+								text: {
+									value: `The primary objective was to create and implement a fresh and unified digital visual identity for Länsförsäkringar AB, thereby enhancing user experience and interaction across all digital touchpoints. The new identity needed to embody the brand’s ethos and values while being adaptable and visually consistent across platforms.`,
+									size: 'large',
+								},
+							},
+						],
 					},
 					{
 						id: 3,
 						section: 'insights',
-						title: 'Insights',
-						lead: `Over a period of five weeks, each week dedicated to a different platform, we delved into the existing brand aesthetics, user engagement patterns, and digital interfaces. The intention was to understand the elements that resonate with their audience and identify areas of inconsistency and potential improvement.`,
-						variant: 'description',
+						anchor: '#insights',
+						columns: 3,
+						gap: 4,
+						groups: [
+							{
+								id: 0,
+								columns: 1,
+								title: {
+									value: 'Insights',
+								},
+							},
+							{
+								id: 1,
+								columns: 2,
+								text: {
+									value: `Over a period of five weeks, each week dedicated to a different platform, we delved into the existing brand aesthetics, user engagement patterns, and digital interfaces. The intention was to understand the elements that resonate with their audience and identify areas of inconsistency and potential improvement.`,
+									size: 'large',
+								},
+							},
+						],
 					},
 					{
 						id: 4,
 						section: 'approach',
-						title: 'The Approach',
-						lead: `Building on the insights, we worked on crafting a new digital visual identity. Ensuring the visual language was consistent and adaptable across different platforms was crucial. Following the design phase, Länsförsäkringar AB hired me as an Art Director consultant. My primary responsibility was to oversee the accurate application of the new visual identity across all platforms and teams, closely collaborating with developers and stakeholders to ensure the maintenance of visual integrity.`,
-						variant: 'description',
+						anchor: '#approach',
+						columns: 3,
+						gap: 4,
+						groups: [
+							{
+								id: 0,
+								columns: 1,
+								title: {
+									value: 'The Approach',
+								},
+							},
+							{
+								id: 1,
+								columns: 2,
+								text: {
+									value: `Building on the insights, we worked on crafting a new digital visual identity. Ensuring the visual language was consistent and adaptable across different platforms was crucial. Following the design phase, Länsförsäkringar AB hired me as an Art Director consultant. My primary responsibility was to oversee the accurate application of the new visual identity across all platforms and teams, closely collaborating with developers and stakeholders to ensure the maintenance of visual integrity.`,
+									size: 'large',
+								},
+							},
+						],
 					},
 					{
 						id: 5,
 						section: 'outcome',
-						title: 'Outcome',
-						lead: `The new visual identity, finalized and ready for implementation, was scheduled to be launched in Q4 of 2016 across multiple platforms. The unified and revitalized digital brand identity was a significant milestone in enhancing Länsförsäkringar AB's digital user experience. My role as the Art Director consultant played a pivotal part in ensuring the successful and consistent roll-out of the new identity, paving the way for the brand's modernized digital presence.`,
-						variant: 'description',
+						columns: 3,
+						gap: 4,
+						groups: [
+							{
+								id: 0,
+								columns: 1,
+								title: {
+									value: 'Outcome',
+								},
+							},
+							{
+								id: 1,
+								columns: 2,
+								text: {
+									value: `The new visual identity, finalized and ready for implementation, was scheduled to be launched in Q4 of 2016 across multiple platforms. The unified and revitalized digital brand identity was a significant milestone in enhancing Länsförsäkringar AB's digital user experience. My role as the Art Director consultant played a pivotal part in ensuring the successful and consistent roll-out of the new identity, paving the way for the brand's modernized digital presence.`,
+									size: 'large',
+								},
+							},
+						],
 					},
 					{
 						id: 6,
@@ -599,259 +695,374 @@ const work = [
 							// Click to open a image in modal
 						},
 					},
-					{
-						id: 7,
-						section: 'image-gallery',
-						image: {
-							variant: 'gallery',
-							images: [
-								{
-									id: 0,
-									src: '/images/case/spotify/looptest/01.png',
-									title: 'Test image title #1',
-									text: 'Här har vi gjort lite tester för att se hur användarna tycker',
-								},
-								{
-									id: 1,
-									src: '/images/case/spotify/looptest/02.png',
-									title: 'Test image title #2',
-									text: 'Asdf lite test',
-								},
-								{
-									id: 2,
-									src: '/images/case/spotify/looptest/03.png',
-									title: 'Test image title #3',
-									text: 'Asdf lite test',
-								},
-								{
-									id: 3,
-									src: '/images/case/spotify/looptest/04.png',
-									title: 'Test image title #4',
-									text: 'Hej hej hemskt mycket hej',
-								},
-							],
-						},
-					},
-					{
-						id: 8,
-						section: 'testar 123',
-						title: 'The problem',
-						lead: `I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company. The company was facing a challenging task of completely revamping their brand identity and establishing a cohesive, modern, and visually appealing digital presence across various platforms, including their public-facing website, banking environment, mobile app, and watch interface.`,
-						groups: [
-							{
-								id: 0,
-								image: {
-									variant: 'dummy',
-									text: 'Bild #1',
-									width: 784,
-									height: 1353,
-									color: '#20232a',
-									textColor: '#737373',
-									format: 'png',
-								},
-							},
-							{
-								id: 1,
-								title: {
-									variant: 'medium',
-									value: 'Jag Ã¤r en rubrik i en grupp',
-								},
-								text: {
-									variant: 'large',
-									value: 'Jag Ã¤r texten i denna grupp',
-								},
-								image: {
-									variant: 'dummy',
-									text: 'Bild #2',
-									width: 784,
-									height: 1353,
-									color: '#20232a',
-									textColor: '#737373',
-									format: 'png',
-								},
-								groups: [
-									{
-										id: 1,
-										image: {
-											variant: 'dummy',
-											text: 'Bild #2',
-											width: 784,
-											height: 1353,
-											color: '#20232a',
-											textColor: '#737373',
-											format: 'png',
-										},
-									},
-									{
-										id: 2,
-										image: {
-											variant: 'dummy',
-											text: 'Bild #3',
-											width: 784,
-											height: 1353,
-											color: '#20232a',
-											textColor: '#737373',
-											format: 'png',
-										},
-									},
-									{
-										id: 3,
-										image: {
-											variant: 'dummy',
-											text: 'Bild #4',
-											width: 784,
-											height: 1353,
-											color: '#20232a',
-											textColor: '#737373',
-											format: 'png',
-										},
-									},
-								],
-							},
-						],
-					},
-					{
-						id: 9,
-						section: 'testar 123',
-						columns: 3,
-						gap: 4,
-						groups: [
-							{
-								id: 0,
-								columns: 2,
-								image: {
-									variant: 'dummy',
-									text: 'Bild #2',
-									width: 784,
-									height: 1353,
-									color: '#20232a',
-									textColor: '#737373',
-									format: 'png',
-								},
-							},
-							{
-								id: 1,
-								// text: {
-								// 	variant: 'large',
-								// 	value: `I was contracted as a Senior Designer Consultant by AKQA Amsterdam to work on the Dutch airline company, KLM's new web platform. The task was to reimagine and revitalize KLM's digital presence. The existing web platform needed a comprehensive overhaul to meet modern user expectations and enhance the overall user experience.`,
-								// },
-								// text: {
-								// 	variant: 'large',
-								// 	value: `I was contracted as a Senior Designer Consultant by AKQA Amsterdam to work on the Dutch airline company, KLM's new web platform. The task was to reimagine and revitalize KLM's digital presence. The existing web platform needed a comprehensive overhaul to meet modern user expectations and enhance the overall user experience.`,
-								// },
-								columns: 2,
-								title: {
-									variant: 'large',
-									value: 'The problem',
-								},
-								lead: `I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company. The company was facing a challenging task of completely revamping their brand identity and establishing a cohesive, modern, and visually appealing digital presence across various platforms, including their public-facing website, banking environment, mobile app, and watch interface.`,
-							},
-						],
-					},
-					{
-						id: 10,
-						section: 'testar 123',
-						columns: 3,
-						gap: 4,
-						groups: [
-							{
-								id: 0,
-								// text: {
-								// 	variant: 'large',
-								// 	value: `I was contracted as a Senior Designer Consultant by AKQA Amsterdam to work on the Dutch airline company, KLM's new web platform. The task was to reimagine and revitalize KLM's digital presence. The existing web platform needed a comprehensive overhaul to meet modern user expectations and enhance the overall user experience.`,
-								// },
-								// text: {
-								// 	variant: 'large',
-								// 	value: `I was contracted as a Senior Designer Consultant by AKQA Amsterdam to work on the Dutch airline company, KLM's new web platform. The task was to reimagine and revitalize KLM's digital presence. The existing web platform needed a comprehensive overhaul to meet modern user expectations and enhance the overall user experience.`,
-								// },
-								columns: 2,
-								title: {
-									variant: 'large',
-									value: 'The problem',
-								},
-								lead: `I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company. The company was facing a challenging task of completely revamping their brand identity and establishing a cohesive, modern, and visually appealing digital presence across various platforms, including their public-facing website, banking environment, mobile app, and watch interface.`,
-							},
-							{
-								id: 1,
-								columns: 2,
-								image: {
-									variant: 'dummy',
-									text: 'Bild #2',
-									width: 784,
-									height: 1353,
-									color: '#20232a',
-									textColor: '#737373',
-									format: 'png',
-								},
-							},
-						],
-					},
-					{
-						id: 10,
-						section: 'testar 123',
-						columns: 3,
-						container: 'fluid',
-						gap: 4,
-						groups: [
-							{
-								id: 0,
-								// text: {
-								// 	variant: 'large',
-								// 	value: `I was contracted as a Senior Designer Consultant by AKQA Amsterdam to work on the Dutch airline company, KLM's new web platform. The task was to reimagine and revitalize KLM's digital presence. The existing web platform needed a comprehensive overhaul to meet modern user expectations and enhance the overall user experience.`,
-								// },
-								// text: {
-								// 	variant: 'large',
-								// 	value: `I was contracted as a Senior Designer Consultant by AKQA Amsterdam to work on the Dutch airline company, KLM's new web platform. The task was to reimagine and revitalize KLM's digital presence. The existing web platform needed a comprehensive overhaul to meet modern user expectations and enhance the overall user experience.`,
-								// },
-								columns: 2,
-								title: {
-									variant: 'large',
-									value: 'The problem',
-								},
-								style: 'px-8',
-								lead: `I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company. The company was facing a challenging task of completely revamping their brand identity and establishing a cohesive, modern, and visually appealing digital presence across various platforms, including their public-facing website, banking environment, mobile app, and watch interface.`,
-							},
-							{
-								id: 1,
-								columns: 2,
-								image: {
-									src: '/images/case/spotify/bg_spotify.jpeg',
-									width: 784,
-									height: 1353,
-									imgClass: 'object-fill',
-								},
-							},
-						],
-					},
-					{
-						id: 12,
-						section: 'testar 123',
-						columns: 3,
-						gap: 4,
-						groups: [
-							{
-								id: 0,
-								columns: 1,
-								title: {
-									variant: 'large',
-									value: 'The problem',
-								},
-							},
-							{
-								id: 1,
-								// text: {
-								// 	variant: 'large',
-								// 	value: `I was contracted as a Senior Designer Consultant by AKQA Amsterdam to work on the Dutch airline company, KLM's new web platform. The task was to reimagine and revitalize KLM's digital presence. The existing web platform needed a comprehensive overhaul to meet modern user expectations and enhance the overall user experience.`,
-								// },
-								// text: {
-								// 	variant: 'large',
-								// 	value: `I was contracted as a Senior Designer Consultant by AKQA Amsterdam to work on the Dutch airline company, KLM's new web platform. The task was to reimagine and revitalize KLM's digital presence. The existing web platform needed a comprehensive overhaul to meet modern user expectations and enhance the overall user experience.`,
-								// },
-								columns: 2,
-								lead: `I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company. The company was facing a challenging task of completely revamping their brand identity and establishing a cohesive, modern, and visually appealing digital presence across various platforms, including their public-facing website, banking environment, mobile app, and watch interface.`,
-							},
-						],
-					},
+					// {
+					// 	id: 9,
+					// 	section: 'testar 123',
+					// 	columns: 3,
+					// 	gap: 4,
+					// 	groups: [
+					// 		{
+					// 			id: 0,
+					// 			columns: 2,
+					// 			image: {
+					// 				variant: 'dummy',
+					// 				text: 'Bild #2',
+					// 				width: 784,
+					// 				height: 1353,
+					// 				color: '#20232a',
+					// 				textColor: '#737373',
+					// 				format: 'png',
+					// 			},
+					// 		},
+					// 		{
+					// 			id: 1,
+					// 			columns: 2,
+					// 			title: {
+					// 				variant: 'large',
+					// 				value: 'The problem',
+					// 			},
+					// 			lead: `I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company. The company was facing a challenging task of completely revamping their brand identity and establishing a cohesive, modern, and visually appealing digital presence across various platforms, including their public-facing website, banking environment, mobile app, and watch interface.`,
+					// 		},
+					// 	],
+					// },
+					// {
+					// 	id: 10,
+					// 	section: 'testar 123',
+					// 	columns: 3,
+					// 	gap: 4,
+					// 	groups: [
+					// 		{
+					// 			id: 0,
+					// 			columns: 2,
+					// 			title: {
+					// 				variant: 'large',
+					// 				value: 'The problem',
+					// 			},
+					// 			lead: `I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company. The company was facing a challenging task of completely revamping their brand identity and establishing a cohesive, modern, and visually appealing digital presence across various platforms, including their public-facing website, banking environment, mobile app, and watch interface.`,
+					// 		},
+					// 		{
+					// 			id: 1,
+					// 			columns: 2,
+					// 			image: {
+					// 				variant: 'dummy',
+					// 				text: 'Bild #2',
+					// 				width: 784,
+					// 				height: 1353,
+					// 				color: '#20232a',
+					// 				textColor: '#737373',
+					// 				format: 'png',
+					// 			},
+					// 		},
+					// 	],
+					// },
+					// {
+					// 	id: 10,
+					// 	section: 'testar 123',
+					// 	columns: 3,
+					// 	container: 'fluid',
+					// 	gap: 4,
+					// 	groups: [
+					// 		{
+					// 			id: 0,
+					// 			columns: 2,
+					// 			title: {
+					// 				variant: 'large',
+					// 				value: 'The problem',
+					// 			},
+					// 			style: 'px-8',
+					// 			lead: `I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company. The company was facing a challenging task of completely revamping their brand identity and establishing a cohesive, modern, and visually appealing digital presence across various platforms, including their public-facing website, banking environment, mobile app, and watch interface.`,
+					// 		},
+					// 		{
+					// 			id: 1,
+					// 			columns: 2,
+					// 			image: {
+					// 				src: '/images/case/spotify/bg_spotify.jpeg',
+					// 				width: 784,
+					// 				height: 1353,
+					// 				imgClass: 'object-fill',
+					// 			},
+					// 		},
+					// 	],
+					// },
+					// {
+					// 	id: 12,
+					// 	section: 'testar 123',
+					// 	columns: 3,
+					// 	gap: 4,
+					// 	groups: [
+					// 		{
+					// 			id: 0,
+					// 			columns: 1,
+					// 			image: {
+					// 				variant: 'dummy',
+					// 				text: 'Bild #2',
+					// 				width: 784,
+					// 				height: 1353,
+					// 				color: '#20232a',
+					// 				textColor: '#737373',
+					// 				format: 'png',
+					// 			},
+					// 		},
+					// 		{
+					// 			id: 1,
+					// 			columns: 1,
+					// 			image: {
+					// 				variant: 'dummy',
+					// 				text: 'Bild #2',
+					// 				width: 784,
+					// 				height: 1353,
+					// 				color: '#20232a',
+					// 				textColor: '#737373',
+					// 				format: 'png',
+					// 			},
+					// 		},
+					// 		{
+					// 			id: 2,
+					// 			columns: 1,
+					// 			image: {
+					// 				variant: 'dummy',
+					// 				text: 'Bild #2',
+					// 				width: 784,
+					// 				height: 1353,
+					// 				color: '#20232a',
+					// 				textColor: '#737373',
+					// 				format: 'png',
+					// 			},
+					// 		},
+					// 	],
+					// },
+					// {
+					// 	id: 13,
+					// 	section: 'testar 123',
+					// 	columns: 4,
+					// 	gap: 4,
+					// 	groups: [
+					// 		{
+					// 			id: 0,
+					// 			columns: 1,
+					// 			image: {
+					// 				variant: 'dummy',
+					// 				text: 'Bild #2',
+					// 				width: 784,
+					// 				height: 1353,
+					// 				color: '#20232a',
+					// 				textColor: '#737373',
+					// 				format: 'png',
+					// 			},
+					// 		},
+					// 		{
+					// 			id: 1,
+					// 			columns: 1,
+					// 			image: {
+					// 				variant: 'dummy',
+					// 				text: 'Bild #2',
+					// 				width: 784,
+					// 				height: 1353,
+					// 				color: '#20232a',
+					// 				textColor: '#737373',
+					// 				format: 'png',
+					// 			},
+					// 		},
+					// 		{
+					// 			id: 2,
+					// 			columns: 1,
+					// 			image: {
+					// 				variant: 'dummy',
+					// 				text: 'Bild #2',
+					// 				width: 784,
+					// 				height: 1353,
+					// 				color: '#20232a',
+					// 				textColor: '#737373',
+					// 				format: 'png',
+					// 			},
+					// 		},
+					// 		{
+					// 			id: 3,
+					// 			columns: 1,
+					// 			image: {
+					// 				variant: 'dummy',
+					// 				text: 'Bild #2',
+					// 				width: 784,
+					// 				height: 1353,
+					// 				color: '#20232a',
+					// 				textColor: '#737373',
+					// 				format: 'png',
+					// 			},
+					// 		},
+					// 	],
+					// },
+					// {
+					// 	id: 14,
+					// 	section: 'testar 123',
+					// 	columns: 2,
+					// 	gap: 4,
+					// 	groups: [
+					// 		{
+					// 			id: 0,
+					// 			columns: 1,
+					// 			image: {
+					// 				variant: 'dummy',
+					// 				text: 'Bild #2',
+					// 				width: 784,
+					// 				height: 1353,
+					// 				color: '#20232a',
+					// 				textColor: '#737373',
+					// 				format: 'png',
+					// 			},
+					// 		},
+					// 		{
+					// 			id: 1,
+					// 			columns: 1,
+					// 			image: {
+					// 				variant: 'dummy',
+					// 				text: 'Bild #2',
+					// 				width: 784,
+					// 				height: 1353,
+					// 				color: '#20232a',
+					// 				textColor: '#737373',
+					// 				format: 'png',
+					// 			},
+					// 		},
+					// 	],
+					// },
+					// {
+					// 	id: 15,
+					// 	section: 'testar 123',
+					// 	columns: 3,
+					// 	gap: 4,
+					// 	groups: [
+					// 		{
+					// 			id: 0,
+					// 			columns: 1,
+					// 			title: {
+					// 				variant: 'small',
+					// 				value: 'The problem',
+					// 			},
+					// 			lead: 'The problem',
+					// 		},
+					// 		{
+					// 			id: 1,
+					// 			columns: 2,
+					// 			image: {
+					// 				variant: 'dummy',
+					// 				text: 'Bild #2',
+					// 				width: 784,
+					// 				height: 1353,
+					// 				color: '#20232a',
+					// 				textColor: '#737373',
+					// 				format: 'png',
+					// 				imgClass: 'object-fill w-full',
+					// 			},
+					// 		},
+					// 	],
+					// },
+					// {
+					// 	id: 16,
+					// 	section: 'testar 123',
+					// 	columns: 3,
+					// 	gap: 4,
+					// 	groups: [
+					// 		{
+					// 			id: 1,
+					// 			columns: 2,
+					// 			image: {
+					// 				variant: 'dummy',
+					// 				text: 'Bild #2',
+					// 				width: 784,
+					// 				height: 1353,
+					// 				color: '#20232a',
+					// 				textColor: '#737373',
+					// 				format: 'png',
+					// 				imgClass: 'object-fill w-full',
+					// 			},
+					// 		},
+					// 		{
+					// 			id: 0,
+					// 			columns: 1,
+					// 			title: {
+					// 				variant: 'small',
+					// 				value: 'The problem',
+					// 			},
+					// 			lead: 'The problem',
+					// 		},
+					// 	],
+					// },
+					// {
+					// 	id: 17,
+					// 	section: 'testar 123',
+					// 	columns: 3,
+					// 	gap: 4,
+					// 	groups: [
+					// 		{
+					// 			id: 0,
+					// 			columns: 1,
+					// 			title: {
+					// 				variant: 'large',
+					// 				value: 'The problem',
+					// 			},
+					// 		},
+					// 		{
+					// 			id: 1,
+					// 			columns: 2,
+					// 			lead: `I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company. The company was facing a challenging task of completely revamping their brand identity and establishing a cohesive, modern, and visually appealing digital presence across various platforms, including their public-facing website, banking environment, mobile app, and watch interface.`,
+					// 		},
+					// 	],
+					// },
+					// {
+					// 	id: 18,
+					// 	section: 'testar 123',
+					// 	columns: 3,
+					// 	rows: 3,
+					// 	gap: 4,
+					// 	groups: [
+					// 		{
+					// 			id: 0,
+					// 			columns: 1,
+					// 			rowStart: 3,
+					// 			image: {
+					// 				variant: 'dummy',
+					// 				text: 'Bild #2',
+					// 				width: 784,
+					// 				height: 1353,
+					// 				color: '#20232a',
+					// 				textColor: '#737373',
+					// 				format: 'png',
+					// 				imgClass: 'object-fill w-full',
+					// 			},
+					// 		},
+					// 		{
+					// 			id: 1,
+					// 			columns: 2,
+					// 			rowStart: 1,
+					// 			image: {
+					// 				variant: 'dummy',
+					// 				text: 'Bild #2',
+					// 				width: 784,
+					// 				height: 1353,
+					// 				color: '#20232a',
+					// 				textColor: '#737373',
+					// 				format: 'png',
+					// 				imgClass: 'object-fill w-full',
+					// 			},
+					// 		},
+					// 		{
+					// 			id: 2,
+					// 			columns: 3,
+					// 			colStart: 1,
+					// 			rowStart: 2,
+					// 			image: {
+					// 				variant: 'dummy',
+					// 				text: 'Bild #2',
+					// 				width: 784,
+					// 				height: 1353,
+					// 				color: '#20232a',
+					// 				textColor: '#737373',
+					// 				format: 'png',
+					// 				imgClass: 'object-fill w-full',
+					// 			},
+					// 		},
+					// 	],
+					// },
 				],
 			},
 		],
