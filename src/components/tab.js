@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Groups from './groups';
 
 const TabbedContent = ({ tabs }) => {
 	const [activeTab, setActiveTab] = useState(0);
@@ -6,6 +7,8 @@ const TabbedContent = ({ tabs }) => {
 	const handleTabClick = (sectionIndex) => {
 		setActiveTab(sectionIndex);
 	};
+
+	console.log('tabs', tabs);
 
 	return (
 		<div className="tabs">
@@ -32,6 +35,8 @@ const TabbedContent = ({ tabs }) => {
 						} border p-4 border-gray-300`}
 					>
 						{section.lead}
+
+						<Groups section={section} />
 					</div>
 				))}
 			</div>
