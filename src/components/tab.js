@@ -3,6 +3,7 @@ import Groups from './groups';
 
 const TabbedContent = ({ tabs }) => {
 	const [activeTab, setActiveTab] = useState(0);
+	// active: true fix
 
 	const handleTabClick = (sectionIndex) => {
 		setActiveTab(sectionIndex);

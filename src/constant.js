@@ -565,6 +565,7 @@ const work = [
 								section: 'Overview',
 								title: 'Introduction',
 								lead: 'This is the overview section.',
+								active: true,
 							},
 							{
 								section: 'Details',
@@ -614,6 +615,36 @@ const work = [
 						anchor: '#goal',
 						columns: 3,
 						gap: 4,
+						accordion: [
+							{
+								section: 'Overview',
+								title: 'Introduction',
+								lead: 'This is the overview section.',
+							},
+							{
+								section: 'Details',
+								title: 'Details',
+								lead: 'This is the details section.',
+								groups: [
+									{
+										id: 0,
+										columns: 1,
+										title: {
+											value: 'Tabbed group content',
+										},
+									},
+									{
+										id: 1,
+										columns: 2,
+										text: {
+											value: 'Etiam eu dolor eget lorem imperdiet pretium. Quisque sed elementum neque, non egestas ante. Sed imperdiet, mauris in lacinia vehicula, magna elit ornare tortor, quis sagittis libero nunc eu ipsum. Ut sit amet arcu',
+											size: 'large',
+										},
+									},
+								],
+							},
+							// Add more tabs as needed
+						],
 						groups: [
 							{
 								id: 0,
