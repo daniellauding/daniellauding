@@ -4,6 +4,7 @@ import Groups from './groups';
 import Text, { Title } from './typography';
 import Image from './image';
 import TabbedContent from './tab';
+import AccordionContent from './accordionNew';
 
 // const Section = ({
 //   style,
@@ -259,11 +260,10 @@ const Section = ({ section }) => {
 						: 'container'
 				)}
 			>
-				{section?.tabs ? (
-					<TabbedContent tabs={section.tabs} />
-				) : (
-					// Render a fallback component or message when tabs are undefined
-					<p>No tabs available</p>
+				{/* clean up below, how to make it less "hard structure" */}
+				{section?.tabs && <TabbedContent tabs={section.tabs} />}
+				{section?.accordion && (
+					<AccordionContent tabs={section.accordion} />
 				)}
 				{section?.style === 'hero' && (
 					<div
