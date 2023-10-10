@@ -59,8 +59,10 @@ const Case = ({
 			>
 				<div
 					className={classNames(
-						`section section-hero grid grid-flow-col gap-16 auto-cols-fr relative py-20 px-20`,
-						item?.hero?.class || 'h-screen',
+						`section section-hero grid grid-flow-col auto-cols-fr relative py-20 px-20`,
+						item?.hero?.class ||
+							'h-screen justify-center items-center',
+						`gap-${item?.hero?.gap || '16'}`,
 						{
 							[`grid-cols-${item?.columns}`]: item?.columns,
 							[`grid-rows-${item?.rows}`]: item?.rows,
@@ -70,7 +72,9 @@ const Case = ({
 						}
 					)}
 				>
-					<p className="client-info">{work?.client}</p>
+					{/* <p className="client-info absolute left-8 top-8">
+						{work?.client}
+					</p> */}
 
 					{item?.hero && (
 						<>
@@ -91,6 +95,12 @@ const Case = ({
 											item?.hero?.rowStart,
 										[`row-end-${item?.hero?.rowEnd}`]:
 											item?.hero?.rowEnd,
+										[`gap-${item?.hero?.gap}`]:
+											item?.hero?.gap,
+										[`gap-y-${item?.hero?.gapY}`]:
+											item?.hero?.gapY,
+										[`gap-x-${item?.hero?.gapX}`]:
+											item?.hero?.gapX,
 									}
 								)}
 							>

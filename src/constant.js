@@ -540,20 +540,15 @@ const work = [
 				tags: ['UX', 'UI'],
 				theme: 'lf',
 				hero: {
-					columns: 2,
+					gap: 32,
+					columns: 1,
 					colStart: 1,
 					// class: 'heroclass',
 					title: {
 						value: 'Revamping their brand identity',
-						columns: 2,
-						colStart: 1,
-						class: 'titleclass',
 					},
 					lead: {
 						value: 'I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company.',
-						columns: 2,
-						colStart: 1,
-						class: 'leadclass',
 					},
 					image: {
 						src: '/images/case/lansforsakringar/hero_dark.png',
