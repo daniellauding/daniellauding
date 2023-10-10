@@ -537,23 +537,45 @@ const work = [
 				date: '2015',
 				case: 'revamping-their-brand-identity',
 				title: 'Revamping their brand identity',
+				// tags: {
+				// 	default: true,
+				// 	roles: ['UX', 'UI'],
+				// },
 				tags: ['UX', 'UI'],
 				theme: 'lf',
 				hero: {
 					gap: 32,
-					columns: 1,
-					colStart: 1,
+					columns: 3,
+					rows: 2,
 					// class: 'heroclass',
-					title: {
-						value: 'Revamping their brand identity',
-					},
-					lead: {
-						value: 'I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company.',
+					description: {
+						colStart: 1,
+						colEnd: 4,
+						columns: 3,
+						rowStart: 1,
+						title: {
+							value: 'Revamping their brand identity',
+							colStart: 1,
+							colEnd: 3,
+						},
+						lead: {
+							value: 'I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company.',
+							colStart: 1,
+							colEnd: 1,
+						},
+						desc: {
+							value: 'tjoho ja de är väl en desc',
+							colStart: 1,
+							colEnd: 1,
+						},
 					},
 					image: {
-						src: '/images/case/lansforsakringar/hero_dark.png',
+						src: '/images/case/lansforsakringar/devices.png',
 						// imgClass: 'mt-4 mb-4 absolute right-0 bottom-0',
+						columns: 2,
 						colStart: 2,
+						rowStart: 2,
+						margin: '-132px auto 0',
 					},
 				},
 				// bg: '/images/case/spotify/bg_favela.jpg',
@@ -588,37 +610,37 @@ const work = [
 						anchor: '#problem',
 						columns: 3,
 						gap: 4,
-						tabs: [
-							{
-								section: 'Overview',
-								title: 'Introduction',
-								lead: 'This is the overview section.',
-								active: true,
-							},
-							{
-								section: 'Details',
-								title: 'Details',
-								lead: 'This is the details section.',
-								groups: [
-									{
-										id: 0,
-										columns: 1,
-										title: {
-											value: 'Tabbed group content',
-										},
-									},
-									{
-										id: 1,
-										columns: 2,
-										text: {
-											value: 'Etiam eu dolor eget lorem imperdiet pretium. Quisque sed elementum neque, non egestas ante. Sed imperdiet, mauris in lacinia vehicula, magna elit ornare tortor, quis sagittis libero nunc eu ipsum. Ut sit amet arcu',
-											size: 'large',
-										},
-									},
-								],
-							},
-							// Add more tabs as needed
-						],
+						// tabs: [
+						// 	{
+						// 		section: 'Overview',
+						// 		title: 'Introduction',
+						// 		lead: 'This is the overview section.',
+						// 		active: true,
+						// 	},
+						// 	{
+						// 		section: 'Details',
+						// 		title: 'Details',
+						// 		lead: 'This is the details section.',
+						// 		groups: [
+						// 			{
+						// 				id: 0,
+						// 				columns: 1,
+						// 				title: {
+						// 					value: 'Tabbed group content',
+						// 				},
+						// 			},
+						// 			{
+						// 				id: 1,
+						// 				columns: 2,
+						// 				text: {
+						// 					value: 'Etiam eu dolor eget lorem imperdiet pretium. Quisque sed elementum neque, non egestas ante. Sed imperdiet, mauris in lacinia vehicula, magna elit ornare tortor, quis sagittis libero nunc eu ipsum. Ut sit amet arcu',
+						// 					size: 'large',
+						// 				},
+						// 			},
+						// 		],
+						// 	},
+						// 	// Add more tabs as needed
+						// ],
 						groups: [
 							{
 								id: 0,
@@ -639,40 +661,47 @@ const work = [
 					},
 					{
 						id: 2,
+						bg: '/images/case/lansforsakringar/lfui-map@2x.png',
+						variant: 'full',
+						class: 'bg-cover bg-local bg-no-repeat bg-center',
+						backgroundColor: '#fff',
+					},
+					{
+						id: 3,
 						section: 'goal',
 						anchor: '#goal',
 						columns: 3,
 						gap: 4,
-						accordion: [
-							{
-								section: 'Overview',
-								title: 'Introduction',
-								lead: 'This is the overview section.',
-							},
-							{
-								section: 'Details',
-								title: 'Details',
-								lead: 'This is the details section.',
-								groups: [
-									{
-										id: 0,
-										columns: 1,
-										title: {
-											value: 'Tabbed group content',
-										},
-									},
-									{
-										id: 1,
-										columns: 2,
-										text: {
-											value: 'Etiam eu dolor eget lorem imperdiet pretium. Quisque sed elementum neque, non egestas ante. Sed imperdiet, mauris in lacinia vehicula, magna elit ornare tortor, quis sagittis libero nunc eu ipsum. Ut sit amet arcu',
-											size: 'large',
-										},
-									},
-								],
-							},
-							// Add more tabs as needed
-						],
+						// accordion: [
+						// 	{
+						// 		section: 'Overview',
+						// 		title: 'Introduction',
+						// 		lead: 'This is the overview section.',
+						// 	},
+						// 	{
+						// 		section: 'Details',
+						// 		title: 'Details',
+						// 		lead: 'This is the details section.',
+						// 		groups: [
+						// 			{
+						// 				id: 0,
+						// 				columns: 1,
+						// 				title: {
+						// 					value: 'Tabbed group content',
+						// 				},
+						// 			},
+						// 			{
+						// 				id: 1,
+						// 				columns: 2,
+						// 				text: {
+						// 					value: 'Etiam eu dolor eget lorem imperdiet pretium. Quisque sed elementum neque, non egestas ante. Sed imperdiet, mauris in lacinia vehicula, magna elit ornare tortor, quis sagittis libero nunc eu ipsum. Ut sit amet arcu',
+						// 					size: 'large',
+						// 				},
+						// 			},
+						// 		],
+						// 	},
+						// 	// Add more tabs as needed
+						// ],
 						groups: [
 							{
 								id: 0,
@@ -692,7 +721,7 @@ const work = [
 						],
 					},
 					{
-						id: 3,
+						id: 4,
 						section: 'insights',
 						anchor: '#insights',
 						columns: 3,
@@ -712,11 +741,112 @@ const work = [
 									value: `Over a period of five weeks, each week dedicated to a different platform, we delved into the existing brand aesthetics, user engagement patterns, and digital interfaces. The intention was to understand the elements that resonate with their audience and identify areas of inconsistency and potential improvement.`,
 									size: 'large',
 								},
+								groups: [
+									{
+										id: 0,
+										title: {
+											value: 'Watch',
+										},
+										text: {
+											value: 'Lorem ipsum',
+										},
+									},
+									{
+										id: 1,
+										title: {
+											value: 'Mobile',
+										},
+										text: {
+											value: 'Lorem ipsum',
+										},
+									},
+									{
+										id: 1,
+										title: {
+											value: 'Web',
+										},
+										text: {
+											value: 'Lorem ipsum',
+										},
+									},
+									{
+										id: 1,
+										title: {
+											value: 'Insurance',
+										},
+										text: {
+											value: 'Lorem ipsum',
+										},
+									},
+									{
+										id: 1,
+										title: {
+											value: 'Banking',
+										},
+										text: {
+											value: 'Lorem ipsum',
+										},
+									},
+								],
 							},
 						],
 					},
+					// {
+					// 	id: 5,
+					// 	section: 'platforms',
+					// 	anchor: '#platforms',
+					// 	columns: 6,
+					// 	gap: 4,
+					// 	groups: [
+					// 		{
+					// 			id: 0,
+					// 			title: {
+					// 				value: 'Watch',
+					// 			},
+					// 			text: {
+					// 				value: 'Lorem ipsum',
+					// 			},
+					// 		},
+					// 		{
+					// 			id: 1,
+					// 			title: {
+					// 				value: 'Mobile',
+					// 			},
+					// 			text: {
+					// 				value: 'Lorem ipsum',
+					// 			},
+					// 		},
+					// 		{
+					// 			id: 1,
+					// 			title: {
+					// 				value: 'Web',
+					// 			},
+					// 			text: {
+					// 				value: 'Lorem ipsum',
+					// 			},
+					// 		},
+					// 		{
+					// 			id: 1,
+					// 			title: {
+					// 				value: 'Insurance',
+					// 			},
+					// 			text: {
+					// 				value: 'Lorem ipsum',
+					// 			},
+					// 		},
+					// 		{
+					// 			id: 1,
+					// 			title: {
+					// 				value: 'Banking',
+					// 			},
+					// 			text: {
+					// 				value: 'Lorem ipsum',
+					// 			},
+					// 		},
+					// 	],
+					// },
 					{
-						id: 4,
+						id: 6,
 						section: 'approach',
 						anchor: '#approach',
 						columns: 3,
@@ -740,7 +870,7 @@ const work = [
 						],
 					},
 					{
-						id: 5,
+						id: 7,
 						section: 'outcome',
 						columns: 3,
 						gap: 4,
@@ -763,7 +893,7 @@ const work = [
 						],
 					},
 					{
-						id: 6,
+						id: 8,
 						section: 'image-loop',
 						image: {
 							variant: 'loop',
