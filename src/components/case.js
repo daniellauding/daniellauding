@@ -38,7 +38,8 @@ const Case = ({
 			className={classNames(
 				'case',
 				`case-${item?.case}`,
-				`client-${work?.client.toLowerCase?.()}`
+				`client-${work?.client.toLowerCase?.()}`,
+				`theme-${item?.theme}`
 			)}
 		>
 			<NavCase
@@ -58,24 +59,163 @@ const Case = ({
 			>
 				<div
 					className={classNames(
-						`section section-hero grid grid-flow-col gap-16 auto-cols-fr relative py-20 px-20`
+						`section section-hero grid grid-flow-col gap-16 auto-cols-fr relative py-20 px-20`,
+						item?.hero?.class || 'h-screen',
+						{
+							[`grid-cols-${item?.columns}`]: item?.columns,
+							[`grid-rows-${item?.rows}`]: item?.rows,
+							[`gap-${item?.gap}`]: item?.gap,
+							[`gap-y-${item?.gapY}`]: item?.gapY,
+							[`gap-x-${item?.gapX}`]: item?.gapX,
+						}
 					)}
 				>
 					<p className="client-info">{work?.client}</p>
 
-					<div className="case-header">
-						{item?.title && <Title size="xl" value={item.title} />}
-						{item?.lead && <Text size="large" value={item.lead} />}
-						{item?.desc && <Text size="medium" value={item.desc} />}
-					</div>
+					{item?.hero && (
+						<>
+							<div
+								className={classNames(
+									'case-header',
+									item?.hero?.title?.class,
+									{
+										[`col-span-${item?.hero?.columns}`]:
+											item?.hero?.columns,
+										[`col-start-${item?.hero?.colStart}`]:
+											item?.hero?.colStart,
+										[`col-end-${item?.hero?.colEnd}`]:
+											item?.hero?.colEnd,
+										[`row-span-${item?.hero?.rows}`]:
+											item?.hero?.rows,
+										[`row-start-${item?.hero?.rowStart}`]:
+											item?.hero?.rowStart,
+										[`row-end-${item?.hero?.rowEnd}`]:
+											item?.hero?.rowEnd,
+									}
+								)}
+							>
+								{item?.hero?.title?.value && (
+									<Title
+										size="xl"
+										value={item?.hero?.title?.value}
+										className={classNames(
+											'case-title',
+											item?.hero?.title?.class,
+											{
+												[`col-span-${item?.hero?.title?.columns}`]:
+													item?.hero?.title?.columns,
+												[`col-start-${item?.hero?.title?.colStart}`]:
+													item?.hero?.title?.colStart,
+												[`col-end-${item?.hero?.title?.colEnd}`]:
+													item?.hero?.title?.colEnd,
+												[`row-span-${item?.hero?.title?.rows}`]:
+													item?.hero?.title?.rows,
+												[`row-start-${item?.hero?.title?.rowStart}`]:
+													item?.hero?.title?.rowStart,
+												[`row-end-${item?.hero?.title?.rowEnd}`]:
+													item?.hero?.title?.rowEnd,
+											}
+										)}
+									/>
+								)}
+								{item?.hero?.lead?.value && (
+									<Text
+										size="large"
+										value={item?.hero?.lead?.value}
+										className={classNames(
+											'case-lead',
+											item?.hero?.lead?.class,
+											{
+												[`col-span-${item?.hero?.lead?.columns}`]:
+													item?.hero?.lead?.columns,
+												[`col-start-${item?.hero?.lead?.colStart}`]:
+													item?.hero?.lead?.colStart,
+												[`col-end-${item?.hero?.lead?.colEnd}`]:
+													item?.hero?.lead?.colEnd,
+												[`row-span-${item?.hero?.lead?.rows}`]:
+													item?.hero?.lead?.rows,
+												[`row-start-${item?.hero?.lead?.rowStart}`]:
+													item?.hero?.lead?.rowStart,
+												[`row-end-${item?.hero?.lead?.rowEnd}`]:
+													item?.hero?.lead?.rowEnd,
+											}
+										)}
+									/>
+								)}
+								{/* {item?.excerpt && <Text value={item?.excerpt} />} */}
+								{/* {item?.desc && <Text value={item?.desc} />} */}
+							</div>
+							{item?.hero?.image?.src && (
+								<div
+									className={classNames(
+										'case-image',
+										item?.hero?.image?.class,
+										{
+											[`col-span-${item?.hero?.image?.columns}`]:
+												item?.hero?.image?.columns,
+											[`col-start-${item?.hero?.image?.colStart}`]:
+												item?.hero?.image?.colStart,
+											[`col-end-${item?.hero?.image?.colEnd}`]:
+												item?.hero?.image?.colEnd,
+											[`row-span-${item?.hero?.image?.rows}`]:
+												item?.hero?.image?.rows,
+											[`row-start-${item?.hero?.image?.rowStart}`]:
+												item?.hero?.image?.rowStart,
+											[`row-end-${item?.hero?.image?.rowEnd}`]:
+												item?.hero?.image?.rowEnd,
+										}
+									)}
+								>
+									<Image item={item?.hero?.image} />
+								</div>
+							)}
+						</>
+					)}
 
-					<div className="case-teaser">
-						{item?.excerpt && <Text value={item.excerpt} />}
-						{item?.image && <Image item={item?.image} />}
-						{item?.library && <Library item={item?.library} />}
-					</div>
+					{/* <div
+						className={classNames('case-header', item?.leadClass, {
+							[`col-span-${item?.columns}`]: item?.columns,
+							[`col-start-${item?.colStart}`]: item?.colStart,
+							[`col-end-${item?.colEnd}`]: item?.colEnd,
+							[`row-span-${item?.rows}`]: item?.rows,
+							[`row-start-${item?.rowStart}`]: item?.rowStart,
+							[`row-end-${item?.rowEnd}`]: item?.rowEnd,
+						})}
+					>
+						{item?.title && <Title size="xl" value={item?.title} />}
+						{item?.lead && <Text size="large" value={item?.lead} />}
+						{item?.desc && (
+							<Text size="medium" value={item?.desc} />
+						)}
+					</div> */}
 
-					<div className="case-tags rotate-90 origin-top-right absolute right-3 top-full w-screen">
+					{item?.library && <Library item={item?.library} />}
+
+					{/* <div className="case-teaser">
+						{item?.excerpt && <Text value={item?.excerpt} />}
+						{item?.image && (
+							<div
+								className={classNames('case-image', {
+									[`col-span-${item?.columns}`]:
+										item?.columns,
+									[`col-start-${item?.colStart}`]:
+										item?.colStart,
+									[`col-end-${item?.colEnd}`]: item?.colEnd,
+									[`row-span-${item?.rows}`]: item?.rows,
+									[`row-start-${item?.rowStart}`]:
+										item?.rowStart,
+									[`row-end-${item?.rowEnd}`]: item?.rowEnd,
+								})}
+							>
+								<Image
+									imgClass={item?.imgClass}
+									item={item?.image}
+								/>
+							</div>
+						)}
+					</div> */}
+
+					<div className="case-tags case-tags inline-block transform -rotate-90 absolute right-3 top-1/2">
 						<TagsList
 							tags={item?.tags}
 							selectedChanged={selectedChanged}

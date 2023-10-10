@@ -18,6 +18,25 @@ module.exports = {
 				1: 1,
 				2: 2,
 			},
+			themes: {
+				lf: {
+					// Background colors
+					'bg-primary': '#FF0000',
+					'bg-secondary': '#00FF00',
+
+					// Fonts
+					'font-primary': ['Roboto', 'sans'],
+					'font-secondary': ['Arial', 'sans'],
+
+					// Text colors
+					'text-primary': 'red',
+					'text-secondary': '#000000',
+					'text-black': 'red',
+					'text-white': 'blue',
+
+					// ... other theme styles ...
+				},
+			},
 		},
 		// fontFamily: {
 		//     'sans': ['Roboto', 'sans-serif'],

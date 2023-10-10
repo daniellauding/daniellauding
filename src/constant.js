@@ -537,15 +537,48 @@ const work = [
 				date: '2015',
 				case: 'revamping-their-brand-identity',
 				title: 'Revamping their brand identity',
-				lead: 'I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company.',
+				tags: ['UX', 'UI'],
+				theme: 'lf',
+				hero: {
+					columns: 2,
+					colStart: 1,
+					// class: 'heroclass',
+					title: {
+						value: 'Revamping their brand identity',
+						columns: 2,
+						colStart: 1,
+						class: 'titleclass',
+					},
+					lead: {
+						value: 'I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company.',
+						columns: 2,
+						colStart: 1,
+						class: 'leadclass',
+					},
+					image: {
+						src: '/images/case/lansforsakringar/hero_dark.png',
+						// imgClass: 'mt-4 mb-4 absolute right-0 bottom-0',
+						colStart: 2,
+					},
+				},
 				// bg: '/images/case/spotify/bg_favela.jpg',
 				// image: {
 				// 	src: '/images/case/spotify/bg_spotify.jpeg',
 				// },
-				tags: ['UX', 'UI'],
+				// leadClass: 'leadclass',
+				// heroClass: 'heroclass',
+				// columns: 2,
+				// colStart: 1,
+				// gap: 4,
+
 				image: {
 					src: '/images/case/lansforsakringar/hero_dark.png',
+					// imgClass: 'mt-4 mb-4 absolute right-0 bottom-0',
+					// colStart: 2,
 				},
+
+				// convert to hero object, have image, title, desc, etc and then do all specific classes or placements there
+				// or just use conten group to behave the same, try with below
 				content: [
 					{
 						id: 0,
