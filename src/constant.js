@@ -846,7 +846,53 @@ const work = [
 					// 	],
 					// },
 					{
+						id: 5,
+						section: 'test',
+						anchor: '#test',
+						columns: 2,
+						gap: 4,
+						groups: [
+							{
+								id: 0,
+								columns: 1,
+								image: {
+									src: '/images/case/lansforsakringar/open/Home_desktop.png',
+									// width: 784,
+									// height: 1353,
+									imgClass: 'object-fill',
+								},
+							},
+							{
+								id: 1,
+								columns: 1,
+								text: {
+									value: `test`,
+									size: 'large',
+								},
+							},
+						],
+					},
+					{
 						id: 6,
+						section: 'test',
+						anchor: '#test',
+						gap: 4,
+						groups: [
+							{
+								id: 0,
+								columns: 1,
+								image: {
+									src: '/images/case/lansforsakringar/open/Home_desktop.png',
+									// width: 784,
+									// height: 1353,
+									imgClass: 'object-fill mx-auto',
+									// zoom ? click to open modal
+								},
+							},
+						],
+					},
+					{
+						id: 8,
 						section: 'approach',
 						anchor: '#approach',
 						columns: 3,
@@ -870,7 +916,7 @@ const work = [
 						],
 					},
 					{
-						id: 7,
+						id: 9,
 						section: 'outcome',
 						columns: 3,
 						gap: 4,
@@ -893,7 +939,7 @@ const work = [
 						],
 					},
 					{
-						id: 8,
+						id: 10,
 						section: 'image-loop',
 						image: {
 							variant: 'loop',
