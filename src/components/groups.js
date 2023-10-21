@@ -11,15 +11,19 @@ const Group = ({ group }) => {
 	console.log('group', group);
 	return (
 		<div
-			className={classNames(`group`, {
-				[`col-span-${group.columns}`]: group.columns,
-				[`col-start-${group.colStart}`]: group.colStart,
-				[`col-end-${group.colEnd}`]: group.colEnd,
-				[`row-span-${group.rows}`]: group.rows,
-				[`row-start-${group.rowStart}`]: group.rowStart,
-				[`row-end-${group.rowEnd}`]: group.rowEnd,
-				[`${group.style}`]: group.style,
-			})}
+			className={classNames(
+				`group`,
+				{
+					[`col-span-${group.columns}`]: group.columns,
+					[`col-start-${group.colStart}`]: group.colStart,
+					[`col-end-${group.colEnd}`]: group.colEnd,
+					[`row-span-${group.rows}`]: group.rows,
+					[`row-start-${group.rowStart}`]: group.rowStart,
+					[`row-end-${group.rowEnd}`]: group.rowEnd,
+					[`${group.style}`]: group.style,
+				},
+				group?.class?.trim()
+			)}
 		>
 			{title && (
 				<Title
@@ -64,7 +68,7 @@ const Groups = ({ section }) => {
 	return (
 		<div
 			className={classNames(
-				`groups grid gap-0 md:gap-16 auto-rows-auto md:grid-flow-col pt-96 md:p-0 md:auto-cols-fr mt-8`,
+				`groups grid gap-0 md:gap-16 auto-rows-auto md:grid-flow-col pt-96 md:p-0 md:auto-cols-fr mt-8 h-full`,
 				{
 					[`grid-cols-${section.columns}`]: section.columns,
 					[`grid-rows-${section.rows}`]: section.rows,

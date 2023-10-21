@@ -851,20 +851,25 @@ const work = [
 						anchor: '#test',
 						columns: 2,
 						gap: 4,
+						class: 'h-screen relative',
+						container: 'h-full relative container',
 						groups: [
 							{
 								id: 0,
 								columns: 1,
+								class: 'h-full relative',
 								image: {
 									src: '/images/case/lansforsakringar/open/Home_desktop.png',
 									// width: 784,
 									// height: 1353,
 									imgClass: 'object-fill',
+									variant: 'scrollimg',
 								},
 							},
 							{
 								id: 1,
 								columns: 1,
+								class: 'h-full relative',
 								text: {
 									value: `test`,
 									size: 'large',
@@ -872,25 +877,25 @@ const work = [
 							},
 						],
 					},
-					{
-						id: 6,
-						section: 'test',
-						anchor: '#test',
-						gap: 4,
-						groups: [
-							{
-								id: 0,
-								columns: 1,
-								image: {
-									src: '/images/case/lansforsakringar/open/Home_desktop.png',
-									// width: 784,
-									// height: 1353,
-									imgClass: 'object-fill mx-auto',
-									// zoom ? click to open modal
-								},
-							},
-						],
-					},
+					// {
+					// 	id: 6,
+					// 	section: 'test',
+					// 	anchor: '#test',
+					// 	gap: 4,
+					// 	groups: [
+					// 		{
+					// 			id: 0,
+					// 			columns: 1,
+					// 			image: {
+					// 				src: '/images/case/lansforsakringar/open/Home_desktop.png',
+					// 				// width: 784,
+					// 				// height: 1353,
+					// 				imgClass: 'object-fill mx-auto',
+					// 				// zoom ? click to open modal
+					// 			},
+					// 		},
+					// 	],
+					// },
 					{
 						id: 8,
 						section: 'approach',

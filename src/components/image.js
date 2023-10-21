@@ -61,6 +61,16 @@ const Image = ({ item = {} }) => {
 		return;
 	};
 
+	const handleScroll = (e) => {
+		// Use the scroll event to update the Y-axis transformation
+		const scrollY = e.target.scrollTop;
+		const element = e.target.querySelector('.scrollable-image');
+
+		// Adjust the translation value based on scroll position
+		const translateY = -scrollY;
+		element.style.transform = `translate3d(0px, ${translateY}px, 0px)`;
+	};
+
 	const ref = useRef(null);
 
 	const [w, setWidth] = useState(0);
@@ -103,6 +113,21 @@ const Image = ({ item = {} }) => {
 			window.removeEventListener('resize', handleWindowResize);
 		};
 	}, []);
+
+	if (variant === 'scrollimg') {
+		return (
+			<div className="image-scrollimg-container absolute inset-0 overflow-y-scroll">
+				<div
+					onScroll={handleScroll}
+					className="image-scrollimg min-h-full"
+				>
+					<div className="image-scrollimg-item">
+						<img src={src} alt="" className="scrollable-image" />
+					</div>
+				</div>
+			</div>
+		);
+	}
 
 	if (variant === 'loop') {
 		const images = files.filter((image) => image.includes(item.folder));

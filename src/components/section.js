@@ -140,7 +140,7 @@ const Section = ({ section }) => {
 					className={classNames(
 						`mx-auto`,
 						section?.container
-							? `container-${section?.container}`
+							? section?.container?.trim()
 							: 'container'
 					)}
 				>
@@ -241,11 +241,15 @@ const Section = ({ section }) => {
 
 	return (
 		<div
-			className={classNames(`py-16 section section-${section.section}`, {
-				[`variant-${section.variant}`]: section.variant,
-				[`${section.className}`]: section.className,
-				'bg-center bg-cover': section?.bg,
-			})}
+			className={classNames(
+				`py-16 section section-${section.section}`,
+				{
+					[`variant-${section.variant}`]: section.variant,
+					[`${section.className}`]: section.className,
+					'bg-center bg-cover': section?.bg,
+				},
+				section?.class?.trim() // Add a null check here
+			)}
 			style={{
 				backgroundImage: section?.bg && `url(${section?.bg})`,
 			}}
@@ -256,7 +260,7 @@ const Section = ({ section }) => {
 				className={classNames(
 					`mx-auto`,
 					section?.container
-						? `container-${section?.container}`
+						? section?.container?.trim()
 						: 'container'
 				)}
 			>
