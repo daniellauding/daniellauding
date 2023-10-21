@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg-primary: #B2387B;
+  // --bg-light: blue;
+  // --bg-dark: red;
+  --color-bg-case: var(--bg-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg-case: var(--bg-dark);
+  }
+}
+
+.case {
+  background: var(--color-bg-case);
+}
+
+.theme-lf {
+  --bg-light: #fff;
+  --bg-dark: #fff;
+  --color-bg-case: var(--bg-light); /* Light mode */
+}
+
+@media (prefers-color-scheme: dark) {
+  .theme-lf {
+    --color-bg-case: var(--bg-dark); /* Dark mode */
+  }
+}

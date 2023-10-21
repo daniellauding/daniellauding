@@ -39,7 +39,10 @@ const Case = ({
 				'case',
 				`case-${item?.case}`,
 				`client-${work?.client.toLowerCase?.()}`,
-				`theme-${item?.theme}`
+				`theme-${item?.theme}`,
+				`bg-case`,
+				`bg-light`,
+				`dark:bg-dark`
 			)}
 		>
 			<NavCase
@@ -146,6 +149,7 @@ const Case = ({
 										}
 										className={classNames(
 											'hero-title',
+											'case-title',
 											item?.hero?.description?.title
 												?.class,
 											{
