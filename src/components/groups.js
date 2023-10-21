@@ -30,16 +30,41 @@ const Group = ({ group }) => {
 					value={title?.value}
 					variant={title?.variant}
 					style={title?.style}
+					color={title?.color}
+					fill={title?.fill}
 				/>
 			)}
-			{text && (
+			{text && Array.isArray(text) ? (
+				<div className="space-y-4">
+					{text.map((textBlock, index) => (
+						<Text
+							key={index}
+							value={textBlock.value}
+							size={textBlock.size}
+							style={textBlock.style}
+							color={textBlock?.color}
+							fill={textBlock?.fill}
+						/>
+					))}
+				</div>
+			) : (
 				<Text
 					value={text?.value}
 					size={text?.size}
 					style={text?.style}
+					color={text?.color}
+					fill={text?.fill}
 				/>
 			)}
-			{lead && <Text size="large" value={lead} />}
+
+			{lead && (
+				<Text
+					size="large"
+					value={lead}
+					color={lead?.color}
+					fill={text?.fill}
+				/>
+			)}
 			{image && (
 				<Image
 					variant={image?.variant}

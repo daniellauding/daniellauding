@@ -57,6 +57,8 @@ module.exports = {
 				'default-soft': 'var(--color-text-default-soft)',
 				inverse: 'var(--color-text-inverse)',
 				'inverse-soft': 'var(--color-text-inverse-soft)',
+				title: 'var(--color-text, var(--color-black, #000))',
+				text: 'var(--color-text, var(--color-gray-800, #2d3748))',
 			},
 			backgroundColor: {
 				primary: 'var(--color-bg-primary)',

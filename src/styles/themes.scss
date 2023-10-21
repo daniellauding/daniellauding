@@ -9,6 +9,14 @@
   --color-bg-case: var(--bg-light);
 }
 
+.text-text {
+  color: var(--color-text, var(--color-gray-800, #2d3748)) !important;
+}
+
+.text-white {
+  color: var(--color-white, #fff) !important;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --color-bg-case: var(--bg-dark);

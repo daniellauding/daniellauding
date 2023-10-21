@@ -568,7 +568,7 @@ const CaseSelector = ({
 						<div className="meta flex flex-col col-end-5 col-span-1">
 							<p
 								className={classNames(
-									`pt-0 mt-0 mb-2 ml-0 text-left text-xs dark:text-gray-500 text-black lg:font-light`,
+									`pt-0 mt-0 mb-2 ml-0 text-left text-xs text-text lg:font-light`,
 									urlClassName
 								)}
 							>
@@ -584,7 +584,7 @@ const CaseSelector = ({
 										{item?.role && (
 											<p
 												className={classNames(
-													`pt-0 mb-0 ml-0 text-left dark:text-gray-500 text-black lg:font-light`,
+													`pt-0 mb-0 ml-0 text-left text-text lg:font-light`,
 													roleClassName
 												)}
 											>
@@ -594,7 +594,7 @@ const CaseSelector = ({
 										{item?.date && (
 											<p
 												className={classNames(
-													`pt-0 mb-0 md:ml-0 text-xs text-left md:text-left dark:text-gray-500 text-black lg:font-light`,
+													`pt-0 mb-0 md:ml-0 text-xs text-left md:text-left text-text lg:font-light`,
 													dateClassName
 												)}
 											>
@@ -604,7 +604,7 @@ const CaseSelector = ({
 									</li>
 								</ul>
 							)}
-							<p className="pt-0 mt-0 mb-4 ml-0 text-left text-xs dark:text-gray-500 text-black lg:font-light">
+							<p className="pt-0 mt-0 mb-4 ml-0 text-left text-xs text-text lg:font-light">
 								{item?.location}
 							</p>
 

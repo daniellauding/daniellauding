@@ -52,9 +52,18 @@ const Protected = ({
 
 			<div className="flex flex-col justify-center items-center">
 				<div className="meta flex-col items-center justify-center">
-					<Title value={item.client} className="text-center mb-0" />
-					<Text value={item.role} className="text-center mb-0" />
-					<Text value={item.date} className="text-center mb-0" />
+					<Title
+						value={item.client}
+						className="text-center mb-0 text-white"
+					/>
+					<Text
+						value={item.role}
+						className="text-center mb-0 text-white"
+					/>
+					<Text
+						value={item.date}
+						className="text-center mb-0 text-white"
+					/>
 				</div>
 				<div className="mt-20 mb-20 text-6xl font-bold mx-auto">
 					<Typewriter

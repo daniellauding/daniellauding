@@ -311,6 +311,135 @@ const Image = ({ item = {} }) => {
 		);
 	}
 
+	if (variant === 'imgscrollloop') {
+		const images = files.filter((image) => image.includes(item.folder));
+
+		const containerClasses =
+			'image-scrollloop-container absolute inset-0 overflow-y-scroll';
+		const imageClasses =
+			'object-cover w-64 h-64 cursor-pointer transform hover:scale-110 transition-transform duration-300';
+		const innerDivClasses = 'relative flex-shrink-0';
+
+		const [selectedImageSrc, setSelectedImageSrc] = useState('');
+		const [showModal, setShowModal] = useState(false);
+		const [indexOfImages, setIndexOfImages] = useState(0);
+
+		const openModalAndSetIndex = (index) => {
+			setSelectedImageSrc(`/images/case/${images[index]}`);
+			setIndexOfImages(index);
+			setShowModal(true);
+		};
+
+		const handleNextClick = () => {
+			const nextIndex = (indexOfImages + 1) % images.length;
+			setSelectedImageSrc(`/images/case/${images[nextIndex]}`);
+			setIndexOfImages(nextIndex);
+		};
+
+		const handlePrevClick = () => {
+			const prevIndex =
+				(indexOfImages + images.length - 1) % images.length;
+			setSelectedImageSrc(`/images/case/${images[prevIndex]}`);
+			setIndexOfImages(prevIndex);
+		};
+
+		const containerRef = useRef(null);
+
+		return (
+			<div className={containerClasses}>
+				<div ref={containerRef} className="image-scrollloop-stack">
+					{images.map((src, index) => (
+						<div key={index} className={innerDivClasses}>
+							<img
+								src={`/images/case/${src}`}
+								alt={`/images/case/${src}`}
+								className={imageClasses}
+								onClick={() => openModalAndSetIndex(index)}
+							/>
+						</div>
+					))}
+				</div>
+
+				{showModal && (
+					<div
+						tabIndex="-1"
+						aria-hidden="true"
+						className={classNames(
+							'fixed inset-0 z-10 overflow-y-auto'
+						)}
+					>
+						<div className="modal modal-enter-access-code flex min-h-full items-end justify-center p-12 text-center sm:items-center h-screen">
+							<div className="modal-wrapper z-20 relative transform overflow-hidden rounded-2xl bg-white text-left shadow-xl transition-all h-full max-w-2xl">
+								<button
+									// onClick={clearActive}
+									onClick={() => setShowModal(false)}
+									type="button"
+									className="absolute top-4 right-4 ml-auto btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline z-20"
+									data-bs-dismiss="modal"
+									aria-label="Close"
+								>
+									<XMarkIcon className="h-5 w-5 text-black" />
+								</button>
+								<div className="modal-body h-full relative pt-0 py-4 px-10 mx-auto">
+									<div
+										className={classNames(
+											`w-full h-full justify-center gap-4 flex-col items-center overflow-y-auto flex py-16`
+											// {
+											// 	'active block':
+											// 		indexOfImages ===
+											// 		images.length,
+											// 	'not-active hidden':
+											// 		indexOfImages !== index,
+											// }
+										)}
+									>
+										<div className="gallery-image w-full h-full overflow-y-auto flex flex-1">
+											<img
+												src={selectedImageSrc}
+												alt="SelectedImage"
+												// className="object-cover mx-auto w-full max-w-full max-h-full"
+												className="object-cover mx-auto w-full max-w-full max-h-full"
+											/>
+										</div>
+									</div>
+
+									<div className="flex">
+										<button
+											onClick={handlePrevClick} // Handle "Previous" button click
+											type="button"
+											className="absolute top-1/2 left-0 btn-prev box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline z-20"
+											data-bs-dismiss="modal"
+											aria-label="Previous"
+										>
+											<ArrowLeftIcon className="h-5 w-5 text-black" />
+										</button>
+										<button
+											onClick={handleNextClick} // Handle "Next" button click
+											type="button"
+											className="absolute top-1/2 right-0 btn-next box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline z-20"
+											data-bs-dismiss="modal"
+											aria-label="Next"
+										>
+											<ArrowRightIcon className="h-5 w-5 text-black" />
+										</button>
+									</div>
+
+									<p>
+										{indexOfImages + 1} / {images.length}
+									</p>
+								</div>
+							</div>
+							<div
+								onClick={() => setShowModal(false)}
+								className="modal-backdrop w-full h-full min-h-full fixed top-0 left-0 bottom-0 right-0 z-10 bg-opacity-90 bg-neutral-800 backdrop-blur"
+							/>
+						</div>
+					</div>
+				)}
+			</div>
+		);
+	}
+
 	// https://bobbyhadz.com/blog/react-get-width-of-element
 	// https://www.npmjs.com/package/react-use-measure
 

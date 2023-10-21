@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-const Text = ({ size, value, className }) => {
+const Text = ({ size, value, className, color, fill }) => {
 	// return (
 	// 	<p
 	// 		className={classNames(
@@ -21,9 +21,13 @@ const Text = ({ size, value, className }) => {
 		return (
 			<p
 				className={classNames(
-					`text-2xl md:text-4xl dark:text-gray-300 text-black lg:font-light pt-0 mb-2`,
-					className
+					`text-2xl md:text-4xl pt-0 mb-2`,
+					!color && !fill ? 'text-text' : '',
+					'lg:font-light',
+					className,
+					color?.trim()
 				)}
+				style={fill ? { color: fill.trim() } : undefined}
 			>
 				{value}
 			</p>
@@ -33,9 +37,13 @@ const Text = ({ size, value, className }) => {
 		return (
 			<p
 				className={classNames(
-					`text-2xl md:text-5xl dark:text-gray-300 text-black lg:font-light pt-0 mb-2`,
-					className
+					`text-2xl md:text-5xl pt-0 mb-2`,
+					!color && !fill ? 'text-text' : '',
+					'lg:font-light',
+					className,
+					color?.trim()
 				)}
+				style={fill ? { color: fill.trim() } : undefined}
 			>
 				{value}
 			</p>
@@ -45,9 +53,13 @@ const Text = ({ size, value, className }) => {
 		return (
 			<p
 				className={classNames(
-					`text-1xl md:text-2xl dark:text-gray-300 text-black lg:font-light pt-0 mb-2`,
-					className
+					`text-1xl md:text-2xl pt-0 mb-2`,
+					!color && !fill ? 'text-text' : '',
+					'lg:font-light',
+					className,
+					color?.trim()
 				)}
+				style={fill ? { color: fill.trim() } : undefined}
 			>
 				{value}
 			</p>
@@ -57,9 +69,13 @@ const Text = ({ size, value, className }) => {
 		return (
 			<p
 				className={classNames(
-					`text-base md:text-base dark:text-gray-300 text-black lg:font-light pt-0 mb-2`,
-					className
+					`text-base md:text-base pt-0 mb-2`,
+					!color && !fill ? 'text-text' : '',
+					'lg:font-light',
+					className,
+					color?.trim()
 				)}
+				style={fill ? { color: fill.trim() } : undefined}
 			>
 				{value}
 			</p>
@@ -69,9 +85,13 @@ const Text = ({ size, value, className }) => {
 		return (
 			<p
 				className={classNames(
-					`text-xs dark:text-gray-300 text-black lg:font-light pt-0 mb-2`,
-					className
+					`text-xs pt-0 mb-2`,
+					!color && !fill ? 'text-text' : '',
+					'lg:font-light',
+					className,
+					color?.trim()
 				)}
+				style={fill ? { color: fill.trim() } : undefined}
 			>
 				{value}
 			</p>
@@ -81,9 +101,13 @@ const Text = ({ size, value, className }) => {
 		return (
 			<p
 				className={classNames(
-					`text-sm dark:text-gray-300 text-black lg:font-light pt-0 mb-2`,
-					className
+					`text-sm pt-0 mb-2`,
+					!color && !fill ? 'text-text' : '',
+					'lg:font-light',
+					className,
+					color?.trim()
 				)}
+				style={fill ? { color: fill.trim() } : undefined}
 			>
 				{value}
 			</p>
@@ -92,23 +116,31 @@ const Text = ({ size, value, className }) => {
 	return (
 		<p
 			className={classNames(
-				`text-base md:text-base dark:text-gray-300 text-black lg:font-light pt-0 mb-2`,
-				className
+				`text-base md:text-base pt-0 mb-2`,
+				!color && !fill ? 'text-text' : '',
+				'lg:font-light',
+				className,
+				color?.trim()
 			)}
+			style={fill ? { color: fill.trim() } : undefined}
 		>
 			{value}
 		</p>
 	);
 };
 
-const Title = ({ size = 'medium', value, className }) => {
+const Title = ({ size = 'medium', value, className, color, fill }) => {
 	if (size === 'xl') {
 		return (
 			<h1
 				className={classNames(
-					`pt-0 mt-8 mb-16 text-8xl text-left dark:text-gray-200 text-black lg:font-bold`,
-					className
+					`pt-0 mt-8 mb-16 text-8xl text-left`,
+					!color && !fill ? 'text-text' : '',
+					'lg:font-bold',
+					className,
+					color?.trim()
 				)}
+				style={fill ? { color: fill.trim() } : undefined}
 			>
 				{value}
 			</h1>
@@ -118,9 +150,13 @@ const Title = ({ size = 'medium', value, className }) => {
 		return (
 			<h1
 				className={classNames(
-					`pt-0 mt-0 mb-2 text-4xl dark:text-gray-200 text-black lg:font-bold`,
-					className
+					`pt-0 mt-0 mb-2 text-4xl`,
+					!color && !fill ? 'text-text' : '',
+					'lg:font-bold',
+					className,
+					color?.trim()
 				)}
+				style={fill ? { color: fill.trim() } : undefined}
 			>
 				{value}
 			</h1>
@@ -130,9 +166,13 @@ const Title = ({ size = 'medium', value, className }) => {
 		return (
 			<h2
 				className={classNames(
-					`pt-0 mt-0 mb-2 text-3xl dark:text-gray-200 text-black lg:font-bold`,
-					className
+					`pt-0 mt-0 mb-2 text-3xl`,
+					!color && !fill ? 'text-text' : '',
+					'lg:font-bold',
+					className,
+					color?.trim()
 				)}
+				style={fill ? { color: fill.trim() } : undefined}
 			>
 				{value}
 			</h2>
@@ -142,9 +182,13 @@ const Title = ({ size = 'medium', value, className }) => {
 		return (
 			<h2
 				className={classNames(
-					`pt-0 mt-0 mb-2 text-base dark:text-gray-200 text-black lg:font-bold`,
-					className
+					'pt-0 mt-0 mb-2 text-base',
+					!color && !fill ? 'text-text' : '',
+					'lg:font-bold',
+					className,
+					color?.trim()
 				)}
+				style={fill ? { color: fill.trim() } : undefined}
 			>
 				{value}
 			</h2>
@@ -154,9 +198,13 @@ const Title = ({ size = 'medium', value, className }) => {
 		return (
 			<h3
 				className={classNames(
-					`pt-0 mt-0 mb-2 text-1xl dark:text-gray-200 text-black lg:font-bold`,
-					className
+					`pt-0 mt-0 mb-2 text-1xl`,
+					!color && !fill ? 'text-text' : '',
+					'lg:font-bold',
+					className,
+					color?.trim()
 				)}
+				style={fill ? { color: fill.trim() } : undefined}
 			>
 				{value}
 			</h3>

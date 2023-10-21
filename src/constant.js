@@ -870,32 +870,53 @@ const work = [
 								id: 1,
 								columns: 1,
 								class: 'h-full relative',
+								title: {
+									value: 'Homepage',
+									fill: 'red',
+									className: 'pelle',
+								},
+								text: [
+									{
+										value: `Morbi finibus, ligula nec mattis laoreet, lacus velit tincidunt purus, eget fermentum magna neque quis erat. Duis tempus quam eu elit fringilla, id dignissim metus faucibus. Donec quam mi, congue nec erat ac, porttitor dictum augue. Aenean sit amet sollicitudin purus, sed malesuada nisi. Nulla venenatis, purus et tincidunt sodales, mi urna ornare mauris, quis suscipit metus massa ac nulla. Quisque finibus, augue eu consectetur consectetur, elit risus ullamcorper ipsum, vel porttitor ante nisl vel elit. Etiam tempor, purus non tincidunt egestas, eros nulla tempus diam, quis sodales metus velit et metus. Duis nec elementum nulla, eu dictum augue.`,
+										size: 'medium',
+									},
+									{
+										value: `hur får jag vänstra delen scrolla när jag scrollar här med, textblocket, funkar ej`,
+										size: 'medium',
+									},
+								],
+							},
+						],
+					},
+					{
+						id: 6,
+						section: 'test',
+						anchor: '#test',
+						columns: 2,
+						gap: 4,
+						class: 'h-screen relative',
+						container: 'h-full relative container',
+						groups: [
+							{
+								id: 0,
+								columns: 1,
+								class: 'h-full relative',
 								text: {
 									value: `test`,
 									size: 'large',
 								},
 							},
+							{
+								id: 1,
+								columns: 1,
+								class: 'h-full relative',
+								image: {
+									folder: 'lansforsakringar/mobile/',
+									variant: 'imgscrollloop',
+								},
+							},
 						],
 					},
-					// {
-					// 	id: 6,
-					// 	section: 'test',
-					// 	anchor: '#test',
-					// 	gap: 4,
-					// 	groups: [
-					// 		{
-					// 			id: 0,
-					// 			columns: 1,
-					// 			image: {
-					// 				src: '/images/case/lansforsakringar/open/Home_desktop.png',
-					// 				// width: 784,
-					// 				// height: 1353,
-					// 				imgClass: 'object-fill mx-auto',
-					// 				// zoom ? click to open modal
-					// 			},
-					// 		},
-					// 	],
-					// },
 					{
 						id: 8,
 						section: 'approach',
