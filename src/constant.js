@@ -140,7 +140,9 @@ const work = [
 		role: 'Co-Founder & Lead Product Design',
 		date: '2017 – Present',
 		location: 'Remote / Sweden',
-		bg: '/images/case/asteria/bg_asteria.png',
+		background: {
+			image: '/images/case/asteria/bg_asteria.png',
+		},
 		url: 'https://www.spotify.com',
 		soon: true,
 	},
@@ -150,7 +152,9 @@ const work = [
 		role: 'Product Design Consultant',
 		date: '2017',
 		location: 'Brazil / Sweden',
-		bg: '/images/case/spotify/bg_spotify.jpeg',
+		background: {
+			image: '/images/case/spotify/bg_spotify.jpeg',
+		},
 		url: 'https://www.spotify.com',
 		protected: true,
 		index: true,
@@ -161,7 +165,9 @@ const work = [
 				case: 'growth-enable-more-free-users-emerging-markets',
 				title: 'Optimize product value for existing markets with growth potential',
 				lead: 'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
-				bg: '/images/case/spotify/bg_favela.jpg',
+				background: {
+					image: '/images/case/spotify/bg_favela.jpg',
+				},
 				image: {
 					src: '/images/case/spotify/bg_spotify.jpeg',
 				},
@@ -198,7 +204,9 @@ const work = [
 				content: [
 					{
 						id: 0,
-						bg: '/images/case/spotify/bg_favela.jpg',
+						background: {
+							image: '/images/case/spotify/bg_favela.jpg',
+						},
 						variant: 'full',
 					},
 					{
@@ -433,7 +441,9 @@ const work = [
 		role: 'Senior Product Design Consultant',
 		date: '2017 – 2018',
 		location: 'Remote / Sweden',
-		bg: '/images/case/recordunion/bg_recordunion.png',
+		background: {
+			image: '/images/case/recordunion/bg_recordunion.png',
+		},
 		url: 'https://www.recordunion.com',
 		protected: true,
 		index: true,
@@ -494,7 +504,9 @@ const work = [
 		role: 'Art Director Consultant',
 		date: '2016 – 2017',
 		location: 'Stockholm / Sweden',
-		bg: '/images/case/lansforsakringar/bg_lf.png',
+		background: {
+			image: '/images/case/lansforsakringar/bg_lf.png',
+		},
 		protected: true,
 		index: true,
 		url: 'https://www.lansforsakringar.se',
@@ -599,10 +611,13 @@ const work = [
 				content: [
 					{
 						id: 0,
-						bg: '/images/case/lansforsakringar/intro.png',
+						background: {
+							image: '/images/case/lansforsakringar/intro.png',
+							color: '#F3F3F3',
+							// bg-center bg-cover bg-contain bg-fixed bg-no-repeat bg-center
+						},
 						variant: 'full',
 						class: 'bg-contain bg-fixed bg-no-repeat bg-center',
-						backgroundColor: '#F3F3F3',
 					},
 					{
 						id: 1,
@@ -661,7 +676,9 @@ const work = [
 					},
 					{
 						id: 2,
-						bg: '/images/case/lansforsakringar/lfui-map@2x.png',
+						background: {
+							image: '/images/case/lansforsakringar/lfui-map@2x.png',
+						},
 						variant: 'full',
 						class: 'bg-cover bg-local bg-no-repeat bg-center',
 						backgroundColor: '#fff',
@@ -923,18 +940,57 @@ const work = [
 							variant: 'scrollimghorizontal',
 							src: '/images/case/lansforsakringar/mobile/01.00 login.png',
 						},
-						backgroundColor: '#e5eff7',
+						background: {
+							color: '#e5eff7',
+						},
 						class: 'items-center justify-center',
 					},
 					{
 						id: 8,
+						section: 'testar-med-scroll-pa-section',
 						variant: 'scrollHorizontally',
 						title: 'Scroll me horizontally',
-						backgroundColor: '#e5eff7',
+						image: {
+							src: '/images/case/lansforsakringar/mobile/01.00 login.png',
+						},
+						align: {
+							horizontal: 'center',
+							vertical: 'center',
+						},
+						container: {
+							align: {
+								horizontal: 'center',
+								vertical: 'center',
+							},
+						},
 						// class: 'items-center justify-center',
+						background: {
+							color: '#e5eff7',
+						},
 					},
 					{
 						id: 9,
+						variant: 'scrollVertically',
+						title: 'Scroll me vertically',
+						image: {
+							src: '/images/case/lansforsakringar/mobile/01.00 login.png',
+						},
+						background: {
+							color: '#e5eff7',
+						},
+						align: {
+							horizontal: 'center',
+							vertical: 'center',
+						},
+						container: {
+							align: {
+								horizontal: 'center',
+								vertical: 'center',
+							},
+						},
+					},
+					{
+						id: 999,
 						section: 'approach',
 						anchor: '#approach',
 						columns: 3,
@@ -1367,7 +1423,9 @@ const work = [
 		role: 'CEO & Senior Product Design Consultant',
 		date: '2007 – Present',
 		location: 'Remote / Sweden',
-		bg: '/images/case/instinctly/bg_instinctly.png',
+		background: {
+			image: '/images/case/instinctly/bg_instinctly.png',
+		},
 		url: 'https://www.daniellauding.se',
 		protected: true,
 		index: true,
@@ -1701,7 +1759,9 @@ const work = [
 		role: 'Lead Visual Designer Consultant',
 		date: '2012 – 2017',
 		location: 'Remote / Amsterdam, Netherlands',
-		bg: '/images/case/backbase/bg_backbase.png',
+		background: {
+			image: '/images/case/backbase/bg_backbase.png',
+		},
 		url: 'https://www.backbase.com',
 		protected: true,
 		index: true,
@@ -1773,7 +1833,9 @@ const work = [
 		role: 'Some fun stuff',
 		date: 'Never and forever',
 		location: 'www',
-		bg: '/images/case/backbase/bg_backbase.png',
+		background: {
+			image: '/images/case/backbase/bg_backbase.png',
+		},
 		url: 'https://www.backbase.com',
 		index: false,
 	},

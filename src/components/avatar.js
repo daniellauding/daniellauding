@@ -14,7 +14,11 @@ const Avatar = ({ active, selectedChanged, previewCase }) => {
 			)}
 		>
 			<img
-				src={active?.bg || previewCase?.bg || heroImg}
+				src={
+					active?.background?.image ||
+					previewCase?.background?.image ||
+					heroImg
+				}
 				className={classNames(
 					'object-cover',
 					active ? 'w-full h-auto' : 'w-full h-full'

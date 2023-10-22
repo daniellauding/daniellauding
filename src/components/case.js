@@ -504,7 +504,7 @@ const CaseSelector = ({
 		<div
 			className={classNames(
 				`case-wrapper case-teaser gap-20 flex flex-col h-full overflow-y-auto justify-center flex-shrink-0 w-1/4 md:w-1/3 lg:w-1/4 xl:w-1/5 ml-[-20px] hover:scale-110 transition-transform`,
-				`${item?.bg && 'bg-center bg-cover'}`,
+				`${item?.background?.image && 'bg-center bg-cover'}`,
 				`client-${work?.client?.toLowerCase?.()}`
 			)}
 		>
@@ -618,7 +618,11 @@ const CaseSelector = ({
 
 				<div
 					className="case-background absolute z-n1 left-0 top-0 right-0 bottom-0 h-full w-full bg-cover bg-center bg-no-repeat"
-					style={{ backgroundImage: item?.bg && `url(${item?.bg})` }}
+					style={{
+						backgroundImage:
+							item?.background?.image &&
+							`url(${item?.background?.image})`,
+					}}
 				/>
 			</div>
 		</div>

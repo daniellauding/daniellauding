@@ -72,6 +72,135 @@ const Section = ({ section }) => {
 		return null; // or any other appropriate fallback
 	}
 
+	if (section?.variant === 'scrollVertically') {
+		const contentRef = useRef(null);
+		const [startY, setStartY] = useState(0);
+
+		useEffect(() => {
+			const handleScroll = (e) => {
+				const element = contentRef.current;
+				const scrollAmount = e.deltaY;
+				const transformValue =
+					element.style.transform || `translateY(${startY}px)`;
+				const currentY = parseFloat(transformValue.match(/-?\d+/));
+				let newY = currentY - scrollAmount;
+
+				// Add a threshold for the maximum panning (adjust as needed)
+				const maxPanning = 100;
+				if (newY < -maxPanning) {
+					newY = -maxPanning;
+				} else if (newY > maxPanning) {
+					newY = maxPanning;
+				}
+
+				element.style.transform = `translateY(${newY}px)`;
+
+				// Update the start position to the new Y position
+				setStartY(newY);
+			};
+
+			contentRef.current.addEventListener('wheel', handleScroll, {
+				passive: false,
+			});
+
+			// Clean up the event listener when the component unmounts
+			return () => {
+				contentRef.current.removeEventListener('wheel', handleScroll);
+			};
+		}, []);
+
+		return (
+			<div
+				className={classNames(
+					`py-16 section section-${section.section}`,
+					{
+						[`variant-${section.variant}`]: section.variant,
+						'justify-start': section?.align?.vertical === 'top',
+						'justify-center': section?.align?.vertical === 'center',
+						'justify-end': section?.align?.vertical === 'bottom',
+						'content-start': section?.align?.horizontal === 'left',
+						'content-center':
+							section?.align?.horizontal === 'center',
+						'content-end': section?.align?.horizontal === 'right',
+					},
+					section?.class?.trim()
+				)}
+				style={{
+					backgroundImage:
+						section?.background?.image &&
+						`url(${section?.background?.image})`,
+					backgroundColor: section?.background?.color,
+				}}
+				id={section?.anchor}
+			>
+				<div
+					className={classNames(
+						`mx-auto`,
+						section?.container?.width === 'full'
+							? 'container-full'
+							: 'container',
+						{
+							'justify-start':
+								section?.container?.align?.vertical === 'top',
+							'justify-center':
+								section?.container?.align?.vertical ===
+								'center',
+							'justify-end':
+								section?.container?.align?.vertical ===
+								'bottom',
+							'content-start':
+								section?.container?.align?.horizontal ===
+								'left',
+							'content-center':
+								section?.container?.align?.horizontal ===
+								'center',
+							'content-end':
+								section?.container?.align?.horizontal ===
+								'right',
+							flex:
+								section?.container?.align?.vertical ||
+								section?.container?.align?.horizontal,
+						}
+					)}
+				>
+					<div
+						ref={contentRef}
+						className={classNames(
+							`item w-full flex justify-center items-center flex-col`,
+							{
+								style: section.style,
+							}
+						)}
+					>
+						{section?.title && <Title value={section?.title} />}
+						{section?.lead && <Text value={section?.lead} />}
+						{section?.text && <Text value={section?.text} />}
+						{section?.desc && <Text value={section?.desc} />}
+						{section?.image && (
+							<>
+								<Image
+									variant={section?.image?.variant}
+									color={section?.image?.color}
+									format={section?.image?.format}
+									width={section?.image?.width}
+									height={section?.image?.height}
+									text={section?.image?.text}
+									textColor={section?.image?.textColor}
+									src={section?.image?.src}
+									item={section?.image}
+									images={section?.image?.images}
+									imgClass="max-w-fit"
+								/>
+							</>
+						)}
+
+						<Groups section={section} />
+					</div>
+				</div>
+			</div>
+		);
+	}
+
 	if (section?.variant === 'scrollHorizontally') {
 		const contentRef = useRef(null);
 		const [startX, setStartX] = useState(0);
@@ -115,28 +244,62 @@ const Section = ({ section }) => {
 					`py-16 section section-${section.section}`,
 					{
 						[`variant-${section.variant}`]: section.variant,
-						[`${section.className}`]: section.className,
-					}
+						'justify-start': section?.align?.horizontal === 'left',
+						'justify-center':
+							section?.align?.horizontal === 'center',
+						'justify-end': section?.align?.horizontal === 'right',
+						'content-start': section?.align?.vertical === 'top',
+						'content-center': section?.align?.vertical === 'center',
+						'content-end': section?.align?.vertical === 'bottom',
+					},
+					section?.class?.trim()
 				)}
 				style={{
-					backgroundImage: section?.bg && `url(${section?.bg})`,
-					backgroundColor: section?.backgroundColor,
+					backgroundImage:
+						section?.background?.image &&
+						`url(${section?.background?.image})`,
+					backgroundColor: section?.background?.color,
 				}}
 				id={section?.anchor}
 			>
 				<div
 					className={classNames(
 						`mx-auto`,
-						section?.container
-							? section?.container.trim()
-							: 'container'
+						section?.container?.width === 'full'
+							? 'container-full'
+							: 'container',
+						{
+							'justify-start':
+								section?.container?.align?.horizontal ===
+								'left',
+							'justify-center':
+								section?.container?.align?.horizontal ===
+								'center',
+							'justify-end':
+								section?.container?.align?.horizontal ===
+								'right',
+							'content-start':
+								section?.container?.align?.vertical === 'top',
+							'content-center':
+								section?.container?.align?.vertical ===
+								'center',
+							'content-end':
+								section?.container?.align?.vertical ===
+								'bottom',
+							flex:
+								section?.container?.align?.horizontal ||
+								section?.container?.align?.vertical,
+						}
 					)}
 				>
 					<div
 						ref={contentRef}
-						className={classNames(`item`, {
-							style: section.style,
-						})}
+						className={classNames(
+							`item w-full flex justify-center items-center flex-col`,
+							{
+								style: section.style,
+							}
+						)}
 					>
 						{section?.title && <Title value={section?.title} />}
 						{section?.lead && <Text value={section?.lead} />}
@@ -155,6 +318,7 @@ const Section = ({ section }) => {
 									src={section?.image?.src}
 									item={section?.image}
 									images={section?.image?.images}
+									imgClass="max-w-fit"
 								/>
 							</>
 						)}
@@ -172,19 +336,47 @@ const Section = ({ section }) => {
 				className={classNames(
 					`py-16 section variant-full h-screen w-screen overflow-hidden flex items-center justify-start`,
 					{
-						'bg-center bg-cover': section?.bg,
+						'bg-center bg-cover': section?.background?.image,
+						'justify-start': section?.align?.horizontal === 'left',
+						'justify-center':
+							section?.align?.horizontal === 'center',
+						'justify-end': section?.align?.horizontal === 'right',
+						'items-start': section?.align?.vertical === 'top',
+						'items-center': section?.align?.vertical === 'center',
+						'items-end': section?.align?.vertical === 'bottom',
 					},
-					section?.class?.trim() // Add a null check here
+					section?.class?.trim()
 				)}
 				id={section?.anchor}
 				style={{
-					backgroundImage: section?.bg && `url(${section?.bg})`,
-					backgroundColor: section?.backgroundColor,
+					backgroundImage:
+						section?.background?.image &&
+						`url(${section?.background?.image})`,
+					backgroundColor: section?.background?.color,
 				}}
 			>
 				<div
 					className={classNames(
-						`mx-auto container-full w-full h-full`
+						`mx-auto container-full w-full h-full`,
+						{
+							'justify-start':
+								section?.container?.align?.horizontal ===
+								'left',
+							'justify-center':
+								section?.container?.align?.horizontal ===
+								'center',
+							'justify-end':
+								section?.container?.align?.horizontal ===
+								'right',
+							'content-start':
+								section?.container?.align?.vertical === 'top',
+							'content-center':
+								section?.container?.align?.vertical ===
+								'center',
+							'content-end':
+								section?.container?.align?.vertical ===
+								'bottom',
+						}
 					)}
 				>
 					{section?.title && <Title value={section?.title} />}
@@ -222,12 +414,14 @@ const Section = ({ section }) => {
 					{
 						[`variant-${section.variant}`]: section.variant,
 						[`${section.className}`]: section.className,
-						'bg-center bg-cover': section?.bg,
+						'bg-center bg-cover': section?.background,
 					}
 				)}
 				style={{
-					backgroundImage: section?.bg && `url(${section?.bg})`,
-					backgroundColor: section?.backgroundColor,
+					backgroundImage:
+						section?.background?.image &&
+						`url(${section?.background?.image})`,
+					backgroundColor: section?.background?.color,
 				}}
 				id={section?.name}
 			>
@@ -341,13 +535,23 @@ const Section = ({ section }) => {
 				{
 					[`variant-${section.variant}`]: section.variant,
 					[`${section.className}`]: section.className,
-					'bg-center bg-cover': section?.bg,
+					'bg-center bg-cover': section?.background?.image,
+					'justify-start': section?.align?.horizontal === 'left',
+					'justify-center': section?.align?.horizontal === 'center',
+					'justify-end': section?.align?.horizontal === 'right',
+					'content-start': section?.align?.vertical === 'top',
+					'content-center': section?.align?.vertical === 'center',
+					'content-end': section?.align?.vertical === 'bottom',
 				},
-				section?.class?.trim() // Add a null check here
+				section?.class?.trim(),
+				section?.align?.horizontal.trim(),
+				section?.align?.vertial.trim()
 			)}
 			style={{
-				backgroundImage: section?.bg && `url(${section?.bg})`,
-				backgroundColor: section?.backgroundColor,
+				backgroundImage:
+					section?.background?.image &&
+					`url(${section?.background?.image})`,
+				backgroundColor: section?.background?.color,
 			}}
 			// id={section?.name}
 			id={section?.anchor}
