@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import classNames from 'classnames';
 // import UIfx from 'uifx'
 // import testAudio from '../sounds/test.wav'
@@ -13,6 +13,7 @@ import classNames from 'classnames';
 
 const Experience = ({ item, active, setActive, onHover }) => {
 	const [isHovering, setIsHovering] = useState(false);
+	const [currentSlide, setCurrentSlide] = useState(0);
 
 	const handleMouseOver = () => {
 		setIsHovering(true);
@@ -26,7 +27,7 @@ const Experience = ({ item, active, setActive, onHover }) => {
 	const onClick = useCallback(
 		(e) => {
 			e.preventDefault();
-			setActive(item.id);
+			setActive(item?.id);
 			// test.play();
 		},
 		[item, setActive]
@@ -48,9 +49,21 @@ const Experience = ({ item, active, setActive, onHover }) => {
 		[onHover]
 	);
 
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setCurrentSlide(
+				(prevSlide) =>
+					(prevSlide + 1) %
+					(Array.isArray(item.thumbnail) ? item.thumbnail.length : 1)
+			);
+		}, 3000);
+
+		return () => clearInterval(interval); // Clean up the interval
+	}, [item.thumbnail]);
+
 	return (
 		<li
-			key={item.id}
+			key={item?.id}
 			className={classNames(
 				`experience grid grid-cols-3 md:flex md:flex-row py-4`,
 				active
@@ -69,16 +82,33 @@ const Experience = ({ item, active, setActive, onHover }) => {
 					`col-span-3 pt-0 mb-0 text-left dark:text-gray-300 md:text-black text-2xl md:text-base md:font-medium sm:w-24 md:w-40`
 				)}
 			>
-				<a href={item.url} onClick={onClick}>
-					{item.client}
+				<a href={item?.url} onClick={onClick}>
+					{item?.client}
 				</a>
 			</p>
 			<p className="col-span-2 pt-0 mb-0 md:ml-8 text-xs md:text-base md:text-center dark:text-gray-300 text-black lg:font-light">
-				{item.role}
+				{item?.role}
 			</p>
 			<p className="col-span-1 pt-0 mb-0 ml-auto text-right text-xs md:text-base md:text-center dark:text-gray-300 text-black lg:font-light">
-				{item.date}
+				{item?.date}
 			</p>
+			{isHovering && item.thumbnail && (
+				<div className="fixed bottom-4 right-4 p-2 bg-white border rounded shadow w-96 h-64 z-10">
+					{Array.isArray(item.thumbnail) ? (
+						<img
+							src={item.thumbnail[currentSlide]}
+							alt={item.title}
+							className="h-full mx-auto my-auto transform translate-x-0 transition-transform duration-300 ease-in-out"
+						/>
+					) : (
+						<img
+							src={item.thumbnail}
+							alt={item.title}
+							className="h-full mx-auto my-auto"
+						/>
+					)}
+				</div>
+			)}
 			{/* <p className="pt-0 mb-0 fontregular text-center text-black lg:font-light">Add description here, problems, market, why, achivements</p> */}
 		</li>
 	);

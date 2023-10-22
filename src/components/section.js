@@ -123,7 +123,11 @@ const Section = ({ section }) => {
 							section?.align?.horizontal === 'center',
 						'content-end': section?.align?.horizontal === 'right',
 					},
-					section?.class?.trim()
+					section?.class?.trim(),
+					section?.background?.attachment?.trim(),
+					section?.background?.position?.trim(),
+					section?.background?.repeat?.trim(),
+					section?.background?.size?.trim()
 				)}
 				style={{
 					backgroundImage:
@@ -252,7 +256,11 @@ const Section = ({ section }) => {
 						'content-center': section?.align?.vertical === 'center',
 						'content-end': section?.align?.vertical === 'bottom',
 					},
-					section?.class?.trim()
+					section?.class?.trim(),
+					section?.background?.attachment?.trim(),
+					section?.background?.position?.trim(),
+					section?.background?.repeat?.trim(),
+					section?.background?.size?.trim()
 				)}
 				style={{
 					backgroundImage:
@@ -336,7 +344,6 @@ const Section = ({ section }) => {
 				className={classNames(
 					`py-16 section variant-full h-screen w-screen overflow-hidden flex items-center justify-start`,
 					{
-						'bg-center bg-cover': section?.background?.image,
 						'justify-start': section?.align?.horizontal === 'left',
 						'justify-center':
 							section?.align?.horizontal === 'center',
@@ -345,7 +352,11 @@ const Section = ({ section }) => {
 						'items-center': section?.align?.vertical === 'center',
 						'items-end': section?.align?.vertical === 'bottom',
 					},
-					section?.class?.trim()
+					section?.class?.trim(),
+					section?.background?.attachment?.trim(),
+					section?.background?.position?.trim(),
+					section?.background?.repeat?.trim(),
+					section?.background?.size?.trim()
 				)}
 				id={section?.anchor}
 				style={{
@@ -535,7 +546,6 @@ const Section = ({ section }) => {
 				{
 					[`variant-${section.variant}`]: section.variant,
 					[`${section.className}`]: section.className,
-					'bg-center bg-cover': section?.background?.image,
 					'justify-start': section?.align?.horizontal === 'left',
 					'justify-center': section?.align?.horizontal === 'center',
 					'justify-end': section?.align?.horizontal === 'right',
@@ -544,8 +554,10 @@ const Section = ({ section }) => {
 					'content-end': section?.align?.vertical === 'bottom',
 				},
 				section?.class?.trim(),
-				section?.align?.horizontal.trim(),
-				section?.align?.vertial.trim()
+				section?.background?.attachment?.trim(),
+				section?.background?.position?.trim(),
+				section?.background?.repeat?.trim(),
+				section?.background?.size?.trim()
 			)}
 			style={{
 				backgroundImage:
@@ -565,9 +577,9 @@ const Section = ({ section }) => {
 				)}
 			>
 				{/* clean up below, how to make it less "hard structure" */}
-				{section?.tabs && <TabbedContent tabs={section.tabs} />}
+				{section?.tabs && <TabbedContent tabs={section?.tabs} />}
 				{section?.accordion && (
-					<AccordionContent tabs={section.accordion} />
+					<AccordionContent accordion={section?.accordion} />
 				)}
 				{section?.style === 'hero' && (
 					<div

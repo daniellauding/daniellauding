@@ -195,24 +195,83 @@ const Image = ({ item = {} }) => {
 		}, []);
 
 		return (
-			<div
-				className="image-scrollimghorizontal-container overflow-x-auto items-center justify-center flex"
-				onWheel={handleScroll}
-				style={{ overflowX: 'scroll', scrollBehavior: 'smooth' }}
-			>
+			<>
 				<div
-					className={`image-scrollimghorizontal ${
-						inViewport ? 'in-viewport' : ''
-					}`}
+					className="image-scrollimghorizontal-container overflow-x-auto items-center justify-center flex"
+					onWheel={handleScroll}
+					style={{ overflowX: 'scroll', scrollBehavior: 'smooth' }}
 				>
 					<div
-						className="image-scrollimghorizontal-item"
-						ref={imageRef}
+						className={`image-scrollimghorizontal ${
+							inViewport ? 'in-viewport' : ''
+						}`}
 					>
-						<img src={src} alt="" className="scrollable-image" />
+						<div
+							className="image-scrollimghorizontal-item"
+							ref={imageRef}
+						>
+							<img
+								src={src}
+								alt=""
+								className="scrollable-image cursor-zoom-in"
+								onClick={() => openModalAndSetIndex(src)} // Open modal on click
+							/>
+						</div>
 					</div>
 				</div>
-			</div>
+				{showModal && (
+					<div
+						tabIndex="-1"
+						aria-hidden="true"
+						className={classNames(
+							'fixed inset-0 z-10 overflow-y-auto'
+						)}
+					>
+						<div className="modal modal-enter-access-code flex min-h-full items-end justify-center p-12 text-center sm:items-center h-screen">
+							<div className="modal-wrapper z-20 relative transform overflow-hidden rounded-2xl bg-white text-left shadow-xl transition-all h-full max-w-2xl">
+								<button
+									// onClick={clearActive}
+									onClick={() => setShowModal(false)}
+									type="button"
+									className="absolute top-4 right-4 ml-auto btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline z-20"
+									data-bs-dismiss="modal"
+									aria-label="Close"
+								>
+									<XMarkIcon className="h-5 w-5 text-black" />
+								</button>
+								<div className="modal-body h-full relative pt-0 py-4 px-10 mx-auto">
+									<div
+										className={classNames(
+											`w-full h-full justify-center gap-4 flex-col items-center overflow-y-auto flex py-16`
+										)}
+									>
+										<div className="gallery-image w-full h-full overflow-y-auto flex flex-1">
+											<img
+												src={src}
+												alt=""
+												// className="object-cover mx-auto w-full max-w-full max-h-full"
+												className="object-cover mx-auto w-full max-w-full max-h-full"
+											/>
+										</div>
+										{/* <div className="gallery-content w-full">
+											{image.title && (
+												<Title value={image?.title} />
+											)}
+											{image.text && (
+												<Text value={image?.text} />
+											)}
+										</div> */}
+									</div>
+								</div>
+							</div>
+							<div
+								onClick={() => setShowModal(false)}
+								className="modal-backdrop w-full h-full min-h-full fixed top-0 left-0 bottom-0 right-0 z-10 bg-opacity-90 bg-neutral-800 backdrop-blur"
+							/>
+						</div>
+					</div>
+				)}
+			</>
 		);
 	}
 
@@ -224,19 +283,19 @@ const Image = ({ item = {} }) => {
 		let innerDivClasses;
 		if (item?.style === 'horizontal') {
 			containerClasses = 'flex overflow-x-scroll space-x-4 h-64';
-			imageClasses = 'object-cover w-full h-full';
+			imageClasses = 'object-cover w-full h-full cursor-zoom-in';
 			innerDivClasses =
 				'relative flex-shrink-0 w-1/4 md:w-1/3 lg:w-1/4 xl:w-1/5 ml-[-20px] hover:scale-110 transition-transform';
 		} else if (item?.style === 'vertical') {
 			containerClasses = '';
 			imageClasses =
-				'object-cover w-32 h-32 cursor-pointer transform hover:scale-110 transition-transform duration-300';
+				'object-cover w-32 h-32 cursor-pointer transform hover:scale-110 transition-transform duration-300 cursor-zoom-in';
 			innerDivClasses = 'relative flex-shrink-0';
 		} else {
 			// Handle the case when item?.style is not set or has an unexpected value
 			containerClasses =
 				'image-loop grid gap-2 mx-auto grid-cols-3 p-20 space-y-2 lg:space-y-0 lg:grid lg:gap-3 lg:grid-rows-3'; // Replace with your default classes
-			imageClasses = 'default-image-classes';
+			imageClasses = 'default-image-classes cursor-zoom-in';
 			innerDivClasses = 'default-inner-div-classes';
 		}
 
@@ -404,7 +463,7 @@ const Image = ({ item = {} }) => {
 		const containerClasses =
 			'image-scrollloop-container absolute inset-0 overflow-y-scroll';
 		const imageClasses =
-			'object-cover w-64 h-64 cursor-pointer transform hover:scale-110 transition-transform duration-300';
+			'object-cover w-64 h-64 cursor-pointer transform hover:scale-110 transition-transform duration-300 cursor-zoom-in';
 		const innerDivClasses = 'relative flex-shrink-0';
 
 		const [selectedImageSrc, setSelectedImageSrc] = useState('');

@@ -1,47 +1,57 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Groups from './groups';
 
-const AccordionContent = ({ tabs }) => {
-	const [activeTab, setActiveTab] = useState(null);
+const AccordionContent = ({ accordion }) => {
+	const [activeAccordion, setActiveAccordion] = useState([]);
 
-	const handleTabClick = (sectionIndex) => {
-		if (activeTab === sectionIndex) {
+	// Initialize active accordion sections when the component mounts
+	useEffect(() => {
+		const initialActiveAccordion = accordion
+			.map((item, index) => (item.active ? index : null))
+			.filter((index) => index !== null);
+		setActiveAccordion(initialActiveAccordion);
+	}, [accordion]);
+
+	const handleAccordionClick = (sectionIndex) => {
+		if (activeAccordion.includes(sectionIndex)) {
 			// Clicking the active tab again should close it
-			setActiveTab(null);
+			setActiveAccordion(
+				activeAccordion.filter((index) => index !== sectionIndex)
+			);
 		} else {
-			setActiveTab(sectionIndex);
+			setActiveAccordion([...activeAccordion, sectionIndex]);
 		}
 	};
 
-	console.log('tabs', tabs);
-
 	return (
 		<div className="accordion">
-			{tabs?.map((section, sectionIndex) => (
-				<div key={sectionIndex}>
+			{accordion?.map((accordionItem, accordionIndex) => (
+				<div key={accordionIndex}>
 					<div
 						className="flex border-b cursor-pointer"
-						onClick={() => handleTabClick(sectionIndex)}
+						onClick={() => handleAccordionClick(accordionIndex)}
 					>
 						<div
 							className={`p-4 w-full ${
-								activeTab === sectionIndex
+								activeAccordion.includes(accordionIndex)
 									? 'border-blue-500'
 									: ''
 							}`}
 						>
-							{section.title}
-							{section.section}
+							{accordionItem.title}
+							{accordionItem.section}
 						</div>
 					</div>
 					<div
 						className={`${
-							activeTab === sectionIndex ? 'block' : 'hidden'
+							activeAccordion.includes(accordionIndex)
+								? 'block'
+								: 'hidden'
 						} border p-4 border-gray-300`}
 					>
-						{section.lead}
+						{accordionItem.lead}
 
-						<Groups section={section} />
+						<Groups section={accordionItem} />
 					</div>
 				</div>
 			))}

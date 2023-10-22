@@ -509,6 +509,10 @@ const work = [
 		},
 		protected: true,
 		index: true,
+		thumbnail: [
+			'/images/case/lansforsakringar/bg_lf.png',
+			'/images/case/spotify/bg_favela.jpg',
+		],
 		url: 'https://www.lansforsakringar.se',
 		// cases: [
 		// 	{
@@ -677,11 +681,14 @@ const work = [
 					{
 						id: 2,
 						background: {
-							image: '/images/case/lansforsakringar/lfui-map@2x.png',
+							image: '/images/case/lansforsakringar/devices.png',
+							attachment: 'bg-local',
+							repeat: 'bg-no-repeat',
+							position: 'bg-center',
+							size: 'bg-80%',
+							color: '#fff',
 						},
 						variant: 'full',
-						class: 'bg-cover bg-local bg-no-repeat bg-center',
-						backgroundColor: '#fff',
 					},
 					{
 						id: 3,
@@ -689,36 +696,103 @@ const work = [
 						anchor: '#goal',
 						columns: 3,
 						gap: 4,
-						// accordion: [
-						// 	{
-						// 		section: 'Overview',
-						// 		title: 'Introduction',
-						// 		lead: 'This is the overview section.',
-						// 	},
-						// 	{
-						// 		section: 'Details',
-						// 		title: 'Details',
-						// 		lead: 'This is the details section.',
-						// 		groups: [
-						// 			{
-						// 				id: 0,
-						// 				columns: 1,
-						// 				title: {
-						// 					value: 'Tabbed group content',
-						// 				},
-						// 			},
-						// 			{
-						// 				id: 1,
-						// 				columns: 2,
-						// 				text: {
-						// 					value: 'Etiam eu dolor eget lorem imperdiet pretium. Quisque sed elementum neque, non egestas ante. Sed imperdiet, mauris in lacinia vehicula, magna elit ornare tortor, quis sagittis libero nunc eu ipsum. Ut sit amet arcu',
-						// 					size: 'large',
-						// 				},
-						// 			},
-						// 		],
-						// 	},
-						// 	// Add more tabs as needed
-						// ],
+						accordion: [
+							{
+								section: 'accordion-desktop',
+								title: 'Desktop',
+								lead: 'desktop stuff.',
+								active: true,
+							},
+							{
+								section: 'accordion-mobile',
+								title: 'Mobile',
+								lead: 'mobile stuff.',
+								groups: [
+									{
+										id: 0,
+										columns: 1,
+										title: {
+											value: 'Tabbed group content',
+										},
+									},
+									{
+										id: 1,
+										columns: 2,
+										text: {
+											value: 'Etiam eu dolor eget lorem imperdiet pretium. Quisque sed elementum neque, non egestas ante. Sed imperdiet, mauris in lacinia vehicula, magna elit ornare tortor, quis sagittis libero nunc eu ipsum. Ut sit amet arcu',
+											size: 'large',
+										},
+									},
+								],
+							},
+							{
+								section: 'accordion-nim',
+								title: 'Portal',
+								lead: 'portal stuff.',
+								groups: [
+									{
+										id: 0,
+										columns: 1,
+										title: {
+											value: 'Tabbed group content',
+										},
+									},
+									{
+										id: 1,
+										columns: 2,
+										text: {
+											value: 'Etiam eu dolor eget lorem imperdiet pretium. Quisque sed elementum neque, non egestas ante. Sed imperdiet, mauris in lacinia vehicula, magna elit ornare tortor, quis sagittis libero nunc eu ipsum. Ut sit amet arcu',
+											size: 'large',
+										},
+									},
+								],
+							},
+							{
+								section: 'accordion-watch',
+								title: 'Watch',
+								lead: 'watch stuff.',
+								groups: [
+									{
+										id: 0,
+										columns: 1,
+										title: {
+											value: 'Tabbed group content',
+										},
+									},
+									{
+										id: 1,
+										columns: 2,
+										text: {
+											value: 'Etiam eu dolor eget lorem imperdiet pretium. Quisque sed elementum neque, non egestas ante. Sed imperdiet, mauris in lacinia vehicula, magna elit ornare tortor, quis sagittis libero nunc eu ipsum. Ut sit amet arcu',
+											size: 'large',
+										},
+									},
+								],
+							},
+							{
+								section: 'accordion-insurance',
+								title: 'Insurance',
+								lead: 'insurance stuff.',
+								groups: [
+									{
+										id: 0,
+										columns: 1,
+										title: {
+											value: 'Tabbed group content',
+										},
+									},
+									{
+										id: 1,
+										columns: 2,
+										text: {
+											value: 'Etiam eu dolor eget lorem imperdiet pretium. Quisque sed elementum neque, non egestas ante. Sed imperdiet, mauris in lacinia vehicula, magna elit ornare tortor, quis sagittis libero nunc eu ipsum. Ut sit amet arcu',
+											size: 'large',
+										},
+									},
+								],
+							},
+							// Add more tabs as needed
+						],
 						groups: [
 							{
 								id: 0,
@@ -936,14 +1010,18 @@ const work = [
 					},
 					{
 						id: 7,
+						section: 'ui-component-navigation',
+						variant: 'scrollVertically',
 						image: {
-							variant: 'scrollimghorizontal',
-							src: '/images/case/lansforsakringar/mobile/01.00 login.png',
+							src: '/images/case/lansforsakringar/ui/big-menu@2x.png',
 						},
 						background: {
 							color: '#e5eff7',
 						},
-						class: 'items-center justify-center',
+						align: {
+							horizontal: 'center',
+							vertical: 'center',
+						},
 					},
 					{
 						id: 8,
