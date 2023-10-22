@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-const Text = ({ size, value, className, color, fill }) => {
+const Text = ({ size, value, className, color, fill, align }) => {
 	// return (
 	// 	<p
 	// 		className={classNames(
@@ -25,7 +25,10 @@ const Text = ({ size, value, className, color, fill }) => {
 					!color && !fill ? 'text-text' : '',
 					'lg:font-light',
 					className,
-					color?.trim()
+					color?.trim(),
+					{
+						'text-center': align?.horizontal === 'center',
+					}
 				)}
 				style={fill ? { color: fill.trim() } : undefined}
 			>
@@ -41,7 +44,10 @@ const Text = ({ size, value, className, color, fill }) => {
 					!color && !fill ? 'text-text' : '',
 					'lg:font-light',
 					className,
-					color?.trim()
+					color?.trim(),
+					{
+						'text-center': align?.horizontal === 'center',
+					}
 				)}
 				style={fill ? { color: fill.trim() } : undefined}
 			>
@@ -57,7 +63,10 @@ const Text = ({ size, value, className, color, fill }) => {
 					!color && !fill ? 'text-text' : '',
 					'lg:font-light',
 					className,
-					color?.trim()
+					color?.trim(),
+					{
+						'text-center': align?.horizontal === 'center',
+					}
 				)}
 				style={fill ? { color: fill.trim() } : undefined}
 			>
@@ -73,7 +82,10 @@ const Text = ({ size, value, className, color, fill }) => {
 					!color && !fill ? 'text-text' : '',
 					'lg:font-light',
 					className,
-					color?.trim()
+					color?.trim(),
+					{
+						'text-center': align?.horizontal === 'center',
+					}
 				)}
 				style={fill ? { color: fill.trim() } : undefined}
 			>
@@ -89,7 +101,10 @@ const Text = ({ size, value, className, color, fill }) => {
 					!color && !fill ? 'text-text' : '',
 					'lg:font-light',
 					className,
-					color?.trim()
+					color?.trim(),
+					{
+						'text-center': align?.horizontal === 'center',
+					}
 				)}
 				style={fill ? { color: fill.trim() } : undefined}
 			>
@@ -105,7 +120,10 @@ const Text = ({ size, value, className, color, fill }) => {
 					!color && !fill ? 'text-text' : '',
 					'lg:font-light',
 					className,
-					color?.trim()
+					color?.trim(),
+					{
+						'text-center': align?.horizontal === 'center',
+					}
 				)}
 				style={fill ? { color: fill.trim() } : undefined}
 			>
@@ -120,7 +138,10 @@ const Text = ({ size, value, className, color, fill }) => {
 				!color && !fill ? 'text-text' : '',
 				'lg:font-light',
 				className,
-				color?.trim()
+				color?.trim(),
+				{
+					'text-center': align?.horizontal === 'center',
+				}
 			)}
 			style={fill ? { color: fill.trim() } : undefined}
 		>
@@ -129,7 +150,7 @@ const Text = ({ size, value, className, color, fill }) => {
 	);
 };
 
-const Title = ({ size = 'medium', value, className, color, fill }) => {
+const Title = ({ size = 'medium', value, className, color, fill, align }) => {
 	if (size === 'xl') {
 		return (
 			<h1
@@ -138,7 +159,10 @@ const Title = ({ size = 'medium', value, className, color, fill }) => {
 					!color && !fill ? 'text-text' : '',
 					'lg:font-bold',
 					className,
-					color?.trim()
+					color?.trim(),
+					{
+						'text-center': align?.horizontal === 'center',
+					}
 				)}
 				style={fill ? { color: fill.trim() } : undefined}
 			>
@@ -154,7 +178,10 @@ const Title = ({ size = 'medium', value, className, color, fill }) => {
 					!color && !fill ? 'text-text' : '',
 					'lg:font-bold',
 					className,
-					color?.trim()
+					color?.trim(),
+					{
+						'text-center': align?.horizontal === 'center',
+					}
 				)}
 				style={fill ? { color: fill.trim() } : undefined}
 			>
@@ -170,7 +197,10 @@ const Title = ({ size = 'medium', value, className, color, fill }) => {
 					!color && !fill ? 'text-text' : '',
 					'lg:font-bold',
 					className,
-					color?.trim()
+					color?.trim(),
+					{
+						'text-center': align?.horizontal === 'center',
+					}
 				)}
 				style={fill ? { color: fill.trim() } : undefined}
 			>
@@ -186,7 +216,10 @@ const Title = ({ size = 'medium', value, className, color, fill }) => {
 					!color && !fill ? 'text-text' : '',
 					'lg:font-bold',
 					className,
-					color?.trim()
+					color?.trim(),
+					{
+						'text-center': align?.horizontal === 'center',
+					}
 				)}
 				style={fill ? { color: fill.trim() } : undefined}
 			>
@@ -202,7 +235,10 @@ const Title = ({ size = 'medium', value, className, color, fill }) => {
 					!color && !fill ? 'text-text' : '',
 					'lg:font-bold',
 					className,
-					color?.trim()
+					color?.trim(),
+					{
+						'text-center': align?.horizontal === 'center',
+					}
 				)}
 				style={fill ? { color: fill.trim() } : undefined}
 			>

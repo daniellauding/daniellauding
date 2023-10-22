@@ -122,6 +122,8 @@ const Section = ({ section }) => {
 						'content-center':
 							section?.align?.horizontal === 'center',
 						'content-end': section?.align?.horizontal === 'right',
+						'flex-col': section?.direction === 'vertical',
+						'flex-row': section?.direction === 'horizontal',
 					},
 					section?.class?.trim(),
 					section?.background?.attachment?.trim(),
@@ -161,6 +163,10 @@ const Section = ({ section }) => {
 							'content-end':
 								section?.container?.align?.horizontal ===
 								'right',
+							'flex-col':
+								section?.container?.direction === 'vertical',
+							'flex-row':
+								section?.container?.direction === 'horizontal',
 							flex:
 								section?.container?.align?.vertical ||
 								section?.container?.align?.horizontal,
@@ -255,6 +261,8 @@ const Section = ({ section }) => {
 						'content-start': section?.align?.vertical === 'top',
 						'content-center': section?.align?.vertical === 'center',
 						'content-end': section?.align?.vertical === 'bottom',
+						'flex-col': section?.direction === 'vertical',
+						'flex-row': section?.direction === 'horizontal',
 					},
 					section?.class?.trim(),
 					section?.background?.attachment?.trim(),
@@ -351,6 +359,8 @@ const Section = ({ section }) => {
 						'items-start': section?.align?.vertical === 'top',
 						'items-center': section?.align?.vertical === 'center',
 						'items-end': section?.align?.vertical === 'bottom',
+						'flex-col': section?.direction === 'vertical',
+						'flex-row': section?.direction === 'horizontal',
 					},
 					section?.class?.trim(),
 					section?.background?.attachment?.trim(),
@@ -368,31 +378,79 @@ const Section = ({ section }) => {
 			>
 				<div
 					className={classNames(
-						`mx-auto container-full w-full h-full`,
+						section?.container?.width === 'full'
+							? 'container-full'
+							: 'container',
 						{
 							'justify-start':
-								section?.container?.align?.horizontal ===
-								'left',
+								section?.container?.align?.vertical === 'top',
 							'justify-center':
-								section?.container?.align?.horizontal ===
+								section?.container?.align?.vertical ===
 								'center',
 							'justify-end':
-								section?.container?.align?.horizontal ===
-								'right',
-							'content-start':
-								section?.container?.align?.vertical === 'top',
-							'content-center':
-								section?.container?.align?.vertical ===
-								'center',
-							'content-end':
 								section?.container?.align?.vertical ===
 								'bottom',
+							'content-start':
+								section?.container?.align?.horizontal ===
+								'left',
+							'content-center':
+								section?.container?.align?.horizontal ===
+								'center',
+							'content-end':
+								section?.container?.align?.horizontal ===
+								'right',
+							'flex-col':
+								section?.container?.direction === 'vertical',
+							'flex-row':
+								section?.container?.direction === 'horizontal',
+							flex:
+								section?.container?.align?.vertical ||
+								section?.container?.align?.horizontal,
 						}
 					)}
 				>
-					{section?.title && <Title value={section?.title} />}
+					{/* {section?.title && <Title value={section?.title} />} */}
 					{section?.lead && <Text value={section?.lead} />}
-					{section?.text && <Text value={section?.text} />}
+					{/* {section?.text && <Text value={section?.text} />} */}
+
+					{section?.title && (
+						<Title
+							value={section?.title?.value}
+							variant={section?.title?.variant}
+							style={section?.title?.style}
+							color={section?.title?.color}
+							fill={section?.title?.fill}
+							align={section?.title?.align}
+							className={section?.title?.className}
+						/>
+					)}
+					{section?.text && Array.isArray(section?.text) ? (
+						<div className="space-y-4">
+							{section?.text.map((textBlock, index) => (
+								<Text
+									key={index}
+									value={textBlock.value}
+									size={textBlock.size}
+									style={textBlock.style}
+									color={textBlock?.color}
+									fill={textBlock?.fill}
+									align={textBlock?.align}
+									className={textBlock?.className}
+								/>
+							))}
+						</div>
+					) : (
+						<Text
+							value={section?.text?.value}
+							size={section?.text?.size}
+							style={section?.text?.style}
+							color={section?.text?.color}
+							fill={section?.text?.fill}
+							align={section?.text?.align}
+							className={section?.text?.className}
+						/>
+					)}
+
 					{section?.desc && <Text value={section?.desc} />}
 					{section?.image && (
 						<>

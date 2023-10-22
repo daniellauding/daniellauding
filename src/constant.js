@@ -158,6 +158,12 @@ const work = [
 		url: 'https://www.spotify.com',
 		protected: true,
 		index: true,
+		thumbnail: [
+			'/images/case/spotify/thumbnail/00.png',
+			'/images/case/spotify/thumbnail/01.png',
+			'/images/case/spotify/thumbnail/02.png',
+			'/images/case/spotify/thumbnail/03.png',
+		],
 		cases: [
 			{
 				id: 0,
@@ -510,8 +516,16 @@ const work = [
 		protected: true,
 		index: true,
 		thumbnail: [
-			'/images/case/lansforsakringar/bg_lf.png',
-			'/images/case/spotify/bg_favela.jpg',
+			'/images/case/lansforsakringar/thumbnail/01.png',
+			'/images/case/lansforsakringar/thumbnail/02.png',
+			'/images/case/lansforsakringar/thumbnail/03.png',
+			'/images/case/lansforsakringar/thumbnail/04.png',
+			'/images/case/lansforsakringar/thumbnail/05.png',
+			'/images/case/lansforsakringar/thumbnail/06.png',
+			'/images/case/lansforsakringar/thumbnail/07.png',
+			'/images/case/lansforsakringar/thumbnail/08.png',
+			'/images/case/lansforsakringar/thumbnail/09.png',
+			'/images/case/lansforsakringar/thumbnail/10.gif',
 		],
 		url: 'https://www.lansforsakringar.se',
 		// cases: [
@@ -1046,25 +1060,58 @@ const work = [
 							color: '#e5eff7',
 						},
 					},
+					// {
+					// 	id: 9,
+					// 	variant: 'scrollVertically',
+					// 	title: 'Scroll me vertically',
+					// 	image: {
+					// 		src: '/images/case/lansforsakringar/mobile/01.00 login.png',
+					// 	},
+					// 	background: {
+					// 		color: '#e5eff7',
+					// 	},
+					// 	align: {
+					// 		horizontal: 'center',
+					// 		vertical: 'center',
+					// 	},
+					// 	container: {
+					// 		align: {
+					// 			horizontal: 'center',
+					// 			vertical: 'center',
+					// 		},
+					// 	},
+					// },
 					{
 						id: 9,
-						variant: 'scrollVertically',
-						title: 'Scroll me vertically',
+						section: 'watch-animation',
+						variant: 'full',
 						image: {
-							src: '/images/case/lansforsakringar/mobile/01.00 login.png',
+							src: '/images/case/lansforsakringar/watch/watch-transfer.gif',
+							class: 'h-auto max-w-sm mx-auto',
+							imgClass: 'h-auto max-w-sm mx-auto',
+						},
+						text: {
+							value: `Watch it!`,
+							size: 'large',
+							align: {
+								horizontal: 'center',
+							},
+							className: 'mt-16 order-2',
 						},
 						background: {
-							color: '#e5eff7',
+							color: '#000',
 						},
 						align: {
 							horizontal: 'center',
 							vertical: 'center',
 						},
+						direction: 'vertical',
 						container: {
 							align: {
 								horizontal: 'center',
 								vertical: 'center',
 							},
+							direction: 'vertical',
 						},
 					},
 					{
@@ -1507,6 +1554,14 @@ const work = [
 		url: 'https://www.daniellauding.se',
 		protected: true,
 		index: true,
+		thumbnail: [
+			'/images/case/instinctly/klm/thumbnail/01.png',
+			'/images/case/instinctly/klm/thumbnail/02.png',
+			'/images/case/instinctly/klm/thumbnail/03.png',
+			'/images/case/instinctly/klm/thumbnail/04.png',
+			'/images/case/instinctly/klm/thumbnail/05.png',
+			'/images/case/instinctly/klm/thumbnail/06.png',
+		],
 		cases: [
 			{
 				id: 0,
@@ -1843,6 +1898,21 @@ const work = [
 		url: 'https://www.backbase.com',
 		protected: true,
 		index: true,
+		thumbnail: [
+			'/images/case/backbase/thumbnail/01.png',
+			'/images/case/backbase/thumbnail/02.png',
+			'/images/case/backbase/thumbnail/03.png',
+			'/images/case/backbase/thumbnail/04.png',
+			'/images/case/backbase/thumbnail/05.png',
+			'/images/case/backbase/thumbnail/06.png',
+			'/images/case/backbase/thumbnail/07.png',
+			'/images/case/backbase/thumbnail/08.png',
+			'/images/case/backbase/thumbnail/09.png',
+			'/images/case/backbase/thumbnail/10.png',
+			'/images/case/backbase/thumbnail/11.png',
+			'/images/case/backbase/thumbnail/12.png',
+			'/images/case/backbase/thumbnail/13.png',
+		],
 		cases: [
 			{
 				id: 0,

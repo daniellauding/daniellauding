@@ -32,6 +32,8 @@ const Group = ({ group }) => {
 					style={title?.style}
 					color={title?.color}
 					fill={title?.fill}
+					align={title?.align}
+					className={title?.className}
 				/>
 			)}
 			{text && Array.isArray(text) ? (
@@ -44,6 +46,8 @@ const Group = ({ group }) => {
 							style={textBlock.style}
 							color={textBlock?.color}
 							fill={textBlock?.fill}
+							align={textBlock?.align}
+							className={textBlock?.className}
 						/>
 					))}
 				</div>
@@ -54,6 +58,8 @@ const Group = ({ group }) => {
 					style={text?.style}
 					color={text?.color}
 					fill={text?.fill}
+					align={text?.align}
+					className={text?.className}
 				/>
 			)}
 

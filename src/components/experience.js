@@ -56,7 +56,7 @@ const Experience = ({ item, active, setActive, onHover }) => {
 					(prevSlide + 1) %
 					(Array.isArray(item.thumbnail) ? item.thumbnail.length : 1)
 			);
-		}, 3000);
+		}, 2000);
 
 		return () => clearInterval(interval); // Clean up the interval
 	}, [item.thumbnail]);
@@ -69,7 +69,7 @@ const Experience = ({ item, active, setActive, onHover }) => {
 				active
 					? 'bg-gray-100 text-gray-900'
 					: 'block px-4 py-2 text-sm text-gray-700',
-				isHovering ? 'hovering' : 'no-hover'
+				isHovering ? 'hovering cursor-pointer' : 'no-hover'
 			)}
 			onClick={onClick}
 			onMouseEnter={setPreview}
