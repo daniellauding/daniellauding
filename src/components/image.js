@@ -121,7 +121,94 @@ const Image = ({ item = {} }) => {
 					onScroll={handleScroll}
 					className="image-scrollimg min-h-full"
 				>
-					<div className="image-scrollimg-item">
+					<div className="image-scrollimg-item"></div>
+				</div>
+			</div>
+		);
+	}
+
+	if (variant === 'scrollimghorizontal') {
+		const imageRef = useRef(null);
+		const [inViewport, setInViewport] = useState(false);
+		const [startX, setStartX] = useState(0); // Initialize the initial X position
+
+		useEffect(() => {
+			const observer = new IntersectionObserver(
+				([entry]) => {
+					setInViewport(entry.isIntersecting);
+				},
+				{ root: null, rootMargin: '0px', threshold: 0.5 }
+			);
+
+			if (imageRef.current) {
+				observer.observe(imageRef.current);
+			}
+
+			// Clean up the observer when the component unmounts
+			return () => {
+				if (imageRef.current) {
+					observer.unobserve(imageRef.current);
+				}
+			};
+		}, []);
+
+		const handleScroll = (e) => {
+			if (inViewport) {
+				const element = imageRef.current;
+				const scrollAmount = e.deltaY; // Use e.deltaY directly
+				const transformValue =
+					element.style.transform || `translateX(${startX}px)`;
+				const currentX = parseFloat(transformValue.match(/-?\d+/));
+				let newX = currentX + scrollAmount; // Use "+" to move in the opposite direction
+
+				// Add a threshold for the maximum panning (adjust as needed)
+				const maxPanning = 100;
+				if (newX < -maxPanning) {
+					newX = -maxPanning;
+				} else if (newX > maxPanning) {
+					newX = maxPanning;
+				}
+
+				element.style.transform = `translateX(${newX}px)`;
+
+				// Update the start position to the new X position
+				setStartX(newX);
+			}
+		};
+		// Add an event listener for mouse leave
+		useEffect(() => {
+			const handleMouseLeave = () => {
+				// Mouse has left the image container, set inViewport to false
+				setInViewport(false);
+			};
+
+			// Add the mouse leave event listener to the document body
+			document.body.addEventListener('mouseleave', handleMouseLeave);
+
+			// Clean up the event listener when the component unmounts
+			return () => {
+				document.body.removeEventListener(
+					'mouseleave',
+					handleMouseLeave
+				);
+			};
+		}, []);
+
+		return (
+			<div
+				className="image-scrollimghorizontal-container overflow-x-auto items-center justify-center flex"
+				onWheel={handleScroll}
+				style={{ overflowX: 'scroll', scrollBehavior: 'smooth' }}
+			>
+				<div
+					className={`image-scrollimghorizontal ${
+						inViewport ? 'in-viewport' : ''
+					}`}
+				>
+					<div
+						className="image-scrollimghorizontal-item"
+						ref={imageRef}
+					>
 						<img src={src} alt="" className="scrollable-image" />
 					</div>
 				</div>

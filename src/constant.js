@@ -605,7 +605,7 @@ const work = [
 						backgroundColor: '#F3F3F3',
 					},
 					{
-						id: 2,
+						id: 1,
 						section: 'problem',
 						anchor: '#problem',
 						columns: 3,
@@ -916,6 +916,15 @@ const work = [
 								},
 							},
 						],
+					},
+					{
+						id: 7,
+						image: {
+							variant: 'scrollimghorizontal',
+							src: '/images/case/lansforsakringar/mobile/01.00 login.png',
+						},
+						backgroundColor: '#e5eff7',
+						class: 'items-center justify-center',
 					},
 					{
 						id: 8,

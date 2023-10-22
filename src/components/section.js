@@ -133,6 +133,7 @@ const Section = ({ section }) => {
 				)}
 				style={{
 					backgroundImage: section?.bg && `url(${section?.bg})`,
+					backgroundColor: section?.backgroundColor,
 				}}
 				id={section?.name}
 			>
@@ -252,6 +253,7 @@ const Section = ({ section }) => {
 			)}
 			style={{
 				backgroundImage: section?.bg && `url(${section?.bg})`,
+				backgroundColor: section?.backgroundColor,
 			}}
 			// id={section?.name}
 			id={section?.anchor}
