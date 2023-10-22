@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import classNames from 'classnames';
 import Groups from './groups';
 import Text, { Title } from './typography';
@@ -70,6 +70,100 @@ const Section = ({ section }) => {
 	if (!section) {
 		// Handle the case where section is undefined or null
 		return null; // or any other appropriate fallback
+	}
+
+	if (section?.variant === 'scrollHorizontally') {
+		const contentRef = useRef(null);
+		const [startX, setStartX] = useState(0);
+
+		useEffect(() => {
+			const handleScroll = (e) => {
+				const element = contentRef.current;
+				const scrollAmount = e.deltaY;
+				const transformValue =
+					element.style.transform || `translateX(${startX}px)`;
+				const currentX = parseFloat(transformValue.match(/-?\d+/));
+				let newX = currentX - scrollAmount;
+
+				// Add a threshold for the maximum panning (adjust as needed)
+				const maxPanning = 100;
+				if (newX < -maxPanning) {
+					newX = -maxPanning;
+				} else if (newX > maxPanning) {
+					newX = maxPanning;
+				}
+
+				element.style.transform = `translateX(${newX}px)`;
+
+				// Update the start position to the new X position
+				setStartX(newX);
+			};
+
+			contentRef.current.addEventListener('wheel', handleScroll, {
+				passive: false,
+			});
+
+			// Clean up the event listener when the component unmounts
+			return () => {
+				contentRef.current.removeEventListener('wheel', handleScroll);
+			};
+		}, []);
+
+		return (
+			<div
+				className={classNames(
+					`py-16 section section-${section.section}`,
+					{
+						[`variant-${section.variant}`]: section.variant,
+						[`${section.className}`]: section.className,
+					}
+				)}
+				style={{
+					backgroundImage: section?.bg && `url(${section?.bg})`,
+					backgroundColor: section?.backgroundColor,
+				}}
+				id={section?.anchor}
+			>
+				<div
+					className={classNames(
+						`mx-auto`,
+						section?.container
+							? section?.container.trim()
+							: 'container'
+					)}
+				>
+					<div
+						ref={contentRef}
+						className={classNames(`item`, {
+							style: section.style,
+						})}
+					>
+						{section?.title && <Title value={section?.title} />}
+						{section?.lead && <Text value={section?.lead} />}
+						{section?.text && <Text value={section?.text} />}
+						{section?.desc && <Text value={section?.desc} />}
+						{section?.image && (
+							<>
+								<Image
+									variant={section?.image?.variant}
+									color={section?.image?.color}
+									format={section?.image?.format}
+									width={section?.image?.width}
+									height={section?.image?.height}
+									text={section?.image?.text}
+									textColor={section?.image?.textColor}
+									src={section?.image?.src}
+									item={section?.image}
+									images={section?.image?.images}
+								/>
+							</>
+						)}
+
+						<Groups section={section} />
+					</div>
+				</div>
+			</div>
+		);
 	}
 
 	if (section?.variant === 'full') {

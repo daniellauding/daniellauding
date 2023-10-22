@@ -928,6 +928,13 @@ const work = [
 					},
 					{
 						id: 8,
+						variant: 'scrollHorizontally',
+						title: 'Scroll me horizontally',
+						backgroundColor: '#e5eff7',
+						// class: 'items-center justify-center',
+					},
+					{
+						id: 9,
 						section: 'approach',
 						anchor: '#approach',
 						columns: 3,
@@ -951,7 +958,7 @@ const work = [
 						],
 					},
 					{
-						id: 9,
+						id: 10,
 						section: 'outcome',
 						columns: 3,
 						gap: 4,
@@ -974,7 +981,7 @@ const work = [
 						],
 					},
 					{
-						id: 10,
+						id: 11,
 						section: 'image-loop',
 						image: {
 							variant: 'loop',
