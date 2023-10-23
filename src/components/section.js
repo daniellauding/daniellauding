@@ -129,7 +129,10 @@ const Section = ({ section }) => {
 					section?.background?.attachment?.trim(),
 					section?.background?.position?.trim(),
 					section?.background?.repeat?.trim(),
-					section?.background?.size?.trim()
+					section?.background?.size?.trim(),
+					section?.background?.class?.trim(),
+					section?.height?.trim(),
+					section?.widht?.trim()
 				)}
 				style={{
 					backgroundImage:
@@ -145,6 +148,9 @@ const Section = ({ section }) => {
 						section?.container?.width === 'full'
 							? 'container-full'
 							: 'container',
+						section?.container?.height
+							? section?.container?.height
+							: '',
 						{
 							'justify-start':
 								section?.container?.align?.vertical === 'top',
@@ -182,9 +188,50 @@ const Section = ({ section }) => {
 							}
 						)}
 					>
-						{section?.title && <Title value={section?.title} />}
 						{section?.lead && <Text value={section?.lead} />}
-						{section?.text && <Text value={section?.text} />}
+						{section?.title && (
+							<Title
+								value={section?.title?.value}
+								variant={section?.title?.variant}
+								style={section?.title?.style}
+								color={section?.title?.color}
+								fill={section?.title?.fill}
+								align={section?.title?.align}
+								className={section?.title?.className}
+								family={section?.title?.family}
+								weight={section?.title?.weight}
+							/>
+						)}
+						{section?.text && Array.isArray(section?.text) ? (
+							<div className="space-y-4">
+								{section?.text.map((textBlock, index) => (
+									<Text
+										key={index}
+										value={textBlock.value}
+										size={textBlock.size}
+										style={textBlock.style}
+										color={textBlock?.color}
+										fill={textBlock?.fill}
+										align={textBlock?.align}
+										family={textBlock?.family}
+										weight={textBlock?.weight}
+										className={textBlock?.className}
+									/>
+								))}
+							</div>
+						) : (
+							<Text
+								value={section?.text?.value}
+								size={section?.text?.size}
+								style={section?.text?.style}
+								color={section?.text?.color}
+								fill={section?.text?.fill}
+								align={section?.text?.align}
+								family={section?.text?.family}
+								weight={section?.text?.weight}
+								className={section?.text?.className}
+							/>
+						)}
 						{section?.desc && <Text value={section?.desc} />}
 						{section?.image && (
 							<>
@@ -268,7 +315,10 @@ const Section = ({ section }) => {
 					section?.background?.attachment?.trim(),
 					section?.background?.position?.trim(),
 					section?.background?.repeat?.trim(),
-					section?.background?.size?.trim()
+					section?.background?.size?.trim(),
+					section?.background?.class?.trim(),
+					section?.height?.trim(),
+					section?.widht?.trim()
 				)}
 				style={{
 					backgroundImage:
@@ -284,6 +334,9 @@ const Section = ({ section }) => {
 						section?.container?.width === 'full'
 							? 'container-full'
 							: 'container',
+						section?.container?.height
+							? section?.container?.height
+							: '',
 						{
 							'justify-start':
 								section?.container?.align?.horizontal ===
@@ -317,9 +370,50 @@ const Section = ({ section }) => {
 							}
 						)}
 					>
-						{section?.title && <Title value={section?.title} />}
+						{section?.title && (
+							<Title
+								value={section?.title?.value}
+								variant={section?.title?.variant}
+								style={section?.title?.style}
+								color={section?.title?.color}
+								fill={section?.title?.fill}
+								align={section?.title?.align}
+								className={section?.title?.className}
+								family={section?.title?.family}
+								weight={section?.title?.weight}
+							/>
+						)}
+						{section?.text && Array.isArray(section?.text) ? (
+							<div className="space-y-4">
+								{section?.text.map((textBlock, index) => (
+									<Text
+										key={index}
+										value={textBlock.value}
+										size={textBlock.size}
+										style={textBlock.style}
+										color={textBlock?.color}
+										fill={textBlock?.fill}
+										align={textBlock?.align}
+										family={textBlock?.family}
+										weight={textBlock?.weight}
+										className={textBlock?.className}
+									/>
+								))}
+							</div>
+						) : (
+							<Text
+								value={section?.text?.value}
+								size={section?.text?.size}
+								style={section?.text?.style}
+								color={section?.text?.color}
+								fill={section?.text?.fill}
+								align={section?.text?.align}
+								family={section?.text?.family}
+								weight={section?.text?.weight}
+								className={section?.text?.className}
+							/>
+						)}
 						{section?.lead && <Text value={section?.lead} />}
-						{section?.text && <Text value={section?.text} />}
 						{section?.desc && <Text value={section?.desc} />}
 						{section?.image && (
 							<>
@@ -366,7 +460,10 @@ const Section = ({ section }) => {
 					section?.background?.attachment?.trim(),
 					section?.background?.position?.trim(),
 					section?.background?.repeat?.trim(),
-					section?.background?.size?.trim()
+					section?.background?.size?.trim(),
+					section?.background?.class?.trim(),
+					section?.height?.trim(),
+					section?.widht?.trim()
 				)}
 				id={section?.anchor}
 				style={{
@@ -381,6 +478,9 @@ const Section = ({ section }) => {
 						section?.container?.width === 'full'
 							? 'container-full'
 							: 'container',
+						section?.container?.height
+							? section?.container?.height
+							: '',
 						{
 							'justify-start':
 								section?.container?.align?.vertical === 'top',
@@ -422,6 +522,8 @@ const Section = ({ section }) => {
 							fill={section?.title?.fill}
 							align={section?.title?.align}
 							className={section?.title?.className}
+							family={section?.title?.family}
+							weight={section?.title?.weight}
 						/>
 					)}
 					{section?.text && Array.isArray(section?.text) ? (
@@ -435,6 +537,8 @@ const Section = ({ section }) => {
 									color={textBlock?.color}
 									fill={textBlock?.fill}
 									align={textBlock?.align}
+									family={textBlock?.family}
+									weight={textBlock?.weight}
 									className={textBlock?.className}
 								/>
 							))}
@@ -447,6 +551,8 @@ const Section = ({ section }) => {
 							color={section?.text?.color}
 							fill={section?.text?.fill}
 							align={section?.text?.align}
+							family={section?.text?.family}
+							weight={section?.text?.weight}
 							className={section?.text?.className}
 						/>
 					)}
@@ -513,15 +619,36 @@ const Section = ({ section }) => {
 							<div className="col">
 								{section?.title && (
 									<Title
-										size="large"
 										value={section?.title}
+										size={section?.size}
+										style={section?.style}
+										color={section?.color}
+										fill={section?.fill}
+										align={section?.align}
+										className={section?.className}
 									/>
 								)}
 								{section?.lead && (
-									<Text size="medium" value={section?.lead} />
+									<Text
+										value={section?.lead}
+										size={section?.size}
+										style={section?.style}
+										color={section?.color}
+										fill={section?.fill}
+										align={section?.align}
+										className={section?.className}
+									/>
 								)}
 								{section?.text && (
-									<Text size="small" value={section?.text} />
+									<Text
+										size="small"
+										value={section?.text}
+										style={section?.style}
+										color={section?.color}
+										fill={section?.fill}
+										align={section?.align}
+										className={section?.className}
+									/>
 								)}
 							</div>
 
@@ -615,7 +742,10 @@ const Section = ({ section }) => {
 				section?.background?.attachment?.trim(),
 				section?.background?.position?.trim(),
 				section?.background?.repeat?.trim(),
-				section?.background?.size?.trim()
+				section?.background?.size?.trim(),
+				section?.background?.class?.trim(),
+				section?.height?.trim(),
+				section?.widht?.trim()
 			)}
 			style={{
 				backgroundImage:
@@ -649,26 +779,136 @@ const Section = ({ section }) => {
 					>
 						<div className="col">
 							{section?.title && (
-								<Title size="large" value={section?.title} />
+								<Title
+									value={section?.title?.value}
+									variant={section?.title?.variant}
+									style={section?.title?.style}
+									color={section?.title?.color}
+									fill={section?.title?.fill}
+									align={section?.title?.align}
+									className={section?.title?.className}
+									family={section?.title?.family}
+									weight={section?.title?.weight}
+								/>
 							)}
+
 							{section?.lead && (
 								<Text size="medium" value={section?.lead} />
 							)}
-							{section?.text && (
-								<Text size="small" value={section?.text} />
+
+							{section?.text && Array.isArray(section?.text) ? (
+								<div className="space-y-4">
+									{section?.text.map((textBlock, index) => (
+										<Text
+											key={index}
+											value={textBlock.value}
+											size={textBlock.size}
+											style={textBlock.style}
+											color={textBlock?.color}
+											fill={textBlock?.fill}
+											align={textBlock?.align}
+											family={textBlock?.family}
+											weight={textBlock?.weight}
+											className={textBlock?.className}
+										/>
+									))}
+								</div>
+							) : (
+								<Text
+									value={section?.text?.value}
+									size={section?.text?.size}
+									style={section?.text?.style}
+									color={section?.text?.color}
+									fill={section?.text?.fill}
+									align={section?.text?.align}
+									family={section?.text?.family}
+									weight={section?.text?.weight}
+									className={section?.text?.className}
+								/>
 							)}
 						</div>
 
 						<div className="col">
 							{section?.lead && <Text value={section?.lead} />}
-							{section?.text && <Text value={section?.text} />}
+							{section?.text && Array.isArray(section?.text) ? (
+								<div className="space-y-4">
+									{section?.text.map((textBlock, index) => (
+										<Text
+											key={index}
+											value={textBlock.value}
+											size={textBlock.size}
+											style={textBlock.style}
+											color={textBlock?.color}
+											fill={textBlock?.fill}
+											align={textBlock?.align}
+											family={textBlock?.family}
+											weight={textBlock?.weight}
+											className={textBlock?.className}
+										/>
+									))}
+								</div>
+							) : (
+								<Text
+									value={section?.text?.value}
+									size={section?.text?.size}
+									style={section?.text?.style}
+									color={section?.text?.color}
+									fill={section?.text?.fill}
+									align={section?.text?.align}
+									family={section?.text?.family}
+									weight={section?.text?.weight}
+									className={section?.text?.className}
+								/>
+							)}
 							{section?.desc && <Text value={section?.desc} />}
 						</div>
 					</div>
 				)}
 				{!section?.style && (
-					<div className={classNames(`style-default`)}>
-						{section?.title && <Title value={section?.title} />}
+					<>
+						{section?.title && (
+							<Title
+								value={section?.title?.value}
+								variant={section?.title?.variant}
+								style={section?.title?.style}
+								color={section?.title?.color}
+								fill={section?.title?.fill}
+								align={section?.title?.align}
+								className={section?.title?.className}
+								family={section?.title?.family}
+								weight={section?.title?.weight}
+							/>
+						)}
+						{section?.text && Array.isArray(section?.text) ? (
+							<div className="space-y-4">
+								{section?.text.map((textBlock, index) => (
+									<Text
+										key={index}
+										value={textBlock.value}
+										size={textBlock.size}
+										style={textBlock.style}
+										color={textBlock?.color}
+										fill={textBlock?.fill}
+										align={textBlock?.align}
+										family={textBlock?.family}
+										weight={textBlock?.weight}
+										className={textBlock?.className}
+									/>
+								))}
+							</div>
+						) : (
+							<Text
+								value={section?.text?.value}
+								size={section?.text?.size}
+								style={section?.text?.style}
+								color={section?.text?.color}
+								fill={section?.text?.fill}
+								align={section?.text?.align}
+								family={section?.text?.family}
+								weight={section?.text?.weight}
+								className={section?.text?.className}
+							/>
+						)}
 						{section?.lead && (
 							<Text size="large" value={section?.lead} />
 						)}
@@ -678,7 +918,7 @@ const Section = ({ section }) => {
 						{section?.desc && (
 							<Text size="medium" value={section?.desc} />
 						)}
-					</div>
+					</>
 				)}
 
 				{section?.image && (

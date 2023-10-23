@@ -582,30 +582,38 @@ const work = [
 						colStart: 1,
 						colEnd: 4,
 						columns: 3,
-						rowStart: 1,
+						rowStart: 2,
+						rows: 3,
 						title: {
+							// value: 'Revamping their brand identity',
 							value: 'Revamping their brand identity',
+							rowStart: 1,
 							colStart: 1,
-							colEnd: 3,
+							colEnd: 2,
+							// size: 'large',
 						},
 						lead: {
-							value: 'I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company.',
+							value: 'Länsförsäkringar',
 							colStart: 1,
 							colEnd: 1,
+							class: 'mb-0',
 						},
 						desc: {
-							value: 'tjoho ja de är väl en desc',
+							value: 'Art Director Consultant, 2016 – 2017',
 							colStart: 1,
 							colEnd: 1,
 						},
 					},
 					image: {
-						src: '/images/case/lansforsakringar/devices.png',
+						// src: '/images/case/lansforsakringar/devices.png',
+						src: '/images/case/lansforsakringar/logo@2x.png',
 						// imgClass: 'mt-4 mb-4 absolute right-0 bottom-0',
 						columns: 2,
+						rows: 3,
 						colStart: 2,
 						rowStart: 2,
-						margin: '-132px auto 0',
+						rowEnd: 3,
+						imgClass: 'w-7/12 mx-auto my-auto mt-64',
 					},
 				},
 				// bg: '/images/case/spotify/bg_favela.jpg',
@@ -639,9 +647,34 @@ const work = [
 					},
 					{
 						id: 1,
+						background: {
+							// image: '/images/case/lansforsakringar/devices.png',
+							// attachment: 'bg-local',
+							// repeat: 'bg-no-repeat',
+							// position: 'bg-center',
+							// size: 'bg-80%',
+							// class: 'bg-wavy',
+						},
+						variant: 'scrollVertically',
+						image: {
+							src: '/images/case/lansforsakringar/devices.png',
+							imgClass: 'w-9/12 mx-auto',
+						},
+						container: {
+							height: 'h-screen',
+							align: {
+								horizontal: 'center',
+								vertical: 'center',
+							},
+						},
+						height: 'h-screen',
+						// variant: 'full',
+					},
+					{
+						id: 2,
 						section: 'problem',
 						anchor: '#problem',
-						columns: 3,
+						columns: 4,
 						gap: 4,
 						// tabs: [
 						// 	{
@@ -677,151 +710,157 @@ const work = [
 						groups: [
 							{
 								id: 0,
-								columns: 1,
+								columns: 2,
 								title: {
 									value: 'The problem',
+									weight: 'font-regular',
+									family: 'font-serif',
+									className: 'leading-snug',
 								},
 							},
 							{
 								id: 1,
 								columns: 2,
-								text: {
-									value: `I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company. The company was facing a challenging task of completely revamping their brand identity and establishing a cohesive, modern, and visually appealing digital presence across various platforms, including their public-facing website, banking environment, mobile app, and watch interface.`,
-									size: 'large',
-								},
+								text: [
+									{
+										value: `I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company.`,
+										size: 'large',
+									},
+									{
+										value: ` The company was facing a challenging task of completely revamping their brand identity and establishing a cohesive, modern, and visually appealing digital presence across various platforms, including their public-facing website, banking environment, mobile app, and watch interface.`,
+										size: 'medium',
+									},
+								],
 							},
 						],
-					},
-					{
-						id: 2,
-						background: {
-							image: '/images/case/lansforsakringar/devices.png',
-							attachment: 'bg-local',
-							repeat: 'bg-no-repeat',
-							position: 'bg-center',
-							size: 'bg-80%',
-							color: '#fff',
-						},
-						variant: 'full',
 					},
 					{
 						id: 3,
 						section: 'goal',
 						anchor: '#goal',
-						columns: 3,
+						columns: 4,
 						gap: 4,
-						accordion: [
-							{
-								section: 'accordion-desktop',
-								title: 'Desktop',
-								lead: 'desktop stuff.',
-								active: true,
-							},
-							{
-								section: 'accordion-mobile',
-								title: 'Mobile',
-								lead: 'mobile stuff.',
-								groups: [
-									{
-										id: 0,
-										columns: 1,
-										title: {
-											value: 'Tabbed group content',
-										},
-									},
-									{
-										id: 1,
-										columns: 2,
-										text: {
-											value: 'Etiam eu dolor eget lorem imperdiet pretium. Quisque sed elementum neque, non egestas ante. Sed imperdiet, mauris in lacinia vehicula, magna elit ornare tortor, quis sagittis libero nunc eu ipsum. Ut sit amet arcu',
-											size: 'large',
-										},
-									},
-								],
-							},
-							{
-								section: 'accordion-nim',
-								title: 'Portal',
-								lead: 'portal stuff.',
-								groups: [
-									{
-										id: 0,
-										columns: 1,
-										title: {
-											value: 'Tabbed group content',
-										},
-									},
-									{
-										id: 1,
-										columns: 2,
-										text: {
-											value: 'Etiam eu dolor eget lorem imperdiet pretium. Quisque sed elementum neque, non egestas ante. Sed imperdiet, mauris in lacinia vehicula, magna elit ornare tortor, quis sagittis libero nunc eu ipsum. Ut sit amet arcu',
-											size: 'large',
-										},
-									},
-								],
-							},
-							{
-								section: 'accordion-watch',
-								title: 'Watch',
-								lead: 'watch stuff.',
-								groups: [
-									{
-										id: 0,
-										columns: 1,
-										title: {
-											value: 'Tabbed group content',
-										},
-									},
-									{
-										id: 1,
-										columns: 2,
-										text: {
-											value: 'Etiam eu dolor eget lorem imperdiet pretium. Quisque sed elementum neque, non egestas ante. Sed imperdiet, mauris in lacinia vehicula, magna elit ornare tortor, quis sagittis libero nunc eu ipsum. Ut sit amet arcu',
-											size: 'large',
-										},
-									},
-								],
-							},
-							{
-								section: 'accordion-insurance',
-								title: 'Insurance',
-								lead: 'insurance stuff.',
-								groups: [
-									{
-										id: 0,
-										columns: 1,
-										title: {
-											value: 'Tabbed group content',
-										},
-									},
-									{
-										id: 1,
-										columns: 2,
-										text: {
-											value: 'Etiam eu dolor eget lorem imperdiet pretium. Quisque sed elementum neque, non egestas ante. Sed imperdiet, mauris in lacinia vehicula, magna elit ornare tortor, quis sagittis libero nunc eu ipsum. Ut sit amet arcu',
-											size: 'large',
-										},
-									},
-								],
-							},
-							// Add more tabs as needed
-						],
+						// accordion: [
+						// 	{
+						// 		section: 'accordion-desktop',
+						// 		title: 'Desktop',
+						// 		lead: 'desktop stuff.',
+						// 		active: true,
+						// 	},
+						// 	{
+						// 		section: 'accordion-mobile',
+						// 		title: 'Mobile',
+						// 		lead: 'mobile stuff.',
+						// 		groups: [
+						// 			{
+						// 				id: 0,
+						// 				columns: 1,
+						// 				title: {
+						// 					value: 'Tabbed group content',
+						// 				},
+						// 			},
+						// 			{
+						// 				id: 1,
+						// 				columns: 2,
+						// 				text: {
+						// 					value: 'Etiam eu dolor eget lorem imperdiet pretium. Quisque sed elementum neque, non egestas ante. Sed imperdiet, mauris in lacinia vehicula, magna elit ornare tortor, quis sagittis libero nunc eu ipsum. Ut sit amet arcu',
+						// 					size: 'large',
+						// 				},
+						// 			},
+						// 		],
+						// 	},
+						// 	{
+						// 		section: 'accordion-nim',
+						// 		title: 'Portal',
+						// 		lead: 'portal stuff.',
+						// 		groups: [
+						// 			{
+						// 				id: 0,
+						// 				columns: 1,
+						// 				title: {
+						// 					value: 'Tabbed group content',
+						// 				},
+						// 			},
+						// 			{
+						// 				id: 1,
+						// 				columns: 2,
+						// 				text: {
+						// 					value: 'Etiam eu dolor eget lorem imperdiet pretium. Quisque sed elementum neque, non egestas ante. Sed imperdiet, mauris in lacinia vehicula, magna elit ornare tortor, quis sagittis libero nunc eu ipsum. Ut sit amet arcu',
+						// 					size: 'large',
+						// 				},
+						// 			},
+						// 		],
+						// 	},
+						// 	{
+						// 		section: 'accordion-watch',
+						// 		title: 'Watch',
+						// 		lead: 'watch stuff.',
+						// 		groups: [
+						// 			{
+						// 				id: 0,
+						// 				columns: 1,
+						// 				title: {
+						// 					value: 'Tabbed group content',
+						// 				},
+						// 			},
+						// 			{
+						// 				id: 1,
+						// 				columns: 2,
+						// 				text: {
+						// 					value: 'Etiam eu dolor eget lorem imperdiet pretium. Quisque sed elementum neque, non egestas ante. Sed imperdiet, mauris in lacinia vehicula, magna elit ornare tortor, quis sagittis libero nunc eu ipsum. Ut sit amet arcu',
+						// 					size: 'large',
+						// 				},
+						// 			},
+						// 		],
+						// 	},
+						// 	{
+						// 		section: 'accordion-insurance',
+						// 		title: 'Insurance',
+						// 		lead: 'insurance stuff.',
+						// 		groups: [
+						// 			{
+						// 				id: 0,
+						// 				columns: 1,
+						// 				title: {
+						// 					value: 'Tabbed group content',
+						// 				},
+						// 			},
+						// 			{
+						// 				id: 1,
+						// 				columns: 2,
+						// 				text: {
+						// 					value: 'Etiam eu dolor eget lorem imperdiet pretium. Quisque sed elementum neque, non egestas ante. Sed imperdiet, mauris in lacinia vehicula, magna elit ornare tortor, quis sagittis libero nunc eu ipsum. Ut sit amet arcu',
+						// 					size: 'large',
+						// 				},
+						// 			},
+						// 		],
+						// 	},
+						// 	// Add more tabs as needed
+						// ],
 						groups: [
 							{
 								id: 0,
-								columns: 1,
+								columns: 2,
 								title: {
 									value: 'Goal',
+									weight: 'font-regular',
+									family: 'font-serif',
+									className: 'leading-snug',
 								},
 							},
 							{
 								id: 1,
 								columns: 2,
-								text: {
-									value: `The primary objective was to create and implement a fresh and unified digital visual identity for Länsförsäkringar AB, thereby enhancing user experience and interaction across all digital touchpoints. The new identity needed to embody the brand’s ethos and values while being adaptable and visually consistent across platforms.`,
-									size: 'large',
-								},
+								text: [
+									{
+										value: `The primary objective was to create and implement a fresh and unified digital visual identity for Länsförsäkringar AB, thereby enhancing user experience and interaction across all digital touchpoints.`,
+										size: 'large',
+									},
+									{
+										value: `The new identity needed to embody the brand’s ethos and values while being adaptable and visually consistent across platforms.`,
+										size: 'medium',
+									},
+								],
 							},
 						],
 					},
@@ -829,70 +868,79 @@ const work = [
 						id: 4,
 						section: 'insights',
 						anchor: '#insights',
-						columns: 3,
+						columns: 4,
 						gap: 4,
 						groups: [
 							{
 								id: 0,
-								columns: 1,
+								columns: 2,
 								title: {
 									value: 'Insights',
+									weight: 'font-regular',
+									family: 'font-serif',
+									className: 'leading-snug',
 								},
 							},
 							{
 								id: 1,
 								columns: 2,
-								text: {
-									value: `Over a period of five weeks, each week dedicated to a different platform, we delved into the existing brand aesthetics, user engagement patterns, and digital interfaces. The intention was to understand the elements that resonate with their audience and identify areas of inconsistency and potential improvement.`,
-									size: 'large',
-								},
-								groups: [
+								text: [
 									{
-										id: 0,
-										title: {
-											value: 'Watch',
-										},
-										text: {
-											value: 'Lorem ipsum',
-										},
+										value: `Over a period of five weeks, each week dedicated to a different platform, we delved into the existing brand aesthetics, user engagement patterns, and digital interfaces.`,
+										size: 'large',
 									},
 									{
-										id: 1,
-										title: {
-											value: 'Mobile',
-										},
-										text: {
-											value: 'Lorem ipsum',
-										},
-									},
-									{
-										id: 1,
-										title: {
-											value: 'Web',
-										},
-										text: {
-											value: 'Lorem ipsum',
-										},
-									},
-									{
-										id: 1,
-										title: {
-											value: 'Insurance',
-										},
-										text: {
-											value: 'Lorem ipsum',
-										},
-									},
-									{
-										id: 1,
-										title: {
-											value: 'Banking',
-										},
-										text: {
-											value: 'Lorem ipsum',
-										},
+										value: `The intention was to understand the elements that resonate with their audience and identify areas of inconsistency and potential improvement.`,
+										size: 'medium',
 									},
 								],
+								// groups: [
+								// 	{
+								// 		id: 0,
+								// 		title: {
+								// 			value: 'Watch',
+								// 		},
+								// 		text: {
+								// 			value: 'Lorem ipsum',
+								// 		},
+								// 	},
+								// 	{
+								// 		id: 1,
+								// 		title: {
+								// 			value: 'Mobile',
+								// 		},
+								// 		text: {
+								// 			value: 'Lorem ipsum',
+								// 		},
+								// 	},
+								// 	{
+								// 		id: 1,
+								// 		title: {
+								// 			value: 'Web',
+								// 		},
+								// 		text: {
+								// 			value: 'Lorem ipsum',
+								// 		},
+								// 	},
+								// 	{
+								// 		id: 1,
+								// 		title: {
+								// 			value: 'Insurance',
+								// 		},
+								// 		text: {
+								// 			value: 'Lorem ipsum',
+								// 		},
+								// 	},
+								// 	{
+								// 		id: 1,
+								// 		title: {
+								// 			value: 'Banking',
+								// 		},
+								// 		text: {
+								// 			value: 'Lorem ipsum',
+								// 		},
+								// 	},
+								// ],
 							},
 						],
 					},
@@ -950,43 +998,76 @@ const work = [
 					// 		},
 					// 	],
 					// },
+					// {
+					// 	id: 5,
+					// 	section: 'test',
+					// 	anchor: '#test',
+					// 	columns: 2,
+					// 	gap: 4,
+					// 	class: 'h-screen relative',
+					// 	container: 'h-full relative container',
+					// 	groups: [
+					// 		{
+					// 			id: 0,
+					// 			columns: 1,
+					// 			class: 'h-full relative',
+					// 			image: {
+					// 				src: '/images/case/lansforsakringar/open/Home_desktop.png',
+					// 				// width: 784,
+					// 				// height: 1353,
+					// 				imgClass: 'object-fill',
+					// 				variant: 'scrollimg',
+					// 			},
+					// 		},
+					// 		{
+					// 			id: 1,
+					// 			columns: 1,
+					// 			class: 'h-full relative',
+					// 			title: {
+					// 				value: 'Homepage',
+					// 				// fill: 'red',
+					// 				// className: 'pelle',
+					// 			},
+					// 			text: [
+					// 				{
+					// 					value: `Morbi finibus, ligula nec mattis laoreet, lacus velit tincidunt purus, eget fermentum magna neque quis erat. Duis tempus quam eu elit fringilla, id dignissim metus faucibus. Donec quam mi, congue nec erat ac, porttitor dictum augue. Aenean sit amet sollicitudin purus, sed malesuada nisi. Nulla venenatis, purus et tincidunt sodales, mi urna ornare mauris, quis suscipit metus massa ac nulla. Quisque finibus, augue eu consectetur consectetur, elit risus ullamcorper ipsum, vel porttitor ante nisl vel elit. Etiam tempor, purus non tincidunt egestas, eros nulla tempus diam, quis sodales metus velit et metus. Duis nec elementum nulla, eu dictum augue.`,
+					// 					size: 'medium',
+					// 				},
+					// 				{
+					// 					value: `hur får jag vänstra delen scrolla när jag scrollar här med, textblocket, funkar ej`,
+					// 					size: 'medium',
+					// 				},
+					// 			],
+					// 		},
+					// 	],
+					// },
 					{
 						id: 5,
-						section: 'test',
-						anchor: '#test',
-						columns: 2,
+						section: 'approach',
+						anchor: '#approach',
+						columns: 4,
 						gap: 4,
-						class: 'h-screen relative',
-						container: 'h-full relative container',
 						groups: [
 							{
 								id: 0,
-								columns: 1,
-								class: 'h-full relative',
-								image: {
-									src: '/images/case/lansforsakringar/open/Home_desktop.png',
-									// width: 784,
-									// height: 1353,
-									imgClass: 'object-fill',
-									variant: 'scrollimg',
+								columns: 2,
+								title: {
+									value: 'The Approach',
+									weight: 'font-regular',
+									family: 'font-serif',
+									className: 'leading-snug',
 								},
 							},
 							{
 								id: 1,
-								columns: 1,
-								class: 'h-full relative',
-								title: {
-									value: 'Homepage',
-									fill: 'red',
-									className: 'pelle',
-								},
+								columns: 2,
 								text: [
 									{
-										value: `Morbi finibus, ligula nec mattis laoreet, lacus velit tincidunt purus, eget fermentum magna neque quis erat. Duis tempus quam eu elit fringilla, id dignissim metus faucibus. Donec quam mi, congue nec erat ac, porttitor dictum augue. Aenean sit amet sollicitudin purus, sed malesuada nisi. Nulla venenatis, purus et tincidunt sodales, mi urna ornare mauris, quis suscipit metus massa ac nulla. Quisque finibus, augue eu consectetur consectetur, elit risus ullamcorper ipsum, vel porttitor ante nisl vel elit. Etiam tempor, purus non tincidunt egestas, eros nulla tempus diam, quis sodales metus velit et metus. Duis nec elementum nulla, eu dictum augue.`,
-										size: 'medium',
+										value: `Building on the insights, we worked on crafting a new digital visual identity. Ensuring the visual language was consistent and adaptable across different platforms was crucial.`,
+										size: 'large',
 									},
 									{
-										value: `hur får jag vänstra delen scrolla när jag scrollar här med, textblocket, funkar ej`,
+										value: `Following the design phase, Länsförsäkringar AB hired me as an Art Director consultant. My primary responsibility was to oversee the accurate application of the new visual identity across all platforms and teams, closely collaborating with developers and stakeholders to ensure the maintenance of visual integrity.`,
 										size: 'medium',
 									},
 								],
@@ -995,71 +1076,157 @@ const work = [
 					},
 					{
 						id: 6,
-						section: 'test',
-						anchor: '#test',
-						columns: 2,
+						section: 'outcome',
+						columns: 4,
 						gap: 4,
-						class: 'h-screen relative',
-						container: 'h-full relative container',
 						groups: [
 							{
 								id: 0,
-								columns: 1,
-								class: 'h-full relative',
-								text: {
-									value: `test`,
-									size: 'large',
+								columns: 2,
+								title: {
+									value: 'Outcome',
+									weight: 'font-regular',
+									family: 'font-serif',
+									className: 'leading-snug',
 								},
 							},
 							{
 								id: 1,
-								columns: 1,
-								class: 'h-full relative',
-								image: {
-									folder: 'lansforsakringar/mobile/',
-									variant: 'imgscrollloop',
-								},
+								columns: 2,
+								text: [
+									{
+										value: `The new visual identity, finalized and ready for implementation, was scheduled to be launched in Q4 of 2016 across multiple platforms. The unified and revitalized digital brand identity was a significant milestone in enhancing Länsförsäkringar AB's digital user experience. `,
+										size: 'large',
+									},
+									{
+										value: `My role as the Art Director consultant played a pivotal part in ensuring the successful and consistent roll-out of the new identity, paving the way for the brand's modernized digital presence.`,
+										size: 'medium',
+									},
+								],
 							},
 						],
 					},
 					{
 						id: 7,
-						section: 'ui-component-navigation',
-						variant: 'scrollVertically',
+						section: 'test',
+						anchor: '#test',
+						class: 'relative',
+						container: 'h-full relative container flex flex-col',
 						image: {
-							src: '/images/case/lansforsakringar/ui/big-menu@2x.png',
+							src: '/images/case/lansforsakringar/open/Home_desktop.png',
+							// width: 784,
+							// height: 1353,
+							imgClass:
+								'object-fill mx-auto -order-1 border border-gray-300 w-3/4',
 						},
-						background: {
-							color: '#e5eff7',
-						},
-						align: {
-							horizontal: 'center',
-							vertical: 'center',
-						},
-					},
-					{
-						id: 8,
-						section: 'testar-med-scroll-pa-section',
-						variant: 'scrollHorizontally',
-						title: 'Scroll me horizontally',
-						image: {
-							src: '/images/case/lansforsakringar/mobile/01.00 login.png',
-						},
-						align: {
-							horizontal: 'center',
-							vertical: 'center',
-						},
-						container: {
+						title: {
+							value: 'Homepage',
+							// fill: 'red',
+							// className: 'pelle',
 							align: {
 								horizontal: 'center',
-								vertical: 'center',
 							},
+							className: 'mt-16',
 						},
-						// class: 'items-center justify-center',
+						text: [
+							{
+								value: `Morbi finibus, ligula nec mattis laoreet, lacus velit tincidunt purus, eget fermentum magna neque quis erat. Duis tempus quam eu elit fringilla, id dignissim metus faucibus. Donec quam mi, congue nec erat ac, porttitor dictum augue.`,
+								size: 'medium',
+								className: 'mt-16 order-3',
+								align: {
+									horizontal: 'center',
+								},
+							},
+							{
+								value: `hur får jag vänstra delen scrolla när jag scrollar här med, textblocket, funkar ej`,
+								size: 'medium',
+								className: 'mt-16 order-4',
+								align: {
+									horizontal: 'center',
+								},
+							},
+						],
+					},
+					// {
+					// 	id: 6,
+					// 	section: 'test',
+					// 	anchor: '#test',
+					// 	columns: 2,
+					// 	gap: 4,
+					// 	class: 'h-screen relative',
+					// 	container: 'h-full relative container',
+					// 	groups: [
+					// 		{
+					// 			id: 0,
+					// 			columns: 1,
+					// 			class: 'h-full relative',
+					// 			text: {
+					// 				value: `test`,
+					// 				size: 'large',
+					// 			},
+					// 		},
+					// 		{
+					// 			id: 1,
+					// 			columns: 1,
+					// 			class: 'h-full relative',
+					// 			image: {
+					// 				folder: 'lansforsakringar/mobile/',
+					// 				variant: 'imgscrollloop',
+					// 			},
+					// 		},
+					// 	],
+					// },
+					{
+						id: 8,
+						section: 'ui-component-navigation',
+						variant: 'scrollVertically',
+						height: 'h-screen',
+						image: {
+							src: '/images/case/lansforsakringar/ui/big-menu@2x.png',
+							imgClass: 'w-9/12 mx-auto mt-32 -order-1',
+						},
+						text: [
+							{
+								value: `The navigation for the public facing website. Applied updated brand and iconography for feeling of personality and warmth.`,
+								size: 'small',
+								className: 'mt-16 order-3',
+								align: {
+									horizontal: 'center',
+								},
+							},
+						],
 						background: {
 							color: '#e5eff7',
+							class: 'bg-wavy',
+						},
+						align: {
+							horizontal: 'center',
+							vertical: 'center',
 						},
 					},
+					// {
+					// 	id: 8,
+					// 	section: 'testar-med-scroll-pa-section',
+					// 	variant: 'scrollHorizontally',
+					// 	title: 'Scroll me horizontally',
+					// 	image: {
+					// 		src: '/images/case/lansforsakringar/mobile/01.00 login.png',
+					// 	},
+					// 	align: {
+					// 		horizontal: 'center',
+					// 		vertical: 'center',
+					// 	},
+					// 	container: {
+					// 		align: {
+					// 			horizontal: 'center',
+					// 			vertical: 'center',
+					// 		},
+					// 	},
+					// 	// class: 'items-center justify-center',
+					// 	background: {
+					// 		color: '#e5eff7',
+					// 	},
+					// },
 					// {
 					// 	id: 9,
 					// 	variant: 'scrollVertically',
@@ -1081,25 +1248,66 @@ const work = [
 					// 		},
 					// 	},
 					// },
+
 					{
 						id: 9,
+						section: 'test',
+						anchor: '#test',
+						columns: 2,
+						gap: 4,
+						class: 'relative',
+						container: 'relative container',
+						variant: 'scrollVertically',
+
+						height: 'h-screen',
+						image: {
+							src: '/images/case/lansforsakringar/ui/forms@2x.png',
+							imgClass: 'w-full mx-auto mt-32 -order-1',
+						},
+						text: [
+							{
+								value: `Form fields used cross-platform`,
+								size: 'small',
+								className: 'mt-0 order-3',
+								align: {
+									horizontal: 'center',
+								},
+							},
+						],
+						align: {
+							horizontal: 'center',
+							vertical: 'center',
+						},
+					},
+
+					{
+						id: 10,
 						section: 'watch-animation',
 						variant: 'full',
 						image: {
 							src: '/images/case/lansforsakringar/watch/watch-transfer.gif',
 							class: 'h-auto max-w-sm mx-auto',
-							imgClass: 'h-auto max-w-sm mx-auto',
+							imgClass:
+								'h-auto max-w-sm mx-auto rounded-3xl shadow-2xl',
 						},
-						text: {
-							value: `Watch it!`,
+						title: {
+							value: `Effortless Money Transfers at Your Fingertips`,
 							size: 'large',
 							align: {
 								horizontal: 'center',
 							},
 							className: 'mt-16 order-2',
 						},
+						text: {
+							value: `Experience the watch app for seamless money transfers, aligned with Länsförsäkringar's new digital brand`,
+							size: 'medium',
+							align: {
+								horizontal: 'center',
+							},
+							className: 'mt-0 order-3',
+						},
 						background: {
-							color: '#000',
+							color: '#fff',
 						},
 						align: {
 							horizontal: 'center',
@@ -1115,54 +1323,18 @@ const work = [
 						},
 					},
 					{
-						id: 999,
-						section: 'approach',
-						anchor: '#approach',
-						columns: 3,
-						gap: 4,
-						groups: [
-							{
-								id: 0,
-								columns: 1,
-								title: {
-									value: 'The Approach',
-								},
-							},
-							{
-								id: 1,
-								columns: 2,
-								text: {
-									value: `Building on the insights, we worked on crafting a new digital visual identity. Ensuring the visual language was consistent and adaptable across different platforms was crucial. Following the design phase, Länsförsäkringar AB hired me as an Art Director consultant. My primary responsibility was to oversee the accurate application of the new visual identity across all platforms and teams, closely collaborating with developers and stakeholders to ensure the maintenance of visual integrity.`,
-									size: 'large',
-								},
-							},
-						],
-					},
-					{
-						id: 10,
-						section: 'outcome',
-						columns: 3,
-						gap: 4,
-						groups: [
-							{
-								id: 0,
-								columns: 1,
-								title: {
-									value: 'Outcome',
-								},
-							},
-							{
-								id: 1,
-								columns: 2,
-								text: {
-									value: `The new visual identity, finalized and ready for implementation, was scheduled to be launched in Q4 of 2016 across multiple platforms. The unified and revitalized digital brand identity was a significant milestone in enhancing Länsförsäkringar AB's digital user experience. My role as the Art Director consultant played a pivotal part in ensuring the successful and consistent roll-out of the new identity, paving the way for the brand's modernized digital presence.`,
-									size: 'large',
-								},
-							},
-						],
-					},
-					{
 						id: 11,
+						section: 'image-loop',
+						container: 'fluid',
+						image: {
+							variant: 'loop',
+							folder: 'lansforsakringar/mobile/',
+							// Click to open a image in modal
+							style: 'horizontal',
+						},
+					},
+					{
+						id: 12,
 						section: 'image-loop',
 						image: {
 							variant: 'loop',

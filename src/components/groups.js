@@ -33,6 +33,8 @@ const Group = ({ group }) => {
 					color={title?.color}
 					fill={title?.fill}
 					align={title?.align}
+					family={title?.family}
+					weight={title?.weight}
 					className={title?.className}
 				/>
 			)}
@@ -48,6 +50,8 @@ const Group = ({ group }) => {
 							fill={textBlock?.fill}
 							align={textBlock?.align}
 							className={textBlock?.className}
+							family={textBlock?.family}
+							weight={textBlock?.weight}
 						/>
 					))}
 				</div>
@@ -60,6 +64,8 @@ const Group = ({ group }) => {
 					fill={text?.fill}
 					align={text?.align}
 					className={text?.className}
+					family={text?.family}
+					weight={text?.weight}
 				/>
 			)}
 

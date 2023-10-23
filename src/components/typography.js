@@ -1,7 +1,16 @@
 import React from 'react';
 import classNames from 'classnames';
 
-const Text = ({ size, value, className, color, fill, align }) => {
+const Text = ({
+	size,
+	value,
+	className,
+	color,
+	fill,
+	align,
+	family,
+	weight,
+}) => {
 	// return (
 	// 	<p
 	// 		className={classNames(
@@ -23,7 +32,8 @@ const Text = ({ size, value, className, color, fill, align }) => {
 				className={classNames(
 					`text-2xl md:text-4xl pt-0 mb-2`,
 					!color && !fill ? 'text-text' : '',
-					'lg:font-light',
+					weight ? weight : 'lg:font-light',
+					family ? family : '',
 					className,
 					color?.trim(),
 					{
@@ -42,7 +52,8 @@ const Text = ({ size, value, className, color, fill, align }) => {
 				className={classNames(
 					`text-2xl md:text-5xl pt-0 mb-2`,
 					!color && !fill ? 'text-text' : '',
-					'lg:font-light',
+					weight ? weight : 'lg:font-light',
+					family ? family : '',
 					className,
 					color?.trim(),
 					{
@@ -61,7 +72,8 @@ const Text = ({ size, value, className, color, fill, align }) => {
 				className={classNames(
 					`text-1xl md:text-2xl pt-0 mb-2`,
 					!color && !fill ? 'text-text' : '',
-					'lg:font-light',
+					weight ? weight : 'lg:font-light',
+					family ? family : '',
 					className,
 					color?.trim(),
 					{
@@ -80,7 +92,8 @@ const Text = ({ size, value, className, color, fill, align }) => {
 				className={classNames(
 					`text-base md:text-base pt-0 mb-2`,
 					!color && !fill ? 'text-text' : '',
-					'lg:font-light',
+					weight ? weight : 'lg:font-light',
+					family ? family : '',
 					className,
 					color?.trim(),
 					{
@@ -99,7 +112,8 @@ const Text = ({ size, value, className, color, fill, align }) => {
 				className={classNames(
 					`text-xs pt-0 mb-2`,
 					!color && !fill ? 'text-text' : '',
-					'lg:font-light',
+					weight ? weight : 'lg:font-light',
+					family ? family : '',
 					className,
 					color?.trim(),
 					{
@@ -118,7 +132,8 @@ const Text = ({ size, value, className, color, fill, align }) => {
 				className={classNames(
 					`text-sm pt-0 mb-2`,
 					!color && !fill ? 'text-text' : '',
-					'lg:font-light',
+					weight ? weight : 'lg:font-light',
+					family ? family : '',
 					className,
 					color?.trim(),
 					{
@@ -136,7 +151,8 @@ const Text = ({ size, value, className, color, fill, align }) => {
 			className={classNames(
 				`text-base md:text-base pt-0 mb-2`,
 				!color && !fill ? 'text-text' : '',
-				'lg:font-light',
+				weight ? weight : 'lg:font-light',
+				family ? family : '',
 				className,
 				color?.trim(),
 				{
@@ -150,14 +166,24 @@ const Text = ({ size, value, className, color, fill, align }) => {
 	);
 };
 
-const Title = ({ size = 'medium', value, className, color, fill, align }) => {
+const Title = ({
+	size = 'medium',
+	value,
+	className,
+	color,
+	fill,
+	align,
+	weight,
+	family,
+}) => {
 	if (size === 'xl') {
 		return (
 			<h1
 				className={classNames(
 					`pt-0 mt-8 mb-16 text-8xl text-left`,
 					!color && !fill ? 'text-text' : '',
-					'lg:font-bold',
+					weight ? weight : 'lg:font-bold',
+					family ? family : '',
 					className,
 					color?.trim(),
 					{
@@ -176,7 +202,8 @@ const Title = ({ size = 'medium', value, className, color, fill, align }) => {
 				className={classNames(
 					`pt-0 mt-0 mb-2 text-4xl`,
 					!color && !fill ? 'text-text' : '',
-					'lg:font-bold',
+					weight ? weight : 'lg:font-bold',
+					family ? family : '',
 					className,
 					color?.trim(),
 					{
@@ -195,7 +222,8 @@ const Title = ({ size = 'medium', value, className, color, fill, align }) => {
 				className={classNames(
 					`pt-0 mt-0 mb-2 text-3xl`,
 					!color && !fill ? 'text-text' : '',
-					'lg:font-bold',
+					weight ? weight : 'lg:font-bold',
+					family ? family : '',
 					className,
 					color?.trim(),
 					{
@@ -214,7 +242,8 @@ const Title = ({ size = 'medium', value, className, color, fill, align }) => {
 				className={classNames(
 					'pt-0 mt-0 mb-2 text-base',
 					!color && !fill ? 'text-text' : '',
-					'lg:font-bold',
+					weight ? weight : 'lg:font-bold',
+					family ? family : '',
 					className,
 					color?.trim(),
 					{
@@ -233,7 +262,8 @@ const Title = ({ size = 'medium', value, className, color, fill, align }) => {
 				className={classNames(
 					`pt-0 mt-0 mb-2 text-1xl`,
 					!color && !fill ? 'text-text' : '',
-					'lg:font-bold',
+					weight ? weight : 'lg:font-bold',
+					family ? family : '',
 					className,
 					color?.trim(),
 					{

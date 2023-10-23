@@ -107,7 +107,7 @@ const Case = ({
 						<>
 							<div
 								className={classNames(
-									'case-description grid grid-flow-col auto-cols-fr h-full',
+									'case-description grid grid-flow-col auto-cols-fr h-full relative z-10',
 									`gap-${
 										item?.hero?.description?.gap || '0'
 									}`,
@@ -142,14 +142,22 @@ const Case = ({
 							>
 								{item?.hero?.description?.title?.value && (
 									<Title
-										size="xl"
+										size={
+											item?.hero?.description?.size
+												? item?.hero?.description?.size
+												: 'xl'
+										}
 										value={
 											item?.hero?.description?.title
 												?.value
 										}
+										color={item?.hero?.description?.color}
+										fill={item?.hero?.description?.fill}
+										align={item?.hero?.description?.align}
 										className={classNames(
 											'hero-title',
 											'case-title',
+											item?.hero?.description?.className,
 											item?.hero?.description?.title
 												?.class,
 											{
@@ -185,12 +193,27 @@ const Case = ({
 								)}
 								{item?.hero?.description?.lead?.value && (
 									<Text
-										size="large"
+										size={
+											item?.hero?.description?.size
+												? item?.hero?.description?.size
+												: 'large'
+										}
 										value={
 											item?.hero?.description?.lead?.value
 										}
+										color={
+											item?.hero?.description?.lead?.color
+										}
+										fill={
+											item?.hero?.description?.lead?.fill
+										}
+										align={
+											item?.hero?.description?.lead?.align
+										}
 										className={classNames(
-											'hero-lead mb-8',
+											'hero-lead',
+											item?.hero?.description?.lead
+												?.className,
 											item?.hero?.description?.lead
 												?.class,
 											{
@@ -227,12 +250,27 @@ const Case = ({
 
 								{item?.hero?.description?.desc?.value && (
 									<Text
-										size="medium"
+										size={
+											item?.hero?.description?.size
+												? item?.hero?.description?.size
+												: 'medium'
+										}
 										value={
 											item?.hero?.description?.desc?.value
 										}
+										color={
+											item?.hero?.description?.desc?.color
+										}
+										fill={
+											item?.hero?.description?.desc?.fill
+										}
+										align={
+											item?.hero?.description?.desc?.align
+										}
 										className={classNames(
 											'hero-desc',
+											item?.hero?.description?.desc
+												?.className,
 											item?.hero?.description?.desc
 												?.class,
 											{
