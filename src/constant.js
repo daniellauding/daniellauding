@@ -1279,9 +1279,71 @@ const work = [
 							vertical: 'center',
 						},
 					},
-
 					{
 						id: 10,
+						section: 'test',
+						anchor: '#test',
+						class: 'relative',
+						container: 'h-full relative container flex flex-col',
+						image: {
+							src: '/images/case/lansforsakringar/nim/nim-dashboard@2x.png',
+							// width: 784,
+							// height: 1353,
+							imgClass:
+								'object-fill mx-auto -order-1 border border-gray-300 w-3/4',
+						},
+						title: {
+							value: 'Internet banking',
+							// fill: 'red',
+							// className: 'pelle',
+							align: {
+								horizontal: 'center',
+							},
+							className: 'mt-16',
+						},
+						text: [
+							{
+								value: `Morbi finibus, ligula nec mattis laoreet, lacus velit tincidunt purus, eget fermentum magna neque quis erat. Duis tempus quam eu elit fringilla, id dignissim metus faucibus. Donec quam mi, congue nec erat ac, porttitor dictum augue.`,
+								size: 'medium',
+								className: 'mt-16 order-3',
+								align: {
+									horizontal: 'center',
+								},
+							},
+						],
+					},
+					{
+						id: 11,
+						section: 'test',
+						anchor: '#test',
+						columns: 2,
+						gap: 4,
+						class: 'relative',
+						container: 'relative container',
+						variant: 'scrollVertically',
+
+						height: 'h-screen',
+						image: {
+							src: '/images/case/lansforsakringar/ui/nim-nav@2x.png',
+							imgClass: 'w-1/2 mx-auto mt-32 -order-1',
+						},
+						text: [
+							{
+								value: `Navigation variant stacked for portal`,
+								size: 'small',
+								className: 'mt-0 order-3',
+								align: {
+									horizontal: 'center',
+								},
+							},
+						],
+						align: {
+							horizontal: 'center',
+							vertical: 'center',
+						},
+					},
+					{
+						id: 12,
 						section: 'watch-animation',
 						variant: 'full',
 						image: {
@@ -1323,7 +1385,7 @@ const work = [
 						},
 					},
 					{
-						id: 11,
+						id: 13,
 						section: 'image-loop',
 						container: 'fluid',
 						image: {
