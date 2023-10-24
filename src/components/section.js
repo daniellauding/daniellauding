@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import Groups from './groups';
 import Text, { Title } from './typography';
 import Image from './image';
+import Video from './video';
 import TabbedContent from './tab';
 import AccordionContent from './accordionNew';
 
@@ -247,6 +248,18 @@ const Section = ({ section }) => {
 									item={section?.image}
 									images={section?.image?.images}
 									imgClass="max-w-fit"
+								/>
+							</>
+						)}
+
+						{section?.video && (
+							<>
+								<Video
+									width={section?.video?.width}
+									height={section?.video?.height}
+									src={section?.video?.src}
+									item={section?.video}
+									videoClass={section?.video?.videoClass}
 								/>
 							</>
 						)}

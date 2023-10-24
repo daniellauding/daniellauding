@@ -736,6 +736,62 @@ const work = [
 					},
 					{
 						id: 3,
+						background: {
+							// image: '/images/case/lansforsakringar/devices.png',
+							// attachment: 'bg-local',
+							// repeat: 'bg-no-repeat',
+							// position: 'bg-center',
+							// size: 'bg-80%',
+							// class: 'bg-wavy',
+						},
+						variant: 'scrollVertically',
+						image: {
+							src: '/images/case/lansforsakringar/lfui/lfui-map@2x.png',
+							imgClass: 'w-9/12 mx-auto',
+						},
+						container: {
+							height: 'h-screen',
+							align: {
+								horizontal: 'center',
+								vertical: 'center',
+							},
+						},
+						height: 'h-screen',
+						// variant: 'full',
+					},
+					{
+						id: 4,
+						background: {
+							// image: '/images/case/lansforsakringar/devices.png',
+							// attachment: 'bg-local',
+							// repeat: 'bg-no-repeat',
+							// position: 'bg-center',
+							// size: 'bg-80%',
+							// class: 'bg-wavy',
+						},
+						variant: 'scrollVertically',
+						video: {
+							src: '/images/case/lansforsakringar/lfui/lfui-craft-480p.mov',
+							// videoClass: 'w-9/12 mx-auto',
+						},
+						text: [
+							{
+								value: `Sketch runner, Abstract working like a charm!`,
+								size: 'large',
+							},
+						],
+						container: {
+							height: 'h-screen',
+							align: {
+								horizontal: 'center',
+								vertical: 'center',
+							},
+						},
+						height: 'h-screen',
+						// variant: 'full',
+					},
+					{
+						id: 44444,
 						section: 'goal',
 						anchor: '#goal',
 						columns: 4,
@@ -865,7 +921,7 @@ const work = [
 						],
 					},
 					{
-						id: 4,
+						id: 5,
 						section: 'insights',
 						anchor: '#insights',
 						columns: 4,
@@ -1042,7 +1098,7 @@ const work = [
 					// 	],
 					// },
 					{
-						id: 5,
+						id: 6,
 						section: 'approach',
 						anchor: '#approach',
 						columns: 4,
@@ -1075,7 +1131,7 @@ const work = [
 						],
 					},
 					{
-						id: 6,
+						id: 7,
 						section: 'outcome',
 						columns: 4,
 						gap: 4,
@@ -1107,7 +1163,7 @@ const work = [
 						],
 					},
 					{
-						id: 7,
+						id: 8,
 						section: 'test',
 						anchor: '#test',
 						class: 'relative',
@@ -1177,7 +1233,7 @@ const work = [
 					// 	],
 					// },
 					{
-						id: 8,
+						id: 9,
 						section: 'ui-component-navigation',
 						variant: 'scrollVertically',
 						height: 'h-screen',
@@ -1250,7 +1306,7 @@ const work = [
 					// },
 
 					{
-						id: 9,
+						id: 10,
 						section: 'test',
 						anchor: '#test',
 						columns: 2,
@@ -1280,7 +1336,7 @@ const work = [
 						},
 					},
 					{
-						id: 10,
+						id: 11,
 						section: 'test',
 						anchor: '#test',
 						class: 'relative',
@@ -1313,7 +1369,7 @@ const work = [
 						],
 					},
 					{
-						id: 11,
+						id: 12,
 						section: 'test',
 						anchor: '#test',
 						columns: 2,
@@ -1343,7 +1399,7 @@ const work = [
 						},
 					},
 					{
-						id: 12,
+						id: 13,
 						section: 'watch-animation',
 						variant: 'full',
 						image: {
@@ -1385,7 +1441,7 @@ const work = [
 						},
 					},
 					{
-						id: 13,
+						id: 14,
 						section: 'image-loop',
 						container: 'fluid',
 						image: {
@@ -1396,7 +1452,7 @@ const work = [
 						},
 					},
 					{
-						id: 12,
+						id: 15,
 						section: 'image-loop',
 						image: {
 							variant: 'loop',
