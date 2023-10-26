@@ -791,6 +791,38 @@ const work = [
 						// variant: 'full',
 					},
 					{
+						id: 4234234,
+						background: {
+							// image: '/images/case/lansforsakringar/devices.png',
+							// attachment: 'bg-local',
+							// repeat: 'bg-no-repeat',
+							// position: 'bg-center',
+							// size: 'bg-80%',
+							// class: 'bg-wavy',
+						},
+						variant: 'scrollVertically',
+						video: {
+							src: '/images/case/lansforsakringar/lfui/lfui-craft-480p.mov',
+							// videoClass: 'w-9/12 mx-auto',
+						},
+						text: [
+							{
+								value: `Sketch runner, Abstract working like a charm!`,
+								size: 'large',
+							},
+						],
+						container: {
+							height: 'h-screen',
+							align: {
+								horizontal: 'center',
+								vertical: 'center',
+							},
+						},
+						height: 'h-screen',
+						// variant: 'full',
+						open: false,
+					},
+					{
 						id: 44444,
 						section: 'goal',
 						anchor: '#goal',

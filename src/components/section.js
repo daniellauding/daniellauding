@@ -73,6 +73,12 @@ const Section = ({ section }) => {
 		return null; // or any other appropriate fallback
 	}
 
+	// const [isSectionOpen, setIsSectionOpen] = useState(section?.open);
+
+	// const toggleSection = () => {
+	// 	setIsSectionOpen(!isSectionOpen);
+	// };
+
 	if (section?.variant === 'scrollVertically') {
 		const contentRef = useRef(null);
 		const [startY, setStartY] = useState(0);
@@ -109,6 +115,31 @@ const Section = ({ section }) => {
 				contentRef.current.removeEventListener('wheel', handleScroll);
 			};
 		}, []);
+
+		// if (section?.open === false) {
+		// 	return (
+		// 		<div className="relative">
+		// 			{isSectionOpen ? (
+		// 				// If section is open, display the content
+		// 				<div>
+		// 					{/* Your section content goes here */}
+		// 					{/* For example: */}
+		// 					<p>hej jag är här nu</p>
+		// 				</div>
+		// 			) : (
+		// 				// If section is closed, display the "See More" chip
+		// 				<div className="bg-gray-100 p-4 rounded-md">
+		// 					<button
+		// 						onClick={toggleSection}
+		// 						className="text-blue-500 hover:underline cursor-pointer"
+		// 					>
+		// 						See More
+		// 					</button>
+		// 				</div>
+		// 			)}
+		// 		</div>
+		// 	);
+		// }
 
 		return (
 			<div
