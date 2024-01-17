@@ -1,98 +1,52 @@
-// Bookmarklet for Testing Card App
-(function() {
-  var cards = JSON.parse(localStorage.getItem('cards')) || [];
+javascript:(function() {
+  // Array of cards
+  var cards = [
+      '<div>Card 1 Content</div>',
+      '<div>Card 2 Content</div>',
+      // Add more cards as needed
+  ];
 
-  function saveToLocalStorage() {
-      localStorage.setItem('cards', JSON.stringify(cards));
-  }
+  // Current card index
+  var currentCard = 0;
 
-  function addCard() {
-      var addCardModal = document.createElement('div');
-      // Add styling to addCardModal
+  // Create overlay
+  var overlay = document.createElement('div');
+  overlay.style.position = 'fixed';
+  overlay.style.top = '0';
+  overlay.style.left = '0';
+  overlay.style.width = '100%';
+  overlay.style.height = '100%';
+  overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+  overlay.style.zIndex = '1000';
+  overlay.style.display = 'flex';
+  overlay.style.justifyContent = 'center';
+  overlay.style.alignItems = 'center';
 
-      var titleInput = document.createElement('input');
-      titleInput.placeholder = 'Title';
-      var taskInput = document.createElement('input');
-      taskInput.placeholder = 'Task';
-      var goalInput = document.createElement('input');
-      goalInput.placeholder = 'Goal';
+  // Create card container
+  var cardContainer = document.createElement('div');
+  cardContainer.style.backgroundColor = '#fff';
+  cardContainer.style.padding = '20px';
+  cardContainer.style.borderRadius = '5px';
+  cardContainer.innerHTML = cards[currentCard];
+  overlay.appendChild(cardContainer);
 
-      var submitBtn = document.createElement('button');
-      submitBtn.textContent = 'Add Card';
-      submitBtn.onclick = function() {
-          cards.push({
-              title: titleInput.value,
-              task: taskInput.value,
-              goal: goalInput.value,
-              behaviors: '',
-              thoughts: '',
-              success: null,
-              rating: 0,
-              timeSpent: 0
-          });
-          saveToLocalStorage();
-          document.body.removeChild(addCardModal);
-      };
+  // Next button
+  var nextButton = document.createElement('button');
+  nextButton.innerText = 'Next';
+  nextButton.onclick = function() {
+      currentCard = (currentCard + 1) % cards.length;
+      cardContainer.innerHTML = cards[currentCard];
+  };
+  cardContainer.appendChild(nextButton);
 
-      addCardModal.appendChild(titleInput);
-      addCardModal.appendChild(taskInput);
-      addCardModal.appendChild(goalInput);
-      addCardModal.appendChild(submitBtn);
-      document.body.appendChild(addCardModal);
-  }
+  // Close button
+  var closeButton = document.createElement('button');
+  closeButton.innerText = 'Close';
+  closeButton.onclick = function() {
+      document.body.removeChild(overlay);
+  };
+  cardContainer.appendChild(closeButton);
 
-  function startTesting() {
-      var testIndex = Math.floor(Math.random() * cards.length);
-      var testCard = cards[testIndex];
-
-      var testCardModal = document.createElement('div');
-      // Add styling to testCardModal
-
-      var titleDisplay = document.createElement('div');
-      titleDisplay.textContent = 'Title: ' + testCard.title;
-      var taskDisplay = document.createElement('div');
-      taskDisplay.textContent = 'Task: ' + testCard.task;
-      var goalDisplay = document.createElement('div');
-      goalDisplay.textContent = 'Goal: ' + testCard.goal;
-
-      // Add more elements and logic for testing
-
-      testCardModal.appendChild(titleDisplay);
-      testCardModal.appendChild(taskDisplay);
-      testCardModal.appendChild(goalDisplay);
-      document.body.appendChild(testCardModal);
-  }
-
-  function downloadCSV() {
-      var csvContent = 'data:text/csv;charset=utf-8,Title,Task,Goal\n';
-      cards.forEach(function(card) {
-          csvContent += `${card.title},${card.task},${card.goal}\n`;
-      });
-      var encodedUri = encodeURI(csvContent);
-      var link = document.createElement('a');
-      link.setAttribute('href', encodedUri);
-      link.setAttribute('download', 'test_cards_data.csv');
-      link.click();
-  }
-
-  // Main Interface
-  var addBtn = document.createElement('button');
-  addBtn.textContent = 'Add';
-  addBtn.onclick = addCard;
-
-  var startTestBtn = document.createElement('button');
-  startTestBtn.textContent = 'Start Testing';
-  startTestBtn.onclick = startTesting;
-
-  var downloadBtn = document.createElement('button');
-  downloadBtn.textContent = 'Download Data (CSV)';
-  downloadBtn.onclick = downloadCSV;
-
-  var container = document.createElement('div');
-  // Add styling to container
-
-  container.appendChild(addBtn);
-  container.appendChild(startTestBtn);
-  container.appendChild(downloadBtn);
-  document.body.appendChild(container);
+  // Append overlay to body
+  document.body.appendChild(overlay);
 })();
