@@ -23,6 +23,32 @@ function formatTime(ms) {
   return (hours ? hours + 'h ' : '') + (minutes ? minutes + 'm ' : '') + seconds + 's';
 }
 
+function minimizeModal(modal, buttonId) {
+  // Hide the modal
+  modal.style.display = 'none';
+
+  // Create and show a floating button
+  var floatingButton = document.createElement('button');
+  floatingButton.id = buttonId;
+  floatingButton.textContent = 'Open';
+  floatingButton.style.position = 'fixed';
+  floatingButton.style.bottom = '20px';
+  floatingButton.style.left = '20px';
+  floatingButton.style.borderRadius = '50%';
+  floatingButton.style.width = '50px';
+  floatingButton.style.height = '50px';
+  floatingButton.style.backgroundColor = 'blue';
+  floatingButton.style.color = 'white';
+  floatingButton.style.border = 'none';
+  floatingButton.style.cursor = 'pointer';
+  floatingButton.onclick = function() {
+      // Show the modal and remove the button
+      modal.style.display = 'flex';
+      floatingButton.remove();
+  };
+  document.body.appendChild(floatingButton);
+}
+
 
   // Function to apply styles to modals
   function applyModalStyles(modal) {
@@ -106,6 +132,14 @@ function formatTime(ms) {
       manageModal.appendChild(backButton);
 
       document.body.appendChild(manageModal);
+
+      var minimizeManageCardsButton = document.createElement('button');
+      minimizeManageCardsButton.textContent = 'Minimize';
+      minimizeManageCardsButton.onclick = function() {
+          minimizeModal(manageModal, 'manageCardsModalButton');
+      };
+  
+      manageModal.appendChild(minimizeManageCardsButton);
   }
 
   function createCell(row, index, text, cardIndex, field) {
@@ -144,6 +178,14 @@ function formatTime(ms) {
       mainModal.appendChild(manageCardsButton);
       mainModal.appendChild(viewCardsButton);
       document.body.appendChild(mainModal);
+
+      var minimizeButton = document.createElement('button');
+    minimizeButton.textContent = 'Minimize';
+    minimizeButton.onclick = function() {
+        minimizeModal(mainModal, 'mainModalButton');
+    };
+
+    mainModal.appendChild(minimizeButton);
   }
 
   // Function to create the card viewing modal
@@ -286,6 +328,14 @@ function formatTime(ms) {
   } else {
       handleEmptyState();
   }
+
+  var minimizeCardViewButton = document.createElement('button');
+  minimizeCardViewButton.textContent = 'Minimize';
+  minimizeCardViewButton.onclick = function() {
+      minimizeModal(cardModal, 'cardViewModalButton');
+  };
+
+  cardModal.appendChild(minimizeCardViewButton);
 
     document.body.appendChild(cardModal);
   }
