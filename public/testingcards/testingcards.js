@@ -1,7 +1,8 @@
-(function() {
+javascript:(function() {
   var cards = JSON.parse(localStorage.getItem('cards')) || [
-      { title: 'Cash Flow with Search and Filter', task: 'Use the search and filter functions on the cash flow page.', goal: 'Understand and utilize the search and filter options to explore cash flow data.', behaviors: '', thoughts: '', success: null, rating: 0, timeSpent: 0 },
-      { title: 'Investigating a Specific Transaction', task: 'Select a specific transaction from the list to view more details.', goal: 'Evaluate the ease of finding and understanding detailed transaction information.', behaviors: '', thoughts: '', success: null, rating: 0, timeSpent: 0 }
+      { title: 'Card 1 Title', task: 'Card 1 Task Description', goal: 'Card 1 Goal Description', behaviors: '', thoughts: '', success: null, rating: 0, timeSpent: 0 },
+      { title: 'Card 2 Title', task: 'Card 2 Task Description', goal: 'Card 2 Goal Description', behaviors: '', thoughts: '', success: null, rating: 0, timeSpent: 0 }
+      // Add more cards as needed
   ];
   var currentCard = 0;
   var timerInterval, timerRunning = false;
@@ -124,16 +125,6 @@
       downloadButton.textContent = 'Download Data (CSV)';
       downloadButton.onclick = downloadCSV;
 
-      var resetButton = document.createElement('button');
-      resetButton.textContent = 'Reset Timer';
-      resetButton.onclick = function() {
-          clearInterval(timerInterval);
-          timerRunning = false;
-          cards[currentCard].timeSpent = 0;
-          timerDisplay.textContent = 'Time Spent: 0s';
-          saveToLocalStorage();
-      };
-
       modal.appendChild(titleDisplay);
       modal.appendChild(taskDisplay);
       modal.appendChild(goalDisplay);
@@ -148,13 +139,12 @@
       modal.appendChild(nextButton);
       modal.appendChild(closeButton);
       modal.appendChild(downloadButton);
-      modal.appendChild(resetButton);
 
       function updateCardDisplay() {
           var card = cards[currentCard];
-          titleDisplay.textContent = 'Title: ' + card.title;
-          taskDisplay.textContent = 'Task: ' + card.task;
-          goalDisplay.textContent = 'Goal: ' + card.goal;
+          titleDisplay.textContent = 'Card Title: ' + card.title;
+          taskDisplay.textContent = 'Card Task: ' + card.task;
+          goalDisplay.textContent = 'Card Goal: ' + card.goal;
           behaviorsInput.value = card.behaviors;
           thoughtsInput.value = card.thoughts;
           timerDisplay.textContent = 'Time Spent: ' + formatTime(card.timeSpent);
