@@ -189,10 +189,10 @@ function formatTime(ms) {
   ratingButtons.style.display = 'flex';
   
   for (let i = 1; i <= 5; i++) {
-      let btn = createRatingButton(i);
-      btn.classList.add('rating-button');
-      ratingButtons.appendChild(btn);
-  }
+    let btn = createRatingButton(i, currentCard);
+    btn.classList.add('rating-button');
+    ratingButtons.appendChild(btn);
+}
 
   successButton = document.createElement('button');
   successButton.innerHTML = successIcon;
@@ -305,29 +305,23 @@ function formatTime(ms) {
       timerButton.style.display = 'none';
   }
 
-  function createRatingButton(idx) {
-      var button = document.createElement('button');
-      button.innerHTML = idx <= (cards[currentCard]?.rating || 0) ? activeStarSVG : inactiveStarSVG;
-      button.onclick = function() {
-          if (cards.length > 0) {
-              cards[currentCard].rating = idx;
-              updateRatingButtons();
-              saveToLocalStorage();
-          }
-      };
-      return button;
-  }
+function createRatingButton(idx, cardIndex) {
+    var button = document.createElement('button');
+    button.innerHTML = idx <= (cards[cardIndex]?.rating || 0) ? activeStarSVG : inactiveStarSVG;
+    button.onclick = function() {
+        cards[cardIndex].rating = idx;
+        updateRatingButtons(cardIndex);
+        saveToLocalStorage();
+    };
+    return button;
+}
 
-  function updateRatingButtons() {
-      if (cards.length === 0) {
-          return; // Exit if there are no cards
-      }
-      var ratingButtons = document.querySelectorAll('.rating-button');
-      for (var i = 0; i < ratingButtons.length; i++) {
-          ratingButtons[i].innerHTML = i < (cards[currentCard].rating || 0) ? activeStarSVG : inactiveStarSVG;
-      }
+function updateRatingButtons(cardIndex) {
+  var ratingButtons = document.querySelectorAll('.rating-button');
+  for (var i = 0; i < ratingButtons.length; i++) {
+      ratingButtons[i].innerHTML = i < (cards[cardIndex].rating || 0) ? activeStarSVG : inactiveStarSVG;
   }
-
+}
 
   function setButtonFunctions() {
       prevButton.onclick = function() {
@@ -390,6 +384,13 @@ function formatTime(ms) {
           behaviorsInput.value = card.behaviors;
           thoughtsInput.value = card.thoughts;
           timerDisplay.textContent = 'Time Spent: ' + formatTime(card.timeSpent);
+          ratingButtons.innerHTML = ''; // Clear existing buttons
+          for (let i = 1; i <= 5; i++) {
+              let btn = createRatingButton(i, currentCard);
+              btn.classList.add('rating-button');
+              ratingButtons.appendChild(btn);
+          }
+
           updateSuccessFailButtons();
       } else {
           titleDisplay.textContent = 'No cards available';
