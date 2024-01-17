@@ -177,330 +177,12 @@ const work = [
 				image: {
 					src: '/images/case/spotify/bg_spotify.jpeg',
 				},
-				tags: [
-					'UX',
-					'UI',
-					// {
-					// 	id: '0',
-					// 	name: 'UX',
-					// 	tooltip: 'How it feels',
-					// },
-					// {
-					// 	id: '1',
-					// 	name: 'UI',
-					// 	tooltip: 'How it shines',
-					// },
-					// {
-					// 	id: '2',
-					// 	name: 'Prototyping',
-					// 	tooltip: 'Put some duct tape around it',
-					// },
-					// {
-					// 	id: '2',
-					// 	name: 'Prototyping',
-					// 	tooltip: 'Put some duct tape around it',
-					// },
-					// 'User testing',
-					// 'Field research',
-				],
+				tags: ['UX', 'UI'],
 				library: {
 					folder: 'spotify',
 				},
 				protected: true,
-				content: [
-					{
-						id: 0,
-						background: {
-							image: '/images/case/spotify/bg_favela.jpg',
-						},
-						variant: 'full',
-					},
-					{
-						id: 4,
-						section: 'image-gallery',
-						image: {
-							variant: 'gallery',
-							images: [
-								{
-									id: 0,
-									src: '/images/case/spotify/looptest/01.png',
-									title: 'Test image title #1',
-									text: 'Här har vi gjort lite tester för att se hur användarna tycker',
-								},
-								{
-									id: 1,
-									src: '/images/case/spotify/looptest/02.png',
-									title: 'Test image title #2',
-									text: 'Asdf lite test',
-								},
-								{
-									id: 2,
-									src: '/images/case/spotify/looptest/03.png',
-									title: 'Test image title #3',
-									text: 'Asdf lite test',
-								},
-								{
-									id: 3,
-									src: '/images/case/spotify/looptest/04.png',
-									title: 'Test image title #4',
-									text: 'Hej hej hemskt mycket hej',
-								},
-							],
-						},
-					},
-					{
-						id: 5,
-						section: 'scene-imagery',
-						variant: 'full',
-						image: {
-							variant: 'mapper',
-							src: '/images/case/spotify/bg_favela.jpg',
-							map: {
-								name: 'my-map',
-								areas: [
-									{
-										name: '0',
-										areaKeyName: 'me',
-										shape: 'circle',
-										coords: [1016, 393, 4],
-										preFillColor: 'rgba(0,0,0,0.8)',
-										strokeColor: '#fff',
-										lineWidth: 4,
-										fillColor: 'rgba(0,0,0,0.8)',
-										title: 'Just me in Action',
-										description:
-											'Im trying to understand the pain points and if we can help serving music to all homes',
-										// image: '/images/case/spotify/04.png',
-									},
-									{
-										name: '1',
-										areaKeyName: 'tester',
-										// shape: 'poly',
-										// coords: [
-										// 	1141, 465, 1172, 448, 1206, 500,
-										// 	1168, 509,
-										// ],
-										shape: 'circle',
-										coords: [1171, 475, 4],
-										preFillColor: 'rgba(0,0,0,0.8)',
-										fillColor: 'rgba(0,0,0,0.8)',
-										strokeColor: '#fff',
-										lineWidth: 4,
-										title: 'Interacting with a early prototype while being interviewed',
-										description:
-											'This is a description of the area',
-										image: '/images/case/spotify/04.png',
-									},
-								],
-							},
-						},
-					},
-					{
-						id: 6,
-						section: 'problem',
-						title: 'The problem',
-						lead: `In 2017, Spotify was grappling with the challenge of broadening its reach among free users in emerging markets. The issue was deeply rooted in users' mobile data consumption fears, and their preference for downloading mp3s over streaming, especially among individuals with older Android phones - a phenomenon we termed "year class phones." Users were hesitant to stream content when not connected to Wi-Fi, resulting in limited user growth in these markets.`,
-						text: 'problem va',
-						variant: 'description',
-					},
-					// {
-					// 	id: 6,
-					// 	section: 'discovery',
-					// 	title: 'Identify ways to attract new freemium users',
-					// 	text: 'asdf',
-					// 	lead: 'We understood that free users on year class phones (older androids) still where downloading mp3s and was afraid of streaming when not on Wi-Fi. A hypothesis to gain trust to stream on cellular was to build a solution that uses less data consumption.',
-					// 	style: 'hero',
-					// 	groups: [
-					// 		{
-					// 			id: 0,
-					// 			animate: true,
-					// 			title: {
-					// 				variant: 'medium',
-					// 				value: 'Jag är en rubrik i en grupp',
-					// 			},
-					// 			text: {
-					// 				variant: 'large',
-					// 				value: 'Jag är texten i denna grupp',
-					// 			},
-					// 		},
-					// 	],
-					// },
-					// {
-					// 	id: 7,
-					// 	section: 'solution',
-					// 	title: 'Consume 1% of data',
-					// 	lead: 'One of our solutions we ran A/B tests on would serve 4 playlists on-demand and when playing songs from those it only consumed 1% of their data. The design is branded with dark-blue to build awareness throughtout the flow.',
-					// 	style: 'hero',
-					// },
-					{
-						id: 7,
-						section: 'goal',
-						title: 'Goal',
-						lead: `Our main objective was to alleviate users' concerns about high data consumption during streaming and transform their music listening behavior from downloading mp3s to streaming songs on Spotify. The end goal was to expand Spotify's user base and increase engagement in emerging markets, specifically Brazil.`,
-						variant: 'description',
-					},
-					{
-						id: 8,
-						section: 'insights',
-						title: 'Insights',
-						lead: `My team and I embarked on a two-week local field research trip to Brazil to gain a firsthand understanding of our users and their behavior. This involved conducting in-home interviews and user testing on various prototypes. Through these rigorous investigations, we discovered the users' concern about mobile data consumption and their need for a streaming solution that was both data-efficient and trustworthy.`,
-						variant: 'description',
-					},
-					{
-						id: 9,
-						section: 'approach',
-						title: 'The Approach',
-						lead: `Based on our insights, we formulated a hypothesis - if we could design a feature that ensured minimal data consumption, we could gain the users' trust and encourage them to stream over cellular networks. We rapidly iterated potential solutions and developed prototypes for testing.`,
-						variant: 'description',
-					},
-					{
-						id: 10,
-						section: 'outcome',
-						title: 'Outcome',
-						lead: `One solution we conceived and tested was a feature that allowed users to access four on-demand playlists, and when songs were played from these, it only consumed 1% of their data. The design was given a distinct dark-blue branding for easy identification and to build awareness throughout the user flow. We conducted A/B testing on this feature to evaluate its effectiveness. By providing users with a low data consumption solution, we addressed their concerns and provided a user-friendly solution that facilitated streaming even when not connected to Wi-Fi. This initiative significantly contributed to Spotify's efforts in expanding its reach to free users in emerging markets.`,
-						variant: 'description',
-					},
-					// {
-					// 	id: 6,
-					// 	section: 'designs',
-					// 	title: 'Designs',
-					// 	groups: [
-					// 		{
-					// 			id: 0,
-					// 			image: {
-					// 				variant: 'dummy',
-					// 				text: 'Bild #1',
-					// 				width: 784,
-					// 				height: 1353,
-					// 				color: '#20232a',
-					// 				textColor: '#737373',
-					// 				format: 'png',
-					// 			},
-					// 		},
-					// 		{
-					// 			id: 1,
-					// 			title: {
-					// 				variant: 'medium',
-					// 				value: 'Jag är en rubrik i en grupp',
-					// 			},
-					// 			text: {
-					// 				variant: 'large',
-					// 				value: 'Jag är texten i denna grupp',
-					// 			},
-					// 			image: {
-					// 				variant: 'dummy',
-					// 				text: 'Bild #2',
-					// 				width: 784,
-					// 				height: 1353,
-					// 				color: '#20232a',
-					// 				textColor: '#737373',
-					// 				format: 'png',
-					// 			},
-					// 			groups: [
-					// 				{
-					// 					id: 1,
-					// 					image: {
-					// 						variant: 'dummy',
-					// 						text: 'Bild #2',
-					// 						width: 784,
-					// 						height: 1353,
-					// 						color: '#20232a',
-					// 						textColor: '#737373',
-					// 						format: 'png',
-					// 					},
-					// 				},
-					// 				{
-					// 					id: 2,
-					// 					image: {
-					// 						variant: 'dummy',
-					// 						text: 'Bild #3',
-					// 						width: 784,
-					// 						height: 1353,
-					// 						color: '#20232a',
-					// 						textColor: '#737373',
-					// 						format: 'png',
-					// 					},
-					// 				},
-					// 				{
-					// 					id: 3,
-					// 					image: {
-					// 						variant: 'dummy',
-					// 						text: 'Bild #4',
-					// 						width: 784,
-					// 						height: 1353,
-					// 						color: '#20232a',
-					// 						textColor: '#737373',
-					// 						format: 'png',
-					// 					},
-					// 				},
-					// 			],
-					// 		},
-					// 	],
-					// },
-				],
-			},
-		],
-	},
-	{
-		id: 2,
-		client: 'Record Union',
-		role: 'Senior Product Design Consultant',
-		date: '2017 – 2018',
-		location: 'Remote / Sweden',
-		background: {
-			image: '/images/case/recordunion/bg_recordunion.png',
-		},
-		url: 'https://www.recordunion.com',
-		protected: true,
-		index: true,
-		cases: [
-			{
-				id: 0,
-				case: 'growth-enable-more-free-users-emerging-markets',
-				title: 'Release your music. Get discovered',
-				lead: '',
-				tags: ['UX', 'UI', 'Prototyping'],
-				protected: true,
-				library: {
-					folder: 'recordunion',
-				},
-				content: [
-					{
-						id: 1,
-						section: 'problem',
-						title: 'The problem',
-						lead: `Record Union, in its quest to provide a platform for artists to distribute their music across popular digital stores, identified that their existing user interface was becoming dated. This realization posed a challenge, especially in a saturated market where user experience could significantly impact an artist's choice of platform.`,
-						variant: 'description',
-					},
-					{
-						id: 2,
-						section: 'goal',
-						title: 'Goal',
-						lead: `The primary aim was to rejuvenate the user interface and cultivate a cohesive design system that would resonate with both newcomers and seasoned artists. Beyond just a visual refresh, the intention was to infuse innovation and structure into the design to bolster user engagement and efficiency.`,
-						variant: 'description',
-					},
-					{
-						id: 3,
-						section: 'insights',
-						title: 'Insights',
-						lead: `The existing interface, while functional, lacked modern design cues and fluidity. The absence of a cohesive design system meant inconsistency across various parts of the platform. The challenge was to collaborate with the in-house art director, ensuring the revamped design echoed the brand's essence while bringing fresh perspectives.`,
-						variant: 'description',
-					},
-					{
-						id: 4,
-						section: 'approach',
-						title: 'The Approach',
-						lead: `Upon being contacted by Record Union, I worked hand-in-hand with their art director, focusing on brainstorming innovative ideas while structuring a fresh design. Our collaborative efforts led to the development of a cohesive design system. Using Sketch, I revamped the older UI and prototyped both web and mobile portals, constantly iterating based on feedback and ensuring that the design remained aligned with our envisioned structure.`,
-						variant: 'description',
-					},
-					{
-						id: 5,
-						section: 'outcome',
-						title: 'Outcome',
-						lead: `The collaborative effort resulted in a refreshed and streamlined user interface for Record Union. The cohesive design system brought uniformity across the platform, enhancing the user experience. Artists, both new and experienced, found the revamped platform more intuitive and engaging, further solidifying Record Union's position in the market.`,
-						variant: 'description',
-					},
-				],
+				content: [{}],
 			},
 		],
 	},
@@ -528,56 +210,19 @@ const work = [
 			'/images/case/lansforsakringar/thumbnail/10.gif',
 		],
 		url: 'https://www.lansforsakringar.se',
-		// cases: [
-		// 	{
-		// 		id: 0,
-		// 		case: 'digital-identity',
-		// 		title: 'New multi-channel digital visual identity',
-		// 		lead: 'I was hired by Identity Works, as a Senior designer consultant for the swedish insurance & bank company Länsförsäkringar AB. Identity Works was working on the new brand identity.',
-		// 		tags: ['UX', 'UI', 'Prototyping', 'User testing'],
-		// 		library: {
-		// 			folder: 'lansforsakringar',
-		// 		},
-		// 		protected: true,
-		// content: [
-		// 	{
-		// 		id: 1,
-		// 		section: 'brief',
-		// 		title: 'Design sprint',
-		// 		lead: 'The challenge was for five weeks to work on the new digital visual identity (convert from an new updated analog idenity created by Identity Works). Each week was a new platform. During this weeks we worked on the public facing website, banking environment, mobile app and for the watch.',
-		// 	},
-		// 	{
-		// 		id: 2,
-		// 		section: 'deliverables',
-		// 		title: 'Execution & deliverables',
-		// 		lead: 'After the first phase Länsförsäkringar hired me as a Art Director consultant. My role was to make sure we kept the new visual identity across all platforms and teams while working closely with the developers and stakeholders.',
-		// 	},
-		// 	{
-		// 		id: 3,
-		// 		section: 'outcome',
-		// 		title: 'Launched 2016',
-		// 		lead: 'The new visual identity was released in Q4 of 2016 on various platforms and are still available for customers of Länsförsäkringar',
-		// 	},
-		// ],
-		// 	},
-		// ],
+
 		cases: [
 			{
 				id: 0,
 				date: '2015',
-				case: 'revamping-their-brand-identity',
-				title: 'Revamping their brand identity',
-				// tags: {
-				// 	default: true,
-				// 	roles: ['UX', 'UI'],
-				// },
+				case: 'improving-lansforsakringars-brand-identity',
+				title: `Improving Länsförsäkringar's Brand Identity`,
 				tags: ['UX', 'UI'],
 				theme: 'lf',
 				hero: {
 					gap: 32,
 					columns: 3,
 					rows: 2,
-					// class: 'heroclass',
 					description: {
 						colStart: 1,
 						colEnd: 4,
@@ -585,12 +230,10 @@ const work = [
 						rowStart: 2,
 						rows: 3,
 						title: {
-							// value: 'Revamping their brand identity',
-							value: 'Revamping their brand identity',
+							value: `Improving Länsförsäkringar's Brand Identity`,
 							rowStart: 1,
 							colStart: 1,
 							colEnd: 2,
-							// size: 'large',
 						},
 						lead: {
 							value: 'Länsförsäkringar',
@@ -605,9 +248,7 @@ const work = [
 						},
 					},
 					image: {
-						// src: '/images/case/lansforsakringar/devices.png',
 						src: '/images/case/lansforsakringar/logo@2x.png',
-						// imgClass: 'mt-4 mb-4 absolute right-0 bottom-0',
 						columns: 2,
 						rows: 3,
 						colStart: 2,
@@ -616,49 +257,52 @@ const work = [
 						imgClass: 'w-7/12 mx-auto my-auto mt-64',
 					},
 				},
-				// bg: '/images/case/spotify/bg_favela.jpg',
-				// image: {
-				// 	src: '/images/case/spotify/bg_spotify.jpeg',
-				// },
-				// leadClass: 'leadclass',
-				// heroClass: 'heroclass',
-				// columns: 2,
-				// colStart: 1,
-				// gap: 4,
-
 				image: {
 					src: '/images/case/lansforsakringar/hero_dark.png',
-					// imgClass: 'mt-4 mb-4 absolute right-0 bottom-0',
-					// colStart: 2,
 				},
-
-				// convert to hero object, have image, title, desc, etc and then do all specific classes or placements there
-				// or just use conten group to behave the same, try with below
 				content: [
 					{
 						id: 0,
 						background: {
 							image: '/images/case/lansforsakringar/intro.png',
 							color: '#F3F3F3',
-							// bg-center bg-cover bg-contain bg-fixed bg-no-repeat bg-center
 						},
 						variant: 'full',
 						class: 'bg-contain bg-fixed bg-no-repeat bg-center',
 					},
 					{
 						id: 1,
-						background: {
-							// image: '/images/case/lansforsakringar/devices.png',
-							// attachment: 'bg-local',
-							// repeat: 'bg-no-repeat',
-							// position: 'bg-center',
-							// size: 'bg-80%',
-							// class: 'bg-wavy',
-						},
+						section: '#intro',
+						anchor: '#intro',
+						// padding: 'py-32',
+						text: [
+							{
+								value: `In 2016, I worked as an Art Director Consultant for Identity Works on a project with Länsförsäkringar AB, a major Swedish insurance and banking company.`,
+								size: 'large',
+								align: {
+									horizontal: 'center',
+								},
+							},
+							{
+								value: `Länsförsäkringar has a rich history and stands apart with its local ownership, emphasizing its unique local approach.`,
+								size: 'large',
+								align: {
+									horizontal: 'center',
+								},
+							},
+						],
+					},
+					{
+						id: 2,
+						background: {},
 						variant: 'scrollVertically',
 						image: {
 							src: '/images/case/lansforsakringar/devices.png',
 							imgClass: 'w-9/12 mx-auto',
+						},
+						align: {
+							horizontal: 'center',
+							vertical: 'center',
 						},
 						container: {
 							height: 'h-screen',
@@ -668,45 +312,13 @@ const work = [
 							},
 						},
 						height: 'h-screen',
-						// variant: 'full',
 					},
 					{
-						id: 2,
+						id: 3,
 						section: 'problem',
 						anchor: '#problem',
 						columns: 4,
 						gap: 4,
-						// tabs: [
-						// 	{
-						// 		section: 'Overview',
-						// 		title: 'Introduction',
-						// 		lead: 'This is the overview section.',
-						// 		active: true,
-						// 	},
-						// 	{
-						// 		section: 'Details',
-						// 		title: 'Details',
-						// 		lead: 'This is the details section.',
-						// 		groups: [
-						// 			{
-						// 				id: 0,
-						// 				columns: 1,
-						// 				title: {
-						// 					value: 'Tabbed group content',
-						// 				},
-						// 			},
-						// 			{
-						// 				id: 1,
-						// 				columns: 2,
-						// 				text: {
-						// 					value: 'Etiam eu dolor eget lorem imperdiet pretium. Quisque sed elementum neque, non egestas ante. Sed imperdiet, mauris in lacinia vehicula, magna elit ornare tortor, quis sagittis libero nunc eu ipsum. Ut sit amet arcu',
-						// 					size: 'large',
-						// 				},
-						// 			},
-						// 		],
-						// 	},
-						// 	// Add more tabs as needed
-						// ],
 						groups: [
 							{
 								id: 0,
@@ -723,28 +335,21 @@ const work = [
 								columns: 2,
 								text: [
 									{
-										value: `I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company.`,
+										value: `Länsförsäkringar needed to update their brand for the digital age. They wanted a modern look and feel for their website, mobile app, and other digital platforms while staying connected to their local roots.`,
 										size: 'large',
-									},
-									{
-										value: ` The company was facing a challenging task of completely revamping their brand identity and establishing a cohesive, modern, and visually appealing digital presence across various platforms, including their public-facing website, banking environment, mobile app, and watch interface.`,
-										size: 'medium',
 									},
 								],
 							},
 						],
 					},
 					{
-						id: 3,
-						background: {
-							// image: '/images/case/lansforsakringar/devices.png',
-							// attachment: 'bg-local',
-							// repeat: 'bg-no-repeat',
-							// position: 'bg-center',
-							// size: 'bg-80%',
-							// class: 'bg-wavy',
-						},
+						id: 4,
+						background: {},
 						variant: 'scrollVertically',
+						align: {
+							horizontal: 'center',
+							vertical: 'center',
+						},
 						image: {
 							src: '/images/case/lansforsakringar/lfui/lfui-map@2x.png',
 							imgClass: 'w-9/12 mx-auto',
@@ -757,22 +362,17 @@ const work = [
 							},
 						},
 						height: 'h-screen',
-						// variant: 'full',
 					},
 					{
-						id: 4,
-						background: {
-							// image: '/images/case/lansforsakringar/devices.png',
-							// attachment: 'bg-local',
-							// repeat: 'bg-no-repeat',
-							// position: 'bg-center',
-							// size: 'bg-80%',
-							// class: 'bg-wavy',
-						},
+						id: 5,
+						background: {},
 						variant: 'scrollVertically',
+						align: {
+							horizontal: 'center',
+							vertical: 'center',
+						},
 						video: {
 							src: '/images/case/lansforsakringar/lfui/lfui-craft-480p.mov',
-							// videoClass: 'w-9/12 mx-auto',
 						},
 						text: [
 							{
@@ -788,39 +388,6 @@ const work = [
 							},
 						},
 						height: 'h-screen',
-						// variant: 'full',
-					},
-					{
-						id: 4234234,
-						background: {
-							// image: '/images/case/lansforsakringar/devices.png',
-							// attachment: 'bg-local',
-							// repeat: 'bg-no-repeat',
-							// position: 'bg-center',
-							// size: 'bg-80%',
-							// class: 'bg-wavy',
-						},
-						variant: 'scrollVertically',
-						video: {
-							src: '/images/case/lansforsakringar/lfui/lfui-craft-480p.mov',
-							// videoClass: 'w-9/12 mx-auto',
-						},
-						text: [
-							{
-								value: `Sketch runner, Abstract working like a charm!`,
-								size: 'large',
-							},
-						],
-						container: {
-							height: 'h-screen',
-							align: {
-								horizontal: 'center',
-								vertical: 'center',
-							},
-						},
-						height: 'h-screen',
-						// variant: 'full',
-						open: false,
 					},
 					{
 						id: 44444,
@@ -828,109 +395,12 @@ const work = [
 						anchor: '#goal',
 						columns: 4,
 						gap: 4,
-						// accordion: [
-						// 	{
-						// 		section: 'accordion-desktop',
-						// 		title: 'Desktop',
-						// 		lead: 'desktop stuff.',
-						// 		active: true,
-						// 	},
-						// 	{
-						// 		section: 'accordion-mobile',
-						// 		title: 'Mobile',
-						// 		lead: 'mobile stuff.',
-						// 		groups: [
-						// 			{
-						// 				id: 0,
-						// 				columns: 1,
-						// 				title: {
-						// 					value: 'Tabbed group content',
-						// 				},
-						// 			},
-						// 			{
-						// 				id: 1,
-						// 				columns: 2,
-						// 				text: {
-						// 					value: 'Etiam eu dolor eget lorem imperdiet pretium. Quisque sed elementum neque, non egestas ante. Sed imperdiet, mauris in lacinia vehicula, magna elit ornare tortor, quis sagittis libero nunc eu ipsum. Ut sit amet arcu',
-						// 					size: 'large',
-						// 				},
-						// 			},
-						// 		],
-						// 	},
-						// 	{
-						// 		section: 'accordion-nim',
-						// 		title: 'Portal',
-						// 		lead: 'portal stuff.',
-						// 		groups: [
-						// 			{
-						// 				id: 0,
-						// 				columns: 1,
-						// 				title: {
-						// 					value: 'Tabbed group content',
-						// 				},
-						// 			},
-						// 			{
-						// 				id: 1,
-						// 				columns: 2,
-						// 				text: {
-						// 					value: 'Etiam eu dolor eget lorem imperdiet pretium. Quisque sed elementum neque, non egestas ante. Sed imperdiet, mauris in lacinia vehicula, magna elit ornare tortor, quis sagittis libero nunc eu ipsum. Ut sit amet arcu',
-						// 					size: 'large',
-						// 				},
-						// 			},
-						// 		],
-						// 	},
-						// 	{
-						// 		section: 'accordion-watch',
-						// 		title: 'Watch',
-						// 		lead: 'watch stuff.',
-						// 		groups: [
-						// 			{
-						// 				id: 0,
-						// 				columns: 1,
-						// 				title: {
-						// 					value: 'Tabbed group content',
-						// 				},
-						// 			},
-						// 			{
-						// 				id: 1,
-						// 				columns: 2,
-						// 				text: {
-						// 					value: 'Etiam eu dolor eget lorem imperdiet pretium. Quisque sed elementum neque, non egestas ante. Sed imperdiet, mauris in lacinia vehicula, magna elit ornare tortor, quis sagittis libero nunc eu ipsum. Ut sit amet arcu',
-						// 					size: 'large',
-						// 				},
-						// 			},
-						// 		],
-						// 	},
-						// 	{
-						// 		section: 'accordion-insurance',
-						// 		title: 'Insurance',
-						// 		lead: 'insurance stuff.',
-						// 		groups: [
-						// 			{
-						// 				id: 0,
-						// 				columns: 1,
-						// 				title: {
-						// 					value: 'Tabbed group content',
-						// 				},
-						// 			},
-						// 			{
-						// 				id: 1,
-						// 				columns: 2,
-						// 				text: {
-						// 					value: 'Etiam eu dolor eget lorem imperdiet pretium. Quisque sed elementum neque, non egestas ante. Sed imperdiet, mauris in lacinia vehicula, magna elit ornare tortor, quis sagittis libero nunc eu ipsum. Ut sit amet arcu',
-						// 					size: 'large',
-						// 				},
-						// 			},
-						// 		],
-						// 	},
-						// 	// Add more tabs as needed
-						// ],
 						groups: [
 							{
 								id: 0,
 								columns: 2,
 								title: {
-									value: 'Goal',
+									value: 'Setting the Goal',
 									weight: 'font-regular',
 									family: 'font-serif',
 									className: 'leading-snug',
@@ -941,19 +411,15 @@ const work = [
 								columns: 2,
 								text: [
 									{
-										value: `The primary objective was to create and implement a fresh and unified digital visual identity for Länsförsäkringar AB, thereby enhancing user experience and interaction across all digital touchpoints.`,
+										value: `Our main goal was clear: create a unified digital look for Länsförsäkringar that would make it easier for customers to interact with their services online. We wanted to keep the brand's essence while making it work well on different devices.`,
 										size: 'large',
-									},
-									{
-										value: `The new identity needed to embody the brand’s ethos and values while being adaptable and visually consistent across platforms.`,
-										size: 'medium',
 									},
 								],
 							},
 						],
 					},
 					{
-						id: 5,
+						id: 6,
 						section: 'insights',
 						anchor: '#insights',
 						columns: 4,
@@ -963,7 +429,7 @@ const work = [
 								id: 0,
 								columns: 2,
 								title: {
-									value: 'Insights',
+									value: 'Gaining Insights',
 									weight: 'font-regular',
 									family: 'font-serif',
 									className: 'leading-snug',
@@ -974,163 +440,15 @@ const work = [
 								columns: 2,
 								text: [
 									{
-										value: `Over a period of five weeks, each week dedicated to a different platform, we delved into the existing brand aesthetics, user engagement patterns, and digital interfaces.`,
+										value: `In the initial five weeks, we held a design sprint to generate ideas and prototypes for various digital platforms, including the homepage, mobile app, bank portal, and insurance services. We actively involved Länsförsäkringar employees, seeking their feedback on our design concepts. Their input helped us identify design directions that resonated with users. We also prioritized accessibility. To ensure our designs were user-friendly for everyone, we collaborated with Funka, an accessibility consultancy, to integrate expert insights into the design process. This ensured inclusivity and usability for all users.`,
 										size: 'large',
 									},
-									{
-										value: `The intention was to understand the elements that resonate with their audience and identify areas of inconsistency and potential improvement.`,
-										size: 'medium',
-									},
 								],
-								// groups: [
-								// 	{
-								// 		id: 0,
-								// 		title: {
-								// 			value: 'Watch',
-								// 		},
-								// 		text: {
-								// 			value: 'Lorem ipsum',
-								// 		},
-								// 	},
-								// 	{
-								// 		id: 1,
-								// 		title: {
-								// 			value: 'Mobile',
-								// 		},
-								// 		text: {
-								// 			value: 'Lorem ipsum',
-								// 		},
-								// 	},
-								// 	{
-								// 		id: 1,
-								// 		title: {
-								// 			value: 'Web',
-								// 		},
-								// 		text: {
-								// 			value: 'Lorem ipsum',
-								// 		},
-								// 	},
-								// 	{
-								// 		id: 1,
-								// 		title: {
-								// 			value: 'Insurance',
-								// 		},
-								// 		text: {
-								// 			value: 'Lorem ipsum',
-								// 		},
-								// 	},
-								// 	{
-								// 		id: 1,
-								// 		title: {
-								// 			value: 'Banking',
-								// 		},
-								// 		text: {
-								// 			value: 'Lorem ipsum',
-								// 		},
-								// 	},
-								// ],
 							},
 						],
 					},
-					// {
-					// 	id: 5,
-					// 	section: 'platforms',
-					// 	anchor: '#platforms',
-					// 	columns: 6,
-					// 	gap: 4,
-					// 	groups: [
-					// 		{
-					// 			id: 0,
-					// 			title: {
-					// 				value: 'Watch',
-					// 			},
-					// 			text: {
-					// 				value: 'Lorem ipsum',
-					// 			},
-					// 		},
-					// 		{
-					// 			id: 1,
-					// 			title: {
-					// 				value: 'Mobile',
-					// 			},
-					// 			text: {
-					// 				value: 'Lorem ipsum',
-					// 			},
-					// 		},
-					// 		{
-					// 			id: 1,
-					// 			title: {
-					// 				value: 'Web',
-					// 			},
-					// 			text: {
-					// 				value: 'Lorem ipsum',
-					// 			},
-					// 		},
-					// 		{
-					// 			id: 1,
-					// 			title: {
-					// 				value: 'Insurance',
-					// 			},
-					// 			text: {
-					// 				value: 'Lorem ipsum',
-					// 			},
-					// 		},
-					// 		{
-					// 			id: 1,
-					// 			title: {
-					// 				value: 'Banking',
-					// 			},
-					// 			text: {
-					// 				value: 'Lorem ipsum',
-					// 			},
-					// 		},
-					// 	],
-					// },
-					// {
-					// 	id: 5,
-					// 	section: 'test',
-					// 	anchor: '#test',
-					// 	columns: 2,
-					// 	gap: 4,
-					// 	class: 'h-screen relative',
-					// 	container: 'h-full relative container',
-					// 	groups: [
-					// 		{
-					// 			id: 0,
-					// 			columns: 1,
-					// 			class: 'h-full relative',
-					// 			image: {
-					// 				src: '/images/case/lansforsakringar/open/Home_desktop.png',
-					// 				// width: 784,
-					// 				// height: 1353,
-					// 				imgClass: 'object-fill',
-					// 				variant: 'scrollimg',
-					// 			},
-					// 		},
-					// 		{
-					// 			id: 1,
-					// 			columns: 1,
-					// 			class: 'h-full relative',
-					// 			title: {
-					// 				value: 'Homepage',
-					// 				// fill: 'red',
-					// 				// className: 'pelle',
-					// 			},
-					// 			text: [
-					// 				{
-					// 					value: `Morbi finibus, ligula nec mattis laoreet, lacus velit tincidunt purus, eget fermentum magna neque quis erat. Duis tempus quam eu elit fringilla, id dignissim metus faucibus. Donec quam mi, congue nec erat ac, porttitor dictum augue. Aenean sit amet sollicitudin purus, sed malesuada nisi. Nulla venenatis, purus et tincidunt sodales, mi urna ornare mauris, quis suscipit metus massa ac nulla. Quisque finibus, augue eu consectetur consectetur, elit risus ullamcorper ipsum, vel porttitor ante nisl vel elit. Etiam tempor, purus non tincidunt egestas, eros nulla tempus diam, quis sodales metus velit et metus. Duis nec elementum nulla, eu dictum augue.`,
-					// 					size: 'medium',
-					// 				},
-					// 				{
-					// 					value: `hur får jag vänstra delen scrolla när jag scrollar här med, textblocket, funkar ej`,
-					// 					size: 'medium',
-					// 				},
-					// 			],
-					// 		},
-					// 	],
-					// },
 					{
-						id: 6,
+						id: 7,
 						section: 'approach',
 						anchor: '#approach',
 						columns: 4,
@@ -1151,19 +469,15 @@ const work = [
 								columns: 2,
 								text: [
 									{
-										value: `Building on the insights, we worked on crafting a new digital visual identity. Ensuring the visual language was consistent and adaptable across different platforms was crucial.`,
+										value: `Using what we learned, we started designing a new digital look for Länsförsäkringar. We wanted it to be consistent and easy to use on different devices. After the design phase, I became an Art Director consultant, ensuring that the new look was used correctly by all teams.`,
 										size: 'large',
-									},
-									{
-										value: `Following the design phase, Länsförsäkringar AB hired me as an Art Director consultant. My primary responsibility was to oversee the accurate application of the new visual identity across all platforms and teams, closely collaborating with developers and stakeholders to ensure the maintenance of visual integrity.`,
-										size: 'medium',
 									},
 								],
 							},
 						],
 					},
 					{
-						id: 7,
+						id: 8,
 						section: 'outcome',
 						columns: 4,
 						gap: 4,
@@ -1172,7 +486,7 @@ const work = [
 								id: 0,
 								columns: 2,
 								title: {
-									value: 'Outcome',
+									value: 'The Outcome',
 									weight: 'font-regular',
 									family: 'font-serif',
 									className: 'leading-snug',
@@ -1183,19 +497,43 @@ const work = [
 								columns: 2,
 								text: [
 									{
-										value: `The new visual identity, finalized and ready for implementation, was scheduled to be launched in Q4 of 2016 across multiple platforms. The unified and revitalized digital brand identity was a significant milestone in enhancing Länsförsäkringar AB's digital user experience. `,
+										value: `The new look was ready to launch in late 2016 across different platforms. It improved the digital experience for Länsförsäkringar's customers. My role as an Art Director consultant was crucial in making sure everyone used the new look correctly.`,
 										size: 'large',
-									},
-									{
-										value: `My role as the Art Director consultant played a pivotal part in ensuring the successful and consistent roll-out of the new identity, paving the way for the brand's modernized digital presence.`,
-										size: 'medium',
 									},
 								],
 							},
 						],
 					},
 					{
-						id: 8,
+						id: 1011,
+						section: 'ui-component-navigation',
+						variant: 'scrollVertically',
+						height: 'h-screen',
+						image: {
+							src: '/images/case/lansforsakringar/ui/big-menu@2x.png',
+							imgClass: 'w-9/12 mx-auto mt-32 -order-1',
+						},
+						text: [
+							{
+								value: `The navigation for the public facing website. Applied updated brand and iconography for feeling of personality and warmth.`,
+								size: 'small',
+								className: 'mt-16 order-3',
+								align: {
+									horizontal: 'center',
+								},
+							},
+						],
+						background: {
+							color: '#e5eff7',
+							class: 'bg-wavy',
+						},
+						align: {
+							horizontal: 'center',
+							vertical: 'center',
+						},
+					},
+					{
+						id: 1119,
 						section: 'test',
 						anchor: '#test',
 						class: 'relative',
@@ -1235,110 +573,60 @@ const work = [
 							},
 						],
 					},
-					// {
-					// 	id: 6,
-					// 	section: 'test',
-					// 	anchor: '#test',
-					// 	columns: 2,
-					// 	gap: 4,
-					// 	class: 'h-screen relative',
-					// 	container: 'h-full relative container',
-					// 	groups: [
-					// 		{
-					// 			id: 0,
-					// 			columns: 1,
-					// 			class: 'h-full relative',
-					// 			text: {
-					// 				value: `test`,
-					// 				size: 'large',
-					// 			},
-					// 		},
-					// 		{
-					// 			id: 1,
-					// 			columns: 1,
-					// 			class: 'h-full relative',
-					// 			image: {
-					// 				folder: 'lansforsakringar/mobile/',
-					// 				variant: 'imgscrollloop',
-					// 			},
-					// 		},
-					// 	],
-					// },
 					{
 						id: 9,
-						section: 'ui-component-navigation',
-						variant: 'scrollVertically',
-						height: 'h-screen',
-						image: {
-							src: '/images/case/lansforsakringar/ui/big-menu@2x.png',
-							imgClass: 'w-9/12 mx-auto mt-32 -order-1',
-						},
-						text: [
+						section: 'collaboration',
+						anchor: '#collaboration',
+						columns: 4,
+						gap: 4,
+						title: [
 							{
-								value: `The navigation for the public facing website. Applied updated brand and iconography for feeling of personality and warmth.`,
-								size: 'small',
-								className: 'mt-16 order-3',
-								align: {
-									horizontal: 'center',
-								},
+								value: `Key Collaborations`,
 							},
 						],
-						background: {
-							color: '#e5eff7',
-							class: 'bg-wavy',
-						},
-						align: {
-							horizontal: 'center',
-							vertical: 'center',
-						},
+						text: [
+							{
+								value: `Valtech and Tieto EVRY: Worked together on the website design. - Common Ground: Improved the Internet banking experience. - Daresay (formerly known as Screen Interaction): Developed the mobile app. - Identity Works: Collaborated on the initial design phase.`,
+								size: 'medium',
+							},
+							{
+								value: `Common Ground: Improved the Internet banking experience. - Daresay (formerly known as Screen Interaction): Developed the mobile app. - Identity Works: Collaborated on the initial design phase.`,
+								size: 'medium',
+							},
+							{
+								value: `Daresay (formerly known as Screen Interaction): Developed the mobile app. - Identity Works: Collaborated on the initial design phase.`,
+								size: 'medium',
+							},
+							{
+								value: `Identity Works: Collaborated on the initial design phase.`,
+								size: 'medium',
+							},
+						],
 					},
-					// {
-					// 	id: 8,
-					// 	section: 'testar-med-scroll-pa-section',
-					// 	variant: 'scrollHorizontally',
-					// 	title: 'Scroll me horizontally',
-					// 	image: {
-					// 		src: '/images/case/lansforsakringar/mobile/01.00 login.png',
-					// 	},
-					// 	align: {
-					// 		horizontal: 'center',
-					// 		vertical: 'center',
-					// 	},
-					// 	container: {
-					// 		align: {
-					// 			horizontal: 'center',
-					// 			vertical: 'center',
-					// 		},
-					// 	},
-					// 	// class: 'items-center justify-center',
-					// 	background: {
-					// 		color: '#e5eff7',
-					// 	},
-					// },
-					// {
-					// 	id: 9,
-					// 	variant: 'scrollVertically',
-					// 	title: 'Scroll me vertically',
-					// 	image: {
-					// 		src: '/images/case/lansforsakringar/mobile/01.00 login.png',
-					// 	},
-					// 	background: {
-					// 		color: '#e5eff7',
-					// 	},
-					// 	align: {
-					// 		horizontal: 'center',
-					// 		vertical: 'center',
-					// 	},
-					// 	container: {
-					// 		align: {
-					// 			horizontal: 'center',
-					// 			vertical: 'center',
-					// 		},
-					// 	},
-					// },
-
 					{
 						id: 10,
+						section: 'recognition',
+						anchor: '#recognition',
+						columns: 4,
+						gap: 4,
+						title: [
+							{
+								value: `Recognition and Awards`,
+							},
+						],
+						text: [
+							{
+								value: `Länsförsäkringar received awards, including Best Bank and Insurance Site at the Swedish IDG Internetworld Top 100 in 2017. This recognized our successful work. Our project with Länsförsäkringar wasn't just about a new look; it was about adapting to the digital age while keeping local values intact. Through careful design and teamwork, we achieved this balance, showing how tradition and modernity can coexist.`,
+								size: 'medium',
+							},
+							{
+								value: `This project was about more than just rebranding; it was about reshaping a company's image for the digital world. Länsförsäkringar's success story illustrates the power of smart design and collaboration.`,
+								size: 'medium',
+							},
+						],
+					},
+					{
+						id: 11,
 						section: 'test',
 						anchor: '#test',
 						columns: 2,
@@ -1368,22 +656,18 @@ const work = [
 						},
 					},
 					{
-						id: 11,
+						id: 12,
 						section: 'test',
 						anchor: '#test',
 						class: 'relative',
 						container: 'h-full relative container flex flex-col',
 						image: {
 							src: '/images/case/lansforsakringar/nim/nim-dashboard@2x.png',
-							// width: 784,
-							// height: 1353,
 							imgClass:
 								'object-fill mx-auto -order-1 border border-gray-300 w-3/4',
 						},
 						title: {
 							value: 'Internet banking',
-							// fill: 'red',
-							// className: 'pelle',
 							align: {
 								horizontal: 'center',
 							},
@@ -1401,7 +685,7 @@ const work = [
 						],
 					},
 					{
-						id: 12,
+						id: 13,
 						section: 'test',
 						anchor: '#test',
 						columns: 2,
@@ -1431,9 +715,8 @@ const work = [
 						},
 					},
 					{
-						id: 13,
+						id: 14,
 						section: 'watch-animation',
-						variant: 'full',
 						image: {
 							src: '/images/case/lansforsakringar/watch/watch-transfer.gif',
 							class: 'h-auto max-w-sm mx-auto',
@@ -1463,749 +746,35 @@ const work = [
 							horizontal: 'center',
 							vertical: 'center',
 						},
-						direction: 'vertical',
-						container: {
-							align: {
-								horizontal: 'center',
-								vertical: 'center',
-							},
-							direction: 'vertical',
-						},
+						// container: {
+						// 	height: 'h-screen',
+						// 	align: {
+						// 		horizontal: 'center',
+						// 		vertical: 'center',
+						// 	},
+						// },
+						height: 'h-screen',
 					},
 					{
-						id: 14,
+						id: 15,
 						section: 'image-loop',
 						container: 'fluid',
 						image: {
 							variant: 'loop',
 							folder: 'lansforsakringar/mobile/',
-							// Click to open a image in modal
 							style: 'horizontal',
 						},
 					},
 					{
-						id: 15,
+						id: 16,
 						section: 'image-loop',
 						image: {
 							variant: 'loop',
 							folder: 'lansforsakringar/mobile/',
-							// Click to open a image in modal
 						},
 					},
-					// {
-					// 	id: 9,
-					// 	section: 'testar 123',
-					// 	columns: 3,
-					// 	gap: 4,
-					// 	groups: [
-					// 		{
-					// 			id: 0,
-					// 			columns: 2,
-					// 			image: {
-					// 				variant: 'dummy',
-					// 				text: 'Bild #2',
-					// 				width: 784,
-					// 				height: 1353,
-					// 				color: '#20232a',
-					// 				textColor: '#737373',
-					// 				format: 'png',
-					// 			},
-					// 		},
-					// 		{
-					// 			id: 1,
-					// 			columns: 2,
-					// 			title: {
-					// 				variant: 'large',
-					// 				value: 'The problem',
-					// 			},
-					// 			lead: `I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company. The company was facing a challenging task of completely revamping their brand identity and establishing a cohesive, modern, and visually appealing digital presence across various platforms, including their public-facing website, banking environment, mobile app, and watch interface.`,
-					// 		},
-					// 	],
-					// },
-					// {
-					// 	id: 10,
-					// 	section: 'testar 123',
-					// 	columns: 3,
-					// 	gap: 4,
-					// 	groups: [
-					// 		{
-					// 			id: 0,
-					// 			columns: 2,
-					// 			title: {
-					// 				variant: 'large',
-					// 				value: 'The problem',
-					// 			},
-					// 			lead: `I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company. The company was facing a challenging task of completely revamping their brand identity and establishing a cohesive, modern, and visually appealing digital presence across various platforms, including their public-facing website, banking environment, mobile app, and watch interface.`,
-					// 		},
-					// 		{
-					// 			id: 1,
-					// 			columns: 2,
-					// 			image: {
-					// 				variant: 'dummy',
-					// 				text: 'Bild #2',
-					// 				width: 784,
-					// 				height: 1353,
-					// 				color: '#20232a',
-					// 				textColor: '#737373',
-					// 				format: 'png',
-					// 			},
-					// 		},
-					// 	],
-					// },
-					// {
-					// 	id: 10,
-					// 	section: 'testar 123',
-					// 	columns: 3,
-					// 	container: 'fluid',
-					// 	gap: 4,
-					// 	groups: [
-					// 		{
-					// 			id: 0,
-					// 			columns: 2,
-					// 			title: {
-					// 				variant: 'large',
-					// 				value: 'The problem',
-					// 			},
-					// 			style: 'px-8',
-					// 			lead: `I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company. The company was facing a challenging task of completely revamping their brand identity and establishing a cohesive, modern, and visually appealing digital presence across various platforms, including their public-facing website, banking environment, mobile app, and watch interface.`,
-					// 		},
-					// 		{
-					// 			id: 1,
-					// 			columns: 2,
-					// 			image: {
-					// 				src: '/images/case/spotify/bg_spotify.jpeg',
-					// 				width: 784,
-					// 				height: 1353,
-					// 				imgClass: 'object-fill',
-					// 			},
-					// 		},
-					// 	],
-					// },
-					// {
-					// 	id: 12,
-					// 	section: 'testar 123',
-					// 	columns: 3,
-					// 	gap: 4,
-					// 	groups: [
-					// 		{
-					// 			id: 0,
-					// 			columns: 1,
-					// 			image: {
-					// 				variant: 'dummy',
-					// 				text: 'Bild #2',
-					// 				width: 784,
-					// 				height: 1353,
-					// 				color: '#20232a',
-					// 				textColor: '#737373',
-					// 				format: 'png',
-					// 			},
-					// 		},
-					// 		{
-					// 			id: 1,
-					// 			columns: 1,
-					// 			image: {
-					// 				variant: 'dummy',
-					// 				text: 'Bild #2',
-					// 				width: 784,
-					// 				height: 1353,
-					// 				color: '#20232a',
-					// 				textColor: '#737373',
-					// 				format: 'png',
-					// 			},
-					// 		},
-					// 		{
-					// 			id: 2,
-					// 			columns: 1,
-					// 			image: {
-					// 				variant: 'dummy',
-					// 				text: 'Bild #2',
-					// 				width: 784,
-					// 				height: 1353,
-					// 				color: '#20232a',
-					// 				textColor: '#737373',
-					// 				format: 'png',
-					// 			},
-					// 		},
-					// 	],
-					// },
-					// {
-					// 	id: 13,
-					// 	section: 'testar 123',
-					// 	columns: 4,
-					// 	gap: 4,
-					// 	groups: [
-					// 		{
-					// 			id: 0,
-					// 			columns: 1,
-					// 			image: {
-					// 				variant: 'dummy',
-					// 				text: 'Bild #2',
-					// 				width: 784,
-					// 				height: 1353,
-					// 				color: '#20232a',
-					// 				textColor: '#737373',
-					// 				format: 'png',
-					// 			},
-					// 		},
-					// 		{
-					// 			id: 1,
-					// 			columns: 1,
-					// 			image: {
-					// 				variant: 'dummy',
-					// 				text: 'Bild #2',
-					// 				width: 784,
-					// 				height: 1353,
-					// 				color: '#20232a',
-					// 				textColor: '#737373',
-					// 				format: 'png',
-					// 			},
-					// 		},
-					// 		{
-					// 			id: 2,
-					// 			columns: 1,
-					// 			image: {
-					// 				variant: 'dummy',
-					// 				text: 'Bild #2',
-					// 				width: 784,
-					// 				height: 1353,
-					// 				color: '#20232a',
-					// 				textColor: '#737373',
-					// 				format: 'png',
-					// 			},
-					// 		},
-					// 		{
-					// 			id: 3,
-					// 			columns: 1,
-					// 			image: {
-					// 				variant: 'dummy',
-					// 				text: 'Bild #2',
-					// 				width: 784,
-					// 				height: 1353,
-					// 				color: '#20232a',
-					// 				textColor: '#737373',
-					// 				format: 'png',
-					// 			},
-					// 		},
-					// 	],
-					// },
-					// {
-					// 	id: 14,
-					// 	section: 'testar 123',
-					// 	columns: 2,
-					// 	gap: 4,
-					// 	groups: [
-					// 		{
-					// 			id: 0,
-					// 			columns: 1,
-					// 			image: {
-					// 				variant: 'dummy',
-					// 				text: 'Bild #2',
-					// 				width: 784,
-					// 				height: 1353,
-					// 				color: '#20232a',
-					// 				textColor: '#737373',
-					// 				format: 'png',
-					// 			},
-					// 		},
-					// 		{
-					// 			id: 1,
-					// 			columns: 1,
-					// 			image: {
-					// 				variant: 'dummy',
-					// 				text: 'Bild #2',
-					// 				width: 784,
-					// 				height: 1353,
-					// 				color: '#20232a',
-					// 				textColor: '#737373',
-					// 				format: 'png',
-					// 			},
-					// 		},
-					// 	],
-					// },
-					// {
-					// 	id: 15,
-					// 	section: 'testar 123',
-					// 	columns: 3,
-					// 	gap: 4,
-					// 	groups: [
-					// 		{
-					// 			id: 0,
-					// 			columns: 1,
-					// 			title: {
-					// 				variant: 'small',
-					// 				value: 'The problem',
-					// 			},
-					// 			lead: 'The problem',
-					// 		},
-					// 		{
-					// 			id: 1,
-					// 			columns: 2,
-					// 			image: {
-					// 				variant: 'dummy',
-					// 				text: 'Bild #2',
-					// 				width: 784,
-					// 				height: 1353,
-					// 				color: '#20232a',
-					// 				textColor: '#737373',
-					// 				format: 'png',
-					// 				imgClass: 'object-fill w-full',
-					// 			},
-					// 		},
-					// 	],
-					// },
-					// {
-					// 	id: 16,
-					// 	section: 'testar 123',
-					// 	columns: 3,
-					// 	gap: 4,
-					// 	groups: [
-					// 		{
-					// 			id: 1,
-					// 			columns: 2,
-					// 			image: {
-					// 				variant: 'dummy',
-					// 				text: 'Bild #2',
-					// 				width: 784,
-					// 				height: 1353,
-					// 				color: '#20232a',
-					// 				textColor: '#737373',
-					// 				format: 'png',
-					// 				imgClass: 'object-fill w-full',
-					// 			},
-					// 		},
-					// 		{
-					// 			id: 0,
-					// 			columns: 1,
-					// 			title: {
-					// 				variant: 'small',
-					// 				value: 'The problem',
-					// 			},
-					// 			lead: 'The problem',
-					// 		},
-					// 	],
-					// },
-					// {
-					// 	id: 17,
-					// 	section: 'testar 123',
-					// 	columns: 3,
-					// 	gap: 4,
-					// 	groups: [
-					// 		{
-					// 			id: 0,
-					// 			columns: 1,
-					// 			title: {
-					// 				variant: 'large',
-					// 				value: 'The problem',
-					// 			},
-					// 		},
-					// 		{
-					// 			id: 1,
-					// 			columns: 2,
-					// 			lead: `I was brought onboard by Identity Works as a Senior Designer Consultant to work for Länsförsäkringar AB, a leading Swedish insurance and banking company. The company was facing a challenging task of completely revamping their brand identity and establishing a cohesive, modern, and visually appealing digital presence across various platforms, including their public-facing website, banking environment, mobile app, and watch interface.`,
-					// 		},
-					// 	],
-					// },
-					// {
-					// 	id: 18,
-					// 	section: 'testar 123',
-					// 	columns: 3,
-					// 	rows: 3,
-					// 	gap: 4,
-					// 	groups: [
-					// 		{
-					// 			id: 0,
-					// 			columns: 1,
-					// 			rowStart: 3,
-					// 			image: {
-					// 				variant: 'dummy',
-					// 				text: 'Bild #2',
-					// 				width: 784,
-					// 				height: 1353,
-					// 				color: '#20232a',
-					// 				textColor: '#737373',
-					// 				format: 'png',
-					// 				imgClass: 'object-fill w-full',
-					// 			},
-					// 		},
-					// 		{
-					// 			id: 1,
-					// 			columns: 2,
-					// 			rowStart: 1,
-					// 			image: {
-					// 				variant: 'dummy',
-					// 				text: 'Bild #2',
-					// 				width: 784,
-					// 				height: 1353,
-					// 				color: '#20232a',
-					// 				textColor: '#737373',
-					// 				format: 'png',
-					// 				imgClass: 'object-fill w-full',
-					// 			},
-					// 		},
-					// 		{
-					// 			id: 2,
-					// 			columns: 3,
-					// 			colStart: 1,
-					// 			rowStart: 2,
-					// 			image: {
-					// 				variant: 'dummy',
-					// 				text: 'Bild #2',
-					// 				width: 784,
-					// 				height: 1353,
-					// 				color: '#20232a',
-					// 				textColor: '#737373',
-					// 				format: 'png',
-					// 				imgClass: 'object-fill w-full',
-					// 			},
-					// 		},
-					// 	],
-					// },
 				],
 			},
-		],
-	},
-	{
-		id: 4,
-		client: 'Instinctly',
-		role: 'CEO & Senior Product Design Consultant',
-		date: '2007 – Present',
-		location: 'Remote / Sweden',
-		background: {
-			image: '/images/case/instinctly/bg_instinctly.png',
-		},
-		url: 'https://www.daniellauding.se',
-		protected: true,
-		index: true,
-		thumbnail: [
-			'/images/case/instinctly/klm/thumbnail/01.png',
-			'/images/case/instinctly/klm/thumbnail/02.png',
-			'/images/case/instinctly/klm/thumbnail/03.png',
-			'/images/case/instinctly/klm/thumbnail/04.png',
-			'/images/case/instinctly/klm/thumbnail/05.png',
-			'/images/case/instinctly/klm/thumbnail/06.png',
-		],
-		cases: [
-			{
-				id: 0,
-				case: 'klm',
-				date: '2015',
-				location: 'Amsterdam, Netherlands',
-				tags: ['UX', 'UI', 'Prototyping', 'User testing'],
-				title: 'New experience for travelers',
-				lead: 'I was hired by AKQA Amsterdam, as a Senior designer consultant for the dutch airline KLM new web platform.',
-				library: {
-					folder: 'instinctly/klm',
-				},
-				content: [
-					{
-						id: 1,
-						section: 'problem',
-						title: 'The problem',
-						lead: `I was contracted as a Senior Designer Consultant by AKQA Amsterdam to work on the Dutch airline company, KLM's new web platform. The task was to reimagine and revitalize KLM's digital presence. The existing web platform needed a comprehensive overhaul to meet modern user expectations and enhance the overall user experience.`,
-						variant: 'description',
-					},
-					{
-						id: 2,
-						section: 'goal',
-						title: 'Goal',
-						lead: `The primary objective was to design a new, intuitive, and user-friendly web platform that would offer a superior customer experience while embodying KLM's brand identity. The ultimate goal was to improve user engagement and satisfaction, streamline online processes, and elevate KLM's digital touchpoints.`,
-						variant: 'description',
-					},
-					{
-						id: 3,
-						section: 'insights',
-						title: 'Insights',
-						lead: `To gain a holistic understanding of the project, I collaborated closely with a User Experience Designer from AKQA and the in-house team at KLM's headquarters. Through biweekly sprints, we were able to gauge the specific needs, challenges, and expectations, ensuring our design solutions were firmly rooted in user-centered design principles.`,
-						variant: 'description',
-					},
-					{
-						id: 4,
-						section: 'approach',
-						title: 'The Approach',
-						lead: `Over two months, we engaged in iterative design processes, involving regular sprints, each culminating with a demo presentation for KLM's stakeholders. This process fostered transparency, real-time feedback, and facilitated adjustments as needed. All workflow processes were prototyped using Proto.io, and I handed over the final design prototypes to developers along with the sketch files using Zeplin. This ensured a smooth and efficient transition from design to development.`,
-						variant: 'description',
-					},
-					{
-						id: 5,
-						section: 'outcome',
-						title: 'Outcome',
-						lead: `The newly designed web platform was scheduled to be launched in early 2016 at beta.klm.com. With this update, KLM aimed to provide an improved user experience that aligns with modern customer needs and expectations. My role in this project, bridging the gap between design and development, was instrumental in ensuring a consistent and high-quality user experience across the new platform.`,
-						variant: 'description',
-					},
-				],
-			},
-			{
-				id: 1,
-				case: 'mrusta',
-				date: '2015',
-				location: '',
-				title: 'mrUsta',
-				lead: '',
-				library: {
-					folder: 'instinctly/mrusta',
-				},
-				content: [
-					{
-						id: 1,
-						section: 'problem',
-						title: 'The problem',
-						lead: `I was recruited by mrUsta, a Dubai-based startup dedicated to connecting users with the right service providers for various tasks, ranging from automotive help to plumbing services. As a nascent platform, mrUsta needed to build a user-friendly and intuitive application that would embody its newly formulated brand guidelines and provide a seamless user experience.`,
-						variant: 'description',
-					},
-					{
-						id: 2,
-						section: 'goal',
-						title: 'Goal',
-						lead: `The goal of this project was to design an intuitive and user-centric interface that made finding and hiring the right service provider a smooth and hassle-free process. The app design needed to resonate with mrUsta's brand ethos and guidelines, ensuring consistency and creating a recognizable brand identity.`,
-						variant: 'description',
-					},
-					{
-						id: 3,
-						section: 'insights',
-						title: 'Insights',
-						lead: `I began by thoroughly understanding the mrUsta brand guidelines and the unique needs of the target user demographic. I identified key elements for the app's UX/UI design that would enhance the process of searching for, selecting, and hiring a service provider.`,
-						variant: 'description',
-					},
-					{
-						id: 4,
-						section: 'approach',
-						title: 'The Approach',
-						lead: `Building on these insights, I designed the user experience and interface of the app. I employed Pixate for prototyping, enabling the creation of interactive and high-fidelity prototypes to visualize and test the user flow. Once the design was refined and finalized, I handed over the prototypes to the developers along with the sketch files, using Zeplin to ensure a seamless handoff.`,
-						variant: 'description',
-					},
-					{
-						id: 5,
-						section: 'outcome',
-						title: 'Outcome',
-						lead: `The design and launch of the mrUsta app marked a significant milestone in the company's journey. The user-centric design approach significantly improved the ease of finding and hiring service providers through the platform. The app embodied the new brand guidelines, creating a consistent brand identity across the digital touchpoints. My work in UX/UI design and close collaboration with the developers played a crucial role in creating a user-friendly and brand-consistent app that meets the users' needs.`,
-						variant: 'description',
-					},
-				],
-			},
-			{
-				id: 2,
-				case: 'abro',
-				date: '2014',
-				location: 'Remote',
-				title: 'Åbro website & CMS',
-				lead: 'I was hired together with my team Producks by Folkets Stockholm, to design and develop a custom CMS and a new web for Åbro bryggeri. Producks was responsible for the user experience, interface design and development. The new web was released in beginning of 2015. Check it out on www.abro.se',
-				library: {
-					folder: 'instinctly/abro',
-				},
-				content: [
-					{
-						id: 1,
-						section: 'problem',
-						title: 'The problem',
-						lead: `Folkets Stockholm recruited me and my team at Producks for an important task - redesigning and developing a new website and a custom Content Management System (CMS) for Åbro Bryggeri, one of the most renowned breweries in Sweden. The existing digital infrastructure of Åbro Bryggeri needed an overhaul to offer an improved user experience and streamline their content management process.`,
-						variant: 'description',
-					},
-					{
-						id: 2,
-						section: 'goal',
-						title: 'Goal',
-						lead: `Our primary objective was twofold - to build a user-friendly, visually appealing, and intuitive website that aligns with Åbro Bryggeri's brand and to develop a custom CMS that would provide a streamlined platform for managing their digital content.`,
-						variant: 'description',
-					},
-					{
-						id: 3,
-						section: 'insights',
-						title: 'Insights',
-						lead: `We delved into Åbro Bryggeri's brand, their digital presence, and the unique requirements of their content management process. Understanding these elements helped us identify key features and functionalities that needed to be incorporated into the website and the CMS.`,
-						variant: 'description',
-					},
-					{
-						id: 4,
-						section: 'approach',
-						title: 'The Approach',
-						lead: `As a team, Producks was responsible for managing all aspects of the project, including user experience, interface design, and development. We used our insights to craft a comprehensive digital solution that addressed the needs of Åbro Bryggeri. By creating iterative designs and leveraging our development skills, we ensured a cohesive, user-centric, and brand-consistent outcome.`,
-						variant: 'description',
-					},
-					{
-						id: 5,
-						section: 'outcome',
-						title: 'Outcome',
-						lead: `The new website, along with the custom CMS, was successfully launched in early 2015 (www.abro.se). This marked a significant improvement in Åbro Bryggeri's digital presence, enhancing the user experience and making content management more efficient. Our holistic approach to design and development played a crucial role in achieving a successful outcome that met Åbro Bryggeri's specific needs and expectations.`,
-						variant: 'description',
-					},
-				],
-			},
-			{
-				id: 3,
-				case: 'actic',
-				date: '2014',
-				location: 'Remote',
-				title: 'Actic',
-				lead: '',
-				library: {
-					folder: 'instinctly/actic',
-				},
-			},
-			// {
-			// 	id: 4,
-			// 	case: 'recurify',
-			// 	date: '2014',
-			// 	location: 'Remote',
-			// 	title: 'Recurify',
-			// 	lead: '',
-			// 	library: {
-			// 		folder: 'instinctly/recurify',
-			// 	},
-			// },
-			// {
-			// 	id: ,
-			// 	case: 'Instinctly as app',
-			// },
-			// {
-			// 	id: ,
-			// 	case: 'MDH',
-			// },
-			// {
-			// 	id: ,
-			// 	case: 'Resrobot',
-			// },
-			// {
-			// 	id: ,
-			// 	case: 'Prolounge',
-			// },
-			// {
-			// 	id: ,
-			// 	case: 'samsung',
-			// },
-			// {
-			// 	id: ,
-			// 	case: 'Prolounge',
-			// },
-			{
-				id: 5,
-				case: 'resrobot',
-				date: '2014',
-				location: 'Remote',
-				title: 'Resrobot',
-				lead: '',
-				library: {
-					folder: 'instinctly/resrobot',
-				},
-			},
-			// {
-			// 	id: 6,
-			// 	case: 'nexus',
-			// 	date: '2014',
-			// 	location: 'Remote',
-			// 	title: 'Nexus',
-			// 	lead: '',
-			// 	library: {
-			// 		folder: 'instinctly/nexus',
-			// 	},
-			// },
-			// {
-			// 	id: 7,
-			// 	case: 'leosoderberg',
-			// 	client: 'Mobb learning',
-			// 	date: '2014',
-			// 	location: 'Remote',
-			// 	title: 'Leo Söderberg',
-			// 	lead: '',
-			// 	library: {
-			// 		folder: 'instinctly/leosoderberg',
-			// 	},
-			// 	index: false,
-			// },
-			// {
-			// 	id: 8,
-			// 	case: 'producks',
-			// 	date: '2014',
-			// 	client: 'Producks',
-			// 	location: 'Remote',
-			// 	title: 'Producks',
-			// 	soon: true,
-			// 	lead: 'Donec quis lacinia lectus. Morbi vel est eget ligula blandit pellentesque nec eu erat.',
-			// 	excerpt: 'Donec quis lacinia lectus.',
-			// 	desc: 'Donec quis lacinia lectus. Morbi vel est eget ligula blandit pellentesque nec eu erat. Etiam sit amet sem et massa condimentum viverra. Quisque hendrerit ex at dictum aliquam. Quisque vehicula mi eros, in posuere neque condimentum a. In interdum porttitor sagittis. Fusce dictum mattis ex eget laoreet.',
-			// 	library: {
-			// 		folder: 'producks',
-			// 	},
-			// 	content: [
-			// 		{
-			// 			id: 1,
-			// 			section: 'testar',
-			// 			title: 'Olle',
-			// 		},
-			// 	],
-			// 	tags: ['UX', 'UI'],
-			// },
-			{
-				id: 9,
-				case: 'steem',
-				client: 'Steem',
-				date: '2014',
-				location: 'Remote',
-				title: 'Steem',
-				lead: '',
-				protected: true,
-				library: {
-					folder: 'steem',
-				},
-				content: [
-					{
-						id: 1,
-						section: 'problem',
-						title: 'The problem',
-						lead: `By 2011, many Swedish organizations, especially big names like political parties, struggled to easily customize and order their marketing materials online.`,
-						variant: 'description',
-					},
-					{
-						id: 2,
-						section: 'goal',
-						title: 'Goal',
-						lead: `Our aim was to create a platform that would simplify the ordering and personalizing process for marketing materials.`,
-						variant: 'description',
-					},
-					{
-						id: 3,
-						section: 'insights',
-						title: 'Insights',
-						lead: `To ensure we hit the mark, we traveled across Sweden, getting companies to test our initial platform. Their feedback was invaluable, pointing out both the strengths and areas needing improvement.`,
-						variant: 'description',
-					},
-					{
-						id: 4,
-						section: 'approach',
-						title: 'The Approach',
-						lead: `With the feedback in hand, we developed an online storefront for customers to view and select print products. Simultaneously, we provided admins a backend tool, allowing them to upload design templates and mark specific parts as "editable" for the end-users.`,
-						variant: 'description',
-					},
-					{
-						id: 5,
-						section: 'outcome',
-						title: 'Outcome',
-						lead: `Our platform became quite popular. It was even adopted by big parties, like 'Centerpartiet', for their marketing needs. And as a recognition of our hard work, Steem was nominated as Sweden's best Web to Print tool at the Graphic Awards in November 2011.`,
-						variant: 'description',
-					},
-				],
-			},
-			// {
-			// 	id: 10,
-			// 	case: 'tripppen',
-			// 	date: '2014',
-			// 	location: 'Remote',
-			// 	title: 'Tripppen',
-			// 	lead: '',
-			// 	library: {
-			// 		folder: 'tripppen',
-			// 	},
-			// },
-			// {
-			// 	id: 11,
-			// 	case: 'misc',
-			// 	date: '2014',
-			// 	location: 'Remote',
-			// 	title: 'Misc',
-			// 	lead: '',
-			// 	library: {
-			// 		folder: 'misc',
-			// 	},
-			// },
 		],
 	},
 	{
@@ -2289,25 +858,12 @@ const work = [
 						image: {
 							variant: 'loop',
 							folder: 'backbase/screens/',
-							// Click to open a image in modal
 							style: 'horizontal',
 						},
 					},
 				],
 			},
 		],
-	},
-	{
-		id: 6,
-		client: 'Playground',
-		role: 'Some fun stuff',
-		date: 'Never and forever',
-		location: 'www',
-		background: {
-			image: '/images/case/backbase/bg_backbase.png',
-		},
-		url: 'https://www.backbase.com',
-		index: false,
 	},
 ];
 

@@ -40,7 +40,13 @@ const Text = ({
 						'text-center': align?.horizontal === 'center',
 					}
 				)}
-				style={fill ? { color: fill.trim() } : undefined}
+				style={
+					fill
+						? typeof fill === 'string'
+							? { color: fill.trim() }
+							: undefined
+						: undefined
+				}
 			>
 				{value}
 			</p>
@@ -60,7 +66,13 @@ const Text = ({
 						'text-center': align?.horizontal === 'center',
 					}
 				)}
-				style={fill ? { color: fill.trim() } : undefined}
+				style={
+					fill
+						? typeof fill === 'string'
+							? { color: fill.trim() }
+							: undefined
+						: undefined
+				}
 			>
 				{value}
 			</p>
@@ -80,7 +92,13 @@ const Text = ({
 						'text-center': align?.horizontal === 'center',
 					}
 				)}
-				style={fill ? { color: fill.trim() } : undefined}
+				style={
+					fill
+						? typeof fill === 'string'
+							? { color: fill.trim() }
+							: undefined
+						: undefined
+				}
 			>
 				{value}
 			</p>
@@ -100,7 +118,13 @@ const Text = ({
 						'text-center': align?.horizontal === 'center',
 					}
 				)}
-				style={fill ? { color: fill.trim() } : undefined}
+				style={
+					fill
+						? typeof fill === 'string'
+							? { color: fill.trim() }
+							: undefined
+						: undefined
+				}
 			>
 				{value}
 			</p>
@@ -120,7 +144,13 @@ const Text = ({
 						'text-center': align?.horizontal === 'center',
 					}
 				)}
-				style={fill ? { color: fill.trim() } : undefined}
+				style={
+					fill
+						? typeof fill === 'string'
+							? { color: fill.trim() }
+							: undefined
+						: undefined
+				}
 			>
 				{value}
 			</p>
@@ -140,7 +170,13 @@ const Text = ({
 						'text-center': align?.horizontal === 'center',
 					}
 				)}
-				style={fill ? { color: fill.trim() } : undefined}
+				style={
+					fill
+						? typeof fill === 'string'
+							? { color: fill.trim() }
+							: undefined
+						: undefined
+				}
 			>
 				{value}
 			</p>
@@ -159,7 +195,13 @@ const Text = ({
 					'text-center': align?.horizontal === 'center',
 				}
 			)}
-			style={fill ? { color: fill.trim() } : undefined}
+			style={
+				fill
+					? typeof fill === 'string'
+						? { color: fill.trim() }
+						: undefined
+					: undefined
+			}
 		>
 			{value}
 		</p>
@@ -190,7 +232,13 @@ const Title = ({
 						'text-center': align?.horizontal === 'center',
 					}
 				)}
-				style={fill ? { color: fill.trim() } : undefined}
+				style={
+					fill
+						? typeof fill === 'string'
+							? { color: fill.trim() }
+							: undefined
+						: undefined
+				}
 			>
 				{value}
 			</h1>
@@ -210,7 +258,13 @@ const Title = ({
 						'text-center': align?.horizontal === 'center',
 					}
 				)}
-				style={fill ? { color: fill.trim() } : undefined}
+				style={
+					fill
+						? typeof fill === 'string'
+							? { color: fill.trim() }
+							: undefined
+						: undefined
+				}
 			>
 				{value}
 			</h1>
@@ -230,7 +284,13 @@ const Title = ({
 						'text-center': align?.horizontal === 'center',
 					}
 				)}
-				style={fill ? { color: fill.trim() } : undefined}
+				style={
+					fill
+						? typeof fill === 'string'
+							? { color: fill.trim() }
+							: undefined
+						: undefined
+				}
 			>
 				{value}
 			</h2>
@@ -250,7 +310,13 @@ const Title = ({
 						'text-center': align?.horizontal === 'center',
 					}
 				)}
-				style={fill ? { color: fill.trim() } : undefined}
+				style={
+					fill
+						? typeof fill === 'string'
+							? { color: fill.trim() }
+							: undefined
+						: undefined
+				}
 			>
 				{value}
 			</h2>
@@ -270,7 +336,13 @@ const Title = ({
 						'text-center': align?.horizontal === 'center',
 					}
 				)}
-				style={fill ? { color: fill.trim() } : undefined}
+				style={
+					fill
+						? typeof fill === 'string'
+							? { color: fill.trim() }
+							: undefined
+						: undefined
+				}
 			>
 				{value}
 			</h3>

@@ -39,7 +39,7 @@ const Group = ({ group }) => {
 				/>
 			)}
 			{text && Array.isArray(text) ? (
-				<div className="space-y-4">
+				<div className="space-y-4 flex flex-col">
 					{text.map((textBlock, index) => (
 						<Text
 							key={index}

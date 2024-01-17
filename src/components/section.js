@@ -73,12 +73,6 @@ const Section = ({ section }) => {
 		return null; // or any other appropriate fallback
 	}
 
-	// const [isSectionOpen, setIsSectionOpen] = useState(section?.open);
-
-	// const toggleSection = () => {
-	// 	setIsSectionOpen(!isSectionOpen);
-	// };
-
 	if (section?.variant === 'scrollVertically') {
 		const contentRef = useRef(null);
 		const [startY, setStartY] = useState(0);
@@ -144,7 +138,7 @@ const Section = ({ section }) => {
 		return (
 			<div
 				className={classNames(
-					`py-16 section section-${section.section}`,
+					`section section-${section.section}`,
 					{
 						[`variant-${section.variant}`]: section.variant,
 						'justify-start': section?.align?.vertical === 'top',
@@ -156,6 +150,10 @@ const Section = ({ section }) => {
 						'content-end': section?.align?.horizontal === 'right',
 						'flex-col': section?.direction === 'vertical',
 						'flex-row': section?.direction === 'horizontal',
+						'py-40': !section?.padding,
+						flex:
+							section?.container?.align?.horizontal ||
+							section?.container?.align?.vertical,
 					},
 					section?.class?.trim(),
 					section?.background?.attachment?.trim(),
@@ -163,6 +161,8 @@ const Section = ({ section }) => {
 					section?.background?.repeat?.trim(),
 					section?.background?.size?.trim(),
 					section?.background?.class?.trim(),
+					section?.padding?.trim(),
+					section?.margin?.trim(),
 					section?.height?.trim(),
 					section?.widht?.trim()
 				)}
@@ -176,7 +176,7 @@ const Section = ({ section }) => {
 			>
 				<div
 					className={classNames(
-						`mx-auto`,
+						``,
 						section?.container?.width === 'full'
 							? 'container-full'
 							: 'container',
@@ -208,7 +208,10 @@ const Section = ({ section }) => {
 							flex:
 								section?.container?.align?.vertical ||
 								section?.container?.align?.horizontal,
-						}
+							'mx-auto': section?.container?.margin,
+						},
+						section?.container?.padding?.trim(),
+						section?.container?.margin?.trim()
 					)}
 				>
 					<div
@@ -235,7 +238,7 @@ const Section = ({ section }) => {
 							/>
 						)}
 						{section?.text && Array.isArray(section?.text) ? (
-							<div className="space-y-4">
+							<div className="space-y-4 flex flex-col">
 								{section?.text.map((textBlock, index) => (
 									<Text
 										key={index}
@@ -342,7 +345,7 @@ const Section = ({ section }) => {
 		return (
 			<div
 				className={classNames(
-					`py-16 section section-${section.section}`,
+					`section section-${section.section}`,
 					{
 						[`variant-${section.variant}`]: section.variant,
 						'justify-start': section?.align?.horizontal === 'left',
@@ -354,6 +357,10 @@ const Section = ({ section }) => {
 						'content-end': section?.align?.vertical === 'bottom',
 						'flex-col': section?.direction === 'vertical',
 						'flex-row': section?.direction === 'horizontal',
+						'py-40': !section?.padding,
+						flex:
+							section?.container?.align?.horizontal ||
+							section?.container?.align?.vertical,
 					},
 					section?.class?.trim(),
 					section?.background?.attachment?.trim(),
@@ -361,6 +368,8 @@ const Section = ({ section }) => {
 					section?.background?.repeat?.trim(),
 					section?.background?.size?.trim(),
 					section?.background?.class?.trim(),
+					section?.padding?.trim(),
+					section?.margin?.trim(),
 					section?.height?.trim(),
 					section?.widht?.trim()
 				)}
@@ -374,7 +383,7 @@ const Section = ({ section }) => {
 			>
 				<div
 					className={classNames(
-						`mx-auto`,
+						``,
 						section?.container?.width === 'full'
 							? 'container-full'
 							: 'container',
@@ -402,7 +411,10 @@ const Section = ({ section }) => {
 							flex:
 								section?.container?.align?.horizontal ||
 								section?.container?.align?.vertical,
-						}
+							'mx-auto': section?.container?.margin,
+						},
+						section?.container?.padding?.trim(),
+						section?.container?.margin?.trim()
 					)}
 				>
 					<div
@@ -428,7 +440,7 @@ const Section = ({ section }) => {
 							/>
 						)}
 						{section?.text && Array.isArray(section?.text) ? (
-							<div className="space-y-4">
+							<div className="space-y-4 flex flex-col">
 								{section?.text.map((textBlock, index) => (
 									<Text
 										key={index}
@@ -488,7 +500,7 @@ const Section = ({ section }) => {
 		return (
 			<div
 				className={classNames(
-					`py-16 section variant-full h-screen w-screen overflow-hidden flex items-center justify-start`,
+					`section variant-full h-screen w-screen overflow-hidden flex items-center justify-start`,
 					{
 						'justify-start': section?.align?.horizontal === 'left',
 						'justify-center':
@@ -499,6 +511,10 @@ const Section = ({ section }) => {
 						'items-end': section?.align?.vertical === 'bottom',
 						'flex-col': section?.direction === 'vertical',
 						'flex-row': section?.direction === 'horizontal',
+						'py-40': !section?.padding,
+						flex:
+							section?.container?.align?.horizontal ||
+							section?.container?.align?.vertical,
 					},
 					section?.class?.trim(),
 					section?.background?.attachment?.trim(),
@@ -506,6 +522,8 @@ const Section = ({ section }) => {
 					section?.background?.repeat?.trim(),
 					section?.background?.size?.trim(),
 					section?.background?.class?.trim(),
+					section?.padding?.trim(),
+					section?.margin?.trim(),
 					section?.height?.trim(),
 					section?.widht?.trim()
 				)}
@@ -550,7 +568,9 @@ const Section = ({ section }) => {
 							flex:
 								section?.container?.align?.vertical ||
 								section?.container?.align?.horizontal,
-						}
+						},
+						section?.container?.padding?.trim(),
+						section?.container?.margin?.trim()
 					)}
 				>
 					{/* {section?.title && <Title value={section?.title} />} */}
@@ -571,7 +591,7 @@ const Section = ({ section }) => {
 						/>
 					)}
 					{section?.text && Array.isArray(section?.text) ? (
-						<div className="space-y-4">
+						<div className="space-y-4 flex flex-col">
 							{section?.text.map((textBlock, index) => (
 								<Text
 									key={index}
@@ -625,153 +645,10 @@ const Section = ({ section }) => {
 		);
 	}
 
-	if (section?.variant === 'description') {
-		return (
-			<div
-				className={classNames(
-					`py-16 section section-${section.section}`,
-					{
-						[`variant-${section.variant}`]: section.variant,
-						[`${section.className}`]: section.className,
-						'bg-center bg-cover': section?.background,
-					}
-				)}
-				style={{
-					backgroundImage:
-						section?.background?.image &&
-						`url(${section?.background?.image})`,
-					backgroundColor: section?.background?.color,
-				}}
-				id={section?.name}
-			>
-				<div
-					className={classNames(
-						`mx-auto`,
-						section?.container
-							? section?.container?.trim()
-							: 'container'
-					)}
-				>
-					{section?.style === 'hero' && (
-						<div
-							className={classNames(
-								`style`,
-								`grid grid-flow-col gap-16 auto-cols-fr items-start justify-items-center`,
-								`style-${section.style}`
-							)}
-						>
-							<div className="col">
-								{section?.title && (
-									<Title
-										value={section?.title}
-										size={section?.size}
-										style={section?.style}
-										color={section?.color}
-										fill={section?.fill}
-										align={section?.align}
-										className={section?.className}
-									/>
-								)}
-								{section?.lead && (
-									<Text
-										value={section?.lead}
-										size={section?.size}
-										style={section?.style}
-										color={section?.color}
-										fill={section?.fill}
-										align={section?.align}
-										className={section?.className}
-									/>
-								)}
-								{section?.text && (
-									<Text
-										size="small"
-										value={section?.text}
-										style={section?.style}
-										color={section?.color}
-										fill={section?.fill}
-										align={section?.align}
-										className={section?.className}
-									/>
-								)}
-							</div>
-
-							<div className="col">
-								{section?.lead && (
-									<Text value={section?.lead} />
-								)}
-								{section?.text && (
-									<Text value={section?.text} />
-								)}
-								{section?.desc && (
-									<Text value={section?.desc} />
-								)}
-							</div>
-						</div>
-					)}
-					{!section?.style && (
-						<div
-							className={classNames(
-								`style-default grid grid-cols-3 gap-4`
-							)}
-						>
-							{section?.title && (
-								<div className="description-title">
-									<Title value={section?.title} />
-								</div>
-							)}
-							{(section?.lead ||
-								section?.text ||
-								section?.desc) && (
-								<div className="description-text col-span-2">
-									{section?.lead && (
-										<Text
-											size="large"
-											value={section?.lead}
-										/>
-									)}
-									{section?.text && (
-										<Text
-											size="medium"
-											value={section?.text}
-										/>
-									)}
-									{section?.desc && (
-										<Text
-											size="medium"
-											value={section?.desc}
-										/>
-									)}
-								</div>
-							)}
-						</div>
-					)}
-
-					{section?.image && (
-						<Image
-							variant={section?.image?.variant}
-							color={section?.image?.color}
-							format={section?.image?.format}
-							width={section?.image?.width}
-							height={section?.image?.height}
-							text={section?.image?.text}
-							textColor={section?.image?.textColor}
-							src={section?.src}
-							item={section?.image}
-							images={section?.image?.images}
-						/>
-					)}
-
-					<Groups section={section} />
-				</div>
-			</div>
-		);
-	}
-
 	return (
 		<div
 			className={classNames(
-				`py-16 section section-${section.section}`,
+				`section section-${section.section}`,
 				{
 					[`variant-${section.variant}`]: section.variant,
 					[`${section.className}`]: section.className,
@@ -781,6 +658,10 @@ const Section = ({ section }) => {
 					'content-start': section?.align?.vertical === 'top',
 					'content-center': section?.align?.vertical === 'center',
 					'content-end': section?.align?.vertical === 'bottom',
+					'py-40': !section?.padding,
+					flex:
+						section?.container?.align?.horizontal ||
+						section?.container?.align?.vertical,
 				},
 				section?.class?.trim(),
 				section?.background?.attachment?.trim(),
@@ -788,6 +669,8 @@ const Section = ({ section }) => {
 				section?.background?.repeat?.trim(),
 				section?.background?.size?.trim(),
 				section?.background?.class?.trim(),
+				section?.padding?.trim(),
+				section?.margin?.trim(),
 				section?.height?.trim(),
 				section?.widht?.trim()
 			)}
@@ -803,6 +686,8 @@ const Section = ({ section }) => {
 			<div
 				className={classNames(
 					`mx-auto`,
+					section?.container?.padding?.trim(),
+					section?.container?.margin?.trim(),
 					section?.container
 						? section?.container?.trim()
 						: 'container'
@@ -841,7 +726,7 @@ const Section = ({ section }) => {
 							)}
 
 							{section?.text && Array.isArray(section?.text) ? (
-								<div className="space-y-4">
+								<div className="space-y-4 flex flex-col">
 									{section?.text.map((textBlock, index) => (
 										<Text
 											key={index}
@@ -924,7 +809,7 @@ const Section = ({ section }) => {
 							/>
 						)}
 						{section?.text && Array.isArray(section?.text) ? (
-							<div className="space-y-4">
+							<div className="space-y-4 flex flex-col">
 								{section?.text.map((textBlock, index) => (
 									<Text
 										key={index}

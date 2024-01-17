@@ -25,7 +25,7 @@ const Case = ({
 }) => {
 	// console.log(item);
 
-	if (item.soon) {
+	if (item?.soon) {
 		return (
 			<>
 				<Soon item={item} />
@@ -57,7 +57,7 @@ const Case = ({
 				className={classNames(
 					'case-wrapper',
 					'overflow-x-hidden',
-					item.layout ? item.layout : 'vertical'
+					item?.layout ? item?.layout : 'vertical'
 				)}
 			>
 				<div
@@ -541,7 +541,7 @@ const CaseSelector = ({
 	return (
 		<div
 			className={classNames(
-				`case-wrapper case-teaser gap-20 flex flex-col h-full overflow-y-auto justify-center flex-shrink-0 w-1/4 md:w-1/3 lg:w-1/4 xl:w-1/5 ml-[-20px] hover:scale-110 transition-transform`,
+				`case-wrapper case-teaser gap-20 flex flex-col h-full overflow-hidden justify-center flex-shrink-0 w-full md:w-full lg:w-full xl:w-full ml-[-20px] hover:scale-110 transition-transform`,
 				`${item?.background?.image && 'bg-center bg-cover'}`,
 				`client-${work?.client?.toLowerCase?.()}`
 			)}
