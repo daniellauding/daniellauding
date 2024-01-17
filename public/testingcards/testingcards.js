@@ -142,6 +142,10 @@ javascript:(function() {
 
       function updateCardDisplay() {
           var card = cards[currentCard];
+          console.log('Cards Array:', cards);
+          console.log('Card Title:', card.title);
+          console.log('Card Task:', card.task);
+          console.log('Card Goal:', card.goal);
           titleDisplay.textContent = 'Card Title: ' + card.title;
           taskDisplay.textContent = 'Card Task: ' + card.task;
           goalDisplay.textContent = 'Card Goal: ' + card.goal;
