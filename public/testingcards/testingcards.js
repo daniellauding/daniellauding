@@ -1,9 +1,10 @@
+var cards = JSON.parse(localStorage.getItem('cards')) || [
+  { title: 'Card 1 Title', task: 'Card 1 Task Description', goal: 'Card 1 Goal Description', behaviors: '', thoughts: '', success: null, rating: 0, timeSpent: 0 },
+  { title: 'Card 2 Title', task: 'Card 2 Task Description', goal: 'Card 2 Goal Description', behaviors: '', thoughts: '', success: null, rating: 0, timeSpent: 0 }
+  // Add more cards as needed
+];
+
 javascript:(function() {
-  var cards = JSON.parse(localStorage.getItem('cards')) || [
-      { title: 'Card 1 Title', task: 'Card 1 Task Description', goal: 'Card 1 Goal Description', behaviors: '', thoughts: '', success: null, rating: 0, timeSpent: 0 },
-      { title: 'Card 2 Title', task: 'Card 2 Task Description', goal: 'Card 2 Goal Description', behaviors: '', thoughts: '', success: null, rating: 0, timeSpent: 0 }
-      // Add more cards as needed
-  ];
   var currentCard = 0;
   var timerInterval, timerRunning = false;
   var activeStarSVG = '<svg width="20" height="20" viewBox="0 0 20 20" fill="#FFD700" xmlns="http://www.w3.org/2000/svg"><path d="M10 15.77L16.18 19.5L14.54 12.47L20 7.74L12.81 7.13L10 0.5L7.19 7.13L0 7.74L5.46 12.47L3.82 19.5L10 15.77Z"/></svg>';
