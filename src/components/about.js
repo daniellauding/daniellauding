@@ -11,6 +11,12 @@ import Social from './social';
 import Nav from './nav';
 import Contact, { Offert } from './contact';
 import Groups from './groups';
+import Tooltip from './tooltip';
+
+import {
+	EnvelopeIcon,
+	ClipboardDocumentListIcon,
+} from '@heroicons/react/24/solid';
 
 const About = ({ setShowProfile, active, selectedChanged }) => {
 	const [showExperiencesFull, setShowExperiencesFull] = useState(null);
@@ -37,19 +43,25 @@ const About = ({ setShowProfile, active, selectedChanged }) => {
 				active={active}
 			/>
 
-			<button
-				onClick={() => setShowOffert(true)}
-				className="bg-primary hover:primary text-white font-bold py-5 px-8 rounded-full"
-			>
-				Ive got a project
-			</button>
+			<div className="fixed z-50 bottom-4 left-1/2 transform -translate-x-1/2 flex gap-4">
+				<Tooltip content="Ive got a project" direction="top">
+					<button
+						onClick={() => setShowOffert(true)}
+						className="bg-black w-12 h-12 text-white font-bold flex align-middle items-center justify-center rounded-full"
+					>
+						<ClipboardDocumentListIcon className="h-5 w-5 dark:text-gray-400 text-gray-500" />
+					</button>
+				</Tooltip>
 
-			<button
-				onClick={() => setShowContact(true)}
-				className="bg-primary hover:primary text-white font-bold py-5 px-8 rounded-full"
-			>
-				Contact me
-			</button>
+				<Tooltip content="Contact me" direction="top">
+					<button
+						onClick={() => setShowContact(true)}
+						className="bg-black w-12 h-12 text-white font-bold flex align-middle items-center justify-center rounded-full"
+					>
+						<EnvelopeIcon className="h-5 w-5 dark:text-gray-400 text-gray-500" />
+					</button>
+				</Tooltip>
+			</div>
 
 			{showContact && (
 				<Contact
@@ -88,8 +100,17 @@ const About = ({ setShowProfile, active, selectedChanged }) => {
 							<p className="pt-0 mb-4 sm:mx-8 mx-8 md:mx-32 mt-8 text-center dark:text-gray-100 text-black lg:font-light text-3xl md:text-4xl leading-snug font-serif">
 								{intro.description}
 							</p>
-
-							<Groups section={intro.content} />
+							{console.log(intro)}
+							{console.log(intro.content[0].groups)}
+							{intro.content.map((contentItem, index) => (
+								<div key={index}>
+									{contentItem.id}
+									<Groups
+										key={index}
+										section={contentItem.groups}
+									/>
+								</div>
+							))}
 						</div>
 					))}
 				</div>

@@ -37,7 +37,7 @@ const TabbedContent = ({ tabs }) => {
 					>
 						{section.lead}
 
-						<Groups section={section} />
+						<Groups groups={tabs[activeTab].groups} />
 					</div>
 				))}
 			</div>

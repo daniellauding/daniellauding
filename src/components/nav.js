@@ -16,6 +16,8 @@ const Nav = ({
 	setShowProfile,
 	showExperiencesFull,
 	setShowExperiencesFull,
+	// setShowOffert,
+	// setShowContact,
 }) => {
 	return (
 		<div className="navigation z-10 relative">
@@ -35,6 +37,24 @@ const Nav = ({
 					</Tooltip>
 
 					<Logo />
+
+					{/* {setShowProfile && (
+						<>
+							<button
+								onClick={() => setShowOffert(true)}
+								className="bg-primary hover:primary text-white font-bold py-5 px-8 rounded-full"
+							>
+								Ive got a project
+							</button>
+
+							<button
+								onClick={() => setShowContact(true)}
+								className="bg-primary hover:primary text-white font-bold py-5 px-8 rounded-full"
+							>
+								Contact me
+							</button>
+						</>
+					)} */}
 
 					{!showExperiencesFull && (
 						<button

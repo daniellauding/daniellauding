@@ -96,26 +96,27 @@ const Group = ({ group }) => {
 	);
 };
 
-const Groups = ({ section }) => {
-	const { groups = [] } = section;
-	console.log('groups', groups);
-	if (groups.length === 0) {
-		return null;
+const Groups = ({ groups }) => {
+	//console.log('Groups component, groups:', groups);
+
+	if (!groups || groups.length === 0) {
+		return null; // Render nothing if there are no groups
 	}
+
 	return (
 		<div
 			className={classNames(
 				`groups grid gap-0 md:gap-16 auto-rows-auto md:grid-flow-col pt-96 md:p-0 md:auto-cols-fr mt-8 h-full`,
 				{
-					[`grid-cols-${section.columns}`]: section.columns,
-					[`grid-rows-${section.rows}`]: section.rows,
-					[`gap-${section.gap}`]: section.gap,
-					[`gap-y-${section.gapY}`]: section.gapY,
-					[`gap-x-${section.gapX}`]: section.gapX,
+					[`grid-cols-${groups.columns}`]: groups.columns,
+					[`grid-rows-${groups.rows}`]: groups.rows,
+					[`gap-${groups.gap}`]: groups.gap,
+					[`gap-y-${groups.gapY}`]: groups.gapY,
+					[`gap-x-${groups.gapX}`]: groups.gapX,
 				}
 			)}
 		>
-			{groups.map((group) => (
+			{groups.map((group, index) => (
 				<>
 					{group?.animate ? (
 						<AnimationOnScroll
@@ -131,10 +132,10 @@ const Groups = ({ section }) => {
 								group?.animateOnce ? group?.animateOnce : true
 							}
 						>
-							<Group key={group?.id} group={group} />
+							<Group key={group?.id || index} group={group} />
 						</AnimationOnScroll>
 					) : (
-						<Group key={group?.id} group={group} />
+						<Group key={group?.id || index} group={group} />
 					)}
 				</>
 			))}

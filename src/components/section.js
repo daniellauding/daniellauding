@@ -298,7 +298,7 @@ const Section = ({ section }) => {
 							</>
 						)}
 
-						<Groups section={section} />
+						<Groups groups={section.groups} />
 					</div>
 				</div>
 			</div>
@@ -489,7 +489,7 @@ const Section = ({ section }) => {
 							</>
 						)}
 
-						<Groups section={section} />
+						<Groups groups={section.groups} />
 					</div>
 				</div>
 			</div>
@@ -639,7 +639,7 @@ const Section = ({ section }) => {
 						</>
 					)}
 
-					<Groups section={section} />
+					<Groups groups={section.groups} />
 				</div>
 			</div>
 		);
@@ -865,7 +865,7 @@ const Section = ({ section }) => {
 					/>
 				)}
 
-				<Groups section={section} />
+				<Groups groups={section.groups} />
 			</div>
 		</div>
 	);

@@ -12,34 +12,32 @@ const about = [
 			{
 				groups: [
 					{
-						group: [
+						id: 0,
+						columns: 2,
+						text: [
 							{
-								text: [
-									{
-										value: 'I am a Lead Product Designer with a passion for bringing creative concepts to life through intricate design and efficient prototyping. Often regarded as a hybrid designer, I find fulfillment in delving deep into multiple facets of the design process, continuously pushing boundaries and challenging norms.',
-									},
-								],
+								value: 'I am a Lead Product Designer with a passion for bringing creative concepts to life through intricate design and efficient prototyping. Often regarded as a hybrid designer, I find fulfillment in delving deep into multiple facets of the design process, continuously pushing boundaries and challenging norms.',
 							},
+						],
+					},
+					{
+						text: [
 							{
-								text: [
-									{
-										value: `What sets me apart is my penchant for exploration. I'm at my best when charting unfamiliar terrains, whether it's designing a new feature, creating an innovative prototype, or shaping an entire design system. This exploratory zeal is where my creativity meets purpose, resulting in designs that not only look appealing but also function seamlessly.`,
-									},
-								],
+								value: `What sets me apart is my penchant for exploration. I'm at my best when charting unfamiliar terrains, whether it's designing a new feature, creating an innovative prototype, or shaping an entire design system. This exploratory zeal is where my creativity meets purpose, resulting in designs that not only look appealing but also function seamlessly.`,
 							},
+						],
+					},
+					{
+						text: [
 							{
-								text: [
-									{
-										value: `Over the years, I have developed comprehensive design systems, utilizing various design tools to provide cohesive, user-centric experiences. My skill set also extends to frontend development, with proficiency in React and basic HTML, underscoring my ability to understand and implement technical aspects of design.`,
-									},
-								],
+								value: `Over the years, I have developed comprehensive design systems, utilizing various design tools to provide cohesive, user-centric experiences. My skill set also extends to frontend development, with proficiency in React and basic HTML, underscoring my ability to understand and implement technical aspects of design.`,
 							},
+						],
+					},
+					{
+						text: [
 							{
-								text: [
-									{
-										value: `In essence, I am a design enthusiast driven by the thrill of creation and the satisfaction of seeing my prototypes come to life. My work is a fusion of aesthetics, functionality, and innovation - a testament to my commitment towards creating impactful user experiences.`,
-									},
-								],
+								value: `In essence, I am a design enthusiast driven by the thrill of creation and the satisfaction of seeing my prototypes come to life. My work is a fusion of aesthetics, functionality, and innovation - a testament to my commitment towards creating impactful user experiences.`,
 							},
 						],
 					},
