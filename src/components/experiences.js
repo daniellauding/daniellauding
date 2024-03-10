@@ -49,6 +49,7 @@ const ExperiencesShort = ({ active, selectedChanged, setPreviewCase }) => {
 		<ul className="experiences flex flex-col justify-start align-center px-8 md:px-16 mt-4 mb-4 md:overflow-y-auto md:mx-4">
 			{work
 				.filter((item) => item.index !== false)
+				.filter((item) => item.featured == true)
 				.map((item) => (
 					<Experience
 						key={item.id}
