@@ -13,6 +13,8 @@ import Contact, { Offert } from './contact';
 import Groups from './groups';
 import Tooltip from './tooltip';
 
+import Text, { Title } from './typography';
+
 import {
 	EnvelopeIcon,
 	ClipboardDocumentListIcon,
@@ -102,6 +104,155 @@ const About = ({ setShowProfile, active, selectedChanged }) => {
 							</p>
 							{console.log(intro)}
 							{console.log(intro.content[0].groups)}
+
+							{intro.content.map((content, index) => (
+								<div key={index}>
+									{content.groups.map((groups, index) => (
+										<div key={index}>
+											<div
+												className={classNames(
+													`groups grid gap-0 md:gap-16 auto-rows-auto md:grid-flow-col pt-96 md:p-0 md:auto-cols-fr mt-8 h-full`,
+													{
+														[`grid-cols-${groups.columns}`]:
+															groups.columns,
+														[`grid-rows-${groups.rows}`]:
+															groups.rows,
+														[`gap-${groups.gap}`]:
+															groups.gap,
+														[`gap-y-${groups.gapY}`]:
+															groups.gapY,
+														[`gap-x-${groups.gapX}`]:
+															groups.gapX,
+													}
+												)}
+											>
+												{groups?.title && (
+													<Title
+														value={
+															groups?.title?.value
+														}
+														variant={
+															groups?.title
+																?.variant
+														}
+														style={
+															groups?.title?.style
+														}
+														color={
+															groups?.title?.color
+														}
+														fill={
+															groups?.title?.fill
+														}
+														align={
+															groups?.title?.align
+														}
+														family={
+															groups?.title
+																?.family
+														}
+														weight={
+															groups?.title
+																?.weight
+														}
+														className={
+															groups?.title
+																?.className
+														}
+													/>
+												)}
+												{groups?.text &&
+												Array.isArray(groups?.text) ? (
+													<div className="space-y-4 flex flex-col">
+														{groups?.text.map(
+															(
+																textBlock,
+																index
+															) => (
+																<Text
+																	key={index}
+																	value={
+																		textBlock.value
+																	}
+																	size={
+																		textBlock.size
+																	}
+																	style={
+																		textBlock.style
+																	}
+																	color={
+																		textBlock?.color
+																	}
+																	fill={
+																		textBlock?.fill
+																	}
+																	align={
+																		textBlock?.align
+																	}
+																	className={
+																		textBlock?.className
+																	}
+																	family={
+																		textBlock?.family
+																	}
+																	weight={
+																		textBlock?.weight
+																	}
+																/>
+															)
+														)}
+													</div>
+												) : (
+													<Text
+														value={
+															groups?.text?.value
+														}
+														size={
+															groups?.text?.size
+														}
+														style={
+															groups?.text?.style
+														}
+														color={
+															groups?.text?.color
+														}
+														fill={
+															groups?.text?.fill
+														}
+														align={
+															groups?.text?.align
+														}
+														className={
+															groups?.text
+																?.className
+														}
+														family={
+															groups?.text?.family
+														}
+														weight={
+															groups?.text?.weight
+														}
+													/>
+												)}
+
+												{groups?.lead && (
+													<Text
+														size="large"
+														value={groups?.lead}
+														color={
+															groups?.lead?.color
+														}
+														fill={
+															groups?.text?.fill
+														}
+													/>
+												)}
+											</div>
+										</div>
+									))}
+								</div>
+							))}
+
 							{intro.content.map((contentItem, index) => (
 								<div key={index}>
 									{contentItem.id}
