@@ -103,6 +103,15 @@ const About = ({ setShowProfile, active, selectedChanged }) => {
 								{intro.description}
 							</p> */}
 
+							{console.log(intro)}
+							{console.log(intro.content, 'content')}
+							{console.log(intro.content[0].groups, 'groups')}
+							{console.log(
+								intro.content[0].groups[0].groups,
+								'groups groups'
+							)}
+							{console.log(intro.content.groups, 'content 2')}
+
 							{intro.content.map((content, index) => (
 								<div key={index}>
 									{content.groups.map((groups, index) => (

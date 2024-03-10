@@ -1,12 +1,12 @@
 import React from 'react';
 import { work } from '../constant';
 import classNames from 'classnames';
-import { XMarkIcon } from '@heroicons/react/24/solid';
+// import { XMarkIcon } from '@heroicons/react/24/solid';
 import Experience from './experience';
 
 const Experiences = ({
 	showExperiencesFull,
-	setShowExperiencesFull,
+	// setShowExperiencesFull,
 	active,
 	selectedChanged,
 }) => {
@@ -14,12 +14,12 @@ const Experiences = ({
 		<>
 			{showExperiencesFull ? (
 				<div className="experiences">
-					<button
+					{/* <button
 						onClick={() => setShowExperiencesFull(false)}
 						className="text-white font-bold p-2 w-2 h-2 rounded-full fixed top-4 right-8"
 					>
 						<XMarkIcon className="h-5 w-5 dark:text-gray-300 dark:hover:dark:text-white" />
-					</button>
+					</button> */}
 					<div
 						className={classNames(
 							'flex relative border-l border-gray-200 dark:border-gray-700 h-full '

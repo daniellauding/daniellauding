@@ -10,6 +10,7 @@ const about = [
 			'I am a hybrid* designer who enjoys prototyping, conceptualizing and designing interfaces',
 		content: [
 			{
+				id: 0,
 				groups: [
 					{
 						id: 0,

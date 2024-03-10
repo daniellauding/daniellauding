@@ -56,7 +56,14 @@ const Nav = ({
 						</>
 					)} */}
 
-					{!showExperiencesFull && (
+					{showExperiencesFull ? (
+						<button
+							onClick={() => setShowExperiencesFull(false)}
+							className="pt-0 mb-0 mt-0 text-center items-center dark:text-gray-500 text-black text-sm lg:font-light"
+						>
+							<XMarkIcon className="h-5 w-5 dark:text-gray-400 text-gray-500" />
+						</button>
+					) : (
 						<button
 							onClick={() => setShowExperiencesFull(true)}
 							className="pt-0 mb-0 mt-0 text-center items-center dark:text-gray-500 text-black text-sm lg:font-light"
