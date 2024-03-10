@@ -16,28 +16,85 @@ const about = [
 						columns: 2,
 						text: [
 							{
-								value: 'I am a Lead Product Designer with a passion for bringing creative concepts to life through intricate design and efficient prototyping. Often regarded as a hybrid designer, I find fulfillment in delving deep into multiple facets of the design process, continuously pushing boundaries and challenging norms.',
+								className:
+									'text-slate-300 leading-snug font-serif uppercase font-mono font-bold',
+								value: 'Senior Product Designer',
+								size: 'small',
 							},
 						],
 					},
 					{
+						id: 0,
+						columns: 2,
 						text: [
 							{
-								value: `What sets me apart is my penchant for exploration. I'm at my best when charting unfamiliar terrains, whether it's designing a new feature, creating an innovative prototype, or shaping an entire design system. This exploratory zeal is where my creativity meets purpose, resulting in designs that not only look appealing but also function seamlessly.`,
+								className: 'text-white leading-snug font-serif',
+								value: 'Daniel Lauding weaves beats into design as he globe-trots, crafting prototypes, dreaming up concepts, and sculpting interfaces with an innovative rhythm, wherever his remote work takes him.',
+								size: 'large',
 							},
 						],
 					},
 					{
+						id: 0,
+						columns: 2,
 						text: [
 							{
-								value: `Over the years, I have developed comprehensive design systems, utilizing various design tools to provide cohesive, user-centric experiences. My skill set also extends to frontend development, with proficiency in React and basic HTML, underscoring my ability to understand and implement technical aspects of design.`,
+								className: 'text-white',
+								value: `A dynamic force in product design, known for his hands-on approach and deep engagement in prototyping and UX/UI development. His work goes beyond the surface, as he collaborates closely with teams and stakeholders to turn visions into reality.`,
+								size: 'large',
 							},
 						],
 					},
 					{
+						id: 0,
+						columns: 2,
 						text: [
 							{
-								value: `In essence, I am a design enthusiast driven by the thrill of creation and the satisfaction of seeing my prototypes come to life. My work is a fusion of aesthetics, functionality, and innovation - a testament to my commitment towards creating impactful user experiences.`,
+								className: 'text-white',
+								value: `Daniel's journey with Asteria is a testament to this collaborative spirit, taking the product from an initial concept to a vital tool used by SMEs.`,
+								size: 'large',
+							},
+						],
+						groups: [
+							{
+								text: [
+									{
+										className: 'text-white',
+										value: `His ability to navigate the complexities of design and development has fostered successful partnerships with top Scandinavian banks and fintechs, culminating in significant funding achievements. Beyond his professional pursuits, Daniel's passion extends to music production, where he explores new creative territories.`,
+										size: 'large',
+									},
+								],
+							},
+							{
+								text: [
+									{
+										className: 'text-white',
+										value: `His track record with renowned brands highlights his commitment to creating compelling, user-focused experiences that make a tangible difference, including projects for Spotify, KLM, and contributing to the design system for Länsförsäkringar, enhancing user experiences across Sweden.`,
+										size: 'large',
+									},
+								],
+							},
+						],
+					},
+					{
+						id: 0,
+						columns: 2,
+						text: [
+							{
+								className: 'text-white',
+								value: `His ability to navigate the complexities of design and development has fostered successful partnerships with top Scandinavian banks and fintechs, culminating in significant funding achievements. Beyond his professional pursuits, Daniel's passion extends to music production, where he explores new creative territories.`,
+								size: 'large',
+							},
+						],
+					},
+					{
+						id: 0,
+						columns: 2,
+						text: [
+							{
+								className: 'text-white',
+								value: `His track record with renowned brands highlights his commitment to creating compelling, user-focused experiences that make a tangible difference, including projects for Spotify, KLM, and contributing to the design system for Länsförsäkringar, enhancing user experiences across Sweden.`,
+								size: 'large',
 							},
 						],
 					},

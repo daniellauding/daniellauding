@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { about } from '../constant';
 
-const Avatar = ({ active, selectedChanged, previewCase }) => {
+const Avatar = ({ active, selectedChanged, previewCase, className }) => {
 	// move to own file
 	const heroImg = about.map((intro) => intro.hero);
 
@@ -10,6 +10,7 @@ const Avatar = ({ active, selectedChanged, previewCase }) => {
 		<div
 			className={classNames(
 				'cover bg-cover fixed top-0 md:top-auto md:relative',
+				className,
 				active ? '' : ''
 			)}
 		>

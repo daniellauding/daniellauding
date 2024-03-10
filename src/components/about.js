@@ -25,7 +25,7 @@ const About = ({ setShowProfile, active, selectedChanged }) => {
 	const [showOffert, setShowOffert] = useState(false);
 	const [showContact, setShowContact] = useState(false);
 	return (
-		<div className="section-wrapper">
+		<div className="section-wrapper align-center items-center flex flex-col">
 			<div
 				className={classNames(
 					'nav top-8 left-8 fixed flex flex-row p-6 gap-8 z-10'
@@ -79,7 +79,7 @@ const About = ({ setShowProfile, active, selectedChanged }) => {
 				/>
 			)}
 
-			<Avatar />
+			<Avatar className="w-96 h-96 rounded-full overflow-hidden" />
 
 			<div
 				className={classNames(
@@ -87,23 +87,21 @@ const About = ({ setShowProfile, active, selectedChanged }) => {
 				)}
 			>
 				<div className="md:h-100 md:h-screen flex flex-col py-8 gap-4">
-					<Profile />
+					{/* <Profile /> */}
 
 					{about.map((intro) => (
 						<div key={intro.id}>
-							<h1 className="pt-0 mt-4 mb-0 text-3xl text-center dark:text-white text-black lg:font-bold">
+							{/* <h1 className="pt-0 mt-4 mb-0 text-3xl text-center dark:text-white text-black lg:font-bold">
 								{intro.name}
 							</h1>
 							<p className="pt-0 mb-0 text-center dark:text-gray-500 text-black lg:font-light">
 								<a href={`mailto:${intro.email}`}>
 									{intro.email}
 								</a>
-							</p>
-							<p className="pt-0 mb-4 sm:mx-8 mx-8 md:mx-32 mt-8 text-center dark:text-gray-100 text-black lg:font-light text-3xl md:text-4xl leading-snug font-serif">
+							</p> */}
+							{/* <p className="pt-0 mb-4 sm:mx-8 mx-8 md:mx-32 mt-8 text-center dark:text-gray-100 text-black lg:font-light text-3xl md:text-4xl leading-snug font-serif">
 								{intro.description}
-							</p>
-							{console.log(intro)}
-							{console.log(intro.content[0].groups)}
+							</p> */}
 
 							{intro.content.map((content, index) => (
 								<div key={index}>
@@ -255,11 +253,14 @@ const About = ({ setShowProfile, active, selectedChanged }) => {
 
 							{intro.content.map((contentItem, index) => (
 								<div key={index}>
-									{contentItem.id}
-									<Groups
-										key={index}
-										section={contentItem.groups}
-									/>
+									{contentItem.groups.map(
+										(section, index) => (
+											<Groups
+												key={index}
+												section={section.groups}
+											/>
+										)
+									)}
 								</div>
 							))}
 						</div>
