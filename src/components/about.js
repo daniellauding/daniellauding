@@ -9,6 +9,7 @@ import { about, work } from '../constant';
 import TagsList from './tags';
 import Social from './social';
 import Nav from './nav';
+import Logo from './logo';
 import Contact, { Offert } from './contact';
 import Groups from './groups';
 import Tooltip from './tooltip';
@@ -80,13 +81,13 @@ const About = ({ setShowProfile, active, selectedChanged }) => {
 			)}
 
 			<Avatar className="w-96 h-96 rounded-full overflow-hidden" />
-
+			<Logo className="w-96 h-96" />
 			<div
 				className={classNames(
 					'content align-center sticky z-10 md:relative dark:bg-black light:bg-white md:light:bg-transparent md:dark:bg-transparent'
 				)}
 			>
-				<div className="md:h-100 md:h-screen flex flex-col py-8 gap-4">
+				<div className="flex flex-col py-8 gap-4">
 					{/* <Profile /> */}
 
 					{about.map((intro) => (
@@ -274,6 +275,27 @@ const About = ({ setShowProfile, active, selectedChanged }) => {
 							))}
 						</div>
 					))}
+
+					{console.log(work)}
+					<ul className="experiences flex flex-col justify-start align-center px-8 md:px-16 mt-4 mb-4 md:overflow-y-auto md:mx-4">
+						{work.map((item) => (
+							<li key={item?.id}>
+								<p
+									className={classNames(
+										`col-span-3 pt-0 mb-0 text-left dark:text-gray-300 md:text-black text-2xl md:text-base md:font-medium sm:w-24 md:w-40`
+									)}
+								>
+									{item?.client}
+								</p>
+								<p className="col-span-2 pt-0 mb-0 md:ml-8 text-xs md:text-base md:text-center dark:text-gray-300 text-black lg:font-light">
+									{item?.role}
+								</p>
+								<p className="col-span-1 pt-0 mb-0 ml-auto text-right text-xs md:text-base md:text-center dark:text-gray-300 text-black lg:font-light">
+									{item?.date}
+								</p>
+							</li>
+						))}
+					</ul>
 				</div>
 			</div>
 		</div>
