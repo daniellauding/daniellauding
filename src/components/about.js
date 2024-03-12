@@ -25,6 +25,43 @@ const About = ({ setShowProfile, active, selectedChanged }) => {
 	const [showExperiencesFull, setShowExperiencesFull] = useState(null);
 	const [showOffert, setShowOffert] = useState(false);
 	const [showContact, setShowContact] = useState(false);
+
+	const opacitySteps = [
+		// 'bg-opacity-0',
+		// 'bg-opacity-5',
+		// 'bg-opacity-10',
+		'bg-opacity-20',
+		'bg-opacity-25',
+		'bg-opacity-30',
+		'bg-opacity-40',
+		'bg-opacity-50',
+		'bg-opacity-60',
+		'bg-opacity-70',
+		'bg-opacity-75',
+		'bg-opacity-80',
+		'bg-opacity-90',
+		'bg-opacity-95',
+		'bg-opacity-100',
+	];
+
+	const textColorSteps = [
+		'text-opacity-0',
+		'text-opacity-5',
+		'text-opacity-10',
+		'text-opacity-20',
+		'text-opacity-25',
+		'text-opacity-30',
+		'text-opacity-40',
+		'text-opacity-50',
+		'text-opacity-60',
+		'text-opacity-70',
+		'text-opacity-75',
+		'text-opacity-80',
+		'text-opacity-90',
+		'text-opacity-95',
+		'text-opacity-100',
+	];
+
 	return (
 		<div className="section-wrapper align-center items-center flex flex-col">
 			<div
@@ -277,20 +314,52 @@ const About = ({ setShowProfile, active, selectedChanged }) => {
 					))}
 
 					{console.log(work)}
-					<ul className="experiences flex flex-col justify-start align-center px-8 md:px-16 mt-4 mb-4 md:overflow-y-auto md:mx-4">
-						{work.map((item) => (
-							<li key={item?.id}>
+
+					<ul className="bg-white experiences flex flex-col justify-start align-center px-0 mt-4 mb-4 md:overflow-y-auto md:mx-4">
+						{work.map((item, index) => (
+							<li
+								key={item?.id}
+								// className={`bg-[#85496A] bg-opacity-${
+								// 	index * 20
+								// }`}
+								className={`bg-[#85496A] flex p-4 h-20 items-center ${
+									opacitySteps[index % opacitySteps.length]
+								}`}
+							>
 								<p
-									className={classNames(
-										`col-span-3 pt-0 mb-0 text-left dark:text-gray-300 md:text-black text-2xl md:text-base md:font-medium sm:w-24 md:w-40`
-									)}
+									className={`col-span-3 pt-0 mb-0 text-left text-grey-700 text-2xl md:text-base md:font-medium sm:w-24 md:w-40 ${
+										textColorSteps[
+											Math.min(
+												index,
+												textColorSteps.length - 1
+											)
+										]
+									} `}
 								>
 									{item?.client}
 								</p>
-								<p className="col-span-2 pt-0 mb-0 md:ml-8 text-xs md:text-base md:text-center dark:text-gray-300 text-black lg:font-light">
+								<p
+									className={`col-span-2 pt-0 mb-0 md:ml-8 text-xs md:text-base md:text-center text-grey-700 lg:font-light ${
+										textColorSteps[
+											Math.min(
+												index,
+												textColorSteps.length - 1
+											)
+										]
+									} `}
+								>
 									{item?.role}
 								</p>
-								<p className="col-span-1 pt-0 mb-0 ml-auto text-right text-xs md:text-base md:text-center dark:text-gray-300 text-black lg:font-light">
+								<p
+									className={`col-span-1 pt-0 mb-0 ml-auto text-right text-xs md:text-base md:text-center text-grey-700 lg:font-light ${
+										textColorSteps[
+											Math.min(
+												index,
+												textColorSteps.length - 1
+											)
+										]
+									} `}
+								>
 									{item?.date}
 								</p>
 							</li>
