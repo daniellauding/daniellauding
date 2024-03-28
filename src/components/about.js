@@ -327,7 +327,7 @@ const About = ({ setShowProfile, active, selectedChanged }) => {
 								}`}
 							>
 								<p
-									className={`col-span-3 pt-0 mb-0 text-left text-grey-700 text-2xl md:text-base md:font-medium sm:w-24 md:w-40 ${
+									className={`col-span-3 pt-0 mb-0 text-left text-slate-700 text-2xl md:text-base md:font-medium sm:w-24 md:w-40 ${
 										textColorSteps[
 											Math.min(
 												index,
@@ -339,7 +339,7 @@ const About = ({ setShowProfile, active, selectedChanged }) => {
 									{item?.client}
 								</p>
 								<p
-									className={`col-span-2 pt-0 mb-0 md:ml-8 text-xs md:text-base md:text-center text-grey-700 lg:font-light ${
+									className={`col-span-2 pt-0 mb-0 md:ml-8 text-xs md:text-base md:text-center text-slate-700 lg:font-light ${
 										textColorSteps[
 											Math.min(
 												index,
@@ -351,7 +351,7 @@ const About = ({ setShowProfile, active, selectedChanged }) => {
 									{item?.role}
 								</p>
 								<p
-									className={`col-span-1 pt-0 mb-0 ml-auto text-right text-xs md:text-base md:text-center text-grey-700 lg:font-light ${
+									className={`col-span-1 pt-0 mb-0 ml-auto text-right text-xs md:text-base md:text-center text-slate-700 lg:font-light ${
 										textColorSteps[
 											Math.min(
 												index,
