@@ -11,6 +11,8 @@ import classNames from 'classnames';
 //   }
 // );
 
+import { ArrowLongRightIcon } from '@heroicons/react/24/solid';
+
 const Experience = ({ item, active, setActive, onHover }) => {
 	const [isHovering, setIsHovering] = useState(false);
 	const [currentSlide, setCurrentSlide] = useState(0);
@@ -65,10 +67,10 @@ const Experience = ({ item, active, setActive, onHover }) => {
 		<li
 			key={item?.id}
 			className={classNames(
-				`experience grid grid-cols-3 md:flex md:flex-row py-4`,
+				`experience grid grid-cols-4 grid-rows-1 group/item h-16 items-center transition-all h-16`,
 				active
 					? 'bg-gray-100 text-gray-900'
-					: 'block px-4 py-2 text-sm text-gray-700',
+					: 'block h-4 py-2 text-sm text-gray-700',
 				isHovering ? 'hovering cursor-pointer' : 'no-hover'
 			)}
 			onClick={onClick}
@@ -79,17 +81,23 @@ const Experience = ({ item, active, setActive, onHover }) => {
 		>
 			<p
 				className={classNames(
-					`col-span-3 pt-0 mb-0 text-left dark:text-gray-300 md:text-black text-2xl md:text-base md:font-medium sm:w-24 md:w-40`
+					`col-span-1 pt-0 mb-0 text-left text-2xl md:text-base md:font-medium h-full`
 				)}
 			>
-				<a href={item?.url} onClick={onClick}>
+				<a
+					href={item?.url}
+					onClick={onClick}
+					className="flex items-center gap-2 px-4 h-full transition-all border-2 border-transparent light:text-primary light:group-hover/item:text-white light:group-hover/item:bg-primary dark:text-primary dark:group-hover/item:text-primary dark:group-hover/item:border-primary rounded-full w-fit"
+				>
 					{item?.client}
+
+					<ArrowLongRightIcon className="h-5 w-5 invisible group-hover/item:visible" />
 				</a>
 			</p>
-			<p className="col-span-2 pt-0 mb-0 md:ml-8 text-xs md:text-base md:text-center dark:text-gray-300 text-black lg:font-light">
+			<p className="col-span-2 pt-0 mb-0 md:ml-8 text-xs md:text-base md:text-left dark:text-gray-300 text-black lg:font-light">
 				{item?.role}
 			</p>
-			<p className="col-span-1 pt-0 mb-0 ml-auto text-right text-xs md:text-base md:text-center dark:text-gray-300 text-black lg:font-light">
+			<p className="col-span-1 pt-0 mb-0 ml-auto text-right text-xs md:text-base md:text-right dark:text-gray-300 text-black lg:font-light">
 				{item?.date}
 			</p>
 			{isHovering && item.thumbnail && (

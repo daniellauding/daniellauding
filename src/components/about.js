@@ -20,6 +20,7 @@ import Text, { Title } from './typography';
 import {
 	EnvelopeIcon,
 	ClipboardDocumentListIcon,
+	ArrowLongRightIcon,
 } from '@heroicons/react/24/solid';
 
 const About = ({
@@ -697,9 +698,10 @@ const AboutShort = ({
 					{!showProfile && (
 						<button
 							onClick={() => setShowProfile(true)}
-							className="light:text-black dark:text-white font-bold p-2 w-2 h-2 text-center mx-auto w-auto"
+							className="transition-all light:text-primary light:hover:text-white light:hover:bg-primary dark:text-primary dark:hover:text-white dark:hover:bg-primary font-bold p-2 px-4 text-center mx-auto w-auto border-2 rounded-full border-primary h-auto gap-2 items-center flex"
 						>
 							Read more
+							<ArrowLongRightIcon className="h-5 w-5" />
 						</button>
 					)}
 

@@ -51,8 +51,8 @@ module.exports = {
 				2: 2,
 			},
 			textColor: {
-				primary: 'var(--color-text-primary)',
-				secondary: 'var(--color-text-secondary)',
+				primary: 'var(--color-text-primary, #C62A6F)',
+				secondary: 'var(--color-text-secondary, #6E6E6E)',
 				default: 'var(--color-text-default)',
 				'default-soft': 'var(--color-text-default-soft)',
 				inverse: 'var(--color-text-inverse)',

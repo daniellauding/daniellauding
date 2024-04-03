@@ -36,7 +36,7 @@ const Links = [
 const Social = () => {
 	return (
 		<div className="mt-auto">
-			<ul className="m-0 flex flex-row justify-center align-center">
+			<ul className="m-0 gap-2 flex flex-row justify-center align-center">
 				{Links.map((link) => (
 					<li className="m-0 p-0" key={link.id}>
 						<Tooltip content={link?.tooltip} direction="top">
@@ -46,7 +46,7 @@ const Social = () => {
 									width: '40px',
 								}}
 								fgColor="rgba(255, 255, 255, 0.7)"
-								bgColor="#000"
+								bgColor="rgba(0,0,0,0.2)"
 								network={link.network}
 								url={link.url}
 								label={link.label}
