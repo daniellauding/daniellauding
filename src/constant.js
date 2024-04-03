@@ -6,96 +6,200 @@ const about = [
 		logo: '/images/logo.svg',
 		logoMov: '/images/logoH.mov',
 		hero: '/images/me.jpg',
-		description:
-			'I am a hybrid* designer who enjoys prototyping, conceptualizing and designing interfaces',
+		description: `As a hands-on Lead Product Designer, I've turned ideas into successful ventures at Asteria for SMEs. Making music more accessible on Spotify and set up design systems for Länsförsäkringar, simplifying music release for artists across platforms.`,
 		content: [
+			// {
+			// 	id: 0,
+			// 	section: '00',
+			// 	anchor: '',
+			// 	columns: 1,
+			// 	gap: 4,
+			// 	groups: [
+			// 		{
+			// 			id: 1,
+			// 			video: {
+			// 				src: '/images/logoH.mov',
+			// 				autoplay: true,
+			// 				loop: true,
+			// 				muted: true,
+			// 				controls: false,
+			// 				width: 96,
+			// 				height: 96,
+			// 			},
+			// 		},
+			// 	],
+			// },
 			{
-				id: 0,
+				id: 1,
+				section: '01',
+				anchor: '',
+				columns: 4,
+				rows: 2,
+				gap: 4,
+				align: {
+					horizontal: 'center',
+					vertical: 'center',
+				},
+				container: {
+					height: 'h-screen',
+					align: {
+						horizontal: 'center',
+						vertical: 'center',
+					},
+				},
+				height: 'h-screen',
+				// variant: 'full',
 				groups: [
 					{
-						id: 0,
+						id: 2,
 						columns: 2,
+						rowStart: 1,
+						align: {
+							horizontal: 'center',
+							vertical: 'center',
+						},
 						text: [
 							{
-								className:
-									'text-slate-300 leading-snug font-serif uppercase font-mono font-bold',
-								value: 'Senior Product Designer',
-								size: 'small',
+								value: `Daniel Lauding dances through design and globe-trots with a creative beat, spinning prototypes and visions into digital realities wherever his laptop lands.`,
+								size: 'large',
 							},
-						],
-					},
-					{
-						id: 0,
-						columns: 2,
-						text: [
 							{
-								className: 'text-white leading-snug font-serif',
-								value: 'Daniel Lauding weaves beats into design as he globe-trots, crafting prototypes, dreaming up concepts, and sculpting interfaces with an innovative rhythm, wherever his remote work takes him.',
+								value: `Behind Asteria's rise, he's the wizard blending innovation with practicality for SMEs.`,
 								size: 'large',
 							},
 						],
 					},
 					{
-						id: 0,
+						id: 3,
 						columns: 2,
+						rowStart: 1,
+						image: {
+							src: '/images/me.jpg',
+						},
+					},
+					{
+						id: 4,
+						columns: 2,
+						rowStart: 2,
 						text: [
 							{
-								className: 'text-white',
-								value: `A dynamic force in product design, known for his hands-on approach and deep engagement in prototyping and UX/UI development. His work goes beyond the surface, as he collaborates closely with teams and stakeholders to turn visions into reality.`,
+								value: `He cranked up the volume on Spotify's accessibility and laid down a groove with Länsförsäkringar's cross-platform design system, making it a hit across Sweden with its user-friendly vibes.`,
 								size: 'large',
 							},
 						],
 					},
+				],
+			},
+			{
+				id: 2,
+				section: '02',
+				anchor: '',
+				columns: 4,
+				gap: 4,
+				groups: [
 					{
-						id: 0,
+						id: 1,
+						columns: 2,
+					},
+					{
+						id: 2,
 						columns: 2,
 						text: [
 							{
-								className: 'text-white',
-								value: `Daniel's journey with Asteria is a testament to this collaborative spirit, taking the product from an initial concept to a vital tool used by SMEs.`,
-								size: 'large',
-							},
-						],
-						groups: [
-							{
-								text: [
-									{
-										className: 'text-white',
-										value: `His ability to navigate the complexities of design and development has fostered successful partnerships with top Scandinavian banks and fintechs, culminating in significant funding achievements. Beyond his professional pursuits, Daniel's passion extends to music production, where he explores new creative territories.`,
-										size: 'large',
-									},
-								],
-							},
-							{
-								text: [
-									{
-										className: 'text-white',
-										value: `His track record with renowned brands highlights his commitment to creating compelling, user-focused experiences that make a tangible difference, including projects for Spotify, KLM, and contributing to the design system for Länsförsäkringar, enhancing user experiences across Sweden.`,
-										size: 'large',
-									},
-								],
+								value: `His passion shines in crafting products that not only function seamlessly but also captivate visually. He delves into building prototypes, refining user experiences, and developing comprehensive design systems. His diverse experience across finance, fashion, and music showcases his ability to apply his technical skills in various contexts. Working hand in hand with his team, he channels his enthusiasm into turning innovative ideas into practical, user-centered products.`,
+								size: 'medium',
 							},
 						],
 					},
+				],
+			},
+			{
+				id: 3,
+				section: '01',
+				anchor: '',
+				columns: 4,
+				gap: 4,
+				groups: [
 					{
-						id: 0,
+						id: 1,
+						columns: 2,
+					},
+					{
+						id: 2,
 						columns: 2,
 						text: [
 							{
-								className: 'text-white',
-								value: `His ability to navigate the complexities of design and development has fostered successful partnerships with top Scandinavian banks and fintechs, culminating in significant funding achievements. Beyond his professional pursuits, Daniel's passion extends to music production, where he explores new creative territories.`,
-								size: 'large',
+								value: `In his ongoing role at Asteria, where Daniel has been a pivotal co-founder and lead product designer for over 6 years, his collaborative ethos shines brightly. He's been instrumental in evolving initial concepts into crucial tools for SMEs. With his team, he's successfully tackled intricate design challenges, contributing to Asteria's growth. This includes playing a key role in securing funding rounds and forging new partnerships, marking significant achievements in the fintech and banking sectors across Scandinavia. His active participation in fintech accelerator programs across Europe continues to propel the company forward, underlining his commitment to innovation and progress.`,
+								size: 'medium',
 							},
 						],
 					},
+				],
+			},
+			{
+				id: 4,
+				section: '01',
+				anchor: '',
+				columns: 4,
+				gap: 4,
+				groups: [
 					{
-						id: 0,
+						id: 1,
+						columns: 2,
+					},
+					{
+						id: 2,
 						columns: 2,
 						text: [
 							{
-								className: 'text-white',
-								value: `His track record with renowned brands highlights his commitment to creating compelling, user-focused experiences that make a tangible difference, including projects for Spotify, KLM, and contributing to the design system for Länsförsäkringar, enhancing user experiences across Sweden.`,
-								size: 'large',
+								value: `Daniel's passion for music not only fuels his creativity but also complements his professional projects. This unique blend of interests led him to develop a low-data solution for Spotify in Brazil, aiding the platform's expansion by making music more accessible. Additionally, his work with Record Union has empowered artists by streamlining the process of releasing their music across various platforms. His engagements with high-profile clients like KLM and his contribution to creating a user-friendly design system for Länsförsäkringar demonstrate his commitment to improving user experiences in diverse sectors across Sweden.`,
+								size: 'medium',
+							},
+						],
+					},
+				],
+			},
+			{
+				id: 5,
+				section: '01',
+				anchor: '',
+				columns: 4,
+				gap: 4,
+				groups: [
+					{
+						id: 1,
+						columns: 2,
+					},
+					{
+						id: 2,
+						columns: 2,
+						text: [
+							{
+								value: `The journey into merging work with global exploration began at 22, with the first flight to a London project exhibition for Hyper Island. This experience not only fueled a love for travel but also led to vibrant roles within New York's fashion industry and Amsterdam's fintech sector. Now, with a rich tapestry of experiences from over 49 countries, there's a deep involvement in the digital nomad scene, participating in communities like WiFi Tribe and Nomad Cruise. This lifestyle of remote work harnesses a wide array of design and development skills to meet new challenges, all while drawing inspiration from a wealth of cultures. `,
+								size: 'medium',
+							},
+						],
+					},
+				],
+			},
+			{
+				id: 6,
+				section: '01',
+				anchor: '',
+				columns: 4,
+				gap: 4,
+				groups: [
+					{
+						id: 1,
+						columns: 2,
+					},
+					{
+						id: 2,
+						columns: 2,
+						text: [
+							{
+								value: `Daniel's on standby to bring ambitious concepts to life. From fintech to tunes, his knack for combining talents ensures projects hit the mark. Ready to lead or dive into the details, and willing to travel or move for the right opportunity. If you need a creative mind with a tech edge, Daniel's your match. Let's get started.`,
+								size: 'medium',
 							},
 						],
 					},
@@ -398,6 +502,28 @@ const work = [
 										size: 'large',
 									},
 								],
+								groups: [
+									{
+										id: 0,
+										columns: 2,
+										title: {
+											value: 'The problem',
+											weight: 'font-regular',
+											family: 'font-serif',
+											className: 'leading-snug',
+										},
+									},
+									{
+										id: 1,
+										columns: 2,
+										text: [
+											{
+												value: `Länsförsäkringar needed to update their brand for the digital age. They wanted a modern look and feel for their website, mobile app, and other digital platforms while staying connected to their local roots.`,
+												size: 'large',
+											},
+										],
+									},
+								],
 							},
 						],
 					},
@@ -432,6 +558,8 @@ const work = [
 						},
 						video: {
 							src: '/images/case/lansforsakringar/lfui/lfui-craft-480p.mov',
+							controls: true,
+							showControls: false,
 						},
 						text: [
 							{
@@ -501,6 +629,53 @@ const work = [
 									{
 										value: `In the initial five weeks, we held a design sprint to generate ideas and prototypes for various digital platforms, including the homepage, mobile app, bank portal, and insurance services. We actively involved Länsförsäkringar employees, seeking their feedback on our design concepts. Their input helped us identify design directions that resonated with users. We also prioritized accessibility. To ensure our designs were user-friendly for everyone, we collaborated with Funka, an accessibility consultancy, to integrate expert insights into the design process. This ensured inclusivity and usability for all users.`,
 										size: 'large',
+									},
+								],
+								groups: [
+									{
+										id: 0,
+										title: {
+											value: 'Watch',
+										},
+										text: {
+											value: 'Lorem ipsum',
+										},
+									},
+									{
+										id: 1,
+										title: {
+											value: 'Mobile',
+										},
+										text: {
+											value: 'Lorem ipsum',
+										},
+									},
+									{
+										id: 2,
+										title: {
+											value: 'Web',
+										},
+										text: {
+											value: 'Lorem ipsum',
+										},
+									},
+									{
+										id: 3,
+										title: {
+											value: 'Insurance',
+										},
+										text: {
+											value: 'Lorem ipsum',
+										},
+									},
+									{
+										id: 4,
+										title: {
+											value: 'Banking',
+										},
+										text: {
+											value: 'Lorem ipsum',
+										},
 									},
 								],
 							},

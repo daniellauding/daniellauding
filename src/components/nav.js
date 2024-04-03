@@ -14,16 +14,16 @@ import Tooltip from './tooltip';
 
 const Nav = ({
 	setShowProfile,
-	showExperiencesFull,
-	setShowExperiencesFull,
+	// showExperiencesFull,
+	// setShowExperiencesFull,
 	// setShowOffert,
 	// setShowContact,
 }) => {
 	return (
-		<div className="navigation z-10 relative">
+		<div className="navigation z-30 relative">
 			<div
 				className={classNames(
-					'nav top-2 fixed flex flex-row py-0 px-8 bg-black items-center rounded-full shadow left-1/2 -translate-x-1/2'
+					'top-2 fixed flex flex-row py-0 px-8 bg-black items-center rounded-full shadow left-1/2 -translate-x-1/2'
 				)}
 			>
 				<div className="app-logo flex flex-row items-center">
@@ -36,7 +36,12 @@ const Nav = ({
 						</button>
 					</Tooltip>
 
+					{/* <Logo /> */}
+
 					<Logo />
+
+					{/* <Avatar className="w-96 h-96 rounded-full overflow-hidden" /> */}
+					{/* <Logo className="w-96 h-96" /> */}
 
 					{/* {setShowProfile && (
 						<>
@@ -56,7 +61,7 @@ const Nav = ({
 						</>
 					)} */}
 
-					{showExperiencesFull ? (
+					{/* {showExperiencesFull ? (
 						<button
 							onClick={() => setShowExperiencesFull(false)}
 							className="pt-0 mb-0 mt-0 text-center items-center dark:text-gray-500 text-black text-sm lg:font-light"
@@ -70,7 +75,7 @@ const Nav = ({
 						>
 							<Bars3BottomRightIcon className="h-5 w-5 dark:text-gray-400 text-gray-500" />
 						</button>
-					)}
+					)} */}
 				</div>
 			</div>
 		</div>
@@ -141,7 +146,7 @@ const NavClient = ({
 
 	return (
 		<>
-			<div className="navigation z-10 relative">
+			<div className="navigation z-30 relative">
 				<div
 					className={classNames(
 						'nav top-2 fixed flex flex-row py-0 px-8 bg-black items-center rounded-full shadow left-1/2 -translate-x-1/2',

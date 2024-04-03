@@ -22,10 +22,10 @@ const Experiences = ({
 					</button> */}
 					<div
 						className={classNames(
-							'flex relative border-l border-gray-200 dark:border-gray-700 h-full '
+							'flex relative border-gray-200 dark:border-gray-700 h-full'
 						)}
 					>
-						<ul className="experiences flex flex-col justify-start align-center px-8 md:px-16 mt-4 mb-4 md:overflow-y-auto md:mx-4">
+						<ul className="experiences flex flex-col justify-start align-center px-8 md:px-16 mt-4 mb-4 md:overflow-y-auto md:mx-4 w-full">
 							{work
 								.filter((item) => item.index !== false)
 								.map((item) => (

@@ -294,6 +294,13 @@ const Section = ({ section }) => {
 									src={section?.video?.src}
 									item={section?.video}
 									videoClass={section?.video?.videoClass}
+									muted={section?.video?.muted || true}
+									loop={section?.video?.loop || true}
+									autoPlay={section?.video?.autoplay || true}
+									controls={section?.video?.controls || false}
+									showControls={
+										section?.video?.showControls || false
+									}
 								/>
 							</>
 						)}

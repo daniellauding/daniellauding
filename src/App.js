@@ -152,7 +152,8 @@ function App() {
 				</div>
 			)}
 			{showProfile && !active && (
-				<div className="profile-header flex flex-row p-6 gap-8">
+				<div className="profile-header">
+					{/* flex flex-row p-6 gap-8 */}
 					<About
 						setShowProfile={setShowProfile}
 						active={active}

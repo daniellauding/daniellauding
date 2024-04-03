@@ -9,11 +9,12 @@ import { about, work } from '../constant';
 import TagsList from './tags';
 import Social from './social';
 import Nav from './nav';
-import Logo from './logo';
+// import Logo from './logo';
 import Contact, { Offert } from './contact';
-import Groups from './groups';
+// import Groups from './groups';
 import Tooltip from './tooltip';
-
+import Video from './video';
+import Image from './image';
 import Text, { Title } from './typography';
 
 import {
@@ -21,10 +22,26 @@ import {
 	ClipboardDocumentListIcon,
 } from '@heroicons/react/24/solid';
 
-const About = ({ setShowProfile, active, selectedChanged }) => {
+const About = ({
+	setShowProfile,
+	active,
+	selectedChanged,
+	// item,
+	// setActive,
+}) => {
 	const [showExperiencesFull, setShowExperiencesFull] = useState(null);
 	const [showOffert, setShowOffert] = useState(false);
 	const [showContact, setShowContact] = useState(false);
+
+	// const onClick = useCallback(
+	// 	(e) => {
+	// 		e.preventDefault();
+	// 		setActive(item?.id);
+	// 		// test.play();
+	// 		console.log(item?.id, 'klickat på item');
+	// 	},
+	// 	[item, setActive]
+	// );
 
 	const opacitySteps = [
 		// 'bg-opacity-0',
@@ -66,7 +83,7 @@ const About = ({ setShowProfile, active, selectedChanged }) => {
 		<div className="section-wrapper align-center items-center flex flex-col">
 			<div
 				className={classNames(
-					'nav top-8 left-8 fixed flex flex-row p-6 gap-8 z-10'
+					'nav top-8 left-8 fixed flex flex-row p-6 gap-8 z-30'
 				)}
 			>
 				<Nav
@@ -75,13 +92,6 @@ const About = ({ setShowProfile, active, selectedChanged }) => {
 					setShowExperiencesFull={setShowExperiencesFull}
 				/>
 			</div>
-
-			<Experiences
-				showExperiencesFull={showExperiencesFull}
-				setShowExperiencesFull={setShowExperiencesFull}
-				selectedChanged={selectedChanged}
-				active={active}
-			/>
 
 			<div className="fixed z-50 bottom-4 left-1/2 transform -translate-x-1/2 flex gap-4">
 				<Tooltip content="Ive got a project" direction="top">
@@ -117,18 +127,21 @@ const About = ({ setShowProfile, active, selectedChanged }) => {
 				/>
 			)}
 
-			<Avatar className="w-96 h-96 rounded-full overflow-hidden" />
-			<Logo className="w-96 h-96" />
+			{/* <Avatar className="w-96 h-96 rounded-full overflow-hidden" />
+			<Logo className="w-96 h-96" /> */}
 			<div
 				className={classNames(
-					'content align-center sticky z-10 md:relative dark:bg-black light:bg-white md:light:bg-transparent md:dark:bg-transparent'
+					'content align-center sticky z-10 md:relative dark:bg-black dark:bg-black md:light:bg-transparent md:dark:bg-transparent'
 				)}
 			>
 				<div className="flex flex-col py-8 gap-4">
 					{/* <Profile /> */}
 
 					{about.map((intro) => (
-						<div key={intro.id}>
+						<div
+							key={intro.id}
+							className="about-wrapper overflow-x-hidden vertical flex flex-col"
+						>
 							{/* <h1 className="pt-0 mt-4 mb-0 text-3xl text-center dark:text-white text-black lg:font-bold">
 								{intro.name}
 							</h1>
@@ -145,160 +158,425 @@ const About = ({ setShowProfile, active, selectedChanged }) => {
 							{console.log(intro.content, 'content')}
 							{console.log(intro.content[0].groups, 'groups')}
 							{console.log(
-								intro.content[0].groups[0].groups,
+								intro.content[0].groups.groups,
 								'groups groups'
 							)}
 							{console.log(intro.content.groups, 'content 2')}
 
-							{intro.content.map((content, index) => (
-								<div key={index}>
-									{content.groups.map((groups, index) => (
-										<div key={index}>
-											<div
-												className={classNames(
-													`groups grid gap-0 md:gap-16 auto-rows-auto md:grid-flow-col pt-96 md:p-0 md:auto-cols-fr mt-8 h-full`,
-													{
-														[`grid-cols-${groups.columns}`]:
-															groups.columns,
-														[`grid-rows-${groups.rows}`]:
-															groups.rows,
-														[`gap-${groups.gap}`]:
-															groups.gap,
-														[`gap-y-${groups.gapY}`]:
-															groups.gapY,
-														[`gap-x-${groups.gapX}`]:
-															groups.gapX,
-													}
-												)}
-											>
-												{groups?.title && (
-													<Title
-														value={
-															groups?.title?.value
-														}
-														variant={
-															groups?.title
-																?.variant
-														}
-														style={
-															groups?.title?.style
-														}
-														color={
-															groups?.title?.color
-														}
-														fill={
-															groups?.title?.fill
-														}
-														align={
-															groups?.title?.align
-														}
-														family={
-															groups?.title
-																?.family
-														}
-														weight={
-															groups?.title
-																?.weight
-														}
-														className={
-															groups?.title
-																?.className
-														}
-													/>
-												)}
-												{groups?.text &&
-												Array.isArray(groups?.text) ? (
-													<div className="space-y-4 flex flex-col">
-														{groups?.text.map(
-															(
-																textBlock,
-																index
-															) => (
-																<Text
-																	key={index}
-																	value={
-																		textBlock.value
-																	}
-																	size={
-																		textBlock.size
-																	}
-																	style={
-																		textBlock.style
-																	}
-																	color={
-																		textBlock?.color
-																	}
-																	fill={
-																		textBlock?.fill
-																	}
-																	align={
-																		textBlock?.align
-																	}
-																	className={
-																		textBlock?.className
-																	}
-																	family={
-																		textBlock?.family
-																	}
-																	weight={
-																		textBlock?.weight
-																	}
-																/>
-															)
+							{intro.content.map((groups, index) => (
+								<div
+									key={index}
+									className={classNames(
+										`section section-${groups?.section}`,
+										{
+											[`variant-${groups?.variant}`]:
+												intro?.variant,
+											[`${groups?.className}`]:
+												groups?.className,
+											'justify-start':
+												groups?.align?.horizontal ===
+												'left',
+											'justify-center':
+												groups?.align?.horizontal ===
+												'center',
+											'justify-end':
+												groups?.align?.horizontal ===
+												'right',
+											'content-start':
+												groups?.align?.vertical ===
+												'top',
+											'content-center':
+												groups?.align?.vertical ===
+												'center',
+											'content-end':
+												groups?.align?.vertical ===
+												'bottom',
+											'py-40': !groups?.padding,
+											flex:
+												groups?.container?.align
+													?.horizontal ||
+												groups?.container?.align
+													?.vertical,
+										},
+										groups?.class?.trim(),
+										groups?.background?.attachment?.trim(),
+										groups?.background?.position?.trim(),
+										groups?.background?.repeat?.trim(),
+										groups?.background?.size?.trim(),
+										groups?.background?.class?.trim(),
+										groups?.padding?.trim(),
+										groups?.margin?.trim(),
+										groups?.height?.trim(),
+										groups?.widht?.trim()
+									)}
+									style={{
+										backgroundImage:
+											groups?.background?.image &&
+											`url(${groups?.background?.image})`,
+										backgroundColor:
+											groups?.background?.color,
+									}}
+									// id={section?.name}
+									id={intro?.anchor}
+								>
+									<div
+										className={classNames(
+											groups?.container?.width === 'full'
+												? 'container-full'
+												: 'container',
+											groups?.container?.height
+												? groups?.container?.height
+												: '',
+											{
+												'justify-start':
+													groups?.container?.align
+														?.vertical === 'top',
+												'justify-center':
+													groups?.container?.align
+														?.vertical === 'center',
+												'justify-end':
+													groups?.container?.align
+														?.vertical === 'bottom',
+												'content-start':
+													groups?.container?.align
+														?.horizontal === 'left',
+												'content-center':
+													groups?.container?.align
+														?.horizontal ===
+													'center',
+												'content-end':
+													groups?.container?.align
+														?.horizontal ===
+													'right',
+												'flex-col':
+													groups?.container
+														?.direction ===
+													'vertical',
+												'flex-row':
+													groups?.container
+														?.direction ===
+													'horizontal',
+												flex:
+													groups?.container?.align
+														?.vertical ||
+													groups?.container?.align
+														?.horizontal,
+											},
+											groups?.container?.padding?.trim(),
+											groups?.container?.margin?.trim()
+										)}
+									>
+										<div
+											className={classNames(
+												`groups grid gap-0 md:gap-16 auto-rows-auto md:grid-flow-col pt-96 md:p-0 md:auto-cols-fr mt-8 h-full`,
+												{
+													[`grid-cols-${groups.columns}`]:
+														groups.columns,
+													[`grid-rows-${groups.rows}`]:
+														groups.rows,
+													[`gap-${groups.gap}`]:
+														groups.gap,
+													[`gap-y-${groups.gapY}`]:
+														groups.gapY,
+													[`gap-x-${groups.gapX}`]:
+														groups.gapX,
+												}
+											)}
+										>
+											{groups.groups.map(
+												(group, index) => (
+													<div
+														key={index}
+														className={classNames(
+															`group`,
+															{
+																[`col-span-${group.columns}`]:
+																	group.columns,
+																[`col-start-${group.colStart}`]:
+																	group.colStart,
+																[`col-end-${group.colEnd}`]:
+																	group.colEnd,
+																[`row-span-${group.rows}`]:
+																	group.rows,
+																[`row-start-${group.rowStart}`]:
+																	group.rowStart,
+																[`row-end-${group.rowEnd}`]:
+																	group.rowEnd,
+																[`${group.style}`]:
+																	group.style,
+																'justify-start':
+																	group?.align
+																		?.horizontal ===
+																	'left',
+																'justify-center':
+																	group?.align
+																		?.horizontal ===
+																	'center',
+																'justify-end':
+																	group?.align
+																		?.horizontal ===
+																	'right',
+																'content-start':
+																	group?.align
+																		?.vertical ===
+																	'top',
+																'content-center':
+																	group?.align
+																		?.vertical ===
+																	'center',
+																'content-end':
+																	group?.align
+																		?.vertical ===
+																	'bottom',
+																'': !group?.padding,
+																flex:
+																	group
+																		?.container
+																		?.align
+																		?.horizontal ||
+																	group
+																		?.container
+																		?.align
+																		?.align
+																		?.vertical,
+															},
+															group?.class?.trim()
+														)}
+													>
+														{group?.title && (
+															<Title
+																value={
+																	group?.title
+																		?.value
+																}
+																variant={
+																	group?.title
+																		?.variant
+																}
+																style={
+																	group?.title
+																		?.style
+																}
+																color={
+																	group?.title
+																		?.color
+																}
+																fill={
+																	group?.title
+																		?.fill
+																}
+																align={
+																	group?.title
+																		?.align
+																}
+																family={
+																	group?.title
+																		?.family
+																}
+																weight={
+																	group?.title
+																		?.weight
+																}
+																className={
+																	group?.title
+																		?.className
+																}
+															/>
+														)}
+														{group?.image && (
+															<Image
+																variant={
+																	group?.image
+																		?.variant
+																}
+																color={
+																	group?.image
+																		?.color
+																}
+																format={
+																	group?.image
+																		?.format
+																}
+																width={
+																	group?.image
+																		?.width
+																}
+																height={
+																	group?.image
+																		?.height
+																}
+																text={
+																	group?.image
+																		?.text
+																}
+																textColor={
+																	group?.image
+																		?.textColor
+																}
+																item={
+																	group?.image
+																}
+																src={
+																	group?.image
+																		?.src
+																}
+															/>
+														)}
+														{group?.video && (
+															<Video
+																item={
+																	group.video
+																} // Assuming group.video contains at least the 'src' property
+																muted={
+																	group?.video
+																		?.muted ||
+																	true
+																} // Turn off sound
+																loop={
+																	group?.video
+																		?.loop ||
+																	true
+																} // Make the video loop
+																autoPlay={
+																	group?.video
+																		?.autoPlay ||
+																	true
+																} // Autoplay the video
+																controls={
+																	group?.video
+																		?.controls ||
+																	false
+																} // Hide video controls
+																className={
+																	group?.video
+																		?.videoClass
+																} // Apply any additional class for styling
+																width={
+																	group?.video
+																		?.width
+																} // Optional: Set video width
+																height={
+																	group?.video
+																		?.height
+																} // Optional: Set video height
+																showControls={
+																	group?.video
+																		?.showControls ||
+																	false
+																}
+															/>
+														)}
+														{group?.text &&
+														Array.isArray(
+															group?.text
+														) ? (
+															<div className="space-y-4 flex flex-col">
+																{group?.text.map(
+																	(
+																		textBlock,
+																		index
+																	) => (
+																		<Text
+																			key={
+																				index
+																			}
+																			value={
+																				textBlock.value
+																			}
+																			size={
+																				textBlock.size
+																			}
+																			style={
+																				textBlock.style
+																			}
+																			color={
+																				textBlock?.color
+																			}
+																			fill={
+																				textBlock?.fill
+																			}
+																			align={
+																				textBlock?.align
+																			}
+																			className={
+																				textBlock?.className
+																			}
+																			family={
+																				textBlock?.family
+																			}
+																			weight={
+																				textBlock?.weight
+																			}
+																		/>
+																	)
+																)}
+															</div>
+														) : (
+															<Text
+																value={
+																	group?.text
+																		?.value
+																}
+																size={
+																	group?.text
+																		?.size
+																}
+																style={
+																	group?.text
+																		?.style
+																}
+																color={
+																	group?.text
+																		?.color
+																}
+																fill={
+																	group?.text
+																		?.fill
+																}
+																align={
+																	group?.text
+																		?.align
+																}
+																className={
+																	group?.text
+																		?.className
+																}
+																family={
+																	group?.text
+																		?.family
+																}
+																weight={
+																	group?.text
+																		?.weight
+																}
+															/>
+														)}
+
+														{group?.lead && (
+															<Text
+																size="large"
+																value={
+																	group?.lead
+																}
+																color={
+																	group?.lead
+																		?.color
+																}
+																fill={
+																	group?.text
+																		?.fill
+																}
+															/>
 														)}
 													</div>
-												) : (
-													<Text
-														value={
-															groups?.text?.value
-														}
-														size={
-															groups?.text?.size
-														}
-														style={
-															groups?.text?.style
-														}
-														color={
-															groups?.text?.color
-														}
-														fill={
-															groups?.text?.fill
-														}
-														align={
-															groups?.text?.align
-														}
-														className={
-															groups?.text
-																?.className
-														}
-														family={
-															groups?.text?.family
-														}
-														weight={
-															groups?.text?.weight
-														}
-													/>
-												)}
-
-												{groups?.lead && (
-													<Text
-														size="large"
-														value={groups?.lead}
-														color={
-															groups?.lead?.color
-														}
-														fill={
-															groups?.text?.fill
-														}
-													/>
-												)}
-											</div>
+												)
+											)}
 										</div>
-									))}
+									</div>
 								</div>
 							))}
 
-							{intro.content.map((contentItem, index) => (
+							{/* {intro.content.map((contentItem, index) => (
 								<div key={index}>
 									{contentItem.groups.map(
 										(section, index) => (
@@ -309,13 +587,20 @@ const About = ({ setShowProfile, active, selectedChanged }) => {
 										)
 									)}
 								</div>
-							))}
+							))} */}
 						</div>
 					))}
 
 					{console.log(work)}
 
-					<ul className="bg-white experiences flex flex-col justify-start align-center px-0 mt-4 mb-4 md:overflow-y-auto md:mx-4">
+					<Experiences
+						showExperiencesFull={true}
+						setShowExperiencesFull={setShowExperiencesFull}
+						selectedChanged={selectedChanged}
+						active={active}
+					/>
+
+					<ul className="bg-white experiences flex flex-col justify-start align-center px-0 mt-4 mb-4 md:overflow-y-auto md:mx-4 hidden">
 						{work.map((item, index) => (
 							<li
 								key={item?.id}
@@ -412,7 +697,7 @@ const AboutShort = ({
 					{!showProfile && (
 						<button
 							onClick={() => setShowProfile(true)}
-							className="text-white font-bold p-2 w-2 h-2 text-center mx-auto w-auto"
+							className="light:text-black dark:text-white font-bold p-2 w-2 h-2 text-center mx-auto w-auto"
 						>
 							Read more
 						</button>

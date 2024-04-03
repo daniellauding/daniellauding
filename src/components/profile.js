@@ -15,7 +15,7 @@ const Profile = () => {
 					<p className="pt-0 mb-0 text-center dark:text-gray-500 text-black lg:font-light">
 						<a href={`mailto:${intro.email}`}>{intro.email}</a>
 					</p>
-					<p className="pt-0 mb-4 sm:mx-8 mx-8 md:mx-32 mt-8 text-center dark:text-gray-100 text-black lg:font-light text-3xl md:text-4xl leading-snug font-serif">
+					<p className="pt-0 mb-4 sm:mx-8 mx-8 md:mx-32 mt-8 text-center dark:text-gray-100 text-black lg:font-light text-3xl md:text-3xl leading-snug font-serif">
 						{intro.description}
 					</p>
 				</div>

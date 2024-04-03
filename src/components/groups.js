@@ -55,7 +55,7 @@ const Group = ({ group }) => {
 						/>
 					))}
 				</div>
-			) : (
+			) : text && text.value ? (
 				<Text
 					value={text?.value}
 					size={text?.size}
@@ -67,7 +67,7 @@ const Group = ({ group }) => {
 					family={text?.family}
 					weight={text?.weight}
 				/>
-			)}
+			) : null}
 
 			{lead && (
 				<Text
@@ -97,7 +97,7 @@ const Group = ({ group }) => {
 };
 
 const Groups = ({ groups }) => {
-	//console.log('Groups component, groups:', groups);
+	console.log('Groups component, groups:', groups);
 
 	if (!groups || groups.length === 0) {
 		return null; // Render nothing if there are no groups
