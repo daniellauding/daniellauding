@@ -146,7 +146,7 @@ const about = [
 						rowStart: 1,
 						colStart: 2,
 						image: {
-							src: '/images/about/me-asteria.jpg',
+							src: '/images/about/me-asteria.png',
 						},
 					},
 					{
