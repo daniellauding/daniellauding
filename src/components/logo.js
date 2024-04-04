@@ -8,11 +8,11 @@ const goHome = () => {
 
 const Logo = ({ className }) => {
 	return (
-		<div className="rounded-full bg-black w-32 h-32 overflow-hidden flex items-center mx-auto">
+		<div className="sm:rounded-full sm:bg-black sm:w-32 sm:h-32 overflow-hidden flex items-center mx-auto">
 			{about.map((intro) => (
 				<div
 					className={classNames(
-						'logo w-24 h-24 mx-auto cursor-pointer',
+						'logo sm:w-24 sm:h-24 mx-auto cursor-pointer',
 						className
 					)}
 					key={intro.id}

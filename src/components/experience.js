@@ -67,7 +67,7 @@ const Experience = ({ item, active, setActive, onHover }) => {
 		<li
 			key={item?.id}
 			className={classNames(
-				`experience grid grid-cols-4 grid-rows-2 md:grid-rows-1 grid-rows-1 group/item h-16 items-center transition-all h-16`,
+				`experience grid grid-cols-3 sm:grid-cols-4 grid-rows-2 md:grid-rows-1 grid-rows-1 group/item items-center transition-all h-16 gap-2 sm:gap-0`,
 				active
 					? 'bg-gray-100 text-gray-900'
 					: 'block h-4 py-2 text-sm text-gray-700',
@@ -84,20 +84,19 @@ const Experience = ({ item, active, setActive, onHover }) => {
 					`col-span-1 pt-0 mb-0 text-left text-2xl md:text-base md:font-medium h-full row-start-1 md:row-start-1 md:row-end-1`
 				)}
 			>
-				<a
-					href={item?.url}
+				<span
 					onClick={onClick}
-					className="flex items-center gap-2 px-4 h-full transition-all border-2 border-transparent light:text-primary light:group-hover/item:border-primary dark:text-primary dark:hover:text-white dark:hover:bg-primary dark:group-hover/item:border-primary light:hover:bg-primary light:hover:text-white rounded-full w-fit"
+					className="flex items-center gap-2 sm:px-4 h-full transition-all border-2 border-transparent light:text-primary light:group-hover/item:border-primary dark:text-primary dark:hover:text-white dark:hover:bg-primary dark:group-hover/item:border-primary light:hover:bg-primary light:hover:text-white rounded-full min-w-max sm:w-fit"
 				>
 					{item?.client}
 
 					<ArrowLongRightIcon className="h-5 w-5 invisible group-hover/item:visible" />
-				</a>
+				</span>
 			</p>
-			<p className="col-span-2 pt-0 mb-0 md:ml-8 text-xs md:text-base md:text-left dark:text-gray-300 text-black lg:font-light row-start-2 md:row-start-1 md:row-end-1">
+			<p className="col-span-2 pt-0 mb-0 md:ml-8 text-xs md:text-base md:text-left dark:text-gray-300 text-black lg:font-light row-start-2 md:row-start-1 md:row-end-1 min-w-max">
 				{item?.role}
 			</p>
-			<p className="col-span-1 pt-0 mb-0 ml-auto text-right text-xs md:text-base md:text-right dark:text-gray-300 text-black lg:font-light row-start-2 md:row-start-1 md:row-end-1">
+			<p className="col-span-1 pt-0 mb-0 ml-auto text-right text-xs md:text-base md:text-right dark:text-gray-300 text-black lg:font-light row-start-2 md:row-start-1 md:row-end-1 col-start-4 min-w-max">
 				{item?.date}
 			</p>
 			{isHovering && item.thumbnail && (

@@ -1,12 +1,13 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
+// import React, { useState, useMemo } from 'react';
 import classNames from 'classnames';
-import lodash from 'lodash';
+// import lodash from 'lodash';
 
 import Avatar from './avatar';
 import Profile from './profile';
 import ExperiencesShort, { Experiences } from './experiences';
 import { about, work } from '../constant';
-import TagsList from './tags';
+// import TagsList from './tags';
 import Social from './social';
 import Nav from './nav';
 // import Logo from './logo';
@@ -155,14 +156,14 @@ const About = ({
 								{intro.description}
 							</p> */}
 
-							{console.log(intro)}
+							{/* {console.log(intro)}
 							{console.log(intro.content, 'content')}
 							{console.log(intro.content[0].groups, 'groups')}
 							{console.log(
 								intro.content[0].groups.groups,
 								'groups groups'
 							)}
-							{console.log(intro.content.groups, 'content 2')}
+							{console.log(intro.content.groups, 'content 2')} */}
 
 							{intro.content.map((groups, index) => (
 								<div
@@ -667,13 +668,13 @@ const AboutShort = ({
 	showProfile,
 }) => {
 	// const [active, setActive] = useState(null);
-	const tags = useMemo(() => {
-		return lodash.uniq(
-			work.flatMap(({ cases = [] }) => {
-				return cases.flatMap(({ tags = [] }) => tags);
-			})
-		);
-	}, []);
+	// const tags = useMemo(() => {
+	// 	return lodash.uniq(
+	// 		work.flatMap(({ cases = [] }) => {
+	// 			return cases.flatMap(({ tags = [] }) => tags);
+	// 		})
+	// 	);
+	// }, []);
 
 	return (
 		<>
@@ -712,7 +713,7 @@ const AboutShort = ({
 						previewCase={previewCase}
 					/>
 
-					<TagsList tags={tags} selectedChanged={selectedChanged} />
+					{/* <TagsList tags={tags} selectedChanged={selectedChanged} /> */}
 
 					<Social />
 				</div>
