@@ -150,11 +150,14 @@ const OffertForm = ({ closeOffertModal }) => {
 		email: '',
 		message: `I have this project`,
 		file: null,
-		fileName: '',
 	});
 
 	const [submitting, setSubmitting] = useState(false);
 	const [submitted, setSubmitted] = useState(false);
+
+	const handleChange = (e) => {
+		setFormState({ ...formState, [e.target.name]: e.target.value });
+	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -182,17 +185,8 @@ const OffertForm = ({ closeOffertModal }) => {
 			});
 	};
 
-	const handleChange = (e) => {
-		setFormState({ ...formState, [e.target.name]: e.target.value });
-	};
-
 	const handleFileChange = (e) => {
-		const file = e.target.files[0];
-		setFormState({
-			...formState,
-			file: file,
-			fileName: file ? file.name : '',
-		});
+		setFormState({ ...formState, file: e.target.files[0] });
 	};
 
 	return (
@@ -211,7 +205,7 @@ const OffertForm = ({ closeOffertModal }) => {
 				</div>
 			) : (
 				<div>
-					<p className="pt-0 mb-0 ml-0 text-left text-2xl dark:text-gray-500 text-black lg:font-light">
+					<p className="pt-0 mb-8 ml-0 text-left text-2xl dark:text-gray-500 text-black lg:font-light">
 						Give me a project
 					</p>
 					<form
@@ -265,35 +259,29 @@ const OffertForm = ({ closeOffertModal }) => {
 									/>
 								</label>
 							</p>
-							{/* <p>
-								<label>
-									Upload File:
-									<input
-										type="file"
-										name="file"
-										onChange={handleFileChange}
-										className="border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
-									/>
-								</label>
-							</p> */}
-
 							<p>
-								<label
-									htmlFor="file-upload"
-									className="cursor-pointer bg-gray-500 hover:bg-gray-600 text-black font-semibold py-2 px-4 rounded inline-flex items-center"
-								>
-									Upload File:
-								</label>
-								<input
-									type="file"
-									name="file"
-									id="file-upload"
-									onChange={handleFileChange}
-									className="border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black hidden"
-								/>
-								<span className="ml-3 text-sm text-gray-600">
-									{formState.fileName || 'No file selected'}
-								</span>
+								<div className="relative">
+									<label>
+										Upload File:
+										<input
+											type="file"
+											name="file"
+											onChange={handleFileChange}
+											className="border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
+										/>
+									</label>
+									<div
+										className="cursor-pointer bg-gray-500 hover:bg-gray-600 text-black font-semibold py-2 px-4 rounded inline-flex items-center text-sm"
+										style={{
+											transform: 'translateY(-48px)',
+											padding: '8px 12px',
+											textWrap: 'nowrap',
+											pointerEvents: 'none',
+										}}
+									>
+										Upload file
+									</div>
+								</div>
 							</p>
 							<p>
 								<label>
@@ -382,14 +370,14 @@ const RequestForm = ({ closeRequestModal, item }) => {
 					</p>
 					<button
 						onClick={closeRequestModal}
-						className="bg-primary w-fit hover:primary text-white font-bold py-5 px-8 mt-8 rounded-full cursor-pointer"
+						className="bg-primary hover:primary text-white font-bold py-2 px-4 mt-8 rounded-full cursor-pointer"
 					>
 						Dismiss
 					</button>
 				</div>
 			) : (
 				<div>
-					<p className="pt-0 mb-0 ml-0 text-left text-2xl dark:text-gray-500 text-black lg:font-light">
+					<p className="pt-0 mb-8 ml-0 text-left text-2xl dark:text-gray-500 text-black lg:font-light">
 						In order to access this case, you will need to provide
 						your contact information. This is due to the
 						non-confidentiality agreement associated with the case.

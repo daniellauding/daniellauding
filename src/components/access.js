@@ -3,6 +3,8 @@ import classNames from 'classnames';
 import { XMarkIcon } from '@heroicons/react/24/solid';
 import { RequestForm } from './form';
 
+import { ArrowLongRightIcon } from '@heroicons/react/24/solid';
+
 const Code = (props) => {
 	const {
 		clearActive,
@@ -53,21 +55,22 @@ const Code = (props) => {
 							confidentiality.
 						</p>
 						<input
-							className="border-b border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
+							className="border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
 							placeholder="Enter passcode to access this case"
 							value={password}
 							onChange={onChange}
 							ref={emailInput}
 						/>
 
-						<p className="pt-0 mt-12 ml-0 text-left text-xl dark:text-gray-500 text-black lg:font-light">
+						<p className="pt-0 mt-12 ml-0 mb-4 text-left text-xl dark:text-gray-500 text-black lg:font-light">
 							No access code?
 						</p>
 						<button
 							onClick={openRequestModal}
-							className="bg-primary hover:primary text-white font-bold py-5 px-8 mt-4 rounded-full"
+							className="transition-all light:text-primary light:hover:text-white light:hover:bg-primary dark:text-primary dark:hover:text-white dark:hover:bg-primary font-bold p-2 px-4 text-center w-auto border-2 rounded-full border-primary h-auto gap-2 items-center flex"
 						>
 							Request access
+							<ArrowLongRightIcon className="h-5 w-5" />
 						</button>
 					</div>
 				</div>
