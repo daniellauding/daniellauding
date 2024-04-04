@@ -127,6 +127,50 @@ const Image = ({ item = {} }) => {
 		);
 	}
 
+	const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+	useEffect(() => {
+		if (variant === 'plektrum') {
+			const intervalId = setInterval(() => {
+				setCurrentImageIndex(
+					(prevIndex) => (prevIndex + 1) % images.length
+				);
+			}, 3000); // Change image every 3 seconds
+
+			return () => clearInterval(intervalId);
+		}
+	}, [variant, images.length]);
+
+	if (variant === 'plektrum') {
+		return (
+			<div className="plektrum">
+				<div className="image-container">
+					{images.map((imageSrc, index) => (
+						<div
+							key={index}
+							className={`relative float-left -mr-[100%] w-full !transform-none ${
+								currentImageIndex === index
+									? 'opacity-100'
+									: 'opacity-0'
+							} transition-opacity duration-[600ms] ease-in-out motion-reduce:transition-none`}
+							data-twe-carousel-fade
+							data-twe-carousel-item
+							data-twe-carousel-active={
+								currentImageIndex === index
+							}
+						>
+							<img
+								key={index}
+								src={imageSrc?.src} // Directly using imageSrc assuming it's a string URL
+								alt=""
+							/>
+						</div>
+					))}
+				</div>
+			</div>
+		);
+	}
+
 	if (variant === 'splatted') {
 		return (
 			<div className="splatted">

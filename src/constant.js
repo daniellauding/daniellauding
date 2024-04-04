@@ -99,27 +99,11 @@ const about = [
 							images: [
 								{
 									id: 0,
-									src: '/images/case/spotify/looptest/01.png',
-									title: 'Test image title #1',
-									text: 'Här har vi gjort lite tester för att se hur användarna tycker',
+									src: '/images/about/nomading-spain.jpg',
 								},
 								{
 									id: 1,
-									src: '/images/case/spotify/looptest/02.png',
-									title: 'Test image title #2',
-									text: 'Asdf lite test',
-								},
-								{
-									id: 2,
-									src: '/images/case/spotify/looptest/03.png',
-									title: 'Test image title #3',
-									text: 'Asdf lite test',
-								},
-								{
-									id: 3,
-									src: '/images/case/spotify/looptest/04.png',
-									title: 'Test image title #4',
-									text: 'Hej hej hemskt mycket hej',
+									src: '/images/about/nomading-spain2.jpg',
 								},
 							],
 						},
@@ -151,6 +135,9 @@ const about = [
 						id: 0,
 						columns: 2,
 						rowStart: 2,
+						image: {
+							src: '/images/about/me_asteria_swedbank.jpg',
+						},
 						text: [
 							{
 								value: `Behind Asteria's rise, he's the wizard blending innovation with practicality for SMEs.`,

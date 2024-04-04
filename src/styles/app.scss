@@ -214,4 +214,26 @@ area {
 
 .plektrum {
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  overflow: hidden;
+  // move to props
+  width: 608px;
+  height: 608px;
+}
+
+.image-fade-container img {
+  transition: opacity 2s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+.image-fade-container img.active {
+  opacity: 1;
+  z-index: 10;
+}
+
+.image-fade-container img.next {
+  opacity: 0;
 }
