@@ -130,7 +130,7 @@ const Image = ({ item = {} }) => {
 	const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
 	useEffect(() => {
-		if (variant === 'plektrum') {
+		if (variant === 'plektrum' && images && images.length > 0) {
 			const intervalId = setInterval(() => {
 				setCurrentImageIndex(
 					(prevIndex) => (prevIndex + 1) % images.length
@@ -139,7 +139,7 @@ const Image = ({ item = {} }) => {
 
 			return () => clearInterval(intervalId);
 		}
-	}, [variant, images.length]);
+	}, [variant, images]);
 
 	if (variant === 'plektrum') {
 		return (
