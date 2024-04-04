@@ -457,7 +457,7 @@ const About = ({
 														Array.isArray(
 															group?.text
 														) ? (
-															<div className="space-y-4 flex flex-col">
+															<div className="space-y-4 w- flex flex-col">
 																{group?.text.map(
 																	(
 																		textBlock,

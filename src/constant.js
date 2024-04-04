@@ -136,21 +136,25 @@ const about = [
 						columns: 2,
 						rowStart: 1,
 						colStart: 2,
+						class: 'mt-16 w-96',
 						image: {
 							src: '/images/about/me_asteria_swedbank.jpg',
-						},
-					},
-					{
-						id: 0,
-						columns: 2,
-						rowStart: 1,
-						colStart: 2,
-						image: {
-							src: '/images/about/me-asteria.png',
+							imgClass: 'rounded-lg',
 						},
 					},
 					{
 						id: 1,
+						columns: 2,
+						rowStart: 1,
+						colStart: 1,
+						class: 'w-64 ml-24',
+						image: {
+							src: '/images/about/me-asteria.png',
+							imgClass: 'rounded-lg',
+						},
+					},
+					{
+						id: 2,
 						columns: 2,
 						rowStart: 2,
 						colStart: 2,
@@ -168,7 +172,7 @@ const about = [
 				section: 'bla',
 				anchor: '',
 				columns: 4,
-				rows: 2,
+				rows: 1,
 				gap: 4,
 				align: {
 					horizontal: 'center',
@@ -187,15 +191,8 @@ const about = [
 					{
 						id: 0,
 						columns: 2,
-						rowStart: 2,
-						image: {
-							src: '/images/about/me_asteria_swedbank.jpg',
-						},
+						colStart: 2,
 						text: [
-							{
-								value: `Behind Asteria's rise, he's the wizard blending innovation with practicality for SMEs.`,
-								size: 'large',
-							},
 							{
 								value: `He cranked up the volume on Spotify's accessibility and laid down a groove with Länsförsäkringar's cross-platform design system, making it a hit across Sweden with its user-friendly vibes.`,
 								size: 'large',
@@ -221,7 +218,7 @@ const about = [
 						text: [
 							{
 								value: `His passion shines in crafting products that not only function seamlessly but also captivate visually. He delves into building prototypes, refining user experiences, and developing comprehensive design systems. His diverse experience across finance, fashion, and music showcases his ability to apply his technical skills in various contexts. Working hand in hand with his team, he channels his enthusiasm into turning innovative ideas into practical, user-centered products.`,
-								size: 'medium',
+								size: 'large',
 							},
 						],
 					},
@@ -235,15 +232,52 @@ const about = [
 				gap: 4,
 				groups: [
 					{
+						id: 0,
+						columns: 2,
+						rowStart: 1,
+						colStart: 2,
+						class: 'mt-16 w-96',
+						image: {
+							src: '/images/about/me_asteria_swedbank.jpg',
+							imgClass: 'rounded-lg',
+						},
+					},
+					{
 						id: 1,
 						columns: 2,
+						rowStart: 1,
+						colStart: 1,
+						class: 'w-64 ml-24',
+						image: {
+							src: '/images/about/me-asteria.png',
+							imgClass: 'rounded-lg',
+						},
 					},
 					{
 						id: 2,
 						columns: 2,
+						rowStart: 1,
+						colStart: 3,
+						class: 'mt-24 ml-16',
 						text: [
 							{
-								value: `In his ongoing role at Asteria, where Daniel has been a pivotal co-founder and lead product designer for over 6 years, his collaborative ethos shines brightly. He's been instrumental in evolving initial concepts into crucial tools for SMEs. With his team, he's successfully tackled intricate design challenges, contributing to Asteria's growth. This includes playing a key role in securing funding rounds and forging new partnerships, marking significant achievements in the fintech and banking sectors across Scandinavia. His active participation in fintech accelerator programs across Europe continues to propel the company forward, underlining his commitment to innovation and progress.`,
+								value: `In his ongoing role at Asteria, where Daniel has been a pivotal co-founder and lead product designer for over 6 years, his collaborative ethos shines brightly.`,
+								size: 'large',
+							},
+						],
+					},
+					{
+						id: 2,
+						columns: 2,
+						rowStart: 2,
+						colStart: 2,
+						text: [
+							{
+								value: `He's been instrumental in evolving initial concepts into crucial tools for SMEs. With his team, he's successfully tackled intricate design challenges, contributing to Asteria's growth. This includes playing a key role in securing funding rounds and forging new partnerships, marking significant achievements in the fintech and banking sectors across Scandinavia.`,
+								size: 'medium',
+							},
+							{
+								value: `His active participation in fintech accelerator programs across Europe continues to propel the company forward, underlining his commitment to innovation and progress.`,
 								size: 'medium',
 							},
 						],
@@ -267,7 +301,7 @@ const about = [
 						text: [
 							{
 								value: `Daniel's passion for music not only fuels his creativity but also complements his professional projects. This unique blend of interests led him to develop a low-data solution for Spotify in Brazil, aiding the platform's expansion by making music more accessible. Additionally, his work with Record Union has empowered artists by streamlining the process of releasing their music across various platforms. His engagements with high-profile clients like KLM and his contribution to creating a user-friendly design system for Länsförsäkringar demonstrate his commitment to improving user experiences in diverse sectors across Sweden.`,
-								size: 'medium',
+								size: 'large',
 							},
 						],
 					},
@@ -290,7 +324,7 @@ const about = [
 						text: [
 							{
 								value: `The journey into merging work with global exploration began at 22, with the first flight to a London project exhibition for Hyper Island. This experience not only fueled a love for travel but also led to vibrant roles within New York's fashion industry and Amsterdam's fintech sector. Now, with a rich tapestry of experiences from over 49 countries, there's a deep involvement in the digital nomad scene, participating in communities like WiFi Tribe and Nomad Cruise. This lifestyle of remote work harnesses a wide array of design and development skills to meet new challenges, all while drawing inspiration from a wealth of cultures. `,
-								size: 'medium',
+								size: 'large',
 							},
 						],
 					},
@@ -313,7 +347,7 @@ const about = [
 						text: [
 							{
 								value: `Daniel's on standby to bring ambitious concepts to life. From fintech to tunes, his knack for combining talents ensures projects hit the mark. Ready to lead or dive into the details, and willing to travel or move for the right opportunity. If you need a creative mind with a tech edge, Daniel's your match. Let's get started.`,
-								size: 'medium',
+								size: 'large',
 							},
 						],
 					},
