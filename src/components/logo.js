@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { about } from '../constant';
 
@@ -7,32 +7,60 @@ const goHome = () => {
 };
 
 const Logo = ({ className }) => {
+	const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768); // 768px is a common breakpoint for "md" in responsive design
+	useEffect(() => {
+		const handleResize = () => {
+			setIsDesktop(window.innerWidth >= 768);
+		};
+
+		window.addEventListener('resize', handleResize);
+
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
+	}, []);
+
 	return (
-		<div className="sm:rounded-full sm:bg-black sm:w-32 sm:h-32 overflow-hidden flex items-center mx-auto">
+		<div className="rounded-full bg-black w-32 h-32 overflow-hidden flex items-center mx-auto">
 			{about.map((intro) => (
-				<div
-					className={classNames(
-						'logo sm:w-24 sm:h-24 mx-auto cursor-pointer',
-						className
+				<>
+					{isDesktop ? (
+						<div
+							className={classNames(
+								'logo mx-auto cursor-pointer h-24',
+								className
+							)}
+							key={intro.id}
+							onClick={goHome}
+						>
+							<video
+								loop
+								muted
+								autoPlay
+								playsInline
+								className="w-full h-full object-cover"
+							>
+								<source src={intro.logoMov} type="video/mp4" />
+								Your browser does not support the video tag.
+							</video>
+						</div>
+					) : (
+						<div
+							className={classNames(
+								'logo mx-auto cursor-pointer h-16',
+								className
+							)}
+							key={intro.id}
+							onClick={goHome}
+						>
+							<img
+								src={intro.logo}
+								alt="logo"
+								className="w-full h-full object-cover"
+							/>
+						</div>
 					)}
-					key={intro.id}
-					onClick={goHome}
-				>
-					<video
-						loop
-						muted
-						autoPlay
-						controls=""
-						className="hidden md:flex"
-					>
-						<source src={intro.logoMov} type="video/mp4" />
-					</video>
-					<img
-						src={intro.logo}
-						className="logo mx-auto md:hidden"
-						alt="logo"
-					/>
-				</div>
+				</>
 			))}
 		</div>
 	);

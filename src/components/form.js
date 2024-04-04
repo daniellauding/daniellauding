@@ -370,7 +370,7 @@ const RequestForm = ({ closeRequestModal, item }) => {
 					</p>
 					<button
 						onClick={closeRequestModal}
-						className="bg-primary hover:primary text-white font-bold py-2 px-4 mt-8 rounded-full cursor-pointer"
+						className="bg-primary hover:primary w-fit text-white font-bold py-2 px-4 mt-8 rounded-full cursor-pointer"
 					>
 						Dismiss
 					</button>

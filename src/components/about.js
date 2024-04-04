@@ -753,7 +753,7 @@ const AboutShort = ({
 				onMouseEnter={clearPreview}
 			>
 				<div className="md:h-100 md:h-screen flex flex-col py-8 gap-4">
-					<Profile />
+					<Profile openContactModal={openContactModal} />
 
 					{!showProfile && (
 						<button
