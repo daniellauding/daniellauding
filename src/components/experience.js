@@ -67,7 +67,7 @@ const Experience = ({ item, active, setActive, onHover }) => {
 		<li
 			key={item?.id}
 			className={classNames(
-				`experience grid grid-cols-4 grid-rows-1 group/item h-16 items-center transition-all h-16`,
+				`experience grid grid-cols-4 grid-rows-2 md:grid-rows-1 grid-rows-1 group/item h-16 items-center transition-all h-16`,
 				active
 					? 'bg-gray-100 text-gray-900'
 					: 'block h-4 py-2 text-sm text-gray-700',
@@ -81,7 +81,7 @@ const Experience = ({ item, active, setActive, onHover }) => {
 		>
 			<p
 				className={classNames(
-					`col-span-1 pt-0 mb-0 text-left text-2xl md:text-base md:font-medium h-full`
+					`col-span-1 pt-0 mb-0 text-left text-2xl md:text-base md:font-medium h-full row-start-1 md:row-start-1 md:row-end-1`
 				)}
 			>
 				<a
@@ -94,10 +94,10 @@ const Experience = ({ item, active, setActive, onHover }) => {
 					<ArrowLongRightIcon className="h-5 w-5 invisible group-hover/item:visible" />
 				</a>
 			</p>
-			<p className="col-span-2 pt-0 mb-0 md:ml-8 text-xs md:text-base md:text-left dark:text-gray-300 text-black lg:font-light">
+			<p className="col-span-2 pt-0 mb-0 md:ml-8 text-xs md:text-base md:text-left dark:text-gray-300 text-black lg:font-light row-start-2 md:row-start-1 md:row-end-1">
 				{item?.role}
 			</p>
-			<p className="col-span-1 pt-0 mb-0 ml-auto text-right text-xs md:text-base md:text-right dark:text-gray-300 text-black lg:font-light">
+			<p className="col-span-1 pt-0 mb-0 ml-auto text-right text-xs md:text-base md:text-right dark:text-gray-300 text-black lg:font-light row-start-2 md:row-start-1 md:row-end-1">
 				{item?.date}
 			</p>
 			{isHovering && item.thumbnail && (
