@@ -12,16 +12,13 @@ import Social from './social';
 import Button from './button';
 import Nav from './nav';
 // import Logo from './logo';
-import Contact, { Offert } from './contact';
+// import Contact, { Offert } from './contact';
 // import Groups from './groups';
-import Tooltip from './tooltip';
 import Video from './video';
 import Image from './image';
 import Text, { Title } from './typography';
 
 import {
-	EnvelopeIcon,
-	ClipboardDocumentListIcon,
 	ArrowLongRightIcon,
 	ArrowLongDownIcon,
 } from '@heroicons/react/24/solid';
@@ -32,10 +29,12 @@ const About = ({
 	selectedChanged,
 	// item,
 	// setActive,
+	openContactModal,
+	openOffertModal,
 }) => {
 	const [showExperiencesFull, setShowExperiencesFull] = useState(null);
-	const [showOffert, setShowOffert] = useState(false);
-	const [showContact, setShowContact] = useState(false);
+	// const [showContact, setShowContact] = useState(false);
+	// const [showOffert, setShowOffert] = useState(false);
 
 	// const onClick = useCallback(
 	// 	(e) => {
@@ -94,6 +93,14 @@ const About = ({
 		}
 	};
 
+	const handleButtonClick = (btn) => {
+		if (btn?.target === 'contactModal') {
+			openContactModal();
+		} else if (btn?.target === 'offertModal') {
+			openOffertModal();
+		}
+	};
+
 	return (
 		<div className="section-wrapper align-center items-center flex flex-col">
 			<div
@@ -107,40 +114,6 @@ const About = ({
 					setShowExperiencesFull={setShowExperiencesFull}
 				/>
 			</div>
-
-			<div className="fixed z-50 bottom-4 left-1/2 transform -translate-x-1/2 flex gap-4">
-				<Tooltip content="Ive got a project" direction="top">
-					<button
-						onClick={() => setShowOffert(true)}
-						className="bg-black w-12 h-12 text-white font-bold flex align-middle items-center justify-center rounded-full"
-					>
-						<ClipboardDocumentListIcon className="h-5 w-5 dark:text-gray-400 text-gray-500" />
-					</button>
-				</Tooltip>
-
-				<Tooltip content="Contact me" direction="top">
-					<button
-						onClick={() => setShowContact(true)}
-						className="bg-black w-12 h-12 text-white font-bold flex align-middle items-center justify-center rounded-full"
-					>
-						<EnvelopeIcon className="h-5 w-5 dark:text-gray-400 text-gray-500" />
-					</button>
-				</Tooltip>
-			</div>
-
-			{showContact && (
-				<Contact
-					showContactModal
-					closeContactModal={() => setShowContact(false)}
-				/>
-			)}
-
-			{showOffert && (
-				<Offert
-					showOffertModal
-					closeOffertModal={() => setShowOffert(false)}
-				/>
-			)}
 
 			{/* <Avatar className="w-96 h-96 rounded-full overflow-hidden" />
 			<Logo className="w-96 h-96" /> */}
@@ -620,25 +593,11 @@ const About = ({
 																			{btn?.type ===
 																				'modal' && (
 																				<Button
-																					onClick={() => {
-																						if (
-																							btn?.target ===
-																							'contactModal'
-																						) {
-																							setShowContact(
-																								true
-																							);
-																						} else if (
-																							btn?.target ===
-																							'offertModal'
-																						) {
-																							setShowOffert(
-																								true
-																							);
-																						}
-																						// Handle other modal targets if necessary
-																					}}
-																					// className="transition-all light:text-primary light:hover:text-white light:hover:bg-primary dark:text-primary dark:hover:text-white dark:hover:bg-primary font-bold p-2 px-4 text-center mx-auto w-auto border-2 rounded-full border-primary h-auto gap-2 items-center flex"
+																					onClick={() =>
+																						handleButtonClick(
+																							btn
+																						)
+																					}
 																					variant={
 																						btn?.variant
 																					}
@@ -765,6 +724,7 @@ const AboutShort = ({
 	clearPreview,
 	setShowProfile,
 	showProfile,
+	openContactModal,
 }) => {
 	// const [active, setActive] = useState(null);
 	// const tags = useMemo(() => {
@@ -814,7 +774,7 @@ const AboutShort = ({
 
 					{/* <TagsList tags={tags} selectedChanged={selectedChanged} /> */}
 
-					<Social />
+					<Social openContactModal={openContactModal} />
 				</div>
 			</div>
 		</>

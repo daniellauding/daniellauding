@@ -78,6 +78,12 @@ const about = [
 								target: 'contactModal',
 								text: 'Contact me',
 							},
+							{
+								variant: 'primary',
+								type: 'modal',
+								target: 'offertModal',
+								text: 'Give me an offer',
+							},
 						],
 					},
 					{

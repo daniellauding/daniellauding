@@ -5,16 +5,16 @@ import ContactForm from './form';
 import { OffertForm } from './form';
 // merge to Forms file
 
-const Contact = (props) => {
-	const { showContactModal, closeContactModal } = props;
+const Contact = ({ closeContactModal }) => {
+	// const { showContactModal, closeContactModal } = props;
 
 	return (
 		<div
 			tabIndex="-1"
 			aria-hidden="true"
 			className={classNames(
-				'fixed inset-0 z-10 overflow-y-auto',
-				showContactModal ? 'visible' : 'invisible'
+				'fixed inset-0 z-10 overflow-y-auto'
+				// showContactModal ? 'visible' : 'invisible'
 			)}
 		>
 			<div className="modal modal-request-access flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
@@ -41,16 +41,14 @@ const Contact = (props) => {
 	);
 };
 
-const Offert = (props) => {
-	const { showOffertModal, closeOffertModal } = props;
-
+const Offert = ({ closeOffertModal }) => {
 	return (
 		<div
 			tabIndex="-1"
 			aria-hidden="true"
 			className={classNames(
-				'fixed inset-0 z-10 overflow-y-auto',
-				showOffertModal ? 'visible' : 'invisible'
+				'fixed inset-0 z-10 overflow-y-auto'
+				// showOffertModal ? 'visible' : 'invisible'
 			)}
 		>
 			<div className="modal modal-request-access flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">

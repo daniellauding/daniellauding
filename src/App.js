@@ -11,6 +11,8 @@ import CaseSelector from './components/case';
 import TagsList from './components/tags';
 import Logo from './components/logo';
 
+import Contact, { Offert } from './components/contact';
+
 import Timeline from './components/timeline';
 import { Bars3BottomRightIcon } from '@heroicons/react/24/solid';
 import Protected from './components/protected';
@@ -25,6 +27,9 @@ function App() {
 		() => setPreviewCase(null),
 		[setPreviewCase]
 	);
+
+	const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+	const [isOffertModalOpen, setIsOffertModalOpen] = useState(false);
 
 	const [showTimeline, setShowTimeline] = useState(null);
 
@@ -159,6 +164,8 @@ function App() {
 						active={active}
 						setActive={setActive}
 						selectedChanged={selectedChanged}
+						openContactModal={() => setIsContactModalOpen(true)}
+						openOffertModal={() => setIsOffertModalOpen(true)}
 					/>
 				</div>
 			)}
@@ -178,6 +185,7 @@ function App() {
 						clearActive={clearActive}
 						setShowProfile={setShowProfile}
 						showProfile={showProfile}
+						openContactModal={() => setIsContactModalOpen(true)}
 					/>
 
 					{!showTimeline && (
@@ -205,6 +213,16 @@ function App() {
 				showTimeline={showTimeline}
 				setShowTimeline={setShowTimeline}
 			/>
+
+			{/* Modals */}
+			{isContactModalOpen && (
+				<Contact
+					closeContactModal={() => setIsContactModalOpen(false)}
+				/>
+			)}
+			{isOffertModalOpen && (
+				<Offert closeOffertModal={() => setIsOffertModalOpen(false)} />
+			)}
 		</div>
 	);
 }

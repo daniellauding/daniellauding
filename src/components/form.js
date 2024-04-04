@@ -47,18 +47,20 @@ const ContactForm = ({ closeContactModal }) => {
 	return (
 		<div>
 			{submitted ? (
-				<p className="pt-0 mb-8 ml-0 text-left text-2xl dark:text-gray-500 text-black lg:font-light">
-					Thank you for contacting me!
+				<div className="flex gap-2 flex-col">
+					<p className="pt-0 mb-8 ml-0 text-left text-2xl dark:text-gray-500 text-black lg:font-light">
+						Thank you for contacting me!
+					</p>
 					<button
 						onClick={closeContactModal}
-						className="bg-primary hover:primary text-white font-bold py-5 px-8 mt-8 rounded-full cursor-pointer"
+						className="bg-primary w-fit hover:primary text-white font-bold py-2 px-4 mt-8 rounded-full cursor-pointer"
 					>
 						Dismiss
 					</button>
-				</p>
+				</div>
 			) : (
 				<div>
-					<p className="pt-0 mb-0 ml-0 text-left text-2xl dark:text-gray-500 text-black lg:font-light">
+					<p className="pt-0 mb-8 ml-0 text-left text-2xl dark:text-gray-500 text-black lg:font-light">
 						Contact me with anything
 					</p>
 					<form
@@ -69,65 +71,67 @@ const ContactForm = ({ closeContactModal }) => {
 					>
 						<input type="hidden" name="contact" value="contact" />
 
-						<p>
-							<label>
-								Your Name:
-								<input
-									type="text"
-									name="name"
-									placeholder="Full name"
-									value={formState.name}
-									required
-									onChange={handleChange}
-									className="border-b border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
-								/>
-							</label>
-						</p>
-						<p>
-							<label>
-								Your Company:
-								<input
-									type="text"
-									name="company"
-									placeholder="Company name"
-									value={formState.company}
-									required
-									onChange={handleChange}
-									className="border-b border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
-								/>
-							</label>
-						</p>
-						<p>
-							<label>
-								Your Email:
-								<input
-									type="email"
-									name="email"
-									placeholder="E-mail"
-									value={formState.email}
-									required
-									onChange={handleChange}
-									className="border-b border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
-								/>
-							</label>
-						</p>
-						<p>
-							<label>
-								Message:
-								<textarea
-									name="message"
-									value={formState.message}
-									required
-									onChange={handleChange}
-									className="border-b border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
-								/>
-							</label>
-						</p>
+						<div className="flex gap-8 flex-col">
+							<p>
+								<label>
+									Your Name:
+									<input
+										type="text"
+										name="name"
+										placeholder="Full name"
+										value={formState.name}
+										required
+										onChange={handleChange}
+										className="border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
+									/>
+								</label>
+							</p>
+							<p>
+								<label>
+									Your Company:
+									<input
+										type="text"
+										name="company"
+										placeholder="Company name"
+										value={formState.company}
+										required
+										onChange={handleChange}
+										className="border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
+									/>
+								</label>
+							</p>
+							<p>
+								<label>
+									Your Email:
+									<input
+										type="email"
+										name="email"
+										placeholder="E-mail"
+										value={formState.email}
+										required
+										onChange={handleChange}
+										className="border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
+									/>
+								</label>
+							</p>
+							<p>
+								<label>
+									Message:
+									<textarea
+										name="message"
+										value={formState.message}
+										required
+										onChange={handleChange}
+										className="border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
+									/>
+								</label>
+							</p>
+						</div>
 						<p>
 							<button
 								type="submit"
 								disabled={submitting || submitted}
-								className="bg-primary hover:primary text-white font-bold py-5 px-8 mt-8 rounded-full cursor-pointer"
+								className="bg-primary hover:primary text-white font-bold py-2 px-4 mt-8 rounded-full cursor-pointer"
 							>
 								Send
 							</button>
@@ -146,14 +150,11 @@ const OffertForm = ({ closeOffertModal }) => {
 		email: '',
 		message: `I have this project`,
 		file: null,
+		fileName: '',
 	});
 
 	const [submitting, setSubmitting] = useState(false);
 	const [submitted, setSubmitted] = useState(false);
-
-	const handleChange = (e) => {
-		setFormState({ ...formState, [e.target.name]: e.target.value });
-	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -181,22 +182,33 @@ const OffertForm = ({ closeOffertModal }) => {
 			});
 	};
 
+	const handleChange = (e) => {
+		setFormState({ ...formState, [e.target.name]: e.target.value });
+	};
+
 	const handleFileChange = (e) => {
-		setFormState({ ...formState, file: e.target.files[0] });
+		const file = e.target.files[0];
+		setFormState({
+			...formState,
+			file: file,
+			fileName: file ? file.name : '',
+		});
 	};
 
 	return (
 		<div>
 			{submitted ? (
-				<p className="pt-0 mb-8 ml-0 text-left text-2xl dark:text-gray-500 text-black lg:font-light">
-					Thank you for asking me!
+				<div className="flex gap-2 flex-col">
+					<p className="pt-0 mb-8 ml-0 text-left text-2xl dark:text-gray-500 text-black lg:font-light">
+						Thank you for asking me!
+					</p>
 					<button
 						onClick={closeOffertModal}
-						className="bg-primary hover:primary text-white font-bold py-5 px-8 mt-8 rounded-full cursor-pointer"
+						className="bg-primary w-fit hover:primary text-white font-bold py-2 px-4 mt-8 rounded-full cursor-pointer"
 					>
 						Dismiss
 					</button>
-				</p>
+				</div>
 			) : (
 				<div>
 					<p className="pt-0 mb-0 ml-0 text-left text-2xl dark:text-gray-500 text-black lg:font-light">
@@ -210,76 +222,97 @@ const OffertForm = ({ closeOffertModal }) => {
 					>
 						<input type="hidden" name="offert" value="offert" />
 
-						<p>
-							<label>
-								Your Name:
-								<input
-									type="text"
-									name="name"
-									placeholder="Full name"
-									value={formState.name}
-									required
-									onChange={handleChange}
-									className="border-b border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
-								/>
-							</label>
-						</p>
-						<p>
-							<label>
-								Your Company:
-								<input
-									type="text"
-									name="company"
-									placeholder="Company name"
-									value={formState.company}
-									required
-									onChange={handleChange}
-									className="border-b border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
-								/>
-							</label>
-						</p>
-						<p>
-							<label>
-								Your Email:
-								<input
-									type="email"
-									name="email"
-									placeholder="E-mail"
-									value={formState.email}
-									required
-									onChange={handleChange}
-									className="border-b border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
-								/>
-							</label>
-						</p>
-						<p>
-							<label>
-								Upload File:
+						<div className="flex gap-8 flex-col">
+							<p>
+								<label>
+									Your Name:
+									<input
+										type="text"
+										name="name"
+										placeholder="Full name"
+										value={formState.name}
+										required
+										onChange={handleChange}
+										className="border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
+									/>
+								</label>
+							</p>
+							<p>
+								<label>
+									Your Company:
+									<input
+										type="text"
+										name="company"
+										placeholder="Company name"
+										value={formState.company}
+										required
+										onChange={handleChange}
+										className="border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
+									/>
+								</label>
+							</p>
+							<p>
+								<label>
+									Your Email:
+									<input
+										type="email"
+										name="email"
+										placeholder="E-mail"
+										value={formState.email}
+										required
+										onChange={handleChange}
+										className="border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
+									/>
+								</label>
+							</p>
+							{/* <p>
+								<label>
+									Upload File:
+									<input
+										type="file"
+										name="file"
+										onChange={handleFileChange}
+										className="border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
+									/>
+								</label>
+							</p> */}
+
+							<p>
+								<label
+									htmlFor="file-upload"
+									className="cursor-pointer bg-gray-500 hover:bg-gray-600 text-black font-semibold py-2 px-4 rounded inline-flex items-center"
+								>
+									Upload File:
+								</label>
 								<input
 									type="file"
 									name="file"
+									id="file-upload"
 									onChange={handleFileChange}
-									className="border-b border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
+									className="border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black hidden"
 								/>
-							</label>
-						</p>
-						<p>
-							<label>
-								Message:
-								<textarea
-									name="message"
-									value={formState.message}
-									required
-									onChange={handleChange}
-									className="border-b border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
-								/>
-							</label>
-						</p>
+								<span className="ml-3 text-sm text-gray-600">
+									{formState.fileName || 'No file selected'}
+								</span>
+							</p>
+							<p>
+								<label>
+									Message:
+									<textarea
+										name="message"
+										value={formState.message}
+										required
+										onChange={handleChange}
+										className="border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
+									/>
+								</label>
+							</p>
+						</div>
 						<p>
 							<button
 								type="submit"
 								disabled={submitting || submitted}
-								className="bg-primary hover:primary text-white font-bold py-5 px-8 mt-8 rounded-full cursor-pointer"
+								className="bg-primary hover:primary text-white font-bold py-2 px-4 mt-8 rounded-full cursor-pointer"
 							>
 								Send
 							</button>
@@ -343,15 +376,17 @@ const RequestForm = ({ closeRequestModal, item }) => {
 	return (
 		<div>
 			{submitted ? (
-				<p className="pt-0 mb-8 ml-0 text-left text-2xl dark:text-gray-500 text-black lg:font-light">
-					Thank you for your request!
+				<div className="flex gap-2 flex-col">
+					<p className="pt-0 mb-8 ml-0 text-left text-2xl dark:text-gray-500 text-black lg:font-light">
+						Thank you for your request!
+					</p>
 					<button
 						onClick={closeRequestModal}
-						className="bg-primary hover:primary text-white font-bold py-5 px-8 mt-8 rounded-full cursor-pointer"
+						className="bg-primary w-fit hover:primary text-white font-bold py-5 px-8 mt-8 rounded-full cursor-pointer"
 					>
 						Dismiss
 					</button>
-				</p>
+				</div>
 			) : (
 				<div>
 					<p className="pt-0 mb-0 ml-0 text-left text-2xl dark:text-gray-500 text-black lg:font-light">
@@ -380,71 +415,73 @@ const RequestForm = ({ closeRequestModal, item }) => {
 							value={formState.project}
 						/>
 
-						<p>
-							<label>
-								Your Name:
-								<input
-									type="text"
-									name="name"
-									placeholder="Full name"
-									value={formState.name}
-									required
-									onChange={handleChange}
-									className="border-b border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
-								/>
-							</label>
-						</p>
-						<p>
-							<label>
-								Your Company:
-								<input
-									type="text"
-									name="company"
-									placeholder="Company name"
-									value={formState.company}
-									required
-									onChange={handleChange}
-									className="border-b border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
-								/>
-							</label>
-						</p>
-						<p>
-							<label>
-								Your Email:
-								<input
-									type="email"
-									name="email"
-									placeholder="E-mail"
-									value={formState.email}
-									required
-									onChange={handleChange}
-									className="border-b border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
-								/>
-							</label>
-						</p>
-						<p>
-							<label>
-								Message:
-								<textarea
-									name="message"
-									// placeholder={`I want to see more about the project ${
-									// 	(item?.client
-									// 		? `"${item.client}`
-									// 		: '') +
-									// 	(item?.title ? ` – ${item.title}` : '')
-									// }" please send me a code`}
-									value={formState.message}
-									required
-									onChange={handleChange}
-									className="border-b border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
-								/>
-							</label>
-						</p>
+						<div className="flex gap-8 flex-col">
+							<p>
+								<label>
+									Your Name:
+									<input
+										type="text"
+										name="name"
+										placeholder="Full name"
+										value={formState.name}
+										required
+										onChange={handleChange}
+										className="border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
+									/>
+								</label>
+							</p>
+							<p>
+								<label>
+									Your Company:
+									<input
+										type="text"
+										name="company"
+										placeholder="Company name"
+										value={formState.company}
+										required
+										onChange={handleChange}
+										className="border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
+									/>
+								</label>
+							</p>
+							<p>
+								<label>
+									Your Email:
+									<input
+										type="email"
+										name="email"
+										placeholder="E-mail"
+										value={formState.email}
+										required
+										onChange={handleChange}
+										className="border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
+									/>
+								</label>
+							</p>
+							<p>
+								<label>
+									Message:
+									<textarea
+										name="message"
+										// placeholder={`I want to see more about the project ${
+										// 	(item?.client
+										// 		? `"${item.client}`
+										// 		: '') +
+										// 	(item?.title ? ` – ${item.title}` : '')
+										// }" please send me a code`}
+										value={formState.message}
+										required
+										onChange={handleChange}
+										className="border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
+									/>
+								</label>
+							</p>
+						</div>
 						<p>
 							<button
 								type="submit"
 								disabled={submitting || submitted}
-								className="bg-primary hover:primary text-white font-bold py-5 px-8 mt-8 rounded-full cursor-pointer"
+								className="bg-primary hover:primary text-white font-bold py-2 px-4 mt-8 rounded-full cursor-pointer"
 							>
 								Request access
 							</button>

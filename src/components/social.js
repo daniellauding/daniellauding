@@ -32,13 +32,19 @@ const Links = [
 		tooltip: 'Career journal',
 	},
 	{
-		id: '2',
+		id: '3',
 		name: 'AirBnb',
 		network: 'airbnb',
 		url: 'https://airbnb.com/h/daniellauding',
 		icon: 'airbnb',
 		label: 'My AirBnb',
 		tooltip: 'Rent my place',
+	},
+	{
+		id: '4',
+		name: 'Contact',
+		network: 'contact', // Special identifier for the contact action
+		tooltip: 'Contact Me',
 	},
 ];
 
@@ -72,7 +78,47 @@ const AirbnbIcon = ({ style, fgColor, bgColor, url, label }) => {
 	);
 };
 
-const Social = () => {
+const ContactIcon = ({ openContactModal, style, fgColor, bgColor }) => {
+	return (
+		<div
+			onClick={openContactModal} // Add click handler to open contact modal
+			className="social-icon social-icon--custom"
+			style={{
+				...style,
+				display: 'inline-flex',
+				alignItems: 'center',
+				justifyContent: 'center',
+				backgroundColor: bgColor,
+				borderRadius: '50%',
+			}}
+		>
+			<svg
+				width="40"
+				height="40"
+				viewBox="0 0 40 40"
+				fill="none"
+				style={{ fill: fgColor, width: '24px', height: '24px' }}
+				className="social-svg-icon"
+			>
+				<path
+					fillRule="evenodd"
+					clipRule="evenodd"
+					d="M36 10.4C36 8.64001 34.56 7.20001 32.8 7.20001H7.2C5.44 7.20001 4 8.64001 4 10.4V29.6C4 31.36 5.44 32.8 7.2 32.8H32.8C34.56 32.8 36 31.36 36 29.6V10.4ZM32.8 10.4L20 18.4L7.2 10.4H32.8ZM20 21.6L7.2 13.6V29.6H32.8V13.6L20 21.6Z"
+				/>
+			</svg>
+		</div>
+	);
+};
+
+const Social = ({ openContactModal }) => {
+	const handleSocialClick = (link) => {
+		if (link.network === 'contact') {
+			openContactModal(); // Call the function to open the modal
+		} else {
+			// For regular links, just navigate to the URL
+			window.location.href = link.url;
+		}
+	};
 	return (
 		<div className="mt-auto">
 			<ul className="m-0 gap-2 flex flex-row justify-center align-center">
@@ -86,15 +132,33 @@ const Social = () => {
 									bgColor="rgba(0,0,0,0.2)"
 									url={link.url}
 									label={link.label}
+									onClick={() => handleSocialClick(link)}
+								/>
+							) : link.network === 'contact' ? (
+								<ContactIcon
+									style={{
+										height: '40px',
+										width: '40px',
+										cursor: 'pointer',
+									}}
+									fgColor="rgba(255, 255, 255, 0.7)"
+									bgColor="rgba(0,0,0,0.2)"
+									url={link.url}
+									label={link.label}
+									openContactModal={openContactModal}
 								/>
 							) : (
 								<SocialIcon
-									style={{ height: '40px', width: '40px' }}
+									style={{
+										height: '40px',
+										width: '40px',
+									}}
 									fgColor="rgba(255, 255, 255, 0.7)"
 									bgColor="rgba(0,0,0,0.2)"
 									network={link.network}
 									url={link.url}
 									label={link.label}
+									onClick={() => handleSocialClick(link)}
 								/>
 							)}
 						</Tooltip>
