@@ -87,7 +87,7 @@ const Experience = ({ item, active, setActive, onHover }) => {
 				<a
 					href={item?.url}
 					onClick={onClick}
-					className="flex items-center gap-2 px-4 h-full transition-all border-2 border-transparent light:text-primary light:group-hover/item:text-white light:group-hover/item:bg-primary dark:text-primary dark:group-hover/item:text-primary dark:group-hover/item:border-primary rounded-full w-fit"
+					className="flex items-center gap-2 px-4 h-full transition-all border-2 border-transparent light:text-primary light:group-hover/item:border-primary dark:text-primary dark:hover:text-white dark:hover:bg-primary dark:group-hover/item:border-primary light:hover:bg-primary light:hover:text-white rounded-full w-fit"
 				>
 					{item?.client}
 
