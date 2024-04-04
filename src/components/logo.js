@@ -21,7 +21,7 @@ const Logo = ({ className }) => {
 	}, []);
 
 	return (
-		<div className="rounded-full bg-black w-32 h-32 flex items-center mx-auto">
+		<div className="rounded-full bg-black w-32 h-32 overflow-hidden flex items-center mx-auto">
 			{about.map((intro) => (
 				<>
 					{isDesktop ? (
@@ -47,7 +47,7 @@ const Logo = ({ className }) => {
 					) : (
 						<div
 							className={classNames(
-								'logo mx-auto cursor-pointer h-16',
+								'logo mx-auto cursor-pointer w-12',
 								className
 							)}
 							key={intro.id}
