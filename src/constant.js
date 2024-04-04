@@ -31,11 +31,13 @@ const about = [
 			// },
 			{
 				id: 0,
-				section: '00',
+				section: 'intro',
 				anchor: '',
 				columns: 4,
 				rows: 2,
 				gap: 4,
+				anchorNav: false,
+				anchorName: 'Intro',
 				align: {
 					horizontal: 'center',
 					vertical: 'center',
@@ -115,6 +117,8 @@ const about = [
 				section: 'story',
 				anchor: '',
 				columns: 4,
+				anchorNav: true,
+				anchorName: 'Story',
 				rows: 2,
 				gap: 4,
 				align: {
@@ -203,10 +207,12 @@ const about = [
 			},
 			{
 				id: 3,
-				section: '02',
+				section: 'craft',
 				anchor: '',
 				columns: 4,
 				gap: 4,
+				anchorNav: true,
+				anchorName: 'Craft',
 				groups: [
 					{
 						id: 1,
@@ -226,10 +232,12 @@ const about = [
 			},
 			{
 				id: 4,
-				section: '01',
+				section: 'current',
 				anchor: '',
 				columns: 4,
 				gap: 4,
+				anchorNav: true,
+				anchorName: 'Current',
 				groups: [
 					{
 						id: 0,
@@ -286,10 +294,12 @@ const about = [
 			},
 			{
 				id: 5,
-				section: '01',
+				section: 'past',
 				anchor: '',
 				columns: 4,
 				gap: 4,
+				anchorNav: true,
+				anchorName: 'Past',
 				groups: [
 					{
 						id: 1,
@@ -309,10 +319,12 @@ const about = [
 			},
 			{
 				id: 6,
-				section: '01',
+				section: 'nomading',
 				anchor: '',
 				columns: 4,
 				gap: 4,
+				anchorNav: true,
+				anchorName: 'Nomading',
 				groups: [
 					{
 						id: 1,
@@ -332,7 +344,9 @@ const about = [
 			},
 			{
 				id: 7,
-				section: '01',
+				section: 'available',
+				anchorName: `Let's get started`,
+				anchorNav: true,
 				anchor: '',
 				columns: 4,
 				gap: 4,

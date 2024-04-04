@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // import React, { useState, useMemo } from 'react';
 import classNames from 'classnames';
 // import lodash from 'lodash';
@@ -82,6 +82,86 @@ const About = ({
 		'text-opacity-100',
 	];
 
+	const ScrollNav = ({ about }) => {
+		const [activeSection, setActiveSection] = useState('');
+		const [sections, setSections] = useState([]);
+
+		useEffect(() => {
+			// Filter sections with anchorNav: true from the about array
+			const sectionsWithNav = about
+				.map((contentGroup) => contentGroup.content)
+				.flat()
+				.filter((section) => section.anchorNav)
+				.map((section) => ({
+					id: section.section, // Section ID
+					name: section.anchorName, // Anchor name to display next to the dot
+				}));
+			setSections(sectionsWithNav);
+		}, [about]);
+
+		const handleScroll = () => {
+			let currentSection = '';
+			sections.forEach(({ id }) => {
+				const sectionEl = document.getElementById(id);
+				const scrollPosition = window.scrollY + window.innerHeight / 2;
+				if (
+					sectionEl &&
+					sectionEl.offsetTop <= scrollPosition &&
+					sectionEl.offsetTop + sectionEl.offsetHeight >
+						scrollPosition
+				) {
+					currentSection = id;
+				}
+			});
+			setActiveSection(currentSection);
+		};
+
+		useEffect(() => {
+			window.addEventListener('scroll', handleScroll);
+			return () => {
+				window.removeEventListener('scroll', handleScroll);
+			};
+		}, [sections]);
+
+		const scrollToSection = (id) => {
+			document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+		};
+
+		return (
+			<div className="scroll-nav-wrapper flex">
+				<div className="bg-gray-400 w-px absolute right-2 top-2 bottom-2"></div>
+				<ul className="scroll-nav flex flex-col gap-8 items-end ">
+					{sections.map(({ id, name }) => (
+						<li
+							key={id}
+							className={`items-center group/scroll-nav-item cursor-pointer flex gap-4 ${
+								activeSection === id ? 'active' : 'default'
+							}`}
+							onClick={() => scrollToSection(id)}
+						>
+							<span
+								className={`anchor-name leading-snug font-serif text-right light:group-hover/scroll-nav-item:text-black dark:group-hover/scroll-nav-item:text-white ${
+									activeSection === id
+										? 'text-black'
+										: 'text-gray-600'
+								}`}
+							>
+								{name}
+							</span>
+							<div
+								className={`dot z-10 w-4 h-4 rounded-full cursor-pointer hover:bg-primary light:group-hover/scroll-nav-item:border-primary light:group-hover/scroll-nav-item:bg-white dark:group-hover/scroll-nav-item:border-primary dark:group-hover/scroll-nav-item:bg-white border-4 border-transparent ${
+									activeSection === id
+										? 'border-primary bg-white'
+										: 'bg-gray-400'
+								}`}
+							></div>
+						</li>
+					))}
+				</ul>
+			</div>
+		);
+	};
+
 	const scrollToSection = (sectionId) => {
 		// console.log(`Attempting to scroll to ${sectionId}`);
 		const section = document.querySelector(sectionId);
@@ -113,6 +193,10 @@ const About = ({
 					showExperiencesFull={showExperiencesFull}
 					setShowExperiencesFull={setShowExperiencesFull}
 				/>
+			</div>
+
+			<div className="fixed right-8 bottom-8 p-0 z-20">
+				<ScrollNav about={about} />
 			</div>
 
 			{/* <Avatar className="w-96 h-96 rounded-full overflow-hidden" />
