@@ -127,6 +127,28 @@ const Image = ({ item = {} }) => {
 		);
 	}
 
+	if (variant === 'splatted') {
+		return (
+			<div className="splatted">
+				<div
+					className="splatted-image"
+					style={{ '--img': `url(${src})` }}
+				></div>
+			</div>
+		);
+	}
+
+	if (variant === 'full-circle') {
+		return (
+			<div className="full-circle">
+				<div
+					className="full-circle-image"
+					style={{ '--img': `url(${src})` }}
+				></div>
+			</div>
+		);
+	}
+
 	if (variant === 'scrollimghorizontal') {
 		const imageRef = useRef(null);
 		const [inViewport, setInViewport] = useState(false);

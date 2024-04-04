@@ -265,6 +265,9 @@ module.exports = {
 		'invisible',
 		'collapse',
 	],
+	future: {
+		hoverOnlyWhenSupported: true,
+	},
 	plugins: [
 		function ({ addBase, config }) {
 			addBase({

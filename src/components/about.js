@@ -9,6 +9,7 @@ import ExperiencesShort, { Experiences } from './experiences';
 import { about, work } from '../constant';
 // import TagsList from './tags';
 import Social from './social';
+import Button from './button';
 import Nav from './nav';
 // import Logo from './logo';
 import Contact, { Offert } from './contact';
@@ -22,6 +23,7 @@ import {
 	EnvelopeIcon,
 	ClipboardDocumentListIcon,
 	ArrowLongRightIcon,
+	ArrowLongDownIcon,
 } from '@heroicons/react/24/solid';
 
 const About = ({
@@ -80,6 +82,17 @@ const About = ({
 		'text-opacity-95',
 		'text-opacity-100',
 	];
+
+	const scrollToSection = (sectionId) => {
+		// console.log(`Attempting to scroll to ${sectionId}`);
+		const section = document.querySelector(sectionId);
+		// console.log('Section:', section); // Check what's found
+		if (section) {
+			section.scrollIntoView({ behavior: 'smooth' });
+		} else {
+			console.log(`No section found with id ${sectionId}`);
+		}
+	};
 
 	return (
 		<div className="section-wrapper align-center items-center flex flex-col">
@@ -168,8 +181,9 @@ const About = ({
 							{intro.content.map((groups, index) => (
 								<div
 									key={index}
+									id={groups?.section}
 									className={classNames(
-										`section section-${groups?.section}`,
+										`section`,
 										{
 											[`variant-${groups?.variant}`]:
 												intro?.variant,
@@ -218,8 +232,6 @@ const About = ({
 										backgroundColor:
 											groups?.background?.color,
 									}}
-									// id={section?.name}
-									id={intro?.anchor}
 								>
 									<div
 										className={classNames(
@@ -513,7 +525,8 @@ const About = ({
 																	)
 																)}
 															</div>
-														) : (
+														) : group?.text &&
+														  group?.text.value ? (
 															<Text
 																value={
 																	group?.text
@@ -552,7 +565,7 @@ const About = ({
 																		?.weight
 																}
 															/>
-														)}
+														) : null}
 
 														{group?.lead && (
 															<Text
@@ -569,6 +582,92 @@ const About = ({
 																		?.fill
 																}
 															/>
+														)}
+
+														{group?.buttons && (
+															<div className="btns flex gap-4 mt-8">
+																{group.buttons.map(
+																	(
+																		btn,
+																		idx
+																	) => (
+																		<div
+																			key={
+																				idx
+																			}
+																			className="btn"
+																		>
+																			{btn?.type ===
+																				'scroll' && (
+																				<Button
+																					onClick={() =>
+																						scrollToSection(
+																							btn?.href
+																						)
+																					}
+																					// className="transition-all light:text-primary light:hover:text-white light:hover:bg-primary dark:text-primary dark:hover:text-white dark:hover:bg-primary font-bold p-2 px-4 text-center mx-auto w-auto border-2 rounded-full border-primary h-auto gap-2 items-center flex"
+																					variant={
+																						btn?.variant
+																					}
+																				>
+																					{
+																						btn?.text
+																					}
+																					<ArrowLongDownIcon className="h-5 w-5" />
+																				</Button>
+																			)}
+
+																			{btn?.type ===
+																				'modal' && (
+																				<Button
+																					onClick={() => {
+																						if (
+																							btn?.target ===
+																							'contactModal'
+																						) {
+																							setShowContact(
+																								true
+																							);
+																						} else if (
+																							btn?.target ===
+																							'offertModal'
+																						) {
+																							setShowOffert(
+																								true
+																							);
+																						}
+																						// Handle other modal targets if necessary
+																					}}
+																					// className="transition-all light:text-primary light:hover:text-white light:hover:bg-primary dark:text-primary dark:hover:text-white dark:hover:bg-primary font-bold p-2 px-4 text-center mx-auto w-auto border-2 rounded-full border-primary h-auto gap-2 items-center flex"
+																					variant={
+																						btn?.variant
+																					}
+																				>
+																					{
+																						btn?.text
+																					}
+																				</Button>
+																			)}
+
+																			{btn?.type ===
+																				'external' && (
+																				<a
+																					href={
+																						btn?.href
+																					}
+																					target="_blank"
+																					rel="noopener noreferrer"
+																					className="transition-all light:text-primary light:hover:text-white light:hover:bg-primary dark:text-primary dark:hover:text-white dark:hover:bg-primary font-bold p-2 px-4 text-center mx-auto w-auto border-2 rounded-full border-primary h-auto gap-2 items-center flex"
+																				>
+																					{
+																						btn?.text
+																					}
+																				</a>
+																			)}
+																		</div>
+																	)
+																)}
+															</div>
 														)}
 													</div>
 												)
@@ -593,7 +692,7 @@ const About = ({
 						</div>
 					))}
 
-					{console.log(work)}
+					{/* {console.log(work)} */}
 
 					<Experiences
 						showExperiencesFull={true}

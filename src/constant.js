@@ -30,8 +30,8 @@ const about = [
 			// 	],
 			// },
 			{
-				id: 1,
-				section: '01',
+				id: 0,
+				section: '00',
 				anchor: '',
 				columns: 4,
 				rows: 2,
@@ -51,7 +51,7 @@ const about = [
 				// variant: 'full',
 				groups: [
 					{
-						id: 2,
+						id: 0,
 						columns: 2,
 						rowStart: 1,
 						align: {
@@ -62,26 +62,65 @@ const about = [
 							{
 								value: `Daniel Lauding dances through design and globe-trots with a creative beat, spinning prototypes and visions into digital realities wherever his laptop lands.`,
 								size: 'large',
+								className: 'leading-snug font-serif',
+							},
+						],
+						buttons: [
+							{
+								variant: 'secondary',
+								type: 'scroll',
+								href: '#story',
+								text: 'My story',
 							},
 							{
-								value: `Behind Asteria's rise, he's the wizard blending innovation with practicality for SMEs.`,
-								size: 'large',
+								variant: 'primary',
+								type: 'modal',
+								target: 'contactModal',
+								text: 'Contact me',
 							},
 						],
 					},
 					{
-						id: 3,
+						id: 1,
 						columns: 2,
 						rowStart: 1,
 						image: {
-							src: '/images/me.jpg',
+							src: '/images/about/nomading-spain.jpg',
+							imgClass: 'plektrum',
 						},
 					},
+				],
+			},
+			{
+				id: 1,
+				section: 'story',
+				anchor: '',
+				columns: 4,
+				rows: 2,
+				gap: 4,
+				align: {
+					horizontal: 'center',
+					vertical: 'center',
+				},
+				container: {
+					height: 'h-screen',
+					align: {
+						horizontal: 'center',
+						vertical: 'center',
+					},
+				},
+				height: 'h-screen',
+				// variant: 'full',
+				groups: [
 					{
-						id: 4,
+						id: 0,
 						columns: 2,
 						rowStart: 2,
 						text: [
+							{
+								value: `Behind Asteria's rise, he's the wizard blending innovation with practicality for SMEs.`,
+								size: 'large',
+							},
 							{
 								value: `He cranked up the volume on Spotify's accessibility and laid down a groove with Länsförsäkringar's cross-platform design system, making it a hit across Sweden with its user-friendly vibes.`,
 								size: 'large',

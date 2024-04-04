@@ -23,10 +23,10 @@ const Nav = ({
 		<div className="navigation z-30 relative">
 			<div
 				className={classNames(
-					'top-2 fixed flex flex-row py-0 px-8 bg-black items-center rounded-full shadow left-1/2 -translate-x-1/2'
+					'top-2 fixed flex flex-row py-0 px-8 bg-black items-center rounded-full shadow left-1/2 -translate-x-1/2 h-20 sm:h-24 overflow-hidden'
 				)}
 			>
-				<div className="app-logo flex flex-row items-center">
+				<div className="app-logo flex flex-row items-center gap-4 sm:gap-0">
 					<Tooltip content="Back to overview" direction="top">
 						<button
 							onClick={() => setShowProfile(false)}
@@ -149,11 +149,11 @@ const NavClient = ({
 			<div className="navigation z-30 relative">
 				<div
 					className={classNames(
-						'nav top-2 fixed flex flex-row py-0 px-8 bg-black items-center rounded-full shadow left-1/2 -translate-x-1/2',
+						'nav top-2 fixed flex flex-row py-0 px-8 bg-black items-center rounded-full shadow left-1/2 -translate-x-1/2 h-20 sm:h-24 overflow-hidden',
 						toggleNav ? 'w-full mx-auto rounded-none' : ''
 					)}
 				>
-					<div className="app-logo flex flex-row items-center">
+					<div className="app-logo flex flex-row items-center gap-4 sm:gap-0">
 						<Tooltip content="Back to overview" direction="top">
 							<button
 								onClick={clearActive}
