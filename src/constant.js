@@ -122,13 +122,66 @@ const about = [
 					vertical: 'center',
 				},
 				container: {
-					height: 'h-screen',
+					height: 'h-auto',
 					align: {
 						horizontal: 'center',
 						vertical: 'center',
 					},
 				},
-				height: 'h-screen',
+				height: 'h-auto',
+				// variant: 'full',
+				groups: [
+					{
+						id: 0,
+						columns: 2,
+						rowStart: 1,
+						colStart: 2,
+						image: {
+							src: '/images/about/me_asteria_swedbank.jpg',
+						},
+					},
+					{
+						id: 0,
+						columns: 2,
+						rowStart: 1,
+						colStart: 2,
+						image: {
+							src: '/images/about/me-asteria.jpg',
+						},
+					},
+					{
+						id: 1,
+						columns: 2,
+						rowStart: 2,
+						colStart: 2,
+						text: [
+							{
+								value: `Behind Asteria's rise, he's the wizard blending innovation with practicality for SMEs.`,
+								size: 'large',
+							},
+						],
+					},
+				],
+			},
+			{
+				id: 2,
+				section: 'bla',
+				anchor: '',
+				columns: 4,
+				rows: 2,
+				gap: 4,
+				align: {
+					horizontal: 'center',
+					vertical: 'center',
+				},
+				container: {
+					height: 'h-auto',
+					align: {
+						horizontal: 'center',
+						vertical: 'center',
+					},
+				},
+				height: 'h-auto',
 				// variant: 'full',
 				groups: [
 					{
@@ -152,7 +205,7 @@ const about = [
 				],
 			},
 			{
-				id: 2,
+				id: 3,
 				section: '02',
 				anchor: '',
 				columns: 4,
@@ -175,7 +228,7 @@ const about = [
 				],
 			},
 			{
-				id: 3,
+				id: 4,
 				section: '01',
 				anchor: '',
 				columns: 4,
@@ -198,7 +251,7 @@ const about = [
 				],
 			},
 			{
-				id: 4,
+				id: 5,
 				section: '01',
 				anchor: '',
 				columns: 4,
@@ -221,7 +274,7 @@ const about = [
 				],
 			},
 			{
-				id: 5,
+				id: 6,
 				section: '01',
 				anchor: '',
 				columns: 4,
@@ -244,7 +297,7 @@ const about = [
 				],
 			},
 			{
-				id: 6,
+				id: 7,
 				section: '01',
 				anchor: '',
 				columns: 4,
