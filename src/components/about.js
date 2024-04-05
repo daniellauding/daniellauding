@@ -15,8 +15,10 @@ import Nav from './nav';
 // import Contact, { Offert } from './contact';
 // import Groups from './groups';
 import Video from './video';
+import List from './list';
 import Image from './image';
 import Text, { Title } from './typography';
+import Icon from './icon'; // Import the Icon component
 
 import {
 	ArrowLongRightIcon,
@@ -234,6 +236,8 @@ const About = ({
 								'groups groups'
 							)}
 							{console.log(intro.content.groups, 'content 2')} */}
+
+							{/* {console.log(intro.content, 'content 2')} */}
 
 							{intro.content.map((groups, index) => (
 								<div
@@ -537,6 +541,25 @@ const About = ({
 																}
 															/>
 														)}
+
+														{group?.icon && (
+															<Icon
+																key={group.id} // Use group id as the key
+																icon={
+																	group.icon
+																		.svgCode
+																} // Use group.icon.svgCode for the icon
+																size={
+																	group.icon
+																		.size
+																} // Use group.icon.size for the size
+																customClass={
+																	group.icon
+																		.class
+																} // Use group.icon.class for the customClass
+															/>
+														)}
+
 														{group?.text &&
 														Array.isArray(
 															group?.text
@@ -639,6 +662,28 @@ const About = ({
 																		?.fill
 																}
 															/>
+														)}
+
+														{Array.isArray(
+															group?.list
+														) && (
+															<div className="list">
+																{group.list.map(
+																	(
+																		item,
+																		index
+																	) => (
+																		<List
+																			key={
+																				index
+																			}
+																			items={[
+																				item,
+																			]}
+																		/>
+																	)
+																)}
+															</div>
 														)}
 
 														{group?.buttons && (

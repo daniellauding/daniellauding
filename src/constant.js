@@ -60,6 +60,17 @@ const about = [
 							horizontal: 'center',
 							vertical: 'center',
 						},
+						// icon: {
+						// 	svgCode: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						//     <g id="icon/image/adjust_24px">
+						//     <path id="icon/image/adjust_24px_2" fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12 15C13.66 15 15 13.66 15 12C15 10.34 13.66 9 12 9C10.34 9 9 10.34 9 12C9 13.66 10.34 15 12 15Z"/>
+						//     </g>
+						//     </svg>
+						//     `,
+						// 	size: 'small', // Specify the icon size
+						// 	style: { fill: 'fill-primary' },
+						// 	class: 'p-20 bg-white',
+						// },
 						text: [
 							{
 								value: `Daniel Lauding dances through design and globe-trots with a creative beat, spinning prototypes and visions into digital realities wherever his laptop lands.`,
@@ -71,8 +82,8 @@ const about = [
 							{
 								variant: 'secondary',
 								type: 'scroll',
-								href: '#story',
-								text: 'My story',
+								href: '#experience',
+								text: 'Read my story',
 							},
 							{
 								variant: 'primary',
@@ -114,11 +125,11 @@ const about = [
 			},
 			{
 				id: 1,
-				section: 'story',
+				section: 'experience',
 				anchor: '',
 				columns: 4,
 				anchorNav: true,
-				anchorName: 'Story',
+				anchorName: 'Experience',
 				rows: 2,
 				gap: 4,
 				align: {
@@ -136,35 +147,19 @@ const about = [
 				// variant: 'full',
 				groups: [
 					{
-						id: 0,
-						columns: 2,
-						rowStart: 1,
-						colStart: 2,
-						class: 'mt-16 w-96',
-						image: {
-							src: '/images/about/me_asteria_swedbank.jpg',
-							imgClass: 'rounded-lg',
-						},
-					},
-					{
 						id: 1,
-						columns: 2,
-						rowStart: 1,
-						colStart: 1,
-						class: 'w-64 ml-24',
-						image: {
-							src: '/images/about/me-asteria.png',
-							imgClass: 'rounded-lg',
-						},
-					},
-					{
-						id: 2,
 						columns: 2,
 						rowStart: 2,
 						colStart: 2,
+						title: [
+							{
+								value: `Crafting Innovative Solutions`,
+								size: 'large',
+							},
+						],
 						text: [
 							{
-								value: `Behind Asteria's rise, he's the wizard blending innovation with practicality for SMEs.`,
+								value: `Bringing over 12 years of experience in the tech industry, Daniel shapes user experiences and drives business growth with a focus on data and design thinking. With a background as a front end developer, his passion lies in crafting seamless and visually captivating products. He excels in building prototypes, refining user experiences, and developing comprehensive design systems across various industries including finance, fashion, and music.`,
 								size: 'large',
 							},
 						],
@@ -173,65 +168,6 @@ const about = [
 			},
 			{
 				id: 2,
-				section: 'bla',
-				anchor: '',
-				columns: 4,
-				rows: 1,
-				gap: 4,
-				align: {
-					horizontal: 'center',
-					vertical: 'center',
-				},
-				container: {
-					height: 'h-auto',
-					align: {
-						horizontal: 'center',
-						vertical: 'center',
-					},
-				},
-				height: 'h-auto',
-				// variant: 'full',
-				groups: [
-					{
-						id: 0,
-						columns: 2,
-						colStart: 2,
-						text: [
-							{
-								value: `He cranked up the volume on Spotify's accessibility and laid down a groove with Länsförsäkringar's cross-platform design system, making it a hit across Sweden with its user-friendly vibes.`,
-								size: 'large',
-							},
-						],
-					},
-				],
-			},
-			{
-				id: 3,
-				section: 'craft',
-				anchor: '',
-				columns: 4,
-				gap: 4,
-				anchorNav: true,
-				anchorName: 'Craft',
-				groups: [
-					{
-						id: 1,
-						columns: 2,
-					},
-					{
-						id: 2,
-						columns: 2,
-						text: [
-							{
-								value: `His passion shines in crafting products that not only function seamlessly but also captivate visually. He delves into building prototypes, refining user experiences, and developing comprehensive design systems. His diverse experience across finance, fashion, and music showcases his ability to apply his technical skills in various contexts. Working hand in hand with his team, he channels his enthusiasm into turning innovative ideas into practical, user-centered products.`,
-								size: 'large',
-							},
-						],
-					},
-				],
-			},
-			{
-				id: 4,
 				section: 'current',
 				anchor: '',
 				columns: 4,
@@ -293,7 +229,7 @@ const about = [
 				],
 			},
 			{
-				id: 5,
+				id: 3,
 				section: 'past',
 				anchor: '',
 				columns: 4,
@@ -310,7 +246,7 @@ const about = [
 						columns: 2,
 						text: [
 							{
-								value: `Daniel's passion for music not only fuels his creativity but also complements his professional projects. This unique blend of interests led him to develop a low-data solution for Spotify in Brazil, aiding the platform's expansion by making music more accessible. Additionally, his work with Record Union has empowered artists by streamlining the process of releasing their music across various platforms. His engagements with high-profile clients like KLM and his contribution to creating a user-friendly design system for Länsförsäkringar demonstrate his commitment to improving user experiences in diverse sectors across Sweden.`,
+								value: `Driven by a passion for music, Daniel crafted a low-data solution for Spotify in Brazil, aiding the platform's expansion in emerging markets. The team conducted rapid testing with users in Brazilian favelas to refine designs and prototypes. Additionally, his work with Record Union streamlined the process of releasing music across multiple platforms. Contributions to projects like KLM improved their online booking system. Daniel also designed a cross-platform user-friendly design system for Länsförsäkringar, ensuring seamless experiences across various platforms, with the system still in active use today.`,
 								size: 'large',
 							},
 						],
@@ -318,7 +254,139 @@ const about = [
 				],
 			},
 			{
-				id: 6,
+				id: 4,
+				section: 'design-philosophy',
+				anchor: '',
+				columns: 4,
+				gap: 4,
+				anchorNav: true,
+				anchorName: 'Design Philosophy',
+				groups: [
+					{
+						id: 1,
+						columns: 2,
+					},
+					{
+						id: 2,
+						columns: 2,
+						text: [
+							{
+								value: `Daniel's design journey is a dance between code and creativity, where technical expertise meets imaginative flair. Here's how he shines:`,
+								size: 'large',
+							},
+						],
+						list: [
+							{
+								item: [
+									{
+										title: {
+											value: `React Collaboration:`,
+											size: 'large',
+										},
+										text: {
+											value: `Seamlessly integrating design within project scopes, Daniel thrives in collaborating with developers, adding a touch of React magic along the way.`,
+											size: 'large',
+										},
+										icon: {
+											type: 'ArrowLongRightIcon', // Specify the icon type
+											size: 'small', // Specify the icon size
+										},
+									},
+									{
+										title: {
+											value: `Early Adopter:`,
+											size: 'large',
+										},
+										text: {
+											value: `Always at the forefront of UI/UX software, he embraces the latest tools to elevate design experiences and stay ahead of the curve.`,
+											size: 'large',
+										},
+										icon: {
+											svgCode: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="icon/image/adjust_24px">
+                        <path id="icon/image/adjust_24px_2" fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12 15C13.66 15 15 13.66 15 12C15 10.34 13.66 9 12 9C10.34 9 9 10.34 9 12C9 13.66 10.34 15 12 15Z"/>
+                        </g>
+                        </svg>
+                        `,
+											size: 'small', // Specify the icon size
+											style: { fill: 'fill-primary' },
+											class: 'p-20 bg-white',
+										},
+									},
+									{
+										title: {
+											value: `Big Picture Thinker:`,
+											size: 'large',
+										},
+										text: {
+											value: `With a visionary mindset, Daniel visualizes the project landscape, ensuring each design decision aligns with the overarching goals.`,
+											size: 'large',
+										},
+										icon: {
+											variant: 'svg', // Specify the icon variant
+											svgCode: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="icon/image/adjust_24px">
+                        <path id="icon/image/adjust_24px_2" fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12 15C13.66 15 15 13.66 15 12C15 10.34 13.66 9 12 9C10.34 9 9 10.34 9 12C9 13.66 10.34 15 12 15Z"/>
+                        </g>
+                        </svg>
+                        `,
+											size: 'small', // Specify the icon size
+										},
+									},
+									{
+										title: {
+											value: `Systematic Approach:`,
+											size: 'large',
+										},
+										text: {
+											value: `He's a systematic thinker and designer, meticulously crafting each element to ensure cohesiveness and efficiency.`,
+											size: 'large',
+										},
+										icon: {
+											variant: 'svg', // Specify the icon variant
+											svgCode: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="icon/image/adjust_24px">
+                        <path id="icon/image/adjust_24px_2" fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12 15C13.66 15 15 13.66 15 12C15 10.34 13.66 9 12 9C10.34 9 9 10.34 9 12C9 13.66 10.34 15 12 15Z"/>
+                        </g>
+                        </svg>
+                        `,
+											size: 'small', // Specify the icon size
+										},
+									},
+									{
+										title: {
+											value: `Getting Things Done:`,
+											size: 'large',
+										},
+										text: {
+											value: `Driven by results, Daniel has a data-driven approach to UX/UI design, consistently delivering measurable improvements that align with business objectives.`,
+											size: 'large',
+										},
+										icon: {
+											variant: 'svg', // Specify the icon variant
+											svgCode: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="icon/image/adjust_24px">
+                        <path id="icon/image/adjust_24px_2" fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12 15C13.66 15 15 13.66 15 12C15 10.34 13.66 9 12 9C10.34 9 9 10.34 9 12C9 13.66 10.34 15 12 15Z"/>
+                        </g>
+                        </svg>
+                        `,
+											size: 'small', // Specify the icon size
+										},
+									},
+								],
+							},
+						],
+					},
+					{
+						variant: 'secondary',
+						type: 'link',
+						href: 'https://nomadlist.com/@daniellauding',
+						text: 'My trips',
+					},
+				],
+			},
+			{
+				id: 5,
 				section: 'nomading',
 				anchor: '',
 				columns: 4,
@@ -335,17 +403,23 @@ const about = [
 						columns: 2,
 						text: [
 							{
-								value: `The journey into merging work with global exploration began at 22, with the first flight to a London project exhibition for Hyper Island. This experience not only fueled a love for travel but also led to vibrant roles within New York's fashion industry and Amsterdam's fintech sector. Now, with a rich tapestry of experiences from over 49 countries, there's a deep involvement in the digital nomad scene, participating in communities like WiFi Tribe and Nomad Cruise. This lifestyle of remote work harnesses a wide array of design and development skills to meet new challenges, all while drawing inspiration from a wealth of cultures. `,
+								value: `Daniel's journey into merging work with global exploration began at 22, with the first flight to a London project exhibition for Hyper Island. Vibrant roles within New York's fashion industry and Amsterdam's fintech sector followed. With experiences from over 49 countries, he is deeply involved in the digital nomad scene, participating in communities like WiFi Tribe and Nomad Cruise. Remote work harnesses his design and development skills while drawing inspiration from diverse cultures.`,
 								size: 'large',
 							},
 						],
+					},
+					{
+						variant: 'secondary',
+						type: 'link',
+						href: 'https://nomadlist.com/@daniellauding',
+						text: 'My trips',
 					},
 				],
 			},
 			{
 				id: 7,
 				section: 'available',
-				anchorName: `Let's get started`,
+				anchorName: `Let's Collaborate`,
 				anchorNav: true,
 				anchor: '',
 				columns: 4,
@@ -358,9 +432,15 @@ const about = [
 					{
 						id: 2,
 						columns: 2,
+						title: [
+							{
+								value: `Ready to Bring Ambitious Concepts to Life`,
+								size: 'large',
+							},
+						],
 						text: [
 							{
-								value: `Daniel's on standby to bring ambitious concepts to life. From fintech to tunes, his knack for combining talents ensures projects hit the mark. Ready to lead or dive into the details, and willing to travel or move for the right opportunity. If you need a creative mind with a tech edge, Daniel's your match. Let's get started.`,
+								value: `Ready to lead or dive into the details, Daniel brings a perfect blend of creativity and technical expertise to every project. If you're looking for a creative mind with a tech edge to bring your ambitious concepts to life, let's embark on this journey together.`,
 								size: 'large',
 							},
 						],
