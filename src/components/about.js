@@ -12,6 +12,7 @@ import Social from './social';
 import Button from './button';
 import Nav from './nav';
 // import Logo from './logo';
+import { AnimationOnScroll } from 'react-animation-on-scroll';
 // import Contact, { Offert } from './contact';
 // import Groups from './groups';
 import Video from './video';
@@ -358,8 +359,476 @@ const About = ({
 												}
 											)}
 										>
-											{groups.groups.map(
-												(group, index) => (
+											{groups.groups.map((group, index) =>
+												group?.animate ? (
+													<AnimationOnScroll
+														key={index} // Don't forget the key prop for list items
+														animateIn={
+															group?.animateIn
+																? group.animateIn
+																: 'animate__fadeIn'
+														}
+														animateOut={
+															group?.animateOut
+														}
+														delay={group?.delay}
+														duration={
+															group?.duration
+														}
+														animateOnce={
+															group?.animateOnce
+																? group.animateOnce
+																: true
+														}
+													>
+														<div
+															key={index}
+															className={classNames(
+																`group`,
+																{
+																	[`col-span-${group.columns}`]:
+																		group.columns,
+																	[`col-start-${group.colStart}`]:
+																		group.colStart,
+																	[`col-end-${group.colEnd}`]:
+																		group.colEnd,
+																	[`row-span-${group.rows}`]:
+																		group.rows,
+																	[`row-start-${group.rowStart}`]:
+																		group.rowStart,
+																	[`row-end-${group.rowEnd}`]:
+																		group.rowEnd,
+																	[`${group.style}`]:
+																		group.style,
+																	'justify-start':
+																		group
+																			?.align
+																			?.horizontal ===
+																		'left',
+																	'justify-center':
+																		group
+																			?.align
+																			?.horizontal ===
+																		'center',
+																	'justify-end':
+																		group
+																			?.align
+																			?.horizontal ===
+																		'right',
+																	'content-start':
+																		group
+																			?.align
+																			?.vertical ===
+																		'top',
+																	'content-center':
+																		group
+																			?.align
+																			?.vertical ===
+																		'center',
+																	'content-end':
+																		group
+																			?.align
+																			?.vertical ===
+																		'bottom',
+																	'': !group?.padding,
+																	flex:
+																		group
+																			?.container
+																			?.align
+																			?.horizontal ||
+																		group
+																			?.container
+																			?.align
+																			?.align
+																			?.vertical,
+																},
+																group?.class?.trim()
+															)}
+														>
+															{group?.title && (
+																<Title
+																	value={
+																		group
+																			?.title
+																			?.value
+																	}
+																	variant={
+																		group
+																			?.title
+																			?.variant
+																	}
+																	style={
+																		group
+																			?.title
+																			?.style
+																	}
+																	color={
+																		group
+																			?.title
+																			?.color
+																	}
+																	fill={
+																		group
+																			?.title
+																			?.fill
+																	}
+																	align={
+																		group
+																			?.title
+																			?.align
+																	}
+																	family={
+																		group
+																			?.title
+																			?.family
+																	}
+																	weight={
+																		group
+																			?.title
+																			?.weight
+																	}
+																	className={
+																		group
+																			?.title
+																			?.className
+																	}
+																/>
+															)}
+															{group?.image && (
+																<Image
+																	variant={
+																		group
+																			?.image
+																			?.variant
+																	}
+																	color={
+																		group
+																			?.image
+																			?.color
+																	}
+																	format={
+																		group
+																			?.image
+																			?.format
+																	}
+																	width={
+																		group
+																			?.image
+																			?.width
+																	}
+																	height={
+																		group
+																			?.image
+																			?.height
+																	}
+																	text={
+																		group
+																			?.image
+																			?.text
+																	}
+																	textColor={
+																		group
+																			?.image
+																			?.textColor
+																	}
+																	item={
+																		group?.image
+																	}
+																	src={
+																		group
+																			?.image
+																			?.src
+																	}
+																/>
+															)}
+															{group?.video && (
+																<Video
+																	item={
+																		group.video
+																	} // Assuming group.video contains at least the 'src' property
+																	muted={
+																		group
+																			?.video
+																			?.muted ||
+																		true
+																	} // Turn off sound
+																	loop={
+																		group
+																			?.video
+																			?.loop ||
+																		true
+																	} // Make the video loop
+																	autoPlay={
+																		group
+																			?.video
+																			?.autoPlay ||
+																		true
+																	} // Autoplay the video
+																	controls={
+																		group
+																			?.video
+																			?.controls ||
+																		false
+																	} // Hide video controls
+																	className={
+																		group
+																			?.video
+																			?.videoClass
+																	} // Apply any additional class for styling
+																	width={
+																		group
+																			?.video
+																			?.width
+																	} // Optional: Set video width
+																	height={
+																		group
+																			?.video
+																			?.height
+																	} // Optional: Set video height
+																	showControls={
+																		group
+																			?.video
+																			?.showControls ||
+																		false
+																	}
+																/>
+															)}
+
+															{group?.icon && (
+																<Icon
+																	key={
+																		group.id
+																	} // Use group id as the key
+																	icon={
+																		group
+																			.icon
+																			.svgCode
+																	} // Use group.icon.svgCode for the icon
+																	size={
+																		group
+																			.icon
+																			.size
+																	} // Use group.icon.size for the size
+																	customClass={
+																		group
+																			.icon
+																			.class
+																	} // Use group.icon.class for the customClass
+																/>
+															)}
+
+															{group?.text &&
+															Array.isArray(
+																group?.text
+															) ? (
+																<div className="space-y-4 w- flex flex-col">
+																	{group?.text.map(
+																		(
+																			textBlock,
+																			index
+																		) => (
+																			<Text
+																				key={
+																					index
+																				}
+																				value={
+																					textBlock.value
+																				}
+																				size={
+																					textBlock.size
+																				}
+																				style={
+																					textBlock.style
+																				}
+																				color={
+																					textBlock?.color
+																				}
+																				fill={
+																					textBlock?.fill
+																				}
+																				align={
+																					textBlock?.align
+																				}
+																				className={
+																					textBlock?.className
+																				}
+																				family={
+																					textBlock?.family
+																				}
+																				weight={
+																					textBlock?.weight
+																				}
+																			/>
+																		)
+																	)}
+																</div>
+															) : group?.text &&
+															  group?.text
+																	.value ? (
+																<Text
+																	value={
+																		group
+																			?.text
+																			?.value
+																	}
+																	size={
+																		group
+																			?.text
+																			?.size
+																	}
+																	style={
+																		group
+																			?.text
+																			?.style
+																	}
+																	color={
+																		group
+																			?.text
+																			?.color
+																	}
+																	fill={
+																		group
+																			?.text
+																			?.fill
+																	}
+																	align={
+																		group
+																			?.text
+																			?.align
+																	}
+																	className={
+																		group
+																			?.text
+																			?.className
+																	}
+																	family={
+																		group
+																			?.text
+																			?.family
+																	}
+																	weight={
+																		group
+																			?.text
+																			?.weight
+																	}
+																/>
+															) : null}
+
+															{group?.lead && (
+																<Text
+																	size="large"
+																	value={
+																		group?.lead
+																	}
+																	color={
+																		group
+																			?.lead
+																			?.color
+																	}
+																	fill={
+																		group
+																			?.text
+																			?.fill
+																	}
+																/>
+															)}
+
+															{Array.isArray(
+																group?.list
+															) && (
+																<div className="list">
+																	{group.list.map(
+																		(
+																			item,
+																			index
+																		) => (
+																			<List
+																				key={
+																					index
+																				}
+																				items={[
+																					item,
+																				]}
+																			/>
+																		)
+																	)}
+																</div>
+															)}
+
+															{group?.buttons && (
+																<div className="btns flex gap-4 mt-8">
+																	{group.buttons.map(
+																		(
+																			btn,
+																			idx
+																		) => (
+																			<div
+																				key={
+																					idx
+																				}
+																				className="btn"
+																			>
+																				{btn?.type ===
+																					'scroll' && (
+																					<Button
+																						onClick={() =>
+																							scrollToSection(
+																								btn?.href
+																							)
+																						}
+																						// className="transition-all light:text-primary light:hover:text-white light:hover:bg-primary dark:text-primary dark:hover:text-white dark:hover:bg-primary font-bold p-2 px-4 text-center mx-auto w-auto border-2 rounded-full border-primary h-auto gap-2 items-center flex"
+																						variant={
+																							btn?.variant
+																						}
+																					>
+																						{
+																							btn?.text
+																						}
+																						<ArrowLongDownIcon className="h-5 w-5" />
+																					</Button>
+																				)}
+
+																				{btn?.type ===
+																					'modal' && (
+																					<Button
+																						onClick={() =>
+																							handleButtonClick(
+																								btn
+																							)
+																						}
+																						variant={
+																							btn?.variant
+																						}
+																					>
+																						{
+																							btn?.text
+																						}
+																					</Button>
+																				)}
+
+																				{btn?.type ===
+																					'external' && (
+																					<a
+																						href={
+																							btn?.href
+																						}
+																						target="_blank"
+																						rel="noopener noreferrer"
+																						className="transition-all light:text-primary light:hover:text-white light:hover:bg-primary dark:text-primary dark:hover:text-white dark:hover:bg-primary font-bold p-2 px-4 text-center mx-auto w-auto border-2 rounded-full border-primary h-auto gap-2 items-center flex"
+																					>
+																						{
+																							btn?.text
+																						}
+																					</a>
+																				)}
+																			</div>
+																		)
+																	)}
+																</div>
+															)}
+														</div>
+													</AnimationOnScroll>
+												) : (
 													<div
 														key={index}
 														className={classNames(

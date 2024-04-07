@@ -8,7 +8,7 @@ const ListItem = ({ item }) => {
 	console.log('Text:', item.text); // Log the text prop
 
 	return (
-		<li className="mb-4 flex items-center">
+		<li className="mb-4 flex items-center flex flex-col">
 			{Array.isArray(item.icon) ? (
 				item.icon.map((iconItem, index) => (
 					<Icon
@@ -32,6 +32,7 @@ const ListItem = ({ item }) => {
 						key={index}
 						value={titleItem.value}
 						size={titleItem.size}
+						className="w-full"
 					/>
 				))
 			) : (
