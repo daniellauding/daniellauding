@@ -156,13 +156,18 @@ const about = [
 						title: [
 							{
 								value: `Crafting Innovative Solutions`,
-								size: 'large',
+								size: 'medium',
+								className: 'leading-snug font-serif',
 							},
 						],
 						text: [
 							{
-								value: `Bringing over 12 years of experience in the tech industry, Daniel shapes user experiences and drives business growth with a focus on data and design thinking. With a background as a front end developer, his passion lies in crafting seamless and visually captivating products. He excels in building prototypes, refining user experiences, and developing comprehensive design systems across various industries including finance, fashion, and music.`,
+								value: `Bringing over 12 years of experience in the tech industry, Daniel shapes user experiences and drives business growth with a focus on data and design thinking. With a background as a front end developer, his passion lies in crafting seamless and visually captivating products.`,
 								size: 'large',
+							},
+							{
+								value: `He excels in building prototypes, refining user experiences, and developing comprehensive design systems across various industries including finance, fashion, and music.`,
+								size: 'medium',
 							},
 						],
 					},
@@ -228,10 +233,6 @@ const about = [
 								value: `He's been instrumental in evolving initial concepts into crucial tools for SMEs. With his team, he's successfully tackled intricate design challenges, contributing to Asteria's growth. This includes playing a key role in securing funding rounds and forging new partnerships, marking significant achievements in the fintech and banking sectors across Scandinavia.`,
 								size: 'medium',
 							},
-							{
-								value: `His active participation in fintech accelerator programs across Europe continues to propel the company forward, underlining his commitment to innovation and progress.`,
-								size: 'medium',
-							},
 						],
 					},
 				],
@@ -246,18 +247,27 @@ const about = [
 				anchorName: 'Past',
 				groups: [
 					{
-						id: 1,
-						columns: 2,
-					},
-					{
 						id: 2,
 						columns: 2,
+						colStart: 1,
 						text: [
 							{
-								value: `Driven by a passion for music, Daniel crafted a low-data solution for Spotify in Brazil, aiding the platform's expansion in emerging markets. The team conducted rapid testing with users in Brazilian favelas to refine designs and prototypes. Additionally, his work with Record Union streamlined the process of releasing music across multiple platforms. Contributions to projects like KLM improved their online booking system. Daniel also designed a cross-platform user-friendly design system for Länsförsäkringar, ensuring seamless experiences across various platforms, with the system still in active use today.`,
+								value: `Driven by a passion for music, Daniel crafted a low-data solution for Spotify in Brazil, aiding the platform's expansion in emerging markets. The team conducted rapid testing with users in Brazilian favelas to refine designs and prototypes. `,
+								size: 'large',
+							},
+							{
+								value: `Additionally, his work with Record Union streamlined the process of releasing music across multiple platforms. Contributions to projects like KLM improved their online booking system.`,
+								size: 'medium',
+							},
+							{
+								value: `Daniel also designed a cross-platform user-friendly design system for Länsförsäkringar, ensuring seamless experiences across various platforms, with the system still in active use today.`,
 								size: 'medium',
 							},
 						],
+					},
+					{
+						id: 1,
+						columns: 2,
 					},
 				],
 			},
@@ -265,7 +275,7 @@ const about = [
 				id: 4,
 				section: 'design-philosophy',
 				anchor: '',
-				columns: 5,
+				columns: 3,
 				gap: 4,
 				anchorNav: true,
 				anchorName: 'Design Philosophy',
@@ -274,228 +284,64 @@ const about = [
 						id: 1,
 						columns: 1,
 						colStart: 1,
+						icon: {
+							iconName: 'jobs-done',
+							size: 'large', // Specify the icon size
+							className: 'mx-auto my-8',
+							fill: 'fill-primary',
+						},
 						title: {
-							value: `React Collaboration:`,
+							value: `Hands-On Approach`,
 							size: 'small',
+							className: 'leading-snug text-center font-serif',
 						},
 						text: {
-							value: `Seamlessly integrating design within project scopes, Daniel thrives in collaborating with developers, adding a touch of React magic along the way.`,
-							size: 'small',
-						},
-						icon: {
-							type: 'ArrowLongRightIcon', // Specify the icon type
-							size: 'small', // Specify the icon size
+							value: `Daniel enjoys prototyping and easily moves between design and coding. He's detail-oriented, making sure his work is both organized and effective, using React and other front-end tools to get the job done.`,
+							size: 'medium',
+							className: 'text-center',
 						},
 					},
 					{
-						id: 1,
+						id: 2,
 						columns: 1,
 						colStart: 2,
+						icon: {
+							iconName: 'design-leadership',
+							size: 'large', // Specify the icon size
+							className: 'mx-auto my-8',
+							fill: 'fill-primary',
+						},
 						title: {
-							value: `Early Adopter:`,
+							value: `Design Leadership`,
 							size: 'small',
+							className: 'leading-snug text-center font-serif',
 						},
 						text: {
-							value: `Always at the forefront of UI/UX software, he embraces the latest tools to elevate design experiences and stay ahead of the curve.`,
-							size: 'small',
-						},
-						icon: {
-							svgCode: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g id="icon/image/adjust_24px">
-                <path id="icon/image/adjust_24px_2" fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12 15C13.66 15 15 13.66 15 12C15 10.34 13.66 9 12 9C10.34 9 9 10.34 9 12C9 13.66 10.34 15 12 15Z"/>
-                </g>
-                </svg>
-                `,
-							size: 'small', // Specify the icon size
-							// style: { fill: 'fill-primary' },
-							// class: 'p-20 bg-white',
+							value: `Daniel combines big-picture thinking with systematic detail, guiding designs to match project goals for total coherence and relevance.`,
+							size: 'medium',
+							className: 'text-center',
 						},
 					},
 					{
-						id: 1,
+						id: 3,
 						columns: 1,
 						colStart: 3,
+						icon: {
+							iconName: 'purposeful-innovation',
+							size: 'large', // Specify the icon size
+							className: 'mx-auto my-8',
+							fill: 'fill-primary',
+						},
 						title: {
-							value: `Big Picture Thinker:`,
+							value: `Purposeful Innovation`,
 							size: 'small',
+							className: 'leading-snug text-center font-serif',
 						},
 						text: {
-							value: `With a visionary mindset, Daniel visualizes the project landscape, ensuring each design decision aligns with the overarching goals.`,
-							size: 'small',
+							value: `With a focus on meaningful outcomes, Daniel employs a data-driven approach to design, prioritizing user experience and business objectives to deliver measurable improvements.`,
+							size: 'medium',
+							className: 'text-center',
 						},
-						icon: {
-							variant: 'svg', // Specify the icon variant
-							svgCode: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g id="icon/image/adjust_24px">
-                <path id="icon/image/adjust_24px_2" fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12 15C13.66 15 15 13.66 15 12C15 10.34 13.66 9 12 9C10.34 9 9 10.34 9 12C9 13.66 10.34 15 12 15Z"/>
-                </g>
-                </svg>
-                `,
-							size: 'small', // Specify the icon size
-						},
-					},
-					{
-						id: 1,
-						columns: 1,
-						colStart: 4,
-						title: {
-							value: `Systematic Approach:`,
-							size: 'small',
-						},
-						text: {
-							value: `He's a systematic thinker and designer, meticulously crafting each element to ensure cohesiveness and efficiency.`,
-							size: 'small',
-						},
-						icon: {
-							variant: 'svg', // Specify the icon variant
-							svgCode: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g id="icon/image/adjust_24px">
-                <path id="icon/image/adjust_24px_2" fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12 15C13.66 15 15 13.66 15 12C15 10.34 13.66 9 12 9C10.34 9 9 10.34 9 12C9 13.66 10.34 15 12 15Z"/>
-                </g>
-                </svg>
-                `,
-							size: 'small', // Specify the icon size
-						},
-					},
-					{
-						id: 1,
-						columns: 1,
-						colStart: 5,
-						title: {
-							value: `Getting Things Done:`,
-							size: 'small',
-						},
-						text: {
-							value: `Driven by results, Daniel has a data-driven approach to UX/UI design, consistently delivering measurable improvements that align with business objectives.`,
-							size: 'small',
-						},
-						icon: {
-							variant: 'svg', // Specify the icon variant
-							svgCode: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g id="icon/image/adjust_24px">
-                <path id="icon/image/adjust_24px_2" fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12 15C13.66 15 15 13.66 15 12C15 10.34 13.66 9 12 9C10.34 9 9 10.34 9 12C9 13.66 10.34 15 12 15Z"/>
-                </g>
-                </svg>
-                `,
-							size: 'small', // Specify the icon size
-						},
-					},
-					// {
-					// 	id: 2,
-					// 	columns: 4,
-					// 	text: [
-					// 		{
-					// 			value: `Daniel's design journey is a dance between code and creativity, where technical expertise meets imaginative flair. Here's how he shines:`,
-					// 			size: 'large',
-					// 		},
-					// 	],
-					// 	list: [
-					// 		{
-					// 			item: [
-					// 				{
-					// 					title: {
-					// 						value: `React Collaboration:`,
-					// 						size: 'large',
-					// 					},
-					// 					text: {
-					// 						value: `Seamlessly integrating design within project scopes, Daniel thrives in collaborating with developers, adding a touch of React magic along the way.`,
-					// 						size: 'large',
-					// 					},
-					// 					icon: {
-					// 						type: 'ArrowLongRightIcon', // Specify the icon type
-					// 						size: 'small', // Specify the icon size
-					// 					},
-					// 				},
-					// 				{
-					// 					title: {
-					// 						value: `Early Adopter:`,
-					// 						size: 'large',
-					// 					},
-					// 					text: {
-					// 						value: `Always at the forefront of UI/UX software, he embraces the latest tools to elevate design experiences and stay ahead of the curve.`,
-					// 						size: 'large',
-					// 					},
-					// 					icon: {
-					// 						svgCode: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-					//               <g id="icon/image/adjust_24px">
-					//               <path id="icon/image/adjust_24px_2" fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12 15C13.66 15 15 13.66 15 12C15 10.34 13.66 9 12 9C10.34 9 9 10.34 9 12C9 13.66 10.34 15 12 15Z"/>
-					//               </g>
-					//               </svg>
-					//               `,
-					// 						size: 'small', // Specify the icon size
-					// 						style: { fill: 'fill-primary' },
-					// 						class: 'p-20 bg-white',
-					// 					},
-					// 				},
-					// 				{
-					// 					title: {
-					// 						value: `Big Picture Thinker:`,
-					// 						size: 'large',
-					// 					},
-					// 					text: {
-					// 						value: `With a visionary mindset, Daniel visualizes the project landscape, ensuring each design decision aligns with the overarching goals.`,
-					// 						size: 'large',
-					// 					},
-					// 					icon: {
-					// 						variant: 'svg', // Specify the icon variant
-					// 						svgCode: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-					//               <g id="icon/image/adjust_24px">
-					//               <path id="icon/image/adjust_24px_2" fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12 15C13.66 15 15 13.66 15 12C15 10.34 13.66 9 12 9C10.34 9 9 10.34 9 12C9 13.66 10.34 15 12 15Z"/>
-					//               </g>
-					//               </svg>
-					//               `,
-					// 						size: 'small', // Specify the icon size
-					// 					},
-					// 				},
-					// 				{
-					// 					title: {
-					// 						value: `Systematic Approach:`,
-					// 						size: 'large',
-					// 					},
-					// 					text: {
-					// 						value: `He's a systematic thinker and designer, meticulously crafting each element to ensure cohesiveness and efficiency.`,
-					// 						size: 'large',
-					// 					},
-					// 					icon: {
-					// 						variant: 'svg', // Specify the icon variant
-					// 						svgCode: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-					//               <g id="icon/image/adjust_24px">
-					//               <path id="icon/image/adjust_24px_2" fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12 15C13.66 15 15 13.66 15 12C15 10.34 13.66 9 12 9C10.34 9 9 10.34 9 12C9 13.66 10.34 15 12 15Z"/>
-					//               </g>
-					//               </svg>
-					//               `,
-					// 						size: 'small', // Specify the icon size
-					// 					},
-					// 				},
-					// 				{
-					// 					title: {
-					// 						value: `Getting Things Done:`,
-					// 						size: 'large',
-					// 					},
-					// 					text: {
-					// 						value: `Driven by results, Daniel has a data-driven approach to UX/UI design, consistently delivering measurable improvements that align with business objectives.`,
-					// 						size: 'large',
-					// 					},
-					// 					icon: {
-					// 						variant: 'svg', // Specify the icon variant
-					// 						svgCode: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-					//               <g id="icon/image/adjust_24px">
-					//               <path id="icon/image/adjust_24px_2" fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12 15C13.66 15 15 13.66 15 12C15 10.34 13.66 9 12 9C10.34 9 9 10.34 9 12C9 13.66 10.34 15 12 15Z"/>
-					//               </g>
-					//               </svg>
-					//               `,
-					// 						size: 'small', // Specify the icon size
-					// 					},
-					// 				},
-					// 			],
-					// 		},
-					// 	],
-					// },
-					{
-						variant: 'secondary',
-						type: 'link',
-						href: 'https://nomadlist.com/@daniellauding',
-						text: 'My trips',
 					},
 				],
 			},
@@ -515,10 +361,31 @@ const about = [
 					{
 						id: 2,
 						columns: 2,
+						title: [
+							{
+								value: `Deeply involved in the digital nomad scene`,
+								size: 'medium',
+								className: 'leading-snug font-serif',
+							},
+						],
 						text: [
 							{
-								value: `Daniel's journey into merging work with global exploration began at 22, with the first flight to a London project exhibition for Hyper Island. Vibrant roles within New York's fashion industry and Amsterdam's fintech sector followed. With experiences from over 49 countries, he is deeply involved in the digital nomad scene, participating in communities like WiFi Tribe and Nomad Cruise. Remote work harnesses his design and development skills while drawing inspiration from diverse cultures.`,
+								value: `Daniel's journey into merging work with global exploration began at 22, with the first flight to a London project exhibition for Hyper Island. Vibrant roles within New York's fashion industry and Amsterdam's fintech sector followed. `,
 								size: 'medium',
+							},
+							{
+								value: `With experiences from over 49 countries, he is deeply involved in the digital nomad scene, participating in communities like WiFi Tribe and Nomad Cruise.`,
+								size: 'medium',
+							},
+							{
+								value: `Remote work harnesses his design and development skills while drawing inspiration from diverse cultures.`,
+								size: 'medium',
+							},
+							{
+								variant: 'secondary',
+								type: 'link',
+								href: 'https://nomadlist.com/@daniellauding',
+								text: 'Trips',
 							},
 						],
 					},
@@ -540,22 +407,55 @@ const about = [
 				gap: 4,
 				groups: [
 					{
-						id: 1,
-						columns: 2,
-					},
-					{
 						id: 2,
 						columns: 2,
+						colStart: 2,
 						title: [
 							{
 								value: `Ready to Bring Ambitious Concepts to Life`,
 								size: 'medium',
+								className: 'leading-snug font-serif',
 							},
 						],
 						text: [
 							{
 								value: `Ready to lead or dive into the details, Daniel brings a perfect blend of creativity and technical expertise to every project. If you're looking for a creative mind with a tech edge to bring your ambitious concepts to life, let's embark on this journey together.`,
 								size: 'medium',
+							},
+						],
+						buttons: [
+							{
+								variant: 'primary',
+								type: 'modal',
+								target: 'contactModal',
+								text: 'Contact me',
+							},
+							{
+								variant: 'primary',
+								type: 'modal',
+								target: 'offertModal',
+								text: 'Give me an offer',
+							},
+						],
+					},
+				],
+			},
+			{
+				id: 8,
+				section: 'experiences',
+				anchorName: `Experiences`,
+				anchorNav: true,
+				anchor: '',
+				padding: '0',
+				groups: [
+					{
+						id: 2,
+						title: [
+							{
+								value: `Experiences`,
+								size: 'medium',
+								className:
+									'leading-snug font-serif text-center',
 							},
 						],
 					},

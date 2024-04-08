@@ -238,7 +238,7 @@ const About = ({
 							)}
 							{console.log(intro.content.groups, 'content 2')} */}
 
-							{/* {console.log(intro.content, 'content 2')} */}
+							{console.log(intro.content, 'content 2')}
 
 							{intro.content.map((groups, index) => (
 								<div
@@ -442,20 +442,94 @@ const About = ({
 																			?.align
 																			?.vertical,
 																},
-																group?.class?.trim()
+																group?.class?.trim(),
+																group?.padding?.trim(),
+																group?.margin?.trim()
 															)}
 														>
-															{group?.title && (
+															{group?.icon && (
+																<Icon
+																	key={
+																		group.id
+																	} // Use group id as the key
+																	icon={
+																		group.icon
+																	}
+																	style={{
+																		fill: group
+																			.icon
+																			.fill,
+																	}}
+																	size={
+																		group
+																			.icon
+																			.size
+																	} // Use group.icon.size for the size
+																	customClass={
+																		group
+																			.icon
+																			.class
+																	} // Use group.icon.class for the customClass
+																/>
+															)}
+															{group?.title &&
+															Array.isArray(
+																group?.title
+															) ? (
+																<div className="space-y-4 w- flex flex-col">
+																	{group?.title.map(
+																		(
+																			titleBlock,
+																			index
+																		) => (
+																			<Title
+																				key={
+																					index
+																				}
+																				value={
+																					titleBlock.value
+																				}
+																				size={
+																					titleBlock.size
+																				}
+																				style={
+																					titleBlock.style
+																				}
+																				color={
+																					titleBlock?.color
+																				}
+																				fill={
+																					titleBlock?.fill
+																				}
+																				align={
+																					titleBlock?.align
+																				}
+																				className={
+																					titleBlock?.className
+																				}
+																				family={
+																					titleBlock?.family
+																				}
+																				weight={
+																					titleBlock?.weight
+																				}
+																			/>
+																		)
+																	)}
+																</div>
+															) : group?.title &&
+															  group?.title
+																	.value ? (
 																<Title
 																	value={
 																		group
 																			?.title
 																			?.value
 																	}
-																	variant={
+																	size={
 																		group
 																			?.title
-																			?.variant
+																			?.size
 																	}
 																	style={
 																		group
@@ -477,6 +551,11 @@ const About = ({
 																			?.title
 																			?.align
 																	}
+																	className={
+																		group
+																			?.title
+																			?.className
+																	}
 																	family={
 																		group
 																			?.title
@@ -487,13 +566,8 @@ const About = ({
 																			?.title
 																			?.weight
 																	}
-																	className={
-																		group
-																			?.title
-																			?.className
-																	}
 																/>
-															)}
+															) : null}
 															{group?.image && (
 																<Image
 																	variant={
@@ -591,29 +665,6 @@ const About = ({
 																			?.showControls ||
 																		false
 																	}
-																/>
-															)}
-
-															{group?.icon && (
-																<Icon
-																	key={
-																		group.id
-																	} // Use group id as the key
-																	icon={
-																		group
-																			.icon
-																			.svgCode
-																	} // Use group.icon.svgCode for the icon
-																	size={
-																		group
-																			.icon
-																			.size
-																	} // Use group.icon.size for the size
-																	customClass={
-																		group
-																			.icon
-																			.class
-																	} // Use group.icon.class for the customClass
 																/>
 															)}
 
@@ -887,15 +938,82 @@ const About = ({
 															group?.class?.trim()
 														)}
 													>
-														{group?.title && (
+														{group?.icon && (
+															<Icon
+																key={group.id} // Use group id as the key
+																icon={
+																	group.icon
+																}
+																style={{
+																	fill: group
+																		.icon
+																		.fill,
+																}}
+																size={
+																	group.icon
+																		.size
+																} // Use group.icon.size for the size
+																customClass={
+																	group.icon
+																		.class
+																} // Use group.icon.class for the customClass
+															/>
+														)}
+														{group?.title &&
+														Array.isArray(
+															group?.title
+														) ? (
+															<div className="space-y-4 w- flex flex-col">
+																{group?.title.map(
+																	(
+																		titleBlock,
+																		index
+																	) => (
+																		<Title
+																			key={
+																				index
+																			}
+																			value={
+																				titleBlock.value
+																			}
+																			size={
+																				titleBlock.size
+																			}
+																			style={
+																				titleBlock.style
+																			}
+																			color={
+																				titleBlock?.color
+																			}
+																			fill={
+																				titleBlock?.fill
+																			}
+																			align={
+																				titleBlock?.align
+																			}
+																			className={
+																				titleBlock?.className
+																			}
+																			family={
+																				titleBlock?.family
+																			}
+																			weight={
+																				titleBlock?.weight
+																			}
+																		/>
+																	)
+																)}
+															</div>
+														) : group?.title &&
+														  group?.title.value ? (
 															<Title
 																value={
 																	group?.title
 																		?.value
 																}
-																variant={
+																size={
 																	group?.title
-																		?.variant
+																		?.size
 																}
 																style={
 																	group?.title
@@ -913,6 +1031,10 @@ const About = ({
 																	group?.title
 																		?.align
 																}
+																className={
+																	group?.title
+																		?.className
+																}
 																family={
 																	group?.title
 																		?.family
@@ -921,12 +1043,8 @@ const About = ({
 																	group?.title
 																		?.weight
 																}
-																className={
-																	group?.title
-																		?.className
-																}
 															/>
-														)}
+														) : null}
 														{group?.image && (
 															<Image
 																variant={
@@ -1008,24 +1126,6 @@ const About = ({
 																		?.showControls ||
 																	false
 																}
-															/>
-														)}
-
-														{group?.icon && (
-															<Icon
-																key={group.id} // Use group id as the key
-																icon={
-																	group.icon
-																		.svgCode
-																} // Use group.icon.svgCode for the icon
-																size={
-																	group.icon
-																		.size
-																} // Use group.icon.size for the size
-																customClass={
-																	group.icon
-																		.class
-																} // Use group.icon.class for the customClass
 															/>
 														)}
 
