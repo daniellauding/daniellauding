@@ -28,8 +28,17 @@ const Experience = ({ item, active, setActive, onHover }) => {
 
 	const onClick = useCallback(
 		(e) => {
+			// Prevent the default action to handle it manually
 			e.preventDefault();
-			setActive(item?.id);
+			// Check if the item is marked as external
+			if (item?.isExternal) {
+				// Open the URL in a new tab
+				window.open(item.url, '_blank');
+			} else {
+				// Set the active item as before
+				setActive(item?.id);
+			}
+			// Optionally play a sound or perform other actions here
 			// test.play();
 		},
 		[item, setActive]

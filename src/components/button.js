@@ -1,11 +1,10 @@
 import React from 'react';
-// import classNames from 'classnames';
 
 const Button = ({
 	variant = 'default',
 	children,
 	onClick,
-	href,
+	href, // Add href prop for links
 	className = '',
 	...rest
 }) => {
@@ -26,10 +25,11 @@ const Button = ({
 	const variantClass =
 		variantClasses[`btn-${variant}`] || variantClasses['btn-default'];
 
+	// Check if type is 'link', render <a> tag instead of <button>
 	if (variant === 'link') {
 		return (
 			<a
-				href={href}
+				href={href} // Set href attribute for links
 				className={`${baseClasses} ${variantClass} ${className}`}
 				{...rest}
 			>

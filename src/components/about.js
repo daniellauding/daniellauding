@@ -132,7 +132,7 @@ const About = ({
 
 		return (
 			<div className="scroll-nav-wrapper flex">
-				<div className="bg-gray-400 w-px absolute right-2 top-2 bottom-2"></div>
+				<div className="bg-gray-700 w-px absolute right-2 top-2 bottom-2"></div>
 				<ul className="scroll-nav flex flex-col gap-8 items-end ">
 					{sections.map(({ id, name }) => (
 						<li
@@ -145,17 +145,17 @@ const About = ({
 							<span
 								className={`anchor-name leading-snug font-serif text-right light:group-hover/scroll-nav-item:text-black dark:group-hover/scroll-nav-item:text-white ${
 									activeSection === id
-										? 'text-black'
-										: 'text-gray-600'
+										? 'light:text-black dark:text-white'
+										: 'text-gray-700'
 								}`}
 							>
 								{name}
 							</span>
 							<div
-								className={`dot z-10 w-4 h-4 rounded-full cursor-pointer hover:bg-primary light:group-hover/scroll-nav-item:border-primary light:group-hover/scroll-nav-item:bg-white dark:group-hover/scroll-nav-item:border-primary dark:group-hover/scroll-nav-item:bg-white border-4 border-transparent ${
+								className={`dot z-10 w-4 h-4 rounded-full cursor-pointer hover:bg-primary light:group-hover/scroll-nav-item:border-primary light:group-hover/scroll-nav-item:bg-white dark:group-hover/scroll-nav-item:border-primary dark:group-hover/scroll-nav-item:bg-black border-4 border-transparent ${
 									activeSection === id
-										? 'border-primary bg-white'
-										: 'bg-gray-400'
+										? 'border-primary dark:bg-black light:bg-white'
+										: 'bg-gray-700'
 								}`}
 							></div>
 						</li>
@@ -163,6 +163,20 @@ const About = ({
 				</ul>
 			</div>
 		);
+	};
+
+	const generateResponsiveClass = (prefix, value) => {
+		let classes = [];
+
+		if (typeof value === 'number' || typeof value === 'string') {
+			classes.push(`${prefix}-${value}`);
+		} else if (typeof value === 'object' && value !== null) {
+			Object.entries(value).forEach(([breakpoint, size]) => {
+				classes.push(`${breakpoint}:${prefix}-${size}`);
+			});
+		}
+
+		return classes;
 	};
 
 	const scrollToSection = (sectionId) => {
@@ -345,18 +359,26 @@ const About = ({
 										<div
 											className={classNames(
 												`groups grid gap-0 md:gap-16 auto-rows-auto md:grid-flow-col pt-96 md:p-0 md:auto-cols-fr mt-8 h-full`,
-												{
-													[`grid-cols-${groups.columns}`]:
-														groups.columns,
-													[`grid-rows-${groups.rows}`]:
-														groups.rows,
-													[`gap-${groups.gap}`]:
-														groups.gap,
-													[`gap-y-${groups.gapY}`]:
-														groups.gapY,
-													[`gap-x-${groups.gapX}`]:
-														groups.gapX,
-												}
+												...generateResponsiveClass(
+													'grid-cols',
+													groups.columns
+												),
+												...generateResponsiveClass(
+													'grid-rows',
+													groups.rows
+												),
+												...generateResponsiveClass(
+													'gap',
+													groups.gap
+												),
+												...generateResponsiveClass(
+													'gap-y',
+													groups.gapY
+												),
+												...generateResponsiveClass(
+													'gap-x',
+													groups.gapX
+												)
 											)}
 										>
 											{groups.groups.map((group, index) =>
@@ -384,20 +406,32 @@ const About = ({
 														<div
 															key={index}
 															className={classNames(
-																`group`,
+																'group',
+																...generateResponsiveClass(
+																	'col-span',
+																	group.columns
+																),
+																...generateResponsiveClass(
+																	'col-start',
+																	group.colStart
+																),
+																...generateResponsiveClass(
+																	'col-end',
+																	group.colEnd
+																),
+																...generateResponsiveClass(
+																	'row-span',
+																	group.rows
+																),
+																...generateResponsiveClass(
+																	'row-start',
+																	group.rowStart
+																),
+																...generateResponsiveClass(
+																	'row-end',
+																	group.rowEnd
+																),
 																{
-																	[`col-span-${group.columns}`]:
-																		group.columns,
-																	[`col-start-${group.colStart}`]:
-																		group.colStart,
-																	[`col-end-${group.colEnd}`]:
-																		group.colEnd,
-																	[`row-span-${group.rows}`]:
-																		group.rows,
-																	[`row-start-${group.rowStart}`]:
-																		group.rowStart,
-																	[`row-end-${group.rowEnd}`]:
-																		group.rowEnd,
 																	[`${group.style}`]:
 																		group.style,
 																	'justify-start':
@@ -883,20 +917,32 @@ const About = ({
 													<div
 														key={index}
 														className={classNames(
-															`group`,
+															'group',
+															...generateResponsiveClass(
+																'col-span',
+																group.columns
+															),
+															...generateResponsiveClass(
+																'col-start',
+																group.colStart
+															),
+															...generateResponsiveClass(
+																'col-end',
+																group.colEnd
+															),
+															...generateResponsiveClass(
+																'row-span',
+																group.rows
+															),
+															...generateResponsiveClass(
+																'row-start',
+																group.rowStart
+															),
+															...generateResponsiveClass(
+																'row-end',
+																group.rowEnd
+															),
 															{
-																[`col-span-${group.columns}`]:
-																	group.columns,
-																[`col-start-${group.colStart}`]:
-																	group.colStart,
-																[`col-end-${group.colEnd}`]:
-																	group.colEnd,
-																[`row-span-${group.rows}`]:
-																	group.rows,
-																[`row-start-${group.rowStart}`]:
-																	group.rowStart,
-																[`row-end-${group.rowEnd}`]:
-																	group.rowEnd,
 																[`${group.style}`]:
 																	group.style,
 																'justify-start':
@@ -1314,7 +1360,7 @@ const About = ({
 																					}
 																					target="_blank"
 																					rel="noopener noreferrer"
-																					className="transition-all light:text-primary light:hover:text-white light:hover:bg-primary dark:text-primary dark:hover:text-white dark:hover:bg-primary font-bold p-2 px-4 text-center mx-auto w-auto border-2 rounded-full border-primary h-auto gap-2 items-center flex"
+																					className="transition-all light:text-primary light:hover:text-black light:hover:border-black dark:text-primary dark:hover:text-white dark:hover:border-white font-bold p-1 px-0 text-center mx-auto w-auto border-b-2 border-primary h-auto gap-2 items-center flex text-xxs"
 																				>
 																					{
 																						btn?.text
