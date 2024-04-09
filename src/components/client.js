@@ -100,6 +100,20 @@ const Client = ({
 		);
 	}
 
+	// Render directly if there's only one case
+	if (cases.length === 1) {
+		const singleCase = cases[0];
+		return (
+			<Case
+				item={singleCase}
+				clearActive={clearSelected}
+				selectedChanged={selectedChanged}
+				work={item}
+				selectedCaseChanged={selectedCaseChanged}
+			/>
+		);
+	}
+
 	return (
 		<div
 			className={classNames(

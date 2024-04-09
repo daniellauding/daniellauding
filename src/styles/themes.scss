@@ -10,7 +10,7 @@
 }
 
 .text-text {
-  color: var(--color-text, var(--color-gray-800, #2d3748)) !important;
+  color: var(--color-text, var(--color-gray-800, #2d3748));
 }
 
 .text-white {
@@ -44,5 +44,6 @@
 @media (prefers-color-scheme: dark) {
   .theme-lf {
     --color-bg-case: var(--bg-dark); /* Dark mode */
+    --color-text: var(--color-gray-800, #2d3748);
   }
 }

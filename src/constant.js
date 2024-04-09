@@ -739,7 +739,7 @@ const work = [
 		background: {
 			image: '/images/case/lansforsakringar/bg_lf.png',
 		},
-		protected: true,
+		// protected: true,
 		index: true,
 		thumbnail: [
 			'/images/case/lansforsakringar/thumbnail/01.png',
@@ -754,6 +754,8 @@ const work = [
 			'/images/case/lansforsakringar/thumbnail/10.gif',
 		],
 		url: 'https://www.lansforsakringar.se',
+		protected: true,
+		// funkar ej om det är max 1,
 		cases: [
 			{
 				id: 0,
@@ -762,6 +764,8 @@ const work = [
 				title: `Improving Länsförsäkringar's Brand Identity`,
 				tags: ['UX', 'UI'],
 				theme: 'lf',
+				protected: true,
+				// fix protected per case, dont show up now
 				hero: {
 					gap: 32,
 					columns: 3,
@@ -940,6 +944,10 @@ const work = [
 							src: '/images/case/lansforsakringar/lfui/lfui-craft-480p.mov',
 							controls: true,
 							showControls: false,
+						},
+						image: {
+							src: '/images/case/lansforsakringar/lfui/lfui-craft.gif',
+							imgClass: 'w-9/12 mx-auto',
 						},
 						text: [
 							{
