@@ -300,7 +300,7 @@ const about = [
 						class: 'mt-32',
 						text: [
 							{
-								value: `Driven by a passion for music, Daniel crafted a low-data solution for Spotify in Brazil, aiding the platform's expansion in emerging markets. The team conducted rapid testing with users in Brazilian favelas to refine designs and prototypes. `,
+								value: `Driven by a passion for music, Daniel crafted a low-data solution for Spotify in Brazil, aiding the platform's expansion in emerging markets. The team conducted rapid testing with users in Brazilian favelas to refine designs and prototypes.`,
 								size: 'large',
 							},
 							{
@@ -736,6 +736,7 @@ const work = [
 		date: '2016 – 2017',
 		location: 'Stockholm / Sweden',
 		featured: true,
+		protected: true,
 		background: {
 			image: '/images/case/lansforsakringar/bg_lf.png',
 		},
