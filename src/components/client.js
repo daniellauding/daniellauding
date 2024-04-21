@@ -101,7 +101,7 @@ const Client = ({
 	}
 
 	// Render directly if there's only one case
-	if (cases.length === 1) {
+	if (cases.length === 0) {
 		const singleCase = cases[0];
 		return (
 			<Case
