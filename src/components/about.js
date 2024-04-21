@@ -7,6 +7,8 @@ import Avatar from './avatar';
 import Profile from './profile';
 import ExperiencesShort, { Experiences } from './experiences';
 import { about, work } from '../constant';
+
+import { useNavigate } from 'react-router-dom';
 // import TagsList from './tags';
 import Social from './social';
 import Button from './button';
@@ -1470,6 +1472,7 @@ const AboutShort = ({
 	showProfile,
 	openContactModal,
 }) => {
+	const navigate = useNavigate();
 	// const [active, setActive] = useState(null);
 	// const tags = useMemo(() => {
 	// 	return lodash.uniq(
@@ -1478,6 +1481,12 @@ const AboutShort = ({
 	// 		})
 	// 	);
 	// }, []);
+
+	const handleReadMoreClick = () => {
+		// Here you can keep any logic that needs to run before navigation
+		setShowProfile(true); // If needed, adjust or remove according to actual requirement
+		navigate('/about'); // Navigate to /about when the button is clicked
+	};
 
 	return (
 		<>
@@ -1501,7 +1510,7 @@ const AboutShort = ({
 
 					{!showProfile && (
 						<button
-							onClick={() => setShowProfile(true)}
+							onClick={handleReadMoreClick}
 							className="transition-all light:text-primary light:hover:text-white light:hover:bg-primary dark:text-primary dark:hover:text-white dark:hover:bg-primary font-bold p-2 px-4 text-center mx-auto w-auto border-2 rounded-full border-primary h-auto gap-2 items-center flex"
 						>
 							Read more

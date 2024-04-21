@@ -7,7 +7,7 @@ import Client from './components/client';
 import { work } from './constant';
 
 import './styles/main.scss';
-import CaseSelector from './components/case';
+import CaseSelector, { Case } from './components/case';
 import TagsList from './components/tags';
 import Logo from './components/logo';
 
@@ -18,6 +18,14 @@ import { Bars3BottomRightIcon } from '@heroicons/react/24/solid';
 import Protected from './components/protected';
 
 import './styles/animate.min.css';
+
+// React Router DOM imports
+import {
+	BrowserRouter as Router,
+	Route,
+	Routes,
+	Navigate,
+} from 'react-router-dom';
 
 function App() {
 	const [previewCase, setPreviewCase] = useState(null);
@@ -56,11 +64,6 @@ function App() {
 
 	const selectedCaseChanged = useCallback(
 		(value) => {
-			console.log(
-				active.cases.find((item) => {
-					return item.id === value;
-				})
-			);
 			setCase(
 				active.cases.find((item) => {
 					return item.id === value;
@@ -97,133 +100,180 @@ function App() {
 	}, []);
 
 	return (
-		<div className="wrapper box-border">
-			{active && active.client && (
-				<Client
-					item={active}
-					clearActive={clearActive}
-					selectedCase={selectedCase}
-					selectedChanged={selectedChanged}
-					selectedCaseChanged={selectedCaseChanged}
+		<Router>
+			<Routes>
+				{/* <Route path="/" element={<Navigate replace to="/home" />} /> */}
+				<Route
+					path="/about"
+					element={
+						<About
+							setShowProfile={setShowProfile}
+							active={active}
+							selectedChanged={selectedChanged}
+							openContactModal={() => setIsContactModalOpen(true)}
+							openOffertModal={() => setIsOffertModalOpen(true)}
+						/>
+					}
 				/>
-			)}
-			{active && !active.client && (
-				<div className="cases flex flex-col">
-					<Logo />
-					<div className="case-header flex flex-row p-6 gap-8">
-						<button
-							className="relative whitespace-nowrap pt-0 mb-0 mt-0 text-center dark:text-gray-500 text-black text-sm lg:font-light"
-							onClick={clearActive}
-						>
-							← Back
-						</button>
-						<div className="case-filters flex w-full items-center justify-center">
-							<TagsList
-								tags={tags}
-								selectedChanged={selectedChanged}
-								active={active}
-							/>
-						</div>
-					</div>
-					<div className="case-container grid gap-2 mx-auto grid-cols-3 p-20 space-y-2 lg:space-y-0 lg:grid lg:gap-3 lg:grid-rows-3">
-						{/* denna går inte till client overview */}
-						{work.map((workItem, index) => (
-							<div key={index}>
-								{workItem.protected ? (
-									<Protected
-										item={workItem}
-										work={workItem}
-									/>
-								) : (
-									<>
-										{cases.map((item, index) => (
-											<CaseSelector
-												titleClassName="mb-4 text-2xl md:text-4xl font-medium"
-												key={index}
-												item={item}
-												work={workItem}
-												clearActive={clearActive}
-												onSelect={selectCase}
+				<Route path="/case/:caseName" element={<Case />} />
+				<Route path="/client/:clientId" element={<Client />} />
+				<Route path="*" element={<Navigate to="/" replace />} />
+				<Route
+					path="/"
+					element={
+						<div className="wrapper box-border">
+							{active && active.client && (
+								<Client
+									item={active}
+									clearActive={clearActive}
+									selectedCase={selectedCase}
+									selectedChanged={selectedChanged}
+									selectedCaseChanged={selectedCaseChanged}
+								/>
+							)}
+							{active && !active.client && (
+								<div className="cases flex flex-col">
+									<Logo />
+									<div className="case-header flex flex-row p-6 gap-8">
+										<button
+											className="relative whitespace-nowrap pt-0 mb-0 mt-0 text-center dark:text-gray-500 text-black text-sm lg:font-light"
+											onClick={clearActive}
+										>
+											← Back
+										</button>
+										<div className="case-filters flex w-full items-center justify-center">
+											<TagsList
+												tags={tags}
 												selectedChanged={
 													selectedChanged
 												}
+												active={active}
 											/>
+										</div>
+									</div>
+									<div className="case-container grid gap-2 mx-auto grid-cols-3 p-20 space-y-2 lg:space-y-0 lg:grid lg:gap-3 lg:grid-rows-3">
+										{work.map((workItem, index) => (
+											<div key={index}>
+												{workItem.protected ? (
+													<Protected
+														item={workItem}
+														work={workItem}
+													/>
+												) : (
+													<>
+														{cases.map(
+															(item, index) => (
+																<CaseSelector
+																	titleClassName="mb-4 text-2xl md:text-4xl font-medium"
+																	key={index}
+																	item={item}
+																	work={
+																		workItem
+																	}
+																	clearActive={
+																		clearActive
+																	}
+																	onSelect={
+																		selectCase
+																	}
+																	selectedChanged={
+																		selectedChanged
+																	}
+																/>
+															)
+														)}
+													</>
+												)}
+											</div>
 										))}
-									</>
-								)}
-							</div>
-						))}
-					</div>
-				</div>
-			)}
-			{showProfile && !active && (
-				<div className="profile-header">
-					{/* flex flex-row p-6 gap-8 */}
-					<About
-						setShowProfile={setShowProfile}
-						active={active}
-						setActive={setActive}
-						selectedChanged={selectedChanged}
-						openContactModal={() => setIsContactModalOpen(true)}
-						openOffertModal={() => setIsOffertModalOpen(true)}
-					/>
-				</div>
-			)}
-			{!active && !showProfile && (
-				<div
-					className={classNames(
-						'grid auto-rows-auto md:grid-flow-col pt-96 md:p-0 md:auto-cols-fr md:h-screen md:overflow-hidden'
-					)}
-				>
-					<AboutShort
-						active={active}
-						setActive={setActive}
-						previewCase={previewCase}
-						selectedChanged={selectedChanged}
-						setPreviewCase={setPreviewCase}
-						clearPreview={clearPreview}
-						clearActive={clearActive}
-						setShowProfile={setShowProfile}
-						showProfile={showProfile}
-						openContactModal={() => setIsContactModalOpen(true)}
-					/>
+									</div>
+								</div>
+							)}
+							{showProfile && !active && (
+								<div className="profile-header">
+									<About
+										setShowProfile={setShowProfile}
+										active={active}
+										setActive={setActive}
+										selectedChanged={selectedChanged}
+										openContactModal={() =>
+											setIsContactModalOpen(true)
+										}
+										openOffertModal={() =>
+											setIsOffertModalOpen(true)
+										}
+									/>
+								</div>
+							)}
+							{!active && !showProfile && (
+								<div
+									className={classNames(
+										'grid auto-rows-auto md:grid-flow-col pt-96 md:p-0 md:auto-cols-fr md:h-screen md:overflow-hidden'
+									)}
+								>
+									<AboutShort
+										active={active}
+										setActive={setActive}
+										previewCase={previewCase}
+										selectedChanged={selectedChanged}
+										setPreviewCase={setPreviewCase}
+										clearPreview={clearPreview}
+										clearActive={clearActive}
+										setShowProfile={setShowProfile}
+										showProfile={showProfile}
+										openContactModal={() =>
+											setIsContactModalOpen(true)
+										}
+									/>
 
-					{!showTimeline && (
-						<button
-							onClick={() => setShowTimeline(true)}
-							className="text-white font-bold p-2 w-2 h-2 rounded-full fixed top-4 right-8 z-10 invisible"
-						>
-							<Bars3BottomRightIcon className="h-5 w-5 dark:text-gray-300 dark:hover:dark:text-white" />
-						</button>
-					)}
+									{!showTimeline && (
+										<button
+											onClick={() =>
+												setShowTimeline(true)
+											}
+											className="text-white font-bold p-2 w-2 h-2 rounded-full fixed top-4 right-8 z-10 invisible"
+										>
+											<Bars3BottomRightIcon className="h-5 w-5 dark:text-gray-300 dark:hover:dark:text-white" />
+										</button>
+									)}
 
-					<Timeline
-						showTimeline={showTimeline}
-						setShowTimeline={setShowTimeline}
-					/>
-					<Timeline
-						showTimeline={showTimeline}
-						setShowTimeline={setShowTimeline}
-						direction="vertical"
-					/>
-				</div>
-			)}
+									<Timeline
+										showTimeline={showTimeline}
+										setShowTimeline={setShowTimeline}
+									/>
+									<Timeline
+										showTimeline={showTimeline}
+										setShowTimeline={setShowTimeline}
+										direction="vertical"
+									/>
+								</div>
+							)}
 
-			<Timeline
-				showTimeline={showTimeline}
-				setShowTimeline={setShowTimeline}
-			/>
+							<Timeline
+								showTimeline={showTimeline}
+								setShowTimeline={setShowTimeline}
+							/>
 
-			{/* Modals */}
-			{isContactModalOpen && (
-				<Contact
-					closeContactModal={() => setIsContactModalOpen(false)}
+							{/* Modals */}
+							{isContactModalOpen && (
+								<Contact
+									closeContactModal={() =>
+										setIsContactModalOpen(false)
+									}
+								/>
+							)}
+							{isOffertModalOpen && (
+								<Offert
+									closeOffertModal={() =>
+										setIsOffertModalOpen(false)
+									}
+								/>
+							)}
+						</div>
+					}
 				/>
-			)}
-			{isOffertModalOpen && (
-				<Offert closeOffertModal={() => setIsOffertModalOpen(false)} />
-			)}
-		</div>
+			</Routes>
+		</Router>
 	);
 }
 

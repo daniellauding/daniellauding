@@ -755,7 +755,6 @@ const work = [
 			'/images/case/lansforsakringar/thumbnail/10.gif',
 		],
 		url: 'https://www.lansforsakringar.se',
-		protected: true,
 		// funkar ej om det är max 1,
 		cases: [
 			{

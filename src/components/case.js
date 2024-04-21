@@ -11,6 +11,8 @@ import TagsList from './tags';
 import Soon from './soon';
 import { NavCase } from './nav';
 
+// import { useParams } from 'react-router-dom';
+
 // how do i render client info like, role, date, name, its in parent of array?
 // const ClientName = () => {
 // 	return work.map((item, i) => <h3 key={i}>{item.client}</h3>);
@@ -24,6 +26,40 @@ const Case = ({
 	selectedCaseChanged,
 }) => {
 	// console.log(item);
+
+	console.log(work);
+	console.log(Array.isArray(work));
+
+	// const { caseName } = useParams();
+	// const [caseItem, setCaseItem] = useState(null);
+	// const [loading, setLoading] = useState(true);
+
+	// useEffect(() => {
+	// 	if (!work) {
+	// 		console.error('Work data is not loaded');
+	// 		return;
+	// 	}
+
+	// 	const foundCase = work.find(
+	// 		(c) => c.case.toLowerCase() === caseName.toLowerCase()
+	// 	);
+	// 	if (!foundCase) {
+	// 		console.error('No case found for:', caseName);
+	// 		setLoading(false);
+	// 		return;
+	// 	}
+
+	// 	setCaseItem(foundCase);
+	// 	setLoading(false);
+	// }, [caseName, work]);
+
+	// if (loading) {
+	// 	return <div>Loading case details...</div>;
+	// }
+
+	// if (!caseItem) {
+	// 	return <div>Case not found</div>;
+	// }
 
 	if (item?.soon) {
 		return (
