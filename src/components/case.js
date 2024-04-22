@@ -1,15 +1,17 @@
-import React, { useState, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 import classNames from 'classnames';
 import { LockClosedIcon } from '@heroicons/react/24/solid';
 import Section from './section';
-import Access from './access';
+// import Access from './access';
 import Text, { Title } from './typography';
 import Image from './image';
 import Library from './library';
 import TagsList from './tags';
 import Soon from './soon';
 import { NavCase } from './nav';
+
+import { useNavigate } from 'react-router-dom';
 
 // import { useParams } from 'react-router-dom';
 
@@ -547,42 +549,46 @@ const CaseSelector = ({
 	caseSelectorClassName,
 	urlClassName,
 	titleClassName,
-	item,
+	clientCase,
+	client,
 	onSelect,
 	dateClassName,
 	roleClassName,
-	clearActive,
+	// clearActive,
 	selectedChanged,
-	work,
 }) => {
-	const [show, setShow] = useState(true);
+	// const [show, setShow] = useState(true);
 
-	const openModal = () => setShow(true);
-	const closeModal = () => setShow(false);
-	const [showAccess, setShowAccess] = useState(null);
+	// const openModal = () => setShow(true);
+	// const closeModal = () => setShow(false);
+	// const [showAccess, setShowAccess] = useState(null);
+
+	const navigate = useNavigate();
+
 	const onOpen = useCallback(() => {
-		if (item.protected) {
-			setShowAccess(true);
-		} else {
-			onSelect(item);
-		}
-	}, [item, onSelect]);
+		// if (item.protected) {
+		// 	setShowAccess(true);
+		// } else {
+		// 	onSelect(item);
+		// }
+		navigate(`/${client.slug}/${clientCase.case}`);
+	}, [client, onSelect]);
 
-	const onChange = (event) => {
-		if (event.target.value === '123') {
-			onSelect(item);
-		}
-	};
+	// const onChange = (event) => {
+	// 	if (event.target.value === '123') {
+	// 		onSelect(item);
+	// 	}
+	// };
 
 	return (
 		<div
 			className={classNames(
-				`case-wrapper case-teaser gap-20 flex flex-col h-full overflow-hidden justify-center flex-shrink-0 w-full md:w-full lg:w-full xl:w-full ml-[-20px] hover:scale-110 transition-transform`,
-				`${item?.background?.image && 'bg-center bg-cover'}`,
-				`client-${work?.client?.toLowerCase?.()}`
+				`case-wrapper case-teaser gap-20 flex flex-col h-full overflow-hidden justify-center flex-shrink-0 w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 ml-[-20px] hover:scale-110 transition-transform`,
+				`${clientCase?.background?.image && 'bg-center bg-cover'}`,
+				`client-${client?.slug?.toLowerCase?.()}`
 			)}
 		>
-			{showAccess && (
+			{/* {showAccess && (
 				<Access
 					clearActive={clearActive}
 					closeModal={closeModal}
@@ -591,15 +597,15 @@ const CaseSelector = ({
 					item={item}
 					onChange={onChange}
 				/>
-			)}
+			)} */}
 
 			<div
 				className={classNames(
-					`case-selector section py-20 px-20 relative section-${item?.case}`,
+					`case-selector section py-20 px-20 relative section-${clientCase?.case}`,
 					caseSelectorClassName
 				)}
 			>
-				<p className="client-info">{item?.client}</p>
+				<p className="client-info">{client?.client}</p>
 				<h1
 					className={classNames(
 						`case-title`,
@@ -608,7 +614,7 @@ const CaseSelector = ({
 							: 'pt-0 mt-8 mb-16 text-4xl md:text-9xl text-left text-white font-bold'
 					)}
 				>
-					{item?.title}
+					{clientCase?.title}
 				</h1>
 
 				<p
@@ -619,21 +625,21 @@ const CaseSelector = ({
 							: 'pt-0 mt-8 mb-16 text-1xl md:text-2xl text-left text-white font-normal'
 					)}
 				>
-					{item?.lead}
+					{clientCase?.lead}
 				</p>
 
 				<div className="container w-full">
 					<div className="grid grid-cols-4 gap-4">
 						<div className="actions col-span-2">
 							<button
-								onClick={() => onOpen(item)}
+								onClick={() => onOpen(clientCase)}
 								className={classNames(
 									`bg-primary hover:primary text-white font-bold py-5 px-8 rounded-full items-center flex`,
 									buttonReadMoreClassName
 								)}
 							>
 								Read more{' '}
-								{item?.protected && (
+								{clientCase?.protected && (
 									<LockClosedIcon className="ml-2 h-4 w-4 text-white" />
 								)}
 							</button>
@@ -646,44 +652,44 @@ const CaseSelector = ({
 									urlClassName
 								)}
 							>
-								<a href={item?.url}>{item?.url}</a>
+								<a href={clientCase?.url}>{clientCase?.url}</a>
 							</p>
-							{item?.role && item?.date && (
+							{clientCase?.role && clientCase?.date && (
 								<ul>
 									<li
 										className={classNames(
 											`flex flex-col md:flex-col py-0 mb-0`
 										)}
 									>
-										{item?.role && (
+										{clientCase?.role && (
 											<p
 												className={classNames(
 													`pt-0 mb-0 ml-0 text-left text-text lg:font-light`,
 													roleClassName
 												)}
 											>
-												{item?.role}
+												{clientCase?.role}
 											</p>
 										)}
-										{item?.date && (
+										{clientCase?.date && (
 											<p
 												className={classNames(
 													`pt-0 mb-0 md:ml-0 text-xs text-left md:text-left text-text lg:font-light`,
 													dateClassName
 												)}
 											>
-												{item?.date}
+												{clientCase?.date}
 											</p>
 										)}
 									</li>
 								</ul>
 							)}
 							<p className="pt-0 mt-0 mb-4 ml-0 text-left text-xs text-text lg:font-light">
-								{item?.location}
+								{clientCase?.location}
 							</p>
 
 							<TagsList
-								tags={item?.tags}
+								tags={clientCase?.tags}
 								selectedChanged={selectedChanged}
 							/>
 						</div>
@@ -694,8 +700,8 @@ const CaseSelector = ({
 					className="case-background absolute z-n1 left-0 top-0 right-0 bottom-0 h-full w-full bg-cover bg-center bg-no-repeat"
 					style={{
 						backgroundImage:
-							item?.background?.image &&
-							`url(${item?.background?.image})`,
+							clientCase?.background?.image &&
+							`url(${clientCase?.background?.image})`,
 					}}
 				/>
 			</div>

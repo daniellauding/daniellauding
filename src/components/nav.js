@@ -11,14 +11,11 @@ import {
 	XMarkIcon,
 } from '@heroicons/react/24/solid';
 import Tooltip from './tooltip';
+import { useNavigate } from 'react-router-dom';
 
-const Nav = ({
-	setShowProfile,
-	// showExperiencesFull,
-	// setShowExperiencesFull,
-	// setShowOffert,
-	// setShowContact,
-}) => {
+const Nav = () => {
+	const navigate = useNavigate();
+
 	return (
 		<div className="navigation z-30 relative">
 			<div
@@ -29,7 +26,7 @@ const Nav = ({
 				<div className="app-logo flex flex-row items-center gap-4 sm:gap-0">
 					<Tooltip content="Back to overview" direction="top">
 						<button
-							onClick={() => setShowProfile(false)}
+							onClick={() => navigate(-1)}
 							className="pt-0 mb-0 mt-0 items-center text-center dark:text-gray-500 text-black text-base lg:font-light"
 						>
 							<ArrowLongLeftIcon className="h-5 w-5 dark:text-gray-400 text-gray-500" />
@@ -85,7 +82,7 @@ const Nav = ({
 const NavClient = ({
 	workCase,
 	item,
-	clearActive,
+	// clearActive,
 	selectedChanged,
 	selectedCaseChanged,
 	authenticated,
@@ -142,6 +139,8 @@ const NavClient = ({
 		});
 	}
 
+	const navigate = useNavigate();
+
 	console.log(clients);
 
 	return (
@@ -156,7 +155,7 @@ const NavClient = ({
 					<div className="app-logo flex flex-row items-center gap-4 sm:gap-0">
 						<Tooltip content="Back to overview" direction="top">
 							<button
-								onClick={clearActive}
+								onClick={() => navigate(-1)}
 								className="pt-0 mb-0 mt-0 items-center text-center dark:text-gray-500 text-black text-base lg:font-light"
 							>
 								<ArrowLongLeftIcon className="h-5 w-5 dark:text-gray-400 text-gray-500" />
@@ -323,7 +322,7 @@ const NavClient = ({
 const NavCase = ({
 	workCase,
 	item,
-	clearActive,
+	// clearActive,
 	selectedChanged,
 	selectedCaseChanged,
 }) => {
@@ -379,6 +378,8 @@ const NavCase = ({
 
 	console.log(clients);
 
+	const navigate = useNavigate();
+
 	return (
 		<>
 			<div className="navigation z-10 relative">
@@ -391,7 +392,7 @@ const NavCase = ({
 					<div className="app-logo flex flex-row items-center">
 						<Tooltip content="Back to overview" direction="top">
 							<button
-								onClick={clearActive}
+								onClick={() => navigate(-1)}
 								className="pt-0 mb-0 mt-0 items-center text-center dark:text-gray-500 text-black text-base lg:font-light"
 							>
 								<ArrowLongLeftIcon className="h-5 w-5 dark:text-gray-400 text-gray-500" />

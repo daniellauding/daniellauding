@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import classNames from 'classnames';
-import { about } from '../constant';
+import { about, work } from '../constant';
 
-const Avatar = ({ active, selectedChanged, previewCase, className }) => {
+import { useLocation } from 'react-router-dom';
+
+const Avatar = ({ selectedChanged, previewCase, className }) => {
 	// move to own file
 	const heroImg = about.map((intro) => intro.hero);
+
+	const location = useLocation();
+
+	const active = useMemo(() => {
+		return work.find((client) => location === `/${client.slug}`);
+	}, [location]);
 
 	return (
 		<div

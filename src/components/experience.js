@@ -11,9 +11,11 @@ import classNames from 'classnames';
 //   }
 // );
 
+import { useLocation, useNavigate } from 'react-router-dom';
+
 import { ArrowLongRightIcon } from '@heroicons/react/24/solid';
 
-const Experience = ({ item, active, setActive, onHover }) => {
+const Experience = ({ item, onHover }) => {
 	const [isHovering, setIsHovering] = useState(false);
 	const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -26,6 +28,8 @@ const Experience = ({ item, active, setActive, onHover }) => {
 		setIsHovering(false);
 	};
 
+	const navigate = useNavigate();
+
 	const onClick = useCallback(
 		(e) => {
 			// Prevent the default action to handle it manually
@@ -36,12 +40,13 @@ const Experience = ({ item, active, setActive, onHover }) => {
 				window.open(item.url, '_blank');
 			} else {
 				// Set the active item as before
-				setActive(item?.id);
+				// setActive(item?.id);
+				navigate(`/${item.slug}`);
 			}
 			// Optionally play a sound or perform other actions here
 			// test.play();
 		},
-		[item, setActive]
+		[item, navigate]
 	);
 
 	const setPreview = useCallback(
@@ -72,12 +77,14 @@ const Experience = ({ item, active, setActive, onHover }) => {
 		return () => clearInterval(interval); // Clean up the interval
 	}, [item.thumbnail]);
 
+	const location = useLocation();
+
 	return (
 		<li
 			key={item?.id}
 			className={classNames(
 				`experience grid grid-cols-3 sm:grid-cols-4 grid-rows-2 md:grid-rows-1 grid-rows-1 group/item items-center transition-all h-16 gap-2 sm:gap-0`,
-				active
+				location.pathname === `/${item.slug}`
 					? 'bg-gray-100 text-gray-900'
 					: 'block h-4 py-2 text-sm text-gray-700',
 				isHovering ? 'hovering cursor-pointer' : 'no-hover'
@@ -93,10 +100,7 @@ const Experience = ({ item, active, setActive, onHover }) => {
 					`col-span-1 pt-0 mb-0 text-left text-2xl md:text-base md:font-medium h-full row-start-1 md:row-start-1 md:row-end-1`
 				)}
 			>
-				<span
-					onClick={onClick}
-					className="flex items-center gap-2 sm:px-4 h-full transition-all border-2 border-transparent light:text-primary light:group-hover/item:border-primary dark:text-primary dark:hover:text-white dark:hover:bg-primary dark:group-hover/item:border-primary light:hover:bg-primary light:hover:text-white rounded-full min-w-max sm:w-fit"
-				>
+				<span className="flex items-center gap-2 sm:px-4 h-full transition-all border-2 border-transparent light:text-primary light:group-hover/item:border-primary dark:text-primary dark:hover:text-white dark:hover:bg-primary dark:group-hover/item:border-primary light:hover:bg-primary light:hover:text-white rounded-full min-w-max sm:w-fit">
 					{item?.client}
 
 					<ArrowLongRightIcon className="h-5 w-5 invisible group-hover/item:visible" />

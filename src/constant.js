@@ -655,6 +655,7 @@ const work = [
 	{
 		id: 1,
 		client: 'Asteria',
+		slug: 'asteria',
 		role: 'Co-Founder & Lead Product Design',
 		date: '2017 – Present',
 		location: 'Remote / Sweden',
@@ -668,6 +669,7 @@ const work = [
 	{
 		id: 2,
 		client: 'Furuboda',
+		slug: 'furuboda',
 		role: 'Music Production',
 		date: '2023 – 2024',
 		location: 'Remote / Yngsjö, Sweden',
@@ -680,6 +682,7 @@ const work = [
 	{
 		id: 3,
 		client: 'Spotify',
+		slug: 'spotify',
 		role: 'Product Design Consultant',
 		date: '2017',
 		location: 'Brazil / Sweden',
@@ -721,22 +724,22 @@ const work = [
 	{
 		id: 4,
 		client: 'Record Union',
+		slug: 'record-union',
 		role: 'Senior Product Design Consultant',
 		date: '2017 – 2018',
 		location: 'Remote',
 		featured: false,
 		url: 'https://www.recordunion.com',
-		protected: true,
 		index: true,
 	},
 	{
 		id: 5,
 		client: 'Länsförsäkringar',
+		slug: 'lansforsakringar',
 		role: 'Art Director Consultant',
 		date: '2016 – 2017',
 		location: 'Stockholm / Sweden',
 		featured: true,
-		protected: true,
 		background: {
 			image: '/images/case/lansforsakringar/bg_lf.png',
 		},
@@ -762,6 +765,646 @@ const work = [
 				date: '2015',
 				case: 'improving-lansforsakringars-brand-identity',
 				title: `Improving Länsförsäkringar's Brand Identity`,
+				tags: ['UX', 'UI'],
+				theme: 'lf',
+				// protected: true,
+				// fix protected per case, dont show up now
+				hero: {
+					gap: 32,
+					columns: 3,
+					rows: 2,
+					description: {
+						colStart: 1,
+						colEnd: 4,
+						columns: 3,
+						rowStart: 2,
+						rows: 3,
+						title: {
+							value: `Improving Länsförsäkringar's Brand Identity`,
+							rowStart: 1,
+							colStart: 1,
+							colEnd: 2,
+						},
+						lead: {
+							value: 'Länsförsäkringar',
+							colStart: 1,
+							colEnd: 1,
+							class: 'mb-0',
+						},
+						desc: {
+							value: 'Art Director Consultant, 2016 – 2017',
+							colStart: 1,
+							colEnd: 1,
+						},
+					},
+					image: {
+						src: '/images/case/lansforsakringar/logo@2x.png',
+						columns: 2,
+						rows: 3,
+						colStart: 2,
+						rowStart: 2,
+						rowEnd: 3,
+						imgClass: 'w-7/12 mx-auto my-auto mt-64',
+					},
+				},
+				image: {
+					src: '/images/case/lansforsakringar/hero_dark.png',
+				},
+				content: [
+					{
+						id: 0,
+						background: {
+							image: '/images/case/lansforsakringar/intro.png',
+							color: '#F3F3F3',
+						},
+						variant: 'full',
+						class: 'bg-contain bg-fixed bg-no-repeat bg-center',
+					},
+					{
+						id: 1,
+						section: '#intro',
+						anchor: '#intro',
+						// padding: 'py-32',
+						text: [
+							{
+								value: `In 2016, I worked as an Art Director Consultant for Identity Works on a project with Länsförsäkringar AB, a major Swedish insurance and banking company.`,
+								size: 'large',
+								align: {
+									horizontal: 'center',
+								},
+							},
+							{
+								value: `Länsförsäkringar has a rich history and stands apart with its local ownership, emphasizing its unique local approach.`,
+								size: 'large',
+								align: {
+									horizontal: 'center',
+								},
+							},
+						],
+					},
+					{
+						id: 2,
+						background: {},
+						variant: 'scrollVertically',
+						image: {
+							src: '/images/case/lansforsakringar/devices.png',
+							imgClass: 'w-9/12 mx-auto',
+						},
+						align: {
+							horizontal: 'center',
+							vertical: 'center',
+						},
+						container: {
+							height: 'h-screen',
+							align: {
+								horizontal: 'center',
+								vertical: 'center',
+							},
+						},
+						height: 'h-screen',
+					},
+					{
+						id: 3,
+						section: 'problem',
+						anchor: '#problem',
+						columns: 4,
+						gap: 4,
+						groups: [
+							{
+								id: 0,
+								columns: 2,
+								title: {
+									value: 'The problem',
+									weight: 'font-regular',
+									family: 'font-serif',
+									className: 'leading-snug',
+								},
+							},
+							{
+								id: 1,
+								columns: 2,
+								text: [
+									{
+										value: `Länsförsäkringar needed to update their brand for the digital age. They wanted a modern look and feel for their website, mobile app, and other digital platforms while staying connected to their local roots.`,
+										size: 'large',
+									},
+								],
+								groups: [
+									{
+										id: 0,
+										columns: 2,
+										title: {
+											value: 'The problem',
+											weight: 'font-regular',
+											family: 'font-serif',
+											className: 'leading-snug',
+										},
+									},
+									{
+										id: 1,
+										columns: 2,
+										text: [
+											{
+												value: `Länsförsäkringar needed to update their brand for the digital age. They wanted a modern look and feel for their website, mobile app, and other digital platforms while staying connected to their local roots.`,
+												size: 'large',
+											},
+										],
+									},
+								],
+							},
+						],
+					},
+					{
+						id: 4,
+						background: {},
+						variant: 'scrollVertically',
+						align: {
+							horizontal: 'center',
+							vertical: 'center',
+						},
+						image: {
+							src: '/images/case/lansforsakringar/lfui/lfui-map@2x.png',
+							imgClass: 'w-9/12 mx-auto',
+						},
+						container: {
+							height: 'h-screen',
+							align: {
+								horizontal: 'center',
+								vertical: 'center',
+							},
+						},
+						height: 'h-screen',
+					},
+					{
+						id: 5,
+						background: {},
+						variant: 'scrollVertically',
+						align: {
+							horizontal: 'center',
+							vertical: 'center',
+						},
+						video: {
+							src: '/images/case/lansforsakringar/lfui/lfui-craft-480p.mov',
+							controls: true,
+							showControls: false,
+						},
+						image: {
+							src: '/images/case/lansforsakringar/lfui/lfui-craft.gif',
+							imgClass: 'w-9/12 mx-auto',
+						},
+						text: [
+							{
+								value: `Sketch runner, Abstract working like a charm!`,
+								size: 'large',
+							},
+						],
+						container: {
+							height: 'h-screen',
+							align: {
+								horizontal: 'center',
+								vertical: 'center',
+							},
+						},
+						height: 'h-screen',
+					},
+					{
+						id: 44444,
+						section: 'goal',
+						anchor: '#goal',
+						columns: 4,
+						gap: 4,
+						groups: [
+							{
+								id: 0,
+								columns: 2,
+								title: {
+									value: 'Setting the Goal',
+									weight: 'font-regular',
+									family: 'font-serif',
+									className: 'leading-snug',
+								},
+							},
+							{
+								id: 1,
+								columns: 2,
+								text: [
+									{
+										value: `Our main goal was clear: create a unified digital look for Länsförsäkringar that would make it easier for customers to interact with their services online. We wanted to keep the brand's essence while making it work well on different devices.`,
+										size: 'large',
+									},
+								],
+							},
+						],
+					},
+					{
+						id: 6,
+						section: 'insights',
+						anchor: '#insights',
+						columns: 4,
+						gap: 4,
+						groups: [
+							{
+								id: 0,
+								columns: 2,
+								title: {
+									value: 'Gaining Insights',
+									weight: 'font-regular',
+									family: 'font-serif',
+									className: 'leading-snug',
+								},
+							},
+							{
+								id: 1,
+								columns: 2,
+								text: [
+									{
+										value: `In the initial five weeks, we held a design sprint to generate ideas and prototypes for various digital platforms, including the homepage, mobile app, bank portal, and insurance services. We actively involved Länsförsäkringar employees, seeking their feedback on our design concepts. Their input helped us identify design directions that resonated with users. We also prioritized accessibility. To ensure our designs were user-friendly for everyone, we collaborated with Funka, an accessibility consultancy, to integrate expert insights into the design process. This ensured inclusivity and usability for all users.`,
+										size: 'large',
+									},
+								],
+								groups: [
+									{
+										id: 0,
+										title: {
+											value: 'Watch',
+										},
+										text: {
+											value: 'Lorem ipsum',
+										},
+									},
+									{
+										id: 1,
+										title: {
+											value: 'Mobile',
+										},
+										text: {
+											value: 'Lorem ipsum',
+										},
+									},
+									{
+										id: 2,
+										title: {
+											value: 'Web',
+										},
+										text: {
+											value: 'Lorem ipsum',
+										},
+									},
+									{
+										id: 3,
+										title: {
+											value: 'Insurance',
+										},
+										text: {
+											value: 'Lorem ipsum',
+										},
+									},
+									{
+										id: 4,
+										title: {
+											value: 'Banking',
+										},
+										text: {
+											value: 'Lorem ipsum',
+										},
+									},
+								],
+							},
+						],
+					},
+					{
+						id: 7,
+						section: 'approach',
+						anchor: '#approach',
+						columns: 4,
+						gap: 4,
+						groups: [
+							{
+								id: 0,
+								columns: 2,
+								title: {
+									value: 'The Approach',
+									weight: 'font-regular',
+									family: 'font-serif',
+									className: 'leading-snug',
+								},
+							},
+							{
+								id: 1,
+								columns: 2,
+								text: [
+									{
+										value: `Using what we learned, we started designing a new digital look for Länsförsäkringar. We wanted it to be consistent and easy to use on different devices. After the design phase, I became an Art Director consultant, ensuring that the new look was used correctly by all teams.`,
+										size: 'large',
+									},
+								],
+							},
+						],
+					},
+					{
+						id: 8,
+						section: 'outcome',
+						columns: 4,
+						gap: 4,
+						groups: [
+							{
+								id: 0,
+								columns: 2,
+								title: {
+									value: 'The Outcome',
+									weight: 'font-regular',
+									family: 'font-serif',
+									className: 'leading-snug',
+								},
+							},
+							{
+								id: 1,
+								columns: 2,
+								text: [
+									{
+										value: `The new look was ready to launch in late 2016 across different platforms. It improved the digital experience for Länsförsäkringar's customers. My role as an Art Director consultant was crucial in making sure everyone used the new look correctly.`,
+										size: 'large',
+									},
+								],
+							},
+						],
+					},
+					{
+						id: 1011,
+						section: 'ui-component-navigation',
+						variant: 'scrollVertically',
+						height: 'h-screen',
+						image: {
+							src: '/images/case/lansforsakringar/ui/big-menu@2x.png',
+							imgClass: 'w-9/12 mx-auto mt-32 -order-1',
+						},
+						text: [
+							{
+								value: `The navigation for the public facing website. Applied updated brand and iconography for feeling of personality and warmth.`,
+								size: 'small',
+								className: 'mt-16 order-3',
+								align: {
+									horizontal: 'center',
+								},
+							},
+						],
+						background: {
+							color: '#e5eff7',
+							class: 'bg-wavy',
+						},
+						align: {
+							horizontal: 'center',
+							vertical: 'center',
+						},
+					},
+					{
+						id: 1119,
+						section: 'test',
+						anchor: '#test',
+						class: 'relative',
+						container: 'h-full relative container flex flex-col',
+						image: {
+							src: '/images/case/lansforsakringar/open/Home_desktop.png',
+							// width: 784,
+							// height: 1353,
+							imgClass:
+								'object-fill mx-auto -order-1 border border-gray-300 w-3/4',
+						},
+						title: {
+							value: 'Homepage',
+							// fill: 'red',
+							// className: 'pelle',
+							align: {
+								horizontal: 'center',
+							},
+							className: 'mt-16',
+						},
+						text: [
+							{
+								value: `Morbi finibus, ligula nec mattis laoreet, lacus velit tincidunt purus, eget fermentum magna neque quis erat. Duis tempus quam eu elit fringilla, id dignissim metus faucibus. Donec quam mi, congue nec erat ac, porttitor dictum augue.`,
+								size: 'medium',
+								className: 'mt-16 order-3',
+								align: {
+									horizontal: 'center',
+								},
+							},
+							{
+								value: `hur får jag vänstra delen scrolla när jag scrollar här med, textblocket, funkar ej`,
+								size: 'medium',
+								className: 'mt-16 order-4',
+								align: {
+									horizontal: 'center',
+								},
+							},
+						],
+					},
+					{
+						id: 9,
+						section: 'collaboration',
+						anchor: '#collaboration',
+						columns: 4,
+						gap: 4,
+						title: [
+							{
+								value: `Key Collaborations`,
+							},
+						],
+						text: [
+							{
+								value: `Valtech and Tieto EVRY: Worked together on the website design. - Common Ground: Improved the Internet banking experience. - Daresay (formerly known as Screen Interaction): Developed the mobile app. - Identity Works: Collaborated on the initial design phase.`,
+								size: 'medium',
+							},
+							{
+								value: `Common Ground: Improved the Internet banking experience. - Daresay (formerly known as Screen Interaction): Developed the mobile app. - Identity Works: Collaborated on the initial design phase.`,
+								size: 'medium',
+							},
+							{
+								value: `Daresay (formerly known as Screen Interaction): Developed the mobile app. - Identity Works: Collaborated on the initial design phase.`,
+								size: 'medium',
+							},
+							{
+								value: `Identity Works: Collaborated on the initial design phase.`,
+								size: 'medium',
+							},
+						],
+					},
+					{
+						id: 10,
+						section: 'recognition',
+						anchor: '#recognition',
+						columns: 4,
+						gap: 4,
+						title: [
+							{
+								value: `Recognition and Awards`,
+							},
+						],
+						text: [
+							{
+								value: `Länsförsäkringar received awards, including Best Bank and Insurance Site at the Swedish IDG Internetworld Top 100 in 2017. This recognized our successful work. Our project with Länsförsäkringar wasn't just about a new look; it was about adapting to the digital age while keeping local values intact. Through careful design and teamwork, we achieved this balance, showing how tradition and modernity can coexist.`,
+								size: 'medium',
+							},
+							{
+								value: `This project was about more than just rebranding; it was about reshaping a company's image for the digital world. Länsförsäkringar's success story illustrates the power of smart design and collaboration.`,
+								size: 'medium',
+							},
+						],
+					},
+					{
+						id: 11,
+						section: 'test',
+						anchor: '#test',
+						columns: 2,
+						gap: 4,
+						class: 'relative',
+						container: 'relative container',
+						variant: 'scrollVertically',
+
+						height: 'h-screen',
+						image: {
+							src: '/images/case/lansforsakringar/ui/forms@2x.png',
+							imgClass: 'w-full mx-auto mt-32 -order-1',
+						},
+						text: [
+							{
+								value: `Form fields used cross-platform`,
+								size: 'small',
+								className: 'mt-0 order-3',
+								align: {
+									horizontal: 'center',
+								},
+							},
+						],
+						align: {
+							horizontal: 'center',
+							vertical: 'center',
+						},
+					},
+					{
+						id: 12,
+						section: 'test',
+						anchor: '#test',
+						class: 'relative',
+						container: 'h-full relative container flex flex-col',
+						image: {
+							src: '/images/case/lansforsakringar/nim/nim-dashboard@2x.png',
+							imgClass:
+								'object-fill mx-auto -order-1 border border-gray-300 w-3/4',
+						},
+						title: {
+							value: 'Internet banking',
+							align: {
+								horizontal: 'center',
+							},
+							className: 'mt-16',
+						},
+						text: [
+							{
+								value: `Morbi finibus, ligula nec mattis laoreet, lacus velit tincidunt purus, eget fermentum magna neque quis erat. Duis tempus quam eu elit fringilla, id dignissim metus faucibus. Donec quam mi, congue nec erat ac, porttitor dictum augue.`,
+								size: 'medium',
+								className: 'mt-16 order-3',
+								align: {
+									horizontal: 'center',
+								},
+							},
+						],
+					},
+					{
+						id: 13,
+						section: 'test',
+						anchor: '#test',
+						columns: 2,
+						gap: 4,
+						class: 'relative',
+						container: 'relative container',
+						variant: 'scrollVertically',
+
+						height: 'h-screen',
+						image: {
+							src: '/images/case/lansforsakringar/ui/nim-nav@2x.png',
+							imgClass: 'w-1/2 mx-auto mt-32 -order-1',
+						},
+						text: [
+							{
+								value: `Navigation variant stacked for portal`,
+								size: 'small',
+								className: 'mt-0 order-3',
+								align: {
+									horizontal: 'center',
+								},
+							},
+						],
+						align: {
+							horizontal: 'center',
+							vertical: 'center',
+						},
+					},
+					{
+						id: 14,
+						section: 'watch-animation',
+						image: {
+							src: '/images/case/lansforsakringar/watch/watch-transfer.gif',
+							class: 'h-auto max-w-sm mx-auto',
+							imgClass:
+								'h-auto max-w-sm mx-auto rounded-3xl shadow-2xl',
+						},
+						title: {
+							value: `Effortless Money Transfers at Your Fingertips`,
+							size: 'large',
+							align: {
+								horizontal: 'center',
+							},
+							className: 'mt-16 order-2',
+						},
+						text: {
+							value: `Experience the watch app for seamless money transfers, aligned with Länsförsäkringar's new digital brand`,
+							size: 'medium',
+							align: {
+								horizontal: 'center',
+							},
+							className: 'mt-0 order-3',
+						},
+						background: {
+							color: '#fff',
+						},
+						align: {
+							horizontal: 'center',
+							vertical: 'center',
+						},
+						// container: {
+						// 	height: 'h-screen',
+						// 	align: {
+						// 		horizontal: 'center',
+						// 		vertical: 'center',
+						// 	},
+						// },
+						height: 'h-screen',
+					},
+					{
+						id: 15,
+						section: 'image-loop',
+						container: 'fluid',
+						image: {
+							variant: 'loop',
+							folder: 'lansforsakringar/mobile/',
+							style: 'horizontal',
+						},
+					},
+					{
+						id: 16,
+						section: 'image-loop',
+						image: {
+							variant: 'loop',
+							folder: 'lansforsakringar/mobile/',
+						},
+					},
+				],
+			},
+			{
+				id: 1,
+				date: '2015',
+				case: 'test-1',
+				title: `test-1`,
 				tags: ['UX', 'UI'],
 				theme: 'lf',
 				protected: true,
@@ -1402,6 +2045,7 @@ const work = [
 	{
 		id: 6,
 		client: 'KLM Royal Dutch Airlines',
+		slug: 'klm',
 		role: 'Senior Product Design Consultant',
 		date: '2015',
 		location: 'Amsterdam, Netherlands',
@@ -1413,6 +2057,7 @@ const work = [
 	{
 		id: 7,
 		client: 'Instinctly',
+		slug: 'instinctly',
 		role: 'CEO & Senior Product Design Consultant',
 		date: '2007 – Present',
 		location: 'Remote / Sweden',
@@ -1757,6 +2402,7 @@ const work = [
 	{
 		id: 8,
 		client: 'Backbase',
+		slug: 'backbase',
 		role: 'Lead Visual Designer Consultant',
 		date: '2012 – 2017',
 		location: 'Remote / Amsterdam, Netherlands',
@@ -1846,6 +2492,7 @@ const work = [
 	{
 		id: 9,
 		client: 'Navii',
+		slug: 'navii',
 		role: 'UX & UI Designer',
 		date: '2011 – 2012',
 		location: 'Västerås, Sweden',
@@ -1857,6 +2504,7 @@ const work = [
 	{
 		id: 10,
 		client: 'Burt',
+		slug: 'burt',
 		role: 'User Interface Designer',
 		date: '2011',
 		location: 'Gothenburg, Sweden',

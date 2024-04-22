@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { about } from '../constant';
 
-const goHome = () => {
-	window.location.href = '/';
-};
+import { useNavigate } from 'react-router-dom';
 
 const Logo = ({ className }) => {
 	const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768); // 768px is a common breakpoint for "md" in responsive design
@@ -19,6 +17,12 @@ const Logo = ({ className }) => {
 			window.removeEventListener('resize', handleResize);
 		};
 	}, []);
+
+	const navigate = useNavigate();
+
+	const goHome = () => {
+		navigate('/');
+	};
 
 	return (
 		<div className="rounded-full bg-black w-32 h-32 overflow-hidden flex items-center mx-auto">

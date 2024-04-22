@@ -1,6 +1,6 @@
-import React, { useRef, useState, useCallback, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import classNames from 'classnames';
-import CaseSelector, { Case } from './case';
+import CaseSelector from './case';
 import Soon from './soon';
 import Protected from './protected';
 import { NavClient } from './nav';
@@ -13,22 +13,22 @@ const Client = ({
 	selectedCaseChanged,
 }) => {
 	const { cases = [] } = item;
-	const [selected, setCase] = useState(null);
+	// const [selected, setCase] = useState(null);
 	const [authenticated, setAuthenticated] = useState(false);
 	const sliderRef = useRef(null);
 	const [scrollX, setScrollX] = useState(0);
 	const step = 300; // Adjust this value to control the scroll step
 
 	useEffect(() => {
-		setCase(null);
+		// setCase(null);
 		setAuthenticated(!item.protected);
 	}, [item]);
 
-	useEffect(() => {
-		if (selectedCase) {
-			setCase(selectedCase);
-		}
-	}, [selectedCase]);
+	// useEffect(() => {
+	// 	if (selectedCase) {
+	// 		setCase(selectedCase);
+	// 	}
+	// }, [selectedCase]);
 
 	useEffect(() => {
 		const container = sliderRef.current;
@@ -84,35 +84,35 @@ const Client = ({
 		}
 	};
 
-	const clearSelected = useCallback(() => {
-		setCase(null);
-	}, []);
+	// const clearSelected = useCallback(() => {
+	// 	setCase(null);
+	// }, []);
 
-	if (selected) {
-		return (
-			<Case
-				item={selected}
-				clearActive={clearSelected}
-				selectedChanged={selectedChanged}
-				work={item}
-				selectedCaseChanged={selectedCaseChanged}
-			/>
-		);
-	}
+	// if (selected) {
+	// 	return (
+	// 		<Case
+	// 			item={selected}
+	// 			clearActive={clearSelected}
+	// 			selectedChanged={selectedChanged}
+	// 			work={item}
+	// 			selectedCaseChanged={selectedCaseChanged}
+	// 		/>
+	// 	);
+	// }
 
 	// Render directly if there's only one case
-	if (cases.length === 0) {
-		const singleCase = cases[0];
-		return (
-			<Case
-				item={singleCase}
-				clearActive={clearSelected}
-				selectedChanged={selectedChanged}
-				work={item}
-				selectedCaseChanged={selectedCaseChanged}
-			/>
-		);
-	}
+	// if (cases.length === 1) {
+	// 	const singleCase = cases[0];
+	// 	return (
+	// 		<Case
+	// 			item={singleCase}
+	// 			// clearActive={clearSelected}
+	// 			selectedChanged={selectedChanged}
+	// 			work={item}
+	// 			selectedCaseChanged={selectedCaseChanged}
+	// 		/>
+	// 	);
+	// }
 
 	return (
 		<div
@@ -153,12 +153,14 @@ const Client = ({
 						>
 							{cases
 								.filter((item) => item.index !== false)
-								.map((item) => (
+								.map((clientCase) => (
 									<CaseSelector
-										onSelect={setCase}
-										key={item.id}
-										item={item}
-										work={item}
+										// onSelect={setCase}
+										key={clientCase.id}
+										// item={item}
+										// work={item}
+										client={item}
+										clientCase={clientCase}
 										clearActive={clearActive}
 										selectedChanged={selectedChanged}
 									/>
