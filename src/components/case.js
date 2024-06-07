@@ -111,8 +111,19 @@ const Case = ({
 							[`gap-${item?.hero?.gap}`]: item?.hero?.gap,
 							[`gap-y-${item?.hero?.gapY}`]: item?.hero?.gapY,
 							[`gap-x-${item?.hero?.gapX}`]: item?.hero?.gapX,
-						}
+						},
+						item?.hero?.background?.attachment?.trim(),
+						item?.hero?.background?.position?.trim(),
+						item?.hero?.background?.repeat?.trim(),
+						item?.hero?.background?.size?.trim(),
+						item?.hero?.background?.class?.trim()
 					)}
+					style={{
+						backgroundImage:
+							item?.hero?.background?.image &&
+							`url(${item?.hero?.background?.image})`,
+						backgroundColor: item?.hero?.background?.color,
+					}}
 				>
 					{/* <p className="client-info absolute left-8 top-8">
 						{work?.client}

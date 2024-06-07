@@ -664,7 +664,174 @@ const work = [
 			image: '/images/case/asteria/bg_asteria.png',
 		},
 		url: 'https://www.asteria.ai',
-		soon: true,
+		// soon: true,
+		cases: [
+			{
+				id: 0,
+				case: 'foretagskollen',
+				title: 'Företagskollen – Swedbank',
+				hero: {
+					gap: 32,
+					columns: 3,
+					rows: 2,
+					class: 'bg-cover bg-fixed bg-no-repeat bg-center',
+					background: {
+						image: '/images/case/asteria/foretagskollen/bg_foretagskollen.png',
+					},
+					description: {
+						colStart: 1,
+						colEnd: 4,
+						columns: 3,
+						rowStart: 2,
+						rows: 3,
+						title: {
+							value: `Integrating cash flow management into the everyday banking activities of small businesses`,
+							rowStart: 1,
+							colStart: 1,
+							colEnd: 2,
+						},
+						lead: {
+							value: 'Företagskollen',
+							colStart: 1,
+							colEnd: 1,
+							class: 'mb-0',
+						},
+						desc: {
+							value: 'Lead Product Design, 2017 – Present',
+							colStart: 1,
+							colEnd: 1,
+						},
+					},
+				},
+				content: [
+					{
+						id: 0,
+						section: 'intro',
+						image: {
+							src: '/images/case/asteria/foretagskollen/laptop@2x.png',
+						},
+						title: {
+							value: `Product design`,
+							size: 'small',
+						},
+						// title: [
+						// 	{
+						// 		value: `Product Design`,
+						// 		size: 'large',
+						// 	},
+						// ],
+						text: [
+							{
+								value: `2017 – Present`,
+								size: 'small',
+							},
+							{
+								value: `Stockholm`,
+								size: 'small',
+							},
+							{
+								value: `Together with Swedbank, we embarked on creating Företagskollen, a tool designed to fit snugly into the online banking scene, aimed at making financial management straightforward and clear for over 400,000 business clients.`,
+								size: 'large',
+							},
+						],
+					},
+					{
+						id: 1,
+						section: 'the-problem',
+						title: {
+							value: `The problem`,
+							size: 'small',
+						},
+						text: [
+							{
+								value: `We realized that small business owners often found cash flow management complex and expressed a need for a simpler, digital solution.`,
+								size: 'large',
+							},
+						],
+					},
+					{
+						id: 2,
+						section: 'setting-the-goal',
+						title: {
+							value: `Setting the Goal`,
+							size: 'small',
+						},
+						text: [
+							{
+								value: `Our mission was to integrate cash flow management into the everyday banking activities of small businesses, offering them a clear, visual snapshot of their financial health.`,
+								size: 'large',
+							},
+						],
+					},
+					{
+						id: 3,
+						section: 'gaining-insights',
+						title: {
+							value: `Gaining Insights`,
+							size: 'small',
+						},
+						text: [
+							{
+								value: `Företagskollen pulls transactions and balances from company accounts, sorting and forecasting them to present an easy-to-understand visual of future cash flow, all within the digital banking experience.`,
+								size: 'large',
+							},
+						],
+					},
+					{
+						id: 4,
+						section: 'the-approach',
+						title: {
+							value: `The Approach`,
+							size: 'small',
+						},
+						text: [
+							{
+								value: `Starting from the ground up, I led the design process, getting involved in everything from coding to feature refinement and user interface improvements. Collaboration was key, working closely with both Swedbank and our Asteria team, drawing on user feedback to continuously enhance our solution.`,
+								size: 'large',
+							},
+						],
+					},
+					{
+						id: 4,
+						section: 'the-outcome',
+						title: {
+							value: `The Outcome`,
+							size: 'small',
+						},
+						text: [
+							{
+								value: `Företagskollen was successfully rolled out to Swedbank's SME clientele, backed by a robust marketing campaign. Now a versatile tool beyond Swedbank's platform, it's reaching more users, with plans to expand its accessibility, especially on mobile devices.`,
+								size: 'large',
+							},
+						],
+					},
+					{
+						id: 5,
+						section: 'learnings',
+						title: {
+							value: `Learnings`,
+							size: 'small',
+						},
+						text: [
+							{
+								value: `This project was a great reminder of the impact thoughtful design can have on simplifying complex processes like financial management for small businesses. Being involved in every step, from the technical coding to the final design touches, and seeing the positive response from users has been incredibly fulfilling. Knowing we're making a real difference in helping business owners navigate their financial landscape more easily is the ultimate reward.`,
+								size: 'large',
+							},
+						],
+					},
+					{
+						id: 6,
+						section: 'image-loop',
+						container: 'fluid',
+						image: {
+							variant: 'loop',
+							folder: 'asteria/foretagskollen',
+							// style: 'vertical',
+						},
+					},
+				],
+			},
+		],
 	},
 	{
 		id: 2,
