@@ -657,6 +657,17 @@ const Section = ({ section }) => {
 			className={classNames(
 				`section section-${section.section}`,
 				{
+					[`col-span-${section.columns}`]: section.columns,
+					[`col-start-${section.colStart}`]: section.colStart,
+					[`col-end-${section.colEnd}`]: section.colEnd,
+					[`row-span-${section.rows}`]: section.rows,
+					[`row-start-${section.rowStart}`]: section.rowStart,
+					[`row-end-${section.rowEnd}`]: section.rowEnd,
+					[`grid-cols-${section.columns}`]: section.columns,
+					[`grid-rows-${section.rows}`]: section.rows,
+					[`gap-${section.gap}`]: section.gap,
+					[`gap-y-${section.gapY}`]: section.gapY,
+					[`gap-x-${section.gapX}`]: section.gapX,
 					[`variant-${section.variant}`]: section.variant,
 					[`${section.className}`]: section.className,
 					'justify-start': section?.align?.horizontal === 'left',
@@ -670,6 +681,16 @@ const Section = ({ section }) => {
 						section?.container?.align?.horizontal ||
 						section?.container?.align?.vertical,
 				},
+				(section.columns ||
+					section.colStart ||
+					section.colEnd ||
+					section.rows ||
+					section.rowStart ||
+					section.rowEnd ||
+					section.gap ||
+					section.gapY ||
+					section.gapX) &&
+					'grid',
 				section?.class?.trim(),
 				section?.background?.attachment?.trim(),
 				section?.background?.position?.trim(),

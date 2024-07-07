@@ -344,6 +344,16 @@ const Image = ({ item = {} }) => {
 	if (variant === 'loop') {
 		const images = files.filter((image) => image.includes(item.folder));
 
+		const SIZES = {
+			small: { width: '100px', height: '100px' },
+			medium: { width: '200px', height: '200px' },
+			large: { width: '300px', height: '300px' },
+		};
+
+		const applyImageSize = (size) => {
+			return `${imageClasses} ${SIZES[size].width} ${SIZES[size].height}`;
+		};
+
 		let containerClasses;
 		let imageClasses;
 		let innerDivClasses;
@@ -355,7 +365,7 @@ const Image = ({ item = {} }) => {
 		} else if (item?.style === 'vertical') {
 			containerClasses = '';
 			imageClasses =
-				'object-cover w-32 h-32 cursor-pointer transform hover:scale-110 transition-transform duration-300 cursor-zoom-in';
+				'object-cover cursor-pointer transform hover:scale-110 transition-transform duration-300 cursor-zoom-in';
 			innerDivClasses = 'relative flex-shrink-0';
 		} else {
 			// Handle the case when item?.style is not set or has an unexpected value
@@ -405,6 +415,7 @@ const Image = ({ item = {} }) => {
 		};
 
 		const isHorizontal = item?.style === 'horizontal';
+		const isVertical = item?.style === 'vertical';
 
 		return (
 			<div className="image-loop-container">
@@ -412,6 +423,8 @@ const Image = ({ item = {} }) => {
 					ref={containerRef}
 					className={classNames(containerClasses, {
 						'overflow-x-scroll': isHorizontal,
+						'flex flex-col items-center container mx-auto gap-12':
+							isVertical,
 						'whitespace-nowrap': isHorizontal,
 					})}
 				>
@@ -420,7 +433,10 @@ const Image = ({ item = {} }) => {
 							<img
 								src={`/images/case/${src}`}
 								alt={`/images/case/${src}`}
-								className={imageClasses}
+								// className={imageClasses}
+								className={applyImageSize(
+									item.size || 'medium'
+								)} // Default to 'medium' if not specified
 								onClick={() => openModalAndSetIndex(index)} // Open modal on click
 							/>
 						</div>

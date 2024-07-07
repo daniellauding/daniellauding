@@ -678,6 +678,7 @@ const work = [
 					background: {
 						image: '/images/case/asteria/foretagskollen/bg_foretagskollen.png',
 					},
+					tags: ['UX', 'UI'],
 					description: {
 						colStart: 1,
 						colEnd: 4,
@@ -705,8 +706,61 @@ const work = [
 				},
 				content: [
 					{
+						id: 10,
+						section: 'hero-test',
+						// columns: 3,
+						// colStart: 2,
+						// class: 'w-6/12 mx-auto',
+						groups: [
+							{
+								id: 0,
+								columns: 2,
+								title: [
+									{
+										value: `Swedbank – Företagskollen`,
+										size: 'small',
+									},
+									{
+										value: `Lead Product Design, 2017 – Present`,
+										size: 'small',
+									},
+								],
+								// title: [
+								// 	{
+								// 		value: `Product Design`,
+								// 		size: 'large',
+								// 	},
+								// ],
+								text: [
+									{
+										value: `2017 – Present`,
+										size: 'small',
+									},
+									{
+										value: `Stockholm / Remote`,
+										size: 'small',
+									},
+									{
+										value: `Integrating cash flow management into the everyday banking activities of small businesses`,
+										size: 'large',
+									},
+								],
+							},
+							{
+								id: 1,
+								columns: 2,
+								image: {
+									src: '/images/case/asteria/foretagskollen/laptop@2x.png',
+								},
+							},
+						],
+					},
+					{
 						id: 0,
 						section: 'intro',
+						// columns: 3,
+						// colStart: 2,
+						class: 'w-6/12 mx-auto',
 						image: {
 							src: '/images/case/asteria/foretagskollen/laptop@2x.png',
 						},
@@ -738,95 +792,171 @@ const work = [
 					{
 						id: 1,
 						section: 'the-problem',
-						title: {
-							value: `The problem`,
-							size: 'small',
-						},
-						text: [
+						groups: [
 							{
-								value: `We realized that small business owners often found cash flow management complex and expressed a need for a simpler, digital solution.`,
-								size: 'large',
+								id: 0,
+								columns: 2,
+								title: {
+									value: 'The problem',
+									weight: 'font-regular',
+									family: 'font-serif',
+									className: 'leading-snug',
+								},
+							},
+							{
+								id: 1,
+								columns: 2,
+								text: [
+									{
+										value: `We realized that small business owners often found cash flow management complex and expressed a need for a simpler, digital solution.`,
+										size: 'large',
+									},
+								],
 							},
 						],
 					},
 					{
 						id: 2,
 						section: 'setting-the-goal',
-						title: {
-							value: `Setting the Goal`,
-							size: 'small',
-						},
-						text: [
+						groups: [
 							{
-								value: `Our mission was to integrate cash flow management into the everyday banking activities of small businesses, offering them a clear, visual snapshot of their financial health.`,
-								size: 'large',
+								id: 0,
+								columns: 2,
+								title: {
+									value: 'Setting the Goal',
+									weight: 'font-regular',
+									family: 'font-serif',
+									className: 'leading-snug',
+								},
+							},
+							{
+								id: 1,
+								columns: 2,
+								text: [
+									{
+										value: `Our mission was to integrate cash flow management into the everyday banking activities of small businesses, offering them a clear, visual snapshot of their financial health.`,
+										size: 'large',
+									},
+								],
 							},
 						],
 					},
 					{
 						id: 3,
 						section: 'gaining-insights',
-						title: {
-							value: `Gaining Insights`,
-							size: 'small',
-						},
-						text: [
+						groups: [
 							{
-								value: `Företagskollen pulls transactions and balances from company accounts, sorting and forecasting them to present an easy-to-understand visual of future cash flow, all within the digital banking experience.`,
-								size: 'large',
+								id: 0,
+								columns: 2,
+								title: {
+									value: 'Gaining Insights',
+									weight: 'font-regular',
+									family: 'font-serif',
+									className: 'leading-snug',
+								},
+							},
+							{
+								id: 1,
+								columns: 2,
+								text: [
+									{
+										value: `Företagskollen pulls transactions and balances from company accounts, sorting and forecasting them to present an easy-to-understand visual of future cash flow, all within the digital banking experience.`,
+										size: 'large',
+									},
+								],
 							},
 						],
 					},
 					{
 						id: 4,
 						section: 'the-approach',
-						title: {
-							value: `The Approach`,
-							size: 'small',
-						},
-						text: [
+						groups: [
 							{
-								value: `Starting from the ground up, I led the design process, getting involved in everything from coding to feature refinement and user interface improvements. Collaboration was key, working closely with both Swedbank and our Asteria team, drawing on user feedback to continuously enhance our solution.`,
-								size: 'large',
+								id: 0,
+								columns: 2,
+								title: {
+									value: 'The Approach',
+									weight: 'font-regular',
+									family: 'font-serif',
+									className: 'leading-snug',
+								},
+							},
+							{
+								id: 1,
+								columns: 2,
+								text: [
+									{
+										value: `Starting from the ground up, I led the design process, getting involved in everything from coding to feature refinement and user interface improvements. Collaboration was key, working closely with both Swedbank and our Asteria team, drawing on user feedback to continuously enhance our solution.`,
+										size: 'large',
+									},
+								],
 							},
 						],
 					},
 					{
 						id: 4,
 						section: 'the-outcome',
-						title: {
-							value: `The Outcome`,
-							size: 'small',
-						},
-						text: [
+						groups: [
 							{
-								value: `Företagskollen was successfully rolled out to Swedbank's SME clientele, backed by a robust marketing campaign. Now a versatile tool beyond Swedbank's platform, it's reaching more users, with plans to expand its accessibility, especially on mobile devices.`,
-								size: 'large',
+								id: 0,
+								columns: 2,
+								title: {
+									value: 'The Outcome',
+									weight: 'font-regular',
+									family: 'font-serif',
+									className: 'leading-snug',
+								},
+							},
+							{
+								id: 1,
+								columns: 2,
+								text: [
+									{
+										value: `Företagskollen was successfully rolled out to Swedbank's SME clientele, backed by a robust marketing campaign. Now a versatile tool beyond Swedbank's platform, it's reaching more users, with plans to expand its accessibility, especially on mobile devices.`,
+										size: 'large',
+									},
+								],
 							},
 						],
 					},
 					{
 						id: 5,
 						section: 'learnings',
-						title: {
-							value: `Learnings`,
-							size: 'small',
-						},
-						text: [
+						groups: [
 							{
-								value: `This project was a great reminder of the impact thoughtful design can have on simplifying complex processes like financial management for small businesses. Being involved in every step, from the technical coding to the final design touches, and seeing the positive response from users has been incredibly fulfilling. Knowing we're making a real difference in helping business owners navigate their financial landscape more easily is the ultimate reward.`,
-								size: 'large',
+								id: 0,
+								columns: 2,
+								title: {
+									value: 'Learnings',
+									weight: 'font-regular',
+									family: 'font-serif',
+									className: 'leading-snug',
+								},
+							},
+							{
+								id: 1,
+								columns: 2,
+								text: [
+									{
+										value: `This project was a great reminder of the impact thoughtful design can have on simplifying complex processes like financial management for small businesses. Being involved in every step, from the technical coding to the final design touches, and seeing the positive response from users has been incredibly fulfilling. Knowing we're making a real difference in helping business owners navigate their financial landscape more easily is the ultimate reward.`,
+										size: 'large',
+									},
+								],
 							},
 						],
 					},
 					{
 						id: 6,
 						section: 'image-loop',
+						background: {
+							color: '#FAFAFA',
+						},
 						container: 'fluid',
 						image: {
 							variant: 'loop',
-							folder: 'asteria/foretagskollen',
-							// style: 'vertical',
+							folder: 'asteria/foretagskollen/screens/2x',
+							style: 'vertical',
+							imageClasses: 'testar',
 						},
 					},
 				],
