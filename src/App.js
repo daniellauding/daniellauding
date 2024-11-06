@@ -41,15 +41,13 @@ function App() {
 	const [active, setActive] = useState(null);
 	const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 	const [isOffertModalOpen, setIsOffertModalOpen] = useState(false);
-	const [showContactModal, setShowContactModal] = useState(false);
-	const [showOffertModal, setShowOffertModal] = useState(false);
 
 	const openContactModal = () => {
-		setShowContactModal(true);
+		setIsContactModalOpen(true);
 	};
 
 	const openOffertModal = () => {
-		setShowOffertModal(true);
+		setIsOffertModalOpen(true);
 	};
 
 	return (
@@ -111,7 +109,7 @@ function App() {
 				<FloatingButtonWrapper
 					openContactModal={openContactModal}
 					openOffertModal={openOffertModal}
-					stopMovement={showContactModal || showOffertModal}
+					stopMovement={isContactModalOpen || isOffertModalOpen}
 				/>
 			</Router>
 
