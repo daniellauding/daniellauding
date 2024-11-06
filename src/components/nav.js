@@ -169,17 +169,13 @@ const NavClient = ({
 			(c) => c.id === workCase?.id
 		);
 
-		// If current case not found, start from beginning
-		if (currentCaseIndex === -1) {
-			const firstCase = filteredCases[0];
-			if (firstCase?.id && selectedCaseChanged) {
-				selectedCaseChanged(firstCase.id);
-			}
-			return;
-		}
+		// If current case not found or at the end, go to first case
+		const nextCaseIndex =
+			currentCaseIndex === -1 ||
+			currentCaseIndex === filteredCases.length - 1
+				? 0
+				: currentCaseIndex + 1;
 
-		// Calculate next index
-		const nextCaseIndex = (currentCaseIndex + 1) % filteredCases.length;
 		const nextCase = filteredCases[nextCaseIndex];
 
 		if (nextCase?.id && selectedCaseChanged) {
@@ -191,7 +187,9 @@ const NavClient = ({
 				'Next index:',
 				nextCaseIndex,
 				'Total cases:',
-				filteredCases.length
+				filteredCases.length,
+				'Current cases:',
+				filteredCases.map((c) => c.title)
 			);
 			selectedCaseChanged(nextCase.id);
 		}
@@ -205,20 +203,12 @@ const NavClient = ({
 			(c) => c.id === workCase?.id
 		);
 
-		// If current case not found, start from end
-		if (currentCaseIndex === -1) {
-			const lastCase = filteredCases[filteredCases.length - 1];
-			if (lastCase?.id && selectedCaseChanged) {
-				selectedCaseChanged(lastCase.id);
-			}
-			return;
-		}
-
-		// Calculate prev index
+		// If current case not found or at the beginning, go to last case
 		const prevCaseIndex =
-			currentCaseIndex === 0
+			currentCaseIndex <= 0
 				? filteredCases.length - 1
 				: currentCaseIndex - 1;
+
 		const prevCase = filteredCases[prevCaseIndex];
 
 		if (prevCase?.id && selectedCaseChanged) {
@@ -230,7 +220,9 @@ const NavClient = ({
 				'Prev index:',
 				prevCaseIndex,
 				'Total cases:',
-				filteredCases.length
+				filteredCases.length,
+				'Current cases:',
+				filteredCases.map((c) => c.title)
 			);
 			selectedCaseChanged(prevCase.id);
 		}
@@ -542,17 +534,13 @@ const NavCase = ({ workCase, item, selectedChanged, selectedCaseChanged }) => {
 			(c) => c.id === workCase?.id
 		);
 
-		// If current case not found, start from beginning
-		if (currentCaseIndex === -1) {
-			const firstCase = filteredCases[0];
-			if (firstCase?.id && selectedCaseChanged) {
-				selectedCaseChanged(firstCase.id);
-			}
-			return;
-		}
+		// If current case not found or at the end, go to first case
+		const nextCaseIndex =
+			currentCaseIndex === -1 ||
+			currentCaseIndex === filteredCases.length - 1
+				? 0
+				: currentCaseIndex + 1;
 
-		// Calculate next index
-		const nextCaseIndex = (currentCaseIndex + 1) % filteredCases.length;
 		const nextCase = filteredCases[nextCaseIndex];
 
 		if (nextCase?.id && selectedCaseChanged) {
@@ -564,7 +552,9 @@ const NavCase = ({ workCase, item, selectedChanged, selectedCaseChanged }) => {
 				'Next index:',
 				nextCaseIndex,
 				'Total cases:',
-				filteredCases.length
+				filteredCases.length,
+				'Current cases:',
+				filteredCases.map((c) => c.title)
 			);
 			selectedCaseChanged(nextCase.id);
 		}
@@ -578,20 +568,12 @@ const NavCase = ({ workCase, item, selectedChanged, selectedCaseChanged }) => {
 			(c) => c.id === workCase?.id
 		);
 
-		// If current case not found, start from end
-		if (currentCaseIndex === -1) {
-			const lastCase = filteredCases[filteredCases.length - 1];
-			if (lastCase?.id && selectedCaseChanged) {
-				selectedCaseChanged(lastCase.id);
-			}
-			return;
-		}
-
-		// Calculate prev index
+		// If current case not found or at the beginning, go to last case
 		const prevCaseIndex =
-			currentCaseIndex === 0
+			currentCaseIndex <= 0
 				? filteredCases.length - 1
 				: currentCaseIndex - 1;
+
 		const prevCase = filteredCases[prevCaseIndex];
 
 		if (prevCase?.id && selectedCaseChanged) {
@@ -603,7 +585,9 @@ const NavCase = ({ workCase, item, selectedChanged, selectedCaseChanged }) => {
 				'Prev index:',
 				prevCaseIndex,
 				'Total cases:',
-				filteredCases.length
+				filteredCases.length,
+				'Current cases:',
+				filteredCases.map((c) => c.title)
 			);
 			selectedCaseChanged(prevCase.id);
 		}
