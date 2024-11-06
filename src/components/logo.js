@@ -27,14 +27,13 @@ const Logo = ({ className }) => {
 	return (
 		<div className="rounded-full bg-black w-32 h-32 overflow-hidden flex items-center mx-auto">
 			{about.map((intro) => (
-				<>
+				<React.Fragment key={intro.id}>
 					{isDesktop ? (
 						<div
 							className={classNames(
 								'logo mx-auto cursor-pointer h-24',
 								className
 							)}
-							key={intro.id}
 							onClick={goHome}
 						>
 							<video
@@ -54,7 +53,6 @@ const Logo = ({ className }) => {
 								'logo mx-auto cursor-pointer w-12',
 								className
 							)}
-							key={intro.id}
 							onClick={goHome}
 						>
 							<img
@@ -64,7 +62,7 @@ const Logo = ({ className }) => {
 							/>
 						</div>
 					)}
-				</>
+				</React.Fragment>
 			))}
 		</div>
 	);
