@@ -338,7 +338,7 @@ const FloatingButton = ({
 						</defs>
 						<path
 							fill="url(#blob-gradient)"
-							className="transition-all duration-500"
+							className="transition-all duration-500 fill-primary"
 							d={blobPaths[currentBlobIndex]}
 						>
 							<animate
