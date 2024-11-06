@@ -98,16 +98,16 @@ const NavClient = ({
 	const [toggleNav, setToggleNav] = useState(false);
 
 	const nextClient = () => {
-		const nextClientId = clients[nextIndex]?.id;
-		if (nextClientId && selectedChanged) {
+		if (selectedChanged) {
+			const nextClientId = clients[nextIndex]?.id;
 			console.log('Next client:', nextClientId);
 			selectedChanged(nextClientId);
 		}
 	};
 
 	const prevClient = () => {
-		const prevClientId = clients[prevIndex]?.id;
-		if (prevClientId && selectedChanged) {
+		if (selectedChanged) {
+			const prevClientId = clients[prevIndex]?.id;
 			console.log('Previous client:', prevClientId);
 			selectedChanged(prevClientId);
 		}
@@ -127,39 +127,26 @@ const NavClient = ({
 		}
 	};
 
-	const selectedCaseOption = useMemo(() => {
-		if (workCase) {
-			const currentCase = cases.find((c) => c.id === workCase.id);
-			if (currentCase) {
-				return {
-					value: currentCase.id,
-					label: currentCase.title,
-				};
-			}
-		}
-		return { value: null, label: 'Choose' };
-	}, [workCase, cases]);
-
 	const casesOptions = useMemo(() => {
-		const availableCases = cases
+		return cases
 			.filter((item) => item.index !== false)
 			.map((caseItem) => ({
 				value: caseItem.id,
 				label: caseItem.title,
 			}));
-
-		return [{ value: null, label: 'Choose' }].concat(availableCases);
 	}, [cases]);
 
-	{
-		cases.map((caseItem, index) => {
-			console.log(index, caseItem.id, caseItem.title);
-		});
-	}
+	const selectedCaseOption = useMemo(() => {
+		if (workCase) {
+			return {
+				value: workCase.id,
+				label: workCase.title,
+			};
+		}
+		return null;
+	}, [workCase]);
 
 	const navigate = useNavigate();
-
-	console.log(clients);
 
 	return (
 		<>
@@ -351,42 +338,33 @@ const NavCase = ({ workCase, item, selectedChanged, selectedCaseChanged }) => {
 
 	const nextClient = () => {
 		if (selectedChanged) {
-			selectedChanged(clients[nextIndex].id);
+			const nextClientId = clients[nextIndex]?.id;
+			console.log('Next client:', nextClientId);
+			selectedChanged(nextClientId);
 		}
 	};
 
 	const prevClient = () => {
 		if (selectedChanged) {
-			selectedChanged(clients[prevIndex].id);
+			const prevClientId = clients[prevIndex]?.id;
+			console.log('Previous client:', prevClientId);
+			selectedChanged(prevClientId);
 		}
 	};
 
 	const handleClientSelect = (value) => {
 		if (selectedChanged) {
-			console.log('Selected client:', value);
+			console.log('Selected client from dropdown in NavCase:', value);
 			selectedChanged(value);
 		}
 	};
 
 	const handleCaseSelect = (selectedCase) => {
 		if (selectedCaseChanged) {
-			console.log('Selected case:', selectedCase);
+			console.log('Selected case from dropdown:', selectedCase);
 			selectedCaseChanged(selectedCase);
 		}
 	};
-
-	const selectedCaseOption = useMemo(() => {
-		if (workCase) {
-			const currentCase = cases.find((c) => c.id === workCase.id);
-			if (currentCase) {
-				return {
-					value: currentCase.id,
-					label: currentCase.title,
-				};
-			}
-		}
-		return { value: null, label: 'Choose' };
-	}, [workCase, cases]);
 
 	const casesOptions = useMemo(() => {
 		return cases
@@ -397,13 +375,15 @@ const NavCase = ({ workCase, item, selectedChanged, selectedCaseChanged }) => {
 			}));
 	}, [cases]);
 
-	{
-		cases.map((caseItem, index) => {
-			console.log(index, caseItem.id, caseItem.title);
-		});
-	}
-
-	console.log(clients);
+	const selectedCaseOption = useMemo(() => {
+		if (workCase) {
+			return {
+				value: workCase.id,
+				label: workCase.title,
+			};
+		}
+		return null;
+	}, [workCase]);
 
 	const navigate = useNavigate();
 
@@ -488,7 +468,7 @@ const NavCase = ({ workCase, item, selectedChanged, selectedCaseChanged }) => {
 										</span>
 										<div className="flex ml-auto gap-1">
 											<Tooltip
-												content={`${clients[prevIndex].client}`}
+												content={`Previous client`}
 												direction="top"
 											>
 												<button
@@ -499,7 +479,7 @@ const NavCase = ({ workCase, item, selectedChanged, selectedCaseChanged }) => {
 												</button>
 											</Tooltip>
 											<Tooltip
-												content={`${clients[nextIndex].client}`}
+												content={`Next client`}
 												direction="top"
 											>
 												<button
@@ -522,11 +502,6 @@ const NavCase = ({ workCase, item, selectedChanged, selectedCaseChanged }) => {
 										}}
 										onSelect={handleClientSelect}
 									/>
-									{/* {item?.url ? (
-                      <a href={item?.url}>{item?.client}</a>
-                    ) : (
-                      item?.client
-                    )} */}
 								</div>
 								{item?.role && (
 									<h3
@@ -549,7 +524,7 @@ const NavCase = ({ workCase, item, selectedChanged, selectedCaseChanged }) => {
 										</span>
 										<div className="flex ml-auto gap-1">
 											<Tooltip
-												content="Previous case"
+												content={`Previous case`}
 												direction="top"
 											>
 												<button
@@ -560,7 +535,7 @@ const NavCase = ({ workCase, item, selectedChanged, selectedCaseChanged }) => {
 												</button>
 											</Tooltip>
 											<Tooltip
-												content="Next case"
+												content={`Next case`}
 												direction="top"
 											>
 												<button
@@ -590,10 +565,10 @@ const NavCase = ({ workCase, item, selectedChanged, selectedCaseChanged }) => {
 								Cases
 							</span>
 							{
-								cases.filter((c) => {
-									return c.index !== false;
-								}).length
-							}
+									cases.filter((c) => {
+										return c.index !== false;
+									}).length
+								}
 						</h3> */}
 						{/* .filter((item) => item.index !== false) */}
 						{item?.location && (
