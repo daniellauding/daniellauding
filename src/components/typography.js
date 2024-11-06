@@ -30,7 +30,7 @@ const Text = ({
 		return (
 			<p
 				className={classNames(
-					`text-2xl md:text-4xl pt-0 mb-2`,
+					`text-2xl md:text-7xl pt-0 mb-2`,
 					!color && !fill ? 'text-text' : '',
 					weight ? weight : 'lg:font-light',
 					family ? family : '',

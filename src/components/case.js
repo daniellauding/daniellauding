@@ -98,37 +98,39 @@ const Case = ({
 					item?.layout ? item?.layout : 'vertical'
 				)}
 			>
-				<div
-					className={classNames(
-						`section section-hero grid grid-flow-col auto-cols-fr relative py-20 px-20`,
-						item?.hero?.class ||
-							'h-screen justify-center items-center',
-						`gap-${item?.hero?.gap || '16'}`,
-						{
-							[`grid-cols-${item?.hero?.columns}`]:
-								item?.hero?.columns,
-							[`grid-rows-${item?.hero?.rows}`]: item?.hero?.rows,
-							[`gap-${item?.hero?.gap}`]: item?.hero?.gap,
-							[`gap-y-${item?.hero?.gapY}`]: item?.hero?.gapY,
-							[`gap-x-${item?.hero?.gapX}`]: item?.hero?.gapX,
-						},
-						item?.hero?.background?.attachment?.trim(),
-						item?.hero?.background?.position?.trim(),
-						item?.hero?.background?.repeat?.trim(),
-						item?.hero?.background?.size?.trim(),
-						item?.hero?.background?.class?.trim()
-					)}
-					style={{
-						backgroundImage:
-							item?.hero?.background?.image &&
-							`url(${item?.hero?.background?.image})`,
-						backgroundColor: item?.hero?.background?.color,
-					}}
-				>
-					{/* <p className="client-info absolute left-8 top-8">
+				{item?.hero && (
+					<div
+						className={classNames(
+							`section section-hero grid grid-flow-col auto-cols-fr relative py-20 px-20`,
+							item?.hero?.class ||
+								'h-screen justify-center items-center',
+							`gap-${item?.hero?.gap || '16'}`,
+							{
+								[`grid-cols-${item?.hero?.columns}`]:
+									item?.hero?.columns,
+								[`grid-rows-${item?.hero?.rows}`]:
+									item?.hero?.rows,
+								[`gap-${item?.hero?.gap}`]: item?.hero?.gap,
+								[`gap-y-${item?.hero?.gapY}`]: item?.hero?.gapY,
+								[`gap-x-${item?.hero?.gapX}`]: item?.hero?.gapX,
+							},
+							item?.hero?.background?.attachment?.trim(),
+							item?.hero?.background?.position?.trim(),
+							item?.hero?.background?.repeat?.trim(),
+							item?.hero?.background?.size?.trim(),
+							item?.hero?.background?.class?.trim()
+						)}
+						style={{
+							backgroundImage:
+								item?.hero?.background?.image &&
+								`url(${item?.hero?.background?.image})`,
+							backgroundColor: item?.hero?.background?.color,
+						}}
+					>
+						{/* <p className="client-info absolute left-8 top-8">
 						{work?.client}
 					</p> */}
-					{/* {item?.title && (
+						{/* {item?.title && (
 						<Title
 							size="xl"
 							value={item?.title?.value}
@@ -152,244 +154,266 @@ const Case = ({
 							)}
 						/>
 					)} */}
-					{item?.hero && (
-						<>
-							<div
-								className={classNames(
-									'case-description grid grid-flow-col auto-cols-fr h-full relative z-10',
-									`gap-${
-										item?.hero?.description?.gap || '0'
-									}`,
-									item?.hero?.description?.title?.class,
-									{
-										[`grid-cols-${item?.hero.description?.columns}`]:
-											item?.hero.description?.columns,
-										[`col-start-${item?.hero?.description?.colStart}`]:
-											item?.hero?.description?.colStart,
-										[`col-end-${item?.hero?.description?.colEnd}`]:
-											item?.hero?.description?.colEnd,
-										[`row-span-${item?.hero?.description?.rows}`]:
-											item?.hero?.description?.rows,
-										[`row-start-${item?.hero?.description?.rowStart}`]:
-											item?.hero?.description?.rowStart,
-										[`row-end-${item?.hero?.description?.rowEnd}`]:
-											item?.hero?.description?.rowEnd,
-										[`gap-${item?.hero?.description?.gap}`]:
-											item?.hero?.description?.gap,
-										[`gap-y-${item?.hero?.description?.gapY}`]:
-											item?.hero?.description?.gapY,
-										[`gap-x-${item?.hero?.description?.gapX}`]:
-											item?.hero?.description?.gapX,
-									}
-								)}
-								style={{
-									margin:
-										item?.hero?.description?.margin || '0',
-									padding:
-										item?.hero?.description?.padding || '0',
-								}}
-							>
-								{item?.hero?.description?.title?.value && (
-									<Title
-										size={
-											item?.hero?.description?.size
-												? item?.hero?.description?.size
-												: 'xl'
-										}
-										value={
-											item?.hero?.description?.title
-												?.value
-										}
-										color={item?.hero?.description?.color}
-										fill={item?.hero?.description?.fill}
-										align={item?.hero?.description?.align}
-										className={classNames(
-											'hero-title',
-											'case-title',
-											item?.hero?.description?.className,
-											item?.hero?.description?.title
-												?.class,
-											{
-												[`col-span-${item?.hero?.description?.title?.columns}`]:
-													item?.hero?.description
-														?.title?.columns,
-												[`col-start-${item?.hero?.description?.title?.colStart}`]:
-													item?.hero?.description
-														?.title?.colStart,
-												[`col-end-${item?.hero?.description?.title?.colEnd}`]:
-													item?.hero?.description
-														?.title?.colEnd,
-												[`row-span-${item?.hero?.description?.title?.rows}`]:
-													item?.hero?.description
-														?.title?.rows,
-												[`row-start-${item?.hero?.description?.title?.rowStart}`]:
-													item?.hero?.description
-														?.title?.rowStart,
-												[`row-end-${item?.hero?.description?.title?.rowEnd}`]:
-													item?.hero?.description
-														?.title?.rowEnd,
-											}
-										)}
-										style={{
-											margin:
-												item?.hero?.description?.title
-													?.margin || '0',
-											padding:
-												item?.hero?.description?.title
-													?.padding || '0',
-										}}
-									/>
-								)}
-								{item?.hero?.description?.lead?.value && (
-									<Text
-										size={
-											item?.hero?.description?.size
-												? item?.hero?.description?.size
-												: 'large'
-										}
-										value={
-											item?.hero?.description?.lead?.value
-										}
-										color={
-											item?.hero?.description?.lead?.color
-										}
-										fill={
-											item?.hero?.description?.lead?.fill
-										}
-										align={
-											item?.hero?.description?.lead?.align
-										}
-										className={classNames(
-											'hero-lead',
-											item?.hero?.description?.lead
-												?.className,
-											item?.hero?.description?.lead
-												?.class,
-											{
-												[`col-span-${item?.hero?.description?.lead?.columns}`]:
-													item?.hero?.description
-														?.lead?.columns,
-												[`col-start-${item?.hero?.description?.lead?.colStart}`]:
-													item?.hero?.description
-														?.lead?.colStart,
-												[`col-end-${item?.hero?.description?.lead?.colEnd}`]:
-													item?.hero?.description
-														?.lead?.colEnd,
-												[`row-span-${item?.hero?.description?.lead?.rows}`]:
-													item?.hero?.description
-														?.lead?.rows,
-												[`row-start-${item?.hero?.description?.lead?.rowStart}`]:
-													item?.hero?.description
-														?.lead?.rowStart,
-												[`row-end-${item?.hero?.description?.lead?.rowEnd}`]:
-													item?.hero?.description
-														?.lead?.rowEnd,
-											}
-										)}
-										style={{
-											margin:
-												item?.hero?.description?.lead
-													?.margin || '0',
-											padding:
-												item?.hero?.description?.lead
-													?.padding || '0',
-										}}
-									/>
-								)}
-
-								{item?.hero?.description?.desc?.value && (
-									<Text
-										size={
-											item?.hero?.description?.size
-												? item?.hero?.description?.size
-												: 'medium'
-										}
-										value={
-											item?.hero?.description?.desc?.value
-										}
-										color={
-											item?.hero?.description?.desc?.color
-										}
-										fill={
-											item?.hero?.description?.desc?.fill
-										}
-										align={
-											item?.hero?.description?.desc?.align
-										}
-										className={classNames(
-											'hero-desc',
-											item?.hero?.description?.desc
-												?.className,
-											item?.hero?.description?.desc
-												?.class,
-											{
-												[`col-span-${item?.hero?.description?.desc?.columns}`]:
-													item?.hero?.description
-														?.desc?.columns,
-												[`col-start-${item?.hero?.description?.desc?.colStart}`]:
-													item?.hero?.description
-														?.desc?.colStart,
-												[`col-end-${item?.hero?.description?.desc?.colEnd}`]:
-													item?.hero?.description
-														?.desc?.colEnd,
-												[`row-span-${item?.hero?.description?.desc?.rows}`]:
-													item?.hero?.description
-														?.desc?.rows,
-												[`row-start-${item?.hero?.description?.desc?.rowStart}`]:
-													item?.hero?.description
-														?.desc?.rowStart,
-												[`row-end-${item?.hero?.description?.desc?.rowEnd}`]:
-													item?.hero?.description
-														?.desc?.rowEnd,
-											}
-										)}
-										style={{
-											margin:
-												item?.hero?.description?.desc
-													?.margin || '0',
-											padding:
-												item?.hero?.description?.desc
-													?.padding || '0',
-										}}
-									/>
-								)}
-
-								{/* {item?.excerpt && <Text value={item?.excerpt} />} */}
-							</div>
-							{item?.hero?.image?.src && (
+						{item?.hero && (
+							<>
 								<div
 									className={classNames(
-										'hero-image',
-										item?.hero?.image?.class,
+										'case-description grid grid-flow-col auto-cols-fr h-full relative z-10',
+										`gap-${
+											item?.hero?.description?.gap || '0'
+										}`,
+										item?.hero?.description?.title?.class,
 										{
-											[`col-span-${item?.hero?.image?.columns}`]:
-												item?.hero?.image?.columns,
-											[`col-start-${item?.hero?.image?.colStart}`]:
-												item?.hero?.image?.colStart,
-											[`col-end-${item?.hero?.image?.colEnd}`]:
-												item?.hero?.image?.colEnd,
-											[`row-span-${item?.hero?.image?.rows}`]:
-												item?.hero?.image?.rows,
-											[`row-start-${item?.hero?.image?.rowStart}`]:
-												item?.hero?.image?.rowStart,
-											[`row-end-${item?.hero?.image?.rowEnd}`]:
-												item?.hero?.image?.rowEnd,
+											[`grid-cols-${item?.hero.description?.columns}`]:
+												item?.hero.description?.columns,
+											[`col-start-${item?.hero?.description?.colStart}`]:
+												item?.hero?.description
+													?.colStart,
+											[`col-end-${item?.hero?.description?.colEnd}`]:
+												item?.hero?.description?.colEnd,
+											[`row-span-${item?.hero?.description?.rows}`]:
+												item?.hero?.description?.rows,
+											[`row-start-${item?.hero?.description?.rowStart}`]:
+												item?.hero?.description
+													?.rowStart,
+											[`row-end-${item?.hero?.description?.rowEnd}`]:
+												item?.hero?.description?.rowEnd,
+											[`gap-${item?.hero?.description?.gap}`]:
+												item?.hero?.description?.gap,
+											[`gap-y-${item?.hero?.description?.gapY}`]:
+												item?.hero?.description?.gapY,
+											[`gap-x-${item?.hero?.description?.gapX}`]:
+												item?.hero?.description?.gapX,
 										}
 									)}
 									style={{
 										margin:
-											item?.hero?.image?.margin || '0',
+											item?.hero?.description?.margin ||
+											'0',
 										padding:
-											item?.hero?.image?.padding || '0',
+											item?.hero?.description?.padding ||
+											'0',
 									}}
 								>
-									<Image item={item?.hero?.image} />
-								</div>
-							)}
-						</>
-					)}
+									{item?.hero?.description?.title?.value && (
+										<Title
+											size={
+												item?.hero?.description?.size
+													? item?.hero?.description
+															?.size
+													: 'xl'
+											}
+											value={
+												item?.hero?.description?.title
+													?.value
+											}
+											color={
+												item?.hero?.description?.color
+											}
+											fill={item?.hero?.description?.fill}
+											align={
+												item?.hero?.description?.align
+											}
+											className={classNames(
+												'hero-title',
+												'case-title',
+												item?.hero?.description
+													?.className,
+												item?.hero?.description?.title
+													?.class,
+												{
+													[`col-span-${item?.hero?.description?.title?.columns}`]:
+														item?.hero?.description
+															?.title?.columns,
+													[`col-start-${item?.hero?.description?.title?.colStart}`]:
+														item?.hero?.description
+															?.title?.colStart,
+													[`col-end-${item?.hero?.description?.title?.colEnd}`]:
+														item?.hero?.description
+															?.title?.colEnd,
+													[`row-span-${item?.hero?.description?.title?.rows}`]:
+														item?.hero?.description
+															?.title?.rows,
+													[`row-start-${item?.hero?.description?.title?.rowStart}`]:
+														item?.hero?.description
+															?.title?.rowStart,
+													[`row-end-${item?.hero?.description?.title?.rowEnd}`]:
+														item?.hero?.description
+															?.title?.rowEnd,
+												}
+											)}
+											style={{
+												margin:
+													item?.hero?.description
+														?.title?.margin || '0',
+												padding:
+													item?.hero?.description
+														?.title?.padding || '0',
+											}}
+										/>
+									)}
+									{item?.hero?.description?.lead?.value && (
+										<Text
+											size={
+												item?.hero?.description?.size
+													? item?.hero?.description
+															?.size
+													: 'large'
+											}
+											value={
+												item?.hero?.description?.lead
+													?.value
+											}
+											color={
+												item?.hero?.description?.lead
+													?.color
+											}
+											fill={
+												item?.hero?.description?.lead
+													?.fill
+											}
+											align={
+												item?.hero?.description?.lead
+													?.align
+											}
+											className={classNames(
+												'hero-lead',
+												item?.hero?.description?.lead
+													?.className,
+												item?.hero?.description?.lead
+													?.class,
+												{
+													[`col-span-${item?.hero?.description?.lead?.columns}`]:
+														item?.hero?.description
+															?.lead?.columns,
+													[`col-start-${item?.hero?.description?.lead?.colStart}`]:
+														item?.hero?.description
+															?.lead?.colStart,
+													[`col-end-${item?.hero?.description?.lead?.colEnd}`]:
+														item?.hero?.description
+															?.lead?.colEnd,
+													[`row-span-${item?.hero?.description?.lead?.rows}`]:
+														item?.hero?.description
+															?.lead?.rows,
+													[`row-start-${item?.hero?.description?.lead?.rowStart}`]:
+														item?.hero?.description
+															?.lead?.rowStart,
+													[`row-end-${item?.hero?.description?.lead?.rowEnd}`]:
+														item?.hero?.description
+															?.lead?.rowEnd,
+												}
+											)}
+											style={{
+												margin:
+													item?.hero?.description
+														?.lead?.margin || '0',
+												padding:
+													item?.hero?.description
+														?.lead?.padding || '0',
+											}}
+										/>
+									)}
 
-					{/* <div
+									{item?.hero?.description?.desc?.value && (
+										<Text
+											size={
+												item?.hero?.description?.size
+													? item?.hero?.description
+															?.size
+													: 'medium'
+											}
+											value={
+												item?.hero?.description?.desc
+													?.value
+											}
+											color={
+												item?.hero?.description?.desc
+													?.color
+											}
+											fill={
+												item?.hero?.description?.desc
+													?.fill
+											}
+											align={
+												item?.hero?.description?.desc
+													?.align
+											}
+											className={classNames(
+												'hero-desc',
+												item?.hero?.description?.desc
+													?.className,
+												item?.hero?.description?.desc
+													?.class,
+												{
+													[`col-span-${item?.hero?.description?.desc?.columns}`]:
+														item?.hero?.description
+															?.desc?.columns,
+													[`col-start-${item?.hero?.description?.desc?.colStart}`]:
+														item?.hero?.description
+															?.desc?.colStart,
+													[`col-end-${item?.hero?.description?.desc?.colEnd}`]:
+														item?.hero?.description
+															?.desc?.colEnd,
+													[`row-span-${item?.hero?.description?.desc?.rows}`]:
+														item?.hero?.description
+															?.desc?.rows,
+													[`row-start-${item?.hero?.description?.desc?.rowStart}`]:
+														item?.hero?.description
+															?.desc?.rowStart,
+													[`row-end-${item?.hero?.description?.desc?.rowEnd}`]:
+														item?.hero?.description
+															?.desc?.rowEnd,
+												}
+											)}
+											style={{
+												margin:
+													item?.hero?.description
+														?.desc?.margin || '0',
+												padding:
+													item?.hero?.description
+														?.desc?.padding || '0',
+											}}
+										/>
+									)}
+
+									{/* {item?.excerpt && <Text value={item?.excerpt} />} */}
+								</div>
+								{item?.hero?.image?.src && (
+									<div
+										className={classNames(
+											'hero-image',
+											item?.hero?.image?.class,
+											{
+												[`col-span-${item?.hero?.image?.columns}`]:
+													item?.hero?.image?.columns,
+												[`col-start-${item?.hero?.image?.colStart}`]:
+													item?.hero?.image?.colStart,
+												[`col-end-${item?.hero?.image?.colEnd}`]:
+													item?.hero?.image?.colEnd,
+												[`row-span-${item?.hero?.image?.rows}`]:
+													item?.hero?.image?.rows,
+												[`row-start-${item?.hero?.image?.rowStart}`]:
+													item?.hero?.image?.rowStart,
+												[`row-end-${item?.hero?.image?.rowEnd}`]:
+													item?.hero?.image?.rowEnd,
+											}
+										)}
+										style={{
+											margin:
+												item?.hero?.image?.margin ||
+												'0',
+											padding:
+												item?.hero?.image?.padding ||
+												'0',
+										}}
+									>
+										<Image item={item?.hero?.image} />
+									</div>
+								)}
+							</>
+						)}
+
+						{/* <div
 						className={classNames('case-header', item?.leadClass, {
 							[`col-span-${item?.columns}`]: item?.columns,
 							[`col-start-${item?.colStart}`]: item?.colStart,
@@ -406,9 +430,9 @@ const Case = ({
 						)}
 					</div> */}
 
-					{item?.library && <Library item={item?.library} />}
+						{item?.library && <Library item={item?.library} />}
 
-					{/* <div className="case-teaser">
+						{/* <div className="case-teaser">
 						{item?.excerpt && <Text value={item?.excerpt} />}
 						{item?.image && (
 							<div
@@ -432,13 +456,13 @@ const Case = ({
 						)}
 					</div> */}
 
-					<div className="case-tags case-tags inline-block transform -rotate-90 absolute right-3 top-1/2">
-						<TagsList
-							tags={item?.tags}
-							selectedChanged={selectedChanged}
-						/>
-					</div>
-					{/*
+						<div className="case-tags case-tags inline-block transform -rotate-90 absolute right-3 top-1/2">
+							<TagsList
+								tags={item?.tags}
+								selectedChanged={selectedChanged}
+							/>
+						</div>
+						{/*
           <div
 						className={`case-tags ${
 							item?.tags?.default
@@ -451,8 +475,8 @@ const Case = ({
 							selectedChanged={selectedChanged}
 						/>
 					</div> */}
-				</div>
-
+					</div>
+				)}
 				{item?.goals && (
 					<div className="section-goals grid gap-2 mx-auto grid-cols-3 p-20 space-y-2 lg:space-y-0 lg:grid lg:gap-3 lg:grid-rows-3">
 						{item?.goals?.map((goal) => (
@@ -521,6 +545,13 @@ const Case = ({
 				{/* https://css-tricks.com/animating-with-clip-path/ */}
 
 				{/* https://www.semplice.com/best-portfolios-of-2022 */}
+
+				<div className="case-tags case-tags inline-block p-4">
+					<TagsList
+						tags={item?.tags}
+						selectedChanged={selectedChanged}
+					/>
+				</div>
 
 				{item?.content?.map((section) => (
 					<>
@@ -622,7 +653,7 @@ const CaseSelector = ({
 						`case-title`,
 						titleClassName
 							? titleClassName
-							: 'pt-0 mt-8 mb-16 text-4xl md:text-9xl text-left text-white font-bold'
+							: 'pt-0 mt-8 mb-16 text-4xl md:text-7xl text-left text-white font-bold'
 					)}
 				>
 					{clientCase?.title}

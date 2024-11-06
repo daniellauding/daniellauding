@@ -183,6 +183,9 @@ const Section = ({ section }) => {
 						section?.container?.height
 							? section?.container?.height
 							: '',
+						section?.container?.gap
+							? section?.container?.gap
+							: 'flex flex-col',
 						{
 							'justify-start':
 								section?.container?.align?.vertical === 'top',
@@ -652,6 +655,10 @@ const Section = ({ section }) => {
 		);
 	}
 
+	function isValidString(value) {
+		return value && typeof value === 'string' && value.trim();
+	}
+
 	return (
 		<div
 			className={classNames(
@@ -836,43 +843,50 @@ const Section = ({ section }) => {
 								weight={section?.title?.weight}
 							/>
 						)}
-						{section?.text && Array.isArray(section?.text) ? (
-							<div className="space-y-4 flex flex-col">
-								{section?.text.map((textBlock, index) => (
-									<Text
-										key={index}
-										value={textBlock.value}
-										size={textBlock.size}
-										style={textBlock.style}
-										color={textBlock?.color}
-										fill={textBlock?.fill}
-										align={textBlock?.align}
-										family={textBlock?.family}
-										weight={textBlock?.weight}
-										className={textBlock?.className}
-									/>
-								))}
-							</div>
-						) : (
-							<Text
-								value={section?.text?.value}
-								size={section?.text?.size}
-								style={section?.text?.style}
-								color={section?.text?.color}
-								fill={section?.text?.fill}
-								align={section?.text?.align}
-								family={section?.text?.family}
-								weight={section?.text?.weight}
-								className={section?.text?.className}
-							/>
-						)}
-						{section?.lead && (
+						{
+							section?.text && Array.isArray(section?.text) ? (
+								<div className="space-y-4 flex flex-col">
+									{section?.text.map(
+										(textBlock, index) =>
+											textBlock?.value ? ( // Only render if value exists
+												<Text
+													key={index}
+													value={textBlock.value}
+													size={textBlock.size}
+													style={textBlock.style}
+													color={textBlock?.color}
+													fill={textBlock?.fill}
+													align={textBlock?.align}
+													family={textBlock?.family}
+													weight={textBlock?.weight}
+													className={
+														textBlock?.className
+													}
+												/>
+											) : null // Skip rendering if value is empty
+									)}
+								</div>
+							) : section?.text?.value ? ( // Only render if single object value exists
+								<Text
+									value={section?.text?.value}
+									size={section?.text?.size}
+									style={section?.text?.style}
+									color={section?.text?.color}
+									fill={section?.text?.fill}
+									align={section?.text?.align}
+									family={section?.text?.family}
+									weight={section?.text?.weight}
+									className={section?.text?.className}
+								/>
+							) : null // Skip rendering if single object value is empty
+						}
+						{isValidString(section?.lead) && (
 							<Text size="large" value={section?.lead} />
 						)}
-						{section?.text && (
-							<Text size="medium" value={section?.lead} />
+						{isValidString(section?.text) && (
+							<Text size="medium" value={section?.text} />
 						)}
-						{section?.desc && (
+						{isValidString(section?.desc) && (
 							<Text size="medium" value={section?.desc} />
 						)}
 					</>

@@ -253,6 +253,9 @@ module.exports = {
 			pattern: /font-*/,
 		},
 		{
+			pattern: /max-w*/,
+		},
+		{
 			pattern: /resize-*/,
 		},
 		'auto',

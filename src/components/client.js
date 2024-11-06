@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import classNames from 'classnames';
-import CaseSelector from './case';
+import CaseSelector, { Case } from './case';
 import Soon from './soon';
 import Protected from './protected';
 import { NavClient } from './nav';
@@ -13,106 +13,74 @@ const Client = ({
 	selectedCaseChanged,
 }) => {
 	const { cases = [] } = item;
-	// const [selected, setCase] = useState(null);
 	const [authenticated, setAuthenticated] = useState(false);
 	const sliderRef = useRef(null);
 	const [scrollX, setScrollX] = useState(0);
-	const step = 300; // Adjust this value to control the scroll step
 
 	useEffect(() => {
-		// setCase(null);
 		setAuthenticated(!item.protected);
 	}, [item]);
 
-	// useEffect(() => {
-	// 	if (selectedCase) {
-	// 		setCase(selectedCase);
-	// 	}
-	// }, [selectedCase]);
-
-	useEffect(() => {
+	const scrollToNextCase = (direction) => {
 		const container = sliderRef.current;
+		if (!container) return;
 
-		const handleScroll = () => {
-			setScrollX(container.scrollLeft);
-		};
-
-		if (container) {
-			container.addEventListener('scroll', handleScroll);
-		}
-
-		return () => {
-			if (container) {
-				container.removeEventListener('scroll', handleScroll);
-			}
-		};
-	}, []);
-
-	const scrollToClosestCase = (direction) => {
-		const container = sliderRef.current;
-		const currentScrollX = container.scrollLeft;
-		const scrollPositions = Array.from(
-			container.querySelectorAll('.case-wrapper')
-		).map((element) => element.offsetLeft);
+		const caseWidth =
+			container.querySelector('.case-wrapper')?.offsetWidth || 0;
+		const isAtEnd =
+			scrollX + container.clientWidth >= container.scrollWidth;
 
 		let targetScrollX;
 
 		if (direction === 'left') {
-			// Find the closest element to the left
-			const closestToLeft = scrollPositions
-				.filter((position) => position < currentScrollX)
-				.reduce((a, b) => Math.max(a, b), -Infinity);
-
-			targetScrollX = closestToLeft;
+			targetScrollX = Math.max(scrollX - caseWidth, 0);
 		} else if (direction === 'right') {
-			// Find the closest element to the right
-			const closestToRight = scrollPositions
-				.filter((position) => position > currentScrollX)
-				.reduce((a, b) => Math.min(a, b), Infinity);
-
-			targetScrollX = closestToRight + step;
+			targetScrollX = isAtEnd
+				? 0
+				: Math.min(
+						scrollX + caseWidth,
+						container.scrollWidth - container.clientWidth
+				  );
 		}
 
-		if (targetScrollX !== undefined) {
-			container.scrollTo({
-				left: targetScrollX,
-				behavior: 'smooth', // You can change this to 'auto' for instant scroll
-			});
-
-			// Update the scrollX state
-			setScrollX(targetScrollX);
-		}
+		container.scrollTo({
+			left: targetScrollX,
+			behavior: 'smooth',
+		});
+		setScrollX(targetScrollX);
 	};
 
-	// const clearSelected = useCallback(() => {
-	// 	setCase(null);
-	// }, []);
-
-	// if (selected) {
-	// 	return (
-	// 		<Case
-	// 			item={selected}
-	// 			clearActive={clearSelected}
-	// 			selectedChanged={selectedChanged}
-	// 			work={item}
-	// 			selectedCaseChanged={selectedCaseChanged}
-	// 		/>
-	// 	);
-	// }
-
-	// Render directly if there's only one case
-	// if (cases.length === 1) {
-	// 	const singleCase = cases[0];
-	// 	return (
-	// 		<Case
-	// 			item={singleCase}
-	// 			// clearActive={clearSelected}
-	// 			selectedChanged={selectedChanged}
-	// 			work={item}
-	// 			selectedCaseChanged={selectedCaseChanged}
-	// 		/>
-	// 	);
-	// }
+	// If only one case, render Case component directly
+	if (cases.length === 1) {
+		const clientCase = cases[0];
+		return (
+			<div
+				className={classNames(
+					'client-single',
+					`client-${item?.client.toLowerCase?.()}`
+				)}
+			>
+				<NavClient
+					item={item}
+					clearActive={clearActive}
+					selectedCase={selectedCase}
+					selectedChanged={selectedChanged}
+					selectedCaseChanged={selectedCaseChanged}
+					workCase={selectedCase}
+					authenticated={authenticated}
+				/>
+				<Protected item={item} onAuthenticated={setAuthenticated}>
+					<Case
+						item={clientCase}
+						work={item}
+						clearActive={clearActive}
+						selectedChanged={selectedChanged}
+						selectedCaseChanged={selectedCaseChanged}
+					/>
+				</Protected>
+			</div>
+		);
+	}
 
 	return (
 		<div
@@ -135,45 +103,46 @@ const Client = ({
 
 			{item?.soon && <Soon item={item} />}
 
-			{!cases?.length < 1 && (
+			{cases.length > 0 && (
 				<Protected item={item} onAuthenticated={setAuthenticated}>
 					<div className="client-wrapper grid grid-flow-col gap-16 auto-cols-fr h-screen max-h-screen overflow-hidden p-12">
+						{/* Left Arrow */}
+						{cases.length > 3 && scrollX > 0 && (
+							<div
+								className="absolute left-0 top-0 bottom-0 w-10 h-full flex items-center justify-center bg-black bg-opacity-50 z-10"
+								onClick={() => scrollToNextCase('left')}
+							>
+								<button className="text-white text-3xl">
+									&#9664;
+								</button>
+							</div>
+						)}
 						<div
-							className="absolute left-0 top-0 bottom-0 w-10 h-full flex items-center justify-center bg-black bg-opacity-50 z-10"
-							onClick={() => scrollToClosestCase('left')}
-						>
-							<button className="text-white text-3xl">
-								&#9664;
-							</button>
-						</div>
-						<div
-							className="slider-container flex space-x-4 px-4 py-4 overflow-x-auto"
+							className="slider-container flex space-x-4 px-4 py-4"
 							style={{ transform: `translateX(-${scrollX}px)` }}
 							ref={sliderRef}
 						>
-							{cases
-								.filter((item) => item.index !== false)
-								.map((clientCase) => (
-									<CaseSelector
-										// onSelect={setCase}
-										key={clientCase.id}
-										// item={item}
-										// work={item}
-										client={item}
-										clientCase={clientCase}
-										clearActive={clearActive}
-										selectedChanged={selectedChanged}
-									/>
-								))}
+							{cases.map((clientCase) => (
+								<CaseSelector
+									key={clientCase.id}
+									client={item}
+									clientCase={clientCase}
+									clearActive={clearActive}
+									selectedChanged={selectedChanged}
+								/>
+							))}
 						</div>
-						<div
-							className="absolute right-0 top-0 bottom-0 w-10 h-full flex items-center justify-center bg-black bg-opacity-50 z-10"
-							onClick={() => scrollToClosestCase('right')}
-						>
-							<button className="text-white text-3xl">
-								&#9654;
-							</button>
-						</div>
+						{/* Right Arrow - Always show */}
+						{cases.length > 3 && (
+							<div
+								className="absolute right-0 top-0 bottom-0 w-10 h-full flex items-center justify-center bg-black bg-opacity-50 z-10"
+								onClick={() => scrollToNextCase('right')}
+							>
+								<button className="text-white text-3xl">
+									&#9654;
+								</button>
+							</div>
+						)}
 					</div>
 				</Protected>
 			)}

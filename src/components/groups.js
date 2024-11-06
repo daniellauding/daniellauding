@@ -39,7 +39,7 @@ const Group = ({ group }) => {
 				/>
 			)}
 			{text && Array.isArray(text) ? (
-				<div className="space-y-4 flex flex-col">
+				<div className="flex flex-col">
 					{text.map((textBlock, index) => (
 						<Text
 							key={index}
@@ -106,18 +106,25 @@ const Groups = ({ groups }) => {
 	return (
 		<div
 			className={classNames(
-				`groups grid gap-0 md:gap-16 auto-rows-auto md:grid-flow-col pt-96 md:p-0 md:auto-cols-fr mt-8 h-full`,
+				`groups grid gap-0 md:gap-16 auto-rows-auto md:grid-flow-col md:auto-cols-fr h-full`,
 				{
 					[`grid-cols-${groups.columns}`]: groups.columns,
 					[`grid-rows-${groups.rows}`]: groups.rows,
 					[`gap-${groups.gap}`]: groups.gap,
 					[`gap-y-${groups.gapY}`]: groups.gapY,
 					[`gap-x-${groups.gapX}`]: groups.gapX,
-				}
+				},
+				groups?.class?.trim()
 			)}
 		>
-			{groups.map((group, index) => (
-				<>
+			{groups?.items?.map((group, index) => (
+				<div
+					key={group?.id}
+					className={classNames(
+						'group-wrapper', // Default wrapper class
+						group?.class || '' // Apply the group-specific class, like 'pt-0', if present
+					)}
+				>
 					{group?.animate ? (
 						<AnimationOnScroll
 							animateIn={
@@ -137,7 +144,7 @@ const Groups = ({ groups }) => {
 					) : (
 						<Group key={group?.id || index} group={group} />
 					)}
-				</>
+				</div>
 			))}
 		</div>
 	);
