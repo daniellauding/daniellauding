@@ -126,6 +126,15 @@ const ContactForm = ({ closeContactModal }) => {
 									/>
 								</label>
 							</p>
+
+							<a
+								href="https://calendly.com/daniellauding"
+								target="_blank"
+								rel="noreferrer"
+								className="text-primary underline"
+							>
+								Book appointment?
+							</a>
 						</div>
 						<p>
 							<button
@@ -295,6 +304,14 @@ const OffertForm = ({ closeOffertModal }) => {
 									/>
 								</label>
 							</p>
+							<a
+								href="https://calendly.com/daniellauding"
+								target="_blank"
+								rel="noreferrer"
+								className="text-primary underline"
+							>
+								Book appointment?
+							</a>
 						</div>
 						<p>
 							<button
