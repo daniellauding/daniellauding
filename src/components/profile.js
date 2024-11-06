@@ -1,9 +1,38 @@
 import React from 'react';
-// import classNames from 'classnames';
+import { useNavigate } from 'react-router-dom';
+import Tooltip from './tooltip';
 import { about } from '../constant';
 import Logo from './logo';
 
 const Profile = ({ openContactModal }) => {
+	const navigate = useNavigate();
+
+	const handleNavigation = (key) => {
+		switch (key) {
+			case 'h':
+				navigate('/');
+				break;
+			case 'a':
+				navigate('/about');
+				break;
+			case 'w':
+				navigate('/work');
+				break;
+			case 'c':
+				openContactModal();
+				break;
+			default:
+				break;
+		}
+	};
+
+	const navigationItems = [
+		{ key: 'h', tooltip: 'Go to Home' },
+		{ key: 'a', tooltip: 'Go to About' },
+		{ key: 'w', tooltip: 'Go to Work' },
+		{ key: 'c', tooltip: 'Contact Me' },
+	];
+
 	return (
 		<>
 			{about.map((intro) => (
@@ -20,6 +49,22 @@ const Profile = ({ openContactModal }) => {
 							{intro.email}
 						</button>
 					</p>
+					<ul className="flex gap-3 content-center justify-center py-2">
+						{navigationItems.map((item) => (
+							<li key={item.key}>
+								<Tooltip content={item.tooltip} direction="top">
+									<div
+										onClick={() =>
+											handleNavigation(item.key)
+										}
+										className="h-6 w-6 border rounded-md justify-center items-center content-center flex text-xs opacity-50 hover:opacity-100 cursor-pointer"
+									>
+										{item.key.toUpperCase()}
+									</div>
+								</Tooltip>
+							</li>
+						))}
+					</ul>
 					<p className="pt-0 mb-4 sm:mx-8 mx-8 md:mx-32 mt-8 text-center dark:text-gray-100 text-black lg:font-light text-2xl md:text-3xl leading-snug font-serif">
 						{intro.description}
 					</p>
