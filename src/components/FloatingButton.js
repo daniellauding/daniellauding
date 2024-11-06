@@ -21,6 +21,38 @@ const FloatingButton = ({
 	const [isKeyboardMoving, setIsKeyboardMoving] = useState(false);
 	const keyboardSpeed = 10; // Pixels per keypress
 
+	const ContactIcon = ({ openContactModal, style, fgColor, bgColor }) => {
+		return (
+			<div
+				onClick={openContactModal} // Add click handler to open contact modal
+				className="social-icon social-icon--custom"
+				style={{
+					...style,
+					display: 'inline-flex',
+					alignItems: 'center',
+					justifyContent: 'center',
+					backgroundColor: bgColor,
+					borderRadius: '50%',
+				}}
+			>
+				<svg
+					width="40"
+					height="40"
+					viewBox="0 0 40 40"
+					fill="none"
+					style={{ fill: fgColor, width: '24px', height: '24px' }}
+					className="social-svg-icon"
+				>
+					<path
+						fillRule="evenodd"
+						clipRule="evenodd"
+						d="M36 10.4C36 8.64001 34.56 7.20001 32.8 7.20001H7.2C5.44 7.20001 4 8.64001 4 10.4V29.6C4 31.36 5.44 32.8 7.2 32.8H32.8C34.56 32.8 36 31.36 36 29.6V10.4ZM32.8 10.4L20 18.4L7.2 10.4H32.8ZM20 21.6L7.2 13.6V29.6H32.8V13.6L20 21.6Z"
+					/>
+				</svg>
+			</div>
+		);
+	};
+
 	const blobPaths = [
 		'M449.66467,329.57458Q409.14917,409.14917,329.57458,407.97733Q250,406.80549,191.3735,387.02924Q132.74701,367.25299,77.06026,308.6265Q21.3735,250,49.05191,163.36516Q76.73032,76.73032,163.36516,85.537Q250,94.34367,322.00775,100.16408Q394.01551,105.98449,442.09784,177.99225Q490.18018,250,449.66467,329.57458Z',
 		'M405.0078,325.44624Q400.89248,400.89248,325.44624,434.97549Q250,469.0585,165.42535,444.1039Q80.8507,419.1493,84.75627,334.57465Q88.66184,250,94.44262,175.1117Q100.2234,100.2234,175.1117,82.29749Q250,64.37159,306.73538,100.45042Q363.47075,136.52925,386.29693,193.26462Q409.12312,250,405.0078,325.44624Z',
@@ -351,7 +383,7 @@ const FloatingButton = ({
 					</svg>
 					<div className="absolute inset-0 flex items-center justify-center text-white">
 						<span
-							className="text-sm font-medium cursor-pointer hover:opacity-80"
+							className="text-sm font-medium cursor-pointer hover:opacity-80 flex flex-col items-center gap"
 							onClick={(e) => {
 								e.stopPropagation();
 								if (!hasMoved && !isDragging) {
@@ -359,6 +391,15 @@ const FloatingButton = ({
 								}
 							}}
 						>
+							<ContactIcon
+								style={{
+									height: '32px',
+									width: '32px',
+									cursor: 'pointer',
+								}}
+								fgColor="rgba(255, 255, 255, 0.7)"
+								// bgColor="rgba(0,0,0,0.2)"
+							/>
 							Work with me
 						</span>
 					</div>
@@ -387,41 +428,53 @@ const FloatingButton = ({
 						className="absolute inset-0 bg-black/30 backdrop-blur-sm"
 						onClick={closeModal}
 					></div>
-					<div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-gray-800 p-8 rounded-lg max-w-md w-full shadow-xl">
-						<h2 className="text-2xl font-bold mb-4">
-							Let&apos;s Work Together!
-						</h2>
-						<p className="mb-6">
-							I&apos;m currently available for new projects and
-							opportunities. Whether you have a specific project
-							in mind or just want to discuss possibilities,
-							I&apos;d love to hear from you.
-						</p>
-						<div className="flex gap-4">
-							<button
-								onClick={() => {
-									closeModal();
-									openContactModal();
-								}}
-								className="bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90"
-							>
-								Contact Me
-							</button>
-							<button
-								onClick={() => {
-									closeModal();
-									openOffertModal();
-								}}
-								className="bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90"
-							>
-								Submit Project
-							</button>
-							<button
-								onClick={closeModal}
-								className="border border-gray-300 px-4 py-2 rounded-full hover:bg-gray-100"
-							>
-								Close
-							</button>
+					<div className="modal fixed top-0 left-0 botton-0 right-0 modal-contact z-90 flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+						<div className="modal-wrapper z-20 relative transform overflow-hidden rounded-2xl bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+							<div className="modal-inner border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+								<div className="modal-header py-4 px-6">
+									<h3 className="pt-0 ml-0 text-left text-2xl dark:text-gray-900 text-black lg:font-light">
+										Let&apos;s Work Together!
+									</h3>
+									<button
+										onClick={closeModal}
+										type="button"
+										className="absolute top-4 right-4 ml-auto btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline z-20"
+										data-bs-dismiss="modal"
+										aria-label="Close"
+									>
+										<XMarkIcon className="h-5 w-5 text-black" />
+									</button>
+								</div>
+								<div className="modal-body relative py-6 px-6">
+									<p className="pt-0 mb-8 ml-0 text-left text-1xl dark:text-gray-700 text-black lg:font-light">
+										I&apos;m currently available for new
+										projects and opportunities. Whether you
+										have a specific project in mind or just
+										want to discuss possibilities, I&apos;d
+										love to hear from you.
+									</p>
+									<div className="flex gap-4">
+										<button
+											onClick={() => {
+												closeModal();
+												openContactModal();
+											}}
+											className="bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90"
+										>
+											Contact Me
+										</button>
+										<button
+											onClick={() => {
+												closeModal();
+												openOffertModal();
+											}}
+											className="bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90"
+										>
+											Submit Project
+										</button>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
