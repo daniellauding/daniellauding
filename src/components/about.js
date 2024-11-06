@@ -28,33 +28,69 @@ import {
 	ArrowLongDownIcon,
 } from '@heroicons/react/24/solid';
 
+// const FloatingButton = ({ openContactModal, openOffertModal, stopMovement }) => {
+// 	const [position, setPosition] = useState({ x: 50, y: 50 });
+// 	const [velocity, setVelocity] = useState({ x: 2, y: 2 });
+// 	const [isHovered, setIsHovered] = useState(false);
+// 	const [showButton, setShowButton] = useState(true);
+// 	const [showModal, setShowModal] = useState(false);
+// 	const buttonRef = useRef(null);
+// 	const animationFrameRef = useRef();
+
+// 	useEffect(() => {
+// 		const animate = () => {
+// 			if (isHovered || !showButton || stopMovement || showModal) return;
+
+// 			setPosition(prevPos => {
+// 				const buttonRect = buttonRef.current.getBoundingClientRect();
+// 				const windowWidth = window.innerWidth - buttonRect.width;
+// 				const windowHeight = window.innerHeight - buttonRect.height;
+
+// 				let newX = prevPos.x + velocity.x;
+// 				let newY = prevPos.y + velocity.y;
+// 				let newVelX = velocity.x;
+// 				let newVelY = velocity.y;
+
+// 				if (newX <= 0 || newX >= windowWidth) {
+// 					newVelX = -velocity.x;
+// 				}
+// 				if (newY <= 0 || newY >= windowHeight) {
+// 					newVelY = -velocity.y;
+// 				}
+
+// 				setVelocity({ x: newVelX, y: newVelY });
+
+// 				return {
+// 					x: Math.max(0, Math.min(newX, windowWidth)),
+// 					y: Math.max(0, Math.min(newY, windowHeight))
+// 				};
+// 			});
+
+// 			animationFrameRef.current = requestAnimationFrame(animate);
+// 		};
+
+// 		animationFrameRef.current = requestAnimationFrame(animate);
+
+// 		return () => {
+// 			if (animationFrameRef.current) {
+// 				cancelAnimationFrame(animationFrameRef.current);
+// 			}
+// 		};
+// 	}, [isHovered, velocity, showButton, stopMovement, showModal]);
+
+// 	// Rest of the component remains the same...
+// };
+
 const About = ({
 	setShowProfile,
 	active,
 	selectedChanged,
-	// item,
-	// setActive,
 	openContactModal,
 	openOffertModal,
 }) => {
 	const [showExperiencesFull, setShowExperiencesFull] = useState(null);
-	// const [showContact, setShowContact] = useState(false);
-	// const [showOffert, setShowOffert] = useState(false);
-
-	// const onClick = useCallback(
-	// 	(e) => {
-	// 		e.preventDefault();
-	// 		setActive(item?.id);
-	// 		// test.play();
-	// 		console.log(item?.id, 'klickat på item');
-	// 	},
-	// 	[item, setActive]
-	// );
 
 	const opacitySteps = [
-		// 'bg-opacity-0',
-		// 'bg-opacity-5',
-		// 'bg-opacity-10',
 		'bg-opacity-20',
 		'bg-opacity-25',
 		'bg-opacity-30',
