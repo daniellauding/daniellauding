@@ -148,6 +148,38 @@ const NavClient = ({
 
 	const navigate = useNavigate();
 
+	// Add case navigation handlers
+	const handleNextCase = () => {
+		const filteredCases = cases.filter((c) => c.index !== false);
+		const currentCaseIndex = filteredCases.findIndex(
+			(c) => c.id === workCase?.id
+		);
+		const nextCaseIndex = (currentCaseIndex + 1) % filteredCases.length;
+		const nextCase = filteredCases[nextCaseIndex];
+
+		if (nextCase?.id && selectedCaseChanged) {
+			console.log('Next case:', nextCase.id);
+			selectedCaseChanged(nextCase.id);
+		}
+	};
+
+	const handlePrevCase = () => {
+		const filteredCases = cases.filter((c) => c.index !== false);
+		const currentCaseIndex = filteredCases.findIndex(
+			(c) => c.id === workCase?.id
+		);
+		const prevCaseIndex =
+			currentCaseIndex > 0
+				? currentCaseIndex - 1
+				: filteredCases.length - 1;
+		const prevCase = filteredCases[prevCaseIndex];
+
+		if (prevCase?.id && selectedCaseChanged) {
+			console.log('Previous case:', prevCase.id);
+			selectedCaseChanged(prevCase.id);
+		}
+	};
+
 	return (
 		<>
 			<div className="navigation z-30 relative">
@@ -257,6 +289,30 @@ const NavClient = ({
 										<span className="text-xs dark:text-gray-400 text-gray-500 font-bold uppercase mr-auto">
 											Case
 										</span>
+										<div className="flex ml-auto gap-1">
+											<Tooltip
+												content="Previous case"
+												direction="top"
+											>
+												<button
+													className="pt-0 mb-0 mt-0 text-center items-center dark:text-gray-500 text-black text-sm lg:font-light"
+													onClick={handlePrevCase}
+												>
+													<ArrowLeftIcon className="h-3 w-3 dark:text-gray-400 text-gray-500" />
+												</button>
+											</Tooltip>
+											<Tooltip
+												content="Next case"
+												direction="top"
+											>
+												<button
+													className="pt-0 mb-0 mt-0 text-center items-center dark:text-gray-500 text-black text-sm lg:font-light"
+													onClick={handleNextCase}
+												>
+													<ArrowRightIcon className="h-3 w-3 dark:text-gray-400 text-gray-500" />
+												</button>
+											</Tooltip>
+										</div>
 									</div>
 									<Select
 										options={casesOptions}
@@ -272,7 +328,7 @@ const NavClient = ({
 							className={classNames(
 								`client-cases text-xs md:text-base md:text-center dark:text-gray-300 text-black lg:font-light flex flex-col items-start`
 							)}
-						>
+							>
 							<span className="text-xs dark:text-gray-400 text-gray-500 font-bold uppercase">
 								Cases
 							</span>
@@ -377,13 +433,16 @@ const NavCase = ({ workCase, item, selectedChanged, selectedCaseChanged }) => {
 
 	const selectedCaseOption = useMemo(() => {
 		if (workCase) {
-			return {
-				value: workCase.id,
-				label: workCase.title,
-			};
+			const currentCase = cases.find((c) => c.id === workCase.id);
+			if (currentCase) {
+				return {
+					value: currentCase.id,
+					label: currentCase.title,
+				};
+			}
 		}
 		return null;
-	}, [workCase]);
+	}, [workCase, cases]);
 
 	const navigate = useNavigate();
 
@@ -393,11 +452,11 @@ const NavCase = ({ workCase, item, selectedChanged, selectedCaseChanged }) => {
 			(c) => c.id === workCase?.id
 		);
 		const nextCaseIndex = (currentCaseIndex + 1) % filteredCases.length;
-		const nextCaseId = filteredCases[nextCaseIndex]?.id;
+		const nextCase = filteredCases[nextCaseIndex];
 
-		if (nextCaseId && selectedCaseChanged) {
-			console.log('Next case:', nextCaseId);
-			selectedCaseChanged(nextCaseId);
+		if (nextCase?.id && selectedCaseChanged) {
+			console.log('Next case:', nextCase.id);
+			selectedCaseChanged(nextCase.id);
 		}
 	};
 
@@ -410,11 +469,11 @@ const NavCase = ({ workCase, item, selectedChanged, selectedCaseChanged }) => {
 			currentCaseIndex > 0
 				? currentCaseIndex - 1
 				: filteredCases.length - 1;
-		const prevCaseId = filteredCases[prevCaseIndex]?.id;
+		const prevCase = filteredCases[prevCaseIndex];
 
-		if (prevCaseId && selectedCaseChanged) {
-			console.log('Previous case:', prevCaseId);
-			selectedCaseChanged(prevCaseId);
+		if (prevCase?.id && selectedCaseChanged) {
+			console.log('Previous case:', prevCase.id);
+			selectedCaseChanged(prevCase.id);
 		}
 	};
 
