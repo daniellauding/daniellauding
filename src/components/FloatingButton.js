@@ -18,6 +18,8 @@ const FloatingButton = ({
 	const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
 	const [isReturningSlow, setIsReturningSlow] = useState(false);
 	const [hasMoved, setHasMoved] = useState(false);
+	const [isKeyboardMoving, setIsKeyboardMoving] = useState(false);
+	const keyboardSpeed = 10; // Pixels per keypress
 
 	const blobPaths = [
 		'M449.66467,329.57458Q409.14917,409.14917,329.57458,407.97733Q250,406.80549,191.3735,387.02924Q132.74701,367.25299,77.06026,308.6265Q21.3735,250,49.05191,163.36516Q76.73032,76.73032,163.36516,85.537Q250,94.34367,322.00775,100.16408Q394.01551,105.98449,442.09784,177.99225Q490.18018,250,449.66467,329.57458Z',
@@ -30,7 +32,7 @@ const FloatingButton = ({
 	useEffect(() => {
 		const animate = () => {
 			if (!showButton || stopMovement || showModal) return;
-			if (isDragging) return;
+			if (isDragging || isKeyboardMoving) return;
 
 			setPosition((prevPos) => {
 				const buttonRect = buttonRef.current.getBoundingClientRect();
@@ -42,9 +44,8 @@ const FloatingButton = ({
 				let newVelX = velocity.x;
 				let newVelY = velocity.y;
 
-				// Bounce off edges while preserving directional momentum better
 				if (newX <= 0 || newX >= windowWidth) {
-					newVelX = -velocity.x * 0.98; // Increased bounce preservation
+					newVelX = -velocity.x * 0.98;
 					if (!isReturningSlow) {
 						setCurrentBlobIndex(
 							(prev) => (prev + 1) % blobPaths.length
@@ -60,7 +61,7 @@ const FloatingButton = ({
 					}
 				}
 				if (newY <= 0 || newY >= windowHeight) {
-					newVelY = -velocity.y * 0.98; // Increased bounce preservation
+					newVelY = -velocity.y * 0.98;
 					if (!isReturningSlow) {
 						setCurrentBlobIndex(
 							(prev) => (prev + 1) % blobPaths.length
@@ -76,13 +77,11 @@ const FloatingButton = ({
 					}
 				}
 
-				// Reduced friction for more linear movement
 				if (isReturningSlow) {
-					const friction = 0.998; // Very slight friction for more linear movement
+					const friction = 0.998;
 					newVelX *= friction;
 					newVelY *= friction;
 
-					// Only reset to normal if practically stopped
 					if (Math.abs(newVelX) < 0.05 && Math.abs(newVelY) < 0.05) {
 						setIsReturningSlow(false);
 						newVelX = 2;
@@ -115,6 +114,7 @@ const FloatingButton = ({
 		showModal,
 		isDragging,
 		isReturningSlow,
+		isKeyboardMoving,
 	]);
 
 	useEffect(() => {
@@ -227,6 +227,63 @@ const FloatingButton = ({
 		setIsDragging(false);
 		setHasMoved(false);
 	};
+
+	// Add keyboard controls
+	useEffect(() => {
+		const handleKeyDown = (e) => {
+			if (showModal || stopMovement || isDragging) return;
+
+			const buttonRect = buttonRef.current.getBoundingClientRect();
+			const windowWidth = window.innerWidth - buttonRect.width;
+			const windowHeight = window.innerHeight - buttonRect.height;
+
+			setPosition((prevPos) => {
+				let newX = prevPos.x;
+				let newY = prevPos.y;
+
+				switch (e.key) {
+					case 'ArrowLeft':
+						newX = Math.max(0, prevPos.x - keyboardSpeed);
+						break;
+					case 'ArrowRight':
+						newX = Math.min(windowWidth, prevPos.x + keyboardSpeed);
+						break;
+					case 'ArrowUp':
+						newY = Math.max(0, prevPos.y - keyboardSpeed);
+						break;
+					case 'ArrowDown':
+						newY = Math.min(
+							windowHeight,
+							prevPos.y + keyboardSpeed
+						);
+						break;
+					default:
+						return prevPos;
+				}
+
+				// Set keyboard moving flag
+				setIsKeyboardMoving(true);
+				// Clear any existing timeout
+				if (window.keyboardMoveTimeout) {
+					clearTimeout(window.keyboardMoveTimeout);
+				}
+				// Set timeout to reset keyboard moving flag
+				window.keyboardMoveTimeout = setTimeout(() => {
+					setIsKeyboardMoving(false);
+				}, 100);
+
+				return { x: newX, y: newY };
+			});
+		};
+
+		window.addEventListener('keydown', handleKeyDown);
+		return () => {
+			window.removeEventListener('keydown', handleKeyDown);
+			if (window.keyboardMoveTimeout) {
+				clearTimeout(window.keyboardMoveTimeout);
+			}
+		};
+	}, [showModal, stopMovement, isDragging]);
 
 	return showButton ? (
 		<>

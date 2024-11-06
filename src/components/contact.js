@@ -3,19 +3,13 @@ import classNames from 'classnames';
 import { XMarkIcon } from '@heroicons/react/24/solid';
 import ContactForm from './form';
 import { OffertForm } from './form';
-// merge to Forms file
 
 const Contact = ({ closeContactModal }) => {
-	// const { showContactModal, closeContactModal } = props;
-
 	return (
 		<div
 			tabIndex="-1"
 			aria-hidden="true"
-			className={classNames(
-				'fixed inset-0 z-10 overflow-y-auto'
-				// showContactModal ? 'visible' : 'invisible'
-			)}
+			className={classNames('fixed inset-0 z-10 overflow-y-auto')}
 		>
 			<div className="modal modal-request-access flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
 				<div className="modal-wrapper z-20 relative transform overflow-hidden rounded-2xl bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
@@ -46,10 +40,7 @@ const Offert = ({ closeOffertModal }) => {
 		<div
 			tabIndex="-1"
 			aria-hidden="true"
-			className={classNames(
-				'fixed inset-0 z-10 overflow-y-auto'
-				// showOffertModal ? 'visible' : 'invisible'
-			)}
+			className={classNames('fixed inset-0 z-10 overflow-y-auto')}
 		>
 			<div className="modal modal-request-access flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
 				<div className="modal-wrapper z-20 relative transform overflow-hidden rounded-2xl bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
