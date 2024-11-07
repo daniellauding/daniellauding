@@ -83,11 +83,12 @@ const Experience = ({ item, onHover }) => {
 		<li
 			key={item?.id}
 			className={classNames(
-				`experience grid grid-cols-3 sm:grid-cols-4 grid-rows-2 md:grid-rows-1 grid-rows-1 group/item items-center transition-all h-16 gap-2 sm:gap-0`,
+				`experience grid grid-cols-3 sm:grid-cols-4 grid-rows-2 md:grid-rows-1 grid-rows-1 group/item items-center transition-all h-16 gap-2 sm:gap-0 w-full`,
 				location.pathname === `/${item.slug}`
 					? 'bg-gray-100 text-gray-900'
 					: 'block h-4 py-2 text-sm text-gray-700',
-				isHovering ? 'hovering cursor-pointer' : 'no-hover'
+				isHovering ? 'hovering cursor-pointer' : 'no-hover',
+				item.isSubItem ? 'text-sm' : ''
 			)}
 			onClick={onClick}
 			onMouseEnter={setPreview}
@@ -97,7 +98,9 @@ const Experience = ({ item, onHover }) => {
 		>
 			<p
 				className={classNames(
-					`col-span-1 pt-0 mb-0 text-left text-2xl md:text-base md:font-medium h-full row-start-1 md:row-start-1 md:row-end-1`
+					`col-span-1 pt-0 mb-0 text-left ${
+						item.isSubItem ? 'text-base' : 'text-2xl'
+					} md:text-base md:font-medium h-full row-start-1 md:row-start-1 md:row-end-1`
 				)}
 			>
 				<span className="flex items-center gap-2 sm:px-4 h-full transition-all border-2 border-transparent light:text-primary light:group-hover/item:border-primary dark:text-primary dark:hover:text-white dark:hover:bg-primary dark:group-hover/item:border-primary light:hover:bg-primary light:hover:text-white rounded-full min-w-max sm:w-fit">

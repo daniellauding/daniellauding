@@ -3585,6 +3585,7 @@ const work = [
 				date: '2015',
 				location: '',
 				title: 'mrUsta',
+				protected: true,
 				lead: '',
 				library: {
 					folder: 'instinctly/mrusta',

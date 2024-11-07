@@ -5,4 +5,23 @@
       opacity: 1;
     }
   }
+
+  .experience-container {
+    transition: all 0.3s ease;
+    
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  // Style for sub-items
+  .experience-container ul {
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+
+  // Add styling for collapse button
+  .collapse-button {
+    margin-right: -40px;
+  }
 }

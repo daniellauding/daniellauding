@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { work } from '../constant';
 import classNames from 'classnames';
-// import { XMarkIcon } from '@heroicons/react/24/solid';
 import Experience from './experience';
+import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/solid';
 
 const DownloadCV = () => {
 	return (
@@ -17,22 +17,60 @@ const DownloadCV = () => {
 	);
 };
 
-const Experiences = ({
-	showExperiencesFull,
-	// setShowExperiencesFull,
-	active,
-	selectedChanged,
-}) => {
+const ExperienceWithProjects = ({ item }) => {
+	const [isExpanded, setIsExpanded] = useState(false);
+	const hasMultipleProjects = item.cases && item.cases.length > 1;
+	const hasProjects = item.cases && item.cases.length > 0;
+
+	return (
+		<div className="experience-container">
+			<div className="flex items-center w-full">
+				<Experience item={item} onHover={() => {}} />
+				{hasMultipleProjects && (
+					<button
+						onClick={(e) => {
+							e.stopPropagation();
+							setIsExpanded(!isExpanded);
+						}}
+						className="ml-2 p-2 hover:bg-gray-100 rounded-full transition-all collapse-button"
+					>
+						{isExpanded ? (
+							<ChevronUpIcon className="h-4 w-4 text-gray-500" />
+						) : (
+							<ChevronDownIcon className="h-4 w-4 text-gray-500" />
+						)}
+					</button>
+				)}
+			</div>
+
+			{isExpanded && hasProjects && (
+				<ul className="ml-8 mt-2 border-l-2 border-gray-200">
+					{item.cases.map((project) => (
+						<li key={project.id} className="pl-4">
+							<Experience
+								item={{
+									...project,
+									client: project.title || project.case,
+									role: project.tags?.join(', '),
+									date: project.date || item.date,
+									slug: `${item.slug}/${project.case}`,
+									isSubItem: true,
+								}}
+								onHover={() => {}}
+							/>
+						</li>
+					))}
+				</ul>
+			)}
+		</div>
+	);
+};
+
+const Experiences = ({ showExperiencesFull, active, selectedChanged }) => {
 	return (
 		<>
 			{showExperiencesFull ? (
 				<div className="experiences">
-					{/* <button
-						onClick={() => setShowExperiencesFull(false)}
-						className="text-white font-bold p-2 w-2 h-2 rounded-full fixed top-4 right-8"
-					>
-						<XMarkIcon className="h-5 w-5 dark:text-gray-300 dark:hover:dark:text-white" />
-					</button> */}
 					<div
 						className={classNames(
 							'flex relative flex-col border-gray-200 dark:border-gray-700 h-full'
@@ -42,11 +80,11 @@ const Experiences = ({
 							{work
 								.filter((item) => item.index !== false)
 								.map((item) => (
-									<Experience
+									<ExperienceWithProjects
 										key={item.id}
 										item={item}
 										active={active === item.id}
-										setActive={selectedChanged}
+										selectedChanged={selectedChanged}
 									/>
 								))}
 						</ul>
