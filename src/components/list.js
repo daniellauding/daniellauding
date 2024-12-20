@@ -1,73 +1,78 @@
 import React from 'react';
 import Text, { Title } from './typography';
-import Icon from './icon'; // Import the Icon component
+import Icon from './icon';
 
 const ListItem = ({ item }) => {
-	console.log('Icon:', item.icon); // Log the icon prop
-	console.log('Title:', item.title); // Log the title prop
-	console.log('Text:', item.text); // Log the text prop
-
 	return (
-		<li className="mb-4 flex items-center flex flex-col">
-			{Array.isArray(item.icon) ? (
-				item.icon.map((iconItem, index) => (
+		<li className="mb-4 flex-none">
+			{item.icon &&
+				(Array.isArray(item.icon) ? (
+					item.icon.map((iconItem, index) => (
+						<Icon
+							key={index}
+							icon={iconItem.svgCode}
+							size={iconItem.size}
+							customClass={iconItem.class}
+						/>
+					))
+				) : (
 					<Icon
-						key={index}
-						icon={iconItem.svgCode}
-						size={iconItem.size}
-						customClass={iconItem.class} // Pass customClass instead of class
+						icon={item.icon.svgCode}
+						size={item.icon.size}
+						customClass={item.icon.class}
 					/>
-				))
-			) : (
-				<Icon
-					icon={item.icon.svgCode}
-					size={item.icon.size}
-					customClass={item.icon.class}
-				/> // Pass customClass instead of class
-			)}
+				))}
 
-			{Array.isArray(item.title) ? (
-				item.title.map((titleItem, index) => (
-					<Title
-						key={index}
-						value={titleItem.value}
-						size={titleItem.size}
-						className="w-full"
-					/>
-				))
-			) : (
-				<Title value={item.title.value} size={item.title.size} />
-			)}
+			{item.title &&
+				(Array.isArray(item.title) ? (
+					item.title.map((titleItem, index) => (
+						<Title
+							key={index}
+							value={titleItem.value}
+							size={titleItem.size}
+							className="w-full"
+						/>
+					))
+				) : (
+					<Title value={item.title.value} size={item.title.size} />
+				))}
 
-			{Array.isArray(item.text) ? (
-				item.text.map((textItem, index) => (
+			{item.text &&
+				(Array.isArray(item.text) ? (
+					item.text.map((textItem, index) => (
+						<Text
+							key={index}
+							value={textItem.value}
+							size={textItem.size}
+							className="pt-0 mb-2 text-text lg:font-light"
+						/>
+					))
+				) : (
 					<Text
-						key={index}
-						value={textItem.value}
-						size={textItem.size}
+						value={item.text.value}
+						size={item.text.size}
+						className="pt-0 mb-2 text-text lg:font-light"
 					/>
-				))
-			) : (
-				<Text value={item.text.value} size={item.text.size} />
-			)}
+				))}
 		</li>
 	);
 };
 
-const List = ({ items }) => (
-	<ul className="list-disc list-inside">
-		{items.map((itemGroup, index) => (
-			<React.Fragment key={index}>
-				{Array.isArray(itemGroup.item) ? (
-					itemGroup.item.map((item, innerIndex) => (
-						<ListItem key={innerIndex} item={item} />
-					))
-				) : (
-					<ListItem key={index} item={itemGroup} />
-				)}
-			</React.Fragment>
-		))}
-	</ul>
-);
+const List = ({ list }) => {
+	if (!list) return null;
+
+	const { style, items } = list;
+	const listClasses = `list-${style?.type || 'disc'} list-${
+		style?.position || 'inside'
+	} ${style?.className || ''}`.trim();
+
+	return (
+		<ul className={listClasses}>
+			{items.map((item, index) => (
+				<ListItem key={index} item={item} />
+			))}
+		</ul>
+	);
+};
 
 export default List;

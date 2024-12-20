@@ -275,7 +275,11 @@ const about = [
 						colStart: 2,
 						text: [
 							{
-								value: `He's been instrumental in evolving initial concepts into crucial tools for SMEs. With his team, he's successfully tackled intricate design challenges, contributing to Asteria's growth. This includes playing a key role in securing funding rounds and forging new partnerships, marking significant achievements in the fintech and banking sectors across Scandinavia.`,
+								value: `He's been instrumental in evolving initial concepts into crucial tools for SMEs. With his team, he's successfully tackled intricate design challenges, contributing to Asteria's growth.`,
+								size: 'large',
+							},
+							{
+								value: `This includes playing a key role in securing funding rounds and forging new partnerships, marking significant achievements in the fintech and banking sectors across Scandinavia.`,
 								size: 'medium',
 							},
 						],
@@ -284,6 +288,148 @@ const about = [
 			},
 			{
 				id: 3,
+				columns: 3,
+				gap: 4,
+				section: 'teasers-asteria',
+				groups: [
+					{
+						id: 1,
+						columns: 1,
+						colStart: 1,
+						class: 'mt-32',
+						teaser: {
+							title: 'Lead Product Designer & Co-Founder',
+							subtitle: 'Smart Cash Flow – Asteria',
+							date: '2017 – Present',
+							description:
+								'Integrating cash flow management into everyday banking activities for small businesses',
+							// screenshots: [
+							// 	{
+							// 		src: '/images/case/asteria/foretagskollen/screens/01.png',
+							// 		alt: 'Dashboard view - Main interface',
+							// 	},
+							// 	{
+							// 		src: '/images/case/asteria/foretagskollen/screens/02.png',
+							// 		alt: 'Analytics features',
+							// 	},
+							// 	{
+							// 		src: '/images/case/asteria/foretagskollen/screens/03.png',
+							// 		alt: 'Settings interface',
+							// 	},
+							// 	{
+							// 		src: '/images/case/asteria/foretagskollen/screens/04.png',
+							// 		alt: 'Profile management',
+							// 	},
+							// 	{
+							// 		src: '/images/case/asteria/foretagskollen/screens/05.png',
+							// 		alt: 'Overview dashboard',
+							// 	},
+							// ],
+							image: [
+								{
+									src: '/images/case/asteria/smartcashflow/screens/02.png',
+									alt: 'Dashboard view - Main interface',
+								},
+							],
+							tags: ['UX', 'UI', 'Development'],
+							buttons: [
+								{
+									variant: 'primary',
+									type: 'internal',
+									href: '/asteria/smart-cash-flow',
+									text: 'View Project',
+								},
+							],
+							className:
+								'bg-gradient-to-br from-blue-500/10 to-purple-500/10',
+						},
+					},
+					{
+						id: 2,
+						columns: 1,
+						colStart: 2,
+						class: 'mt-32',
+						teaser: {
+							title: 'Lead Product Designer',
+							subtitle: 'Företagskollen – Swedbank',
+							date: '2017 – Present',
+							description:
+								'Integrating cash flow management into everyday banking activities for small businesses',
+							// screenshots: [
+							// 	{
+							// 		src: '/images/case/asteria/foretagskollen/screens/01.png',
+							// 		alt: 'Dashboard view - Main interface',
+							// 	},
+							// 	{
+							// 		src: '/images/case/asteria/foretagskollen/screens/02.png',
+							// 		alt: 'Analytics features',
+							// 	},
+							// 	{
+							// 		src: '/images/case/asteria/foretagskollen/screens/03.png',
+							// 		alt: 'Settings interface',
+							// 	},
+							// 	{
+							// 		src: '/images/case/asteria/foretagskollen/screens/04.png',
+							// 		alt: 'Profile management',
+							// 	},
+							// 	{
+							// 		src: '/images/case/asteria/foretagskollen/screens/05.png',
+							// 		alt: 'Overview dashboard',
+							// 	},
+							// ],
+							image: [
+								{
+									src: '/images/case/asteria/foretagskollen/screens/01.png',
+									alt: 'Dashboard view - Main interface',
+								},
+							],
+							tags: ['UX', 'UI', 'Development'],
+							buttons: [
+								{
+									variant: 'primary',
+									type: 'internal',
+									href: '/asteria/foretagskollen',
+									text: 'View Project',
+								},
+							],
+							className:
+								'bg-gradient-to-br from-blue-500/10 to-purple-500/10',
+						},
+					},
+					{
+						id: 3,
+						columns: 1,
+						colStart: 3,
+						class: 'mt-32',
+						teaser: {
+							title: 'Lead Product Designer',
+							subtitle: 'Fakturaportalen – PayEx',
+							date: '2017 – Present',
+							description:
+								'Integrating cash flow management into everyday banking activities for small businesses',
+							image: [
+								{
+									src: '/images/case/asteria/payex/screens/01.png',
+									alt: 'Dashboard view - Main interface',
+								},
+							],
+							tags: ['UX', 'UI', 'Development'],
+							buttons: [
+								{
+									variant: 'primary',
+									type: 'internal',
+									href: '/asteria/invoice-portal-payex',
+									text: 'View Project',
+								},
+							],
+							className:
+								'bg-gradient-to-br from-blue-500/10 to-purple-500/10',
+						},
+					},
+				],
+			},
+			{
+				id: 4,
 				section: 'past',
 				anchor: '',
 				columns: 4,
@@ -316,7 +462,11 @@ const about = [
 						rowStart: 2,
 						text: [
 							{
-								value: `Daniel also designed a cross-platform user-friendly design system for Länsförsäkringar, ensuring seamless experiences across various platforms, with the system still in active use today.`,
+								value: `Led the design of a cross-platform, user-friendly design system for Länsförsäkringar, modernizing their digital presence while maintaining their unique local identity. The system, still in active use today, transformed the user experience across their website, mobile app, and other platforms.`,
+								size: 'large',
+							},
+							{
+								value: `This work contributed to Länsförsäkringar winning Best App and Web awards, ensuring design consistency, improving accessibility, and empowering multiple teams to successfully launch the updated visual identity. The project had a lasting impact across all digital touchpoints.`,
 								size: 'medium',
 							},
 						],
@@ -326,38 +476,71 @@ const about = [
 						columns: 2,
 						rowStart: 1,
 						colStart: 3,
-						class: 'w-full ml-24',
-						image: {
-							src: '/images/about/spotify.png',
-							imgClass: 'rounded-lg',
+						class: 'ml-24',
+						// image: {
+						// 	src: '/images/about/spotify.png',
+						// 	imgClass: 'rounded-lg',
+						// },
+						teaser: {
+							title: 'Product Design Consultant',
+							subtitle: 'Spotify',
+							date: '2017',
+							description:
+								'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+							image: [
+								{
+									src: '/images/about/spotify.png',
+								},
+							],
+							buttons: [
+								{
+									variant: 'primary',
+									type: 'internal',
+									href: '/spotify',
+									text: 'View Project',
+								},
+							],
+							className:
+								'bg-gradient-to-br from-blue-500/10 to-purple-500/10',
 						},
 					},
 					{
 						id: 3,
 						columns: 2,
-						rowStart: 2,
+						rowStart: 3,
 						colStart: 1,
-						class: 'w-full ml-24 mt-64',
-						image: {
-							src: '/images/about/lf.jpg',
-							imgClass: 'rounded-lg',
+						class: 'w-full ml-24 mt-40',
+						// image: {
+						// 	src: '/images/about/lf.jpg',
+						// 	imgClass: 'rounded-lg',
+						// },
+						teaser: {
+							title: 'Art Director Consultant',
+							subtitle: 'Länsförsäkringar',
+							date: '2017',
+							description:
+								'Working closely with the squad and product owners to optimize product value for existing markets with growth potential. Mission for emergin markets focus on latin america.',
+							image: [
+								{
+									src: '/images/about/lf.jpg',
+								},
+							],
+							buttons: [
+								{
+									variant: 'primary',
+									type: 'internal',
+									href: '/spotify',
+									text: 'View Project',
+								},
+							],
+							className:
+								'bg-gradient-to-br from-blue-500/10 to-purple-500/10',
 						},
 					},
-					// {
-					// 	id: 4,
-					// 	columns: 1,
-					// 	rowStart: 3,
-					// 	colStart: 2,
-					// 	class: 'w-full ml-24 mt-64',
-					// 	image: {
-					// 		src: '/images/about/klm.png',
-					// 		imgClass: 'rounded-lg',
-					// 	},
-					// },
 				],
 			},
 			{
-				id: 4,
+				id: 6,
 				section: 'design-philosophy',
 				anchor: '',
 				columns: 3,
@@ -431,7 +614,7 @@ const about = [
 				],
 			},
 			{
-				id: 5,
+				id: 7,
 				section: 'nomading',
 				anchor: '',
 				columns: 4,
@@ -500,7 +683,7 @@ const about = [
 				],
 			},
 			{
-				id: 7,
+				id: 8,
 				section: 'available',
 				anchorName: `Let's Collaborate`,
 				anchorNav: true,
@@ -544,7 +727,7 @@ const about = [
 				],
 			},
 			{
-				id: 8,
+				id: 9,
 				section: 'experiences',
 				// anchorName: `Experiences`,
 				// anchorNav: true,
@@ -674,7 +857,355 @@ const work = [
 		// soon: true,
 		cases: [
 			{
-				id: 0,
+				id: 1,
+				case: 'smart-cash-flow',
+				title: 'Smart Cash Flow – Asteria',
+				tags: ['Product Design'],
+				content: [
+					{
+						id: 0,
+						section: 'intro',
+						class: 'bg-cover bg-fixed bg-no-repeat bg-center',
+						padding: 'pt-48 pb-8',
+						text: {
+							value: `Empowering small and medium-sized enterprises with accessible financial insights.`,
+							size: 'xl',
+							align: {
+								horizontal: 'center',
+							},
+						},
+						groups: {
+							class: 'pt-0 mt-16',
+							items: [
+								{
+									id: 0,
+									class: 'pt-0',
+									text: [
+										{
+											value: `When`,
+											size: 'small',
+											className: 'mt-0 mb-0',
+										},
+										{
+											value: `2017 – Present`,
+											size: 'medium',
+											className: 'mt-0 mb-0',
+										},
+									],
+								},
+								{
+									id: 1,
+									text: [
+										{
+											value: `Location`,
+											size: 'small',
+											className: 'mt-0 mb-0',
+										},
+										{
+											value: `Stockholm`,
+											size: 'medium',
+											className: 'mt-0 mb-0',
+										},
+									],
+								},
+								{
+									id: 2,
+									text: [
+										{
+											value: `Client`,
+											size: 'small',
+											className: 'mt-0 mb-0',
+										},
+										{
+											value: `Asteria`,
+											size: 'medium',
+											className: 'mt-0 mb-0',
+										},
+									],
+								},
+								{
+									id: 3,
+									text: [
+										{
+											value: `Type of work`,
+											size: 'small',
+											className: 'mt-0 mb-0',
+										},
+										{
+											value: `Product Design, UX, UI, Development, System Integration`,
+											size: 'medium',
+											className: 'mt-0 mb-0',
+										},
+									],
+								},
+							],
+						},
+					},
+					{
+						id: 1,
+						section: 'bg-brand',
+						class: 'bg-cover bg-fixed bg-no-repeat bg-center h-screen',
+						background: {
+							image: '/images/case/asteria/smartcashflow/bg_smartcashflow.png',
+						},
+					},
+					{
+						id: 2,
+						section: 'description',
+						class: 'w-6/12 mx-auto',
+						image: {
+							src: '/images/case/asteria/smartcashflow/laptop@2x.png',
+							imgClass: 'mt-16',
+						},
+						text: [
+							{
+								value: `Inspired by our collaboration with Swedbank, we developed the Asteria Smart Cash Flow (Web App) – a user-centric solution aimed at empowering small and medium-sized enterprises (SMEs) with accessible financial insights.
+
+The Asteria Web App is designed to help users navigate their cash flow effortlessly, providing clear, actionable information that simplifies financial management. By focusing on the user experience, we aim to demystify complex financial data, enabling SMEs to make informed decisions confidently and manage their resources effectively.`,
+								size: 'large',
+								align: {
+									horizontal: 'center',
+								},
+							},
+						],
+					},
+					{
+						id: 3,
+						section: 'the-problem',
+						groups: {
+							items: [
+								{
+									id: 0,
+									columns: 2,
+									text: {
+										value: `The problem`,
+										size: 'small',
+										className: 'mt-0 mb-0',
+									},
+								},
+								{
+									id: 1,
+									columns: 2,
+									text: [
+										{
+											value: `Through our partnership with Swedbank, we identified a significant issue: many users were unaware of the full potential of the Asteria Smart Cash Flow tool. SMEs often felt overwhelmed by the intricacies of financial management, leading to low engagement and infrequent usage of available tools. Feedback revealed a pressing need for a straightforward, intuitive interface that highlights the app’s value and relevance to their daily operations.`,
+											size: 'large',
+										},
+									],
+								},
+							],
+						},
+					},
+					{
+						id: 4,
+						section: 'setting-the-goal',
+						groups: {
+							items: [
+								{
+									id: 0,
+									columns: 2,
+									text: {
+										value: `Setting the Goal`,
+										size: 'small',
+										className: 'mt-0 mb-0',
+									},
+								},
+								{
+									id: 1,
+									columns: 2,
+									text: [
+										{
+											value: `Our mission was to simplify cash flow management for SMEs, offering them immediate, actionable insights into their financial health. By prioritizing user experience, we aimed to transform how users engage with their financial data, helping them feel more in control of their business finances.`,
+											size: 'large',
+										},
+									],
+								},
+							],
+						},
+					},
+					{
+						id: 5,
+						section: 'gaining-insights',
+						groups: {
+							items: [
+								{
+									id: 0,
+									columns: 2,
+									text: {
+										value: `Gaining Insights`,
+										size: 'small',
+										className: 'mt-0 mb-0',
+									},
+								},
+								{
+									id: 1,
+									columns: 2,
+									text: [
+										{
+											value: `Through comprehensive user research, including feedback gathered during our collaboration with Swedbank, we identified several pain points. Users expressed difficulties in grasping the platform’s features and accessing essential tools quickly. This feedback underscored the necessity of a more focused approach that delivers vital business insights in an easily digestible format.`,
+											size: 'large',
+										},
+									],
+								},
+							],
+						},
+					},
+					{
+						id: 6,
+						section: 'the-approach',
+						groups: {
+							items: [
+								{
+									id: 0,
+									columns: 2,
+									text: {
+										value: `The Approach`,
+										size: 'small',
+										className: 'mt-0 mb-0',
+									},
+								},
+								{
+									id: 1,
+									columns: 2,
+									text: [
+										{
+											value: `As the lead product designer, I played a crucial role in defining, planning, and guiding the project alongside our CTO. We worked closely to ensure that our vision aligned with the technical capabilities of the Asteria Web App.`,
+											size: 'large',
+										},
+										{
+											value: `I focused on creating a user-friendly experience by conducting workshops to gather insights directly from users, developing wireframes, and refining the user interface. My responsibilities extended beyond design to include testing the application with real user data to validate our concepts and ensure we were effectively addressing users’ needs.`,
+											size: 'large',
+										},
+										{
+											value: `Our approach emphasized mobile-friendly functionality, allowing users to access crucial financial information anytime, anywhere. By streamlining the interface, we provided a focused view of cash flow that speaks directly to users who may not have extensive financial knowledge.`,
+											size: 'large',
+										},
+									],
+								},
+							],
+						},
+					},
+					{
+						id: 7,
+						section: 'the-outcome',
+						groups: {
+							items: [
+								{
+									id: 0,
+									columns: 2,
+									text: {
+										value: `The Outcome`,
+										size: 'small',
+										className: 'mt-0 mb-0',
+									},
+								},
+								{
+									id: 1,
+									columns: 2,
+									text: [
+										{
+											value: `The Asteria Web App has successfully positioned us to meet the demands of SMEs seeking simplified financial management solutions. Users now enjoy a clear understanding of their company’s financial status, including key metrics like paid and forecasted salaries, taxes, historical and projected account balances, and potential cash flow risks.`,
+											size: 'large',
+										},
+										{
+											value: `The app empowers users to:`,
+											size: 'large',
+										},
+									],
+									list: {
+										style: {
+											type: 'disc', // can be 'disc', 'circle', 'square', etc.
+											position: 'outside', // can be 'inside' or 'outside'
+											className: 'text-gray-700 mt-16', // additional custom classes
+										},
+										items: [
+											{
+												text: [
+													{
+														value: `Gain clear insights into their cash flow situation`,
+														size: 'medium',
+													},
+												],
+											},
+											{
+												text: [
+													{
+														value: `Make informed decisions to minimize late payments and risks`,
+														size: 'medium',
+													},
+												],
+											},
+											{
+												text: [
+													{
+														value: `Collaborate easily with colleagues and advisors to enhance financial strategies`,
+														size: 'medium',
+													},
+												],
+											},
+											{
+												text: [
+													{
+														value: `Take prompt actions to optimize their cash flow management`,
+														size: 'medium',
+													},
+												],
+											},
+										],
+									},
+								},
+							],
+						},
+					},
+					{
+						id: 8,
+						section: 'learnings',
+						groups: {
+							items: [
+								{
+									id: 0,
+									columns: 2,
+									text: {
+										value: `Learnings`,
+										size: 'small',
+										className: 'mt-0 mb-0',
+									},
+								},
+								{
+									id: 1,
+									columns: 2,
+									text: [
+										{
+											value: `Our collaboration with Swedbank provided invaluable insights that shaped the development of the Asteria Web App. We learned that thoughtful design plays a crucial role in making complex financial processes more approachable for SMEs. My involvement in every aspect –from initial concept to user testing – has been incredibly fulfilling. Seeing users gain clarity and confidence in their financial management has validated our efforts.`,
+											size: 'large',
+										},
+										{
+											value: `In conclusion, the Asteria Web App embodies our commitment to enhancing user understanding and engagement, making financial management both accessible and efficient for all.`,
+											size: 'large',
+										},
+									],
+								},
+							],
+						},
+					},
+					{
+						id: 9,
+						section: 'image-loop',
+						background: {
+							color: '#FAFAFA',
+						},
+						container: 'h-full relative container flex flex-col',
+						image: {
+							variant: 'loop',
+							folder: 'asteria/smartcashflow/screens/2x',
+							style: 'vertical',
+							imageClasses: 'testar',
+						},
+					},
+				],
+			},
+			{
+				id: 2,
 				case: 'foretagskollen',
 				title: 'Företagskollen – Swedbank',
 				tags: ['UX', 'UI'],
@@ -966,7 +1497,7 @@ const work = [
 				],
 			},
 			{
-				id: 1,
+				id: 3,
 				case: 'invoice-portal-payex',
 				title: 'Invoice Portal – PayEx',
 				tags: ['Product Design'],

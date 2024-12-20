@@ -22,6 +22,7 @@ import List from './list';
 import Image from './image';
 import Text, { Title } from './typography';
 import Icon from './icon'; // Import the Icon component
+import ProjectTeaser from './project-teaser';
 
 import {
 	ArrowLongRightIcon,
@@ -739,7 +740,6 @@ const About = ({
 																	}
 																/>
 															)}
-
 															{group?.text &&
 															Array.isArray(
 																group?.text
@@ -948,6 +948,13 @@ const About = ({
 																		)
 																	)}
 																</div>
+															)}
+															{group?.teaser && (
+																<ProjectTeaser
+																	teaser={
+																		group.teaser
+																	}
+																/>
 															)}
 														</div>
 													</AnimationOnScroll>
@@ -1409,6 +1416,13 @@ const About = ({
 																	)
 																)}
 															</div>
+														)}
+														{group?.teaser && (
+															<ProjectTeaser
+																teaser={
+																	group.teaser
+																}
+															/>
 														)}
 													</div>
 												)

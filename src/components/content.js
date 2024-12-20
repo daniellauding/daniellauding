@@ -7,6 +7,7 @@ import Accordion from './accordion';
 import Text, { Title } from './typography';
 import DummyImage from 'react-dummy-image';
 import Image from './image';
+import List from './image';
 import Section from './section';
 import Hero from './hero';
 
@@ -39,6 +40,9 @@ const Component = ({
 	}
 	if (type === 'img') {
 		return <Image item={item} value={value} style={style} />;
+	}
+	if (type === 'list') {
+		return <List item={item} value={value} style={style} />;
 	}
 	if (type === 'dummyimg') {
 		return (

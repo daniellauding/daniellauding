@@ -3,11 +3,12 @@ import React from 'react';
 import classNames from 'classnames';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 import Text, { Title } from './typography';
+import List from './list';
 // import DummyImage from 'react-dummy-image';
 import Image from './image';
 
 const Group = ({ group }) => {
-	const { title, text, lead, image, ...rest } = group;
+	const { title, text, list, lead, image, ...rest } = group;
 	console.log('group', group);
 	return (
 		<div
@@ -76,6 +77,12 @@ const Group = ({ group }) => {
 					color={lead?.color}
 					fill={text?.fill}
 				/>
+			)}
+
+			{list && (
+				<div className="list">
+					<List list={group.list} />
+				</div>
 			)}
 			{image && (
 				<Image
