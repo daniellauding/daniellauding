@@ -540,8 +540,10 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 	};
 
 	const handleFileChange = (e) => {
-		const files = Array.from(e.target.files);
-		setFormState((prev) => ({ ...prev, files }));
+		setFormState((prev) => ({
+			...prev,
+			files: Array.from(e.target.files),
+		}));
 	};
 
 	const handleSubmit = async (e) => {
@@ -1030,26 +1032,67 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 												</label>
 											))}
 										</div>
-										<div>
-											<label
-												htmlFor="deliverables-other"
-												className="block mb-2 font-medium"
-											>
-												Other deliverables (optional):
+										<div className="space-y-4">
+											<label className="flex items-center space-x-3">
+												<input
+													type="checkbox"
+													value="other"
+													checked={formState.deliverables.includes(
+														'other'
+													)}
+													onChange={(e) => {
+														const value =
+															e.target.value;
+														setFormState(
+															(prev) => ({
+																...prev,
+																deliverables: e
+																	.target
+																	.checked
+																	? [
+																		...prev.deliverables,
+																		value,
+																	  ]
+																	: prev.deliverables.filter(
+																		(
+																			d
+																		) =>
+																			d !==
+																				value
+																	  ),
+															})
+														);
+													}}
+													className="form-checkbox h-4 w-4 text-primary"
+												/>
+												<span>Other</span>
 											</label>
-											<textarea
-												id="deliverables-other"
-												name="deliverables-other"
-												value={
-													formState[
-														'deliverables-other'
-													]
-												}
-												onChange={handleChange}
-												className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
-												rows="2"
-												placeholder="Describe any other deliverables you need"
-											/>
+
+											{formState.deliverables.includes(
+												'other'
+											) && (
+												<div className="ml-7">
+													<textarea
+														placeholder="Please specify your deliverables..."
+														value={
+															formState.deliverablesOther ||
+															''
+														}
+														onChange={(e) =>
+															setFormState(
+																(prev) => ({
+																	...prev,
+																	deliverablesOther:
+																		e.target
+																			.value,
+																})
+															)
+														}
+														className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
+														rows="3"
+													/>
+												</div>
+											)}
 										</div>
 									</div>
 
@@ -1063,6 +1106,13 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 										<select
 											id="budget"
 											name="budget"
+											value={formState.budget || ''}
+											onChange={(e) => {
+												setFormState((prev) => ({
+													...prev,
+													budget: e.target.value,
+												}));
+											}}
 											required
 											className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
 										>
@@ -1084,6 +1134,30 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 											<option value="$1M+">$1M+</option>
 											<option value="Other">Other</option>
 										</select>
+
+										{formState.budget === 'Other' && (
+											<div className="mt-3">
+												<textarea
+													placeholder="Please specify your budget..."
+													value={
+														formState.budgetOther ||
+														''
+													}
+													onChange={(e) =>
+														setFormState(
+															(prev) => ({
+																...prev,
+																budgetOther:
+																	e.target
+																		.value,
+															})
+														)
+													}
+													className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
+													rows="2"
+												/>
+											</div>
+										)}
 									</div>
 
 									{formState.budget === 'Other' && (
@@ -1211,22 +1285,66 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 											images, etc.)
 										</p>
 										{formState.files.length > 0 && (
-											<div className="mt-2">
-												<p className="text-sm font-medium">
-													Selected files:
-												</p>
-												<ul className="text-sm text-gray-600">
-													{formState.files.map(
-														(file, index) => (
-															<li
-																key={index}
-																className="text-sm text-gray-600"
+											<div className="mt-4 space-y-3">
+												{formState.files.map(
+													(file, index) => (
+														<div
+															key={index}
+															className="flex items-center space-x-3"
+														>
+															{file.type.startsWith(
+																'image/'
+															) && (
+																<img
+																	src={URL.createObjectURL(
+																		file
+																	)}
+																	alt={
+																		file.name
+																	}
+																	className="h-16 w-16 object-cover rounded"
+																/>
+															)}
+															<div className="flex-1 min-w-0">
+																<p className="text-sm truncate">
+																	{file.name}
+																</p>
+																<p className="text-xs text-gray-500">
+																	{(
+																		file.size /
+																		1024
+																	).toFixed(
+																		1
+																	)}{' '}
+																	KB
+																</p>
+															</div>
+															<button
+																type="button"
+																onClick={() => {
+																	setFormState(
+																		(
+																			prev
+																		) => ({
+																			...prev,
+																			files: prev.files.filter(
+																				(
+																					_,
+																					i
+																				) =>
+																					i !==
+																					index
+																			),
+																		})
+																	);
+																}}
+																className="text-red-500 hover:text-red-700"
 															>
-																{file.name}
-															</li>
-														)
-													)}
-												</ul>
+																Remove
+															</button>
+														</div>
+													)
+												)}
 											</div>
 										)}
 									</div>
