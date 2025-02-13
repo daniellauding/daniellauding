@@ -1051,14 +1051,14 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 																	.target
 																	.checked
 																	? [
-																		...prev.deliverables,
-																		value,
+																			...prev.deliverables,
+																			value,
 																	  ]
 																	: prev.deliverables.filter(
-																		(
-																			d
-																		) =>
-																			d !==
+																			(
+																				d
+																			) =>
+																				d !==
 																				value
 																	  ),
 															})
