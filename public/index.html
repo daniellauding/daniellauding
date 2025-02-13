@@ -65,19 +65,51 @@
 
     <form name="newproject" netlify netlify-honeypot="bot-field" hidden enctype='multipart/form-data'>
       <input type="hidden" name="form-name" value="newproject" />
-      <input type="text" name="name" />
-      <input type="text" name="company" />
+      <input type="text" name="full-name" />
+      <input type="text" name="company-name" />
       <input type="email" name="email" />
       <input type="text" name="projectName" />
+      
+      <!-- Help Type -->
       <select name="helpType"></select>
       <textarea name="helpTypeOther"></textarea>
+      
+      <!-- Project Type -->
       <select name="projectType"></select>
       <textarea name="projectTypeOther"></textarea>
-      <input type="checkbox" name="deliverables[]" />
+      
+      <!-- Deliverables -->
+      <input type="checkbox" name="deliverables[]" value="Figma" />
+      <input type="checkbox" name="deliverables[]" value="Design System" />
+      <input type="checkbox" name="deliverables[]" value="UI" />
+      <input type="checkbox" name="deliverables[]" value="UX" />
+      <input type="checkbox" name="deliverables[]" value="Mentorship" />
+      <input type="checkbox" name="deliverables[]" value="Front-end development" />
+      <input type="checkbox" name="deliverables[]" value="Prototyping" />
+      <input type="checkbox" name="deliverables[]" value="AI-driven exploration" />
+      <input type="checkbox" name="deliverables[]" value="Real-code Prototypes" />
+      <input type="checkbox" name="deliverables[]" value="Validate Solutions" />
+      <input type="checkbox" name="deliverables[]" value="Design Concepts" />
+      <input type="checkbox" name="deliverables[]" value="Design Evaluation" />
+      <input type="checkbox" name="deliverables[]" value="CRO" />
+      <input type="checkbox" name="deliverables[]" value="other" />
       <textarea name="deliverablesOther"></textarea>
-      <select name="budget"></select>
+      
+      <!-- Budget -->
+      <select name="budget">
+        <option value="$0 – $10k">$0 – $10k</option>
+        <option value="$10k – $50k">$10k – $50k</option>
+        <option value="$50k – $250k">$50k – $250k</option>
+        <option value="$250k – $1M">$250k – $1M</option>
+        <option value="$1M+">$1M+</option>
+        <option value="Other">Other</option>
+      </select>
       <textarea name="budgetOther"></textarea>
-      <textarea name="projectDescription"></textarea>
+      
+      <!-- Project Description -->
+      <textarea name="project-description"></textarea>
+      
+      <!-- File Upload -->
       <input type="file" name="file" multiple />
     </form>
     <!--

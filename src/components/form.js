@@ -554,33 +554,49 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 		const formData = new FormData();
 		formData.append('form-name', 'newproject');
 
-		// Append all form fields with matching names
-		formData.append('name', formState.name);
-		formData.append('company', formState.company);
-		formData.append('email', formState.email);
+		// Basic fields
+		formData.append('name', e.target['full-name'].value);
+		formData.append('company', e.target['company-name'].value);
+		formData.append('email', e.target.email.value);
 		formData.append('projectName', formState.projectName);
+
+		// Help type fields
 		formData.append('helpType', formState.helpType);
 		formData.append('helpTypeOther', formState.helpTypeOther);
+
+		// Project type fields
 		formData.append('projectType', formState.projectType);
 		formData.append('projectTypeOther', formState.projectTypeOther);
+
+		// Deliverables
 		formData.append('deliverables', formState.deliverables.join(', '));
 		formData.append('deliverablesOther', formState.deliverablesOther);
+
+		// Budget fields
 		formData.append('budget', formState.budget);
 		formData.append('budgetOther', formState.budgetOther);
-		formData.append('projectDescription', formState['project-description']);
 
-		// Handle multiple files
+		// Project description
+		formData.append(
+			'projectDescription',
+			e.target['project-description'].value
+		);
+
+		// Handle files
 		if (formState.files.length > 0) {
 			formState.files.forEach((file) => {
 				formData.append('file', file);
 			});
 		}
 
-		// Log what's being sent
+		// Debug log
 		console.log('Form Data being sent:');
 		for (let pair of formData.entries()) {
 			console.log(pair[0] + ': ' + pair[1]);
 		}
+
+		// Also log the raw form state for debugging
+		console.log('Form State:', formState);
 
 		try {
 			const response = await fetch('/', {
@@ -594,7 +610,7 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 			if (response.ok) {
 				setSubmitted(true);
 				setSubmitting(false);
-				closeModal(); // Close the modal after successful submission
+				closeModal();
 			} else {
 				throw new Error('Form submission failed');
 			}
