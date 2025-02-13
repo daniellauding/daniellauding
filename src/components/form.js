@@ -1231,15 +1231,15 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 								<div className="flex-grow">
 									<div>
 										<label
-											htmlFor="project-name"
+											htmlFor="projectName"
 											className="block mb-2 font-medium"
 										>
 											Project Name *
 										</label>
 										<input
 											type="text"
-											id="project-name"
-											name="project-name"
+											id="projectName"
+											name="projectName"
 											value={formState.projectName}
 											onChange={handleChange}
 											required
