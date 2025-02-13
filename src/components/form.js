@@ -554,31 +554,52 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 		const formData = new FormData();
 		formData.append('form-name', 'newproject');
 
-		// Append all form fields
-		Object.keys(formState).forEach((key) => {
-			if (key === 'files') {
-				formState.files.forEach((file, index) => {
-					formData.append(`file-${index}`, file);
-				});
-			} else if (Array.isArray(formState[key])) {
-				formData.append(key, formState[key].join(', '));
-			} else {
-				formData.append(key, formState[key] || '');
-			}
+		// Append all form fields with matching names
+		formData.append('name', formState.name || e.target['full-name'].value);
+		formData.append(
+			'company',
+			formState.company || e.target['company-name'].value
+		);
+		formData.append('email', formState.email);
+		formData.append('projectName', formState.projectName);
+		formData.append('helpType', formState.helpType);
+		formData.append('helpTypeOther', formState.helpTypeOther);
+		formData.append('projectType', formState.projectType);
+		formData.append('projectTypeOther', formState.projectTypeOther);
+		formData.append('deliverables', formState.deliverables.join(', '));
+		formData.append('deliverablesOther', formState.deliverablesOther);
+		formData.append('budget', formState.budget);
+		formData.append('budgetOther', formState.budgetOther);
+		formData.append('projectDescription', formState['project-description']);
+
+		// Handle multiple files
+		formState.files.forEach((file) => {
+			formData.append('file', file);
 		});
 
-		fetch('/', {
-			method: 'POST',
-			body: formData,
-		})
-			.then(() => {
+		try {
+			const response = await fetch('/', {
+				method: 'POST',
+				headers: {
+					Accept: 'application/json',
+				},
+				body: formData,
+			});
+
+			if (response.ok) {
 				setSubmitted(true);
 				setSubmitting(false);
-			})
-			.catch((error) => {
-				console.error(error);
-				setSubmitting(false);
-			});
+				closeModal();
+			} else {
+				throw new Error('Form submission failed');
+			}
+		} catch (error) {
+			console.error('Error:', error);
+			setSubmitting(false);
+			alert(
+				'There was a problem submitting your form. Please try again.'
+			);
+		}
 	};
 
 	return (
@@ -599,16 +620,20 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 				<div>
 					<form
 						name="newproject"
-						method="post"
+						method="POST"
+						action="/thank-you"
 						data-netlify="true"
+						data-netlify-honeypot="bot-field"
+						encType="multipart/form-data"
 						onSubmit={handleSubmit}
 						className="relative"
 					>
 						<input
 							type="hidden"
-							name="newproject"
+							name="form-name"
 							value="newproject"
 						/>
+						<input type="hidden" name="bot-field" />
 
 						<Carousel
 							selectedItem={currentSlide}

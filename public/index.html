@@ -64,22 +64,21 @@
     </form>
 
     <form name="newproject" netlify netlify-honeypot="bot-field" hidden enctype='multipart/form-data'>
-      <input type="hidden" name="newproject" value="newproject" />
-      <input type="text" name="full-name" />
-      <input type="text" name="company-name" />
+      <input type="hidden" name="form-name" value="newproject" />
+      <input type="text" name="name" />
+      <input type="text" name="company" />
       <input type="email" name="email" />
-      <select name="help-type"></select>
-      <textarea name="other-help"></textarea>
-      <select name="project-type"></select>
-      <textarea name="project-type-other"></textarea>
+      <input type="text" name="projectName" />
+      <select name="helpType"></select>
+      <textarea name="helpTypeOther"></textarea>
+      <select name="projectType"></select>
+      <textarea name="projectTypeOther"></textarea>
       <input type="checkbox" name="deliverables[]" />
-      <textarea name="deliverables-other"></textarea>
+      <textarea name="deliverablesOther"></textarea>
       <select name="budget"></select>
-      <input type="text" name="price-other" />
-      <textarea name="project-description"></textarea>
-      <input type="file" name="file-0" />
-      <input type="file" name="file-1" />
-      <input type="file" name="file-2" />
+      <textarea name="budgetOther"></textarea>
+      <textarea name="projectDescription"></textarea>
+      <input type="file" name="file" multiple />
     </form>
     <!--
       This HTML file is a template.
