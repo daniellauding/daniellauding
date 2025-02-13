@@ -4,19 +4,24 @@ import HomePage from './pages/home';
 import { About } from './components/about';
 import WorkPage from './pages/work';
 import './styles/main.scss';
-import Contact, { Offert } from './components/contact';
+import Contact, {
+	Offert,
+	ContactSplash,
+	NewProject,
+} from './components/contact';
 import { work } from './constant';
 import './styles/animate.min.css';
 import ClientPage from './pages/client';
 import CasePage from './pages/case';
 import FloatingButton from './components/FloatingButton';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import ContactSplash from './components/ContactSplash';
+import PortfolioViewer from './components/PortfolioViewer';
 
 // Create a wrapper component to handle location-based rendering
 const FloatingButtonWrapper = ({
 	openContactModal,
 	openOffertModal,
+	openNewProjectModal,
 	stopMovement,
 }) => {
 	const location = useLocation();
@@ -30,6 +35,7 @@ const FloatingButtonWrapper = ({
 		<FloatingButton
 			openContactModal={openContactModal}
 			openOffertModal={openOffertModal}
+			openNewProjectModal={openNewProjectModal}
 			stopMovement={stopMovement}
 		/>
 	);
@@ -116,10 +122,55 @@ const KeyboardNavigation = ({
 };
 
 function App() {
+	const [isPortfolioOpen, setIsPortfolioOpen] = useState(() => {
+		// Initialize state based on URL hash
+		return window.location.hash === '#selectedwork';
+	});
+
+	// Handle hash changes
+	useEffect(() => {
+		const handleHash = () => {
+			const hash = window.location.hash;
+			setIsPortfolioOpen(hash === '#selectedwork');
+		};
+
+		// Listen for hash changes
+		window.addEventListener('hashchange', handleHash);
+		return () => window.removeEventListener('hashchange', handleHash);
+	}, []);
+
+	const openPortfolio = () => {
+		console.log('Opening portfolio...');
+		setIsPortfolioOpen(true);
+		// Use replace instead of pushState to handle back button correctly
+		window.location.replace(`${window.location.pathname}#selectedwork`);
+	};
+
+	const closePortfolio = () => {
+		console.log('Closing portfolio...');
+		setIsPortfolioOpen(false);
+		// Remove hash
+		window.location.replace(window.location.pathname);
+	};
+
+	return (
+		<Router>
+			<AppContent openPortfolio={openPortfolio} />
+			<PortfolioViewer
+				isOpen={isPortfolioOpen}
+				onClose={closePortfolio}
+			/>
+		</Router>
+	);
+}
+
+// Move all the main app logic to a new component
+function AppContent({ openPortfolio }) {
 	const [active, setActive] = useState(null);
 	const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 	const [isOffertModalOpen, setIsOffertModalOpen] = useState(false);
 	const [isSplashModalOpen, setIsSplashModalOpen] = useState(false);
+	const [isNewProjectModalOpen, setIsNewProjectModalOpen] = useState(false);
 	const location = useLocation();
 
 	// Handle URL hash changes
@@ -130,21 +181,31 @@ function App() {
 				setIsContactModalOpen(true);
 				setIsOffertModalOpen(false);
 				setIsSplashModalOpen(false);
+				setIsNewProjectModalOpen(false);
 				break;
 			case '#offer':
 				setIsOffertModalOpen(true);
 				setIsContactModalOpen(false);
 				setIsSplashModalOpen(false);
+				setIsNewProjectModalOpen(false);
 				break;
 			case '#splash':
 				setIsSplashModalOpen(true);
 				setIsContactModalOpen(false);
 				setIsOffertModalOpen(false);
+				setIsNewProjectModalOpen(false);
+				break;
+			case '#newproject':
+				setIsNewProjectModalOpen(true);
+				setIsContactModalOpen(false);
+				setIsOffertModalOpen(false);
+				setIsSplashModalOpen(false);
 				break;
 			case '':
 				setIsContactModalOpen(false);
 				setIsOffertModalOpen(false);
 				setIsSplashModalOpen(false);
+				setIsNewProjectModalOpen(false);
 				break;
 			default:
 				break;
@@ -175,16 +236,16 @@ function App() {
 		setIsOffertModalOpen(false);
 	};
 
-	const openSplashModal = () => {
-		window.location.hash = 'splash';
-		setIsSplashModalOpen(true);
+	const openNewProjectModal = () => {
+		window.location.hash = 'newproject';
+		setIsNewProjectModalOpen(true);
 	};
 
-	const closeSplashModal = () => {
-		if (window.location.hash === '#splash') {
+	const closeNewProjectModal = () => {
+		if (window.location.hash === '#newproject') {
 			window.location.hash = '';
 		}
-		setIsSplashModalOpen(false);
+		setIsNewProjectModalOpen(false);
 	};
 
 	// Handle clicking outside modals
@@ -227,73 +288,68 @@ function App() {
 
 	return (
 		<>
-			<Router>
-				<KeyboardNavigation
-					openContactModal={openContactModal}
-					closeContactModal={closeContactModal}
-					isContactModalOpen={isContactModalOpen}
-				/>
-				<Routes>
-					<Route
-						path="/"
-						element={
-							<HomePage
-								setActive={setActive}
-								active={active}
-								setIsContactModalOpen={setIsContactModalOpen}
-								setIsOffertModalOpen={setIsOffertModalOpen}
-							/>
-						}
-					/>
-					<Route
-						path="/about"
-						element={
-							<About
-								active={active}
-								openContactModal={openContactModal}
-								openOffertModal={openOffertModal}
-							/>
-						}
-					/>
-					<Route path="/work" element={<WorkPage />} />
-					{work
-						.filter(({ slug }) => slug)
-						.map((client) => (
-							<Route key={client.id} path={client.slug}>
-								{(client?.cases ?? [])
-									.filter(
-										({ case: clientCase }) => clientCase
-									)
-									.map((clientCase) => (
-										<Route
-											key={clientCase.id}
-											path={clientCase.case}
-											element={
-												<CasePage
-													client={client}
-													clientCase={clientCase}
-												/>
-											}
-										/>
-									))}
-								<Route
-									index
-									element={<ClientPage item={client} />}
-								/>
-							</Route>
-						))}
-				</Routes>
-
-				<FloatingButtonWrapper
-					openContactModal={openContactModal}
-					openOffertModal={openOffertModal}
-					stopMovement={
-						isContactModalOpen ||
-						isOffertModalOpen ||
-						isSplashModalOpen
+			<KeyboardNavigation
+				openContactModal={openContactModal}
+				closeContactModal={closeContactModal}
+				isContactModalOpen={isContactModalOpen}
+			/>
+			<Routes>
+				<Route
+					path="/"
+					element={
+						<HomePage
+							setActive={setActive}
+							active={active}
+							setIsContactModalOpen={setIsContactModalOpen}
+							setIsOffertModalOpen={setIsOffertModalOpen}
+						/>
 					}
 				/>
-			</Router>
+				<Route
+					path="/about"
+					element={
+						<About
+							active={active}
+							openContactModal={openContactModal}
+							openOffertModal={openOffertModal}
+						/>
+					}
+				/>
+				<Route path="/work" element={<WorkPage />} />
+				{work
+					.filter(({ slug }) => slug)
+					.map((client) => (
+						<Route key={client.id} path={client.slug}>
+							{(client?.cases ?? [])
+								.filter(({ case: clientCase }) => clientCase)
+								.map((clientCase) => (
+									<Route
+										key={clientCase.id}
+										path={clientCase.case}
+										element={
+											<CasePage
+												client={client}
+												clientCase={clientCase}
+											/>
+										}
+									/>
+								))}
+							<Route
+								index
+								element={<ClientPage item={client} />}
+							/>
+						</Route>
+					))}
+			</Routes>
+
+			<FloatingButtonWrapper
+				openContactModal={openContactModal}
+				openOffertModal={openOffertModal}
+				openNewProjectModal={openNewProjectModal}
+				stopMovement={
+					isContactModalOpen || isOffertModalOpen || isSplashModalOpen
+				}
+			/>
 
 			{isContactModalOpen && (
 				<Contact
@@ -306,13 +362,20 @@ function App() {
 			)}
 			{isSplashModalOpen && (
 				<ContactSplash
-					closeModal={closeSplashModal}
+					closeModal={closeContactModal}
 					openContactModal={openContactModal}
-					openOffertModal={openOffertModal}
+					openNewProjectModal={openNewProjectModal}
+				/>
+			)}
+			{isNewProjectModalOpen && (
+				<NewProject
+					closeNewProjectModal={closeNewProjectModal}
+					openPortfolio={openPortfolio}
 				/>
 			)}
 		</>
 	);
 }
 
+export { AppContent };
 export default App;
