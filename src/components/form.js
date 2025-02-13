@@ -496,17 +496,18 @@ const RequestForm = ({ closeRequestModal, item }) => {
 
 const NewProjectForm = ({ closeModal, openPortfolio }) => {
 	const [formState, setFormState] = useState({
-		'full-name': '',
-		'company-name': '',
+		name: '',
+		company: '',
 		email: '',
-		'help-type': '',
-		'other-help': '',
-		'project-type': '',
-		'project-type-other': '',
+		projectName: '',
+		helpType: '',
+		helpTypeOther: '',
+		projectType: '',
+		projectTypeOther: '',
 		deliverables: [],
-		'deliverables-other': '',
+		deliverablesOther: '',
 		budget: '',
-		'price-other': '',
+		budgetOther: '',
 		'project-description': '',
 		files: [],
 	});
