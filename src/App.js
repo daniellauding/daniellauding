@@ -11,6 +11,7 @@ import ClientPage from './pages/client';
 import CasePage from './pages/case';
 import FloatingButton from './components/FloatingButton';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import ContactSplash from './components/ContactSplash';
 
 // Create a wrapper component to handle location-based rendering
 const FloatingButtonWrapper = ({
@@ -118,22 +119,111 @@ function App() {
 	const [active, setActive] = useState(null);
 	const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 	const [isOffertModalOpen, setIsOffertModalOpen] = useState(false);
+	const [isSplashModalOpen, setIsSplashModalOpen] = useState(false);
+	const location = useLocation();
+
+	// Handle URL hash changes
+	useEffect(() => {
+		const hash = location.hash.toLowerCase();
+		switch (hash) {
+			case '#contact':
+				setIsContactModalOpen(true);
+				setIsOffertModalOpen(false);
+				setIsSplashModalOpen(false);
+				break;
+			case '#offer':
+				setIsOffertModalOpen(true);
+				setIsContactModalOpen(false);
+				setIsSplashModalOpen(false);
+				break;
+			case '#splash':
+				setIsSplashModalOpen(true);
+				setIsContactModalOpen(false);
+				setIsOffertModalOpen(false);
+				break;
+			case '':
+				setIsContactModalOpen(false);
+				setIsOffertModalOpen(false);
+				setIsSplashModalOpen(false);
+				break;
+			default:
+				break;
+		}
+	}, [location.hash]);
 
 	const openContactModal = () => {
+		window.location.hash = 'contact';
 		setIsContactModalOpen(true);
 	};
 
 	const closeContactModal = () => {
+		if (window.location.hash === '#contact') {
+			window.location.hash = '';
+		}
 		setIsContactModalOpen(false);
 	};
 
 	const openOffertModal = () => {
+		window.location.hash = 'offer';
 		setIsOffertModalOpen(true);
 	};
 
 	const closeOffertModal = () => {
+		if (window.location.hash === '#offer') {
+			window.location.hash = '';
+		}
 		setIsOffertModalOpen(false);
 	};
+
+	const openSplashModal = () => {
+		window.location.hash = 'splash';
+		setIsSplashModalOpen(true);
+	};
+
+	const closeSplashModal = () => {
+		if (window.location.hash === '#splash') {
+			window.location.hash = '';
+		}
+		setIsSplashModalOpen(false);
+	};
+
+	// Handle clicking outside modals
+	useEffect(() => {
+		const handleClickOutside = (e) => {
+			if (e.target.classList.contains('modal-backdrop')) {
+				if (isContactModalOpen) {
+					closeContactModal();
+				}
+				if (isOffertModalOpen) {
+					closeOffertModal();
+				}
+			}
+		};
+
+		document.addEventListener('mousedown', handleClickOutside);
+		return () => {
+			document.removeEventListener('mousedown', handleClickOutside);
+		};
+	}, [isContactModalOpen, isOffertModalOpen]);
+
+	// Handle escape key
+	useEffect(() => {
+		const handleEscape = (e) => {
+			if (e.key === 'Escape') {
+				if (isContactModalOpen) {
+					closeContactModal();
+				}
+				if (isOffertModalOpen) {
+					closeOffertModal();
+				}
+			}
+		};
+
+		document.addEventListener('keydown', handleEscape);
+		return () => {
+			document.removeEventListener('keydown', handleEscape);
+		};
+	}, [isContactModalOpen, isOffertModalOpen]);
 
 	return (
 		<>
@@ -197,7 +287,11 @@ function App() {
 				<FloatingButtonWrapper
 					openContactModal={openContactModal}
 					openOffertModal={openOffertModal}
-					stopMovement={isContactModalOpen || isOffertModalOpen}
+					stopMovement={
+						isContactModalOpen ||
+						isOffertModalOpen ||
+						isSplashModalOpen
+					}
 				/>
 			</Router>
 
@@ -209,6 +303,13 @@ function App() {
 			)}
 			{isOffertModalOpen && (
 				<Offert closeOffertModal={closeOffertModal} />
+			)}
+			{isSplashModalOpen && (
+				<ContactSplash
+					closeModal={closeSplashModal}
+					openContactModal={openContactModal}
+					openOffertModal={openOffertModal}
+				/>
 			)}
 		</>
 	);

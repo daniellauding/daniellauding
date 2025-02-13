@@ -68,13 +68,23 @@ const Offert = ({ closeOffertModal }) => {
 
 // New ContactSplash component
 const ContactSplash = ({ closeModal, openContactModal, openOffertModal }) => {
+	const handleContactClick = () => {
+		closeModal();
+		window.location.hash = 'contact';
+	};
+
+	const handleOffertClick = () => {
+		closeModal();
+		window.location.hash = 'offer';
+	};
+
 	return (
 		<div
 			className="fixed inset-0 z-[9999] overflow-hidden"
 			style={{ pointerEvents: 'auto' }}
 		>
 			<div
-				className="absolute inset-0 bg-black/30 backdrop-blur-sm"
+				className="absolute inset-0 bg-black/30 backdrop-blur-sm modal-backdrop"
 				onClick={closeModal}
 			></div>
 			<div className="modal fixed top-0 left-0 botton-0 right-0 modal-contact z-90 flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
@@ -103,19 +113,13 @@ const ContactSplash = ({ closeModal, openContactModal, openOffertModal }) => {
 							</p>
 							<div className="flex gap-4">
 								<button
-									onClick={() => {
-										closeModal();
-										openContactModal();
-									}}
+									onClick={handleContactClick}
 									className="bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90"
 								>
 									Contact Me
 								</button>
 								<button
-									onClick={() => {
-										closeModal();
-										openOffertModal();
-									}}
+									onClick={handleOffertClick}
 									className="bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90"
 								>
 									Submit Project

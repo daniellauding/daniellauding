@@ -1555,7 +1555,7 @@ const AboutShort = ({
 	};
 
 	const handleOpenForWork = () => {
-		setShowSplashModal(true);
+		window.location.hash = 'splash';
 	};
 
 	const closeSplashModal = () => {

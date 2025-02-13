@@ -176,10 +176,14 @@ const FloatingButton = ({
 	}, [isDragging]);
 
 	const handleClick = () => {
+		window.location.hash = 'splash';
 		setShowModal(true);
 	};
 
 	const closeModal = () => {
+		if (window.location.hash === 'splash') {
+			window.location.hash = '';
+		}
 		setShowModal(false);
 	};
 
