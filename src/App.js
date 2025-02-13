@@ -131,6 +131,10 @@ function App() {
 		setIsOffertModalOpen(true);
 	};
 
+	const closeOffertModal = () => {
+		setIsOffertModalOpen(false);
+	};
+
 	return (
 		<>
 			<Router>
@@ -147,6 +151,7 @@ function App() {
 								setActive={setActive}
 								active={active}
 								setIsContactModalOpen={setIsContactModalOpen}
+								setIsOffertModalOpen={setIsOffertModalOpen}
 							/>
 						}
 					/>
@@ -155,12 +160,8 @@ function App() {
 						element={
 							<About
 								active={active}
-								openContactModal={() =>
-									setIsContactModalOpen(true)
-								}
-								openOffertModal={() =>
-									setIsOffertModalOpen(true)
-								}
+								openContactModal={openContactModal}
+								openOffertModal={openOffertModal}
 							/>
 						}
 					/>
@@ -207,7 +208,7 @@ function App() {
 				/>
 			)}
 			{isOffertModalOpen && (
-				<Offert closeOffertModal={() => setIsOffertModalOpen(false)} />
+				<Offert closeOffertModal={closeOffertModal} />
 			)}
 		</>
 	);

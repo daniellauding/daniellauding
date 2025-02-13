@@ -12,7 +12,12 @@ import AboutShort from '../components/about';
 import Timeline from '../components/timeline';
 import { Bars3BottomRightIcon } from '@heroicons/react/24/solid';
 
-const HomePage = ({ active, setActive, setIsContactModalOpen }) => {
+const HomePage = ({
+	active,
+	setActive,
+	setIsContactModalOpen,
+	setIsOffertModalOpen,
+}) => {
 	const [selectedCase, setCase] = useState(null);
 	const [previewCase, setPreviewCase] = useState(null);
 
@@ -154,6 +159,7 @@ const HomePage = ({ active, setActive, setIsContactModalOpen }) => {
 						setShowProfile={setShowProfile}
 						showProfile={showProfile}
 						openContactModal={() => setIsContactModalOpen(true)}
+						openOffertModal={() => setIsOffertModalOpen(true)}
 					/>
 
 					{!showTimeline && (

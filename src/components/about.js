@@ -23,6 +23,7 @@ import Image from './image';
 import Text, { Title } from './typography';
 import Icon from './icon'; // Import the Icon component
 import ProjectTeaser from './project-teaser';
+import { ContactSplash } from './contact';
 
 import {
 	ArrowLongRightIcon,
@@ -90,6 +91,7 @@ const About = ({
 	openOffertModal,
 }) => {
 	const [showExperiencesFull, setShowExperiencesFull] = useState(null);
+	const [showSplashModal, setShowSplashModal] = useState(false);
 
 	const opacitySteps = [
 		'bg-opacity-20',
@@ -234,7 +236,13 @@ const About = ({
 			openContactModal();
 		} else if (btn?.target === 'offertModal') {
 			openOffertModal();
+		} else if (btn?.target === 'splashModal') {
+			setShowSplashModal(true);
 		}
+	};
+
+	const closeSplashModal = () => {
+		setShowSplashModal(false);
 	};
 
 	return (
@@ -1508,6 +1516,22 @@ const About = ({
 					</ul>
 				</div>
 			</div>
+
+			<button
+				onClick={() => handleButtonClick({ target: 'splashModal' })}
+				className="transition-all light:text-primary light:hover:text-white light:hover:bg-primary dark:text-primary dark:hover:text-white dark:hover:bg-primary font-bold p-2 px-4 text-center mx-auto w-auto border-2 rounded-full border-primary h-auto gap-2 items-center flex"
+			>
+				Open for Work
+				<ArrowLongRightIcon className="h-5 w-5" />
+			</button>
+
+			{showSplashModal && (
+				<ContactSplash
+					closeModal={closeSplashModal}
+					openContactModal={openContactModal}
+					openOffertModal={openOffertModal}
+				/>
+			)}
 		</div>
 	);
 };
@@ -1515,27 +1539,27 @@ const About = ({
 const AboutShort = ({
 	previewCase,
 	setPreviewCase,
-	// active,
 	selectedChanged,
 	clearPreview,
 	setShowProfile,
 	showProfile,
 	openContactModal,
+	openOffertModal,
 }) => {
 	const navigate = useNavigate();
-	// const [active, setActive] = useState(null);
-	// const tags = useMemo(() => {
-	// 	return lodash.uniq(
-	// 		work.flatMap(({ cases = [] }) => {
-	// 			return cases.flatMap(({ tags = [] }) => tags);
-	// 		})
-	// 	);
-	// }, []);
+	const [showSplashModal, setShowSplashModal] = useState(false);
 
 	const handleReadMoreClick = () => {
-		// Here you can keep any logic that needs to run before navigation
-		setShowProfile(true); // If needed, adjust or remove according to actual requirement
-		navigate('/about'); // Navigate to /about when the button is clicked
+		setShowProfile(true);
+		navigate('/about');
+	};
+
+	const handleOpenForWork = () => {
+		setShowSplashModal(true);
+	};
+
+	const closeSplashModal = () => {
+		setShowSplashModal(false);
 	};
 
 	return (
@@ -1548,24 +1572,30 @@ const AboutShort = ({
 			<div
 				className={classNames(
 					'content align-center sticky z-10 md:relative dark:bg-black light:bg-white md:light:bg-transparent md:dark:bg-transparent'
-					// active
-					// 	? 'justify-start'
-					// 	: 'flex md:flex-col justify-center rounded-2xl md:rounded-none md:h-screen'
 				)}
 				onMouseEnter={clearPreview}
 			>
 				<div className="md:h-100 md:h-screen flex flex-col py-8 gap-4">
 					<Profile openContactModal={openContactModal} />
 
-					{!showProfile && (
+					<div className="flex flex-col md:flex-row gap-4 align-center justify-center px-4">
 						<button
-							onClick={handleReadMoreClick}
-							className="transition-all light:text-primary light:hover:text-white light:hover:bg-primary dark:text-primary dark:hover:text-white dark:hover:bg-primary font-bold p-2 px-4 text-center mx-auto w-auto border-2 rounded-full border-primary h-auto gap-2 items-center flex"
+							onClick={handleOpenForWork}
+							className="transition-all font-bold p-2 px-4 text-center mx-0 w-auto rounded-full h-auto flex items-center gap-2 light:text-white light:bg-primary light:hover:text-white light:hover:bg-primary dark:text-white dark:bg-primary dark:hover:text-white dark:hover:bg-primary border-2 border-primary"
 						>
-							Read more
-							<ArrowLongRightIcon className="h-5 w-5" />
+							Open for Work
 						</button>
-					)}
+
+						{!showProfile && (
+							<button
+								onClick={handleReadMoreClick}
+								className="transition-all light:text-primary light:hover:text-white light:hover:bg-primary dark:text-primary dark:hover:text-white dark:hover:bg-primary font-bold p-2 px-4 text-center w-auto border-2 rounded-full border-primary h-auto gap-2 items-center flex"
+							>
+								Read more
+								<ArrowLongRightIcon className="h-5 w-5" />
+							</button>
+						)}
+					</div>
 
 					<ExperiencesShort setPreviewCase={setPreviewCase} />
 
@@ -1574,6 +1604,14 @@ const AboutShort = ({
 					<Social openContactModal={openContactModal} />
 				</div>
 			</div>
+
+			{showSplashModal && (
+				<ContactSplash
+					closeModal={closeSplashModal}
+					openContactModal={openContactModal}
+					openOffertModal={openOffertModal}
+				/>
+			)}
 		</>
 	);
 };
