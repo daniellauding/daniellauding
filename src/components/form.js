@@ -555,16 +555,10 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 		formData.append('form-name', 'newproject');
 
 		// Append all form fields with matching names
-		formData.append('name', formState.name || e.target['full-name'].value);
-		formData.append(
-			'company',
-			formState.company || e.target['company-name'].value
-		);
-		formData.append('email', formState.email || e.target.email.value);
-		formData.append(
-			'projectName',
-			formState.projectName || e.target['project-name'].value
-		);
+		formData.append('name', formState.name);
+		formData.append('company', formState.company);
+		formData.append('email', formState.email);
+		formData.append('projectName', formState.projectName);
 		formData.append('helpType', formState.helpType);
 		formData.append('helpTypeOther', formState.helpTypeOther);
 		formData.append('projectType', formState.projectType);
@@ -573,16 +567,14 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 		formData.append('deliverablesOther', formState.deliverablesOther);
 		formData.append('budget', formState.budget);
 		formData.append('budgetOther', formState.budgetOther);
-		formData.append(
-			'projectDescription',
-			formState['project-description'] ||
-				e.target['project-description'].value
-		);
+		formData.append('projectDescription', formState['project-description']);
 
 		// Handle multiple files
-		formState.files.forEach((file) => {
-			formData.append('file', file);
-		});
+		if (formState.files.length > 0) {
+			formState.files.forEach((file) => {
+				formData.append('file', file);
+			});
+		}
 
 		// Log what's being sent
 		console.log('Form Data being sent:');
@@ -1237,6 +1229,25 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 							{/* Slide 4: Contact Details */}
 							<div className="p-6 flex flex-col min-h-[600px]">
 								<div className="flex-grow">
+									<div>
+										<label
+											htmlFor="project-name"
+											className="block mb-2 font-medium"
+										>
+											Project Name *
+										</label>
+										<input
+											type="text"
+											id="project-name"
+											name="project-name"
+											value={formState.projectName}
+											onChange={handleChange}
+											required
+											className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
+											placeholder="Give your project a name"
+										/>
+									</div>
+
 									<div>
 										<label
 											htmlFor="full-name"
