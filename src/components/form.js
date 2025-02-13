@@ -700,6 +700,147 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 											improvements.
 										</li>
 									</ul>
+									<div className="mt-8">
+										<h3 className="text-xl font-semibold mb-4">
+											Recent Work
+										</h3>
+										<Carousel
+											showArrows={true}
+											showStatus={false}
+											showThumbs={false}
+											infiniteLoop={true}
+											autoPlay={true}
+											interval={5000}
+											stopOnHover={true}
+											className="work-carousel"
+										>
+											<div className="work-item p-4">
+												<div className="bg-gray-100 h-48 mb-4 rounded-lg"></div>
+												<div className="space-y-2">
+													<div className="font-semibold text-lg text-gray-900">
+														Asteria AB
+													</div>
+													<div className="text-gray-600">
+														Co-founder & Lead
+														Designer. Developed
+														financial tools for SMEs
+														in collaboration with
+														Swedbank and PayEx.
+													</div>
+													<a
+														href="https://daniellauding.se/asteria/smart-cash-flow"
+														target="_blank"
+														rel="noopener noreferrer"
+														className="text-primary hover:text-primary-dark underline font-medium"
+													>
+														See project
+													</a>
+												</div>
+											</div>
+
+											<div className="work-item p-4">
+												<div className="bg-gray-100 h-48 mb-4 rounded-lg"></div>
+												<div className="space-y-2">
+													<div className="font-semibold text-lg text-gray-900">
+														Swedbank
+													</div>
+													<div className="text-gray-600">
+														Together with Swedbank,
+														we embarked on creating
+														Företagskollen, a tool
+														designed to fit snugly
+														into the online banking
+														scene, aimed at making
+														financial management
+														straightforward and
+														clear for over 400,000
+														business clients.
+													</div>
+													<a
+														href="https://daniellauding.se/asteria/foretagskollen"
+														target="_blank"
+														rel="noopener noreferrer"
+														className="text-primary hover:text-primary-dark underline font-medium"
+													>
+														See project
+													</a>
+												</div>
+											</div>
+
+											<div className="work-item p-4">
+												<div className="bg-gray-100 h-48 mb-4 rounded-lg"></div>
+												<div className="space-y-2">
+													<div className="font-semibold text-lg text-gray-900">
+														PayEx
+													</div>
+													<div className="text-gray-600">
+														Designed an intuitive
+														invoice management
+														platform for SMEs,
+														streamlining workflows
+														and automation.
+													</div>
+													<a
+														href="https://daniellauding.se/asteria/invoice-portal-payex"
+														target="_blank"
+														rel="noopener noreferrer"
+														className="text-primary hover:text-primary-dark underline font-medium"
+													>
+														See project
+													</a>
+												</div>
+											</div>
+
+											<div className="work-item p-4">
+												<div className="bg-gray-100 h-48 mb-4 rounded-lg"></div>
+												<div className="space-y-2">
+													<div className="font-semibold text-lg text-gray-900">
+														Spotify
+													</div>
+													<div className="text-gray-600">
+														Growth team consultant.
+														Created a data-saving
+														feature for emerging
+														markets, validated
+														through user research in
+														Brazil.
+													</div>
+													<a
+														href="https://daniellauding.se/spotify"
+														target="_blank"
+														rel="noopener noreferrer"
+														className="text-primary hover:text-primary-dark underline font-medium"
+													>
+														See project
+													</a>
+												</div>
+											</div>
+
+											<div className="work-item p-4">
+												<div className="bg-gray-100 h-48 mb-4 rounded-lg"></div>
+												<div className="space-y-2">
+													<div className="font-semibold text-lg text-gray-900">
+														Länsförsäkringar
+													</div>
+													<div className="text-gray-600">
+														Led the modernization of
+														the company&apos;s
+														digital presence,
+														ensuring accessibility
+														and brand consistency.
+													</div>
+													<a
+														href="https://daniellauding.se/lansforsakringar"
+														target="_blank"
+														rel="noopener noreferrer"
+														className="text-primary hover:text-primary-dark underline font-medium"
+													>
+														See project
+													</a>
+												</div>
+											</div>
+										</Carousel>
+									</div>
 									<div className="flex gap-4">
 										<button
 											type="button"
