@@ -560,8 +560,11 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 			'company',
 			formState.company || e.target['company-name'].value
 		);
-		formData.append('email', formState.email);
-		formData.append('projectName', formState.projectName);
+		formData.append('email', formState.email || e.target.email.value);
+		formData.append(
+			'projectName',
+			formState.projectName || e.target['project-name'].value
+		);
 		formData.append('helpType', formState.helpType);
 		formData.append('helpTypeOther', formState.helpTypeOther);
 		formData.append('projectType', formState.projectType);
@@ -570,12 +573,22 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 		formData.append('deliverablesOther', formState.deliverablesOther);
 		formData.append('budget', formState.budget);
 		formData.append('budgetOther', formState.budgetOther);
-		formData.append('projectDescription', formState['project-description']);
+		formData.append(
+			'projectDescription',
+			formState['project-description'] ||
+				e.target['project-description'].value
+		);
 
 		// Handle multiple files
 		formState.files.forEach((file) => {
 			formData.append('file', file);
 		});
+
+		// Log what's being sent
+		console.log('Form Data being sent:');
+		for (let pair of formData.entries()) {
+			console.log(pair[0] + ': ' + pair[1]);
+		}
 
 		try {
 			const response = await fetch('/', {
@@ -589,7 +602,7 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 			if (response.ok) {
 				setSubmitted(true);
 				setSubmitting(false);
-				closeModal();
+				closeModal(); // Close the modal after successful submission
 			} else {
 				throw new Error('Form submission failed');
 			}
@@ -621,7 +634,6 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 					<form
 						name="newproject"
 						method="POST"
-						action="/thank-you"
 						data-netlify="true"
 						data-netlify-honeypot="bot-field"
 						encType="multipart/form-data"
