@@ -544,7 +544,7 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 		setFormState((prev) => ({ ...prev, files }));
 	};
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 		setSubmitting(true);
 
