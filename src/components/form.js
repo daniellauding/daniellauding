@@ -624,7 +624,7 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 	};
 
 	return (
-		<div className="text-gray-800">
+		<div className="text-gray-800 h-full">
 			{submitted ? (
 				<div className="flex gap-2 flex-col">
 					<p className="pt-0 mb-8 ml-0 text-left text-2xl dark:text-gray-500 text-black lg:font-light">
@@ -638,7 +638,7 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 					</button>
 				</div>
 			) : (
-				<div>
+				<div className="h-full">
 					<form
 						name="newproject"
 						method="POST"
@@ -646,7 +646,7 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 						data-netlify-honeypot="bot-field"
 						encType="multipart/form-data"
 						onSubmit={handleSubmit}
-						className="relative"
+						className="relative h-full"
 					>
 						<input
 							type="hidden"
@@ -655,208 +655,140 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 						/>
 						<input type="hidden" name="bot-field" />
 
+						{/* Add progress bar */}
+						<div className="w-full bg-gray-200 h-2 rounded-full mb-6">
+							<div
+								className="bg-primary h-2 rounded-full transition-all duration-300 ease-in-out"
+								style={{
+									width: `${(currentSlide / 4) * 100}%`,
+								}}
+							></div>
+						</div>
+
+						{/* Progress steps */}
+						<div className="flex justify-between mb-8 px-2">
+							<div
+								className={`text-sm ${
+									currentSlide >= 0
+										? 'text-primary'
+										: 'text-gray-400'
+								}`}
+							>
+								Intro
+							</div>
+							<div
+								className={`text-sm ${
+									currentSlide >= 1
+										? 'text-primary'
+										: 'text-gray-400'
+								}`}
+							>
+								Work
+							</div>
+							<div
+								className={`text-sm ${
+									currentSlide >= 2
+										? 'text-primary'
+										: 'text-gray-400'
+								}`}
+							>
+								Project
+							</div>
+							<div
+								className={`text-sm ${
+									currentSlide >= 3
+										? 'text-primary'
+										: 'text-gray-400'
+								}`}
+							>
+								Details
+							</div>
+							<div
+								className={`text-sm ${
+									currentSlide >= 4
+										? 'text-primary'
+										: 'text-gray-400'
+								}`}
+							>
+								Contact
+							</div>
+						</div>
+
 						<Carousel
 							selectedItem={currentSlide}
 							onChange={(index) => {
-								console.log('Carousel changed to:', index);
 								setCurrentSlide(index);
 							}}
 							showArrows={false}
 							showStatus={false}
 							showThumbs={false}
-							className="custom-carousel"
+							showIndicators={false}
+							className="custom-carousel h-full overflow-y-scroll pb-16"
 						>
 							{/* Slide 0: Introduction */}
-							<div className="p-6 flex flex-col min-h-[600px]">
-								<div className="flex-grow">
-									<h2 className="text-2xl font-bold mb-4">
-										Work With Me
-									</h2>
-									<p className="mb-6 text-gray-600 leading-relaxed">
+							<div className="p-0 flex flex-col h-full">
+								{/* Add the new badge */}
+								<div className="mb-6">
+									<div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/20 to-primary/10 text-primary px-6 py-3 rounded-full text-sm font-medium border border-primary/20 shadow-sm">
+										<span>
+											{`Got an idea? Let's bring it to life
+											in just 1 week!`}
+											<span className="ml-1">🚀</span>
+										</span>
+									</div>
+								</div>
+
+								{/* <div className="flex-grow"> */}
+								<div>
+									<p className="mb-4 text-gray-600 leading-relaxed text-left">
 										I specialize in UI/UX, rapid
-										prototyping, project validation, design
-										systems and design for web and mobile,
-										delivering test-ready concepts
-										efficiently. My expertise spans
-										startups, product design, user interface
-										design, user experience, and
-										consultancy, blending design with
-										development to create organized and
-										effective solutions.
+										prototyping, product validation, and
+										design systems, shaping digital
+										experiences that are both user-centric
+										and business-driven. With over 12 years
+										in the tech industry, I bridge the gap
+										between design and development,
+										delivering test-ready, data-backed
+										solutions for web and mobile.
 									</p>
-									<p className="mb-6 text-gray-600 leading-relaxed">
-										Using modern front-end technologies like
-										React and AI-driven tools, I craft
-										real-code prototypes and data-backed
-										design strategies that drive impactful
-										digital experiences.
-									</p>
-									<h3 className="text-xl font-semibold mb-4">
-										Approach & Expertise
+									<h3 className="text-md font-semibold mb-2 text-left">
+										What I Do Best
 									</h3>
-									<ul className="list-disc pl-5 mb-6 space-y-2 text-gray-600">
+									<ul className="list-disc pl-5 mb-4 space-y-2 text-gray-600 text-left text-sm">
 										<li>
 											<strong>Hands-On Approach</strong>:
-											Seamlessly integrating design and
-											coding to create functional,
-											polished prototypes.
-										</li>
-										<li>
-											<strong>Design Leadership</strong>:
-											Balancing big-picture vision with
-											meticulous execution to align with
-											business objectives.
+											Turning concepts into functional,
+											high-fidelity prototypes
 										</li>
 										<li>
 											<strong>
-												Purposeful Innovation
+												Design Systems & UI/UX
 											</strong>
-											: Using a data-driven approach to
-											enhance UX and deliver measurable
-											improvements.
+											: Building scalable, intuitive, and
+											visually compelling experiences
+										</li>
+										<li>
+											<strong>Product Validation</strong>:
+											Ensuring market fit through
+											strategic user testing and iteration
+										</li>
+										<li>
+											<strong>Code-Driven Design</strong>:
+											Leveraging React, front-end tools,
+											and AI-driven workflows for
+											efficiency
 										</li>
 									</ul>
-									<div className="mt-8">
-										<h3 className="text-xl font-semibold mb-4">
-											Recent Work
-										</h3>
-										<Carousel
-											showArrows={true}
-											showStatus={false}
-											showThumbs={false}
-											infiniteLoop={true}
-											autoPlay={true}
-											interval={5000}
-											stopOnHover={true}
-											className="work-carousel"
-										>
-											<div className="work-item p-4">
-												<div className="bg-gray-100 h-48 mb-4 rounded-lg"></div>
-												<div className="space-y-2">
-													<div className="font-semibold text-lg text-gray-900">
-														Asteria AB
-													</div>
-													<div className="text-gray-600">
-														Co-founder & Lead
-														Designer. Developed
-														financial tools for SMEs
-														in collaboration with
-														Swedbank and PayEx.
-													</div>
-													<a
-														href="https://daniellauding.se/asteria/smart-cash-flow"
-														target="_blank"
-														rel="noopener noreferrer"
-														className="text-primary hover:text-primary-dark underline font-medium"
-													>
-														See project
-													</a>
-												</div>
-											</div>
-
-											<div className="work-item p-4">
-												<div className="bg-gray-100 h-48 mb-4 rounded-lg"></div>
-												<div className="space-y-2">
-													<div className="font-semibold text-lg text-gray-900">
-														Swedbank
-													</div>
-													<div className="text-gray-600">
-														Together with Swedbank,
-														we embarked on creating
-														Företagskollen, a tool
-														designed to fit snugly
-														into the online banking
-														scene, aimed at making
-														financial management
-														straightforward and
-														clear for over 400,000
-														business clients.
-													</div>
-													<a
-														href="https://daniellauding.se/asteria/foretagskollen"
-														target="_blank"
-														rel="noopener noreferrer"
-														className="text-primary hover:text-primary-dark underline font-medium"
-													>
-														See project
-													</a>
-												</div>
-											</div>
-
-											<div className="work-item p-4">
-												<div className="bg-gray-100 h-48 mb-4 rounded-lg"></div>
-												<div className="space-y-2">
-													<div className="font-semibold text-lg text-gray-900">
-														PayEx
-													</div>
-													<div className="text-gray-600">
-														Designed an intuitive
-														invoice management
-														platform for SMEs,
-														streamlining workflows
-														and automation.
-													</div>
-													<a
-														href="https://daniellauding.se/asteria/invoice-portal-payex"
-														target="_blank"
-														rel="noopener noreferrer"
-														className="text-primary hover:text-primary-dark underline font-medium"
-													>
-														See project
-													</a>
-												</div>
-											</div>
-
-											<div className="work-item p-4">
-												<div className="bg-gray-100 h-48 mb-4 rounded-lg"></div>
-												<div className="space-y-2">
-													<div className="font-semibold text-lg text-gray-900">
-														Spotify
-													</div>
-													<div className="text-gray-600">
-														Growth team consultant.
-														Created a data-saving
-														feature for emerging
-														markets, validated
-														through user research in
-														Brazil.
-													</div>
-													<a
-														href="https://daniellauding.se/spotify"
-														target="_blank"
-														rel="noopener noreferrer"
-														className="text-primary hover:text-primary-dark underline font-medium"
-													>
-														See project
-													</a>
-												</div>
-											</div>
-
-											<div className="work-item p-4">
-												<div className="bg-gray-100 h-48 mb-4 rounded-lg"></div>
-												<div className="space-y-2">
-													<div className="font-semibold text-lg text-gray-900">
-														Länsförsäkringar
-													</div>
-													<div className="text-gray-600">
-														Led the modernization of
-														the company&apos;s
-														digital presence,
-														ensuring accessibility
-														and brand consistency.
-													</div>
-													<a
-														href="https://daniellauding.se/lansforsakringar"
-														target="_blank"
-														rel="noopener noreferrer"
-														className="text-primary hover:text-primary-dark underline font-medium"
-													>
-														See project
-													</a>
-												</div>
-											</div>
-										</Carousel>
-									</div>
+									<p className="mt-2 mb-6 text-gray-600 text-sm text-left">
+										{`With a hands-on approach, I seamlessly
+										integrate design and coding, crafting
+										polished prototypes that don't just look
+										good but work flawlessly. Whether
+										leading a project or refining details, I
+										combine creativity and technical
+										expertise to bring ambitious ideas to
+										life.`}
+									</p>
 									<div className="flex gap-4">
 										<button
 											type="button"
@@ -874,134 +806,150 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 										</button>
 									</div>
 								</div>
-
-								<div className="mt-6 flex justify-end gap-4">
-									<button
-										type="button"
-										onClick={() => goToSlide(0)}
-										className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full"
-									>
-										Previous
-									</button>
-									<button
-										type="button"
-										onClick={() => goToSlide(2)}
-										className="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded-full"
-									>
-										Next
-									</button>
-								</div>
 							</div>
 
 							{/* Slide 1: Previous Work */}
-							<div className="p-6 flex flex-col min-h-[600px]">
-								<div className="flex-grow">
-									<h3 className="text-2xl font-bold mb-6">
-										Previous Work
-									</h3>
-									<ul className="space-y-6 mb-8">
-										<li className="space-y-2">
-											<div className="font-semibold text-lg text-gray-900">
-												Asteria AB
+							<div className="flex flex-col h-full">
+								{/* <div className="flex-grow"> */}
+								<div>
+									<Carousel
+										showArrows={true}
+										showStatus={false}
+										showThumbs={false}
+										infiniteLoop={true}
+										autoPlay={true}
+										interval={5000}
+										stopOnHover={true}
+										className="work-carousel"
+									>
+										{/* Länsförsäkringar */}
+										<div className="work-item p-4">
+											<div className="bg-gray-100 h-48 mb-4 rounded-lg">
+												{/* Add image here */}
 											</div>
-											<div className="text-gray-600">
-												Co-founder & Lead Designer.
-												Developed financial tools for
-												SMEs in collaboration with
-												Swedbank and PayEx.
+											<div className="space-y-2">
+												<div className="font-semibold text-lg text-gray-900">
+													Länsförsäkringar
+												</div>
+												<div className="text-gray-600">
+													{`Led the modernization of the
+													company's digital presence,
+													ensuring accessibility and
+													brand consistency.`}
+												</div>
+												<a
+													href="https://daniellauding.se/lansforsakringar"
+													target="_blank"
+													rel="noopener noreferrer"
+													className="text-primary hover:text-primary-dark underline font-medium"
+												>
+													View Case Study
+												</a>
 											</div>
-											<a
-												href="https://daniellauding.se/asteria/smart-cash-flow"
-												target="_blank"
-												rel="noopener noreferrer"
-												className="text-primary hover:text-primary-dark underline font-medium"
-											>
-												See project
-											</a>
-										</li>
-										<li className="space-y-2">
-											<div className="font-semibold text-lg text-gray-900">
-												Swedbank
+										</div>
+
+										{/* Asteria AB */}
+										<div className="work-item p-4">
+											<div className="bg-gray-100 h-48 mb-4 rounded-lg">
+												{/* Add image here */}
 											</div>
-											<div className="text-gray-600">
-												Together with Swedbank, we
-												embarked on creating
-												Företagskollen, a tool designed
-												to fit snugly into the online
-												banking scene, aimed at making
-												financial management
-												straightforward and clear for
-												over 400,000 business clients.
+											<div className="space-y-2">
+												<div className="font-semibold text-lg text-gray-900">
+													Asteria AB
+												</div>
+												<div className="text-gray-600">
+													Developed innovative
+													financial management
+													solutions for SMEs.
+												</div>
+												<a
+													href="https://daniellauding.se/asteria"
+													target="_blank"
+													rel="noopener noreferrer"
+													className="text-primary hover:text-primary-dark underline font-medium"
+												>
+													View Case Study
+												</a>
 											</div>
-											<a
-												href="https://daniellauding.se/asteria/foretagskollen"
-												target="_blank"
-												rel="noopener noreferrer"
-												className="text-primary hover:text-primary-dark underline font-medium"
-											>
-												See project
-											</a>
-										</li>
-										<li className="space-y-2">
-											<div className="font-semibold text-lg text-gray-900">
-												PayEx
+										</div>
+
+										{/* Swedbank */}
+										<div className="work-item p-4">
+											<div className="bg-gray-100 h-48 mb-4 rounded-lg">
+												{/* Add image here */}
 											</div>
-											<div className="text-gray-600">
-												Designed an intuitive invoice
-												management platform for SMEs,
-												streamlining workflows and
-												automation.
+											<div className="space-y-2">
+												<div className="font-semibold text-lg text-gray-900">
+													Swedbank Företagskollen
+												</div>
+												<div className="text-gray-600">
+													Created intuitive financial
+													management tools for
+													business customers.
+												</div>
+												<a
+													href="https://daniellauding.se/asteria/foretagskollen"
+													target="_blank"
+													rel="noopener noreferrer"
+													className="text-primary hover:text-primary-dark underline font-medium"
+												>
+													View Case Study
+												</a>
 											</div>
-											<a
-												href="https://daniellauding.se/asteria/invoice-portal-payex"
-												target="_blank"
-												rel="noopener noreferrer"
-												className="text-primary hover:text-primary-dark underline font-medium"
-											>
-												See project
-											</a>
-										</li>
-										<li className="space-y-2">
-											<div className="font-semibold text-lg text-gray-900">
-												Spotify
+										</div>
+
+										{/* PayEx */}
+										<div className="work-item p-4">
+											<div className="bg-gray-100 h-48 mb-4 rounded-lg">
+												{/* Add image here */}
 											</div>
-											<div className="text-gray-600">
-												Growth team consultant. Created
-												a data-saving feature for
-												emerging markets, validated
-												through user research in Brazil.
+											<div className="space-y-2">
+												<div className="font-semibold text-lg text-gray-900">
+													PayEx Invoice Portal
+												</div>
+												<div className="text-gray-600">
+													Streamlined invoice
+													management and payment
+													processing.
+												</div>
+												<a
+													href="https://daniellauding.se/asteria/invoice-portal-payex"
+													target="_blank"
+													rel="noopener noreferrer"
+													className="text-primary hover:text-primary-dark underline font-medium"
+												>
+													View Case Study
+												</a>
 											</div>
-											<a
-												href="https://daniellauding.se/spotify"
-												target="_blank"
-												rel="noopener noreferrer"
-												className="text-primary hover:text-primary-dark underline font-medium"
-											>
-												See project
-											</a>
-										</li>
-										<li className="space-y-2">
-											<div className="font-semibold text-lg text-gray-900">
-												Länsförsäkringar
+										</div>
+
+										{/* Spotify */}
+										<div className="work-item p-4">
+											<div className="bg-gray-100 h-48 mb-4 rounded-lg">
+												{/* Add image here */}
 											</div>
-											<div className="text-gray-600">
-												Led the modernization of the
-												company&apos;s digital presence,
-												ensuring accessibility and brand
-												consistency.
+											<div className="space-y-2">
+												<div className="font-semibold text-lg text-gray-900">
+													Spotify
+												</div>
+												<div className="text-gray-600">
+													Enhanced music accessibility
+													and user experience.
+												</div>
+												<a
+													href="https://daniellauding.se/spotify"
+													target="_blank"
+													rel="noopener noreferrer"
+													className="text-primary hover:text-primary-dark underline font-medium"
+												>
+													View Case Study
+												</a>
 											</div>
-											<a
-												href="https://daniellauding.se/lansforsakringar"
-												target="_blank"
-												rel="noopener noreferrer"
-												className="text-primary hover:text-primary-dark underline font-medium"
-											>
-												See project
-											</a>
-										</li>
-									</ul>
+										</div>
+									</Carousel>
 								</div>
 
+								{/* Add navigation buttons */}
 								<div className="mt-6 flex justify-end gap-4">
 									<button
 										type="button"
@@ -1021,8 +969,48 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 							</div>
 
 							{/* Slide 2: Project Type */}
-							<div className="p-6 flex flex-col min-h-[600px]">
-								<div className="flex-grow space-y-6">
+							<div className="p-6 flex flex-col h-full">
+								{/* <div className="flex-grow"> */}
+								<div>
+									<div>
+										<label
+											htmlFor="projectName"
+											className="block mb-2 font-medium"
+										>
+											Project Name *
+										</label>
+										<input
+											type="text"
+											id="projectName"
+											name="projectName"
+											value={formState.projectName}
+											onChange={handleChange}
+											required
+											className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
+											placeholder="Give your project a name"
+										/>
+									</div>
+
+									<div className="mt-4">
+										<label
+											htmlFor="project-description"
+											className="block mb-2 font-medium"
+										>
+											Project description
+										</label>
+										<textarea
+											id="project-description"
+											name="project-description"
+											className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
+											rows="4"
+											placeholder="Describe your project and what you need"
+											value={
+												formState['project-description']
+											}
+											onChange={handleChange}
+										/>
+									</div>
+
 									<div>
 										<label
 											htmlFor="help-type"
@@ -1149,8 +1137,9 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 							</div>
 
 							{/* Slide 3: Deliverables */}
-							<div className="p-6 flex flex-col min-h-[600px]">
-								<div className="flex-grow">
+							<div className="flex flex-col h-full">
+								{/* <div className="flex-grow"> */}
+								<div>
 									<div>
 										<label
 											htmlFor="deliverables-group"
@@ -1384,27 +1373,8 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 							</div>
 
 							{/* Slide 4: Contact Details */}
-							<div className="p-6 flex flex-col min-h-[600px]">
+							<div className="flex flex-col h-full">
 								<div className="flex-grow">
-									<div>
-										<label
-											htmlFor="projectName"
-											className="block mb-2 font-medium"
-										>
-											Project Name *
-										</label>
-										<input
-											type="text"
-											id="projectName"
-											name="projectName"
-											value={formState.projectName}
-											onChange={handleChange}
-											required
-											className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
-											placeholder="Give your project a name"
-										/>
-									</div>
-
 									<div>
 										<label
 											htmlFor="full-name"
@@ -1452,22 +1422,6 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 											required
 											className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
 											placeholder="your@email.com"
-										/>
-									</div>
-
-									<div>
-										<label
-											htmlFor="project-description"
-											className="block mb-2 font-medium"
-										>
-											Project description
-										</label>
-										<textarea
-											id="project-description"
-											name="project-description"
-											className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
-											rows="4"
-											placeholder="Describe your project and what you need"
 										/>
 									</div>
 

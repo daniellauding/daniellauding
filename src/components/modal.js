@@ -14,7 +14,7 @@ const Modal = (props) => {
 		<>
 			{showModal ? (
 				<>
-					<div className="modal fixed top-0 left-0 botton-0 right-0 modal-contact z-90 flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+					<div className="modal fixed top-0 left-0 botton-0 right-0 modal-contact z-50 flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
 						<div className="modal-wrapper z-20 relative transform overflow-hidden rounded-2xl bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
 							<div className="modal-inner border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
 								<div className="modal-header py-4 px-10">

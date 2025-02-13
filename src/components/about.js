@@ -24,6 +24,8 @@ import Text, { Title } from './typography';
 import Icon from './icon'; // Import the Icon component
 import ProjectTeaser from './project-teaser';
 import { ContactSplash } from './contact';
+import Modal from './modal';
+import { NewProjectForm } from './form';
 
 import {
 	ArrowLongRightIcon,
@@ -92,6 +94,7 @@ const About = ({
 }) => {
 	const [showExperiencesFull, setShowExperiencesFull] = useState(null);
 	const [showSplashModal, setShowSplashModal] = useState(false);
+	const [showNewProjectModal, setShowNewProjectModal] = useState(false);
 
 	const opacitySteps = [
 		'bg-opacity-20',
@@ -238,11 +241,17 @@ const About = ({
 			openOffertModal();
 		} else if (btn?.target === 'splashModal') {
 			setShowSplashModal(true);
+		} else if (btn?.target === 'newProjectModal') {
+			setShowNewProjectModal(true);
 		}
 	};
 
 	const closeSplashModal = () => {
 		setShowSplashModal(false);
+	};
+
+	const closeNewProjectModal = () => {
+		setShowNewProjectModal(false);
 	};
 
 	return (
@@ -1518,11 +1527,10 @@ const About = ({
 			</div>
 
 			<button
-				onClick={() => handleButtonClick({ target: 'splashModal' })}
-				className="transition-all light:text-primary light:hover:text-white light:hover:bg-primary dark:text-primary dark:hover:text-white dark:hover:bg-primary font-bold p-2 px-4 text-center mx-auto w-auto border-2 rounded-full border-primary h-auto gap-2 items-center flex"
+				onClick={() => setShowNewProjectModal(true)}
+				className="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded-full"
 			>
 				Open for Work
-				<ArrowLongRightIcon className="h-5 w-5" />
 			</button>
 
 			{showSplashModal && (
@@ -1532,6 +1540,14 @@ const About = ({
 					openOffertModal={openOffertModal}
 				/>
 			)}
+
+			<Modal
+				open={showNewProjectModal}
+				onClose={closeNewProjectModal}
+				title="Start a New Project"
+			>
+				<NewProjectForm closeModal={closeNewProjectModal} />
+			</Modal>
 		</div>
 	);
 };
@@ -1555,7 +1571,7 @@ const AboutShort = ({
 	};
 
 	const handleOpenForWork = () => {
-		window.location.hash = 'splash';
+		window.location.hash = 'newproject';
 	};
 
 	const closeSplashModal = () => {

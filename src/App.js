@@ -13,33 +13,33 @@ import { work } from './constant';
 import './styles/animate.min.css';
 import ClientPage from './pages/client';
 import CasePage from './pages/case';
-import FloatingButton from './components/FloatingButton';
+// import FloatingButton from './components/FloatingButton';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PortfolioViewer from './components/PortfolioViewer';
 
 // Create a wrapper component to handle location-based rendering
-const FloatingButtonWrapper = ({
-	openContactModal,
-	openOffertModal,
-	openNewProjectModal,
-	stopMovement,
-}) => {
-	const location = useLocation();
+// const FloatingButtonWrapper = ({
+// 	openContactModal,
+// 	openOffertModal,
+// 	openNewProjectModal,
+// 	stopMovement,
+// }) => {
+// 	const location = useLocation();
 
-	// Only show on home page
-	if (location.pathname !== '/') {
-		return null;
-	}
+// 	// Only show on home page
+// 	if (location.pathname !== '/') {
+// 		return null;
+// 	}
 
-	return (
-		<FloatingButton
-			openContactModal={openContactModal}
-			openOffertModal={openOffertModal}
-			openNewProjectModal={openNewProjectModal}
-			stopMovement={stopMovement}
-		/>
-	);
-};
+// 	return (
+// 		<FloatingButton
+// 			openContactModal={openContactModal}
+// 			openOffertModal={openOffertModal}
+// 			openNewProjectModal={openNewProjectModal}
+// 			stopMovement={stopMovement}
+// 		/>
+// 	);
+// };
 
 // Create a keyboard navigation component
 const KeyboardNavigation = ({
@@ -131,6 +131,7 @@ function App() {
 	useEffect(() => {
 		const handleHash = () => {
 			const hash = window.location.hash;
+			console.log('Hash changed to:', hash);
 			setIsPortfolioOpen(hash === '#selectedwork');
 		};
 
@@ -141,16 +142,30 @@ function App() {
 
 	const openPortfolio = () => {
 		console.log('Opening portfolio...');
+		console.log('Current hash before opening:', window.location.hash);
 		setIsPortfolioOpen(true);
-		// Use replace instead of pushState to handle back button correctly
 		window.location.replace(`${window.location.pathname}#selectedwork`);
+		console.log('Hash after opening:', window.location.hash);
 	};
 
 	const closePortfolio = () => {
 		console.log('Closing portfolio...');
 		setIsPortfolioOpen(false);
-		// Remove hash
-		window.location.replace(window.location.pathname);
+
+		// Check if we have #newproject hash before closing portfolio
+		const currentHash = window.location.hash;
+		const hasNewProjectHash = currentHash.includes('newproject');
+		console.log('Current hash:', currentHash);
+		console.log('Has newproject hash:', hasNewProjectHash);
+
+		// If we're coming from #newproject, keep it, otherwise just remove the hash
+		if (hasNewProjectHash) {
+			console.log('Preserving #newproject hash');
+			window.location.replace(`${window.location.pathname}#newproject`);
+		} else {
+			console.log('Removing hash');
+			window.location.replace(window.location.pathname);
+		}
 	};
 
 	return (
@@ -239,6 +254,10 @@ function AppContent({ openPortfolio }) {
 	const openNewProjectModal = () => {
 		window.location.hash = 'newproject';
 		setIsNewProjectModalOpen(true);
+		// Make sure other modals are closed
+		setIsContactModalOpen(false);
+		setIsOffertModalOpen(false);
+		setIsSplashModalOpen(false);
 	};
 
 	const closeNewProjectModal = () => {
@@ -341,15 +360,6 @@ function AppContent({ openPortfolio }) {
 						</Route>
 					))}
 			</Routes>
-
-			<FloatingButtonWrapper
-				openContactModal={openContactModal}
-				openOffertModal={openOffertModal}
-				openNewProjectModal={openNewProjectModal}
-				stopMovement={
-					isContactModalOpen || isOffertModalOpen || isSplashModalOpen
-				}
-			/>
 
 			{isContactModalOpen && (
 				<Contact

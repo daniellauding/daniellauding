@@ -96,8 +96,8 @@ const about = [
 							{
 								variant: 'primary',
 								type: 'modal',
-								target: 'offertModal',
-								text: 'Give me an offer',
+								target: 'newProjectModal',
+								text: 'Open for Work',
 							},
 						],
 					},
@@ -719,7 +719,7 @@ const about = [
 							{
 								variant: 'primary',
 								type: 'modal',
-								target: 'offertModal',
+								target: 'newProjectModal',
 								text: 'Give me an offer',
 							},
 						],
@@ -988,7 +988,7 @@ The Asteria Web App is designed to help users navigate their cash flow effortles
 									columns: 2,
 									text: [
 										{
-											value: `Through our partnership with Swedbank, we identified a significant issue: many users were unaware of the full potential of the Asteria Smart Cash Flow tool. SMEs often felt overwhelmed by the intricacies of financial management, leading to low engagement and infrequent usage of available tools. Feedback revealed a pressing need for a straightforward, intuitive interface that highlights the app’s value and relevance to their daily operations.`,
+											value: `Through our partnership with Swedbank, we identified a significant issue: many users were unaware of the full potential of the Asteria Smart Cash Flow tool. SMEs often felt overwhelmed by the intricacies of financial management, leading to low engagement and infrequent usage of available tools. Feedback revealed a pressing need for a straightforward, intuitive interface that highlights the app's value and relevance to their daily operations.`,
 											size: 'large',
 										},
 									],
@@ -1042,7 +1042,7 @@ The Asteria Web App is designed to help users navigate their cash flow effortles
 									columns: 2,
 									text: [
 										{
-											value: `Through comprehensive user research, including feedback gathered during our collaboration with Swedbank, we identified several pain points. Users expressed difficulties in grasping the platform’s features and accessing essential tools quickly. This feedback underscored the necessity of a more focused approach that delivers vital business insights in an easily digestible format.`,
+											value: `Through comprehensive user research, including feedback gathered during our collaboration with Swedbank, we identified several pain points. Users expressed difficulties in grasping the platform's features and accessing essential tools quickly. This feedback underscored the necessity of a more focused approach that delivers vital business insights in an easily digestible format.`,
 											size: 'large',
 										},
 									],
@@ -1073,7 +1073,7 @@ The Asteria Web App is designed to help users navigate their cash flow effortles
 											size: 'large',
 										},
 										{
-											value: `I focused on creating a user-friendly experience by conducting workshops to gather insights directly from users, developing wireframes, and refining the user interface. My responsibilities extended beyond design to include testing the application with real user data to validate our concepts and ensure we were effectively addressing users’ needs.`,
+											value: `I focused on creating a user-friendly experience by conducting workshops to gather insights directly from users, developing wireframes, and refining the user interface. My responsibilities extended beyond design to include testing the application with real user data to validate our concepts and ensure we were effectively addressing users' needs.`,
 											size: 'large',
 										},
 										{
@@ -1104,7 +1104,7 @@ The Asteria Web App is designed to help users navigate their cash flow effortles
 									columns: 2,
 									text: [
 										{
-											value: `The Asteria Web App has successfully positioned us to meet the demands of SMEs seeking simplified financial management solutions. Users now enjoy a clear understanding of their company’s financial status, including key metrics like paid and forecasted salaries, taxes, historical and projected account balances, and potential cash flow risks.`,
+											value: `The Asteria Web App has successfully positioned us to meet the demands of SMEs seeking simplified financial management solutions. Users now enjoy a clear understanding of their company's financial status, including key metrics like paid and forecasted salaries, taxes, historical and projected account balances, and potential cash flow risks.`,
 											size: 'large',
 										},
 										{
@@ -3709,7 +3709,7 @@ The Asteria Web App is designed to help users navigate their cash flow effortles
 									columns: 2,
 									text: [
 										{
-											value: `This project reinforced the importance of accessibility and consistency in design. I learned how to balance a brand’s identity with modern digital trends, and how to collaborate effectively across teams to ensure successful implementation of a new design system.`,
+											value: `This project reinforced the importance of accessibility and consistency in design. I learned how to balance a brand's identity with modern digital trends, and how to collaborate effectively across teams to ensure successful implementation of a new design system.`,
 											size: 'large',
 										},
 									],
@@ -3904,7 +3904,7 @@ The Asteria Web App is designed to help users navigate their cash flow effortles
 									columns: 2,
 									text: [
 										{
-											value: `Our goal was to design a website that reflected KLM’s warm and efficient service, making the trip planning experience simple and enjoyable for all users.`,
+											value: `Our goal was to design a website that reflected KLM's warm and efficient service, making the trip planning experience simple and enjoyable for all users.`,
 											size: 'large',
 										},
 									],
@@ -3931,7 +3931,7 @@ The Asteria Web App is designed to help users navigate their cash flow effortles
 									columns: 2,
 									text: [
 										{
-											value: `We conducted deep research with KLM’s team to understand traveler needs and align the design with those expectations, ensuring a seamless user experience for booking and trip planning.`,
+											value: `We conducted deep research with KLM's team to understand traveler needs and align the design with those expectations, ensuring a seamless user experience for booking and trip planning.`,
 											size: 'large',
 										},
 									],
@@ -4300,7 +4300,7 @@ The Asteria Web App is designed to help users navigate their cash flow effortles
 									columns: 2,
 									text: [
 										{
-											value: `I immersed myself in mrUsta's service model and conducted extensive user research to understand what customers were looking for in a service booking app. This research helped shape the app’s design, ensuring it met user expectations and provided a delightful experience.`,
+											value: `I immersed myself in mrUsta's service model and conducted extensive user research to understand what customers were looking for in a service booking app. This research helped shape the app's design, ensuring it met user expectations and provided a delightful experience.`,
 											size: 'large',
 										},
 									],
@@ -4327,7 +4327,7 @@ The Asteria Web App is designed to help users navigate their cash flow effortles
 									columns: 2,
 									text: [
 										{
-											value: `We focused on crafting a user-friendly interface that would streamline the process of finding and booking services. This involved simplifying navigation, improving search functionality, and designing a visually cohesive look that aligned with mrUsta’s branding.`,
+											value: `We focused on crafting a user-friendly interface that would streamline the process of finding and booking services. This involved simplifying navigation, improving search functionality, and designing a visually cohesive look that aligned with mrUsta's branding.`,
 											size: 'large',
 										},
 									],
@@ -4354,7 +4354,7 @@ The Asteria Web App is designed to help users navigate their cash flow effortles
 									columns: 2,
 									text: [
 										{
-											value: `We delivered a set of designs that were ready for the development phase, providing a strong foundation for mrUsta’s new app. The app was designed to be the go-to solution for finding and booking a wide variety of services, from car repairs to household maintenance.`,
+											value: `We delivered a set of designs that were ready for the development phase, providing a strong foundation for mrUsta's new app. The app was designed to be the go-to solution for finding and booking a wide variety of services, from car repairs to household maintenance.`,
 											size: 'large',
 										},
 									],
@@ -4514,7 +4514,7 @@ The Asteria Web App is designed to help users navigate their cash flow effortles
 						},
 						text: [
 							{
-								value: `In 2014, I collaborated with Producks and Folkets Stockholm to give Åbro Bryggeri’s website a fresh new look, ensuring it was more welcoming and easier to navigate while capturing the spirit of the brand.`,
+								value: `In 2014, I collaborated with Producks and Folkets Stockholm to give Åbro Bryggeri's website a fresh new look, ensuring it was more welcoming and easier to navigate while capturing the spirit of the brand.`,
 								size: 'large',
 								align: {
 									horizontal: 'center',
@@ -4541,7 +4541,7 @@ The Asteria Web App is designed to help users navigate their cash flow effortles
 									columns: 2,
 									text: [
 										{
-											value: `Åbro needed a revamped website that was more user-friendly and showcased the brewery’s unique character, while also making it easy for users to explore and engage with the brand online.`,
+											value: `Åbro needed a revamped website that was more user-friendly and showcased the brewery's unique character, while also making it easy for users to explore and engage with the brand online.`,
 											size: 'large',
 										},
 									],
@@ -4595,7 +4595,7 @@ The Asteria Web App is designed to help users navigate their cash flow effortles
 									columns: 2,
 									text: [
 										{
-											value: `We spent a lot of time getting to know Åbro’s team and their customers, ensuring that the new site would reflect the brewery’s unique identity while being easy to use.`,
+											value: `We spent a lot of time getting to know Åbro's team and their customers, ensuring that the new site would reflect the brewery's unique identity while being easy to use.`,
 											size: 'large',
 										},
 									],
@@ -4649,8 +4649,12 @@ The Asteria Web App is designed to help users navigate their cash flow effortles
 									columns: 2,
 									text: [
 										{
-											value: `The new website was successfully launched in early 2015, showcasing Åbro’s products and history while offering a much-improved user experience.`,
+											value: `The new website was successfully launched in early 2015, showcasing Åbro's products and history while offering a much-improved user experience.`,
 											size: 'large',
+										},
+										{
+											value: `The new website also featured a custom CMS, allowing Åbro to easily update their content and maintain a consistent brand identity across multiple platforms.`,
+											size: 'medium',
 										},
 									],
 								},
@@ -5285,7 +5289,7 @@ The Asteria Web App is designed to help users navigate their cash flow effortles
 									columns: 2,
 									text: [
 										{
-											value: `Our goal was to design a website that reflected KLM’s warm and efficient service, making the trip planning experience simple and enjoyable for all users.`,
+											value: `Our goal was to design a website that reflected KLM's warm and efficient service, making the trip planning experience simple and enjoyable for all users.`,
 											size: 'large',
 										},
 									],
@@ -5312,7 +5316,7 @@ The Asteria Web App is designed to help users navigate their cash flow effortles
 									columns: 2,
 									text: [
 										{
-											value: `We conducted deep research with KLM’s team to understand traveler needs and align the design with those expectations, ensuring a seamless user experience for booking and trip planning.`,
+											value: `We conducted deep research with KLM's team to understand traveler needs and align the design with those expectations, ensuring a seamless user experience for booking and trip planning.`,
 											size: 'large',
 										},
 									],

@@ -67,13 +67,11 @@ const Offert = ({ closeOffertModal }) => {
 };
 
 // New ContactSplash component
-/* eslint-disable no-unused-vars */
 const ContactSplash = ({
 	closeModal,
 	openContactModal,
 	openNewProjectModal,
 }) => {
-	/* eslint-enable no-unused-vars */
 	const handleContactClick = () => {
 		closeModal();
 		openContactModal();
@@ -141,33 +139,44 @@ const ContactSplash = ({
 
 // Add new modal component for NewProject
 const NewProject = ({ closeNewProjectModal, openPortfolio }) => {
+	const handleFormSubmit = () => {
+		if (!openPortfolio) {
+			closeNewProjectModal();
+		}
+		if (openPortfolio) {
+			openPortfolio();
+		}
+	};
+
 	return (
 		<div
 			tabIndex="-1"
 			aria-hidden="true"
-			className={classNames('fixed inset-0 z-10 overflow-y-auto')}
+			className={classNames(
+				'fixed inset-0 z-[9999] overflow-y-auto h-full'
+			)}
 		>
-			<div className="modal modal-request-access flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-				<div className="modal-wrapper z-20 relative transform overflow-hidden rounded-2xl bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+			<div className="modal modal-newproject flex min-h-full h-screen items-end justify-center p-4 text-center sm:items-center sm:p-0">
+				<div className="modal-wrapper z-[99999] relative transform overflow-hidden rounded-2xl bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg h-[80vh]">
 					<button
 						onClick={closeNewProjectModal}
 						type="button"
-						className="absolute top-4 right-4 ml-auto btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline z-20"
+						className="absolute top-4 right-4 ml-auto btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline z-[999999]"
 						data-bs-dismiss="modal"
 						aria-label="Close"
 					>
 						<XMarkIcon className="h-5 w-5 text-black" />
 					</button>
-					<div className="modal-body relative p-10">
+					<div className="modal-body relative p-10 h-full">
 						<NewProjectForm
-							closeModal={closeNewProjectModal}
+							closeModal={handleFormSubmit}
 							openPortfolio={openPortfolio}
 						/>
 					</div>
 				</div>
 				<div
 					onClick={closeNewProjectModal}
-					className="modal-backdrop w-full h-full min-h-full fixed top-0 left-0 bottom-0 right-0 z-10 bg-opacity-90 bg-neutral-800 backdrop-blur"
+					className="modal-backdrop w-full h-full min-h-full fixed top-0 left-0 bottom-0 right-0 z-[99998] bg-opacity-90 bg-neutral-800 backdrop-blur"
 				/>
 			</div>
 		</div>
