@@ -107,7 +107,7 @@ const Client = ({
 				<Protected item={item} onAuthenticated={setAuthenticated}>
 					<div className="client-wrapper grid grid-flow-col gap-16 auto-cols-fr h-screen max-h-screen overflow-hidden p-12">
 						{/* Left Arrow */}
-						{cases.length > 3 && scrollX > 0 && (
+						{cases.length > 2 && scrollX > 0 && (
 							<div
 								className="absolute left-0 top-0 bottom-0 w-10 h-full flex items-center justify-center bg-black bg-opacity-50 z-10"
 								onClick={() => scrollToNextCase('left')}
@@ -133,7 +133,7 @@ const Client = ({
 							))}
 						</div>
 						{/* Right Arrow - Always show */}
-						{cases.length > 3 && (
+						{cases.length > 2 && (
 							<div
 								className="absolute right-0 top-0 bottom-0 w-10 h-full flex items-center justify-center bg-black bg-opacity-50 z-10"
 								onClick={() => scrollToNextCase('right')}

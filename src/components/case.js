@@ -738,14 +738,14 @@ const CaseSelector = ({
 					</div>
 				</div>
 
-				<div
-					className="case-background absolute z-n1 left-0 top-0 right-0 bottom-0 h-full w-full bg-cover bg-center bg-no-repeat"
+				{/* <div
+					className="case-background absolute -z-1 left-0 top-0 right-0 bottom-0 h-full w-full bg-cover bg-center bg-no-repeat"
 					style={{
 						backgroundImage:
 							clientCase?.background?.image &&
 							`url(${clientCase?.background?.image})`,
 					}}
-				/>
+				/> */}
 			</div>
 		</div>
 	);
