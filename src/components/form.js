@@ -47,6 +47,7 @@ const ContactForm = ({ closeContactModal }) => {
 		deliverablesOther: '',
 		budget: '',
 		budgetOther: '',
+		'price-other': '',
 		'full-name': '',
 		'company-name': '',
 		email: '',
@@ -578,6 +579,7 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 		deliverablesOther: '',
 		budget: '',
 		budgetOther: '',
+		'price-other': '',
 		'full-name': '',
 		'company-name': '',
 		email: '',
@@ -721,7 +723,7 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 				// Budget
 				budget: formState.budget || '',
 				budgetOther:
-					formState.budgetOther || formState['price-other'] || '', // Add price-other field
+					formState['price-other'] || formState.budgetOther || '',
 
 				// Files
 				fileUrls: Array.isArray(fileUrls) ? fileUrls : [],
@@ -1004,8 +1006,42 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 									>
 										{/* Länsförsäkringar */}
 										<div className="work-item p-4">
-											<div className="bg-gray-100 h-48 mb-4 rounded-lg">
-												{/* Add image here */}
+											<div className="grid grid-cols-2 gap-4 mb-4">
+												<div
+													className="h-48 rounded-lg bg-cover bg-center bg-no-repeat"
+													style={{
+														backgroundImage:
+															'url(/images/case/lansforsakringar/devices.png)',
+													}}
+												/>
+												<div
+													className="h-48 rounded-lg bg-cover bg-center bg-no-repeat"
+													style={{
+														backgroundImage:
+															'url(/images/case/spotify/phones.png)',
+													}}
+												/>
+												<div
+													className="h-48 rounded-lg bg-cover bg-center bg-no-repeat"
+													style={{
+														backgroundImage:
+															'url(/images/case/asteria/foretagskollen/laptop.png)',
+													}}
+												/>
+												<div
+													className="h-48 rounded-lg bg-cover bg-center bg-no-repeat"
+													style={{
+														backgroundImage:
+															'url(/images/case/asteria/payex/laptop.png)',
+													}}
+												/>
+												<div
+													className="h-48 rounded-lg bg-cover bg-center bg-no-repeat"
+													style={{
+														backgroundImage:
+															'url(/images/case/asteria/smartcashflow/laptop.png)',
+													}}
+												/>
 											</div>
 											<div className="space-y-2">
 												<div className="font-semibold text-lg text-gray-900">
@@ -1551,6 +1587,8 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 												type="text"
 												id="price-other"
 												name="price-other"
+												value={formState['price-other']}
+												onChange={handleChange}
 												className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
 											/>
 										</div>
