@@ -575,11 +575,6 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 	const [submitted, setSubmitted] = useState(false);
 	const [formErrors, setFormErrors] = useState({});
 
-	// Add this to debug slide changes
-	useEffect(() => {
-		console.log('Current slide:', currentSlide);
-	}, [currentSlide]);
-
 	// Create a navigation helper
 	const goToSlide = (slideNumber) => {
 		if (slideNumber > currentSlide) {
@@ -641,16 +636,13 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 		}
 
 		setSubmitting(true);
-		console.log('Starting form submission...');
 
 		try {
 			// Upload files to Firebase if any
 			let fileUrls = [];
 			if (formState.files.length > 0) {
-				console.log('Starting file uploads...', formState.files);
 				for (const file of formState.files) {
 					try {
-						console.log('Uploading file:', file.name);
 						if (file.size > 10 * 1024 * 1024) {
 							throw new Error(
 								`File ${file.name} is too large. Maximum size is 10MB`
@@ -666,9 +658,7 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 							storageRef,
 							file
 						);
-						console.log('File uploaded:', uploadResult);
 						const url = await getDownloadURL(storageRef);
-						console.log('File URL:', url);
 						fileUrls.push(url);
 					} catch (uploadError) {
 						console.error('File upload error:', uploadError);
@@ -706,8 +696,8 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 
 				// Budget
 				budget: formState.budget || '',
-				budgetOther:
-					formState['price-other'] || formState.budgetOther || '',
+				budgetOther: formState.budgetOther || '',
+				budgetAmount: formState['price-other'] || '',
 
 				// Files
 				fileUrls: Array.isArray(fileUrls) ? fileUrls : [],
@@ -718,9 +708,6 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 				user_platform: window.navigator.platform || '',
 				user_version: window.navigator.appVersion || '',
 			};
-
-			// Log the parameters for debugging
-			console.log('Sending template params:', templateParams);
 
 			// Initialize EmailJS
 			emailjs.init({
@@ -733,8 +720,6 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 				process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
 				templateParams
 			);
-
-			console.log('Email sent successfully:', response);
 
 			if (response.status === 200) {
 				setSubmitted(true);
@@ -1521,48 +1506,54 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 										</select>
 
 										{formState.budget === 'Other' && (
-											<div className="mt-3">
-												<textarea
-													placeholder="Please specify your budget..."
-													value={
-														formState.budgetOther ||
-														''
-													}
-													onChange={(e) =>
-														setFormState(
-															(prev) => ({
-																...prev,
-																budgetOther:
-																	e.target
-																		.value,
-															})
-														)
-													}
-													className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
-													rows="2"
-												/>
+											<div>
+												<div className="mt-3">
+													<label
+														htmlFor="budgetOther"
+														className="block mb-2 font-medium"
+													>
+														Please describe your
+														budget range:
+													</label>
+													<textarea
+														id="budgetOther"
+														name="budgetOther"
+														placeholder="Please describe your budget range..."
+														value={
+															formState.budgetOther ||
+															''
+														}
+														onChange={handleChange}
+														className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
+														rows="2"
+													/>
+												</div>
+
+												<div className="mt-4">
+													<label
+														htmlFor="price-other"
+														className="block mb-2 font-medium"
+													>
+														Please specify exact
+														amount:
+													</label>
+													<input
+														type="text"
+														id="price-other"
+														name="price-other"
+														value={
+															formState[
+																'price-other'
+															]
+														}
+														onChange={handleChange}
+														className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
+														placeholder="e.g. $5000"
+													/>
+												</div>
 											</div>
 										)}
 									</div>
-
-									{formState.budget === 'Other' && (
-										<div>
-											<label
-												htmlFor="price-other"
-												className="block mb-2 font-medium"
-											>
-												Please specify your budget:
-											</label>
-											<input
-												type="text"
-												id="price-other"
-												name="price-other"
-												value={formState['price-other']}
-												onChange={handleChange}
-												className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
-											/>
-										</div>
-									)}
 								</div>
 
 								<div className="mt-6 flex justify-end gap-4">
