@@ -1006,15 +1006,13 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 									>
 										{/* Länsförsäkringar */}
 										<div className="work-item p-4">
-											<div className="grid grid-cols-2 gap-4 mb-4">
-												<div
-													className="h-48 rounded-lg bg-cover bg-center bg-no-repeat"
-													style={{
-														backgroundImage:
-															'url(/images/case/lansforsakringar/devices.png)',
-													}}
-												/>
-											</div>
+											<div
+												className="h-48 rounded-lg bg-cover bg-center bg-no-repeat"
+												style={{
+													backgroundImage:
+														'url(/images/case/lansforsakringar/devices.png)',
+												}}
+											/>
 											<div className="space-y-2">
 												<div className="font-semibold text-lg text-gray-900">
 													Länsförsäkringar
