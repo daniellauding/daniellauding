@@ -695,23 +695,26 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 
 			// Prepare all form data
 			const templateParams = {
-				name: formState['full-name'],
-				company: formState['company-name'],
-				email: formState.email,
-				projectName: formState.projectName,
-				projectDescription: formState['project-description'],
-				helpType: formState.helpType,
-				helpTypeOther: formState.helpTypeOther,
-				projectType: formState.projectType,
-				projectTypeOther: formState['project-type-other'],
-				deliverables: formState.deliverables.join(', '),
-				deliverablesOther: formState.deliverablesOther,
-				budget: formState.budget,
-				budgetOther: formState.budgetOther,
-				fileUrls: fileUrls,
+				name: formState['full-name'] || '',
+				company: formState['company-name'] || '',
+				email: formState.email || '',
+				projectName: formState.projectName || '',
+				projectDescription: formState['project-description'] || '',
+				helpType: formState.helpType || '',
+				helpTypeOther: formState.helpTypeOther || '',
+				projectType: formState.projectType || '',
+				projectTypeOther: formState['project-type-other'] || '',
+				deliverables: Array.isArray(formState.deliverables)
+					? formState.deliverables.join(', ')
+					: '',
+				deliverablesOther: formState.deliverablesOther || '',
+				budget: formState.budget || '',
+				budgetOther: formState.budgetOther || '',
+				fileUrls: Array.isArray(fileUrls) ? fileUrls : [],
 			};
 
-			console.log('Sending complete form data:', templateParams);
+			console.log('Form State:', formState);
+			console.log('Template Params:', templateParams);
 
 			// Initialize EmailJS
 			emailjs.init({
