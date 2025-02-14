@@ -695,26 +695,46 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 
 			// Prepare all form data
 			const templateParams = {
+				// Contact Information
 				name: formState['full-name'] || '',
 				company: formState['company-name'] || '',
 				email: formState.email || '',
+
+				// Project Details
 				projectName: formState.projectName || '',
 				projectDescription: formState['project-description'] || '',
+
+				// Help Type
 				helpType: formState.helpType || '',
 				helpTypeOther: formState.helpTypeOther || '',
+
+				// Project Type
 				projectType: formState.projectType || '',
 				projectTypeOther: formState['project-type-other'] || '',
+
+				// Deliverables
 				deliverables: Array.isArray(formState.deliverables)
 					? formState.deliverables.join(', ')
 					: '',
 				deliverablesOther: formState.deliverablesOther || '',
+
+				// Budget
 				budget: formState.budget || '',
-				budgetOther: formState.budgetOther || '',
+				budgetOther:
+					formState.budgetOther || formState['price-other'] || '', // Add price-other field
+
+				// Files
 				fileUrls: Array.isArray(fileUrls) ? fileUrls : [],
+
+				// Add built-in variables that EmailJS provides
+				user_os: window.navigator.platform || '',
+				user_browser: window.navigator.userAgent || '',
+				user_platform: window.navigator.platform || '',
+				user_version: window.navigator.appVersion || '',
 			};
 
-			console.log('Form State:', formState);
-			console.log('Template Params:', templateParams);
+			// Log the parameters for debugging
+			console.log('Sending template params:', templateParams);
 
 			// Initialize EmailJS
 			emailjs.init({
