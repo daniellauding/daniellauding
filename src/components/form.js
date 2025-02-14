@@ -1,20 +1,67 @@
 import React, { useState, useEffect } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import emailjs from '@emailjs/browser';
+import { initializeApp } from 'firebase/app';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+
+// Firebase configuration (place this outside the component)
+const firebaseConfig = {
+	apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+	authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+	projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+	storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+	messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+	appId: process.env.REACT_APP_FIREBASE_APP_ID,
+};
+
+// Initialize Firebase (place this outside the component)
+const app = initializeApp(firebaseConfig);
+const storage = getStorage(app);
+
+// Add this after Firebase initialization
+console.log(
+	'Firebase initialized with bucket:',
+	storage.app.options.storageBucket
+);
+
+// Also verify environment variables are loaded
+console.log('Environment check:', {
+	apiKey: process.env.REACT_APP_FIREBASE_API_KEY ? 'Set' : 'Not set',
+	authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN ? 'Set' : 'Not set',
+	projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID ? 'Set' : 'Not set',
+	storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET
+		? 'Set'
+		: 'Not set',
+});
 
 const ContactForm = ({ closeContactModal }) => {
 	const [formState, setFormState] = useState({
-		name: '',
-		company: '',
+		projectName: '',
+		'project-description': '',
+		helpType: '',
+		helpTypeOther: '',
+		projectType: '',
+		'project-type-other': '',
+		deliverables: [],
+		deliverablesOther: '',
+		budget: '',
+		budgetOther: '',
+		'full-name': '',
+		'company-name': '',
 		email: '',
-		message: `Please i need to talk to you`,
+		files: [],
 	});
 
 	const [submitting, setSubmitting] = useState(false);
 	const [submitted, setSubmitted] = useState(false);
+	const [formErrors, setFormErrors] = useState({});
 
 	const handleChange = (e) => {
 		setFormState({ ...formState, [e.target.name]: e.target.value });
+		if (formErrors[e.target.name]) {
+			setFormErrors((prev) => ({ ...prev, [e.target.name]: '' }));
+		}
 	};
 
 	const handleSubmit = (e) => {
@@ -79,9 +126,9 @@ const ContactForm = ({ closeContactModal }) => {
 									Your Name:
 									<input
 										type="text"
-										name="name"
+										name="full-name"
 										placeholder="Full name"
-										value={formState.name}
+										value={formState['full-name']}
 										required
 										onChange={handleChange}
 										className="border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
@@ -93,9 +140,9 @@ const ContactForm = ({ closeContactModal }) => {
 									Your Company:
 									<input
 										type="text"
-										name="company"
+										name="company-name"
 										placeholder="Company name"
-										value={formState.company}
+										value={formState['company-name']}
 										required
 										onChange={handleChange}
 										className="border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
@@ -112,7 +159,11 @@ const ContactForm = ({ closeContactModal }) => {
 										value={formState.email}
 										required
 										onChange={handleChange}
-										className="border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
+										className={`border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black ${
+											formErrors.email
+												? 'border-red-500'
+												: ''
+										}`}
 									/>
 								</label>
 							</p>
@@ -120,23 +171,14 @@ const ContactForm = ({ closeContactModal }) => {
 								<label>
 									Message:
 									<textarea
-										name="message"
-										value={formState.message}
+										name="project-description"
+										value={formState['project-description']}
 										required
 										onChange={handleChange}
 										className="border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
 									/>
 								</label>
 							</p>
-
-							<a
-								href="https://calendly.com/daniellauding"
-								target="_blank"
-								rel="noreferrer"
-								className="text-primary underline"
-							>
-								Book appointment?
-							</a>
 						</div>
 						<p>
 							<button
@@ -148,6 +190,28 @@ const ContactForm = ({ closeContactModal }) => {
 							</button>
 						</p>
 					</form>
+					<div className="text-center mt-4">
+						<div className="flex items-center justify-center gap-4">
+							<a
+								href="https://calendly.com/daniellauding"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="text-primary hover:text-primary-dark underline"
+							>
+								Or book an appointment
+							</a>
+							<button
+								type="button"
+								onClick={() => {
+									closeContactModal();
+									window.location.hash = 'newproject';
+								}}
+								className="text-primary hover:text-primary-dark underline"
+							>
+								Open to Work
+							</button>
+						</div>
+					</div>
 				</div>
 			)}
 		</div>
@@ -346,9 +410,13 @@ const RequestForm = ({ closeRequestModal, item }) => {
 
 	const [submitting, setSubmitting] = useState(false);
 	const [submitted, setSubmitted] = useState(false);
+	const [formErrors, setFormErrors] = useState({});
 
 	const handleChange = (e) => {
 		setFormState({ ...formState, [e.target.name]: e.target.value });
+		if (formErrors[e.target.name]) {
+			setFormErrors((prev) => ({ ...prev, [e.target.name]: '' }));
+		}
 	};
 
 	const handleSubmit = (e) => {
@@ -461,7 +529,11 @@ const RequestForm = ({ closeRequestModal, item }) => {
 										value={formState.email}
 										required
 										onChange={handleChange}
-										className="border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black"
+										className={`border-b-2 dark:bg-transparent border-gray-300 hover:border-gray-600 active:border-gray-800 focus:border-gray-800 outline-0 py-3 w-full text-black ${
+											formErrors.email
+												? 'border-red-500'
+												: ''
+										}`}
 									/>
 								</label>
 							</p>
@@ -496,25 +568,26 @@ const RequestForm = ({ closeRequestModal, item }) => {
 
 const NewProjectForm = ({ closeModal, openPortfolio }) => {
 	const [formState, setFormState] = useState({
-		name: '',
-		company: '',
-		email: '',
 		projectName: '',
+		'project-description': '',
 		helpType: '',
 		helpTypeOther: '',
 		projectType: '',
-		projectTypeOther: '',
+		'project-type-other': '',
 		deliverables: [],
 		deliverablesOther: '',
 		budget: '',
 		budgetOther: '',
-		'project-description': '',
+		'full-name': '',
+		'company-name': '',
+		email: '',
 		files: [],
 	});
 
 	const [currentSlide, setCurrentSlide] = useState(0);
 	const [submitting, setSubmitting] = useState(false);
 	const [submitted, setSubmitted] = useState(false);
+	const [formErrors, setFormErrors] = useState({});
 
 	// Add this to debug slide changes
 	useEffect(() => {
@@ -523,7 +596,13 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 
 	// Create a navigation helper
 	const goToSlide = (slideNumber) => {
-		console.log('Going to slide:', slideNumber);
+		if (slideNumber > currentSlide) {
+			// Only validate when going forward
+			if (!validateSlide(currentSlide)) {
+				// Instead of alert, just return - errors will be shown inline
+				return;
+			}
+		}
 		setCurrentSlide(slideNumber);
 	};
 
@@ -547,96 +626,174 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 		}));
 	};
 
+	// Update the handleSubmit function to handle file uploads
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+
+		// Validate all required fields before submission
+		const errors = {};
+		if (!formState['full-name']) {
+			errors.fullName = 'Full name is required';
+		}
+		if (!formState.email) {
+			errors.email = 'Email is required';
+		}
+		if (!formState.projectName) {
+			errors.projectName = 'Project name is required';
+		}
+		if (!formState.helpType) {
+			errors.helpType = 'Please select what you need help with';
+		}
+		if (formState.deliverables.length === 0) {
+			errors.deliverables = 'Please select at least one deliverable';
+		}
+
+		// If there are errors, show them and stop submission
+		if (Object.keys(errors).length > 0) {
+			setFormErrors(errors);
+			return;
+		}
+
 		setSubmitting(true);
-
-		const formData = new FormData();
-		formData.append('form-name', 'newproject');
-
-		// Basic fields
-		formData.append('name', e.target['full-name'].value);
-		formData.append('company', e.target['company-name'].value);
-		formData.append('email', e.target.email.value);
-		formData.append('projectName', formState.projectName);
-
-		// Help type fields
-		formData.append('helpType', formState.helpType);
-		formData.append('helpTypeOther', formState.helpTypeOther);
-
-		// Project type fields
-		formData.append('projectType', formState.projectType);
-		formData.append('projectTypeOther', formState.projectTypeOther);
-
-		// Deliverables
-		formData.append('deliverables', formState.deliverables.join(', '));
-		formData.append('deliverablesOther', formState.deliverablesOther);
-
-		// Budget fields
-		formData.append('budget', formState.budget);
-		formData.append('budgetOther', formState.budgetOther);
-
-		// Project description
-		formData.append(
-			'projectDescription',
-			e.target['project-description'].value
-		);
-
-		// Handle files
-		if (formState.files.length > 0) {
-			formState.files.forEach((file) => {
-				formData.append('file', file);
-			});
-		}
-
-		// Debug log
-		console.log('Form Data being sent:');
-		for (let pair of formData.entries()) {
-			console.log(pair[0] + ': ' + pair[1]);
-		}
-
-		// Also log the raw form state for debugging
-		console.log('Form State:', formState);
+		console.log('Starting form submission...');
 
 		try {
-			const response = await fetch('/', {
-				method: 'POST',
-				headers: {
-					Accept: 'application/json',
-				},
-				body: formData,
+			// Upload files to Firebase if any
+			let fileUrls = [];
+			if (formState.files.length > 0) {
+				console.log('Starting file uploads...', formState.files);
+				for (const file of formState.files) {
+					try {
+						console.log('Uploading file:', file.name);
+						if (file.size > 10 * 1024 * 1024) {
+							throw new Error(
+								`File ${file.name} is too large. Maximum size is 10MB`
+							);
+						}
+
+						const storageRef = ref(
+							storage,
+							`project-files/${Date.now()}-${file.name}`
+						);
+
+						const uploadResult = await uploadBytes(
+							storageRef,
+							file
+						);
+						console.log('File uploaded:', uploadResult);
+						const url = await getDownloadURL(storageRef);
+						console.log('File URL:', url);
+						fileUrls.push(url);
+					} catch (uploadError) {
+						console.error('File upload error:', uploadError);
+						throw new Error(
+							`Failed to upload ${file.name}: ${uploadError.message}`
+						);
+					}
+				}
+			}
+
+			// Prepare all form data
+			const templateParams = {
+				name: formState['full-name'],
+				company: formState['company-name'],
+				email: formState.email,
+				projectName: formState.projectName,
+				projectDescription: formState['project-description'],
+				helpType: formState.helpType,
+				helpTypeOther: formState.helpTypeOther,
+				projectType: formState.projectType,
+				projectTypeOther: formState['project-type-other'],
+				deliverables: formState.deliverables.join(', '),
+				deliverablesOther: formState.deliverablesOther,
+				budget: formState.budget,
+				budgetOther: formState.budgetOther,
+				fileUrls: fileUrls,
+			};
+
+			console.log('Sending complete form data:', templateParams);
+
+			// Initialize EmailJS
+			emailjs.init({
+				publicKey: process.env.REACT_APP_EMAILJS_PUBLIC_KEY,
 			});
 
-			if (response.ok) {
+			// Send email
+			const response = await emailjs.send(
+				process.env.REACT_APP_EMAILJS_SERVICE_ID,
+				process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+				templateParams
+			);
+
+			console.log('Email sent successfully:', response);
+
+			if (response.status === 200) {
 				setSubmitted(true);
 				setSubmitting(false);
-				closeModal();
+				// Show success message instead of closing
+				// closeModal();
 			} else {
-				throw new Error('Form submission failed');
+				throw new Error(
+					`Email sending failed with status: ${response.status}`
+				);
 			}
 		} catch (error) {
-			console.error('Error:', error);
+			console.error('Error in form submission:', error);
 			setSubmitting(false);
 			alert(
-				'There was a problem submitting your form. Please try again.'
+				`There was a problem submitting your form: ${
+					error.message || 'Email service error'
+				}. Please try again.`
 			);
 		}
+	};
+
+	// Update the validateSlide function to show errors more clearly
+	const validateSlide = (slideNumber) => {
+		const errors = {};
+		const form = document.forms.newproject;
+
+		switch (slideNumber) {
+			case 0:
+				// Intro slide - no validation needed
+				break;
+			case 1:
+				// Previous work slide - no validation needed
+				break;
+			case 2:
+				if (!formState.projectName) {
+					errors.projectName = 'Project name is required';
+				}
+				if (!formState.helpType) {
+					errors.helpType = 'Please select what you need help with';
+				}
+				break;
+			case 3:
+				if (formState.deliverables.length === 0) {
+					errors.deliverables =
+						'Please select at least one deliverable';
+				}
+				break;
+			case 4:
+				if (form && form['full-name'] && !form['full-name'].value) {
+					errors.fullName = 'Full name is required';
+				}
+				if (form && form.email && !form.email.value) {
+					errors.email = 'Email is required';
+				}
+				break;
+			default:
+				break;
+		}
+
+		setFormErrors(errors);
+		return Object.keys(errors).length === 0;
 	};
 
 	return (
 		<div className="text-gray-800 h-full">
 			{submitted ? (
-				<div className="flex gap-2 flex-col">
-					<p className="pt-0 mb-8 ml-0 text-left text-2xl dark:text-gray-500 text-black lg:font-light">
-						Thank you for your submission!
-					</p>
-					<button
-						onClick={closeModal}
-						className="bg-primary w-fit hover:primary text-white font-bold py-2 px-4 mt-8 rounded-full cursor-pointer"
-					>
-						Dismiss
-					</button>
-				</div>
+				<SuccessMessage closeModal={closeModal} />
 			) : (
 				<div className="h-full">
 					<form
@@ -986,9 +1143,18 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 											value={formState.projectName}
 											onChange={handleChange}
 											required
-											className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
+											className={`w-full p-2 border rounded focus:ring-2 focus:ring-primary ${
+												formErrors.projectName
+													? 'border-red-500'
+													: ''
+											}`}
 											placeholder="Give your project a name"
 										/>
+										{formErrors.projectName && (
+											<p className="text-red-500 text-sm mt-1">
+												{formErrors.projectName}
+											</p>
+										)}
 									</div>
 
 									<div className="mt-4">
@@ -1013,46 +1179,60 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 
 									<div>
 										<label
-											htmlFor="help-type"
+											htmlFor="helpType"
 											className="block mb-2 font-medium"
 										>
 											What do you need help with? *
 										</label>
 										<select
-											id="help-type"
-											name="help-type"
-											value={formState['help-type']}
+											id="helpType"
+											name="helpType"
+											value={formState.helpType}
 											onChange={handleChange}
 											required
-											className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
+											className={`w-full p-2 border rounded focus:ring-2 focus:ring-primary ${
+												formErrors.helpType
+													? 'border-red-500'
+													: ''
+											}`}
 										>
 											<option value="">
 												Select an option
 											</option>
-											<option value="Launching a new product">
-												Launching a new product
+											<option value="Design">
+												Design
 											</option>
-											<option value="Building an internal tool">
-												Building an internal tool
+											<option value="Development">
+												Development
+											</option>
+											<option value="Consultation">
+												Consultation
 											</option>
 											<option value="Other">Other</option>
 										</select>
+										{formErrors.helpType && (
+											<p className="text-red-500 text-sm mt-1">
+												{formErrors.helpType}
+											</p>
+										)}
 									</div>
 
-									{formState['help-type'] === 'Other' && (
-										<div>
+									{formState.helpType === 'Other' && (
+										<div className="mt-4">
 											<label
-												htmlFor="other-help"
+												htmlFor="helpTypeOther"
 												className="block mb-2 font-medium"
 											>
-												Please describe what you need
+												Please specify what you need
 												help with:
 											</label>
 											<textarea
-												id="other-help"
-												name="other-help"
+												id="helpTypeOther"
+												name="helpTypeOther"
+												value={formState.helpTypeOther}
+												onChange={handleChange}
 												className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
-												rows="3"
+												rows="2"
 											/>
 										</div>
 									)}
@@ -1386,6 +1566,8 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 											type="text"
 											id="full-name"
 											name="full-name"
+											value={formState['full-name']}
+											onChange={handleChange}
 											required
 											className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
 											placeholder="Your full name"
@@ -1403,6 +1585,8 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 											type="text"
 											id="company-name"
 											name="company-name"
+											value={formState['company-name']}
+											onChange={handleChange}
 											className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
 											placeholder="Your company (if applicable)"
 										/>
@@ -1419,10 +1603,21 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 											type="email"
 											id="email"
 											name="email"
+											value={formState.email}
+											onChange={handleChange}
 											required
-											className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
+											className={`w-full p-2 border rounded focus:ring-2 focus:ring-primary ${
+												formErrors.email
+													? 'border-red-500'
+													: ''
+											}`}
 											placeholder="your@email.com"
 										/>
+										{formErrors.email && (
+											<p className="text-red-500 text-sm mt-1">
+												{formErrors.email}
+											</p>
+										)}
 									</div>
 
 									<div>
@@ -1544,6 +1739,31 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 					</form>
 				</div>
 			)}
+		</div>
+	);
+};
+
+// Success message component
+const SuccessMessage = ({ closeModal }) => {
+	const handleClose = () => {
+		closeModal();
+		// Reload page and go to home
+		window.location.href = '/';
+	};
+
+	return (
+		<div className="flex flex-col items-center justify-center p-6">
+			<h2 className="text-2xl font-bold mb-4">Thank You!</h2>
+			<p className="text-gray-600 mb-6 text-center">
+				Your project request has been submitted successfully. I&apos;ll
+				get back to you soon!
+			</p>
+			<button
+				onClick={handleClose}
+				className="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded-full"
+			>
+				Close
+			</button>
 		</div>
 	);
 };
