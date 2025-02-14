@@ -19,22 +19,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
 
-// Add this after Firebase initialization
-console.log(
-	'Firebase initialized with bucket:',
-	storage.app.options.storageBucket
-);
-
-// Also verify environment variables are loaded
-console.log('Environment check:', {
-	apiKey: process.env.REACT_APP_FIREBASE_API_KEY ? 'Set' : 'Not set',
-	authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN ? 'Set' : 'Not set',
-	projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID ? 'Set' : 'Not set',
-	storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET
-		? 'Set'
-		: 'Not set',
-});
-
 const ContactForm = ({ closeContactModal }) => {
 	const [formState, setFormState] = useState({
 		projectName: '',
