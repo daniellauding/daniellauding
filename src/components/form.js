@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import emailjs from '@emailjs/browser';
@@ -685,7 +685,7 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 				helpTypeOther: formState.helpTypeOther || '',
 
 				// Project Type
-				projectType: formState.projectType || '',
+				projectType: formState['project-type'] || '',
 				projectTypeOther: formState['project-type-other'] || '',
 
 				// Deliverables
@@ -694,15 +694,15 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 					: '',
 				deliverablesOther: formState.deliverablesOther || '',
 
-				// Budget
+				// Budget - combine both budget fields
 				budget: formState.budget || '',
-				budgetOther: formState.budgetOther || '',
+				budgetDescription: formState.budgetOther || '',
 				budgetAmount: formState['price-other'] || '',
 
 				// Files
 				fileUrls: Array.isArray(fileUrls) ? fileUrls : [],
 
-				// Add built-in variables that EmailJS provides
+				// System Info (optional)
 				user_os: window.navigator.platform || '',
 				user_browser: window.navigator.userAgent || '',
 				user_platform: window.navigator.platform || '',
