@@ -1014,34 +1014,6 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 															'url(/images/case/lansforsakringar/devices.png)',
 													}}
 												/>
-												<div
-													className="h-48 rounded-lg bg-cover bg-center bg-no-repeat"
-													style={{
-														backgroundImage:
-															'url(/images/case/spotify/phones.png)',
-													}}
-												/>
-												<div
-													className="h-48 rounded-lg bg-cover bg-center bg-no-repeat"
-													style={{
-														backgroundImage:
-															'url(/images/case/asteria/foretagskollen/laptop.png)',
-													}}
-												/>
-												<div
-													className="h-48 rounded-lg bg-cover bg-center bg-no-repeat"
-													style={{
-														backgroundImage:
-															'url(/images/case/asteria/payex/laptop.png)',
-													}}
-												/>
-												<div
-													className="h-48 rounded-lg bg-cover bg-center bg-no-repeat"
-													style={{
-														backgroundImage:
-															'url(/images/case/asteria/smartcashflow/laptop.png)',
-													}}
-												/>
 											</div>
 											<div className="space-y-2">
 												<div className="font-semibold text-lg text-gray-900">
@@ -1066,9 +1038,13 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 
 										{/* Asteria AB */}
 										<div className="work-item p-4">
-											<div className="bg-gray-100 h-48 mb-4 rounded-lg">
-												{/* Add image here */}
-											</div>
+											<div
+												className="h-48 rounded-lg bg-cover bg-center bg-no-repeat"
+												style={{
+													backgroundImage:
+														'url(/images/case/asteria/smartcashflow/laptop.png)',
+												}}
+											/>
 											<div className="space-y-2">
 												<div className="font-semibold text-lg text-gray-900">
 													Asteria AB
@@ -1091,9 +1067,13 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 
 										{/* Swedbank */}
 										<div className="work-item p-4">
-											<div className="bg-gray-100 h-48 mb-4 rounded-lg">
-												{/* Add image here */}
-											</div>
+											<div
+												className="h-48 rounded-lg bg-cover bg-center bg-no-repeat"
+												style={{
+													backgroundImage:
+														'url(/images/case/asteria/foretagskollen/laptop.png)',
+												}}
+											/>
 											<div className="space-y-2">
 												<div className="font-semibold text-lg text-gray-900">
 													Swedbank Företagskollen
@@ -1116,9 +1096,13 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 
 										{/* PayEx */}
 										<div className="work-item p-4">
-											<div className="bg-gray-100 h-48 mb-4 rounded-lg">
-												{/* Add image here */}
-											</div>
+											<div
+												className="h-48 rounded-lg bg-cover bg-center bg-no-repeat"
+												style={{
+													backgroundImage:
+														'url(/images/case/asteria/payex/laptop.png)',
+												}}
+											/>
 											<div className="space-y-2">
 												<div className="font-semibold text-lg text-gray-900">
 													PayEx Invoice Portal
@@ -1141,9 +1125,13 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 
 										{/* Spotify */}
 										<div className="work-item p-4">
-											<div className="bg-gray-100 h-48 mb-4 rounded-lg">
-												{/* Add image here */}
-											</div>
+											<div
+												className="h-48 rounded-lg bg-cover bg-center bg-no-repeat"
+												style={{
+													backgroundImage:
+														'url(/images/case/spotify/phones.png)',
+												}}
+											/>
 											<div className="space-y-2">
 												<div className="font-semibold text-lg text-gray-900">
 													Spotify
