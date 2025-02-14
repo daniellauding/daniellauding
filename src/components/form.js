@@ -908,7 +908,7 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 							className="custom-carousel h-full overflow-y-scroll pb-16"
 						>
 							{/* Slide 0: Introduction */}
-							<div className="p-0 flex flex-col h-full">
+							<div className="p-0 flex flex-col h-full slide-intro">
 								{/* Add the new badge */}
 								<div className="mb-6">
 									<div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/20 to-primary/10 text-primary px-6 py-3 rounded-full text-sm font-medium border border-primary/20 shadow-sm">
@@ -991,7 +991,7 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 							</div>
 
 							{/* Slide 1: Previous Work */}
-							<div className="flex flex-col h-full">
+							<div className="flex flex-col h-full slide-work">
 								{/* <div className="flex-grow"> */}
 								<div>
 									<Carousel
@@ -1173,7 +1173,7 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 							</div>
 
 							{/* Slide 2: Project Type */}
-							<div className="p-6 flex flex-col h-full">
+							<div className="p-6 flex flex-col h-full slide-project-type">
 								{/* <div className="flex-grow"> */}
 								<div>
 									<div>
@@ -1364,7 +1364,7 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 							</div>
 
 							{/* Slide 3: Deliverables */}
-							<div className="flex flex-col h-full">
+							<div className="p-6 flex flex-col h-full slide-budget-deliverables">
 								{/* <div className="flex-grow"> */}
 								<div>
 									<div>
@@ -1602,7 +1602,7 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 							</div>
 
 							{/* Slide 4: Contact Details */}
-							<div className="flex flex-col h-full">
+							<div className="flex flex-col h-full slide-contact">
 								<div className="flex-grow">
 									<div>
 										<label
