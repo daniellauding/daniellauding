@@ -16,6 +16,9 @@ import CasePage from './pages/case';
 // import FloatingButton from './components/FloatingButton';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PortfolioViewer from './components/PortfolioViewer';
+import AdminLogin from './components/admin/AdminLogin';
+import AdminDashboard from './components/admin/AdminDashboard';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 // Create a wrapper component to handle location-based rendering
 // const FloatingButtonWrapper = ({
@@ -170,9 +173,26 @@ function App() {
 		}
 	};
 
+	const [isAdmin, setIsAdmin] = useState(false);
+	const [adminChecked, setAdminChecked] = useState(false);
+
+	useEffect(() => {
+		const auth = getAuth();
+		const unsubscribe = onAuthStateChanged(auth, (user) => {
+			setIsAdmin(!!user);
+			setAdminChecked(true);
+		});
+		return () => unsubscribe();
+	}, []);
+
 	return (
 		<Router>
-			<AppContent openPortfolio={openPortfolio} />
+			<AppContent 
+				openPortfolio={openPortfolio} 
+				isAdmin={isAdmin} 
+				adminChecked={adminChecked} 
+				setIsAdmin={setIsAdmin}
+			/>
 			<PortfolioViewer
 				isOpen={isPortfolioOpen}
 				onClose={closePortfolio}
@@ -182,7 +202,7 @@ function App() {
 }
 
 // Move all the main app logic to a new component
-function AppContent({ openPortfolio }) {
+function AppContent({ openPortfolio, isAdmin, adminChecked, setIsAdmin }) {
 	const [active, setActive] = useState(null);
 	const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 	const [isOffertModalOpen, setIsOffertModalOpen] = useState(false);
@@ -362,6 +382,18 @@ function AppContent({ openPortfolio }) {
 							/>
 						</Route>
 					))}
+				<Route 
+					path="/admin" 
+					element={
+						!adminChecked ? (
+							<div>Loading...</div>
+						) : isAdmin ? (
+							<AdminDashboard />
+						) : (
+							<AdminLogin onLogin={() => setIsAdmin(true)} />
+						)
+					} 
+				/>
 			</Routes>
 
 			{isContactModalOpen && (
