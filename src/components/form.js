@@ -4,6 +4,8 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import emailjs from '@emailjs/browser';
 import { initializeApp } from 'firebase/app';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
 
 // Firebase configuration (place this outside the component)
 const firebaseConfig = {
@@ -18,6 +20,8 @@ const firebaseConfig = {
 // Initialize Firebase (place this outside the component)
 const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
+const db = getFirestore(app);
+const auth = getAuth(app);
 
 const ContactForm = ({ closeContactModal }) => {
 	const [formState, setFormState] = useState({
@@ -57,6 +61,7 @@ Additional Context:
 	const [submitting, setSubmitting] = useState(false);
 	const [submitted, setSubmitted] = useState(false);
 	const [formErrors, setFormErrors] = useState({});
+	const [error, setError] = useState(null);
 
 	const handleChange = (e) => {
 		setFormState({ ...formState, [e.target.name]: e.target.value });
@@ -96,7 +101,18 @@ Additional Context:
 
 	return (
 		<div>
-			{submitted ? (
+			{error ? (
+				<div className="text-red-500 p-4 rounded bg-red-50 mb-4">
+					<h3 className="font-bold">Error</h3>
+					<p>{error}</p>
+					<button 
+						onClick={() => setError(null)}
+						className="mt-2 text-sm text-red-700 underline"
+					>
+						Try Again
+					</button>
+				</div>
+			) : submitted ? (
 				<div className="flex gap-2 flex-col">
 					<p className="pt-0 mb-8 ml-0 text-left text-2xl dark:text-gray-500 text-black lg:font-light">
 						Thank you for contacting me!
@@ -615,6 +631,7 @@ Additional Context:
 	const [editingProjectType, setEditingProjectType] = useState(false);
 	const [editingDeliverables, setEditingDeliverables] = useState(false);
 	const [newTagValue, setNewTagValue] = useState('');
+	const [error, setError] = useState(null);
 
 	// Create a navigation helper
 	const goToSlide = (slideNumber) => {
@@ -651,31 +668,6 @@ Additional Context:
 	// Update the handleSubmit function to handle file uploads
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-
-		// Validate all required fields before submission
-		const errors = {};
-		if (!formState['full-name']) {
-			errors.fullName = 'Full name is required';
-		}
-		if (!formState.email) {
-			errors.email = 'Email is required';
-		}
-		if (!formState.projectName) {
-			errors.projectName = 'Project name is required';
-		}
-		if (!formState.helpType) {
-			errors.helpType = 'Please select what you need help with';
-		}
-		if (formState.deliverables.length === 0) {
-			errors.deliverables = 'Please select at least one deliverable';
-		}
-
-		// If there are errors, show them and stop submission
-		if (Object.keys(errors).length > 0) {
-			setFormErrors(errors);
-			return;
-		}
-
 		setSubmitting(true);
 
 		try {
@@ -685,105 +677,63 @@ Additional Context:
 				for (const file of formState.files) {
 					try {
 						if (file.size > 10 * 1024 * 1024) {
-							throw new Error(
-								`File ${file.name} is too large. Maximum size is 10MB`
-							);
+							throw new Error(`File ${file.name} is too large. Maximum size is 10MB`);
 						}
 
-						const storageRef = ref(
-							storage,
-							`project-files/${Date.now()}-${file.name}`
-						);
-
+						const storageRef = ref(storage, `project-files/${Date.now()}-${file.name}`);
 						await uploadBytes(storageRef, file);
 						const url = await getDownloadURL(storageRef);
 						fileUrls.push(url);
 					} catch (uploadError) {
 						console.error('File upload error:', uploadError);
-						throw new Error(
-							`Failed to upload ${file.name}: ${uploadError.message}`
-						);
+						throw new Error(`Failed to upload ${file.name}: ${uploadError.message}`);
 					}
 				}
 			}
 
-			// Prepare all form data
-			const templateParams = {
-				// Contact Information
-				name: formState['full-name'] || '',
-				company: formState['company-name'] || '',
-				email: formState.email || '',
-
-				// Project Details
-				projectName: formState.projectName || '',
-				projectDescription: formState['project-description'] || '',
-
-				// Help Type
-				helpType: formState.helpType || '',
-				helpTypeOther: formState.helpTypeOther || '',
-
-				// Project Type
-				projectType: formState['project-type'] || '',
-				projectTypeOther: formState['project-type-other'] || '',
-
-				// Deliverables
-				deliverables: Array.isArray(formState.deliverables)
-					? formState.deliverables.join(', ')
-					: '',
-				deliverablesOther: formState.deliverablesOther || '',
-
-				// Budget - combine both budget fields
-				budget: formState.budget || '',
-				budgetDescription: formState.budgetOther || '',
-				budgetAmount: formState['price-other'] || '',
-
-				// Files
-				fileUrls: Array.isArray(fileUrls) ? fileUrls : [],
-
-				// System Info (optional)
-				user_os: window.navigator.platform || '',
-				user_browser: window.navigator.userAgent || '',
-				user_platform: window.navigator.platform || '',
-				user_version: window.navigator.appVersion || '',
+			// Prepare data for Firestore with complete budget information
+			const projectData = {
+				projectName: formState.projectName,
+				projectDescription: formState['project-description'],
+				helpTypes: formState.helpType ? formState.helpType.split(',').filter(Boolean) : [],
+				projectTypes: formState['project-type'] ? formState['project-type'].split(',').filter(Boolean) : [],
+				deliverables: formState.deliverables ? formState.deliverables.split(',').filter(Boolean) : [],
+				budget: {
+					range: formState.budget,
+					description: formState.budgetOther || '',    // Include budget description
+					exactAmount: formState['price-other'] || '', // Include exact amount
+				},
+				contact: {
+					fullName: formState['full-name'],
+					company: formState['company-name'],
+					email: formState.email
+				},
+				fileUrls,
+				createdAt: new Date(),
+				status: 'new'
 			};
 
-			// Initialize EmailJS
-			emailjs.init({
-				publicKey: process.env.REACT_APP_EMAILJS_PUBLIC_KEY,
-			});
+			console.log('Submitting complete project data:', projectData);
 
-			// Send email
-			const response = await emailjs.send(
-				process.env.REACT_APP_EMAILJS_SERVICE_ID,
-				process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-				templateParams
-			);
+			// Save to Firestore
+			const docRef = await addDoc(collection(db, 'projectRequests'), projectData);
+			console.log('Document written with ID:', docRef.id);
 
-			if (response.status === 200) {
-				setSubmitted(true);
-				setSubmitting(false);
-				// Show success message instead of closing
-				// closeModal();
-			} else {
-				throw new Error(
-					`Email sending failed with status: ${response.status}`
-				);
-			}
-		} catch (error) {
-			console.error('Error in form submission:', error);
+			setSubmitted(true);
 			setSubmitting(false);
-			alert(
-				`There was a problem submitting your form: ${
-					error.message || 'Email service error'
-				}. Please try again.`
-			);
+
+		} catch (error) {
+			console.error('Submission error:', error);
+			setSubmitting(false);
+			alert(`Error submitting form: ${error.message}. Please try again or contact support.`);
 		}
 	};
 
-	// Update the validateSlide function to show errors more clearly
+	// Add validation for budget fields
 	const validateSlide = (slideNumber) => {
 		const errors = {};
-		const form = document.forms.newproject;
+		console.log('Validating slide:', slideNumber);
+		console.log('Current form state:', formState);
 
 		switch (slideNumber) {
 			case 0:
@@ -814,6 +764,14 @@ Additional Context:
 				if (!formState.budget) {
 					errors.budget = 'Please select a budget range';
 				}
+				if (formState.budget === 'Other') {
+					if (!formState.budgetOther) {
+						errors.budgetOther = 'Please describe your budget range';
+					}
+					if (!formState['price-other']) {
+						errors['price-other'] = 'Please specify an exact amount';
+					}
+				}
 				break;
 			case 4:
 				if (form && form['full-name'] && !form['full-name'].value) {
@@ -827,6 +785,7 @@ Additional Context:
 				break;
 		}
 
+		console.log('Validation errors:', errors);
 		setFormErrors(errors);
 		return Object.keys(errors).length === 0;
 	};
@@ -949,7 +908,18 @@ Additional Context:
 
 	return (
 		<div className="text-gray-800 h-full">
-			{submitted ? (
+			{error ? (
+				<div className="text-red-500 p-4 rounded bg-red-50 mb-4">
+					<h3 className="font-bold">Error</h3>
+					<p>{error}</p>
+					<button 
+						onClick={() => setError(null)}
+						className="mt-2 text-sm text-red-700 underline"
+					>
+						Try Again
+					</button>
+				</div>
+			) : submitted ? (
 				<SuccessMessage closeModal={closeModal} />
 			) : (
 				<div className="h-full">
@@ -1786,7 +1756,9 @@ Additional Context:
 												}));
 											}}
 											required
-											className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
+											className={`w-full p-2 border rounded focus:ring-2 focus:ring-primary ${
+												formErrors.budget ? 'border-red-500' : ''
+											}`}
 										>
 											<option value="">
 												Select an option
@@ -1806,6 +1778,11 @@ Additional Context:
 											<option value="$1M+">$1M+</option>
 											<option value="Other">Other</option>
 										</select>
+										{formErrors.budget && (
+											<p className="text-red-500 text-sm mt-1">
+												{formErrors.budget}
+											</p>
+										)}
 
 										{formState.budget === 'Other' && (
 											<div>
@@ -1815,20 +1792,25 @@ Additional Context:
 														className="block mb-2 font-medium text-left"
 													>
 														Please describe your
-														budget range:
+														budget range: *
 													</label>
 													<textarea
 														id="budgetOther"
 														name="budgetOther"
 														placeholder="Please describe your budget range..."
-														value={
-															formState.budgetOther ||
-															''
-														}
+														value={formState.budgetOther || ''}
 														onChange={handleChange}
-														className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
+														className={`w-full p-2 border rounded focus:ring-2 focus:ring-primary ${
+															formErrors.budgetOther ? 'border-red-500' : ''
+														}`}
 														rows="2"
+														required
 													/>
+													{formErrors.budgetOther && (
+														<p className="text-red-500 text-sm mt-1">
+															{formErrors.budgetOther}
+														</p>
+													)}
 												</div>
 
 												<div className="mt-4">
@@ -1837,21 +1819,25 @@ Additional Context:
 														className="block mb-2 font-medium text-left"
 													>
 														Please specify exact
-														amount:
+														amount: *
 													</label>
 													<input
 														type="text"
 														id="price-other"
 														name="price-other"
-														value={
-															formState[
-																'price-other'
-															]
-														}
+														value={formState['price-other']}
 														onChange={handleChange}
-														className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
+														className={`w-full p-2 border rounded focus:ring-2 focus:ring-primary ${
+															formErrors['price-other'] ? 'border-red-500' : ''
+														}`}
 														placeholder="e.g. $5000"
+														required
 													/>
+													{formErrors['price-other'] && (
+														<p className="text-red-500 text-sm mt-1">
+															{formErrors['price-other']}
+														</p>
+													)}
 												</div>
 											</div>
 										)}
