@@ -1,10 +1,44 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { XMarkIcon } from '@heroicons/react/24/solid';
 import ContactForm from './form';
 import { OffertForm, NewProjectForm } from './form';
 
 const Contact = ({ closeContactModal }) => {
+	useEffect(() => {
+		const handleKeyPress = (event) => {
+			// Check if we're in the form modal or #newproject
+			const isNewProjectActive = window.location.hash.includes('newproject');
+
+			// Don't handle shortcuts if we're in the form or if any modal is open
+			if (isNewProjectActive || 
+				document.querySelector('.modal-newproject') || 
+				document.querySelector('.modal-request-access')) {
+				event.preventDefault(); // Prevent any default behavior
+				return;
+			}
+
+			// Only handle if no input/textarea is focused
+			if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') return;
+
+			switch (event.key.toLowerCase()) {
+				case 'a':
+					window.location.href = 'https://calendly.com/daniellauding';
+					break;
+				case 'h':
+					window.location.href = '/';
+					break;
+				default:
+					break;
+			}
+		};
+
+		document.addEventListener('keypress', handleKeyPress);
+		return () => {
+			document.removeEventListener('keypress', handleKeyPress);
+		};
+	}, []);
+
 	return (
 		<div
 			tabIndex="-1"
@@ -139,6 +173,21 @@ const ContactSplash = ({
 
 // Add new modal component for NewProject
 const NewProject = ({ closeNewProjectModal, openPortfolio }) => {
+	useEffect(() => {
+		const handleKeyPress = (event) => {
+			// Prevent all shortcut keys when new project modal is open
+			if (event.target.tagName !== 'INPUT' && event.target.tagName !== 'TEXTAREA') {
+				event.preventDefault();
+				event.stopPropagation();
+			}
+		};
+
+		document.addEventListener('keypress', handleKeyPress, true); // Using capture phase
+		return () => {
+			document.removeEventListener('keypress', handleKeyPress, true);
+		};
+	}, []);
+
 	const handleFormSubmit = () => {
 		if (!openPortfolio) {
 			closeNewProjectModal();
@@ -156,8 +205,8 @@ const NewProject = ({ closeNewProjectModal, openPortfolio }) => {
 				'fixed inset-0 z-[9999] overflow-y-auto h-full'
 			)}
 		>
-			<div className="modal modal-newproject flex min-h-full h-screen items-end justify-center p-4 text-center sm:items-center sm:p-0">
-				<div className="modal-wrapper z-[99999] relative transform overflow-hidden rounded-2xl bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg h-[80vh]">
+			<div className="modal modal-newproject flex min-h-full h-screen items-center justify-center md:p-4 text-center sm:items-center sm:p-0">
+				<div className="modal-wrapper z-[99999] relative transform overflow-hidden md:rounded-2xl bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full max-w-3xl h-screen md:h-[80vh]">
 					<button
 						onClick={closeNewProjectModal}
 						type="button"

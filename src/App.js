@@ -46,16 +46,22 @@ const KeyboardNavigation = ({
 	openContactModal,
 	isContactModalOpen,
 	closeContactModal,
+	openNewProjectModal
 }) => {
 	const navigate = useNavigate();
 	const location = useLocation();
 
 	useEffect(() => {
 		const handleKeyPress = (e) => {
-			// Ignore key presses if user is typing in an input or textarea
+			// Ignore key presses if:
+			// 1. User is typing in an input or textarea
+			// 2. New project modal is open (#newproject in URL)
+			// 3. Any modal with class modal-newproject exists
 			if (
 				e.target.tagName === 'INPUT' ||
-				e.target.tagName === 'TEXTAREA'
+				e.target.tagName === 'TEXTAREA' ||
+				window.location.hash.includes('newproject') ||
+				document.querySelector('.modal-newproject')
 			) {
 				return;
 			}
@@ -70,16 +76,11 @@ const KeyboardNavigation = ({
 					navigate('/');
 					break;
 				case 'w':
-					// Close contact modal if open
+					// Open new project modal instead of work page
 					if (isContactModalOpen) {
 						closeContactModal();
 					}
-					// If already on work page, go home
-					if (location.pathname === '/work') {
-						navigate('/');
-					} else {
-						navigate('/work');
-					}
+					openNewProjectModal();
 					break;
 				case 'a':
 					// Close contact modal if open
@@ -116,6 +117,7 @@ const KeyboardNavigation = ({
 		closeContactModal,
 		isContactModalOpen,
 		location.pathname,
+		openNewProjectModal
 	]);
 
 	return null;
@@ -311,6 +313,7 @@ function AppContent({ openPortfolio }) {
 				openContactModal={openContactModal}
 				closeContactModal={closeContactModal}
 				isContactModalOpen={isContactModalOpen}
+				openNewProjectModal={openNewProjectModal}
 			/>
 			<Routes>
 				<Route

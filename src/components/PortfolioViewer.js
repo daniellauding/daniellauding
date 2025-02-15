@@ -25,7 +25,10 @@ const PortfolioViewer = ({ isOpen, onClose }) => {
 	// Handle hash changes from outside
 	useEffect(() => {
 		const handleHashChange = () => {
-			if (window.location.hash !== '#selectedwork' && isOpen) {
+			// Only close if hash is empty or something other than newproject
+			if (window.location.hash !== '#selectedwork' && 
+				window.location.hash !== '#newproject' && 
+				isOpen) {
 				onClose();
 			}
 		};
@@ -34,18 +37,32 @@ const PortfolioViewer = ({ isOpen, onClose }) => {
 		return () => window.removeEventListener('hashchange', handleHashChange);
 	}, [isOpen, onClose]);
 
+	const openNewProject = () => {
+		// Set hash first, then close portfolio
+		window.location.hash = 'newproject';
+		setTimeout(() => {
+			onClose(); // Close the portfolio viewer after hash is set
+		}, 0);
+	};
+
 	if (!isOpen) return null;
 
 	return (
 		<div className="fixed inset-0 z-[9999] bg-black bg-opacity-90">
 			<div className="absolute inset-0 flex flex-col p-4 md:p-8">
-				<div className="flex justify-between mb-4">
+				<div className="flex justify-between items-center mb-4">
 					<button
 						onClick={onClose}
 						className="text-white hover:text-gray-300 transition-colors"
 						aria-label="Close portfolio"
 					>
 						<XMarkIcon className="h-8 w-8" />
+					</button>
+					<button
+						onClick={openNewProject}
+						className="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-6 rounded-full transition-colors"
+					>
+						Start Project
 					</button>
 				</div>
 				<div className="flex-grow relative">

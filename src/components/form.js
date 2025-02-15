@@ -22,12 +22,28 @@ const storage = getStorage(app);
 const ContactForm = ({ closeContactModal }) => {
 	const [formState, setFormState] = useState({
 		projectName: '',
-		'project-description': '',
+		'project-description': `Project Overview:
+• Current situation: 
+• Main challenge: 
+• Desired outcome: 
+
+Timeline:
+• Start date: 
+• Expected duration: 
+
+Key Requirements:
+• Must have:
+• Nice to have:
+
+Additional Context:
+• Target audience:
+• Key stakeholders:
+• Technical constraints:`,
 		helpType: '',
 		helpTypeOther: '',
-		projectType: '',
+		'project-type': '',
 		'project-type-other': '',
-		deliverables: [],
+		deliverables: '',
 		deliverablesOther: '',
 		budget: '',
 		budgetOther: '',
@@ -35,7 +51,7 @@ const ContactForm = ({ closeContactModal }) => {
 		'full-name': '',
 		'company-name': '',
 		email: '',
-		files: [],
+		files: []
 	});
 
 	const [submitting, setSubmitting] = useState(false);
@@ -107,7 +123,7 @@ const ContactForm = ({ closeContactModal }) => {
 
 						<div className="flex gap-8 flex-col">
 							<p>
-								<label>
+								<label className="text-left">
 									Your Name:
 									<input
 										type="text"
@@ -121,7 +137,7 @@ const ContactForm = ({ closeContactModal }) => {
 								</label>
 							</p>
 							<p>
-								<label>
+								<label className="text-left">
 									Your Company:
 									<input
 										type="text"
@@ -135,7 +151,7 @@ const ContactForm = ({ closeContactModal }) => {
 								</label>
 							</p>
 							<p>
-								<label>
+								<label className="text-left">
 									Your Email:
 									<input
 										type="email"
@@ -153,7 +169,7 @@ const ContactForm = ({ closeContactModal }) => {
 								</label>
 							</p>
 							<p>
-								<label>
+								<label className="text-left">
 									Message:
 									<textarea
 										name="project-description"
@@ -278,7 +294,7 @@ const OffertForm = ({ closeOffertModal }) => {
 
 						<div className="flex gap-8 flex-col">
 							<p>
-								<label>
+								<label className="text-left">
 									Your Name:
 									<input
 										type="text"
@@ -292,7 +308,7 @@ const OffertForm = ({ closeOffertModal }) => {
 								</label>
 							</p>
 							<p>
-								<label>
+								<label className="text-left">
 									Your Company:
 									<input
 										type="text"
@@ -306,7 +322,7 @@ const OffertForm = ({ closeOffertModal }) => {
 								</label>
 							</p>
 							<p>
-								<label>
+								<label className="text-left">
 									Your Email:
 									<input
 										type="email"
@@ -321,7 +337,7 @@ const OffertForm = ({ closeOffertModal }) => {
 							</p>
 							<p>
 								<div className="relative">
-									<label>
+									<label className="text-left">
 										Upload File:
 										<input
 											type="file"
@@ -344,7 +360,7 @@ const OffertForm = ({ closeOffertModal }) => {
 								</div>
 							</p>
 							<p>
-								<label>
+								<label className="text-left">
 									Message:
 									<textarea
 										name="message"
@@ -477,7 +493,7 @@ const RequestForm = ({ closeRequestModal, item }) => {
 
 						<div className="flex gap-8 flex-col">
 							<p>
-								<label>
+								<label className="text-left">
 									Your Name:
 									<input
 										type="text"
@@ -491,7 +507,7 @@ const RequestForm = ({ closeRequestModal, item }) => {
 								</label>
 							</p>
 							<p>
-								<label>
+								<label className="text-left">
 									Your Company:
 									<input
 										type="text"
@@ -505,7 +521,7 @@ const RequestForm = ({ closeRequestModal, item }) => {
 								</label>
 							</p>
 							<p>
-								<label>
+								<label className="text-left">
 									Your Email:
 									<input
 										type="email"
@@ -523,7 +539,7 @@ const RequestForm = ({ closeRequestModal, item }) => {
 								</label>
 							</p>
 							<p>
-								<label>
+								<label className="text-left">
 									Message:
 									<textarea
 										name="message"
@@ -552,14 +568,34 @@ const RequestForm = ({ closeRequestModal, item }) => {
 };
 
 const NewProjectForm = ({ closeModal, openPortfolio }) => {
+	// Add a constant for the initial template
+	const initialTemplate = `Project Overview:
+• Current situation: 
+• Main challenge: 
+• Desired outcome: 
+
+Timeline:
+• Start date: 
+• Expected duration: 
+
+Key Requirements:
+• Must have:
+• Nice to have:
+
+Additional Context:
+• Target audience:
+• Key stakeholders:
+• Technical constraints:`;
+
+	// Single formState declaration with initialTemplate
 	const [formState, setFormState] = useState({
 		projectName: '',
-		'project-description': '',
+		'project-description': initialTemplate,
 		helpType: '',
 		helpTypeOther: '',
-		projectType: '',
+		'project-type': '',
 		'project-type-other': '',
-		deliverables: [],
+		deliverables: '',
 		deliverablesOther: '',
 		budget: '',
 		budgetOther: '',
@@ -567,13 +603,18 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 		'full-name': '',
 		'company-name': '',
 		email: '',
-		files: [],
+		files: []
 	});
 
+	// Rest of the state declarations
 	const [currentSlide, setCurrentSlide] = useState(0);
 	const [submitting, setSubmitting] = useState(false);
 	const [submitted, setSubmitted] = useState(false);
 	const [formErrors, setFormErrors] = useState({});
+	const [editingHelpType, setEditingHelpType] = useState(false);
+	const [editingProjectType, setEditingProjectType] = useState(false);
+	const [editingDeliverables, setEditingDeliverables] = useState(false);
+	const [newTagValue, setNewTagValue] = useState('');
 
 	// Create a navigation helper
 	const goToSlide = (slideNumber) => {
@@ -654,10 +695,7 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 							`project-files/${Date.now()}-${file.name}`
 						);
 
-						const uploadResult = await uploadBytes(
-							storageRef,
-							file
-						);
+						await uploadBytes(storageRef, file);
 						const url = await getDownloadURL(storageRef);
 						fileUrls.push(url);
 					} catch (uploadError) {
@@ -761,11 +799,20 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 				if (!formState.helpType) {
 					errors.helpType = 'Please select what you need help with';
 				}
+				if (!formState['project-description'] || 
+					formState['project-description'] === initialTemplate) {
+					errors['project-description'] = 'Please describe your project';
+				}
+				if (!formState['project-type']) {
+					errors['project-type'] = 'Please select a project type';
+				}
 				break;
 			case 3:
-				if (formState.deliverables.length === 0) {
-					errors.deliverables =
-						'Please select at least one deliverable';
+				if (!formState.deliverables) {
+					errors.deliverables = 'Please select at least one deliverable';
+				}
+				if (!formState.budget) {
+					errors.budget = 'Please select a budget range';
 				}
 				break;
 			case 4:
@@ -782,6 +829,122 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 
 		setFormErrors(errors);
 		return Object.keys(errors).length === 0;
+	};
+
+	// Update the tag selection handlers
+	const handleHelpTypeSelect = (option) => {
+		console.log('Selecting help type:', option);
+		const currentTypes = formState.helpType ? formState.helpType.split(',').filter(Boolean) : [];
+		const newTypes = currentTypes.includes(option)
+				? currentTypes.filter(t => t !== option)
+				: [...currentTypes, option];
+		console.log('New help types:', newTypes);
+		setFormState(prev => ({
+			...prev,
+			helpType: newTypes.join(',')
+		}));
+	};
+
+	const handleProjectTypeSelect = (option) => {
+		console.log('Selecting project type:', option);
+		const currentTypes = formState['project-type'] ? formState['project-type'].split(',').filter(Boolean) : [];
+		const newTypes = currentTypes.includes(option)
+				? currentTypes.filter(t => t !== option)
+				: [...currentTypes, option];
+		console.log('New project types:', newTypes);
+		setFormState(prev => ({
+			...prev,
+			'project-type': newTypes.join(',')
+		}));
+	};
+
+	// Add new handlers for tag editing
+	const handleAddNewTag = (type) => {
+		if (type === 'help') {
+			setEditingHelpType(true);
+			setTimeout(() => document.getElementById('newHelpTypeInput')?.focus(), 0);
+		} else {
+			setEditingProjectType(true);
+			setTimeout(() => document.getElementById('newProjectTypeInput')?.focus(), 0);
+		}
+	};
+
+	const handleNewTagSubmit = (type, value) => {
+		if (!value.trim()) return;
+		
+		const trimmedValue = value.trim();
+		
+		if (type === 'help') {
+			const currentTypes = formState.helpType ? formState.helpType.split(',').filter(Boolean) : [];
+			if (!currentTypes.includes(trimmedValue)) {
+				const newValue = [...currentTypes, trimmedValue].join(',');
+				setFormState(prev => ({
+					...prev,
+					helpType: newValue
+				}));
+			}
+			setEditingHelpType(false);
+		} else if (type === 'project') {
+			const currentTypes = formState['project-type'] ? formState['project-type'].split(',').filter(Boolean) : [];
+			if (!currentTypes.includes(trimmedValue)) {
+				const newValue = [...currentTypes, trimmedValue].join(',');
+				setFormState(prev => ({
+					...prev,
+					'project-type': newValue
+				}));
+			}
+			setEditingProjectType(false);
+		} else if (type === 'deliverables') {
+			const currentDeliverables = formState.deliverables ? formState.deliverables.split(',').filter(Boolean) : [];
+			if (!currentDeliverables.includes(trimmedValue)) {
+				const newValue = [...currentDeliverables, trimmedValue].join(',');
+				setFormState(prev => ({
+					...prev,
+					deliverables: newValue
+				}));
+			}
+			setEditingDeliverables(false);
+		}
+		setNewTagValue('');
+	};
+
+	// Update the tag selection handlers
+	const handleDeliverablesSelect = (option) => {
+		console.log('Selecting deliverable:', option);
+		const currentDeliverables = formState.deliverables ? formState.deliverables.split(',').filter(Boolean) : [];
+		const newDeliverables = currentDeliverables.includes(option)
+				? currentDeliverables.filter(d => d !== option)
+				: [...currentDeliverables, option];
+		console.log('New deliverables:', newDeliverables);
+		setFormState(prev => ({
+			...prev,
+			deliverables: newDeliverables.join(',')
+		}));
+	};
+
+	// Add handleRemoveTag function
+	const handleRemoveTag = (type, tagToRemove) => {
+		console.log(`Removing tag: ${tagToRemove} from ${type}`);
+		
+		if (type === 'help') {
+			const currentTypes = formState.helpType ? formState.helpType.split(',').filter(Boolean) : [];
+			setFormState(prev => ({
+				...prev,
+				helpType: currentTypes.filter(tag => tag !== tagToRemove).join(',')
+			}));
+		} else if (type === 'project') {
+			const currentTypes = formState['project-type'] ? formState['project-type'].split(',').filter(Boolean) : [];
+			setFormState(prev => ({
+				...prev,
+				'project-type': currentTypes.filter(tag => tag !== tagToRemove).join(',')
+			}));
+		} else if (type === 'deliverables') {
+			const currentDeliverables = formState.deliverables ? formState.deliverables.split(',').filter(Boolean) : [];
+			setFormState(prev => ({
+				...prev,
+				deliverables: currentDeliverables.filter(tag => tag !== tagToRemove).join(',')
+			}));
+		}
 	};
 
 	return (
@@ -874,73 +1037,95 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 							showStatus={false}
 							showThumbs={false}
 							showIndicators={false}
+							swipeable={false}
+							emulateTouch={false}
 							className="custom-carousel h-full overflow-y-scroll pb-16"
 						>
 							{/* Slide 0: Introduction */}
-							<div className="p-0 flex flex-col h-full slide-intro">
-								{/* Add the new badge */}
+							<div className="flex flex-col h-full slide-intro">
+								{/* Badge */}
 								<div className="mb-6">
 									<div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/20 to-primary/10 text-primary px-6 py-3 rounded-full text-sm font-medium border border-primary/20 shadow-sm">
 										<span>
-											{`Got an idea? Let's bring it to life
-											in just 1 week!`}
+											Ready to transform your idea into reality? 
 											<span className="ml-1">🚀</span>
 										</span>
 									</div>
 								</div>
 
-								{/* <div className="flex-grow"> */}
-								<div>
-									<p className="mb-4 text-gray-600 leading-relaxed text-left">
-										I specialize in UI/UX, rapid
-										prototyping, product validation, and
-										design systems, shaping digital
-										experiences that are both user-centric
-										and business-driven. With over 12 years
-										in the tech industry, I bridge the gap
-										between design and development,
-										delivering test-ready, data-backed
-										solutions for web and mobile.
-									</p>
-									<h3 className="text-md font-semibold mb-2 text-left">
-										What I Do Best
-									</h3>
-									<ul className="list-disc pl-5 mb-4 space-y-2 text-gray-600 text-left text-sm">
-										<li>
-											<strong>Hands-On Approach</strong>:
-											Turning concepts into functional,
-											high-fidelity prototypes
-										</li>
-										<li>
-											<strong>
-												Design Systems & UI/UX
-											</strong>
-											: Building scalable, intuitive, and
-											visually compelling experiences
-										</li>
-										<li>
-											<strong>Product Validation</strong>:
-											Ensuring market fit through
-											strategic user testing and iteration
-										</li>
-										<li>
-											<strong>Code-Driven Design</strong>:
-											Leveraging React, front-end tools,
-											and AI-driven workflows for
-											efficiency
-										</li>
-									</ul>
-									<p className="mt-2 mb-6 text-gray-600 text-sm text-left">
-										{`With a hands-on approach, I seamlessly
-										integrate design and coding, crafting
-										polished prototypes that don't just look
-										good but work flawlessly. Whether
-										leading a project or refining details, I
-										combine creativity and technical
-										expertise to bring ambitious ideas to
-										life.`}
-									</p>
-									<div className="flex gap-4">
+								<div className="space-y-8">
+									{/* Main Value Proposition */}
+									<div className="space-y-4">
+										<p className="text-gray-600 leading-relaxed">
+											I bridge design and development to create exceptional digital experiences. With 12+ years of expertise, I help businesses transform ideas into market-ready solutions. Founder experience + enterprise expertise = Unique approach to building successful digital products.
+										</p>
+									</div>
+
+									<h4 className="text-md font-medium text-gray-900 mt-6">What I Do Best</h4>
+
+									{/* Services Grid */}
+									<div className="md:grid md:grid-cols-2 gap-4">
+										<div className="p-4 bg-gray-50 rounded-lg">
+											<div className="flex flex-col items-center gap-2 mb-2 text-primary">
+												<svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+													<path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+													<path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd"/>
+												</svg>
+												<span className="font-medium">Design Systems & UI/UX</span>
+											</div>
+											<p className="text-sm text-gray-600">
+												Building scalable, intuitive, and visually compelling experiences. Early adopter of Figma & modern design tools.
+											</p>
+										</div>
+
+										<div className="p-4 bg-gray-50 rounded-lg">
+											<div className="flex flex-col items-center gap-2 mb-2 text-primary">
+												<svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+													<path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z"/>
+													<path fillRule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clipRule="evenodd"/>
+												</svg>
+												<span className="font-medium">Hands-On Approach</span>
+											</div>
+											<p className="text-sm text-gray-600">
+												Turning concepts into functional, high-fidelity prototypes. Eager explorer of emerging tools & AI solutions.
+											</p>
+										</div>
+
+										<div className="p-4 bg-gray-50 rounded-lg">
+											<div className="flex flex-col items-center gap-2 mb-2 text-primary">
+												<svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+													<path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-1.5 0a6.5 6.5 0 11-11-4.69v.180a3.5 3.5 0 005.6 0V5.31a6.5 6.5 0 015.4 4.69zM10 6a2 2 0 10-4 0v1a2 2 0 104 0V6z" clipRule="evenodd"/>
+												</svg>
+												<span className="font-medium">Product Validation</span>
+											</div>
+											<p className="text-sm text-gray-600">
+												Ensuring market fit through strategic user testing and iteration. Data-driven testing & in-field validation.
+											</p>
+										</div>
+
+										<div className="p-4 bg-gray-50 rounded-lg">
+											<div className="flex flex-col items-center gap-2 mb-2 text-primary">
+												<svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+													<path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd"/>
+												</svg>
+												<span className="font-medium">Code-Driven Design</span>
+											</div>
+											<p className="text-sm text-gray-600">
+												Leveraging React, front-end tools, and AI-driven workflows for efficiency. Bridging design and code with real-world testing.
+											</p>
+										</div>
+									</div>
+
+									{/* CTA Buttons */}
+									<div className="mt-auto flex flex-col md:flex-row gap-4 pt-4 justify-between">
+										<div className="flex flex-col md:flex-row gap-4">
+											<button
+												type="button"
+												onClick={() => window.location.hash = ''}
+												className="bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold py-2 px-4 rounded-full"
+											>
+												Cancel
+											</button>
 										<button
 											type="button"
 											onClick={openPortfolio}
@@ -948,12 +1133,13 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 										>
 											View Portfolio
 										</button>
+										</div>
 										<button
 											type="button"
 											onClick={() => goToSlide(1)}
 											className="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded-full"
 										>
-											Get Started
+											Start Project
 										</button>
 									</div>
 								</div>
@@ -1121,7 +1307,15 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 								</div>
 
 								{/* Add navigation buttons */}
-								<div className="mt-6 flex justify-end gap-4">
+								<div className="mt-auto flex flex-col md:flex-row justify-between gap-4">
+									<div className="flex gap-4">
+										<button
+											type="button"
+											onClick={() => window.location.hash = ''}
+											className="bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold py-2 px-4 rounded-full"
+										>
+											Cancel
+										</button>
 									<button
 										type="button"
 										onClick={() => goToSlide(0)}
@@ -1129,6 +1323,7 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 									>
 										Previous
 									</button>
+									</div>
 									<button
 										type="button"
 										onClick={() => goToSlide(2)}
@@ -1140,13 +1335,13 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 							</div>
 
 							{/* Slide 2: Project Type */}
-							<div className="p-6 flex flex-col h-full slide-project-type">
+							<div className="flex flex-col h-full slide-project-type">
 								{/* <div className="flex-grow"> */}
 								<div>
 									<div>
 										<label
 											htmlFor="projectName"
-											className="block mb-2 font-medium"
+											className="block mb-2 font-medium text-left"
 										>
 											Project Name *
 										</label>
@@ -1174,56 +1369,124 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 									<div className="mt-4">
 										<label
 											htmlFor="project-description"
-											className="block mb-2 font-medium"
+											className="block mb-2 font-medium text-left"
 										>
-											Project description
+											Project description *
 										</label>
 										<textarea
 											id="project-description"
 											name="project-description"
-											className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
-											rows="4"
-											placeholder="Describe your project and what you need"
-											value={
-												formState['project-description']
-											}
+											className={`w-full p-2 border rounded focus:ring-2 focus:ring-primary ${
+												formErrors['project-description'] ? 'border-red-500' : ''
+											}`}
+											rows="12"
+											required
+											value={formState['project-description']}
 											onChange={handleChange}
 										/>
+										{formErrors['project-description'] && (
+											<p className="text-red-500 text-sm mt-1">
+												{formErrors['project-description']}
+											</p>
+										)}
 									</div>
 
 									<div>
 										<label
 											htmlFor="helpType"
-											className="block mb-2 font-medium"
+											className="block mb-2 font-medium text-left"
 										>
 											What do you need help with? *
 										</label>
-										<select
-											id="helpType"
-											name="helpType"
-											value={formState.helpType}
-											onChange={handleChange}
-											required
-											className={`w-full p-2 border rounded focus:ring-2 focus:ring-primary ${
-												formErrors.helpType
-													? 'border-red-500'
-													: ''
-											}`}
-										>
-											<option value="">
-												Select an option
-											</option>
-											<option value="Design">
-												Design
-											</option>
-											<option value="Development">
-												Development
-											</option>
-											<option value="Consultation">
-												Consultation
-											</option>
-											<option value="Other">Other</option>
-										</select>
+										<div className={`space-y-4 ${formErrors.helpType ? 'border border-red-500 rounded p-2' : ''}`}>
+											<div className="flex flex-wrap gap-2">
+												{/* Predefined tags */}
+												{[
+													'Design',
+													'Development',
+													'Consultation',
+													'UI/UX',
+													'Prototyping',
+													'Design System',
+													'Front-end',
+													'Research'
+												].map((option) => (
+													<button
+														key={option}
+														type="button"
+														onClick={() => handleHelpTypeSelect(option)}
+														className={`px-3 py-1 rounded-full text-sm ${
+															formState.helpType?.includes(option)
+																? 'bg-primary text-white'
+																: 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+														}`}
+													>
+														{option}
+													</button>
+												))}
+												
+												{/* Custom tags */}
+												{formState.helpType?.split(',')
+													.filter(tag => tag && !['Design', 'Development', 'Consultation', 'UI/UX', 'Prototyping', 'Design System', 'Front-end', 'Research'].includes(tag))
+													.map(tag => (
+														<div key={tag} className="bg-primary text-white px-3 py-1 rounded-full text-sm flex items-center gap-2">
+															{tag}
+															<button
+																type="button"
+																onClick={() => handleRemoveTag('help', tag)}
+																className="hover:text-gray-200"
+															>
+																<svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+																	<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+																</svg>
+															</button>
+														</div>
+													))
+												}
+												
+												{/* Add new tag input */}
+												{editingHelpType ? (
+													<div className="bg-gray-100 rounded-full px-3 py-1 flex items-center gap-2">
+														<input
+															id="newHelpTypeInput"
+															type="text"
+															value={newTagValue}
+															onChange={(e) => setNewTagValue(e.target.value)}
+															onKeyPress={(e) => {
+																if (e.key === 'Enter' && newTagValue.trim()) {
+																	handleNewTagSubmit('help', newTagValue);
+																}
+															}}
+															className="bg-transparent border-none outline-none text-sm w-24"
+															placeholder="New tag..."
+															autoFocus
+														/>
+														{newTagValue.trim() && (
+															<button
+																type="button"
+																onClick={() => handleNewTagSubmit('help', newTagValue)}
+																className="text-primary hover:text-primary-dark"
+															>
+																<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+																	<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+																</svg>
+															</button>
+														)}
+													</div>
+												) : (
+													<button
+														type="button"
+														onClick={() => handleAddNewTag('help')}
+														className="px-3 py-1 rounded-full text-sm bg-gray-100 text-gray-700 hover:bg-gray-200 flex items-center gap-1"
+													>
+														<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+															<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
+														</svg>
+														<span>Add Custom</span>
+													</button>
+												)}
+											</div>
+										</div>
 										{formErrors.helpType && (
 											<p className="text-red-500 text-sm mt-1">
 												{formErrors.helpType}
@@ -1235,7 +1498,7 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 										<div className="mt-4">
 											<label
 												htmlFor="helpTypeOther"
-												className="block mb-2 font-medium"
+												className="block mb-2 font-medium text-left"
 											>
 												Please specify what you need
 												help with:
@@ -1254,45 +1517,109 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 									<div>
 										<label
 											htmlFor="project-type"
-											className="block mb-2 font-medium"
+											className="block mb-2 font-medium text-left"
 										>
 											What type of project is this? *
 										</label>
-										<select
-											id="project-type"
-											name="project-type"
-											value={formState['project-type']}
-											onChange={handleChange}
-											required
-											className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
-										>
-											<option value="">
-												Select an option
-											</option>
-											<option value="Full-time work">
-												Full-time work
-											</option>
-											<option value="Freelance">
-												Freelance
-											</option>
-											<option value="Part-time">
-												Part-time
-											</option>
-											<option value="Hourly">
-												Hourly
-											</option>
-											<option value="Flexible">
-												Flexible
-											</option>
-											<option value="Other">Other</option>
-										</select>
+										<div className={`space-y-4 ${formErrors['project-type'] ? 'border border-red-500 rounded p-2' : ''}`}>
+											<div className="flex flex-wrap gap-2">
+												{[
+													'Full-time work',
+													'Freelance',
+													'Part-time',
+													'Hourly',
+													'Fixed price',
+													'Retainer',
+													'Trial project'
+												].map((option) => (
+													<button
+														key={option}
+														type="button"
+														onClick={() => handleProjectTypeSelect(option)}
+														className={`px-3 py-1 rounded-full text-sm ${
+															formState['project-type']?.includes(option)
+																? 'bg-primary text-white'
+																: 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+														}`}
+													>
+														{option}
+													</button>
+												))}
+												
+												{/* Custom tags */}
+												{formState['project-type']?.split(',')
+													.filter(tag => tag && !['Full-time work', 'Freelance', 'Part-time', 'Hourly', 'Fixed price', 'Retainer', 'Trial project'].includes(tag))
+													.map(tag => (
+														<div key={tag} className="bg-primary text-white px-3 py-1 rounded-full text-sm flex items-center gap-2">
+															{tag}
+															<button
+																type="button"
+																onClick={() => handleRemoveTag('project', tag)}
+																className="hover:text-gray-200"
+															>
+																<svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+																	<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+																</svg>
+															</button>
+														</div>
+													))
+												}
+												
+												{/* Add new tag input */}
+												{editingProjectType ? (
+													<div className="bg-gray-100 rounded-full px-3 py-1 flex items-center gap-2">
+														<input
+															id="newProjectTypeInput"
+															type="text"
+															value={newTagValue}
+															onChange={(e) => setNewTagValue(e.target.value)}
+															onKeyPress={(e) => {
+																if (e.key === 'Enter' && newTagValue.trim()) {
+																	handleNewTagSubmit('project', newTagValue);
+																}
+															}}
+															className="bg-transparent border-none outline-none text-sm w-24"
+															placeholder="New tag..."
+															autoFocus
+														/>
+														{newTagValue.trim() && (
+															<button
+																type="button"
+																onClick={() => handleNewTagSubmit('project', newTagValue)}
+																className="text-primary hover:text-primary-dark"
+															>
+																<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+																	<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+																</svg>
+															</button>
+														)}
+													</div>
+												) : (
+													<button
+														type="button"
+														onClick={() => handleAddNewTag('project')}
+														className="px-3 py-1 rounded-full text-sm bg-gray-100 text-gray-700 hover:bg-gray-200 flex items-center gap-1"
+													>
+														<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+															<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
+														</svg>
+														<span>Add Custom</span>
+													</button>
+												)}
+											</div>
+										</div>
+										{formErrors['project-type'] && (
+											<p className="text-red-500 text-sm mt-1">
+												{formErrors['project-type']}
+											</p>
+										)}
 									</div>
 
 									{formState['project-type'] === 'Other' && (
 										<div>
 											<label
 												htmlFor="project-type-other"
-												className="block mb-2 font-medium"
+												className="block mb-2 font-medium text-left"
 											>
 												Please specify project type:
 											</label>
@@ -1312,7 +1639,7 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 									)}
 								</div>
 
-								<div className="mt-6 flex justify-end gap-4">
+								<div className="mt-auto flex flex-col md:flex-row justify-between gap-4">
 									<button
 										type="button"
 										onClick={() => goToSlide(1)}
@@ -1331,20 +1658,18 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 							</div>
 
 							{/* Slide 3: Deliverables */}
-							<div className="p-6 flex flex-col h-full slide-budget-deliverables">
+							<div className="flex flex-col h-full slide-budget-deliverables">
 								{/* <div className="flex-grow"> */}
-								<div>
+								<div className="h-full">
 									<div>
 										<label
 											htmlFor="deliverables-group"
-											className="block mb-2 font-medium"
+											className="block mb-2 font-medium text-left"
 										>
 											What deliverables do you need? *
 										</label>
-										<div
-											id="deliverables-group"
-											className="grid grid-cols-2 gap-3 mb-4"
-										>
+										<div className={`space-y-4 ${formErrors.deliverables ? 'border border-red-500 rounded p-2' : ''}`}>
+											<div className="flex flex-wrap gap-2">
 											{[
 												'Figma',
 												'Design System',
@@ -1358,120 +1683,97 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 												'Validate Solutions',
 												'Design Concepts',
 												'Design Evaluation',
-												'CRO',
+													'CRO'
 											].map((option) => (
-												<label
+													<button
 													key={option}
-													className="flex items-center space-x-2"
-												>
-													<input
-														type="checkbox"
-														name="deliverables"
-														value={option}
-														checked={formState.deliverables.includes(
-															option
-														)}
-														onChange={(e) => {
-															const value =
-																e.target.value;
-															setFormState(
-																(prev) => ({
-																	...prev,
-																	deliverables:
-																		e.target
-																			.checked
-																			? [
-																					...prev.deliverables,
-																					value,
-																			  ]
-																			: prev.deliverables.filter(
-																					(
-																						d
-																					) =>
-																						d !==
-																						value
-																			  ),
-																})
-															);
-														}}
-														className="form-checkbox h-4 w-4 text-primary"
-													/>
-													<span className="text-sm text-gray-700">
+														type="button"
+														onClick={() => handleDeliverablesSelect(option)}
+														className={`px-3 py-1 rounded-full text-sm ${
+															formState.deliverables?.includes(option)
+																? 'bg-primary text-white'
+																: 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+														}`}
+													>
 														{option}
-													</span>
-												</label>
-											))}
+													</button>
+												))}
+												
+												{/* Custom deliverables tags */}
+												{formState.deliverables?.split(',')
+													.filter(tag => tag && !['Figma', 'Design System', 'UI', 'UX', 'Mentorship', 'Front-end development', 'Prototyping', 'AI-driven exploration', 'Real-code Prototypes', 'Validate Solutions', 'Design Concepts', 'Design Evaluation', 'CRO'].includes(tag))
+													.map(tag => (
+														<div key={tag} className="bg-primary text-white px-3 py-1 rounded-full text-sm flex items-center gap-2">
+															{tag}
+															<button
+																type="button"
+																onClick={() => handleRemoveTag('deliverables', tag)}
+																className="hover:text-gray-200"
+															>
+																<svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+																	<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+																</svg>
+															</button>
 										</div>
-										<div className="space-y-4">
-											<label className="flex items-center space-x-3">
+													))
+												}
+												
+												{/* Add new deliverable input */}
+												{editingDeliverables ? (
+													<div className="bg-gray-100 rounded-full px-3 py-1 flex items-center gap-2">
 												<input
-													type="checkbox"
-													value="other"
-													checked={formState.deliverables.includes(
-														'other'
-													)}
-													onChange={(e) => {
-														const value =
-															e.target.value;
-														setFormState(
-															(prev) => ({
-																...prev,
-																deliverables: e
-																	.target
-																	.checked
-																	? [
-																			...prev.deliverables,
-																			value,
-																	  ]
-																	: prev.deliverables.filter(
-																			(
-																				d
-																			) =>
-																				d !==
-																				value
-																	  ),
-															})
-														);
-													}}
-													className="form-checkbox h-4 w-4 text-primary"
-												/>
-												<span>Other</span>
-											</label>
-
-											{formState.deliverables.includes(
-												'other'
-											) && (
-												<div className="ml-7">
-													<textarea
-														placeholder="Please specify your deliverables..."
-														value={
-															formState.deliverablesOther ||
-															''
-														}
-														onChange={(e) =>
-															setFormState(
-																(prev) => ({
-																	...prev,
-																	deliverablesOther:
-																		e.target
-																			.value,
-																})
-															)
-														}
-														className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
-														rows="3"
-													/>
+															id="newDeliverableInput"
+															type="text"
+															value={newTagValue}
+															onChange={(e) => setNewTagValue(e.target.value)}
+															onKeyPress={(e) => {
+																if (e.key === 'Enter' && newTagValue.trim()) {
+																	handleNewTagSubmit('deliverables', newTagValue);
+																}
+															}}
+															className="bg-transparent border-none outline-none text-sm w-24"
+															placeholder="New deliverable..."
+															autoFocus
+														/>
+														{newTagValue.trim() && (
+															<button
+																type="button"
+																onClick={() => handleNewTagSubmit('deliverables', newTagValue)}
+																className="text-primary hover:text-primary-dark"
+															>
+																<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+																	<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+																</svg>
+															</button>
+														)}
 												</div>
+												) : (
+													<button
+														type="button"
+														onClick={() => setEditingDeliverables(true)}
+														className="px-3 py-1 rounded-full text-sm bg-gray-100 text-gray-700 hover:bg-gray-200 flex items-center gap-1"
+													>
+														<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+															<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
+														</svg>
+														<span>Add Custom</span>
+													</button>
 											)}
 										</div>
+										</div>
+										{formErrors.deliverables && (
+											<p className="text-red-500 text-sm mt-1">
+												{formErrors.deliverables}
+											</p>
+										)}
 									</div>
 
 									<div>
 										<label
 											htmlFor="budget"
-											className="block mb-2 font-medium"
+											className="block mb-2 font-medium text-left"
 										>
-											What is your budget? *
+											What's your budget range? *
 										</label>
 										<select
 											id="budget"
@@ -1510,7 +1812,7 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 												<div className="mt-3">
 													<label
 														htmlFor="budgetOther"
-														className="block mb-2 font-medium"
+														className="block mb-2 font-medium text-left"
 													>
 														Please describe your
 														budget range:
@@ -1532,7 +1834,7 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 												<div className="mt-4">
 													<label
 														htmlFor="price-other"
-														className="block mb-2 font-medium"
+														className="block mb-2 font-medium text-left"
 													>
 														Please specify exact
 														amount:
@@ -1556,7 +1858,7 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 									</div>
 								</div>
 
-								<div className="mt-6 flex justify-end gap-4">
+								<div className="mt-auto flex flex-col md:flex-row justify-between gap-4">
 									<button
 										type="button"
 										onClick={() => goToSlide(2)}
@@ -1580,7 +1882,7 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 									<div>
 										<label
 											htmlFor="full-name"
-											className="block mb-2 font-medium"
+											className="block mb-2 font-medium text-left"
 										>
 											Full name *
 										</label>
@@ -1599,7 +1901,7 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 									<div>
 										<label
 											htmlFor="company-name"
-											className="block mb-2 font-medium"
+											className="block mb-2 font-medium text-left"
 										>
 											Company name
 										</label>
@@ -1617,7 +1919,7 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 									<div>
 										<label
 											htmlFor="email"
-											className="block mb-2 font-medium"
+											className="block mb-2 font-medium text-left"
 										>
 											Email *
 										</label>
@@ -1645,7 +1947,7 @@ const NewProjectForm = ({ closeModal, openPortfolio }) => {
 									<div>
 										<label
 											htmlFor="file"
-											className="block mb-2 font-medium"
+											className="block mb-2 font-medium text-left"
 										>
 											Upload files (optional)
 										</label>
