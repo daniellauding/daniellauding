@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation, BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import {
+	useNavigate,
+	useLocation,
+	BrowserRouter as Router,
+	Routes,
+	Route,
+	Navigate,
+} from 'react-router-dom';
 import HomePage from './pages/home';
 import { About } from './components/about';
 import WorkPage from './pages/work';
@@ -56,7 +63,7 @@ const KeyboardNavigation = ({
 	openContactModal,
 	isContactModalOpen,
 	closeContactModal,
-	openNewProjectModal
+	openNewProjectModal,
 }) => {
 	const navigate = useNavigate();
 	const location = useLocation();
@@ -127,7 +134,7 @@ const KeyboardNavigation = ({
 		closeContactModal,
 		isContactModalOpen,
 		location.pathname,
-		openNewProjectModal
+		openNewProjectModal,
 	]);
 
 	return null;
@@ -139,7 +146,7 @@ const PrivateRoute = ({ children }) => {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		const unsubscribe = auth.onAuthStateChanged(user => {
+		const unsubscribe = auth.onAuthStateChanged((user) => {
 			if (user) {
 				setIsAdmin(true);
 			} else {
@@ -211,9 +218,9 @@ function App() {
 
 	return (
 		<Router>
-			<AppContent 
-				openPortfolio={openPortfolio} 
-				isPortfolioOpen={isPortfolioOpen} 
+			<AppContent
+				openPortfolio={openPortfolio}
+				isPortfolioOpen={isPortfolioOpen}
 				closePortfolio={closePortfolio}
 			/>
 			<PortfolioViewer
@@ -410,13 +417,13 @@ function AppContent({ openPortfolio, isPortfolioOpen, closePortfolio }) {
 						</Route>
 					))}
 				<Route path="/login" element={<Login />} />
-				<Route 
-					path="/admin/*" 
+				<Route
+					path="/admin/*"
 					element={
 						<PrivateRoute>
 							<Dashboard />
 						</PrivateRoute>
-					} 
+					}
 				/>
 				<Route path="/admin/migrate" element={<DataMigration />} />
 			</Routes>

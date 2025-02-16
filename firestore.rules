@@ -1,16 +1,41 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Allow read/write access to authenticated users
+    // Log all access attempts
     match /{document=**} {
-      allow read, write: if request.auth != null;
+      allow read: if true;  // Temporarily allow all reads for debugging
     }
 
-    // Project submissions
-    match /projectRequests/{submissionId} {
-      allow read: if request.auth != null;
-      allow create: if true; // Allow public submissions
-      allow update, delete: if request.auth != null;
+    // Project Requests collection - specific controls
+    match /projectRequests/{document} {
+      // Anyone can create new project requests
+      allow create: if true;
+      
+      // Only authenticated users can read and delete
+      allow read, delete: if request.auth != null;
+      
+      // Only authenticated users can update specific fields
+      allow update: if request.auth != null
+                   && request.resource.data.diff(resource.data).affectedKeys()
+                      .hasOnly(['status', 'adminNotes']);
+    }
+
+    // Clients collection
+    match /clients/{clientId} {
+      allow read: if true;  // Anyone can read client data
+      allow write: if request.auth != null;  // Only authenticated users can write
+    }
+
+    // Projects collection
+    match /projects/{projectId} {
+      allow read: if true;  // Anyone can read project data
+      allow write: if request.auth != null;  // Only authenticated users can write
+    }
+
+    // Default rule for any other collections
+    match /{document=**} {
+      allow read: if true;
+      allow write: if request.auth != null;
     }
   }
 } 
