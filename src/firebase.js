@@ -1,5 +1,8 @@
 // src/firebase.js
 import { initializeApp } from 'firebase/app';
+import { getAuth, setPersistence, browserLocalPersistence } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyDzCqwhB7TQ0Gh9b39sO619iPbTxEk00RE',
@@ -13,5 +16,11 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const storage = getStorage(app);
 
-export { app };
+// Enable persistent auth state
+setPersistence(auth, browserLocalPersistence);
+
+export { app, auth, db, storage };

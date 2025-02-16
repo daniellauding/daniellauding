@@ -2,26 +2,9 @@ import React, { useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import emailjs from '@emailjs/browser';
-import { initializeApp } from 'firebase/app';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
-import { getAuth } from 'firebase/auth';
-
-// Firebase configuration (place this outside the component)
-const firebaseConfig = {
-	apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-	authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-	projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-	storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-	messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-	appId: process.env.REACT_APP_FIREBASE_APP_ID,
-};
-
-// Initialize Firebase (place this outside the component)
-const app = initializeApp(firebaseConfig);
-const storage = getStorage(app);
-const db = getFirestore(app);
-const auth = getAuth(app);
+import { collection, addDoc } from 'firebase/firestore';
+import { storage, db } from '../firebase'; // Import from centralized firebase.js
 
 const ContactForm = ({ closeContactModal }) => {
 	const [formState, setFormState] = useState({
@@ -719,8 +702,8 @@ Additional Context:
 			const docRef = await addDoc(collection(db, 'projectRequests'), projectData);
 			console.log('Document written with ID:', docRef.id);
 
-			setSubmitted(true);
-			setSubmitting(false);
+				setSubmitted(true);
+				setSubmitting(false);
 
 		} catch (error) {
 			console.error('Submission error:', error);

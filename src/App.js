@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import HomePage from './pages/home';
 import { About } from './components/about';
 import WorkPage from './pages/work';
@@ -14,11 +14,18 @@ import './styles/animate.min.css';
 import ClientPage from './pages/client';
 import CasePage from './pages/case';
 // import FloatingButton from './components/FloatingButton';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PortfolioViewer from './components/PortfolioViewer';
 import AdminLogin from './components/admin/AdminLogin';
 import AdminDashboard from './components/admin/AdminDashboard';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { auth } from './firebase';
+import Dashboard from './pages/admin/Dashboard';
+import ClientsList from './pages/admin/ClientsList';
+import ClientDetail from './pages/admin/ClientDetail';
+import SubmissionsList from './pages/admin/SubmissionsList';
+import SubmissionDetail from './pages/admin/SubmissionDetail';
+import Login from './pages/admin/Login';
+import DataMigration from './components/admin/DataMigration';
 
 // Create a wrapper component to handle location-based rendering
 // const FloatingButtonWrapper = ({
@@ -126,6 +133,35 @@ const KeyboardNavigation = ({
 	return null;
 };
 
+const PrivateRoute = ({ children }) => {
+	const [isAdmin, setIsAdmin] = useState(false);
+	const [loading, setLoading] = useState(true);
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		const unsubscribe = auth.onAuthStateChanged(user => {
+			if (user) {
+				setIsAdmin(true);
+			} else {
+				setIsAdmin(false);
+				navigate('/login');
+			}
+			setLoading(false);
+		});
+		return unsubscribe;
+	}, [navigate]);
+
+	if (loading) {
+		return (
+			<div className="min-h-screen bg-gray-100 flex items-center justify-center">
+				<div className="text-lg">Loading...</div>
+			</div>
+		);
+	}
+
+	return isAdmin ? children : null;
+};
+
 function App() {
 	const [isPortfolioOpen, setIsPortfolioOpen] = useState(() => {
 		// Initialize state based on URL hash
@@ -173,25 +209,12 @@ function App() {
 		}
 	};
 
-	const [isAdmin, setIsAdmin] = useState(false);
-	const [adminChecked, setAdminChecked] = useState(false);
-
-	useEffect(() => {
-		const auth = getAuth();
-		const unsubscribe = onAuthStateChanged(auth, (user) => {
-			setIsAdmin(!!user);
-			setAdminChecked(true);
-		});
-		return () => unsubscribe();
-	}, []);
-
 	return (
 		<Router>
 			<AppContent 
 				openPortfolio={openPortfolio} 
-				isAdmin={isAdmin} 
-				adminChecked={adminChecked} 
-				setIsAdmin={setIsAdmin}
+				isPortfolioOpen={isPortfolioOpen} 
+				closePortfolio={closePortfolio}
 			/>
 			<PortfolioViewer
 				isOpen={isPortfolioOpen}
@@ -202,13 +225,14 @@ function App() {
 }
 
 // Move all the main app logic to a new component
-function AppContent({ openPortfolio, isAdmin, adminChecked, setIsAdmin }) {
+function AppContent({ openPortfolio, isPortfolioOpen, closePortfolio }) {
 	const [active, setActive] = useState(null);
 	const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 	const [isOffertModalOpen, setIsOffertModalOpen] = useState(false);
 	const [isSplashModalOpen, setIsSplashModalOpen] = useState(false);
 	const [isNewProjectModalOpen, setIsNewProjectModalOpen] = useState(false);
 	const location = useLocation();
+	const isAdminRoute = location.pathname.startsWith('/admin');
 
 	// Handle URL hash changes
 	useEffect(() => {
@@ -248,6 +272,15 @@ function AppContent({ openPortfolio, isAdmin, adminChecked, setIsAdmin }) {
 				break;
 		}
 	}, [location.hash]);
+
+	// Disable keyboard navigation in admin routes
+	useEffect(() => {
+		if (isAdminRoute) {
+			// Disable the keyboard navigation component
+			return;
+		}
+		// Your existing keyboard navigation logic
+	}, [isAdminRoute]);
 
 	const openContactModal = () => {
 		window.location.hash = 'contact';
@@ -329,12 +362,6 @@ function AppContent({ openPortfolio, isAdmin, adminChecked, setIsAdmin }) {
 
 	return (
 		<>
-			<KeyboardNavigation
-				openContactModal={openContactModal}
-				closeContactModal={closeContactModal}
-				isContactModalOpen={isContactModalOpen}
-				openNewProjectModal={openNewProjectModal}
-			/>
 			<Routes>
 				<Route
 					path="/"
@@ -382,41 +409,49 @@ function AppContent({ openPortfolio, isAdmin, adminChecked, setIsAdmin }) {
 							/>
 						</Route>
 					))}
+				<Route path="/login" element={<Login />} />
 				<Route 
-					path="/admin" 
+					path="/admin/*" 
 					element={
-						!adminChecked ? (
-							<div>Loading...</div>
-						) : isAdmin ? (
-							<AdminDashboard />
-						) : (
-							<AdminLogin onLogin={() => setIsAdmin(true)} />
-						)
+						<PrivateRoute>
+							<Dashboard />
+						</PrivateRoute>
 					} 
 				/>
+				<Route path="/admin/migrate" element={<DataMigration />} />
 			</Routes>
 
-			{isContactModalOpen && (
-				<Contact
-					closeContactModal={closeContactModal}
-					isContactModalOpen={isContactModalOpen}
-				/>
-			)}
-			{isOffertModalOpen && (
-				<Offert closeOffertModal={closeOffertModal} />
-			)}
-			{isSplashModalOpen && (
-				<ContactSplash
-					closeModal={closeContactModal}
-					openContactModal={openContactModal}
-					openNewProjectModal={openNewProjectModal}
-				/>
-			)}
-			{isNewProjectModalOpen && (
-				<NewProject
-					closeNewProjectModal={closeNewProjectModal}
-					openPortfolio={openPortfolio}
-				/>
+			{!isAdminRoute && (
+				<>
+					<KeyboardNavigation
+						openContactModal={openContactModal}
+						closeContactModal={closeContactModal}
+						isContactModalOpen={isContactModalOpen}
+						openNewProjectModal={openNewProjectModal}
+					/>
+					{isContactModalOpen && (
+						<Contact
+							closeContactModal={closeContactModal}
+							isContactModalOpen={isContactModalOpen}
+						/>
+					)}
+					{isOffertModalOpen && (
+						<Offert closeOffertModal={closeOffertModal} />
+					)}
+					{isSplashModalOpen && (
+						<ContactSplash
+							closeModal={closeContactModal}
+							openContactModal={openContactModal}
+							openNewProjectModal={openNewProjectModal}
+						/>
+					)}
+					{isNewProjectModalOpen && (
+						<NewProject
+							closeNewProjectModal={closeNewProjectModal}
+							openPortfolio={openPortfolio}
+						/>
+					)}
+				</>
 			)}
 		</>
 	);
