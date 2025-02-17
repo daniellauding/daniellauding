@@ -33,6 +33,8 @@ import SubmissionsList from './pages/admin/SubmissionsList';
 import SubmissionDetail from './pages/admin/SubmissionDetail';
 import Login from './pages/admin/Login';
 import DataMigration from './components/admin/DataMigration';
+import ProjectDetail from './pages/admin/ProjectDetail';
+import ProjectsList from './pages/admin/ProjectsList';
 
 // Create a wrapper component to handle location-based rendering
 // const FloatingButtonWrapper = ({
@@ -424,7 +426,20 @@ function AppContent({ openPortfolio, isPortfolioOpen, closePortfolio }) {
 							<Dashboard />
 						</PrivateRoute>
 					}
-				/>
+				>
+					<Route path="clients" element={<ClientsList />} />
+					<Route path="clients/:id" element={<ClientDetail />} />
+					<Route
+						path="clients/:clientId/projects/:projectId"
+						element={<ProjectDetail />}
+					/>
+					<Route path="projects" element={<ProjectsList />} />
+					<Route path="submissions" element={<SubmissionsList />} />
+					<Route
+						path="submissions/:id"
+						element={<SubmissionDetail />}
+					/>
+				</Route>
 				<Route path="/admin/migrate" element={<DataMigration />} />
 			</Routes>
 

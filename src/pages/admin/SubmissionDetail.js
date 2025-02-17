@@ -1,165 +1,185 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc, deleteDoc } from 'firebase/firestore';
 import { db } from '../../firebase';
 
 const SubmissionDetail = () => {
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const [submission, setSubmission] = useState(null);
-  const [loading, setLoading] = useState(true);
+	const { id } = useParams();
+	const navigate = useNavigate();
+	const [request, setRequest] = useState(null);
+	const [loading, setLoading] = useState(true);
+	const [deleting, setDeleting] = useState(false);
 
-  useEffect(() => {
-    const fetchSubmission = async () => {
-      try {
-        const docRef = doc(db, "projectRequests", id);
-        const docSnap = await getDoc(docRef);
-        
-        if (docSnap.exists()) {
-          const data = docSnap.data();
-          
-          // Helper function to handle both string and array types
-          const processField = (field) => {
-            if (!field) return [];
-            if (Array.isArray(field)) return field;
-            return field.split(',').map(item => item.trim());
-          };
+	useEffect(() => {
+		const fetchRequest = async () => {
+			try {
+				const docRef = doc(db, 'projectRequests', id);
+				const docSnap = await getDoc(docRef);
 
-          setSubmission({
-            id: docSnap.id,
-            ...data,
-            // Handle form data structure
-            name: data['full-name'] || data.contact?.fullName || data.name,
-            company: data['company-name'] || data.contact?.company || data.company,
-            email: data.email || data.contact?.email,
-            projectName: data.projectName || data['project-name'] || 'Untitled Project',
-            description: data['project-description'] || data.projectDescription || data.description,
-            // Handle arrays and strings
-            helpTypes: processField(data.helpType || data['help-type']),
-            projectTypes: processField(data['project-type'] || data.projectTypes),
-            deliverables: processField(data.deliverables)
-          });
-        }
-      } catch (error) {
-        console.error("Error fetching submission:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
+				if (docSnap.exists()) {
+					setRequest({
+						id: docSnap.id,
+						...docSnap.data(),
+					});
+				}
+			} catch (error) {
+				console.error('Error fetching request:', error);
+			} finally {
+				setLoading(false);
+			}
+		};
 
-    fetchSubmission();
-  }, [id]);
+		fetchRequest();
+	}, [id]);
 
-  if (loading) {
-    return <div className="text-gray-600 dark:text-gray-400">Loading submission...</div>;
-  }
+	const handleDelete = async () => {
+		if (
+			!window.confirm(
+				'Are you sure you want to delete this project request?'
+			)
+		) {
+			return;
+		}
 
-  if (!submission) {
-    return (
-      <div className="text-center py-12">
-        <h3 className="text-xl font-medium text-gray-900 dark:text-white">Submission not found</h3>
-        <button
-          onClick={() => navigate('/admin/submissions')}
-          className="mt-4 text-primary dark:text-primary-light hover:text-primary-dark dark:hover:text-primary-lighter"
-        >
-          ← Back to submissions
-        </button>
-      </div>
-    );
-  }
+		setDeleting(true);
+		try {
+			await deleteDoc(doc(db, 'projectRequests', id));
+			console.log('Project request deleted successfully');
+			navigate('/admin/submissions');
+		} catch (error) {
+			console.error('Error deleting request:', error);
+			setDeleting(false);
+		}
+	};
 
-  return (
-    <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-          {submission.projectName}
-        </h2>
-        <button
-          onClick={() => navigate('/admin/submissions')}
-          className="text-primary dark:text-primary-light hover:text-primary-dark dark:hover:text-primary-lighter"
-        >
-          ← Back to submissions
-        </button>
-      </div>
+	if (loading) return <div>Loading...</div>;
+	if (!request) return <div>Request not found</div>;
 
-      <div className="bg-white dark:bg-gray-800 shadow rounded-lg p-6 space-y-6">
-        <div>
-          <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Contact Information</h3>
-          <dl className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">Name</dt>
-              <dd className="mt-1 text-sm text-gray-900 dark:text-white">{submission.name}</dd>
-            </div>
-            <div>
-              <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">Company</dt>
-              <dd className="mt-1 text-sm text-gray-900 dark:text-white">{submission.company}</dd>
-            </div>
-            <div>
-              <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">Email</dt>
-              <dd className="mt-1 text-sm text-gray-900 dark:text-white">{submission.email}</dd>
-            </div>
-            <div>
-              <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">Submitted</dt>
-              <dd className="mt-1 text-sm text-gray-900 dark:text-white">
-                {submission.createdAt?.toDate().toLocaleString()}
-              </dd>
-            </div>
-          </dl>
-        </div>
+	return (
+		<div className="space-y-6">
+			<div className="flex justify-between items-center">
+				<h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+					Project Request Details
+				</h2>
+				<div className="space-x-4">
+					<button
+						onClick={() => navigate('/admin/submissions')}
+						className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+					>
+						← Back to Submissions
+					</button>
+					<button
+						onClick={handleDelete}
+						disabled={deleting}
+						className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 disabled:opacity-50"
+					>
+						{deleting ? 'Deleting...' : 'Delete Request'}
+					</button>
+				</div>
+			</div>
 
-        <div>
-          <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Project Details</h3>
-          <div className="space-y-4">
-            <div>
-              <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">Description</dt>
-              <dd className="mt-1 text-sm text-gray-900 dark:text-white whitespace-pre-wrap">
-                {submission.description}
-              </dd>
-            </div>
-            
-            {submission.helpTypes.length > 0 && (
-              <div>
-                <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">Help Types</dt>
-                <dd className="mt-2 flex flex-wrap gap-2">
-                  {submission.helpTypes.map((type, index) => (
-                    <span key={index} className="px-2 py-1 text-xs rounded-full bg-primary/10 text-primary dark:text-primary-light">
-                      {type}
-                    </span>
-                  ))}
-                </dd>
-              </div>
-            )}
+			<div className="bg-white dark:bg-gray-800 shadow rounded-lg p-6 space-y-6">
+				{/* Contact Information */}
+				<section>
+					<h3 className="text-lg font-medium mb-4 text-gray-900 dark:text-white">
+						Contact Information
+					</h3>
+					<dl className="grid grid-cols-2 gap-4">
+						<div>
+							<dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
+								Name
+							</dt>
+							<dd className="mt-1 text-gray-900 dark:text-white">
+								{request.contact?.fullName || 'Not provided'}
+							</dd>
+						</div>
+						<div>
+							<dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
+								Email
+							</dt>
+							<dd className="mt-1 text-gray-900 dark:text-white">
+								{request.contact?.email || 'Not provided'}
+							</dd>
+						</div>
+						{request.contact?.company && (
+							<div>
+								<dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
+									Company
+								</dt>
+								<dd className="mt-1 text-gray-900 dark:text-white">
+									{request.contact.company}
+								</dd>
+							</div>
+						)}
+					</dl>
+				</section>
 
-            {submission.projectTypes.length > 0 && (
-              <div>
-                <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">Project Types</dt>
-                <dd className="mt-2 flex flex-wrap gap-2">
-                  {submission.projectTypes.map((type, index) => (
-                    <span key={index} className="px-2 py-1 text-xs rounded-full bg-primary/10 text-primary dark:text-primary-light">
-                      {type}
-                    </span>
-                  ))}
-                </dd>
-              </div>
-            )}
+				{/* Project Details */}
+				<section>
+					<h3 className="text-lg font-medium mb-4 text-gray-900 dark:text-white">
+						Project Details
+					</h3>
+					<dl className="grid grid-cols-2 gap-4">
+						<div>
+							<dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
+								Project Name
+							</dt>
+							<dd className="mt-1 text-gray-900 dark:text-white">
+								{request.projectName}
+							</dd>
+						</div>
+						<div>
+							<dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
+								Budget
+							</dt>
+							<dd className="mt-1 text-gray-900 dark:text-white">
+								{typeof request.budget === 'object'
+									? request.budget.range ||
+									  request.budget.description
+									: request.budget}
+								{request.budgetOther &&
+									` (${request.budgetOther})`}
+							</dd>
+						</div>
+					</dl>
+				</section>
 
-            {submission.deliverables.length > 0 && (
-              <div>
-                <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">Deliverables</dt>
-                <dd className="mt-2 flex flex-wrap gap-2">
-                  {submission.deliverables.map((item, index) => (
-                    <span key={index} className="px-2 py-1 text-xs rounded-full bg-primary/10 text-primary dark:text-primary-light">
-                      {item}
-                    </span>
-                  ))}
-                </dd>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+				{/* Project Description */}
+				<section>
+					<h3 className="text-lg font-medium mb-4 text-gray-900 dark:text-white">
+						Project Description
+					</h3>
+					<div className="bg-gray-50 dark:bg-gray-700 rounded p-4">
+						<pre className="whitespace-pre-wrap text-gray-900 dark:text-white font-sans">
+							{request.projectDescription}
+						</pre>
+					</div>
+				</section>
+
+				{/* Attachments */}
+				{request.fileUrls && request.fileUrls.length > 0 && (
+					<section>
+						<h3 className="text-lg font-medium mb-4 text-gray-900 dark:text-white">
+							Attachments
+						</h3>
+						<div className="space-y-2">
+							{request.fileUrls.map((url, index) => (
+								<a
+									key={index}
+									href={url}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="block text-primary dark:text-primary-light hover:underline"
+								>
+									Attachment {index + 1}
+								</a>
+							))}
+						</div>
+					</section>
+				)}
+			</div>
+		</div>
+	);
 };
 
-export default SubmissionDetail; 
+export default SubmissionDetail;

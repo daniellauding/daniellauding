@@ -95,7 +95,7 @@ export default function ClientsList() {
 					console.log('Document data:', doc.data());
 				});
 
-				// First, let's log all projects regardless of client
+				// First, let's log all projects with full details
 				console.log('Fetching all projects...');
 				const allProjectsSnapshot = await getDocs(
 					collection(db, 'projects')
@@ -105,6 +105,7 @@ export default function ClientsList() {
 					projects: allProjectsSnapshot.docs.map((doc) => ({
 						id: doc.id,
 						...doc.data(),
+						rawData: doc.data(), // Include raw data for inspection
 					})),
 				});
 
@@ -112,63 +113,52 @@ export default function ClientsList() {
 				const clientsWithProjects = await Promise.all(
 					rawSnapshot.docs.map(async (clientDoc) => {
 						const clientData = clientDoc.data();
-						console.log('\n--- Client:', clientData.name);
+						console.log('\n=== Client Details ===');
+						console.log('Client ID:', clientDoc.id);
+						console.log('Client Data:', {
+							...clientData,
+							rawData: clientData, // Include raw data
+						});
 
 						try {
-							// Fetch projects for this client using numeric clientId
+							// Fetch projects for this client
 							const projectsQuery = query(
 								collection(db, 'projects'),
-								where('clientId', '==', 1) // Try with number 1 for Asteria
+								where('clientId', '==', parseInt(clientDoc.id))
 							);
 
 							let projectsSnapshot = await getDocs(projectsQuery);
 							console.log(
-								'First query results:',
+								'\n=== Projects for',
+								clientData.name,
+								'==='
+							);
+							console.log(
+								'Projects found:',
 								projectsSnapshot.size
 							);
 
-							// If no results, try with string ID
-							if (projectsSnapshot.size === 0) {
-								const stringQuery = query(
-									collection(db, 'projects'),
-									where('clientId', '==', '1') // Try with string "1"
-								);
-								projectsSnapshot = await getDocs(stringQuery);
-								console.log(
-									'Second query results:',
-									projectsSnapshot.size
-								);
-							}
-
-							// If still no results, try with the document ID
-							if (projectsSnapshot.size === 0) {
-								const docIdQuery = query(
-									collection(db, 'projects'),
-									where('clientId', '==', clientDoc.id)
-								);
-								projectsSnapshot = await getDocs(docIdQuery);
-								console.log(
-									'Third query results:',
-									projectsSnapshot.size
-								);
-							}
-
-							console.log(`Projects for ${clientData.name}:`, {
-								clientId: clientDoc.id,
-								projectCount: projectsSnapshot.size,
-								projects: projectsSnapshot.docs.map((doc) => ({
+							// Log each project's full details
+							projectsSnapshot.docs.forEach((doc, index) => {
+								console.log(`\nProject ${index + 1}:`, {
 									id: doc.id,
-									...doc.data(),
-								})),
+									data: doc.data(),
+									content: doc.data().content,
+									images: doc.data().images,
+									technologies: doc.data().technologies,
+									rawData: doc.data(), // Include raw data
+								});
 							});
 
 							return {
-								id: clientDoc.id,
 								...clientData,
+								id: clientDoc.id,
+								firebaseId: clientDoc.id,
 								projectCount: projectsSnapshot.size,
 								projects: projectsSnapshot.docs.map((doc) => ({
 									id: doc.id,
 									...doc.data(),
+									rawData: doc.data(), // Include raw data
 								})),
 							};
 						} catch (error) {
@@ -177,8 +167,9 @@ export default function ClientsList() {
 								error
 							);
 							return {
-								id: clientDoc.id,
 								...clientData,
+								id: clientDoc.id,
+								firebaseId: clientDoc.id,
 								projectCount: 0,
 								projects: [],
 								error: error.message,
@@ -187,10 +178,23 @@ export default function ClientsList() {
 					})
 				);
 
-				console.log(
-					'Final clients with project counts:',
-					clientsWithProjects
-				);
+				// Log final result with full details
+				console.log('\n=== Final Data Structure ===');
+				clientsWithProjects.forEach((client) => {
+					console.log(`\nClient: ${client.name}`);
+					console.log('Client Details:', {
+						...client,
+						projects: client.projects.map((p) => ({
+							id: p.id,
+							title: p.title,
+							content: p.content,
+							images: p.images,
+							technologies: p.technologies,
+							rawData: p.rawData,
+						})),
+					});
+				});
+
 				setClients(clientsWithProjects);
 			} catch (err) {
 				console.error('Detailed error:', err);
@@ -301,8 +305,8 @@ export default function ClientsList() {
 				<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
 					{clients.map((client) => (
 						<Link
-							key={client.id}
-							to={`/admin/clients/${client.id}`}
+							key={client.firebaseId}
+							to={`/admin/clients/${client.firebaseId}`}
 							className="block p-4 bg-white rounded-lg shadow hover:shadow-md transition-shadow"
 						>
 							<div className="flex items-start justify-between">
@@ -315,6 +319,9 @@ export default function ClientsList() {
 									</p>
 									<p className="text-sm text-gray-500">
 										{client.location}
+									</p>
+									<p className="text-xs text-gray-400">
+										Firebase ID: {client.firebaseId}
 									</p>
 								</div>
 								{client.featured && (
