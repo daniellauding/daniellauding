@@ -86,7 +86,7 @@ Additional Context:
 			if (formState['payment-method'] === 'stripe') {
 				try {
 					await createPaymentSession({
-						projectName: formState.projectName,
+						projectName: formState.projectName || 'Project Request', // Provide default
 						budget:
 							formState.budget === 'Other'
 								? formState['price-other']
@@ -97,7 +97,7 @@ Additional Context:
 					});
 				} catch (stripeError) {
 					console.error('Stripe error:', stripeError);
-					// Continue with form submission even if Stripe fails
+					throw stripeError; // Propagate the error
 				}
 			}
 

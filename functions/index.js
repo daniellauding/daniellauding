@@ -11,8 +11,8 @@ const transporter = nodemailer.createTransport({
 	service: 'gmail',
 	auth: {
 		user: functions.config().email.user,
-		pass: functions.config().email.password
-	}
+		pass: functions.config().email.password,
+	},
 });
 
 // When a new project request is created
@@ -29,18 +29,30 @@ exports.onNewProjectRequest = functions.firestore
 			html: `
                 <h2>New Project Request</h2>
                 <p><strong>Project Name:</strong> ${projectData.projectName}</p>
-                <p><strong>From:</strong> ${projectData['full-name']} (${projectData.email})</p>
+                <p><strong>From:</strong> ${projectData['full-name']} (${
+	projectData.email
+})</p>
                 <p><strong>Company:</strong> ${projectData['company-name']}</p>
                 <p><strong>Budget Range:</strong> ${projectData.budget}</p>
-                <p><strong>Payment Method:</strong> ${projectData['payment-method']}</p>
+                <p><strong>Payment Method:</strong> ${
+	projectData['payment-method']
+}</p>
                 <h3>Project Description:</h3>
                 <pre>${projectData['project-description']}</pre>
                 <p><strong>Help Type:</strong> ${projectData.helpType}</p>
-                <p><strong>Project Type:</strong> ${projectData['project-type']}</p>
-                <p><strong>Deliverables:</strong> ${projectData.deliverables}</p>
-                <p><strong>Files:</strong> ${projectData.files ? projectData.files.length : 0} attachments</p>
-                <p>View in admin: https://daniellauding.se/admin/submissions/${snap.id}</p>
-            `
+                <p><strong>Project Type:</strong> ${
+	projectData['project-type']
+}</p>
+                <p><strong>Deliverables:</strong> ${
+	projectData.deliverables
+}</p>
+                <p><strong>Files:</strong> ${
+	projectData.files ? projectData.files.length : 0
+} attachments</p>
+                <p>View in admin: https://daniellauding.se/admin/submissions/${
+	snap.id
+}</p>
+            `,
 		};
 
 		// Client confirmation email
@@ -59,7 +71,7 @@ exports.onNewProjectRequest = functions.firestore
                 </ul>
                 <p>I'll get back to you within 1-2 business days with more information.</p>
                 <p>Best regards,<br>Daniel Lauding</p>
-            `
+            `,
 		};
 
 		try {
@@ -75,18 +87,30 @@ exports.onNewProjectRequest = functions.firestore
 // Stripe payment session creation
 exports.createPaymentSession = functions.https.onCall(async (data, context) => {
 	try {
+		// Validate input
+		if (!data.projectName) {
+			throw new functions.https.HttpsError(
+				'invalid-argument',
+				'Project name is required'
+			);
+		}
+
 		const session = await stripe.checkout.sessions.create({
 			payment_method_types: ['card'],
-			line_items: [{
-				price_data: {
-					currency: 'usd',
-					product_data: {
-						name: data.projectName,
+			line_items: [
+				{
+					price_data: {
+						currency: 'usd',
+						product_data: {
+							name: data.projectName,
+							description: 'Project Development Services',
+						},
+						unit_amount:
+							parseInt(data.amount.replace(/[^0-9]/g, '')) * 100,
 					},
-					unit_amount: parseInt(data.amount.replace(/[^0-9]/g, '')) * 100,
+					quantity: 1,
 				},
-				quantity: 1,
-			}],
+			],
 			mode: 'payment',
 			success_url: `${process.env.REACT_APP_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
 			cancel_url: `${process.env.REACT_APP_URL}/cancel`,

@@ -9,13 +9,22 @@ export const createPaymentSession = async (projectData) => {
 	try {
 		const stripe = await stripePromise;
 
+		// Ensure we have valid data
+		if (!projectData.projectName) {
+			throw new Error('Project name is required');
+		}
+
+		if (!projectData.budget) {
+			throw new Error('Budget is required');
+		}
+
 		// Call Firebase function
 		const createStripeCheckout = httpsCallable(
 			functions,
 			'createPaymentSession'
 		);
 
-		// Convert budget string to number
+		// Convert budget string to number and remove non-numeric characters
 		const amount = projectData.budget.replace(/[^0-9]/g, '');
 
 		const { data } = await createStripeCheckout({
