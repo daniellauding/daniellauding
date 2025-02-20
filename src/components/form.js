@@ -5,6 +5,7 @@ import emailjs from '@emailjs/browser';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { collection, addDoc } from 'firebase/firestore';
 import { storage, db } from '../firebase'; // Import from centralized firebase.js
+import { createPaymentSession } from '../utils/stripe'; // Import from utils/stripe.js
 
 const ContactForm = ({ closeContactModal }) => {
 	const [formState, setFormState] = useState({
@@ -38,7 +39,8 @@ Additional Context:
 		'full-name': '',
 		'company-name': '',
 		email: '',
-		files: []
+		files: [],
+		'payment-method': 'invoice', // Set invoice as default
 	});
 
 	const [submitting, setSubmitting] = useState(false);
@@ -47,28 +49,69 @@ Additional Context:
 	const [error, setError] = useState(null);
 
 	const handleChange = (e) => {
-		setFormState({ ...formState, [e.target.name]: e.target.value });
-		if (formErrors[e.target.name]) {
-			setFormErrors((prev) => ({ ...prev, [e.target.name]: '' }));
+		const { name, value } = e.target;
+		setFormState((prev) => ({
+			...prev,
+			[name]: value,
+		}));
+
+		// Clear any errors
+		if (formErrors[name]) {
+			setFormErrors((prev) => ({
+				...prev,
+				[name]: '',
+			}));
 		}
 	};
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 		setSubmitting(true);
-		fetch('/', {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-			body: encode({ 'form-name': 'contact', ...formState }),
-		})
-			.then(() => {
-				setSubmitted(true);
-				setSubmitting(false);
-			})
-			.catch((error) => {
-				console.error(error);
-				setSubmitting(false);
-			});
+
+		try {
+			// Create the project request in Firebase
+			const projectData = {
+				...formState,
+				createdAt: new Date(),
+				status: 'pending',
+			};
+
+			const docRef = await addDoc(
+				collection(db, 'projectRequests'),
+				projectData
+			);
+			console.log('Document written with ID:', docRef.id);
+
+			// If Stripe is selected as payment method, redirect to Stripe
+			if (formState['payment-method'] === 'stripe') {
+				try {
+					await createPaymentSession({
+						projectName: formState.projectName,
+						budget:
+							formState.budget === 'Other'
+								? formState['price-other']
+								: formState.budget,
+						contact: {
+							email: formState.email,
+						},
+					});
+				} catch (stripeError) {
+					console.error('Stripe error:', stripeError);
+					// Continue with form submission even if Stripe fails
+				}
+			}
+
+			setSubmitted(true);
+			if (closeContactModal) closeContactModal();
+		} catch (error) {
+			console.error('Submission error:', error);
+			setFormErrors((prev) => ({
+				...prev,
+				submit: error.message,
+			}));
+		} finally {
+			setSubmitting(false);
+		}
 	};
 
 	const encode = (data) => {
@@ -82,13 +125,21 @@ Additional Context:
 			.join('&');
 	};
 
+	// Add payment method options
+	const paymentOptions = [
+		{ value: 'invoice', label: 'Invoice (Net 30)' },
+		{ value: 'stripe', label: 'Credit Card (Stripe)' },
+		{ value: 'shares', label: 'Equity/Shares' },
+		{ value: 'hybrid', label: 'Hybrid (Part Cash/Part Equity)' },
+	];
+
 	return (
 		<div>
 			{error ? (
 				<div className="text-red-500 p-4 rounded bg-red-50 mb-4">
 					<h3 className="font-bold">Error</h3>
 					<p>{error}</p>
-					<button 
+					<button
 						onClick={() => setError(null)}
 						className="mt-2 text-sm text-red-700 underline"
 					>
@@ -602,7 +653,8 @@ Additional Context:
 		'full-name': '',
 		'company-name': '',
 		email: '',
-		files: []
+		files: [],
+		'payment-method': 'invoice', // Set invoice as default
 	});
 
 	// Rest of the state declarations
@@ -660,16 +712,23 @@ Additional Context:
 				for (const file of formState.files) {
 					try {
 						if (file.size > 10 * 1024 * 1024) {
-							throw new Error(`File ${file.name} is too large. Maximum size is 10MB`);
+							throw new Error(
+								`File ${file.name} is too large. Maximum size is 10MB`
+							);
 						}
 
-						const storageRef = ref(storage, `project-files/${Date.now()}-${file.name}`);
+						const storageRef = ref(
+							storage,
+							`project-files/${Date.now()}-${file.name}`
+						);
 						await uploadBytes(storageRef, file);
 						const url = await getDownloadURL(storageRef);
 						fileUrls.push(url);
 					} catch (uploadError) {
 						console.error('File upload error:', uploadError);
-						throw new Error(`Failed to upload ${file.name}: ${uploadError.message}`);
+						throw new Error(
+							`Failed to upload ${file.name}: ${uploadError.message}`
+						);
 					}
 				}
 			}
@@ -678,37 +737,65 @@ Additional Context:
 			const projectData = {
 				projectName: formState.projectName,
 				projectDescription: formState['project-description'],
-				helpTypes: formState.helpType ? formState.helpType.split(',').filter(Boolean) : [],
-				projectTypes: formState['project-type'] ? formState['project-type'].split(',').filter(Boolean) : [],
-				deliverables: formState.deliverables ? formState.deliverables.split(',').filter(Boolean) : [],
+				helpTypes: formState.helpType
+					? formState.helpType.split(',').filter(Boolean)
+					: [],
+				projectTypes: formState['project-type']
+					? formState['project-type'].split(',').filter(Boolean)
+					: [],
+				deliverables: formState.deliverables
+					? formState.deliverables.split(',').filter(Boolean)
+					: [],
 				budget: {
 					range: formState.budget,
-					description: formState.budgetOther || '',    // Include budget description
+					description: formState.budgetOther || '', // Include budget description
 					exactAmount: formState['price-other'] || '', // Include exact amount
 				},
 				contact: {
 					fullName: formState['full-name'],
 					company: formState['company-name'],
-					email: formState.email
+					email: formState.email,
 				},
 				fileUrls,
 				createdAt: new Date(),
-				status: 'new'
+				status: 'new',
 			};
 
 			console.log('Submitting complete project data:', projectData);
 
 			// Save to Firestore
-			const docRef = await addDoc(collection(db, 'projectRequests'), projectData);
+			const docRef = await addDoc(
+				collection(db, 'projectRequests'),
+				projectData
+			);
 			console.log('Document written with ID:', docRef.id);
 
-				setSubmitted(true);
-				setSubmitting(false);
+			// If Stripe payment method is selected, redirect to Stripe
+			if (formState['payment-method'] === 'stripe') {
+				await createPaymentSession({
+					projectName: formState['project-name'],
+					budget:
+						formState.budget === 'other'
+							? formState['price-other']
+							: formState.budget,
+					contact: {
+						email: formState.email,
+					},
+				});
+			}
 
+			setSubmitted(true);
+			setSubmitting(false);
 		} catch (error) {
 			console.error('Submission error:', error);
 			setSubmitting(false);
-			alert(`Error submitting form: ${error.message}. Please try again or contact support.`);
+
+			setFormErrors((prev) => ({
+				...prev,
+				submit: error.message,
+			}));
+		} finally {
+			setSubmitting(false);
 		}
 	};
 
@@ -732,9 +819,12 @@ Additional Context:
 				if (!formState.helpType) {
 					errors.helpType = 'Please select what you need help with';
 				}
-				if (!formState['project-description'] || 
-					formState['project-description'] === initialTemplate) {
-					errors['project-description'] = 'Please describe your project';
+				if (
+				!formState['project-description'] ||
+					formState['project-description'] === initialTemplate
+			) {
+					errors['project-description'] =
+						'Please describe your project';
 				}
 				if (!formState['project-type']) {
 					errors['project-type'] = 'Please select a project type';
@@ -742,17 +832,20 @@ Additional Context:
 				break;
 			case 3:
 				if (!formState.deliverables) {
-					errors.deliverables = 'Please select at least one deliverable';
+					errors.deliverables =
+						'Please select at least one deliverable';
 				}
 				if (!formState.budget) {
 					errors.budget = 'Please select a budget range';
 				}
 				if (formState.budget === 'Other') {
 					if (!formState.budgetOther) {
-						errors.budgetOther = 'Please describe your budget range';
+						errors.budgetOther =
+							'Please describe your budget range';
 					}
 					if (!formState['price-other']) {
-						errors['price-other'] = 'Please specify an exact amount';
+						errors['price-other'] =
+							'Please specify an exact amount';
 					}
 				}
 				break;
@@ -776,27 +869,31 @@ Additional Context:
 	// Update the tag selection handlers
 	const handleHelpTypeSelect = (option) => {
 		console.log('Selecting help type:', option);
-		const currentTypes = formState.helpType ? formState.helpType.split(',').filter(Boolean) : [];
+		const currentTypes = formState.helpType
+			? formState.helpType.split(',').filter(Boolean)
+			: [];
 		const newTypes = currentTypes.includes(option)
-				? currentTypes.filter(t => t !== option)
-				: [...currentTypes, option];
+			? currentTypes.filter((t) => t !== option)
+			: [...currentTypes, option];
 		console.log('New help types:', newTypes);
-		setFormState(prev => ({
+		setFormState((prev) => ({
 			...prev,
-			helpType: newTypes.join(',')
+			helpType: newTypes.join(','),
 		}));
 	};
 
 	const handleProjectTypeSelect = (option) => {
 		console.log('Selecting project type:', option);
-		const currentTypes = formState['project-type'] ? formState['project-type'].split(',').filter(Boolean) : [];
+		const currentTypes = formState['project-type']
+			? formState['project-type'].split(',').filter(Boolean)
+			: [];
 		const newTypes = currentTypes.includes(option)
-				? currentTypes.filter(t => t !== option)
-				: [...currentTypes, option];
+			? currentTypes.filter((t) => t !== option)
+			: [...currentTypes, option];
 		console.log('New project types:', newTypes);
-		setFormState(prev => ({
+		setFormState((prev) => ({
 			...prev,
-			'project-type': newTypes.join(',')
+			'project-type': newTypes.join(','),
 		}));
 	};
 
@@ -804,45 +901,59 @@ Additional Context:
 	const handleAddNewTag = (type) => {
 		if (type === 'help') {
 			setEditingHelpType(true);
-			setTimeout(() => document.getElementById('newHelpTypeInput')?.focus(), 0);
+			setTimeout(
+				() => document.getElementById('newHelpTypeInput')?.focus(),
+				0
+			);
 		} else {
 			setEditingProjectType(true);
-			setTimeout(() => document.getElementById('newProjectTypeInput')?.focus(), 0);
+			setTimeout(
+				() => document.getElementById('newProjectTypeInput')?.focus(),
+				0
+			);
 		}
 	};
 
 	const handleNewTagSubmit = (type, value) => {
 		if (!value.trim()) return;
-		
+
 		const trimmedValue = value.trim();
-		
+
 		if (type === 'help') {
-			const currentTypes = formState.helpType ? formState.helpType.split(',').filter(Boolean) : [];
+			const currentTypes = formState.helpType
+				? formState.helpType.split(',').filter(Boolean)
+				: [];
 			if (!currentTypes.includes(trimmedValue)) {
 				const newValue = [...currentTypes, trimmedValue].join(',');
-				setFormState(prev => ({
+				setFormState((prev) => ({
 					...prev,
-					helpType: newValue
+					helpType: newValue,
 				}));
 			}
 			setEditingHelpType(false);
 		} else if (type === 'project') {
-			const currentTypes = formState['project-type'] ? formState['project-type'].split(',').filter(Boolean) : [];
+			const currentTypes = formState['project-type']
+				? formState['project-type'].split(',').filter(Boolean)
+				: [];
 			if (!currentTypes.includes(trimmedValue)) {
 				const newValue = [...currentTypes, trimmedValue].join(',');
-				setFormState(prev => ({
+				setFormState((prev) => ({
 					...prev,
-					'project-type': newValue
+					'project-type': newValue,
 				}));
 			}
 			setEditingProjectType(false);
 		} else if (type === 'deliverables') {
-			const currentDeliverables = formState.deliverables ? formState.deliverables.split(',').filter(Boolean) : [];
+			const currentDeliverables = formState.deliverables
+				? formState.deliverables.split(',').filter(Boolean)
+				: [];
 			if (!currentDeliverables.includes(trimmedValue)) {
-				const newValue = [...currentDeliverables, trimmedValue].join(',');
-				setFormState(prev => ({
+				const newValue = [...currentDeliverables, trimmedValue].join(
+					','
+				);
+				setFormState((prev) => ({
 					...prev,
-					deliverables: newValue
+					deliverables: newValue,
 				}));
 			}
 			setEditingDeliverables(false);
@@ -853,41 +964,63 @@ Additional Context:
 	// Update the tag selection handlers
 	const handleDeliverablesSelect = (option) => {
 		console.log('Selecting deliverable:', option);
-		const currentDeliverables = formState.deliverables ? formState.deliverables.split(',').filter(Boolean) : [];
+		const currentDeliverables = formState.deliverables
+			? formState.deliverables.split(',').filter(Boolean)
+			: [];
 		const newDeliverables = currentDeliverables.includes(option)
-				? currentDeliverables.filter(d => d !== option)
-				: [...currentDeliverables, option];
+			? currentDeliverables.filter((d) => d !== option)
+			: [...currentDeliverables, option];
 		console.log('New deliverables:', newDeliverables);
-		setFormState(prev => ({
+		setFormState((prev) => ({
 			...prev,
-			deliverables: newDeliverables.join(',')
+			deliverables: newDeliverables.join(','),
 		}));
 	};
 
 	// Add handleRemoveTag function
 	const handleRemoveTag = (type, tagToRemove) => {
 		console.log(`Removing tag: ${tagToRemove} from ${type}`);
-		
+
 		if (type === 'help') {
-			const currentTypes = formState.helpType ? formState.helpType.split(',').filter(Boolean) : [];
-			setFormState(prev => ({
+			const currentTypes = formState.helpType
+				? formState.helpType.split(',').filter(Boolean)
+				: [];
+			setFormState((prev) => ({
 				...prev,
-				helpType: currentTypes.filter(tag => tag !== tagToRemove).join(',')
+				helpType: currentTypes
+					.filter((tag) => tag !== tagToRemove)
+					.join(','),
 			}));
 		} else if (type === 'project') {
-			const currentTypes = formState['project-type'] ? formState['project-type'].split(',').filter(Boolean) : [];
-			setFormState(prev => ({
+			const currentTypes = formState['project-type']
+				? formState['project-type'].split(',').filter(Boolean)
+				: [];
+			setFormState((prev) => ({
 				...prev,
-				'project-type': currentTypes.filter(tag => tag !== tagToRemove).join(',')
+				'project-type': currentTypes
+					.filter((tag) => tag !== tagToRemove)
+					.join(','),
 			}));
 		} else if (type === 'deliverables') {
-			const currentDeliverables = formState.deliverables ? formState.deliverables.split(',').filter(Boolean) : [];
-			setFormState(prev => ({
+			const currentDeliverables = formState.deliverables
+				? formState.deliverables.split(',').filter(Boolean)
+				: [];
+			setFormState((prev) => ({
 				...prev,
-				deliverables: currentDeliverables.filter(tag => tag !== tagToRemove).join(',')
+				deliverables: currentDeliverables
+					.filter((tag) => tag !== tagToRemove)
+					.join(','),
 			}));
 		}
 	};
+
+	// Add payment method options
+	const paymentOptions = [
+		{ value: 'invoice', label: 'Invoice (Net 30)' },
+		{ value: 'stripe', label: 'Credit Card (Stripe)' },
+		{ value: 'shares', label: 'Equity/Shares' },
+		{ value: 'hybrid', label: 'Hybrid (Part Cash/Part Equity)' },
+	];
 
 	return (
 		<div className="text-gray-800 h-full">
@@ -895,7 +1028,7 @@ Additional Context:
 				<div className="text-red-500 p-4 rounded bg-red-50 mb-4">
 					<h3 className="font-bold">Error</h3>
 					<p>{error}</p>
-					<button 
+					<button
 						onClick={() => setError(null)}
 						className="mt-2 text-sm text-red-700 underline"
 					>
@@ -1000,7 +1133,8 @@ Additional Context:
 								<div className="mb-6">
 									<div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/20 to-primary/10 text-primary px-6 py-3 rounded-full text-sm font-medium border border-primary/20 shadow-sm">
 										<span>
-											Ready to transform your idea into reality? 
+											Ready to transform your idea into
+											reality?
 											<span className="ml-1">🚀</span>
 										</span>
 									</div>
@@ -1010,61 +1144,124 @@ Additional Context:
 									{/* Main Value Proposition */}
 									<div className="space-y-4">
 										<p className="text-gray-600 leading-relaxed">
-											I bridge design and development to create exceptional digital experiences. With 12+ years of expertise, I help businesses transform ideas into market-ready solutions. Founder experience + enterprise expertise = Unique approach to building successful digital products.
+											I bridge design and development to
+											create exceptional digital
+											experiences. With 12+ years of
+											expertise, I help businesses
+											transform ideas into market-ready
+											solutions. Founder experience +
+											enterprise expertise = Unique
+											approach to building successful
+											digital products.
 										</p>
 									</div>
 
-									<h4 className="text-md font-medium text-gray-900 mt-6">What I Do Best</h4>
+									<h4 className="text-md font-medium text-gray-900 mt-6">
+										What I Do Best
+									</h4>
 
 									{/* Services Grid */}
 									<div className="md:grid md:grid-cols-2 gap-4">
 										<div className="p-4 bg-gray-50 rounded-lg">
 											<div className="flex flex-col items-center gap-2 mb-2 text-primary">
-												<svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-													<path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
-													<path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd"/>
+												<svg
+													className="w-5 h-5"
+													fill="currentColor"
+													viewBox="0 0 20 20"
+												>
+													<path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+													<path
+														fillRule="evenodd"
+														d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+														clipRule="evenodd"
+													/>
 												</svg>
-												<span className="font-medium">Design Systems & UI/UX</span>
+												<span className="font-medium">
+													Design Systems & UI/UX
+												</span>
 											</div>
 											<p className="text-sm text-gray-600">
-												Building scalable, intuitive, and visually compelling experiences. Early adopter of Figma & modern design tools.
+												Building scalable, intuitive,
+												and visually compelling
+												experiences. Early adopter of
+												Figma & modern design tools.
 											</p>
 										</div>
 
 										<div className="p-4 bg-gray-50 rounded-lg">
 											<div className="flex flex-col items-center gap-2 mb-2 text-primary">
-												<svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-													<path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z"/>
-													<path fillRule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clipRule="evenodd"/>
+												<svg
+													className="w-5 h-5"
+													fill="currentColor"
+													viewBox="0 0 20 20"
+												>
+													<path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
+													<path
+														fillRule="evenodd"
+														d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+														clipRule="evenodd"
+													/>
 												</svg>
-												<span className="font-medium">Hands-On Approach</span>
+												<span className="font-medium">
+													Hands-On Approach
+												</span>
 											</div>
 											<p className="text-sm text-gray-600">
-												Turning concepts into functional, high-fidelity prototypes. Eager explorer of emerging tools & AI solutions.
+												Turning concepts into
+												functional, high-fidelity
+												prototypes. Eager explorer of
+												emerging tools & AI solutions.
 											</p>
 										</div>
 
 										<div className="p-4 bg-gray-50 rounded-lg">
 											<div className="flex flex-col items-center gap-2 mb-2 text-primary">
-												<svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-													<path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-1.5 0a6.5 6.5 0 11-11-4.69v.180a3.5 3.5 0 005.6 0V5.31a6.5 6.5 0 015.4 4.69zM10 6a2 2 0 10-4 0v1a2 2 0 104 0V6z" clipRule="evenodd"/>
+												<svg
+													className="w-5 h-5"
+													fill="currentColor"
+													viewBox="0 0 20 20"
+												>
+													<path
+														fillRule="evenodd"
+														d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-1.5 0a6.5 6.5 0 11-11-4.69v.180a3.5 3.5 0 005.6 0V5.31a6.5 6.5 0 015.4 4.69zM10 6a2 2 0 10-4 0v1a2 2 0 104 0V6z"
+														clipRule="evenodd"
+													/>
 												</svg>
-												<span className="font-medium">Product Validation</span>
+												<span className="font-medium">
+													Product Validation
+												</span>
 											</div>
 											<p className="text-sm text-gray-600">
-												Ensuring market fit through strategic user testing and iteration. Data-driven testing & in-field validation.
+												Ensuring market fit through
+												strategic user testing and
+												iteration. Data-driven testing &
+												in-field validation.
 											</p>
 										</div>
 
 										<div className="p-4 bg-gray-50 rounded-lg">
 											<div className="flex flex-col items-center gap-2 mb-2 text-primary">
-												<svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-													<path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd"/>
+												<svg
+													className="w-5 h-5"
+													fill="currentColor"
+													viewBox="0 0 20 20"
+												>
+													<path
+														fillRule="evenodd"
+														d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
+														clipRule="evenodd"
+													/>
 												</svg>
-												<span className="font-medium">Code-Driven Design</span>
+												<span className="font-medium">
+													Code-Driven Design
+												</span>
 											</div>
 											<p className="text-sm text-gray-600">
-												Leveraging React, front-end tools, and AI-driven workflows for efficiency. Bridging design and code with real-world testing.
+												Leveraging React, front-end
+												tools, and AI-driven workflows
+												for efficiency. Bridging design
+												and code with real-world
+												testing.
 											</p>
 										</div>
 									</div>
@@ -1074,18 +1271,20 @@ Additional Context:
 										<div className="flex flex-col md:flex-row gap-4">
 											<button
 												type="button"
-												onClick={() => window.location.hash = ''}
+												onClick={() =>
+													(window.location.hash = '')
+												}
 												className="bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold py-2 px-4 rounded-full"
 											>
 												Cancel
 											</button>
-										<button
-											type="button"
-											onClick={openPortfolio}
-											className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full"
-										>
-											View Portfolio
-										</button>
+											<button
+												type="button"
+												onClick={openPortfolio}
+												className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full"
+											>
+												View Portfolio
+											</button>
 										</div>
 										<button
 											type="button"
@@ -1264,18 +1463,20 @@ Additional Context:
 									<div className="flex gap-4">
 										<button
 											type="button"
-											onClick={() => window.location.hash = ''}
+											onClick={() =>
+												(window.location.hash = '')
+											}
 											className="bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold py-2 px-4 rounded-full"
 										>
 											Cancel
 										</button>
-									<button
-										type="button"
-										onClick={() => goToSlide(0)}
-										className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full"
-									>
-										Previous
-									</button>
+										<button
+											type="button"
+											onClick={() => goToSlide(0)}
+											className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full"
+										>
+											Previous
+										</button>
 									</div>
 									<button
 										type="button"
@@ -1330,16 +1531,26 @@ Additional Context:
 											id="project-description"
 											name="project-description"
 											className={`w-full p-2 border rounded focus:ring-2 focus:ring-primary ${
-												formErrors['project-description'] ? 'border-red-500' : ''
+												formErrors[
+													'project-description'
+												]
+													? 'border-red-500'
+													: ''
 											}`}
 											rows="12"
 											required
-											value={formState['project-description']}
+											value={
+												formState['project-description']
+											}
 											onChange={handleChange}
 										/>
 										{formErrors['project-description'] && (
 											<p className="text-red-500 text-sm mt-1">
-												{formErrors['project-description']}
+												{
+													formErrors[
+														'project-description'
+													]
+												}
 											</p>
 										)}
 									</div>
@@ -1351,7 +1562,13 @@ Additional Context:
 										>
 											What do you need help with? *
 										</label>
-										<div className={`space-y-4 ${formErrors.helpType ? 'border border-red-500 rounded p-2' : ''}`}>
+										<div
+											className={`space-y-4 ${
+												formErrors.helpType
+													? 'border border-red-500 rounded p-2'
+													: ''
+											}`}
+										>
 											<div className="flex flex-wrap gap-2">
 												{/* Predefined tags */}
 												{[
@@ -1362,14 +1579,20 @@ Additional Context:
 													'Prototyping',
 													'Design System',
 													'Front-end',
-													'Research'
+													'Research',
 												].map((option) => (
 													<button
 														key={option}
 														type="button"
-														onClick={() => handleHelpTypeSelect(option)}
+														onClick={() =>
+															handleHelpTypeSelect(
+																option
+															)
+														}
 														className={`px-3 py-1 rounded-full text-sm ${
-															formState.helpType?.includes(option)
+															formState.helpType?.includes(
+																option
+															)
 																? 'bg-primary text-white'
 																: 'bg-gray-100 text-gray-700 hover:bg-gray-200'
 														}`}
@@ -1377,26 +1600,57 @@ Additional Context:
 														{option}
 													</button>
 												))}
-												
+
 												{/* Custom tags */}
-												{formState.helpType?.split(',')
-													.filter(tag => tag && !['Design', 'Development', 'Consultation', 'UI/UX', 'Prototyping', 'Design System', 'Front-end', 'Research'].includes(tag))
-													.map(tag => (
-														<div key={tag} className="bg-primary text-white px-3 py-1 rounded-full text-sm flex items-center gap-2">
+												{formState.helpType
+													?.split(',')
+													.filter(
+														(tag) =>
+															tag &&
+															![
+																'Design',
+																'Development',
+																'Consultation',
+																'UI/UX',
+																'Prototyping',
+																'Design System',
+																'Front-end',
+																'Research',
+															].includes(tag)
+													)
+													.map((tag) => (
+														<div
+															key={tag}
+															className="bg-primary text-white px-3 py-1 rounded-full text-sm flex items-center gap-2"
+														>
 															{tag}
 															<button
 																type="button"
-																onClick={() => handleRemoveTag('help', tag)}
+																onClick={() =>
+																	handleRemoveTag(
+																		'help',
+																		tag
+																	)
+																}
 																className="hover:text-gray-200"
 															>
-																<svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-																	<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+																<svg
+																	className="w-3 h-3"
+																	fill="none"
+																	stroke="currentColor"
+																	viewBox="0 0 24 24"
+																>
+																	<path
+																		strokeLinecap="round"
+																		strokeLinejoin="round"
+																		strokeWidth="2"
+																		d="M6 18L18 6M6 6l12 12"
+																	/>
 																</svg>
 															</button>
 														</div>
-													))
-												}
-												
+													))}
+
 												{/* Add new tag input */}
 												{editingHelpType ? (
 													<div className="bg-gray-100 rounded-full px-3 py-1 flex items-center gap-2">
@@ -1404,10 +1658,22 @@ Additional Context:
 															id="newHelpTypeInput"
 															type="text"
 															value={newTagValue}
-															onChange={(e) => setNewTagValue(e.target.value)}
+															onChange={(e) =>
+																setNewTagValue(
+																	e.target
+																		.value
+																)
+															}
 															onKeyPress={(e) => {
-																if (e.key === 'Enter' && newTagValue.trim()) {
-																	handleNewTagSubmit('help', newTagValue);
+																if (
+																	e.key ===
+																		'Enter' &&
+																	newTagValue.trim()
+																) {
+																	handleNewTagSubmit(
+																		'help',
+																		newTagValue
+																	);
 																}
 															}}
 															className="bg-transparent border-none outline-none text-sm w-24"
@@ -1417,11 +1683,26 @@ Additional Context:
 														{newTagValue.trim() && (
 															<button
 																type="button"
-																onClick={() => handleNewTagSubmit('help', newTagValue)}
+																onClick={() =>
+																	handleNewTagSubmit(
+																		'help',
+																		newTagValue
+																	)
+																}
 																className="text-primary hover:text-primary-dark"
 															>
-																<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-																	<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+																<svg
+																	className="w-4 h-4"
+																	fill="none"
+																	stroke="currentColor"
+																	viewBox="0 0 24 24"
+																>
+																	<path
+																		strokeLinecap="round"
+																		strokeLinejoin="round"
+																		strokeWidth="2"
+																		d="M5 13l4 4L19 7"
+																	/>
 																</svg>
 															</button>
 														)}
@@ -1429,11 +1710,25 @@ Additional Context:
 												) : (
 													<button
 														type="button"
-														onClick={() => handleAddNewTag('help')}
+														onClick={() =>
+															handleAddNewTag(
+																'help'
+															)
+														}
 														className="px-3 py-1 rounded-full text-sm bg-gray-100 text-gray-700 hover:bg-gray-200 flex items-center gap-1"
 													>
-														<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-															<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
+														<svg
+															className="w-4 h-4"
+															fill="none"
+															stroke="currentColor"
+															viewBox="0 0 24 24"
+														>
+															<path
+																strokeLinecap="round"
+																strokeLinejoin="round"
+																strokeWidth="2"
+																d="M12 4v16m8-8H4"
+															/>
 														</svg>
 														<span>Add Custom</span>
 													</button>
@@ -1474,7 +1769,13 @@ Additional Context:
 										>
 											What type of project is this? *
 										</label>
-										<div className={`space-y-4 ${formErrors['project-type'] ? 'border border-red-500 rounded p-2' : ''}`}>
+										<div
+											className={`space-y-4 ${
+												formErrors['project-type']
+													? 'border border-red-500 rounded p-2'
+													: ''
+											}`}
+										>
 											<div className="flex flex-wrap gap-2">
 												{[
 													'Full-time work',
@@ -1483,14 +1784,20 @@ Additional Context:
 													'Hourly',
 													'Fixed price',
 													'Retainer',
-													'Trial project'
+													'Trial project',
 												].map((option) => (
 													<button
 														key={option}
 														type="button"
-														onClick={() => handleProjectTypeSelect(option)}
+														onClick={() =>
+															handleProjectTypeSelect(
+																option
+															)
+														}
 														className={`px-3 py-1 rounded-full text-sm ${
-															formState['project-type']?.includes(option)
+															formState[
+																'project-type'
+															]?.includes(option)
 																? 'bg-primary text-white'
 																: 'bg-gray-100 text-gray-700 hover:bg-gray-200'
 														}`}
@@ -1498,26 +1805,56 @@ Additional Context:
 														{option}
 													</button>
 												))}
-												
+
 												{/* Custom tags */}
-												{formState['project-type']?.split(',')
-													.filter(tag => tag && !['Full-time work', 'Freelance', 'Part-time', 'Hourly', 'Fixed price', 'Retainer', 'Trial project'].includes(tag))
-													.map(tag => (
-														<div key={tag} className="bg-primary text-white px-3 py-1 rounded-full text-sm flex items-center gap-2">
+												{formState['project-type']
+													?.split(',')
+													.filter(
+														(tag) =>
+															tag &&
+															![
+																'Full-time work',
+																'Freelance',
+																'Part-time',
+																'Hourly',
+																'Fixed price',
+																'Retainer',
+																'Trial project',
+															].includes(tag)
+													)
+													.map((tag) => (
+														<div
+															key={tag}
+															className="bg-primary text-white px-3 py-1 rounded-full text-sm flex items-center gap-2"
+														>
 															{tag}
 															<button
 																type="button"
-																onClick={() => handleRemoveTag('project', tag)}
+																onClick={() =>
+																	handleRemoveTag(
+																		'project',
+																		tag
+																	)
+																}
 																className="hover:text-gray-200"
 															>
-																<svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-																	<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+																<svg
+																	className="w-3 h-3"
+																	fill="none"
+																	stroke="currentColor"
+																	viewBox="0 0 24 24"
+																>
+																	<path
+																		strokeLinecap="round"
+																		strokeLinejoin="round"
+																		strokeWidth="2"
+																		d="M6 18L18 6M6 6l12 12"
+																	/>
 																</svg>
 															</button>
 														</div>
-													))
-												}
-												
+													))}
+
 												{/* Add new tag input */}
 												{editingProjectType ? (
 													<div className="bg-gray-100 rounded-full px-3 py-1 flex items-center gap-2">
@@ -1525,10 +1862,22 @@ Additional Context:
 															id="newProjectTypeInput"
 															type="text"
 															value={newTagValue}
-															onChange={(e) => setNewTagValue(e.target.value)}
+															onChange={(e) =>
+																setNewTagValue(
+																	e.target
+																		.value
+																)
+															}
 															onKeyPress={(e) => {
-																if (e.key === 'Enter' && newTagValue.trim()) {
-																	handleNewTagSubmit('project', newTagValue);
+																if (
+																	e.key ===
+																		'Enter' &&
+																	newTagValue.trim()
+																) {
+																	handleNewTagSubmit(
+																		'project',
+																		newTagValue
+																	);
 																}
 															}}
 															className="bg-transparent border-none outline-none text-sm w-24"
@@ -1538,11 +1887,26 @@ Additional Context:
 														{newTagValue.trim() && (
 															<button
 																type="button"
-																onClick={() => handleNewTagSubmit('project', newTagValue)}
+																onClick={() =>
+																	handleNewTagSubmit(
+																		'project',
+																		newTagValue
+																	)
+																}
 																className="text-primary hover:text-primary-dark"
 															>
-																<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-																	<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+																<svg
+																	className="w-4 h-4"
+																	fill="none"
+																	stroke="currentColor"
+																	viewBox="0 0 24 24"
+																>
+																	<path
+																		strokeLinecap="round"
+																		strokeLinejoin="round"
+																		strokeWidth="2"
+																		d="M5 13l4 4L19 7"
+																	/>
 																</svg>
 															</button>
 														)}
@@ -1550,11 +1914,25 @@ Additional Context:
 												) : (
 													<button
 														type="button"
-														onClick={() => handleAddNewTag('project')}
+														onClick={() =>
+															handleAddNewTag(
+																'project'
+															)
+														}
 														className="px-3 py-1 rounded-full text-sm bg-gray-100 text-gray-700 hover:bg-gray-200 flex items-center gap-1"
 													>
-														<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-															<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
+														<svg
+															className="w-4 h-4"
+															fill="none"
+															stroke="currentColor"
+															viewBox="0 0 24 24"
+														>
+															<path
+																strokeLinecap="round"
+																strokeLinejoin="round"
+																strokeWidth="2"
+																d="M12 4v16m8-8H4"
+															/>
 														</svg>
 														<span>Add Custom</span>
 													</button>
@@ -1621,29 +1999,41 @@ Additional Context:
 										>
 											What deliverables do you need? *
 										</label>
-										<div className={`space-y-4 ${formErrors.deliverables ? 'border border-red-500 rounded p-2' : ''}`}>
+										<div
+											className={`space-y-4 ${
+												formErrors.deliverables
+													? 'border border-red-500 rounded p-2'
+													: ''
+											}`}
+										>
 											<div className="flex flex-wrap gap-2">
-											{[
-												'Figma',
-												'Design System',
-												'UI',
-												'UX',
-												'Mentorship',
-												'Front-end development',
-												'Prototyping',
-												'AI-driven exploration',
-												'Real-code Prototypes',
-												'Validate Solutions',
-												'Design Concepts',
-												'Design Evaluation',
-													'CRO'
-											].map((option) => (
+												{[
+													'Figma',
+													'Design System',
+													'UI',
+													'UX',
+													'Mentorship',
+													'Front-end development',
+													'Prototyping',
+													'AI-driven exploration',
+													'Real-code Prototypes',
+													'Validate Solutions',
+													'Design Concepts',
+													'Design Evaluation',
+													'CRO',
+												].map((option) => (
 													<button
-													key={option}
+														key={option}
 														type="button"
-														onClick={() => handleDeliverablesSelect(option)}
+														onClick={() =>
+															handleDeliverablesSelect(
+																option
+															)
+														}
 														className={`px-3 py-1 rounded-full text-sm ${
-															formState.deliverables?.includes(option)
+															formState.deliverables?.includes(
+																option
+															)
 																? 'bg-primary text-white'
 																: 'bg-gray-100 text-gray-700 hover:bg-gray-200'
 														}`}
@@ -1651,37 +2041,85 @@ Additional Context:
 														{option}
 													</button>
 												))}
-												
+
 												{/* Custom deliverables tags */}
-												{formState.deliverables?.split(',')
-													.filter(tag => tag && !['Figma', 'Design System', 'UI', 'UX', 'Mentorship', 'Front-end development', 'Prototyping', 'AI-driven exploration', 'Real-code Prototypes', 'Validate Solutions', 'Design Concepts', 'Design Evaluation', 'CRO'].includes(tag))
-													.map(tag => (
-														<div key={tag} className="bg-primary text-white px-3 py-1 rounded-full text-sm flex items-center gap-2">
+												{formState.deliverables
+													?.split(',')
+													.filter(
+														(tag) =>
+															tag &&
+															![
+																'Figma',
+																'Design System',
+																'UI',
+																'UX',
+																'Mentorship',
+																'Front-end development',
+																'Prototyping',
+																'AI-driven exploration',
+																'Real-code Prototypes',
+																'Validate Solutions',
+																'Design Concepts',
+																'Design Evaluation',
+																'CRO',
+															].includes(tag)
+													)
+													.map((tag) => (
+														<div
+															key={tag}
+															className="bg-primary text-white px-3 py-1 rounded-full text-sm flex items-center gap-2"
+														>
 															{tag}
 															<button
 																type="button"
-																onClick={() => handleRemoveTag('deliverables', tag)}
+																onClick={() =>
+																	handleRemoveTag(
+																		'deliverables',
+																		tag
+																	)
+																}
 																className="hover:text-gray-200"
 															>
-																<svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-																	<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+																<svg
+																	className="w-3 h-3"
+																	fill="none"
+																	stroke="currentColor"
+																	viewBox="0 0 24 24"
+																>
+																	<path
+																		strokeLinecap="round"
+																		strokeLinejoin="round"
+																		strokeWidth="2"
+																		d="M6 18L18 6M6 6l12 12"
+																	/>
 																</svg>
 															</button>
-										</div>
-													))
-												}
-												
+														</div>
+													))}
+
 												{/* Add new deliverable input */}
 												{editingDeliverables ? (
 													<div className="bg-gray-100 rounded-full px-3 py-1 flex items-center gap-2">
-												<input
+														<input
 															id="newDeliverableInput"
 															type="text"
 															value={newTagValue}
-															onChange={(e) => setNewTagValue(e.target.value)}
+															onChange={(e) =>
+																setNewTagValue(
+																	e.target
+																		.value
+																)
+															}
 															onKeyPress={(e) => {
-																if (e.key === 'Enter' && newTagValue.trim()) {
-																	handleNewTagSubmit('deliverables', newTagValue);
+																if (
+																	e.key ===
+																		'Enter' &&
+																	newTagValue.trim()
+																) {
+																	handleNewTagSubmit(
+																		'deliverables',
+																		newTagValue
+																	);
 																}
 															}}
 															className="bg-transparent border-none outline-none text-sm w-24"
@@ -1691,28 +2129,57 @@ Additional Context:
 														{newTagValue.trim() && (
 															<button
 																type="button"
-																onClick={() => handleNewTagSubmit('deliverables', newTagValue)}
+																onClick={() =>
+																	handleNewTagSubmit(
+																		'deliverables',
+																		newTagValue
+																	)
+																}
 																className="text-primary hover:text-primary-dark"
 															>
-																<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-																	<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+																<svg
+																	className="w-4 h-4"
+																	fill="none"
+																	stroke="currentColor"
+																	viewBox="0 0 24 24"
+																>
+																	<path
+																		strokeLinecap="round"
+																		strokeLinejoin="round"
+																		strokeWidth="2"
+																		d="M5 13l4 4L19 7"
+																	/>
 																</svg>
 															</button>
 														)}
-												</div>
+													</div>
 												) : (
 													<button
 														type="button"
-														onClick={() => setEditingDeliverables(true)}
+														onClick={() =>
+															setEditingDeliverables(
+																true
+															)
+														}
 														className="px-3 py-1 rounded-full text-sm bg-gray-100 text-gray-700 hover:bg-gray-200 flex items-center gap-1"
 													>
-														<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-															<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
+														<svg
+															className="w-4 h-4"
+															fill="none"
+															stroke="currentColor"
+															viewBox="0 0 24 24"
+														>
+															<path
+																strokeLinecap="round"
+																strokeLinejoin="round"
+																strokeWidth="2"
+																d="M12 4v16m8-8H4"
+															/>
 														</svg>
 														<span>Add Custom</span>
 													</button>
-											)}
-										</div>
+												)}
+											</div>
 										</div>
 										{formErrors.deliverables && (
 											<p className="text-red-500 text-sm mt-1">
@@ -1740,7 +2207,9 @@ Additional Context:
 											}}
 											required
 											className={`w-full p-2 border rounded focus:ring-2 focus:ring-primary ${
-												formErrors.budget ? 'border-red-500' : ''
+												formErrors.budget
+													? 'border-red-500'
+													: ''
 											}`}
 										>
 											<option value="">
@@ -1781,17 +2250,24 @@ Additional Context:
 														id="budgetOther"
 														name="budgetOther"
 														placeholder="Please describe your budget range..."
-														value={formState.budgetOther || ''}
+														value={
+															formState.budgetOther ||
+															''
+														}
 														onChange={handleChange}
 														className={`w-full p-2 border rounded focus:ring-2 focus:ring-primary ${
-															formErrors.budgetOther ? 'border-red-500' : ''
+															formErrors.budgetOther
+																? 'border-red-500'
+																: ''
 														}`}
 														rows="2"
 														required
 													/>
 													{formErrors.budgetOther && (
 														<p className="text-red-500 text-sm mt-1">
-															{formErrors.budgetOther}
+															{
+																formErrors.budgetOther
+															}
 														</p>
 													)}
 												</div>
@@ -1808,22 +2284,83 @@ Additional Context:
 														type="text"
 														id="price-other"
 														name="price-other"
-														value={formState['price-other']}
+														value={
+															formState[
+																'price-other'
+															]
+														}
 														onChange={handleChange}
 														className={`w-full p-2 border rounded focus:ring-2 focus:ring-primary ${
-															formErrors['price-other'] ? 'border-red-500' : ''
+															formErrors[
+																'price-other'
+															]
+																? 'border-red-500'
+																: ''
 														}`}
 														placeholder="e.g. $5000"
 														required
 													/>
-													{formErrors['price-other'] && (
+													{formErrors[
+														'price-other'
+													] && (
 														<p className="text-red-500 text-sm mt-1">
-															{formErrors['price-other']}
+															{
+																formErrors[
+																	'price-other'
+																]
+															}
 														</p>
 													)}
 												</div>
 											</div>
 										)}
+
+										{/* Add after the budget section's closing </div> */}
+										<div className="mb-6">
+											<label
+												htmlFor="payment-method"
+												className="block mb-2 font-medium text-left"
+											>
+												What's your preferred payment
+												method? *
+											</label>
+											<select
+												id="payment-method"
+												name="payment-method"
+												value={
+													formState['payment-method']
+												}
+												onChange={handleChange}
+												className={`w-full p-2 border rounded focus:ring-2 focus:ring-primary ${
+													formErrors['payment-method']
+														? 'border-red-500'
+														: ''
+												}`}
+												required
+											>
+												{paymentOptions.map(
+													(option) => (
+														<option
+															key={option.value}
+															value={option.value}
+														>
+															{option.label}
+														</option>
+													)
+												)}
+											</select>
+
+											{formState['payment-method'] ===
+												'stripe' && (
+												<div className="mt-4 p-4 bg-gray-50 rounded-lg">
+													<p className="text-sm text-gray-600">
+														You'll be redirected to
+														our secure payment page
+														after form submission.
+													</p>
+												</div>
+											)}
+										</div>
 									</div>
 								</div>
 

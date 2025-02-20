@@ -7,6 +7,7 @@ import {
 } from 'firebase/auth';
 import { getFirestore, connectFirestoreEmulator } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
+import { getFunctions } from 'firebase/functions';
 
 const firebaseConfig = {
 	apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -27,12 +28,14 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 const storage = getStorage(app);
+const functions = getFunctions(app);
 
 console.log('Firebase initialized:', {
 	app: !!app,
 	auth: !!auth,
 	db: !!db,
 	storage: !!storage,
+	functions: !!functions,
 });
 
 // Enable persistent auth state
@@ -40,4 +43,4 @@ setPersistence(auth, browserLocalPersistence)
 	.then(() => console.log('Auth persistence enabled'))
 	.catch((error) => console.error('Auth persistence error:', error));
 
-export { app, auth, db, storage };
+export { app, auth, db, storage, functions };

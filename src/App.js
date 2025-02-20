@@ -35,6 +35,8 @@ import Login from './pages/admin/Login';
 import DataMigration from './components/admin/DataMigration';
 import ProjectDetail from './pages/admin/ProjectDetail';
 import ProjectsList from './pages/admin/ProjectsList';
+import PaymentSuccess from './pages/PaymentSuccess';
+import PaymentCancel from './pages/PaymentCancel';
 
 // Create a wrapper component to handle location-based rendering
 // const FloatingButtonWrapper = ({
@@ -441,6 +443,8 @@ function AppContent({ openPortfolio, isPortfolioOpen, closePortfolio }) {
 					/>
 				</Route>
 				<Route path="/admin/migrate" element={<DataMigration />} />
+				<Route path="/success" element={<PaymentSuccess />} />
+				<Route path="/cancel" element={<PaymentCancel />} />
 			</Routes>
 
 			{!isAdminRoute && (
