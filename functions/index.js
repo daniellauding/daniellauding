@@ -29,29 +29,17 @@ exports.onNewProjectRequest = functions.firestore
 			html: `
                 <h2>New Project Request</h2>
                 <p><strong>Project Name:</strong> ${projectData.projectName}</p>
-                <p><strong>From:</strong> ${projectData['full-name']} (${
-	projectData.email
-})</p>
-                <p><strong>Company:</strong> ${projectData['company-name']}</p>
+                <p><strong>From:</strong> ${projectData.fullName} (${projectData.email})</p>
+                <p><strong>Company:</strong> ${projectData.companyName}</p>
                 <p><strong>Budget Range:</strong> ${projectData.budget}</p>
-                <p><strong>Payment Method:</strong> ${
-	projectData['payment-method']
-}</p>
+                <p><strong>Payment Method:</strong> ${projectData.paymentMethod}</p>
                 <h3>Project Description:</h3>
-                <pre>${projectData['project-description']}</pre>
+                <pre>${projectData.projectDescription}</pre>
                 <p><strong>Help Type:</strong> ${projectData.helpType}</p>
-                <p><strong>Project Type:</strong> ${
-	projectData['project-type']
-}</p>
-                <p><strong>Deliverables:</strong> ${
-	projectData.deliverables
-}</p>
-                <p><strong>Files:</strong> ${
-	projectData.files ? projectData.files.length : 0
-} attachments</p>
-                <p>View in admin: https://daniellauding.se/admin/submissions/${
-	snap.id
-}</p>
+                <p><strong>Project Type:</strong> ${projectData.projectType}</p>
+                <p><strong>Deliverables:</strong> ${projectData.deliverables}</p>
+                <p><strong>Files:</strong> ${projectData.files ? projectData.files.length : 0} attachments</p>
+                <p>View in admin: https://daniellauding.se/admin/submissions/${snap.id}</p>
             `,
 		};
 
@@ -62,12 +50,12 @@ exports.onNewProjectRequest = functions.firestore
 			subject: 'Project Request Received',
 			html: `
                 <h2>Thank you for your project request</h2>
-                <p>Hi ${projectData['full-name']},</p>
+                <p>Hi ${projectData.fullName},</p>
                 <p>I've received your project request for "${projectData.projectName}" and will review it shortly.</p>
                 <p>Project Details:</p>
                 <ul>
                     <li>Budget Range: ${projectData.budget}</li>
-                    <li>Payment Method: ${projectData['payment-method']}</li>
+                    <li>Payment Method: ${projectData.paymentMethod}</li>
                 </ul>
                 <p>I'll get back to you within 1-2 business days with more information.</p>
                 <p>Best regards,<br>Daniel Lauding</p>

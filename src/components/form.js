@@ -71,7 +71,19 @@ Additional Context:
 		try {
 			// Create the project request in Firebase
 			const projectData = {
-				...formState,
+				projectName: formState.projectName,
+				projectDescription: formState['project-description'],
+				helpType: formState.helpType,
+				projectType: formState['project-type'],
+				deliverables: formState.deliverables,
+				budget: formState.budget,
+				budgetOther: formState.budgetOther,
+				priceOther: formState['price-other'],
+				fullName: formState['full-name'],
+				companyName: formState['company-name'],
+				email: formState.email,
+				paymentMethod: formState['payment-method'],
+				files: formState.files,
 				createdAt: new Date(),
 				status: 'pending',
 			};
@@ -86,18 +98,19 @@ Additional Context:
 			if (formState['payment-method'] === 'stripe') {
 				try {
 					await createPaymentSession({
-						projectName: formState.projectName || 'Project Request', // Provide default
+						projectName: formState.projectName,
 						budget:
 							formState.budget === 'Other'
 								? formState['price-other']
 								: formState.budget,
 						contact: {
 							email: formState.email,
+							fullName: formState['full-name'],
 						},
 					});
 				} catch (stripeError) {
 					console.error('Stripe error:', stripeError);
-					throw stripeError; // Propagate the error
+					throw stripeError;
 				}
 			}
 
