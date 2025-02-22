@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import emailjs from '@emailjs/browser';
-import { getStorage, ref, uploadBytes, getDownloadURL, updateDoc } from 'firebase/storage';
-import { collection, addDoc } from 'firebase/firestore';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { collection, addDoc, doc, updateDoc } from 'firebase/firestore';
 import { storage, db } from '../firebase'; // Import from centralized firebase.js
 import { createPaymentSession } from '../utils/stripe'; // Import from utils/stripe.js
 
@@ -73,7 +73,10 @@ Additional Context:
 			let fileUrls = [];
 			if (formState.files.length > 0) {
 				for (const file of formState.files) {
-					const storageRef = ref(storage, `project-files/${Date.now()}-${file.name}`);
+					const storageRef = ref(
+						storage,
+						`project-files/${Date.now()}-${file.name}`
+					);
 					await uploadBytes(storageRef, file);
 					const url = await getDownloadURL(storageRef);
 					fileUrls.push(url);
@@ -84,54 +87,86 @@ Additional Context:
 			const projectData = {
 				projectName: formState.projectName,
 				projectDescription: formState['project-description'],
-					helpTypes: formState.helpType ? formState.helpType.split(',').filter(Boolean) : [],
-					projectTypes: formState['project-type'] ? formState['project-type'].split(',').filter(Boolean) : [],
-					deliverables: formState.deliverables ? formState.deliverables.split(',').filter(Boolean) : [],
-					budget: {
-						range: formState.budget,
-						description: formState.budgetOther || '',
-						exactAmount: formState['price-other'] || ''
-					},
+				helpTypes: formState.helpType ? [formState.helpType] : [],
+				helpTypeOther: formState.helpTypeOther,
+				projectTypes: formState['project-type']
+					? [formState['project-type']]
+					: [],
+				projectTypeOther: formState['project-type-other'],
+				deliverables: formState.deliverables
+					? [formState.deliverables]
+					: [],
+				deliverablesOther: formState.deliverablesOther,
+				budget: {
+					range: formState.budget,
+					description: formState.budgetOther || '',
+					exactAmount: formState['price-other'] || '',
+				},
+				contact: {
 					fullName: formState['full-name'],
-					companyName: formState['company-name'],
+					company: formState['company-name'],
 					email: formState.email,
-					paymentMethod: formState['payment-method'],
-					fileUrls,
-					createdAt: new Date(),
-					status: 'pending',
-					paid: false
+				},
+				paymentMethod:
+					formState['payment-method'] === 'credit-card'
+						? 'stripe'
+						: formState['payment-method'],
+				'payment-method': formState['payment-method'], // Add this for backward compatibility
+				fileUrls,
+				createdAt: new Date(),
+				status: 'pending',
+				paid: false,
 			};
 
+			// Log the data before saving
+			console.log('Saving project data:', projectData);
+
 			// Save to Firestore
-			const docRef = await addDoc(collection(db, 'projectRequests'), projectData);
+			const docRef = await addDoc(
+				collection(db, 'projectRequests'),
+				projectData
+			);
 
 			// If Stripe payment method is selected
-			if (formState['payment-method'] === 'stripe') {
-				const stripeSession = await createPaymentSession({
-					projectName: formState.projectName,
-					budget: formState.budget === 'Other' ? formState['price-other'] : formState.budget,
-					contact: {
-						email: formState.email,
-						fullName: formState['full-name']
-					}
-				});
+			if (formState['payment-method'] === 'credit-card') {
+				try {
+					// Log the payment data being sent to Stripe
+					console.log('Creating Stripe payment for:', {
+						projectName: projectData.projectName,
+						budget: projectData.budget.range,
+						contact: projectData.contact,
+						paymentMethod: projectData.paymentMethod,
+					});
 
-				// Update document with Stripe payment link
-				await updateDoc(docRef, {
-					stripePaymentLink: stripeSession.url
-				});
+					const stripeSession = await createPaymentSession({
+						projectName: projectData.projectName,
+						budget: projectData.budget.range,
+						contact: projectData.contact,
+					});
 
-				// Redirect to Stripe
-				window.location.href = stripeSession.url;
+					await updateDoc(doc(db, 'projectRequests', docRef.id), {
+						stripePaymentLink: stripeSession.url,
+						stripeSessionId: stripeSession.id,
+						paid: false,
+					});
+
+					window.location.href = stripeSession.url;
+				} catch (stripeError) {
+					console.error('Stripe error:', stripeError);
+					setFormErrors((prev) => ({
+						...prev,
+						submit: `Payment error: ${stripeError.message}`,
+					}));
+				}
 			}
 
 			setSubmitted(true);
 			if (closeContactModal) closeContactModal();
 		} catch (error) {
 			console.error('Submission error:', error);
-			setFormErrors(prev => ({
+			setFormErrors((prev) => ({
 				...prev,
-				submit: error.message
+				submit: error.message,
 			}));
 		} finally {
 			setSubmitting(false);
@@ -692,6 +727,49 @@ Additional Context:
 	const [newTagValue, setNewTagValue] = useState('');
 	const [error, setError] = useState(null);
 
+	const [validatedTabs, setValidatedTabs] = useState({
+		intro: false,
+		work: false,
+		project: false,
+		details: false,
+	});
+
+	const validateTab = (tabName) => {
+		switch (tabName) {
+			case 'intro':
+				return (
+				!!formState.projectName &&
+					!!formState['project-description']
+			);
+			case 'work':
+				return !!formState.helpType && !!formState['project-type'];
+			case 'project':
+				return !!formState.deliverables && !!formState.budget;
+			case 'details':
+				return !!formState['full-name'] && !!formState.email;
+			default:
+				return false;
+		}
+	};
+
+	const handleTabClick = (index) => {
+		const tabNames = ['intro', 'work', 'project', 'details'];
+		const currentTab = tabNames[index];
+
+		if (validateTab(currentTab)) {
+			setValidatedTabs((prev) => ({
+				...prev,
+				[currentTab]: true,
+			}));
+			goToSlide(index);
+		} else {
+			setFormErrors((prev) => ({
+				...prev,
+				[currentTab]: 'Please complete all required fields',
+			}));
+		}
+	};
+
 	// Create a navigation helper
 	const goToSlide = (slideNumber) => {
 		if (slideNumber > currentSlide) {
@@ -761,14 +839,12 @@ Additional Context:
 			const projectData = {
 				projectName: formState.projectName,
 				projectDescription: formState['project-description'],
-				helpTypes: formState.helpType
-					? formState.helpType.split(',').filter(Boolean)
-					: [],
+				helpTypes: formState.helpType ? [formState.helpType] : [],
 				projectTypes: formState['project-type']
-					? formState['project-type'].split(',').filter(Boolean)
+					? [formState['project-type']]
 					: [],
 				deliverables: formState.deliverables
-					? formState.deliverables.split(',').filter(Boolean)
+					? [formState.deliverables]
 					: [],
 				budget: {
 					range: formState.budget,
@@ -893,9 +969,7 @@ Additional Context:
 	// Update the tag selection handlers
 	const handleHelpTypeSelect = (option) => {
 		console.log('Selecting help type:', option);
-		const currentTypes = formState.helpType
-			? formState.helpType.split(',').filter(Boolean)
-			: [];
+		const currentTypes = formState.helpType ? [formState.helpType] : [];
 		const newTypes = currentTypes.includes(option)
 			? currentTypes.filter((t) => t !== option)
 			: [...currentTypes, option];
@@ -909,7 +983,7 @@ Additional Context:
 	const handleProjectTypeSelect = (option) => {
 		console.log('Selecting project type:', option);
 		const currentTypes = formState['project-type']
-			? formState['project-type'].split(',').filter(Boolean)
+			? [formState['project-type']]
 			: [];
 		const newTypes = currentTypes.includes(option)
 			? currentTypes.filter((t) => t !== option)
@@ -944,9 +1018,7 @@ Additional Context:
 		const trimmedValue = value.trim();
 
 		if (type === 'help') {
-			const currentTypes = formState.helpType
-				? formState.helpType.split(',').filter(Boolean)
-				: [];
+			const currentTypes = formState.helpType ? [formState.helpType] : [];
 			if (!currentTypes.includes(trimmedValue)) {
 				const newValue = [...currentTypes, trimmedValue].join(',');
 				setFormState((prev) => ({
@@ -957,7 +1029,7 @@ Additional Context:
 			setEditingHelpType(false);
 		} else if (type === 'project') {
 			const currentTypes = formState['project-type']
-				? formState['project-type'].split(',').filter(Boolean)
+				? [formState['project-type']]
 				: [];
 			if (!currentTypes.includes(trimmedValue)) {
 				const newValue = [...currentTypes, trimmedValue].join(',');
@@ -969,7 +1041,7 @@ Additional Context:
 			setEditingProjectType(false);
 		} else if (type === 'deliverables') {
 			const currentDeliverables = formState.deliverables
-				? formState.deliverables.split(',').filter(Boolean)
+				? [formState.deliverables]
 				: [];
 			if (!currentDeliverables.includes(trimmedValue)) {
 				const newValue = [...currentDeliverables, trimmedValue].join(
@@ -989,7 +1061,7 @@ Additional Context:
 	const handleDeliverablesSelect = (option) => {
 		console.log('Selecting deliverable:', option);
 		const currentDeliverables = formState.deliverables
-			? formState.deliverables.split(',').filter(Boolean)
+			? [formState.deliverables]
 			: [];
 		const newDeliverables = currentDeliverables.includes(option)
 			? currentDeliverables.filter((d) => d !== option)
@@ -1006,9 +1078,7 @@ Additional Context:
 		console.log(`Removing tag: ${tagToRemove} from ${type}`);
 
 		if (type === 'help') {
-			const currentTypes = formState.helpType
-				? formState.helpType.split(',').filter(Boolean)
-				: [];
+			const currentTypes = formState.helpType ? [formState.helpType] : [];
 			setFormState((prev) => ({
 				...prev,
 				helpType: currentTypes
@@ -1017,7 +1087,7 @@ Additional Context:
 			}));
 		} else if (type === 'project') {
 			const currentTypes = formState['project-type']
-				? formState['project-type'].split(',').filter(Boolean)
+				? [formState['project-type']]
 				: [];
 			setFormState((prev) => ({
 				...prev,
@@ -1027,7 +1097,7 @@ Additional Context:
 			}));
 		} else if (type === 'deliverables') {
 			const currentDeliverables = formState.deliverables
-				? formState.deliverables.split(',').filter(Boolean)
+				? [formState.deliverables]
 				: [];
 			setFormState((prev) => ({
 				...prev,

@@ -130,15 +130,88 @@ const SubmissionDetail = () => {
 						</div>
 						<div>
 							<dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
-								Budget
+								Help Types
 							</dt>
 							<dd className="mt-1 text-gray-900 dark:text-white">
-								{typeof request.budget === 'object'
-									? request.budget.range ||
-									  request.budget.description
-									: request.budget}
-								{request.budgetOther &&
-									` (${request.budgetOther})`}
+								{request.helpTypes?.join(', ') ||
+									'Not specified'}
+								{request.helpTypeOther && (
+									<span className="block text-sm text-gray-500">
+										Other: {request.helpTypeOther}
+									</span>
+								)}
+							</dd>
+						</div>
+						<div>
+							<dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
+								Project Type
+							</dt>
+							<dd className="mt-1 text-gray-900 dark:text-white">
+								{request.projectTypes?.join(', ') ||
+									'Not specified'}
+								{request.projectTypeOther && (
+									<span className="block text-sm text-gray-500">
+										Other: {request.projectTypeOther}
+									</span>
+								)}
+							</dd>
+						</div>
+						<div>
+							<dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
+								Deliverables
+							</dt>
+							<dd className="mt-1 text-gray-900 dark:text-white">
+								{request.deliverables?.join(', ') ||
+									'Not specified'}
+								{request.deliverablesOther && (
+									<span className="block text-sm text-gray-500">
+										Other: {request.deliverablesOther}
+									</span>
+								)}
+							</dd>
+						</div>
+						<div>
+							<dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
+								Budget Details
+							</dt>
+							<dd className="mt-1 text-gray-900 dark:text-white">
+								<div>
+									Range:{' '}
+									{request.budget?.range || 'Not specified'}
+								</div>
+								{request.budget?.description && (
+									<div className="text-sm text-gray-500">
+										Description:{' '}
+										{request.budget.description}
+									</div>
+								)}
+								{request.budget?.exactAmount && (
+									<div className="text-sm text-gray-500">
+										Exact Amount:{' '}
+										{request.budget.exactAmount}
+									</div>
+								)}
+							</dd>
+						</div>
+						<div>
+							<dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
+								Payment Method
+							</dt>
+							<dd className="mt-1 text-gray-900 dark:text-white">
+								{(request['payment-method'] === 'credit-card'
+									? 'Stripe'
+									: request.paymentMethod) ||
+									request['payment-method'] ||
+									'Invoice'}
+							</dd>
+						</div>
+						<div>
+							<dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
+								Submission Date & Time
+							</dt>
+							<dd className="mt-1 text-gray-900 dark:text-white">
+								{request.createdAt?.toDate().toLocaleString() ||
+									'Not available'}
 							</dd>
 						</div>
 					</dl>
@@ -176,6 +249,29 @@ const SubmissionDetail = () => {
 							))}
 						</div>
 					</section>
+				)}
+
+				{request.paymentMethod === 'stripe' && !request.paid && (
+					<div className="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded">
+						<div className="flex items-center justify-between">
+							<div>
+								<h3 className="text-lg font-medium text-yellow-800">
+									Payment Pending
+								</h3>
+								<p className="text-sm text-yellow-600">
+									Payment method: Stripe
+								</p>
+							</div>
+							{request.stripePaymentLink && (
+								<a
+									href={request.stripePaymentLink}
+									className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+								>
+									Complete Payment
+								</a>
+							)}
+						</div>
+					</div>
 				)}
 			</div>
 		</div>

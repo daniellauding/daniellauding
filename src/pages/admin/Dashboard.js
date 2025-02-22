@@ -315,60 +315,79 @@ const Dashboard = () => {
 										recentSubmissions.map((request) => (
 											<button
 												key={request.id}
-												className="w-full text-left border dark:border-gray-700 rounded p-4 hover:bg-gray-50 dark:hover:bg-gray-700"
 												onClick={() =>
 													navigate(
 														`/admin/submissions/${request.id}`
 													)
 												}
+												className="w-full text-left p-4 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg"
 											>
-												<h4 className="font-medium text-gray-900 dark:text-white">
-													{request.contact
-														?.fullName ||
-														'Unnamed Request'}
-												</h4>
-												<div className="space-y-1">
-													<p className="text-sm text-gray-500 dark:text-gray-400">
-														{request.contact
-															?.email ||
-															'No email provided'}
-													</p>
-													{request.contact
-														?.company && (
-														<p className="text-sm text-gray-500 dark:text-gray-400">
-															Company:{' '}
+												<div className="flex justify-between items-start">
+													<div>
+														<h3 className="text-lg font-semibold text-gray-900 dark:text-white">
 															{
-																request.contact
-																	.company
+																request.projectName
 															}
+														</h3>
+														<p className="text-sm text-gray-600 dark:text-gray-300">
+															{request.fullName} (
+															{request.email})
 														</p>
-													)}
-													<p className="text-xs text-gray-400 dark:text-gray-500">
-														Project:{' '}
-														{request.projectName}
-													</p>
-													<p className="text-xs text-gray-400 dark:text-gray-500">
-														Budget:{' '}
-														{typeof request.budget ===
-														'object'
-															? request.budget
-																.range ||
-															  request.budget
-															  	.description ||
-															  'Not specified'
-															: request.budget}
-														{request.budgetOther
-															? ` (${request.budgetOther})`
-															: ''}
-													</p>
-													<p className="text-xs text-gray-400 dark:text-gray-500">
-														{request.createdAt
-															?.toDate
-															? new Date(
-																request.createdAt.toDate()
-															  ).toLocaleDateString()
-															: 'No date'}
-													</p>
+														<div className="mt-2 space-y-1">
+															<p className="text-sm text-gray-500">
+																<span className="font-medium">
+																	Help Types:
+																</span>{' '}
+																{request.helpTypes?.join(
+																	', '
+																)}
+															</p>
+															<p className="text-sm text-gray-500">
+																<span className="font-medium">
+																	Project
+																	Type:
+																</span>{' '}
+																{request.projectTypes?.join(
+																	', '
+																)}
+															</p>
+														</div>
+														<div className="mt-2 flex items-center gap-2">
+															<span
+																className={`text-xs px-2 py-1 rounded-full ${
+																	request.paymentMethod ===
+																	'stripe'
+																		? 'bg-green-100 text-green-800'
+																		: 'bg-blue-100 text-blue-800'
+																}`}
+															>
+																{request.paymentMethod ||
+																	'Invoice'}
+															</span>
+															<span className="text-xs text-gray-500">
+																{request.createdAt
+																	?.toDate()
+																	.toLocaleString()}
+															</span>
+														</div>
+													</div>
+													<div className="text-right">
+														<div className="text-sm font-medium text-gray-900">
+															{request.budget
+																?.range ||
+																request.budget}
+														</div>
+														{request.budget
+															?.description && (
+															<div className="text-xs text-gray-500">
+																{
+																	request
+																		.budget
+																		.description
+																}
+															</div>
+														)}
+													</div>
 												</div>
 											</button>
 										))
