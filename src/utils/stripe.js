@@ -9,34 +9,32 @@ export const createPaymentSession = async (projectData) => {
 	try {
 		const stripe = await stripePromise;
 
-		// Ensure we have valid data
-		if (!projectData.projectName) {
-			throw new Error('Project name is required');
+		if (!projectData.projectName || !projectData.budget) {
+			throw new Error('Missing required payment information');
 		}
 
-		if (!projectData.budget) {
-			throw new Error('Budget is required');
-		}
-
-		// Call Firebase function
 		const createStripeCheckout = httpsCallable(
 			functions,
 			'createPaymentSession'
 		);
 
-		// Convert budget string to number and remove non-numeric characters
-		const amount = projectData.budget.replace(/[^0-9]/g, '');
+		// Ensure amount is properly formatted
+		const amount =
+			typeof projectData.budget === 'string'
+				? projectData.budget.replace(/[^0-9]/g, '')
+				: projectData.budget;
 
 		const { data } = await createStripeCheckout({
 			projectName: projectData.projectName,
 			amount: amount,
 			contact: {
 				email: projectData.contact.email,
+				fullName: projectData.contact.fullName,
 			},
 		});
 
 		if (!data.id) {
-			throw new Error('No session ID returned');
+			throw new Error('Failed to create payment session');
 		}
 
 		// Redirect to Stripe Checkout
@@ -48,7 +46,7 @@ export const createPaymentSession = async (projectData) => {
 			throw new Error(result.error.message);
 		}
 	} catch (error) {
-		console.error('Payment error:', error);
+		console.error('Payment session creation error:', error);
 		throw error;
 	}
 };
