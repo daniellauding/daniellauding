@@ -650,24 +650,25 @@ Additional Context:
 • Key stakeholders:
 • Technical constraints:`;
 
-	// Single formState declaration with initialTemplate
+	// Update the formState structure to match the email template and Firebase storage
 	const [formState, setFormState] = useState({
 		projectName: '',
-		'project-description': initialTemplate,
+		projectDescription: initialTemplate,
 		helpType: '',
-		helpTypeOther: '',
-		'project-type': '',
-		'project-type-other': '',
+		projectType: '',
 		deliverables: '',
-		deliverablesOther: '',
-		budget: '',
-		budgetOther: '',
-		'price-other': '',
-		'full-name': '',
-		'company-name': '',
-		email: '',
+		budget: {
+			range: '',
+			description: '',
+			exactAmount: '',
+		},
+		paymentMethod: 'invoice', // Default to invoice
+		contact: {
+			fullName: '',
+			company: '',
+			email: '',
+		},
 		files: [],
-		'payment-method': 'invoice', // Set invoice as default
 	});
 
 	// Rest of the state declarations
@@ -746,35 +747,34 @@ Additional Context:
 				}
 			}
 
-			// Prepare data for Firestore with complete budget information
+			// Prepare data for Firestore with complete information
 			const projectData = {
 				projectName: formState.projectName,
-				projectDescription: formState['project-description'],
+				projectDescription: formState.projectDescription,
 				helpTypes: formState.helpType
 					? formState.helpType.split(',').filter(Boolean)
 					: [],
-				projectTypes: formState['project-type']
-					? formState['project-type'].split(',').filter(Boolean)
+				projectTypes: formState.projectType
+					? formState.projectType.split(',').filter(Boolean)
 					: [],
 				deliverables: formState.deliverables
 					? formState.deliverables.split(',').filter(Boolean)
 					: [],
 				budget: {
-					range: formState.budget,
-					description: formState.budgetOther || '', // Include budget description
-					exactAmount: formState['price-other'] || '', // Include exact amount
+					range: formState.budget.range,
+					description: formState.budget.description,
+					exactAmount: formState.budget.exactAmount,
 				},
 				contact: {
-					fullName: formState['full-name'],
-					company: formState['company-name'],
-					email: formState.email,
+					fullName: formState.contact.fullName,
+					company: formState.contact.company,
+					email: formState.contact.email,
 				},
+				paymentMethod: formState.paymentMethod,
 				fileUrls,
 				createdAt: new Date(),
 				status: 'new',
 			};
-
-			console.log('Submitting complete project data:', projectData);
 
 			// Save to Firestore
 			const docRef = await addDoc(
@@ -784,15 +784,13 @@ Additional Context:
 			console.log('Document written with ID:', docRef.id);
 
 			// If Stripe payment method is selected, redirect to Stripe
-			if (formState['payment-method'] === 'stripe') {
+			if (formState.paymentMethod === 'stripe') {
 				await createPaymentSession({
-					projectName: formState['project-name'],
+					projectName: formState.projectName,
 					budget:
-						formState.budget === 'other'
-							? formState['price-other']
-							: formState.budget,
+						formState.budget.exactAmount || formState.budget.range,
 					contact: {
-						email: formState.email,
+						email: formState.contact.email,
 					},
 				});
 			}
@@ -800,14 +798,8 @@ Additional Context:
 			setSubmitted(true);
 			setSubmitting(false);
 		} catch (error) {
-			console.error('Submission error:', error);
-			setSubmitting(false);
-
-			setFormErrors((prev) => ({
-				...prev,
-				submit: error.message,
-			}));
-		} finally {
+			console.error('Error submitting form:', error);
+			setError(error.message);
 			setSubmitting(false);
 		}
 	};
@@ -819,12 +811,6 @@ Additional Context:
 		console.log('Current form state:', formState);
 
 		switch (slideNumber) {
-			case 0:
-				// Intro slide - no validation needed
-				break;
-			case 1:
-				// Previous work slide - no validation needed
-				break;
 			case 2:
 				if (!formState.projectName) {
 					errors.projectName = 'Project name is required';
@@ -833,14 +819,13 @@ Additional Context:
 					errors.helpType = 'Please select what you need help with';
 				}
 				if (
-				!formState['project-description'] ||
-					formState['project-description'] === initialTemplate
+				!formState.projectDescription ||
+					formState.projectDescription === initialTemplate
 			) {
-					errors['project-description'] =
-						'Please describe your project';
+					errors.projectDescription = 'Please describe your project';
 				}
-				if (!formState['project-type']) {
-					errors['project-type'] = 'Please select a project type';
+				if (!formState.projectType) {
+					errors.projectType = 'Please select a project type';
 				}
 				break;
 			case 3:
@@ -848,29 +833,27 @@ Additional Context:
 					errors.deliverables =
 						'Please select at least one deliverable';
 				}
-				if (!formState.budget) {
+				if (!formState.budget.range) {
 					errors.budget = 'Please select a budget range';
 				}
-				if (formState.budget === 'Other') {
-					if (!formState.budgetOther) {
-						errors.budgetOther =
+				if (formState.budget.range === 'Other') {
+					if (!formState.budget.description) {
+						errors.budgetDescription =
 							'Please describe your budget range';
 					}
-					if (!formState['price-other']) {
-						errors['price-other'] =
+					if (!formState.budget.exactAmount) {
+						errors.budgetExactAmount =
 							'Please specify an exact amount';
 					}
 				}
 				break;
 			case 4:
-				if (form && form['full-name'] && !form['full-name'].value) {
+				if (!formState.contact.fullName) {
 					errors.fullName = 'Full name is required';
 				}
-				if (form && form.email && !form.email.value) {
+				if (!formState.contact.email) {
 					errors.email = 'Email is required';
 				}
-				break;
-			default:
 				break;
 		}
 
