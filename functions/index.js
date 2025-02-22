@@ -30,26 +30,60 @@ exports.onNewProjectRequest = functions.firestore
                 <h2>New Project Request</h2>
                 <p><strong>Project Name:</strong> ${projectData.projectName}</p>
                 <p><strong>From:</strong> ${projectData.fullName} (${
-	projectData.email
-})</p>
-                <p><strong>Company:</strong> ${projectData.companyName}</p>
-                <p><strong>Budget Range:</strong> ${projectData.budget}</p>
+				projectData.email
+			})</p>
+                <p><strong>Company:</strong> ${
+					projectData.companyName || 'N/A'
+				}</p>
+                <p><strong>Budget Range:</strong> ${
+					projectData.budget.range || projectData.budget
+				}</p>
+                ${
+					projectData.budget.description
+						? `<p><strong>Budget Description:</strong> ${projectData.budget.description}</p>`
+						: ''
+				}
+                ${
+					projectData.budget.exactAmount
+						? `<p><strong>Exact Amount:</strong> ${projectData.budget.exactAmount}</p>`
+						: ''
+				}
                 <p><strong>Payment Method:</strong> ${
-	projectData.paymentMethod
-}</p>
+					projectData.paymentMethod
+				}</p>
                 <h3>Project Description:</h3>
                 <pre>${projectData.projectDescription}</pre>
-                <p><strong>Help Type:</strong> ${projectData.helpType}</p>
-                <p><strong>Project Type:</strong> ${projectData.projectType}</p>
+                <p><strong>Help Types:</strong> ${
+					projectData.helpTypes
+						? projectData.helpTypes.join(', ')
+						: 'N/A'
+				}</p>
+                <p><strong>Project Type:</strong> ${
+					projectData.projectTypes
+						? projectData.projectTypes.join(', ')
+						: 'N/A'
+				}</p>
                 <p><strong>Deliverables:</strong> ${
-	projectData.deliverables
-}</p>
+					projectData.deliverables
+						? projectData.deliverables.join(', ')
+						: 'N/A'
+				}</p>
                 <p><strong>Files:</strong> ${
-	projectData.files ? projectData.files.length : 0
-} attachments</p>
+					projectData.fileUrls ? projectData.fileUrls.length : 0
+				} attachments</p>
+                ${
+					projectData.fileUrls && projectData.fileUrls.length > 0
+		`<ul>${projectData.fileUrls.map(url => `<li><a href="${url}">View File</a></li>`).join('')}</ul>` 
+						: ''
+				}
+                ${
+					projectData.paymentMethod === 'stripe' && !projectData.paid
+						? `<p><strong>Payment Status:</strong> Pending - <a href="${projectData.stripePaymentLink}">View Payment Link</a></p>`
+						: ''
+				}
                 <p>View in admin: https://daniellauding.se/admin/submissions/${
-	snap.id
-}</p>
+					snap.id
+				}</p>
             `,
 		};
 
@@ -61,19 +95,48 @@ exports.onNewProjectRequest = functions.firestore
 			html: `
                 <h2>Thank you for your project request</h2>
                 <p>Hi ${projectData.fullName},</p>
-                <p>I've received your project request for "${projectData.projectName}" and will review it shortly.</p>
+                <p>I've received your project request for "${
+					projectData.projectName
+				}" and will review it shortly.</p>
                 <p>Project Details:</p>
                 <ul>
-                    <li>Budget Range: ${projectData.budget}</li>
-                    <li>Payment Method: ${projectData.paymentMethod}</li>
+                    <li><strong>Project Description:</strong> ${
+						projectData.projectDescription
+					}</li>
+                    <li><strong>Help Types:</strong> ${
+						projectData.helpTypes
+							? projectData.helpTypes.join(', ')
+							: 'N/A'
+					}</li>
+                    <li><strong>Project Type:</strong> ${
+						projectData.projectTypes
+							? projectData.projectTypes.join(', ')
+							: 'N/A'
+					}</li>
+                    <li><strong>Deliverables:</strong> ${
+						projectData.deliverables
+							? projectData.deliverables.join(', ')
+							: 'N/A'
+					}</li>
+                    <li><strong>Budget Range:</strong> ${
+						projectData.budget.range || projectData.budget
+					}</li>
+                    <li><strong>Payment Method:</strong> ${
+						projectData.paymentMethod
+					}</li>
                 </ul>
+                ${
+					projectData.paymentMethod === 'stripe' && !projectData.paid
+						? `<p><strong>Complete Your Payment:</strong> <a href="${projectData.stripePaymentLink}">Click here to pay</a></p>`
+						: ''
+				}
                 <p>I'll get back to you within 1-2 business days with more information.</p>
                 <p>Best regards,<br>Daniel Lauding</p>
             `,
 		};
 
 		try {
-			// Send emails
+			// Send emails using nodemailer
 			await transporter.sendMail(adminMailOptions);
 			await transporter.sendMail(clientMailOptions);
 			console.log('Notification emails sent');

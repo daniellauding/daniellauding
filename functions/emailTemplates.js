@@ -18,14 +18,13 @@ exports.adminNotificationTemplate = (data) => `
       <div class="container">
         <div class="header">
           <h2>New Project Request</h2>
-          <p>Project Name: ${data.projectName}</p>
-          <p>From: ${data.contact.fullName} (${data.contact.email})</p>
+          <p>From ${data.contact.fullName}</p>
         </div>
 
         <div class="section">
           <div class="label">Project Details</div>
-          <p><strong>Description:</strong></p>
-          <pre>${data.projectDescription}</pre>
+          <h3 class="value">${data.projectName}</h3>
+          <p>${data.projectDescription}</p>
         </div>
 
         <div class="section">
@@ -37,9 +36,20 @@ exports.adminNotificationTemplate = (data) => `
 
         <div class="section">
           <div class="label">Project Requirements</div>
-          <p><strong>Help Types:</strong> ${data.helpTypes.join(', ')}</p>
-          <p><strong>Project Types:</strong> ${data.projectTypes.join(', ')}</p>
-          <p><strong>Deliverables:</strong> ${data.deliverables.join(', ')}</p>
+          <div class="tag-list">
+            ${data.helpTypes
+		.map((type) => `<span class="tag">${type}</span>`)
+		.join('')}
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="label">Deliverables</div>
+          <div class="tag-list">
+            ${data.deliverables
+		.map((item) => `<span class="tag">${item}</span>`)
+		.join('')}
+          </div>
         </div>
 
         <div class="section">
@@ -55,7 +65,6 @@ exports.adminNotificationTemplate = (data) => `
 		? `<p><strong>Exact Amount:</strong> ${data.budget.exactAmount}</p>`
 		: ''
 }
-          <p><strong>Payment Method:</strong> ${data.paymentMethod}</p>
         </div>
 
         ${
@@ -66,9 +75,7 @@ exports.adminNotificationTemplate = (data) => `
             <ul>
               ${data.fileUrls
 		.map(
-			(url, index) => `
-                <li><a href="${url}">Attachment ${index + 1}</a></li>
-              `
+			(url) => `<li><a href="${url}">View Attachment</a></li>`
 		)
 		.join('')}
             </ul>
@@ -78,9 +85,10 @@ exports.adminNotificationTemplate = (data) => `
 }
 
         <div class="footer">
-          <a href="https://daniellauding.se/admin/submissions/${
-	data.id
-}">View in Admin Dashboard</a>
+          <a href="https://daniellauding.se/admin/submissions/${data.id}" 
+             style="background: #B2387B; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px;">
+            View in Admin Dashboard
+          </a>
         </div>
       </div>
     </body>
