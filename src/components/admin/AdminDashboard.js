@@ -8,13 +8,11 @@ import {
 } from 'firebase/firestore';
 import { getAuth, signOut } from 'firebase/auth';
 import ProjectModal from './ProjectModal';
-import { useNavigate } from 'react-router-dom';
 
 const AdminDashboard = () => {
 	const [projects, setProjects] = useState([]);
 	const [selectedProject, setSelectedProject] = useState(null);
 	const [loading, setLoading] = useState(true);
-	const navigate = useNavigate();
 
 	useEffect(() => {
 		fetchProjects();
@@ -69,49 +67,38 @@ const AdminDashboard = () => {
 					{loading ? (
 						<div className="text-center">Loading...</div>
 					) : (
-						<div className="space-y-4">
-							{projects.map((request) => (
-								<button
-									key={request.id}
-									className="w-full text-left border rounded p-4 hover:bg-gray-50"
-									onClick={() =>
-										navigate(
-											`/admin/submissions/${request.id}`
-										)
-									}
-								>
-									<h4 className="font-medium text-gray-900">
-										{request.projectName}
-									</h4>
-									<div className="space-y-1">
-										<p className="text-sm text-gray-500">
-											{request.contact.fullName} -{' '}
-											{request.contact.email}
-										</p>
-										{request.contact.company && (
-											<p className="text-sm text-gray-500">
-												Company:{' '}
-												{request.contact.company}
-											</p>
-										)}
-										<p className="text-xs text-gray-400">
-											Budget: {request.budget.range}
-											{request.budget.description &&
-												` (${request.budget.description})`}
-											{request.budget.exactAmount &&
-												` - ${request.budget.exactAmount}`}
-										</p>
-										<p className="text-xs text-gray-400">
-											Payment Method:{' '}
-											{request.paymentMethod}
-										</p>
-										<p className="text-xs text-gray-400">
-											Files:{' '}
-											{request.fileUrls?.length || 0}
-										</p>
-									</div>
-								</button>
-							))}
+						<div className="bg-white shadow overflow-hidden sm:rounded-md">
+							<ul className="divide-y divide-gray-200">
+								{projects.map((project) => (
+									<li key={project.id}>
+										<div
+											className="px-6 py-4 cursor-pointer hover:bg-gray-50"
+											onClick={() =>
+												setSelectedProject(project)
+											}
+										>
+											<div className="flex items-center justify-between">
+												<div className="flex-1">
+													<h3 className="text-lg font-medium text-gray-900">
+														{project.projectName}
+													</h3>
+													<p className="mt-1 text-sm text-gray-500">
+														{
+															project.contact
+																.fullName
+														}{' '}
+														-{' '}
+														{project.contact.email}
+													</p>
+												</div>
+												<div className="text-sm text-gray-500">
+													{project.createdAt?.toLocaleDateString()}
+												</div>
+											</div>
+										</div>
+									</li>
+								))}
+							</ul>
 						</div>
 					)}
 				</div>

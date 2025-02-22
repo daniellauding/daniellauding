@@ -1,4 +1,3 @@
-		if (formErrors[e.target.name]) {
 import React, { useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
@@ -70,63 +69,44 @@ Additional Context:
 		setSubmitting(true);
 
 		try {
-			// Upload files first if any
-			let fileUrls = [];
-			if (formState.files.length > 0) {
-				for (const file of formState.files) {
-					try {
-						if (file.size > 10 * 1024 * 1024) {
-							throw new Error(`File ${file.name} is too large. Maximum size is 10MB`);
-						}
-
-						const storageRef = ref(storage, `project-files/${Date.now()}-${file.name}`);
-						await uploadBytes(storageRef, file);
-						const url = await getDownloadURL(storageRef);
-						fileUrls.push(url);
-					} catch (uploadError) {
-						console.error('File upload error:', uploadError);
-						throw new Error(`Failed to upload ${file.name}: ${uploadError.message}`);
-					}
-				}
-			}
-
-			// Prepare complete project data
+			// Create the project request in Firebase
 			const projectData = {
 				projectName: formState.projectName,
 				projectDescription: formState['project-description'],
-					helpTypes: formState.helpType ? formState.helpType.split(',').filter(Boolean) : [],
-					projectTypes: formState['project-type'] ? formState['project-type'].split(',').filter(Boolean) : [],
-					deliverables: formState.deliverables ? formState.deliverables.split(',').filter(Boolean) : [],
-					budget: {
-						range: formState.budget,
-						description: formState.budgetOther || '',
-						exactAmount: formState['price-other'] || ''
-					},
+				helpType: formState.helpType,
+				projectType: formState['project-type'],
+				deliverables: formState.deliverables,
+				budget: formState.budget,
+				budgetOther: formState.budgetOther,
+				priceOther: formState['price-other'],
+				fullName: formState['full-name'],
+				companyName: formState['company-name'],
+				email: formState.email,
 				paymentMethod: formState['payment-method'],
-					contact: {
-						fullName: formState['full-name'],
-						company: formState['company-name'],
-						email: formState.email
-					},
-					fileUrls,
+				files: formState.files,
 				createdAt: new Date(),
-					status: 'new'
+				status: 'pending',
 			};
 
-			// Save to Firestore
-			const docRef = await addDoc(collection(db, 'projectRequests'), projectData);
+			const docRef = await addDoc(
+				collection(db, 'projectRequests'),
+				projectData
+			);
 			console.log('Document written with ID:', docRef.id);
 
-			// If Stripe payment method is selected
+			// If Stripe is selected as payment method, redirect to Stripe
 			if (formState['payment-method'] === 'stripe') {
 				try {
 					await createPaymentSession({
 						projectName: formState.projectName,
-						budget: formState.budget === 'Other' ? formState['price-other'] : formState.budget,
+						budget:
+							formState.budget === 'Other'
+								? formState['price-other']
+								: formState.budget,
 						contact: {
 							email: formState.email,
-							fullName: formState['full-name']
-						}
+							fullName: formState['full-name'],
+						},
 					});
 				} catch (stripeError) {
 					console.error('Stripe error:', stripeError);
@@ -138,9 +118,9 @@ Additional Context:
 			if (closeContactModal) closeContactModal();
 		} catch (error) {
 			console.error('Submission error:', error);
-			setFormErrors(prev => ({
+			setFormErrors((prev) => ({
 				...prev,
-				submit: error.message
+				submit: error.message,
 			}));
 		} finally {
 			setSubmitting(false);

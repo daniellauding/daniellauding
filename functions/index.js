@@ -3,10 +3,6 @@ const admin = require('firebase-admin');
 const nodemailer = require('nodemailer');
 const cors = require('cors')({ origin: true });
 const stripe = require('stripe')(functions.config().stripe.secret_key);
-const {
-	adminNotificationTemplate,
-	clientConfirmationTemplate,
-} = require('./emailTemplates');
 
 admin.initializeApp();
 
@@ -24,30 +20,65 @@ exports.onNewProjectRequest = functions.firestore
 	.document('projectRequests/{requestId}')
 	.onCreate(async (snap, context) => {
 		const projectData = snap.data();
-		const requestId = context.params.requestId;
 
 		// Admin notification email
 		const adminMailOptions = {
 			from: 'Your App <noreply@yourdomain.com>',
 			to: 'daniel@lauding.se',
 			subject: `New Project Request: ${projectData.projectName}`,
-			html: adminNotificationTemplate({ ...projectData, id: requestId }),
+			html: `
+                <h2>New Project Request</h2>
+                <p><strong>Project Name:</strong> ${projectData.projectName}</p>
+                <p><strong>From:</strong> ${projectData.fullName} (${
+	projectData.email
+})</p>
+                <p><strong>Company:</strong> ${projectData.companyName}</p>
+                <p><strong>Budget Range:</strong> ${projectData.budget}</p>
+                <p><strong>Payment Method:</strong> ${
+	projectData.paymentMethod
+}</p>
+                <h3>Project Description:</h3>
+                <pre>${projectData.projectDescription}</pre>
+                <p><strong>Help Type:</strong> ${projectData.helpType}</p>
+                <p><strong>Project Type:</strong> ${projectData.projectType}</p>
+                <p><strong>Deliverables:</strong> ${
+	projectData.deliverables
+}</p>
+                <p><strong>Files:</strong> ${
+	projectData.files ? projectData.files.length : 0
+} attachments</p>
+                <p>View in admin: https://daniellauding.se/admin/submissions/${
+	snap.id
+}</p>
+            `,
 		};
 
 		// Client confirmation email
 		const clientMailOptions = {
 			from: 'Daniel Lauding <daniel@lauding.se>',
-			to: projectData.contact.email,
+			to: projectData.email,
 			subject: 'Project Request Received',
-			html: clientConfirmationTemplate(projectData),
+			html: `
+                <h2>Thank you for your project request</h2>
+                <p>Hi ${projectData.fullName},</p>
+                <p>I've received your project request for "${projectData.projectName}" and will review it shortly.</p>
+                <p>Project Details:</p>
+                <ul>
+                    <li>Budget Range: ${projectData.budget}</li>
+                    <li>Payment Method: ${projectData.paymentMethod}</li>
+                </ul>
+                <p>I'll get back to you within 1-2 business days with more information.</p>
+                <p>Best regards,<br>Daniel Lauding</p>
+            `,
 		};
 
 		try {
+			// Send emails
 			await transporter.sendMail(adminMailOptions);
 			await transporter.sendMail(clientMailOptions);
-			console.log('Notification emails sent successfully');
+			console.log('Notification emails sent');
 		} catch (error) {
-			console.error('Error sending notification emails:', error);
+			console.error('Error sending emails:', error);
 		}
 	});
 
