@@ -8,18 +8,25 @@ const Contact = ({ closeContactModal }) => {
 	useEffect(() => {
 		const handleKeyPress = (event) => {
 			// Check if we're in the form modal or #newproject
-			const isNewProjectActive = window.location.hash.includes('newproject');
+			const isNewProjectActive =
+				window.location.hash.includes('newproject');
 
 			// Don't handle shortcuts if we're in the form or if any modal is open
-			if (isNewProjectActive || 
-				document.querySelector('.modal-newproject') || 
-				document.querySelector('.modal-request-access')) {
+			if (
+				isNewProjectActive ||
+				document.querySelector('.modal-newproject') ||
+				document.querySelector('.modal-request-access')
+			) {
 				event.preventDefault(); // Prevent any default behavior
 				return;
 			}
 
 			// Only handle if no input/textarea is focused
-			if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') return;
+			if (
+				event.target.tagName === 'INPUT' ||
+				event.target.tagName === 'TEXTAREA'
+			)
+				return;
 
 			switch (event.key.toLowerCase()) {
 				case 'a':
@@ -176,7 +183,10 @@ const NewProject = ({ closeNewProjectModal, openPortfolio }) => {
 	useEffect(() => {
 		const handleKeyPress = (event) => {
 			// Prevent all shortcut keys when new project modal is open
-			if (event.target.tagName !== 'INPUT' && event.target.tagName !== 'TEXTAREA') {
+			if (
+				event.target.tagName !== 'INPUT' &&
+				event.target.tagName !== 'TEXTAREA'
+			) {
 				event.preventDefault();
 				event.stopPropagation();
 			}

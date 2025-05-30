@@ -1117,1554 +1117,1200 @@ Additional Context:
 	];
 
 	return (
-		<div className="text-gray-800 h-full">
-			{error ? (
-				<div className="text-red-500 p-4 rounded bg-red-50 mb-4">
-					<h3 className="font-bold">Error</h3>
-					<p>{error}</p>
-					<button
-						onClick={() => setError(null)}
-						className="mt-2 text-sm text-red-700 underline"
-					>
-						Try Again
-					</button>
-				</div>
-			) : submitted ? (
-				<SuccessMessage closeModal={closeModal} />
-			) : (
-				<div className="h-full">
-					<form
-						name="newproject"
-						method="POST"
-						data-netlify="true"
-						data-netlify-honeypot="bot-field"
-						encType="multipart/form-data"
-						onSubmit={handleSubmit}
-						className="relative h-full"
-					>
-						<input
-							type="hidden"
-							name="form-name"
-							value="newproject"
-						/>
-						<input type="hidden" name="bot-field" />
+    <div className="text-gray-800 h-full">
+      {error ? (
+        <div className="text-red-500 p-4 rounded bg-red-50 mb-4">
+          <h3 className="font-bold">Error</h3>
+          <p>{error}</p>
+          <button onClick={() => setError(null)} className="mt-2 text-sm text-red-700 underline">
+            Try Again
+          </button>
+        </div>
+      ) : submitted ? (
+        <SuccessMessage closeModal={closeModal} />
+      ) : (
+        <div className="h-full">
+          <form
+            name="newproject"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            encType="multipart/form-data"
+            onSubmit={handleSubmit}
+            className="relative h-full"
+          >
+            <input type="hidden" name="form-name" value="newproject" />
+            <input type="hidden" name="bot-field" />
 
-						{/* Add progress bar */}
-						<div className="w-full bg-gray-200 h-2 rounded-full mb-6">
-							<div
-								className="bg-primary h-2 rounded-full transition-all duration-300 ease-in-out"
-								style={{
-									width: `${(currentSlide / 4) * 100}%`,
-								}}
-							></div>
-						</div>
+            {/* Add progress bar */}
+            <div className="w-full bg-gray-200 h-2 rounded-full mb-6">
+              <div
+                className="bg-primary h-2 rounded-full transition-all duration-300 ease-in-out"
+                style={{
+                  width: `${(currentSlide / 4) * 100}%`
+                }}
+              ></div>
+            </div>
 
-						{/* Progress steps */}
-						<div className="flex justify-between mb-8 px-2">
-							<div
-								className={`text-sm ${
-									currentSlide >= 0
-										? 'text-primary'
-										: 'text-gray-400'
-								}`}
-							>
-								Intro
-							</div>
-							<div
-								className={`text-sm ${
-									currentSlide >= 1
-										? 'text-primary'
-										: 'text-gray-400'
-								}`}
-							>
-								Work
-							</div>
-							<div
-								className={`text-sm ${
-									currentSlide >= 2
-										? 'text-primary'
-										: 'text-gray-400'
-								}`}
-							>
-								Project
-							</div>
-							<div
-								className={`text-sm ${
-									currentSlide >= 3
-										? 'text-primary'
-										: 'text-gray-400'
-								}`}
-							>
-								Details
-							</div>
-							<div
-								className={`text-sm ${
-									currentSlide >= 4
-										? 'text-primary'
-										: 'text-gray-400'
-								}`}
-							>
-								Contact
-							</div>
-						</div>
+            {/* Progress steps */}
+            <div className="flex justify-between mb-8 px-2">
+              <div className={`text-sm ${currentSlide >= 0 ? 'text-primary' : 'text-gray-400'}`}>
+                Intro
+              </div>
+              <div className={`text-sm ${currentSlide >= 1 ? 'text-primary' : 'text-gray-400'}`}>
+                Work
+              </div>
+              <div className={`text-sm ${currentSlide >= 2 ? 'text-primary' : 'text-gray-400'}`}>
+                Project
+              </div>
+              <div className={`text-sm ${currentSlide >= 3 ? 'text-primary' : 'text-gray-400'}`}>
+                Details
+              </div>
+              <div className={`text-sm ${currentSlide >= 4 ? 'text-primary' : 'text-gray-400'}`}>
+                Contact
+              </div>
+            </div>
 
-						<Carousel
-							selectedItem={currentSlide}
-							onChange={(index) => {
-								setCurrentSlide(index);
-							}}
-							showArrows={false}
-							showStatus={false}
-							showThumbs={false}
-							showIndicators={false}
-							swipeable={false}
-							emulateTouch={false}
-							className="custom-carousel h-full overflow-y-scroll pb-16"
-						>
-							{/* Slide 0: Introduction */}
-							<div className="flex flex-col h-full slide-intro">
-								{/* Badge */}
-								<div className="mb-6">
-									<div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/20 to-primary/10 text-primary px-6 py-3 rounded-full text-sm font-medium border border-primary/20 shadow-sm">
-										<span>
-											Ready to transform your idea into
-											reality?
-											<span className="ml-1">🚀</span>
-										</span>
-									</div>
-								</div>
+            <Carousel
+              selectedItem={currentSlide}
+              onChange={index => {
+                setCurrentSlide(index);
+              }}
+              showArrows={false}
+              showStatus={false}
+              showThumbs={false}
+              showIndicators={false}
+              swipeable={false}
+              emulateTouch={false}
+              className="custom-carousel h-full overflow-y-scroll pb-16"
+            >
+              {/* Slide 0: Introduction */}
+              <div className="flex flex-col h-full slide-intro">
+                <div className="space-y-8 flex-1 flex flex-col h-full overflow-y-auto">
+                  {/* Badge */}
+                  <div className="mb-6">
+                    <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/20 to-primary/10 text-primary px-6 py-3 rounded-full text-sm font-medium border border-primary/20 shadow-sm">
+                      <span>
+                        Ready to transform your idea into reality?
+                        <span className="ml-1">🚀</span>
+                      </span>
+                    </div>
+                  </div>
 
-								<div className="space-y-8">
-									{/* Main Value Proposition */}
-									<div className="space-y-4">
-										<p className="text-gray-600 leading-relaxed">
-											I bridge design and development to
-											create exceptional digital
-											experiences. With 12+ years of
-											expertise, I help businesses
-											transform ideas into market-ready
-											solutions. Founder experience +
-											enterprise expertise = Unique
-											approach to building successful
-											digital products.
-										</p>
-									</div>
+                  {/* Main Value Proposition */}
+                  <div className="space-y-4">
+                    <p className="text-gray-600 leading-relaxed">
+                      I bridge design and development to create exceptional digital experiences.
+                      With 12+ years of expertise, I help businesses transform ideas into
+                      market-ready solutions. Founder experience + enterprise expertise = Unique
+                      approach to building successful digital products.
+                    </p>
+                  </div>
 
-									<h4 className="text-md font-medium text-gray-900 mt-6">
-										What I Do Best
-									</h4>
+                  <h4 className="text-md font-medium text-gray-900 mt-6">What I Do Best</h4>
 
-									{/* Services Grid */}
-									<div className="md:grid md:grid-cols-2 gap-4">
-										<div className="p-4 bg-gray-50 rounded-lg">
-											<div className="flex flex-col items-center gap-2 mb-2 text-primary">
-												<svg
-													className="w-5 h-5"
-													fill="currentColor"
-													viewBox="0 0 20 20"
-												>
-													<path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
-													<path
-														fillRule="evenodd"
-														d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
-														clipRule="evenodd"
-													/>
-												</svg>
-												<span className="font-medium">
-													Design Systems & UI/UX
-												</span>
-											</div>
-											<p className="text-sm text-gray-600">
-												Building scalable, intuitive,
-												and visually compelling
-												experiences. Early adopter of
-												Figma & modern design tools.
-											</p>
-										</div>
+                  {/* Services Grid */}
+                  <div className="md:grid md:grid-cols-2 gap-4">
+                    <div className="p-4 bg-gray-50 rounded-lg">
+                      <div className="flex flex-col items-center gap-2 mb-2 text-primary">
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                          <path
+                            fillRule="evenodd"
+                            d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        <span className="font-medium">Design Systems & UI/UX</span>
+                      </div>
+                      <p className="text-sm text-gray-600">
+                        Building scalable, intuitive, and visually compelling experiences. Early
+                        adopter of Figma & modern design tools.
+                      </p>
+                    </div>
 
-										<div className="p-4 bg-gray-50 rounded-lg">
-											<div className="flex flex-col items-center gap-2 mb-2 text-primary">
-												<svg
-													className="w-5 h-5"
-													fill="currentColor"
-													viewBox="0 0 20 20"
-												>
-													<path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
-													<path
-														fillRule="evenodd"
-														d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
-														clipRule="evenodd"
-													/>
-												</svg>
-												<span className="font-medium">
-													Hands-On Approach
-												</span>
-											</div>
-											<p className="text-sm text-gray-600">
-												Turning concepts into
-												functional, high-fidelity
-												prototypes. Eager explorer of
-												emerging tools & AI solutions.
-											</p>
-										</div>
+                    <div className="p-4 bg-gray-50 rounded-lg">
+                      <div className="flex flex-col items-center gap-2 mb-2 text-primary">
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
+                          <path
+                            fillRule="evenodd"
+                            d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        <span className="font-medium">Hands-On Approach</span>
+                      </div>
+                      <p className="text-sm text-gray-600">
+                        Turning concepts into functional, high-fidelity prototypes. Eager explorer
+                        of emerging tools & AI solutions.
+                      </p>
+                    </div>
 
-										<div className="p-4 bg-gray-50 rounded-lg">
-											<div className="flex flex-col items-center gap-2 mb-2 text-primary">
-												<svg
-													className="w-5 h-5"
-													fill="currentColor"
-													viewBox="0 0 20 20"
-												>
-													<path
-														fillRule="evenodd"
-														d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-1.5 0a6.5 6.5 0 11-11-4.69v.180a3.5 3.5 0 005.6 0V5.31a6.5 6.5 0 015.4 4.69zM10 6a2 2 0 10-4 0v1a2 2 0 104 0V6z"
-														clipRule="evenodd"
-													/>
-												</svg>
-												<span className="font-medium">
-													Product Validation
-												</span>
-											</div>
-											<p className="text-sm text-gray-600">
-												Ensuring market fit through
-												strategic user testing and
-												iteration. Data-driven testing &
-												in-field validation.
-											</p>
-										</div>
+                    <div className="p-4 bg-gray-50 rounded-lg">
+                      <div className="flex flex-col items-center gap-2 mb-2 text-primary">
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                          <path
+                            fillRule="evenodd"
+                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-1.5 0a6.5 6.5 0 11-11-4.69v.180a3.5 3.5 0 005.6 0V5.31a6.5 6.5 0 015.4 4.69zM10 6a2 2 0 10-4 0v1a2 2 0 104 0V6z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        <span className="font-medium">Product Validation</span>
+                      </div>
+                      <p className="text-sm text-gray-600">
+                        Ensuring market fit through strategic user testing and iteration.
+                        Data-driven testing & in-field validation.
+                      </p>
+                    </div>
 
-										<div className="p-4 bg-gray-50 rounded-lg">
-											<div className="flex flex-col items-center gap-2 mb-2 text-primary">
-												<svg
-													className="w-5 h-5"
-													fill="currentColor"
-													viewBox="0 0 20 20"
-												>
-													<path
-														fillRule="evenodd"
-														d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
-														clipRule="evenodd"
-													/>
-												</svg>
-												<span className="font-medium">
-													Code-Driven Design
-												</span>
-											</div>
-											<p className="text-sm text-gray-600">
-												Leveraging React, front-end
-												tools, and AI-driven workflows
-												for efficiency. Bridging design
-												and code with real-world
-												testing.
-											</p>
-										</div>
-									</div>
+                    <div className="p-4 bg-gray-50 rounded-lg">
+                      <div className="flex flex-col items-center gap-2 mb-2 text-primary">
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                          <path
+                            fillRule="evenodd"
+                            d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        <span className="font-medium">Code-Driven Design</span>
+                      </div>
+                      <p className="text-sm text-gray-600">
+                        Leveraging React, front-end tools, and AI-driven workflows for efficiency.
+                        Bridging design and code with real-world testing.
+                      </p>
+                    </div>
+                  </div>
+                </div>
 
-									{/* CTA Buttons */}
-									<div className="mt-auto flex flex-col md:flex-row gap-4 pt-4 justify-between">
-										<div className="flex flex-col md:flex-row gap-4">
-											<button
-												type="button"
-												onClick={() =>
-													(window.location.hash = '')
-												}
-												className="bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold py-2 px-4 rounded-full"
-											>
-												Cancel
-											</button>
-											<button
-												type="button"
-												onClick={openPortfolio}
-												className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full"
-											>
-												View Portfolio
-											</button>
-										</div>
-										<button
-											type="button"
-											onClick={() => goToSlide(1)}
-											className="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded-full"
-										>
-											Start Project
-										</button>
-									</div>
-								</div>
-							</div>
+                {/* CTA Buttons */}
+                <div className="flex flex-col md:flex-row gap-4 pt-4 justify-between">
+                  <div className="flex flex-col md:flex-row gap-4">
+                    <button
+                      type="button"
+                      onClick={() => (window.location.hash = '')}
+                      className="bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold py-2 px-4 rounded-full"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="button"
+                      onClick={openPortfolio}
+                      className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full"
+                    >
+                      View Portfolio
+                    </button>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => goToSlide(1)}
+                    className="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded-full"
+                  >
+                    Start Project
+                  </button>
+                </div>
+              </div>
 
-							{/* Slide 1: Previous Work */}
-							<div className="flex flex-col h-full slide-work">
-								{/* <div className="flex-grow"> */}
-								<div>
-									<Carousel
-										showArrows={true}
-										showStatus={false}
-										showThumbs={false}
-										infiniteLoop={true}
-										autoPlay={true}
-										interval={5000}
-										stopOnHover={true}
-										className="work-carousel"
-									>
-										{/* Länsförsäkringar */}
-										<div className="work-item p-4">
-											<div
-												className="h-48 rounded-lg bg-cover bg-center bg-no-repeat"
-												style={{
-													backgroundImage:
-														'url(/images/case/lansforsakringar/devices.png)',
-												}}
-											/>
-											<div className="space-y-2">
-												<div className="font-semibold text-lg text-gray-900">
-													Länsförsäkringar
-												</div>
-												<div className="text-gray-600">
-													{`Led the modernization of the
+              {/* Slide 1: Previous Work */}
+              <div className="flex flex-col h-full slide-work">
+                {/* <div className="flex-grow"> */}
+                <div className="flex-1 flex flex-col h-full overflow-y-auto">
+                  <Carousel
+                    showArrows={true}
+                    showStatus={false}
+                    showThumbs={false}
+                    infiniteLoop={true}
+                    autoPlay={true}
+                    interval={5000}
+                    stopOnHover={true}
+                    className="work-carousel"
+                  >
+                    {/* Länsförsäkringar */}
+                    <div className="work-item p-4 h-full">
+                      <div
+                        className="h-48 rounded-lg bg-cover bg-center bg-no-repeat"
+                        style={{
+                          backgroundImage: 'url(/images/case/lansforsakringar/devices.png)'
+                        }}
+                      />
+                      <div className="space-y-2">
+                        <div className="font-semibold text-lg text-gray-900">Länsförsäkringar</div>
+                        <div className="text-gray-600">
+                          {`Led the modernization of the
 													company's digital presence,
 													ensuring accessibility and
 													brand consistency.`}
-												</div>
-												<a
-													href="https://daniellauding.se/lansforsakringar"
-													target="_blank"
-													rel="noopener noreferrer"
-													className="text-primary hover:text-primary-dark underline font-medium"
-												>
-													View Case Study
-												</a>
-											</div>
-										</div>
+                        </div>
+                        <a
+                          href="https://daniellauding.se/lansforsakringar"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary hover:text-primary-dark underline font-medium"
+                        >
+                          View Case Study
+                        </a>
+                      </div>
+                    </div>
 
-										{/* Asteria AB */}
-										<div className="work-item p-4">
-											<div
-												className="h-48 rounded-lg bg-cover bg-center bg-no-repeat"
-												style={{
-													backgroundImage:
-														'url(/images/case/asteria/smartcashflow/laptop.png)',
-												}}
-											/>
-											<div className="space-y-2">
-												<div className="font-semibold text-lg text-gray-900">
-													Asteria AB
-												</div>
-												<div className="text-gray-600">
-													Developed innovative
-													financial management
-													solutions for SMEs.
-												</div>
-												<a
-													href="https://daniellauding.se/asteria"
-													target="_blank"
-													rel="noopener noreferrer"
-													className="text-primary hover:text-primary-dark underline font-medium"
-												>
-													View Case Study
-												</a>
-											</div>
-										</div>
+                    {/* Asteria AB */}
+                    <div className="work-item p-4 h-full">
+                      <div
+                        className="h-48 rounded-lg bg-cover bg-center bg-no-repeat"
+                        style={{
+                          backgroundImage: 'url(/images/case/asteria/smartcashflow/laptop.png)'
+                        }}
+                      />
+                      <div className="space-y-2">
+                        <div className="font-semibold text-lg text-gray-900">Asteria AB</div>
+                        <div className="text-gray-600">
+                          Developed innovative financial management solutions for SMEs.
+                        </div>
+                        <a
+                          href="https://daniellauding.se/asteria"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary hover:text-primary-dark underline font-medium"
+                        >
+                          View Case Study
+                        </a>
+                      </div>
+                    </div>
 
-										{/* Swedbank */}
-										<div className="work-item p-4">
-											<div
-												className="h-48 rounded-lg bg-cover bg-center bg-no-repeat"
-												style={{
-													backgroundImage:
-														'url(/images/case/asteria/foretagskollen/laptop.png)',
-												}}
-											/>
-											<div className="space-y-2">
-												<div className="font-semibold text-lg text-gray-900">
-													Swedbank Företagskollen
-												</div>
-												<div className="text-gray-600">
-													Created intuitive financial
-													management tools for
-													business customers.
-												</div>
-												<a
-													href="https://daniellauding.se/asteria/foretagskollen"
-													target="_blank"
-													rel="noopener noreferrer"
-													className="text-primary hover:text-primary-dark underline font-medium"
-												>
-													View Case Study
-												</a>
-											</div>
-										</div>
+                    {/* Swedbank */}
+                    <div className="work-item p-4 h-full">
+                      <div
+                        className="h-48 rounded-lg bg-cover bg-center bg-no-repeat"
+                        style={{
+                          backgroundImage: 'url(/images/case/asteria/foretagskollen/laptop.png)'
+                        }}
+                      />
+                      <div className="space-y-2">
+                        <div className="font-semibold text-lg text-gray-900">
+                          Swedbank Företagskollen
+                        </div>
+                        <div className="text-gray-600">
+                          Created intuitive financial management tools for business customers.
+                        </div>
+                        <a
+                          href="https://daniellauding.se/asteria/foretagskollen"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary hover:text-primary-dark underline font-medium"
+                        >
+                          View Case Study
+                        </a>
+                      </div>
+                    </div>
 
-										{/* PayEx */}
-										<div className="work-item p-4">
-											<div
-												className="h-48 rounded-lg bg-cover bg-center bg-no-repeat"
-												style={{
-													backgroundImage:
-														'url(/images/case/asteria/payex/laptop.png)',
-												}}
-											/>
-											<div className="space-y-2">
-												<div className="font-semibold text-lg text-gray-900">
-													PayEx Invoice Portal
-												</div>
-												<div className="text-gray-600">
-													Streamlined invoice
-													management and payment
-													processing.
-												</div>
-												<a
-													href="https://daniellauding.se/asteria/invoice-portal-payex"
-													target="_blank"
-													rel="noopener noreferrer"
-													className="text-primary hover:text-primary-dark underline font-medium"
-												>
-													View Case Study
-												</a>
-											</div>
-										</div>
+                    {/* PayEx */}
+                    <div className="work-item p-4 h-full">
+                      <div
+                        className="h-48 rounded-lg bg-cover bg-center bg-no-repeat"
+                        style={{
+                          backgroundImage: 'url(/images/case/asteria/payex/laptop.png)'
+                        }}
+                      />
+                      <div className="space-y-2">
+                        <div className="font-semibold text-lg text-gray-900">
+                          PayEx Invoice Portal
+                        </div>
+                        <div className="text-gray-600">
+                          Streamlined invoice management and payment processing.
+                        </div>
+                        <a
+                          href="https://daniellauding.se/asteria/invoice-portal-payex"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary hover:text-primary-dark underline font-medium"
+                        >
+                          View Case Study
+                        </a>
+                      </div>
+                    </div>
 
-										{/* Spotify */}
-										<div className="work-item p-4">
-											<div
-												className="h-48 rounded-lg bg-cover bg-center bg-no-repeat"
-												style={{
-													backgroundImage:
-														'url(/images/case/spotify/phones.png)',
-												}}
-											/>
-											<div className="space-y-2">
-												<div className="font-semibold text-lg text-gray-900">
-													Spotify
-												</div>
-												<div className="text-gray-600">
-													Enhanced music accessibility
-													and user experience.
-												</div>
-												<a
-													href="https://daniellauding.se/spotify"
-													target="_blank"
-													rel="noopener noreferrer"
-													className="text-primary hover:text-primary-dark underline font-medium"
-												>
-													View Case Study
-												</a>
-											</div>
-										</div>
-									</Carousel>
-								</div>
+                    {/* Spotify */}
+                    <div className="work-item p-4 h-full">
+                      <div
+                        className="h-48 rounded-lg bg-cover bg-center bg-no-repeat"
+                        style={{
+                          backgroundImage: 'url(/images/case/spotify/phones.png)'
+                        }}
+                      />
+                      <div className="space-y-2">
+                        <div className="font-semibold text-lg text-gray-900">Spotify</div>
+                        <div className="text-gray-600">
+                          Enhanced music accessibility and user experience.
+                        </div>
+                        <a
+                          href="https://daniellauding.se/spotify"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary hover:text-primary-dark underline font-medium"
+                        >
+                          View Case Study
+                        </a>
+                      </div>
+                    </div>
+                  </Carousel>
+                </div>
 
-								{/* Add navigation buttons */}
-								<div className="mt-auto flex flex-col md:flex-row justify-between gap-4">
-									<div className="flex gap-4">
-										<button
-											type="button"
-											onClick={() =>
-												(window.location.hash = '')
-											}
-											className="bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold py-2 px-4 rounded-full"
-										>
-											Cancel
-										</button>
-										<button
-											type="button"
-											onClick={() => goToSlide(0)}
-											className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full"
-										>
-											Previous
-										</button>
-									</div>
-									<button
-										type="button"
-										onClick={() => goToSlide(2)}
-										className="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded-full"
-									>
-										Next
-									</button>
-								</div>
-							</div>
+                {/* Add navigation buttons */}
+                <div className="flex flex-col md:flex-row gap-4 pt-4 justify-between">
+                  <div className="flex gap-4">
+                    <button
+                      type="button"
+                      onClick={() => (window.location.hash = '')}
+                      className="bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold py-2 px-4 rounded-full"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => goToSlide(0)}
+                      className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full"
+                    >
+                      Previous
+                    </button>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => goToSlide(2)}
+                    className="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded-full"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
 
-							{/* Slide 2: Project Type */}
-							<div className="flex flex-col h-full slide-project-type">
-								{/* <div className="flex-grow"> */}
-								<div>
-									<div>
-										<label
-											htmlFor="projectName"
-											className="block mb-2 font-medium text-left"
-										>
-											Project Name *
-										</label>
-										<input
-											type="text"
-											id="projectName"
-											name="projectName"
-											value={formState.projectName}
-											onChange={handleChange}
-											required
-											className={`w-full p-2 border rounded focus:ring-2 focus:ring-primary ${
-												formErrors.projectName
-													? 'border-red-500'
-													: ''
-											}`}
-											placeholder="Give your project a name"
-										/>
-										{formErrors.projectName && (
-											<p className="text-red-500 text-sm mt-1">
-												{formErrors.projectName}
-											</p>
-										)}
-									</div>
+              {/* Slide 2: Project Type */}
+              <div className="flex flex-col h-full slide-project-type">
+                {/* <div className="flex-grow"> */}
+                <div>
+                  <div>
+                    <label htmlFor="projectName" className="block mb-2 font-medium text-left">
+                      Project Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="projectName"
+                      name="projectName"
+                      value={formState.projectName}
+                      onChange={handleChange}
+                      required
+                      className={`w-full p-2 border rounded focus:ring-2 focus:ring-primary ${
+                        formErrors.projectName ? 'border-red-500' : ''
+                      }`}
+                      placeholder="Give your project a name"
+                    />
+                    {formErrors.projectName && (
+                      <p className="text-red-500 text-sm mt-1">{formErrors.projectName}</p>
+                    )}
+                  </div>
 
-									<div className="mt-4">
-										<label
-											htmlFor="project-description"
-											className="block mb-2 font-medium text-left"
-										>
-											Project description *
-										</label>
-										<textarea
-											id="project-description"
-											name="project-description"
-											className={`w-full p-2 border rounded focus:ring-2 focus:ring-primary ${
-												formErrors[
-													'project-description'
-												]
-													? 'border-red-500'
-													: ''
-											}`}
-											rows="12"
-											required
-											value={
-												formState['project-description']
-											}
-											onChange={handleChange}
-										/>
-										{formErrors['project-description'] && (
-											<p className="text-red-500 text-sm mt-1">
-												{
-													formErrors[
-														'project-description'
-													]
-												}
-											</p>
-										)}
-									</div>
+                  <div className="mt-4">
+                    <label
+                      htmlFor="project-description"
+                      className="block mb-2 font-medium text-left"
+                    >
+                      Project description *
+                    </label>
+                    <textarea
+                      id="project-description"
+                      name="project-description"
+                      className={`w-full p-2 border rounded focus:ring-2 focus:ring-primary ${
+                        formErrors['project-description'] ? 'border-red-500' : ''
+                      }`}
+                      rows="12"
+                      required
+                      value={formState['project-description']}
+                      onChange={handleChange}
+                    />
+                    {formErrors['project-description'] && (
+                      <p className="text-red-500 text-sm mt-1">
+                        {formErrors['project-description']}
+                      </p>
+                    )}
+                  </div>
 
-									<div>
-										<label
-											htmlFor="helpType"
-											className="block mb-2 font-medium text-left"
-										>
-											What do you need help with? *
-										</label>
-										<div
-											className={`space-y-4 ${
-												formErrors.helpType
-													? 'border border-red-500 rounded p-2'
-													: ''
-											}`}
-										>
-											<div className="flex flex-wrap gap-2">
-												{/* Predefined tags */}
-												{[
-													'Design',
-													'Development',
-													'Consultation',
-													'UI/UX',
-													'Prototyping',
-													'Design System',
-													'Front-end',
-													'Research',
-												].map((option) => (
-													<button
-														key={option}
-														type="button"
-														onClick={() =>
-															handleHelpTypeSelect(
-																option
-															)
-														}
-														className={`px-3 py-1 rounded-full text-sm ${
-															formState.helpType?.includes(
-																option
-															)
-																? 'bg-primary text-white'
-																: 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-														}`}
-													>
-														{option}
-													</button>
-												))}
+                  <div>
+                    <label htmlFor="helpType" className="block mb-2 font-medium text-left">
+                      What do you need help with? *
+                    </label>
+                    <div
+                      className={`space-y-4 ${
+                        formErrors.helpType ? 'border border-red-500 rounded p-2' : ''
+                      }`}
+                    >
+                      <div className="flex flex-wrap gap-2">
+                        {/* Predefined tags */}
+                        {[
+                          'Design',
+                          'Development',
+                          'Consultation',
+                          'UI/UX',
+                          'Prototyping',
+                          'Design System',
+                          'Front-end',
+                          'Research'
+                        ].map(option => (
+                          <button
+                            key={option}
+                            type="button"
+                            onClick={() => handleHelpTypeSelect(option)}
+                            className={`px-3 py-1 rounded-full text-sm ${
+                              formState.helpType?.includes(option)
+                                ? 'bg-primary text-white'
+                                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                            }`}
+                          >
+                            {option}
+                          </button>
+                        ))}
 
-												{/* Custom tags */}
-												{formState.helpType
-													?.split(',')
-													.filter(
-														(tag) =>
-															tag &&
-															![
-																'Design',
-																'Development',
-																'Consultation',
-																'UI/UX',
-																'Prototyping',
-																'Design System',
-																'Front-end',
-																'Research',
-															].includes(tag)
-													)
-													.map((tag) => (
-														<div
-															key={tag}
-															className="bg-primary text-white px-3 py-1 rounded-full text-sm flex items-center gap-2"
-														>
-															{tag}
-															<button
-																type="button"
-																onClick={() =>
-																	handleRemoveTag(
-																		'help',
-																		tag
-																	)
-																}
-																className="hover:text-gray-200"
-															>
-																<svg
-																	className="w-3 h-3"
-																	fill="none"
-																	stroke="currentColor"
-																	viewBox="0 0 24 24"
-																>
-																	<path
-																		strokeLinecap="round"
-																		strokeLinejoin="round"
-																		strokeWidth="2"
-																		d="M6 18L18 6M6 6l12 12"
-																	/>
-																</svg>
-															</button>
-														</div>
-													))}
+                        {/* Custom tags */}
+                        {formState.helpType
+                          ?.split(',')
+                          .filter(
+                            tag =>
+                              tag &&
+                              ![
+                                'Design',
+                                'Development',
+                                'Consultation',
+                                'UI/UX',
+                                'Prototyping',
+                                'Design System',
+                                'Front-end',
+                                'Research'
+                              ].includes(tag)
+                          )
+                          .map(tag => (
+                            <div
+                              key={tag}
+                              className="bg-primary text-white px-3 py-1 rounded-full text-sm flex items-center gap-2"
+                            >
+                              {tag}
+                              <button
+                                type="button"
+                                onClick={() => handleRemoveTag('help', tag)}
+                                className="hover:text-gray-200"
+                              >
+                                <svg
+                                  className="w-3 h-3"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M6 18L18 6M6 6l12 12"
+                                  />
+                                </svg>
+                              </button>
+                            </div>
+                          ))}
 
-												{/* Add new tag input */}
-												{editingHelpType ? (
-													<div className="bg-gray-100 rounded-full px-3 py-1 flex items-center gap-2">
-														<input
-															id="newHelpTypeInput"
-															type="text"
-															value={newTagValue}
-															onChange={(e) =>
-																setNewTagValue(
-																	e.target
-																		.value
-																)
-															}
-															onKeyPress={(e) => {
-																if (
-																	e.key ===
-																		'Enter' &&
-																	newTagValue.trim()
-																) {
-																	handleNewTagSubmit(
-																		'help',
-																		newTagValue
-																	);
-																}
-															}}
-															className="bg-transparent border-none outline-none text-sm w-24"
-															placeholder="New tag..."
-															autoFocus
-														/>
-														{newTagValue.trim() && (
-															<button
-																type="button"
-																onClick={() =>
-																	handleNewTagSubmit(
-																		'help',
-																		newTagValue
-																	)
-																}
-																className="text-primary hover:text-primary-dark"
-															>
-																<svg
-																	className="w-4 h-4"
-																	fill="none"
-																	stroke="currentColor"
-																	viewBox="0 0 24 24"
-																>
-																	<path
-																		strokeLinecap="round"
-																		strokeLinejoin="round"
-																		strokeWidth="2"
-																		d="M5 13l4 4L19 7"
-																	/>
-																</svg>
-															</button>
-														)}
-													</div>
-												) : (
-													<button
-														type="button"
-														onClick={() =>
-															handleAddNewTag(
-																'help'
-															)
-														}
-														className="px-3 py-1 rounded-full text-sm bg-gray-100 text-gray-700 hover:bg-gray-200 flex items-center gap-1"
-													>
-														<svg
-															className="w-4 h-4"
-															fill="none"
-															stroke="currentColor"
-															viewBox="0 0 24 24"
-														>
-															<path
-																strokeLinecap="round"
-																strokeLinejoin="round"
-																strokeWidth="2"
-																d="M12 4v16m8-8H4"
-															/>
-														</svg>
-														<span>Add Custom</span>
-													</button>
-												)}
-											</div>
-										</div>
-										{formErrors.helpType && (
-											<p className="text-red-500 text-sm mt-1">
-												{formErrors.helpType}
-											</p>
-										)}
-									</div>
+                        {/* Add new tag input */}
+                        {editingHelpType ? (
+                          <div className="bg-gray-100 rounded-full px-3 py-1 flex items-center gap-2">
+                            <input
+                              id="newHelpTypeInput"
+                              type="text"
+                              value={newTagValue}
+                              onChange={e => setNewTagValue(e.target.value)}
+                              onKeyPress={e => {
+                                if (e.key === 'Enter' && newTagValue.trim()) {
+                                  handleNewTagSubmit('help', newTagValue);
+                                }
+                              }}
+                              className="bg-transparent border-none outline-none text-sm w-24"
+                              placeholder="New tag..."
+                              autoFocus
+                            />
+                            {newTagValue.trim() && (
+                              <button
+                                type="button"
+                                onClick={() => handleNewTagSubmit('help', newTagValue)}
+                                className="text-primary hover:text-primary-dark"
+                              >
+                                <svg
+                                  className="w-4 h-4"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M5 13l4 4L19 7"
+                                  />
+                                </svg>
+                              </button>
+                            )}
+                          </div>
+                        ) : (
+                          <button
+                            type="button"
+                            onClick={() => handleAddNewTag('help')}
+                            className="px-3 py-1 rounded-full text-sm bg-gray-100 text-gray-700 hover:bg-gray-200 flex items-center gap-1"
+                          >
+                            <svg
+                              className="w-4 h-4"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M12 4v16m8-8H4"
+                              />
+                            </svg>
+                            <span>Add Custom</span>
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                    {formErrors.helpType && (
+                      <p className="text-red-500 text-sm mt-1">{formErrors.helpType}</p>
+                    )}
+                  </div>
 
-									{formState.helpType === 'Other' && (
-										<div className="mt-4">
-											<label
-												htmlFor="helpTypeOther"
-												className="block mb-2 font-medium text-left"
-											>
-												Please specify what you need
-												help with:
-											</label>
-											<textarea
-												id="helpTypeOther"
-												name="helpTypeOther"
-												value={formState.helpTypeOther}
-												onChange={handleChange}
-												className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
-												rows="2"
-											/>
-										</div>
-									)}
+                  {formState.helpType === 'Other' && (
+                    <div className="mt-4">
+                      <label htmlFor="helpTypeOther" className="block mb-2 font-medium text-left">
+                        Please specify what you need help with:
+                      </label>
+                      <textarea
+                        id="helpTypeOther"
+                        name="helpTypeOther"
+                        value={formState.helpTypeOther}
+                        onChange={handleChange}
+                        className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
+                        rows="2"
+                      />
+                    </div>
+                  )}
 
-									<div>
-										<label
-											htmlFor="project-type"
-											className="block mb-2 font-medium text-left"
-										>
-											What type of project is this? *
-										</label>
-										<div
-											className={`space-y-4 ${
-												formErrors['project-type']
-													? 'border border-red-500 rounded p-2'
-													: ''
-											}`}
-										>
-											<div className="flex flex-wrap gap-2">
-												{[
-													'Full-time work',
-													'Freelance',
-													'Part-time',
-													'Hourly',
-													'Fixed price',
-													'Retainer',
-													'Trial project',
-												].map((option) => (
-													<button
-														key={option}
-														type="button"
-														onClick={() =>
-															handleProjectTypeSelect(
-																option
-															)
-														}
-														className={`px-3 py-1 rounded-full text-sm ${
-															formState[
-																'project-type'
-															]?.includes(option)
-																? 'bg-primary text-white'
-																: 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-														}`}
-													>
-														{option}
-													</button>
-												))}
+                  <div>
+                    <label htmlFor="project-type" className="block mb-2 font-medium text-left">
+                      What type of project is this? *
+                    </label>
+                    <div
+                      className={`space-y-4 ${
+                        formErrors['project-type'] ? 'border border-red-500 rounded p-2' : ''
+                      }`}
+                    >
+                      <div className="flex flex-wrap gap-2">
+                        {[
+                          'Full-time work',
+                          'Freelance',
+                          'Part-time',
+                          'Hourly',
+                          'Fixed price',
+                          'Retainer',
+                          'Trial project'
+                        ].map(option => (
+                          <button
+                            key={option}
+                            type="button"
+                            onClick={() => handleProjectTypeSelect(option)}
+                            className={`px-3 py-1 rounded-full text-sm ${
+                              formState['project-type']?.includes(option)
+                                ? 'bg-primary text-white'
+                                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                            }`}
+                          >
+                            {option}
+                          </button>
+                        ))}
 
-												{/* Custom tags */}
-												{formState['project-type']
-													?.split(',')
-													.filter(
-														(tag) =>
-															tag &&
-															![
-																'Full-time work',
-																'Freelance',
-																'Part-time',
-																'Hourly',
-																'Fixed price',
-																'Retainer',
-																'Trial project',
-															].includes(tag)
-													)
-													.map((tag) => (
-														<div
-															key={tag}
-															className="bg-primary text-white px-3 py-1 rounded-full text-sm flex items-center gap-2"
-														>
-															{tag}
-															<button
-																type="button"
-																onClick={() =>
-																	handleRemoveTag(
-																		'project',
-																		tag
-																	)
-																}
-																className="hover:text-gray-200"
-															>
-																<svg
-																	className="w-3 h-3"
-																	fill="none"
-																	stroke="currentColor"
-																	viewBox="0 0 24 24"
-																>
-																	<path
-																		strokeLinecap="round"
-																		strokeLinejoin="round"
-																		strokeWidth="2"
-																		d="M6 18L18 6M6 6l12 12"
-																	/>
-																</svg>
-															</button>
-														</div>
-													))}
+                        {/* Custom tags */}
+                        {formState['project-type']
+                          ?.split(',')
+                          .filter(
+                            tag =>
+                              tag &&
+                              ![
+                                'Full-time work',
+                                'Freelance',
+                                'Part-time',
+                                'Hourly',
+                                'Fixed price',
+                                'Retainer',
+                                'Trial project'
+                              ].includes(tag)
+                          )
+                          .map(tag => (
+                            <div
+                              key={tag}
+                              className="bg-primary text-white px-3 py-1 rounded-full text-sm flex items-center gap-2"
+                            >
+                              {tag}
+                              <button
+                                type="button"
+                                onClick={() => handleRemoveTag('project', tag)}
+                                className="hover:text-gray-200"
+                              >
+                                <svg
+                                  className="w-3 h-3"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M6 18L18 6M6 6l12 12"
+                                  />
+                                </svg>
+                              </button>
+                            </div>
+                          ))}
 
-												{/* Add new tag input */}
-												{editingProjectType ? (
-													<div className="bg-gray-100 rounded-full px-3 py-1 flex items-center gap-2">
-														<input
-															id="newProjectTypeInput"
-															type="text"
-															value={newTagValue}
-															onChange={(e) =>
-																setNewTagValue(
-																	e.target
-																		.value
-																)
-															}
-															onKeyPress={(e) => {
-																if (
-																	e.key ===
-																		'Enter' &&
-																	newTagValue.trim()
-																) {
-																	handleNewTagSubmit(
-																		'project',
-																		newTagValue
-																	);
-																}
-															}}
-															className="bg-transparent border-none outline-none text-sm w-24"
-															placeholder="New tag..."
-															autoFocus
-														/>
-														{newTagValue.trim() && (
-															<button
-																type="button"
-																onClick={() =>
-																	handleNewTagSubmit(
-																		'project',
-																		newTagValue
-																	)
-																}
-																className="text-primary hover:text-primary-dark"
-															>
-																<svg
-																	className="w-4 h-4"
-																	fill="none"
-																	stroke="currentColor"
-																	viewBox="0 0 24 24"
-																>
-																	<path
-																		strokeLinecap="round"
-																		strokeLinejoin="round"
-																		strokeWidth="2"
-																		d="M5 13l4 4L19 7"
-																	/>
-																</svg>
-															</button>
-														)}
-													</div>
-												) : (
-													<button
-														type="button"
-														onClick={() =>
-															handleAddNewTag(
-																'project'
-															)
-														}
-														className="px-3 py-1 rounded-full text-sm bg-gray-100 text-gray-700 hover:bg-gray-200 flex items-center gap-1"
-													>
-														<svg
-															className="w-4 h-4"
-															fill="none"
-															stroke="currentColor"
-															viewBox="0 0 24 24"
-														>
-															<path
-																strokeLinecap="round"
-																strokeLinejoin="round"
-																strokeWidth="2"
-																d="M12 4v16m8-8H4"
-															/>
-														</svg>
-														<span>Add Custom</span>
-													</button>
-												)}
-											</div>
-										</div>
-										{formErrors['project-type'] && (
-											<p className="text-red-500 text-sm mt-1">
-												{formErrors['project-type']}
-											</p>
-										)}
-									</div>
+                        {/* Add new tag input */}
+                        {editingProjectType ? (
+                          <div className="bg-gray-100 rounded-full px-3 py-1 flex items-center gap-2">
+                            <input
+                              id="newProjectTypeInput"
+                              type="text"
+                              value={newTagValue}
+                              onChange={e => setNewTagValue(e.target.value)}
+                              onKeyPress={e => {
+                                if (e.key === 'Enter' && newTagValue.trim()) {
+                                  handleNewTagSubmit('project', newTagValue);
+                                }
+                              }}
+                              className="bg-transparent border-none outline-none text-sm w-24"
+                              placeholder="New tag..."
+                              autoFocus
+                            />
+                            {newTagValue.trim() && (
+                              <button
+                                type="button"
+                                onClick={() => handleNewTagSubmit('project', newTagValue)}
+                                className="text-primary hover:text-primary-dark"
+                              >
+                                <svg
+                                  className="w-4 h-4"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M5 13l4 4L19 7"
+                                  />
+                                </svg>
+                              </button>
+                            )}
+                          </div>
+                        ) : (
+                          <button
+                            type="button"
+                            onClick={() => handleAddNewTag('project')}
+                            className="px-3 py-1 rounded-full text-sm bg-gray-100 text-gray-700 hover:bg-gray-200 flex items-center gap-1"
+                          >
+                            <svg
+                              className="w-4 h-4"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M12 4v16m8-8H4"
+                              />
+                            </svg>
+                            <span>Add Custom</span>
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                    {formErrors['project-type'] && (
+                      <p className="text-red-500 text-sm mt-1">{formErrors['project-type']}</p>
+                    )}
+                  </div>
 
-									{formState['project-type'] === 'Other' && (
-										<div>
-											<label
-												htmlFor="project-type-other"
-												className="block mb-2 font-medium text-left"
-											>
-												Please specify project type:
-											</label>
-											<textarea
-												id="project-type-other"
-												name="project-type-other"
-												value={
-													formState[
-														'project-type-other'
-													]
-												}
-												onChange={handleChange}
-												className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
-												rows="2"
-											/>
-										</div>
-									)}
-								</div>
+                  {formState['project-type'] === 'Other' && (
+                    <div>
+                      <label
+                        htmlFor="project-type-other"
+                        className="block mb-2 font-medium text-left"
+                      >
+                        Please specify project type:
+                      </label>
+                      <textarea
+                        id="project-type-other"
+                        name="project-type-other"
+                        value={formState['project-type-other']}
+                        onChange={handleChange}
+                        className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
+                        rows="2"
+                      />
+                    </div>
+                  )}
+                </div>
 
-								<div className="mt-auto flex flex-col md:flex-row justify-between gap-4">
-									<button
-										type="button"
-										onClick={() => goToSlide(1)}
-										className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full"
-									>
-										Previous
-									</button>
-									<button
-										type="button"
-										onClick={() => goToSlide(3)}
-										className="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded-full"
-									>
-										Next
-									</button>
-								</div>
-							</div>
+                <div className="mt-auto flex flex-col md:flex-row justify-between gap-4">
+                  <button
+                    type="button"
+                    onClick={() => goToSlide(1)}
+                    className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full"
+                  >
+                    Previous
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => goToSlide(3)}
+                    className="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded-full"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
 
-							{/* Slide 3: Deliverables */}
-							<div className="flex flex-col h-full slide-budget-deliverables">
-								{/* <div className="flex-grow"> */}
-								<div className="h-full">
-									<div>
-										<label
-											htmlFor="deliverables-group"
-											className="block mb-2 font-medium text-left"
-										>
-											What deliverables do you need? *
-										</label>
-										<div
-											className={`space-y-4 ${
-												formErrors.deliverables
-													? 'border border-red-500 rounded p-2'
-													: ''
-											}`}
-										>
-											<div className="flex flex-wrap gap-2">
-												{[
-													'Figma',
-													'Design System',
-													'UI',
-													'UX',
-													'Mentorship',
-													'Front-end development',
-													'Prototyping',
-													'AI-driven exploration',
-													'Real-code Prototypes',
-													'Validate Solutions',
-													'Design Concepts',
-													'Design Evaluation',
-													'CRO',
-												].map((option) => (
-													<button
-														key={option}
-														type="button"
-														onClick={() =>
-															handleDeliverablesSelect(
-																option
-															)
-														}
-														className={`px-3 py-1 rounded-full text-sm ${
-															formState.deliverables?.includes(
-																option
-															)
-																? 'bg-primary text-white'
-																: 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-														}`}
-													>
-														{option}
-													</button>
-												))}
+              {/* Slide 3: Deliverables */}
+              <div className="flex flex-col h-full slide-budget-deliverables">
+                {/* <div className="flex-grow"> */}
+                <div className="h-full">
+                  <div>
+                    <label
+                      htmlFor="deliverables-group"
+                      className="block mb-2 font-medium text-left"
+                    >
+                      What deliverables do you need? *
+                    </label>
+                    <div
+                      className={`space-y-4 ${
+                        formErrors.deliverables ? 'border border-red-500 rounded p-2' : ''
+                      }`}
+                    >
+                      <div className="flex flex-wrap gap-2">
+                        {[
+                          'Figma',
+                          'Design System',
+                          'UI',
+                          'UX',
+                          'Mentorship',
+                          'Front-end development',
+                          'Prototyping',
+                          'AI-driven exploration',
+                          'Real-code Prototypes',
+                          'Validate Solutions',
+                          'Design Concepts',
+                          'Design Evaluation',
+                          'CRO'
+                        ].map(option => (
+                          <button
+                            key={option}
+                            type="button"
+                            onClick={() => handleDeliverablesSelect(option)}
+                            className={`px-3 py-1 rounded-full text-sm ${
+                              formState.deliverables?.includes(option)
+                                ? 'bg-primary text-white'
+                                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                            }`}
+                          >
+                            {option}
+                          </button>
+                        ))}
 
-												{/* Custom deliverables tags */}
-												{formState.deliverables
-													?.split(',')
-													.filter(
-														(tag) =>
-															tag &&
-															![
-																'Figma',
-																'Design System',
-																'UI',
-																'UX',
-																'Mentorship',
-																'Front-end development',
-																'Prototyping',
-																'AI-driven exploration',
-																'Real-code Prototypes',
-																'Validate Solutions',
-																'Design Concepts',
-																'Design Evaluation',
-																'CRO',
-															].includes(tag)
-													)
-													.map((tag) => (
-														<div
-															key={tag}
-															className="bg-primary text-white px-3 py-1 rounded-full text-sm flex items-center gap-2"
-														>
-															{tag}
-															<button
-																type="button"
-																onClick={() =>
-																	handleRemoveTag(
-																		'deliverables',
-																		tag
-																	)
-																}
-																className="hover:text-gray-200"
-															>
-																<svg
-																	className="w-3 h-3"
-																	fill="none"
-																	stroke="currentColor"
-																	viewBox="0 0 24 24"
-																>
-																	<path
-																		strokeLinecap="round"
-																		strokeLinejoin="round"
-																		strokeWidth="2"
-																		d="M6 18L18 6M6 6l12 12"
-																	/>
-																</svg>
-															</button>
-														</div>
-													))}
+                        {/* Custom deliverables tags */}
+                        {formState.deliverables
+                          ?.split(',')
+                          .filter(
+                            tag =>
+                              tag &&
+                              ![
+                                'Figma',
+                                'Design System',
+                                'UI',
+                                'UX',
+                                'Mentorship',
+                                'Front-end development',
+                                'Prototyping',
+                                'AI-driven exploration',
+                                'Real-code Prototypes',
+                                'Validate Solutions',
+                                'Design Concepts',
+                                'Design Evaluation',
+                                'CRO'
+                              ].includes(tag)
+                          )
+                          .map(tag => (
+                            <div
+                              key={tag}
+                              className="bg-primary text-white px-3 py-1 rounded-full text-sm flex items-center gap-2"
+                            >
+                              {tag}
+                              <button
+                                type="button"
+                                onClick={() => handleRemoveTag('deliverables', tag)}
+                                className="hover:text-gray-200"
+                              >
+                                <svg
+                                  className="w-3 h-3"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M6 18L18 6M6 6l12 12"
+                                  />
+                                </svg>
+                              </button>
+                            </div>
+                          ))}
 
-												{/* Add new deliverable input */}
-												{editingDeliverables ? (
-													<div className="bg-gray-100 rounded-full px-3 py-1 flex items-center gap-2">
-														<input
-															id="newDeliverableInput"
-															type="text"
-															value={newTagValue}
-															onChange={(e) =>
-																setNewTagValue(
-																	e.target
-																		.value
-																)
-															}
-															onKeyPress={(e) => {
-																if (
-																	e.key ===
-																		'Enter' &&
-																	newTagValue.trim()
-																) {
-																	handleNewTagSubmit(
-																		'deliverables',
-																		newTagValue
-																	);
-																}
-															}}
-															className="bg-transparent border-none outline-none text-sm w-24"
-															placeholder="New deliverable..."
-															autoFocus
-														/>
-														{newTagValue.trim() && (
-															<button
-																type="button"
-																onClick={() =>
-																	handleNewTagSubmit(
-																		'deliverables',
-																		newTagValue
-																	)
-																}
-																className="text-primary hover:text-primary-dark"
-															>
-																<svg
-																	className="w-4 h-4"
-																	fill="none"
-																	stroke="currentColor"
-																	viewBox="0 0 24 24"
-																>
-																	<path
-																		strokeLinecap="round"
-																		strokeLinejoin="round"
-																		strokeWidth="2"
-																		d="M5 13l4 4L19 7"
-																	/>
-																</svg>
-															</button>
-														)}
-													</div>
-												) : (
-													<button
-														type="button"
-														onClick={() =>
-															setEditingDeliverables(
-																true
-															)
-														}
-														className="px-3 py-1 rounded-full text-sm bg-gray-100 text-gray-700 hover:bg-gray-200 flex items-center gap-1"
-													>
-														<svg
-															className="w-4 h-4"
-															fill="none"
-															stroke="currentColor"
-															viewBox="0 0 24 24"
-														>
-															<path
-																strokeLinecap="round"
-																strokeLinejoin="round"
-																strokeWidth="2"
-																d="M12 4v16m8-8H4"
-															/>
-														</svg>
-														<span>Add Custom</span>
-													</button>
-												)}
-											</div>
-										</div>
-										{formErrors.deliverables && (
-											<p className="text-red-500 text-sm mt-1">
-												{formErrors.deliverables}
-											</p>
-										)}
-									</div>
+                        {/* Add new deliverable input */}
+                        {editingDeliverables ? (
+                          <div className="bg-gray-100 rounded-full px-3 py-1 flex items-center gap-2">
+                            <input
+                              id="newDeliverableInput"
+                              type="text"
+                              value={newTagValue}
+                              onChange={e => setNewTagValue(e.target.value)}
+                              onKeyPress={e => {
+                                if (e.key === 'Enter' && newTagValue.trim()) {
+                                  handleNewTagSubmit('deliverables', newTagValue);
+                                }
+                              }}
+                              className="bg-transparent border-none outline-none text-sm w-24"
+                              placeholder="New deliverable..."
+                              autoFocus
+                            />
+                            {newTagValue.trim() && (
+                              <button
+                                type="button"
+                                onClick={() => handleNewTagSubmit('deliverables', newTagValue)}
+                                className="text-primary hover:text-primary-dark"
+                              >
+                                <svg
+                                  className="w-4 h-4"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M5 13l4 4L19 7"
+                                  />
+                                </svg>
+                              </button>
+                            )}
+                          </div>
+                        ) : (
+                          <button
+                            type="button"
+                            onClick={() => setEditingDeliverables(true)}
+                            className="px-3 py-1 rounded-full text-sm bg-gray-100 text-gray-700 hover:bg-gray-200 flex items-center gap-1"
+                          >
+                            <svg
+                              className="w-4 h-4"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M12 4v16m8-8H4"
+                              />
+                            </svg>
+                            <span>Add Custom</span>
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                    {formErrors.deliverables && (
+                      <p className="text-red-500 text-sm mt-1">{formErrors.deliverables}</p>
+                    )}
+                  </div>
 
-									<div>
-										<label
-											htmlFor="budget"
-											className="block mb-2 font-medium text-left"
-										>
-											What's your budget range? *
-										</label>
-										<select
-											id="budget"
-											name="budget"
-											value={formState.budget || ''}
-											onChange={(e) => {
-												setFormState((prev) => ({
-													...prev,
-													budget: e.target.value,
-												}));
-											}}
-											required
-											className={`w-full p-2 border rounded focus:ring-2 focus:ring-primary ${
-												formErrors.budget
-													? 'border-red-500'
-													: ''
-											}`}
-										>
-											<option value="">
-												Select an option
-											</option>
-											<option value="$0 – $10k">
-												$0 – $10k
-											</option>
-											<option value="$10k – $50k">
-												$10k – $50k
-											</option>
-											<option value="$50k – $250k">
-												$50k – $250k
-											</option>
-											<option value="$250k – $1M">
-												$250k – $1M
-											</option>
-											<option value="$1M+">$1M+</option>
-											<option value="Other">Other</option>
-										</select>
-										{formErrors.budget && (
-											<p className="text-red-500 text-sm mt-1">
-												{formErrors.budget}
-											</p>
-										)}
+                  <div>
+                    <label htmlFor="budget" className="block mb-2 font-medium text-left">
+                      What's your budget range? *
+                    </label>
+                    <select
+                      id="budget"
+                      name="budget"
+                      value={formState.budget || ''}
+                      onChange={e => {
+                        setFormState(prev => ({
+                          ...prev,
+                          budget: e.target.value
+                        }));
+                      }}
+                      required
+                      className={`w-full p-2 border rounded focus:ring-2 focus:ring-primary ${
+                        formErrors.budget ? 'border-red-500' : ''
+                      }`}
+                    >
+                      <option value="">Select an option</option>
+                      <option value="$0 – $10k">$0 – $10k</option>
+                      <option value="$10k – $50k">$10k – $50k</option>
+                      <option value="$50k – $250k">$50k – $250k</option>
+                      <option value="$250k – $1M">$250k – $1M</option>
+                      <option value="$1M+">$1M+</option>
+                      <option value="Other">Other</option>
+                    </select>
+                    {formErrors.budget && (
+                      <p className="text-red-500 text-sm mt-1">{formErrors.budget}</p>
+                    )}
 
-										{formState.budget === 'Other' && (
-											<div>
-												<div className="mt-3">
-													<label
-														htmlFor="budgetOther"
-														className="block mb-2 font-medium text-left"
-													>
-														Please describe your
-														budget range: *
-													</label>
-													<textarea
-														id="budgetOther"
-														name="budgetOther"
-														placeholder="Please describe your budget range..."
-														value={
-															formState.budgetOther ||
-															''
-														}
-														onChange={handleChange}
-														className={`w-full p-2 border rounded focus:ring-2 focus:ring-primary ${
-															formErrors.budgetOther
-																? 'border-red-500'
-																: ''
-														}`}
-														rows="2"
-														required
-													/>
-													{formErrors.budgetOther && (
-														<p className="text-red-500 text-sm mt-1">
-															{
-																formErrors.budgetOther
-															}
-														</p>
-													)}
-												</div>
+                    {formState.budget === 'Other' && (
+                      <div>
+                        <div className="mt-3">
+                          <label htmlFor="budgetOther" className="block mb-2 font-medium text-left">
+                            Please describe your budget range: *
+                          </label>
+                          <textarea
+                            id="budgetOther"
+                            name="budgetOther"
+                            placeholder="Please describe your budget range..."
+                            value={formState.budgetOther || ''}
+                            onChange={handleChange}
+                            className={`w-full p-2 border rounded focus:ring-2 focus:ring-primary ${
+                              formErrors.budgetOther ? 'border-red-500' : ''
+                            }`}
+                            rows="2"
+                            required
+                          />
+                          {formErrors.budgetOther && (
+                            <p className="text-red-500 text-sm mt-1">{formErrors.budgetOther}</p>
+                          )}
+                        </div>
 
-												<div className="mt-4">
-													<label
-														htmlFor="price-other"
-														className="block mb-2 font-medium text-left"
-													>
-														Please specify exact
-														amount: *
-													</label>
-													<input
-														type="text"
-														id="price-other"
-														name="price-other"
-														value={
-															formState[
-																'price-other'
-															]
-														}
-														onChange={handleChange}
-														className={`w-full p-2 border rounded focus:ring-2 focus:ring-primary ${
-															formErrors[
-																'price-other'
-															]
-																? 'border-red-500'
-																: ''
-														}`}
-														placeholder="e.g. $5000"
-														required
-													/>
-													{formErrors[
-														'price-other'
-													] && (
-														<p className="text-red-500 text-sm mt-1">
-															{
-																formErrors[
-																	'price-other'
-																]
-															}
-														</p>
-													)}
-												</div>
-											</div>
-										)}
+                        <div className="mt-4">
+                          <label htmlFor="price-other" className="block mb-2 font-medium text-left">
+                            Please specify exact amount: *
+                          </label>
+                          <input
+                            type="text"
+                            id="price-other"
+                            name="price-other"
+                            value={formState['price-other']}
+                            onChange={handleChange}
+                            className={`w-full p-2 border rounded focus:ring-2 focus:ring-primary ${
+                              formErrors['price-other'] ? 'border-red-500' : ''
+                            }`}
+                            placeholder="e.g. $5000"
+                            required
+                          />
+                          {formErrors['price-other'] && (
+                            <p className="text-red-500 text-sm mt-1">{formErrors['price-other']}</p>
+                          )}
+                        </div>
+                      </div>
+                    )}
 
-										{/* Add after the budget section's closing </div> */}
-										<div className="mb-6">
-											<label
-												htmlFor="payment-method"
-												className="block mb-2 font-medium text-left"
-											>
-												What's your preferred payment
-												method? *
-											</label>
-											<select
-												id="payment-method"
-												name="payment-method"
-												value={
-													formState['payment-method']
-												}
-												onChange={handleChange}
-												className={`w-full p-2 border rounded focus:ring-2 focus:ring-primary ${
-													formErrors['payment-method']
-														? 'border-red-500'
-														: ''
-												}`}
-												required
-											>
-												{paymentOptions.map(
-													(option) => (
-														<option
-															key={option.value}
-															value={option.value}
-														>
-															{option.label}
-														</option>
-													)
-												)}
-											</select>
+                    {/* Add after the budget section's closing </div> */}
+                    <div className="mb-6">
+                      <label htmlFor="payment-method" className="block mb-2 font-medium text-left">
+                        What's your preferred payment method? *
+                      </label>
+                      <select
+                        id="payment-method"
+                        name="payment-method"
+                        value={formState['payment-method']}
+                        onChange={handleChange}
+                        className={`w-full p-2 border rounded focus:ring-2 focus:ring-primary ${
+                          formErrors['payment-method'] ? 'border-red-500' : ''
+                        }`}
+                        required
+                      >
+                        {paymentOptions.map(option => (
+                          <option key={option.value} value={option.value}>
+                            {option.label}
+                          </option>
+                        ))}
+                      </select>
 
-											{formState['payment-method'] ===
-												'stripe' && (
-												<div className="mt-4 p-4 bg-gray-50 rounded-lg">
-													<p className="text-sm text-gray-600">
-														You'll be redirected to
-														our secure payment page
-														after form submission.
-													</p>
-												</div>
-											)}
-										</div>
-									</div>
-								</div>
+                      {formState['payment-method'] === 'stripe' && (
+                        <div className="mt-4 p-4 bg-gray-50 rounded-lg">
+                          <p className="text-sm text-gray-600">
+                            You'll be redirected to our secure payment page after form submission.
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
 
-								<div className="mt-auto flex flex-col md:flex-row justify-between gap-4">
-									<button
-										type="button"
-										onClick={() => goToSlide(2)}
-										className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full"
-									>
-										Previous
-									</button>
-									<button
-										type="button"
-										onClick={() => goToSlide(4)}
-										className="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded-full"
-									>
-										Next
-									</button>
-								</div>
-							</div>
+                <div className="mt-auto flex flex-col md:flex-row justify-between gap-4">
+                  <button
+                    type="button"
+                    onClick={() => goToSlide(2)}
+                    className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full"
+                  >
+                    Previous
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => goToSlide(4)}
+                    className="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded-full"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
 
-							{/* Slide 4: Contact Details */}
-							<div className="flex flex-col h-full slide-contact">
-								<div className="flex-grow">
-									<div>
-										<label
-											htmlFor="full-name"
-											className="block mb-2 font-medium text-left"
-										>
-											Full name *
-										</label>
-										<input
-											type="text"
-											id="full-name"
-											name="full-name"
-											value={formState['full-name']}
-											onChange={handleChange}
-											required
-											className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
-											placeholder="Your full name"
-										/>
-									</div>
+              {/* Slide 4: Contact Details */}
+              <div className="flex flex-col h-full slide-contact">
+                <div className="flex-grow">
+                  <div>
+                    <label htmlFor="full-name" className="block mb-2 font-medium text-left">
+                      Full name *
+                    </label>
+                    <input
+                      type="text"
+                      id="full-name"
+                      name="full-name"
+                      value={formState['full-name']}
+                      onChange={handleChange}
+                      required
+                      className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
+                      placeholder="Your full name"
+                    />
+                  </div>
 
-									<div>
-										<label
-											htmlFor="company-name"
-											className="block mb-2 font-medium text-left"
-										>
-											Company name
-										</label>
-										<input
-											type="text"
-											id="company-name"
-											name="company-name"
-											value={formState['company-name']}
-											onChange={handleChange}
-											className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
-											placeholder="Your company (if applicable)"
-										/>
-									</div>
+                  <div>
+                    <label htmlFor="company-name" className="block mb-2 font-medium text-left">
+                      Company name
+                    </label>
+                    <input
+                      type="text"
+                      id="company-name"
+                      name="company-name"
+                      value={formState['company-name']}
+                      onChange={handleChange}
+                      className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
+                      placeholder="Your company (if applicable)"
+                    />
+                  </div>
 
-									<div>
-										<label
-											htmlFor="email"
-											className="block mb-2 font-medium text-left"
-										>
-											Email *
-										</label>
-										<input
-											type="email"
-											id="email"
-											name="email"
-											value={formState.email}
-											onChange={handleChange}
-											required
-											className={`w-full p-2 border rounded focus:ring-2 focus:ring-primary ${
-												formErrors.email
-													? 'border-red-500'
-													: ''
-											}`}
-											placeholder="your@email.com"
-										/>
-										{formErrors.email && (
-											<p className="text-red-500 text-sm mt-1">
-												{formErrors.email}
-											</p>
-										)}
-									</div>
+                  <div>
+                    <label htmlFor="email" className="block mb-2 font-medium text-left">
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formState.email}
+                      onChange={handleChange}
+                      required
+                      className={`w-full p-2 border rounded focus:ring-2 focus:ring-primary ${
+                        formErrors.email ? 'border-red-500' : ''
+                      }`}
+                      placeholder="your@email.com"
+                    />
+                    {formErrors.email && (
+                      <p className="text-red-500 text-sm mt-1">{formErrors.email}</p>
+                    )}
+                  </div>
 
-									<div>
-										<label
-											htmlFor="file"
-											className="block mb-2 font-medium text-left"
-										>
-											Upload files (optional)
-										</label>
-										<input
-											type="file"
-											id="file"
-											name="file"
-											multiple
-											onChange={handleFileChange}
-											className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
-										/>
-										<p className="text-sm text-gray-500 mt-1">
-											Attach any relevant documents (PDF,
-											images, etc.)
-										</p>
-										{formState.files.length > 0 && (
-											<div className="mt-4 space-y-3">
-												{formState.files.map(
-													(file, index) => (
-														<div
-															key={index}
-															className="flex items-center space-x-3"
-														>
-															{file.type.startsWith(
-																'image/'
-															) && (
-																<img
-																	src={URL.createObjectURL(
-																		file
-																	)}
-																	alt={
-																		file.name
-																	}
-																	className="h-16 w-16 object-cover rounded"
-																/>
-															)}
-															<div className="flex-1 min-w-0">
-																<p className="text-sm truncate">
-																	{file.name}
-																</p>
-																<p className="text-xs text-gray-500">
-																	{(
-																		file.size /
-																		1024
-																	).toFixed(
-																		1
-																	)}{' '}
-																	KB
-																</p>
-															</div>
-															<button
-																type="button"
-																onClick={() => {
-																	setFormState(
-																		(
-																			prev
-																		) => ({
-																			...prev,
-																			files: prev.files.filter(
-																				(
-																					_,
-																					i
-																				) =>
-																					i !==
-																					index
-																			),
-																		})
-																	);
-																}}
-																className="text-red-500 hover:text-red-700"
-															>
-																Remove
-															</button>
-														</div>
-													)
-												)}
-											</div>
-										)}
-									</div>
-								</div>
+                  <div>
+                    <label htmlFor="file" className="block mb-2 font-medium text-left">
+                      Upload files (optional)
+                    </label>
+                    <input
+                      type="file"
+                      id="file"
+                      name="file"
+                      multiple
+                      onChange={handleFileChange}
+                      className="w-full p-2 border rounded focus:ring-2 focus:ring-primary"
+                    />
+                    <p className="text-sm text-gray-500 mt-1">
+                      Attach any relevant documents (PDF, images, etc.)
+                    </p>
+                    {formState.files.length > 0 && (
+                      <div className="mt-4 space-y-3">
+                        {formState.files.map((file, index) => (
+                          <div key={index} className="flex items-center space-x-3">
+                            {file.type.startsWith('image/') && (
+                              <img
+                                src={URL.createObjectURL(file)}
+                                alt={file.name}
+                                className="h-16 w-16 object-cover rounded"
+                              />
+                            )}
+                            <div className="flex-1 min-w-0">
+                              <p className="text-sm truncate">{file.name}</p>
+                              <p className="text-xs text-gray-500">
+                                {(file.size / 1024).toFixed(1)} KB
+                              </p>
+                            </div>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setFormState(prev => ({
+                                  ...prev,
+                                  files: prev.files.filter((_, i) => i !== index)
+                                }));
+                              }}
+                              className="text-red-500 hover:text-red-700"
+                            >
+                              Remove
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
 
-								<div className="mt-6 flex justify-end gap-4">
-									<button
-										type="button"
-										onClick={() => goToSlide(3)}
-										className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full"
-									>
-										Previous
-									</button>
-									<button
-										type="submit"
-										disabled={submitting}
-										className="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded-full"
-									>
-										{submitting
-											? 'Submitting...'
-											: 'Submit'}
-									</button>
-								</div>
+                <div className="mt-6 flex justify-end gap-4">
+                  <button
+                    type="button"
+                    onClick={() => goToSlide(3)}
+                    className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full"
+                  >
+                    Previous
+                  </button>
+                  <button
+                    type="submit"
+                    disabled={submitting}
+                    className="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded-full"
+                  >
+                    {submitting ? 'Submitting...' : 'Submit'}
+                  </button>
+                </div>
 
-								<div className="text-center mt-4">
-									<a
-										href="https://calendly.com/daniellauding"
-										target="_blank"
-										rel="noopener noreferrer"
-										className="text-primary hover:text-primary-dark underline"
-									>
-										Or book an appointment
-									</a>
-								</div>
-							</div>
-						</Carousel>
-					</form>
-				</div>
-			)}
-		</div>
-	);
+                <div className="text-center mt-4">
+                  <a
+                    href="https://calendly.com/daniellauding"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:text-primary-dark underline"
+                  >
+                    Or book an appointment
+                  </a>
+                </div>
+              </div>
+            </Carousel>
+          </form>
+        </div>
+      )}
+    </div>
+  );
 };
 
 // Success message component
