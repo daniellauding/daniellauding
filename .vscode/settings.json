@@ -8,5 +8,4 @@
   "eslint.validate": [
     "javascript"
   ],
-  "chatgpt.gpt3.apiKey": "***REMOVED***"
 }

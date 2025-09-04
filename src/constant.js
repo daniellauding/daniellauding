@@ -836,6 +836,19 @@ const about = [
 
 const work = [
 	{
+		id: 0,
+		client: 'Qasa',
+		slug: 'qasa',
+		role: 'Senior Product Design Consultant',
+		date: 'June – Aug, 2025',
+		location: 'Remote / Lund / Stockholm',
+		featured: true,
+		url: 'https://www.qasa.se',
+		protected: true,
+		index: true,
+		isExternal: true,
+	},
+	{
 		id: 1,
 		client: 'Asteria',
 		slug: 'asteria',
