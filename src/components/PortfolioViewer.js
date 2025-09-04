@@ -26,9 +26,11 @@ const PortfolioViewer = ({ isOpen, onClose }) => {
 	useEffect(() => {
 		const handleHashChange = () => {
 			// Only close if hash is empty or something other than newproject
-			if (window.location.hash !== '#selectedwork' && 
-				window.location.hash !== '#newproject' && 
-				isOpen) {
+			if (
+				window.location.hash !== '#selectedwork' &&
+				window.location.hash !== '#newproject' &&
+				isOpen
+			) {
 				onClose();
 			}
 		};
@@ -78,7 +80,7 @@ const PortfolioViewer = ({ isOpen, onClose }) => {
 					)}
 					<iframe
 						className="absolute inset-0 w-full h-full rounded-lg"
-						src="https://embed.figma.com/proto/ITcLm3ciPq4G5qkKP6q1d9/selected-work-2016-9-apr-2024?page-id=0%3A1&node-id=231-142&starting-point-node-id=231%3A142&embed-host=share"
+						src="https://embed.figma.com/proto/ITcLm3ciPq4G5qkKP6q1d9/instinctly-selected-work?page-id=0%3A1&node-id=811-396&viewport=-10433%2C7124%2C0.14&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=811%3A396&embed-host=share"
 						allowFullScreen
 						title="Portfolio Preview"
 						onLoad={() => setIsLoading(false)}
