@@ -1,7 +1,12 @@
+# Video files
 *.mov filter=lfs diff=lfs merge=lfs -text
 *.mp4 filter=lfs diff=lfs merge=lfs -text
 *.m4a filter=lfs diff=lfs merge=lfs -text
+
+# Archives
 *.zip filter=lfs diff=lfs merge=lfs -text
+# Large PDFs
 *.pdf filter=lfs diff=lfs merge=lfs -text
+# Large images
 *.png filter=lfs diff=lfs merge=lfs -text
 *.gif filter=lfs diff=lfs merge=lfs -text
