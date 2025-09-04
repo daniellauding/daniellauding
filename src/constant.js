@@ -853,7 +853,7 @@ const work = [
 		client: 'Asteria',
 		slug: 'asteria',
 		role: 'Co-Founder & Lead Product Design',
-		date: '2017 – Present',
+		date: '2017 – 2025',
 		location: 'Remote / Sweden',
 		featured: true,
 		background: {
