@@ -1,0 +1,4493 @@
+{
+  "fetchedFrom": "https://new.daniellauding.se/api",
+  "personal": {
+    "name": "Daniel Lauding",
+    "firstName": "Daniel",
+    "lastName": "Lauding",
+    "title": "Design Engineer · Lead Product Design · UX/UI · AI Prototyping",
+    "subtitle": "Creator · Builder · Enabler · Fast Execution · Modern AI Workflow",
+    "status": "Open for 2026 opportunities",
+    "studio": "Instinctly",
+    "location": "Lund/Stockholm",
+    "email": "daniel@lauding.se",
+    "phone": "+46(0) 73 918 44 10",
+    "website": "http://www.daniellauding.se",
+    "bio": {
+      "root": {
+        "type": "root",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "children": [
+          {
+            "type": "paragraph",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "children": [
+              {
+                "mode": "normal",
+                "text": "What started as a childhood fascination with building websites has evolved into 15+ years of crafting digital experiences that matter. From those early days tweaking graphics and rebuilding sites with every new trend, Daniel discovered his passion for the intersection of creativity, technology, and human impact. Today, he's a Design Engineer who thrives on transforming complex problems into elegant, user-centered solutions. Whether co-founding fintech companies serving 400,000+ users or conducting field research in Brazilian favelas for Spotify, Daniel brings a unique blend of strategic thinking, technical execution, and genuine care for the people using what he builds. Currently exploring the frontiers of AI-assisted design and development, he's passionate about leveraging cutting-edge tools to create more meaningful, accessible experiences that truly serve users' needs.",
+                "type": "text",
+                "style": "",
+                "detail": 0,
+                "format": 0,
+                "version": 1
+              }
+            ],
+            "direction": "ltr"
+          }
+        ],
+        "direction": "ltr"
+      }
+    },
+    "avatar": null,
+    "tools": [
+      "Figma",
+      "Cursor",
+      "Supabase",
+      "Claude Code",
+      "Notion",
+      "Lovable",
+      "React JS/Native",
+      "Design to Code",
+      "Tailwind",
+      "TypeScript",
+      "Git"
+    ],
+    "roles": [
+      "Lead Product Designer",
+      "Frontend Developer",
+      "Design Engineer",
+      "UX/UI Specialist",
+      "Design System Architect",
+      "Vibe coder"
+    ],
+    "socialLinks": {
+      "linkedin": null,
+      "github": null,
+      "twitter": null,
+      "dribbble": null,
+      "instagram": null,
+      "medium": null,
+      "spotify": null,
+      "airbnb": null
+    }
+  },
+  "work": [
+    {
+      "id": 30,
+      "client": "Greeto",
+      "slug": "greeto",
+      "role": "app",
+      "date": null,
+      "location": null,
+      "url": null,
+      "featured": false,
+      "color": "#FFFFFF",
+      "description": "Create personal greeting cards in seconds",
+      "tags": [],
+      "image": null,
+      "contentBlocks": []
+    },
+    {
+      "id": 29,
+      "client": "plotta",
+      "slug": "plotta",
+      "role": "app",
+      "date": null,
+      "location": null,
+      "url": null,
+      "featured": false,
+      "color": "#6B7280",
+      "description": "Subtle stealth project",
+      "tags": [],
+      "image": null,
+      "contentBlocks": []
+    },
+    {
+      "id": 28,
+      "client": "Pepparkakshus Battle",
+      "slug": "pepparkakshus-battle",
+      "role": "app",
+      "date": null,
+      "location": null,
+      "url": null,
+      "featured": false,
+      "color": "#D97706",
+      "description": "Interactive gingerbread house competition",
+      "tags": [],
+      "image": null,
+      "contentBlocks": []
+    },
+    {
+      "id": 27,
+      "client": "Vromm",
+      "slug": "vromm-app",
+      "role": "app",
+      "date": null,
+      "location": null,
+      "url": null,
+      "featured": false,
+      "color": "#3B82F6",
+      "description": "AI-powered driving instruction app",
+      "tags": [],
+      "image": null,
+      "contentBlocks": []
+    },
+    {
+      "id": 26,
+      "client": "Pejla",
+      "slug": "pejla",
+      "role": "app",
+      "date": null,
+      "location": null,
+      "url": null,
+      "featured": false,
+      "color": "#EEEBE8",
+      "description": "Client reviews, without the noise",
+      "tags": [],
+      "image": null,
+      "contentBlocks": []
+    },
+    {
+      "id": 25,
+      "client": "SkiStar",
+      "slug": "skistar-app",
+      "role": "app",
+      "date": null,
+      "location": null,
+      "url": null,
+      "featured": false,
+      "color": "#0066CC",
+      "description": "Official SkiStar app for skiing",
+      "tags": [],
+      "image": null,
+      "contentBlocks": []
+    },
+    {
+      "id": 19,
+      "client": "mktwebb – 40 Newspaper Platform",
+      "slug": "mktwebb-newspaper-platform",
+      "role": "Frontend Development",
+      "date": "2007",
+      "location": "Stockholm",
+      "url": null,
+      "featured": false,
+      "color": "#6366f1",
+      "description": "Interface Developer for Sweden's largest shared platform serving 40+ local newspapers under mktmedia.",
+      "tags": [
+        "Frontend",
+        "CMS",
+        "Polopoly",
+        "Scale",
+        "Newspapers"
+      ],
+      "image": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/mktwebb",
+      "contentBlocks": []
+    },
+    {
+      "id": 18,
+      "client": "IKEA.se/tv",
+      "slug": "ikea-tv",
+      "role": "Frontend Development",
+      "date": "2009",
+      "location": "Stockholm",
+      "url": null,
+      "featured": false,
+      "color": "#0051ba",
+      "description": "Frontend for IKEA's user-generated content platform — customers sharing interior design tips via videos and images.",
+      "tags": [
+        "Frontend",
+        "UGC",
+        "IKEA",
+        "JavaScript",
+        "Video"
+      ],
+      "image": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/ikea-tv",
+      "contentBlocks": []
+    },
+    {
+      "id": 17,
+      "client": "IKEA Stimulanspaketresan",
+      "slug": "ikea-stimulanspaketresan",
+      "role": "Frontend Development",
+      "date": "2009",
+      "location": "Stockholm",
+      "url": null,
+      "featured": false,
+      "color": "#0051ba",
+      "description": "Frontend development for IKEA's Sweden tour campaign — 10-day caravan journey from Älmhult to Stockholm.",
+      "tags": [
+        "Frontend",
+        "Campaign",
+        "IKEA",
+        "JavaScript",
+        "CSS"
+      ],
+      "image": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/ikea-stimulanspaketresan",
+      "contentBlocks": []
+    },
+    {
+      "id": 16,
+      "client": "Edenred – Benefits Platform",
+      "slug": "edenred-benefits-platform",
+      "role": "Frontend Development",
+      "date": "2025",
+      "location": "Stockholm",
+      "url": "https://www.edenred.se",
+      "featured": false,
+      "color": "#f59e0b",
+      "description": "Frontend development for unified lunch and wellness benefits platform. Migrated from Episerver to WordPress.",
+      "tags": [
+        "Vue.js",
+        "WordPress",
+        "Frontend",
+        "Google APIs",
+        "Benefits"
+      ],
+      "image": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/edenred",
+      "contentBlocks": []
+    },
+    {
+      "id": 15,
+      "client": "Gavlegårdarna – Housing Platform",
+      "slug": "gavlegardarna-housing-platform",
+      "role": "Frontend Development",
+      "date": "2025",
+      "location": "Gävle",
+      "url": "https://www.gavlegardarna.se",
+      "featured": false,
+      "color": "#3b82f6",
+      "description": "Frontend development for Sweden's largest public housing company serving 30,000 residents.",
+      "tags": [
+        "Vue.js",
+        "WordPress",
+        "Frontend",
+        "WCAG",
+        "Housing"
+      ],
+      "image": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/gavlegardarna",
+      "contentBlocks": []
+    },
+    {
+      "id": 14,
+      "client": "Energiforsk – Energieffektiv webb",
+      "slug": "energiforsk-energieffektiv-webb",
+      "role": "Frontend Development",
+      "date": "2025",
+      "location": "Stockholm",
+      "url": "https://www.energiforsk.se",
+      "featured": false,
+      "color": "#22c55e",
+      "description": "Frontend consultant for Sweden's most energy-efficient website. 75% lighter page loads than previous site.",
+      "tags": [
+        "Next.js",
+        "Frontend",
+        "Storybook",
+        "Sustainable Web",
+        "Headless CMS"
+      ],
+      "image": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/energiforsk",
+      "contentBlocks": []
+    },
+    {
+      "id": 13,
+      "client": "mrUsta – Service Marketplace",
+      "slug": "mrusta-dubai",
+      "role": "UX/UI Designer",
+      "date": "2015",
+      "location": "Dubai",
+      "url": null,
+      "featured": false,
+      "color": "#F59E0B",
+      "description": "Designed the UX and UI for mrUsta's mobile app — a Dubai-based service marketplace connecting residents with trusted local professionals, from plumbers to car mechanics.",
+      "tags": [
+        "Product Design",
+        "UX/UI",
+        "Mobile Design",
+        "Startup",
+        "Marketplace"
+      ],
+      "image": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/mrusta",
+      "contentBlocks": [
+        {
+          "id": "0a0c01776fe851797cac33e0",
+          "title": "Understanding the Market",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "mrUsta needed to transition from web to native app. Users in Dubai's multicultural, fast-moving market needed to find professionals quickly and book with confidence.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        },
+        {
+          "id": "285309df3840406a0dab82d7",
+          "title": "App UX Design",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Designed a mobile-first app experience built around simplicity and trust signals. Mapped the full user journey from service discovery through booking and confirmation.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        },
+        {
+          "id": "5fac26bd13330f87656e2a2b",
+          "title": "Design Handoff",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Delivered a complete, developer-ready design set covering all core flows from onboarding through booking. The designs gave the development team a clear, well-specified foundation to build from.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "client": "Steem – Web2Print Platform",
+      "slug": "steem-navii",
+      "role": "Co-founder & Lead Designer",
+      "date": "2011–2012",
+      "location": "Västerås",
+      "url": null,
+      "featured": false,
+      "color": "#2D6A4F",
+      "description": "Co-founded Steem within Navii design agency — a Web2Print SaaS platform that let Swedish organizations order and personalize branded marketing materials online. Nominated Sweden's best Web2Print tool at the 2011 Graphic Awards.",
+      "tags": [
+        "Startup",
+        "Product Design",
+        "Web Design",
+        "SaaS",
+        "Frontend Development"
+      ],
+      "image": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/steem",
+      "contentBlocks": [
+        {
+          "id": "035404481aaad98b229ffcfe",
+          "title": "The Web2Print Opportunity",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Swedish organizations had no good way to let local branches order personalized marketing materials at scale. Existing systems were too rigid and required print industry expertise.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        },
+        {
+          "id": "1a25ef750870933a5ae8edf5",
+          "title": "On the Road with Customers",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Traveled across Sweden to demo and test the platform live with real customers. Built an online storefront for end users plus a backend admin system for organizations to manage templates and brand governance.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        },
+        {
+          "id": "5bfeca6b3ac5ebc34958ac4f",
+          "title": "Launch & Recognition",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Quickly adopted by key organizations including Centerpartiet. Nominated as Sweden's best Web2Print tool at the Graphic Awards, November 2011. Proved that better UX could outcompete established print industry players.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "client": "Åbro Bryggeri – Website Redesign",
+      "slug": "abro-bryggeri",
+      "role": "UX/UI Designer & Frontend Developer",
+      "date": "2014",
+      "location": "Sweden",
+      "url": "https://abro.se",
+      "featured": false,
+      "color": "#C8A951",
+      "description": "Teamed up with Producks and Folkets Stockholm to redesign Åbro Bryggeri's online presence — creating a website that felt as welcoming and characterful as Sweden's beloved independent brewery.",
+      "tags": [
+        "Web Design",
+        "Frontend Development",
+        "UX/UI",
+        "CMS",
+        "WordPress"
+      ],
+      "image": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/abro",
+      "contentBlocks": [
+        {
+          "id": "1c1970b5182b23175afb7520",
+          "title": "Getting to Know Åbro",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Spent time getting to know the Åbro team and their fans before a single pixel was placed. Understanding the brand's warmth and personality was essential — the website needed to feel like Åbro, not just look like it.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        },
+        {
+          "id": "0ab69fad57af2ecf4981519d",
+          "title": "Design & Build",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Designed and developed a new website that put Åbro's story and products front and center. Built a custom, user-friendly CMS backend that gave the Åbro team full control over content — no developer required.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "client": "Backbase – Digital Banking Platform",
+      "slug": "backbase-banking",
+      "role": "Lead Designer",
+      "date": "2012–2017",
+      "location": "Amsterdam",
+      "url": "https://www.backbase.com",
+      "featured": false,
+      "color": "#FF4A4A",
+      "description": "At Backbase, I designed UI/UX solutions for a leading digital banking platform serving major global banks — including ABN Amro, UniCredit, UOB Singapore, and Standard Chartered — across 5 years in Amsterdam.",
+      "tags": [
+        "Fintech",
+        "Product Design",
+        "Banking",
+        "Design Systems",
+        "Enterprise"
+      ],
+      "image": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/backbase",
+      "contentBlocks": [
+        {
+          "id": "0866b12168e3a46f1e00990a",
+          "title": "Banking at Scale",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Global banks needed digital banking solutions fast — responsive, on-brand, and consistent across web and mobile. Design turnaround times were often measured in days, not weeks. The platform had to serve radically different clients with radically different needs.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        },
+        {
+          "id": "0825d555478544e176243359",
+          "title": "Themeable Platform Design",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Developed a themeable Launchpad platform that allowed bank partners to customize interfaces with their branding while building on a shared, tested component foundation. Designed admin panel and CMS improvements for operational control.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        },
+        {
+          "id": "0bc33eee2172b79f414afc7e",
+          "title": "Client Delivery & Travel",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Traveled internationally to present proof-of-concept demos to bank stakeholders including ABN Amro, UniCredit, UOB Singapore, and Standard Chartered. The platform went on to serve billions of banking users worldwide.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        },
+        {
+          "id": "36277406677693121ec8df47",
+          "text": "Daniel is a very talented designer we have hired for Backbase. He delivers top quality work while being efficient. Daniel is a multi talent who's also a great guy and fun to work with.",
+          "author": "Wouter Koeleman",
+          "role": "Sr Manager Talent Acquisition, Backbase",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "quote"
+        },
+        {
+          "id": "5e52e5a631dad1dc31bcb4fb",
+          "title": "Launchpad Platform",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "The themeable Launchpad allowed bank partners to customize interfaces with their branding while building on a shared component foundation. This dramatically reduced implementation time while maintaining UX consistency across every deployment.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "image": {
+            "id": 13,
+            "alt": "Unnamed (1)",
+            "updatedAt": "2026-03-04T17:20:38.382Z",
+            "createdAt": "2026-03-04T17:20:38.381Z",
+            "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/unnamed__1_.jpg",
+            "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/unnamed__1_.jpg",
+            "filename": "unnamed (1).jpg",
+            "mimeType": "image/jpeg",
+            "filesize": 16374,
+            "width": 1024,
+            "height": 448,
+            "focalX": 50,
+            "focalY": 50
+          },
+          "caption": "Backbase Launchpad — themeable banking platform",
+          "imagePosition": "right",
+          "deviceFrame": "none",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textWithImage"
+        },
+        {
+          "id": "5fea5e875743724c58b1e9e3",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "items": [
+            {
+              "id": "7530835719596c6626300398",
+              "value": "Billions",
+              "label": "Banking Users Worldwide"
+            },
+            {
+              "id": "2ae1eec149c5b6f97b82a3d6",
+              "value": "4+",
+              "label": "Major Bank Clients"
+            },
+            {
+              "id": "797e318b53be6e495c4dffd9",
+              "value": "3",
+              "label": "Continents"
+            }
+          ],
+          "blockType": "stats"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "client": "KLM Royal Dutch Airlines",
+      "slug": "klm-airlines",
+      "role": "Senior Designer Consultant",
+      "date": "Aug–Oct 2015",
+      "location": "Amsterdam",
+      "url": "https://www.klm.com",
+      "featured": false,
+      "color": "#00A1DE",
+      "description": "Joined AKQA Amsterdam as Senior Designer Consultant to redesign KLM's web booking experience — making flight search, planning, and booking feel as smooth and human as the airline itself.",
+      "tags": [
+        "Product Design",
+        "UX/UI",
+        "Travel",
+        "Enterprise",
+        "Figma"
+      ],
+      "image": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/klm",
+      "contentBlocks": [
+        {
+          "id": "2fcaac3a0558f26d2bc96597",
+          "title": "Understanding the Traveler",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "KLM's digital booking experience felt transactional compared to their warm in-flight experience. We needed to bridge that gap — especially for complex itineraries and multi-leg bookings where frustration was highest.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        },
+        {
+          "id": "16409ae10504c41374d91efc",
+          "title": "Sprint-Based Design Process",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Worked in close collaboration with KLM's product team and AKQA Amsterdam across multiple design sprints. Each sprint brought us closer to a booking flow that was visually cohesive, emotionally warmer, and functionally cleaner.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        },
+        {
+          "id": "597624114d3a416f48b04fbe",
+          "title": "Design System for Scale",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Delivered a complete design set for beta.klm.com. The work laid strong groundwork for KLM's subsequent digital evolution, even though the project was redirected at the business level.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "client": "Addictive Keys – XLN Audio",
+      "slug": "addictive-keys-xln",
+      "role": "Lead Product Design",
+      "date": "2015",
+      "location": "Sweden",
+      "url": null,
+      "featured": false,
+      "color": "#1A1A2E",
+      "description": "Redesigned XLN Audio's Addictive Keys VST plugin — introducing AI-driven sound recommendations, a streamlined instrument library, and a modern flat-skeuomorphic UI to help music producers find the right sound faster.",
+      "tags": [
+        "Product Design",
+        "Music Tech",
+        "UX/UI",
+        "AI",
+        "Figma"
+      ],
+      "image": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/xlnaudio",
+      "contentBlocks": [
+        {
+          "id": "5cdfd4536c743ec3432c2207",
+          "title": "Creative Tools Research",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Studied how modern music producers actually work — fast, intuitive, AI-assisted. The existing Addictive Keys interface forced too much time scrolling through presets. We needed to match the creative flow, not interrupt it.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        },
+        {
+          "id": "3e964a416583a1721f4a746a",
+          "title": "AI Recommendation Engine Concept",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Proposed an AI-based sound recommendation engine that learns from user behavior and suggests relevant presets. Combined with simplified navigation and visual categorization for faster creative exploration.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        },
+        {
+          "id": "2a8d32e91ab1dacf2e1046df",
+          "title": "Visual Design Direction",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Created a refreshed UI that balanced skeuomorphic warmth with clean, flat design sensibility. The concept received strong positive feedback from XLN Audio — acknowledged as innovative and aligned with where creative tools are heading.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "client": "Invoice Portal – PayEx",
+      "slug": "invoice-portal-payex",
+      "role": "Lead Product Design",
+      "date": "2023–Present",
+      "location": "Stockholm",
+      "url": "https://www.payex.com",
+      "featured": false,
+      "color": "#1A3C8F",
+      "description": "In partnership with PayEx (a Swedbank subsidiary), we designed a streamlined invoice administration and factoring portal — giving Nordic SMEs a simple, automated way to manage cash flow through invoice financing.",
+      "tags": [
+        "Fintech",
+        "Product Design",
+        "SaaS",
+        "Banking",
+        "Figma"
+      ],
+      "image": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/payex",
+      "contentBlocks": [
+        {
+          "id": "5f8bf1843a576b147195d4fb",
+          "title": "Mapping the Customer Journey",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Mapped the full journey from SME signup through first invoice factoring submission. Identified that the complexity of financial processes was the main barrier — users needed guidance, not just tools.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        },
+        {
+          "id": "681b361c2c91a9c26402e81e",
+          "title": "Dual-Interface Design",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Designed two interconnected systems: a user-facing portal for SMEs to manage invoices and access factoring, and a partner admin section for PayEx to manage users and platform operations. Key features included automated invoice mapping and intelligent scanning.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        },
+        {
+          "id": "06ab4a61405c106e29ee8043",
+          "title": "Automation & Launch",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Launched successfully with two prominent Nordic banks. SMEs now have a significantly faster, more automated path to invoice financing — reducing what was previously a complex, paper-heavy process into a clean digital workflow.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "client": "Företagskollen – Swedbank",
+      "slug": "foretagskollen-swedbank",
+      "role": "Lead Product Design",
+      "date": "2017–Present",
+      "location": "Stockholm",
+      "url": "https://www.swedbank.se",
+      "featured": false,
+      "color": "#FF5A00",
+      "description": "Together with Swedbank, we built Företagskollen — a cash flow management tool integrated directly into Swedbank's online banking platform, giving 400,000+ business clients a clear window into their financial health.",
+      "tags": [
+        "Fintech",
+        "Product Design",
+        "Banking",
+        "Design Systems",
+        "Figma"
+      ],
+      "image": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/foretagskollen",
+      "contentBlocks": [
+        {
+          "id": "113d791e169bdb7e48b5ced3",
+          "title": "Understanding the Problem",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Small business owners in Sweden were managing cash flow through spreadsheets, accountants, or not at all. Swedbank had the data but no good way to surface it meaningfully. We needed to create something that felt native to the banking experience.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        },
+        {
+          "id": "7866396d1f3d178d4b22ccae",
+          "title": "Design & Integration",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Designed Företagskollen as a native-feeling feature inside Swedbank's digital banking platform. The tool pulls real transactions and bank balances, sorts and categorizes them, and generates a forward-looking cash flow forecast — visualized so any business owner can understand at a glance.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        },
+        {
+          "id": "5087122421e337a535cab9d6",
+          "title": "Launch & Evolution",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Successfully rolled out to 400,000+ Swedbank SME customers, backed by a major marketing campaign. Became a standalone product beyond Swedbank's platform — now reaching additional users and expanding toward mobile.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        },
+        {
+          "id": "07c1db201642ec02616e59a7",
+          "text": "I've had the pleasure of working with Daniel for over 5 years. Daniel is a great resource and it has been a joy to see how Daniel has developed during our time working together.",
+          "author": "Anders Nordkvist",
+          "role": "CEO at Asteria AB",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "quote"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "client": "Länsförsäkringar - Digital Design System",
+      "slug": "lansforsakringar-digital-design",
+      "role": "Art Director Consultant",
+      "date": "2016-2017",
+      "location": "Stockholm",
+      "url": "https://www.lansforsakringar.se",
+      "featured": false,
+      "color": "#005AA0",
+      "description": "At Länsförsäkringar, I modernized the digital brand identity in collaboration with Identity Works — leading the creation of a design system adopted across web, mobile, and internal platforms. Won Best App & Web 2017.",
+      "tags": [
+        "Design Systems",
+        "Insurance",
+        "Enterprise",
+        "Figma",
+        "Component Libraries",
+        "Mobile & Web Design"
+      ],
+      "image": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/lansforsakringar",
+      "contentBlocks": [
+        {
+          "id": "08caad8e003820820506b410",
+          "title": "Research & Discovery",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Länsförsäkringar had a fragmented digital presence across website, mobile app, bank portal, and internal tools. Customers experienced a disjointed brand every time they moved between channels. We needed to understand all touchpoints before proposing a unified system.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        },
+        {
+          "id": "1f65f4a154a1cd471bf8703c",
+          "title": "Design System Architecture",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Built a comprehensive cross-platform design system using Figma, component libraries, and design tokens — covering web, iOS, Android, and internal portals. Collaborated with accessibility specialists Funka throughout to ensure WCAG compliance across all platforms.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        },
+        {
+          "id": "494fa46e3ad65336578d2677",
+          "title": "Cross-Platform Implementation",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Led a 5-week design sprint to generate ideas and prototypes for all major platforms. Then transitioned into an Art Director consultant role to ensure consistent application across all teams. The design system became the long-term foundation for Länsförsäkringar's product development.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        },
+        {
+          "id": "1a7eebbb39515fcf3766644f",
+          "text": "Daniel is a skilled Art Director with an eye for detail. He works super fast and comes up with suggestions for new approaches. He maintains a high pace with high quality.",
+          "author": "Liza Hansson",
+          "role": "Strategic Lead Designer at Variant Sverige",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "quote"
+        },
+        {
+          "id": "6e36ba8a01892c4221a6ce67",
+          "title": "Unified Digital Expression",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Every channel — website, app, bank portal, internal tools — needed to speak the same visual language. We built a comprehensive design system with Figma, component libraries, and design tokens that scaled across web, iOS, Android, and internal portals.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "image": {
+            "id": 13,
+            "alt": "Unnamed (1)",
+            "updatedAt": "2026-03-04T17:20:38.382Z",
+            "createdAt": "2026-03-04T17:20:38.381Z",
+            "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/unnamed__1_.jpg",
+            "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/unnamed__1_.jpg",
+            "filename": "unnamed (1).jpg",
+            "mimeType": "image/jpeg",
+            "filesize": 16374,
+            "width": 1024,
+            "height": 448,
+            "focalX": 50,
+            "focalY": 50
+          },
+          "caption": "Länsförsäkringar — cross-platform design system",
+          "imagePosition": "right",
+          "deviceFrame": "none",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textWithImage"
+        },
+        {
+          "id": "1a8673d130b294aa1be86426",
+          "title": "Accessibility First",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Collaborated with accessibility specialists Funka throughout the entire process. Every component, every interaction pattern was built to WCAG standards from the start — not retrofitted later. This approach meant accessibility was never a bottleneck.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "image": {
+            "id": 16,
+            "alt": "1748194737492",
+            "updatedAt": "2026-03-04T18:32:50.994Z",
+            "createdAt": "2026-03-04T18:32:50.994Z",
+            "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/1748194737492.jpeg",
+            "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/1748194737492.jpeg",
+            "filename": "1748194737492.jpeg",
+            "mimeType": "image/jpeg",
+            "filesize": 74660,
+            "width": 800,
+            "height": 800,
+            "focalX": 50,
+            "focalY": 50
+          },
+          "caption": "Working with Funka on accessibility standards",
+          "imagePosition": "left",
+          "deviceFrame": "none",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textWithImage"
+        },
+        {
+          "id": "48b594014c6b6d3365c578da",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "items": [
+            {
+              "id": "372484c57a36bac95dbbc23b",
+              "value": "2017",
+              "label": "Best App & Web Award"
+            },
+            {
+              "id": "53ca291c5e4229940205ed41",
+              "value": "5",
+              "label": "Platforms Unified"
+            },
+            {
+              "id": "4516d75e4d27c32166c5e317",
+              "value": "5 weeks",
+              "label": "Initial Design Sprint"
+            },
+            {
+              "id": "0c2589196ca10a3f6de5aa4d",
+              "value": "Millions",
+              "label": "Swedish Customers Served"
+            }
+          ],
+          "blockType": "stats"
+        },
+        {
+          "id": "0293ddb87686006a3042673b",
+          "title": "Award Recognition",
+          "text": "Awarded Best App & Web 2017. The design system became the long-term foundation for Länsförsäkringar's product development — still in active use years after launch.",
+          "style": "success",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "callout"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "client": "Spotify - Data Saver Feature",
+      "slug": "spotify-data-saver",
+      "role": "Senior Product Design Consultant",
+      "date": "2017",
+      "location": "Stockholm/Brazil",
+      "url": null,
+      "featured": false,
+      "color": "#1DB954",
+      "description": "At Spotify, I designed a low-data music streaming experience for users in emerging markets — conducting field research in Brazilian favelas, and launching a feature that reduced data usage by 99%.",
+      "tags": [
+        "Mobile Design",
+        "Emerging Markets",
+        "User Research",
+        "Music Tech"
+      ],
+      "image": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/spotify.jpg",
+      "contentBlocks": [
+        {
+          "id": "486431bc7a0f6a4e23071b86",
+          "title": "Field Research in Brazil",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Traveled to Brazil to conduct field research and live user testing. Observed how users in emerging markets interact with streaming services under data constraints. Adapted designs in real-time based on what we saw — understanding that data costs were the single biggest barrier to Spotify adoption.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        },
+        {
+          "id": "2e9eedb307e459a43e3ebcc9",
+          "title": "Data Saver Design",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Designed a distinct Data Saver mode with a dark-blue theme that made the data-saving state visually clear. The feature allowed users to play four on-demand playlists using just 1% of normal data. The visual differentiation was key — users needed to feel confident they were in a safe, low-data mode.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        },
+        {
+          "id": "5cb262a561e94fbf37d6a7a8",
+          "title": "A/B Testing & Launch",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "After rigorous A/B testing, the Data Saver feature proved to be a game-changer. It made streaming feel safe and accessible even without Wi-Fi. Increased adoption in target markets and measurably improved retention among users who previously downloaded music only.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        },
+        {
+          "id": "708eb2bd2a00169d53e693cd",
+          "text": "Users felt confident using Spotify while on the move. It was a game-changer, making streaming on Spotify feel a whole lot safer and more accessible, even when Wi-Fi was out of reach.",
+          "author": "Internal User Research",
+          "role": "Spotify Brazil Team",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "quote"
+        },
+        {
+          "id": "1e83cde6692d8562487d61c6",
+          "title": "The Dark Blue Theme",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "We designed a distinct visual mode so users could immediately see they were in Data Saver mode. The dark-blue theme wasn't just aesthetic — it was functional, giving users constant visual reassurance that their data was being protected.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "image": {
+            "id": 20,
+            "alt": "Spotify - Data Saver Feature",
+            "updatedAt": "2026-03-20T08:14:35.888Z",
+            "createdAt": "2026-03-20T08:14:35.888Z",
+            "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/spotify.jpg",
+            "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/spotify.jpg",
+            "filename": "spotify.jpg",
+            "mimeType": "image/jpeg",
+            "filesize": 0,
+            "width": 800,
+            "height": 600,
+            "focalX": null,
+            "focalY": null
+          },
+          "caption": "Spotify Data Saver — visual mode design",
+          "imagePosition": "right",
+          "deviceFrame": "none",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textWithImage"
+        },
+        {
+          "id": "1e0365c145ec03295684b965",
+          "title": "Testing in the Field",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "We didn't just test in a lab — we went to Brazil to watch real users interact with Spotify under actual data constraints. The insights from field testing fundamentally shaped the final design. Features that seemed intuitive in Stockholm needed rethinking for São Paulo.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "image": {
+            "id": 20,
+            "alt": "Spotify - Data Saver Feature",
+            "updatedAt": "2026-03-20T08:14:35.888Z",
+            "createdAt": "2026-03-20T08:14:35.888Z",
+            "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/spotify.jpg",
+            "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/spotify.jpg",
+            "filename": "spotify.jpg",
+            "mimeType": "image/jpeg",
+            "filesize": 0,
+            "width": 800,
+            "height": 600,
+            "focalX": null,
+            "focalY": null
+          },
+          "caption": "Field testing in Brazil",
+          "imagePosition": "left",
+          "deviceFrame": "none",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textWithImage"
+        },
+        {
+          "id": "2a2b5b4572fa3b017f19323e",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "items": [
+            {
+              "id": "7ef5ce022b7f9f7b4aee4001",
+              "value": "1%",
+              "label": "Data Usage vs Normal"
+            },
+            {
+              "id": "701c9bdf01722d1f508414b6",
+              "value": "4",
+              "label": "On-demand Playlists"
+            },
+            {
+              "id": "15b203d92a70cfc944d3dd86",
+              "value": "↑ 35%",
+              "label": "Retention in Target Markets"
+            }
+          ],
+          "blockType": "stats"
+        },
+        {
+          "id": "44fc59dc254e048d4377557e",
+          "title": "Design for Emerging Markets",
+          "text": "Designing for data-constrained markets isn't about stripping features away — it's about making the core experience feel complete even within constraints. The best Data Saver mode is one where users don't feel like they're missing out.",
+          "style": "success",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "callout"
+        },
+        {
+          "id": "0a1e45793d3d417f18d9f1ce",
+          "device": "iphone",
+          "caption": "Data Saver mode — dark blue theme",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "screens": [
+            {
+              "id": "76844e89750546d74e2d2dff",
+              "mediaType": "image",
+              "image": {
+                "id": 20,
+                "alt": "Spotify - Data Saver Feature",
+                "updatedAt": "2026-03-20T08:14:35.888Z",
+                "createdAt": "2026-03-20T08:14:35.888Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/spotify.jpg",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/spotify.jpg",
+                "filename": "spotify.jpg",
+                "mimeType": "image/jpeg",
+                "filesize": 0,
+                "width": 800,
+                "height": 600,
+                "focalX": null,
+                "focalY": null
+              },
+              "videoUrl": null,
+              "label": null
+            }
+          ],
+          "blockType": "deviceFrame"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "client": "Asteria - Smart Cash Flow",
+      "slug": "asteria-fintech",
+      "role": "Co-founder & Lead Product Design",
+      "date": "2017-2025",
+      "location": "Remote/Stockholm",
+      "url": "https://www.asteria.ai",
+      "featured": false,
+      "color": "#6366F1",
+      "description": "At Asteria, I co-founded and led product design for 8 years — transforming complex financial tools into intuitive digital products for SMEs, reaching over 400,000 users through partnerships with Swedbank and PayEx.",
+      "tags": [
+        "Fintech",
+        "Product Design",
+        "Co-founder",
+        "SaaS",
+        "Banking",
+        "Design Systems",
+        "Figma",
+        "AI Prototyping"
+      ],
+      "image": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/asteria.jpg",
+      "contentBlocks": [
+        {
+          "id": "372a47a837f5296d2a936710",
+          "title": "SME Research & Discovery",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Spent extensive time understanding the daily reality of small business owners. Many were managing cash flow through spreadsheets or not at all. Banks had the data but no good way to surface it meaningfully. This insight drove the entire product direction.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        },
+        {
+          "id": "0afdeea55a4c92876108207e",
+          "title": "Banking Partnership Integration",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Designed modular systems that could be embedded directly into Swedbank's online banking environment. Created intuitive visualizations that turned raw transaction data into actionable cash flow insights — accessible to non-financial users. The white-label approach allowed expansion beyond a single bank.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        },
+        {
+          "id": "025003a554fae10b082b3d49",
+          "title": "Scalable Design Systems",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Built and maintained design systems over 8 years of product evolution. The modular approach allowed the product to adapt to different banking partners while maintaining consistency. Over 400,000 users through Swedbank's SME clientele alone.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        },
+        {
+          "id": "005f44291ecd02833b653da9",
+          "text": "I've had the pleasure of working with Daniel for over 5 years. Daniel is a great resource and it has been a joy to see how Daniel has developed during our time working together. I highly recommend hiring Daniel.",
+          "author": "Anders Nordkvist",
+          "role": "CEO at Asteria AB",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "quote"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "client": "Qasa - Rental Matching Platform",
+      "slug": "qasa-rental-platform",
+      "role": "Product Design Consultant",
+      "date": "2025",
+      "location": "Remote/Stockholm",
+      "url": "https://www.qasa.se",
+      "featured": false,
+      "color": "#10B981",
+      "description": "At Qasa, I led product design within the Match team — responsible for making it easier and more delightful for tenants and landlords to find each other, connect, and sign homes across Sweden, Finland, and Norway.",
+      "tags": [
+        "Product Design",
+        "UX Research",
+        "AI Tools",
+        "Rental Platform",
+        "Figma",
+        "AI Prototyping"
+      ],
+      "image": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/qasa-2_2x.png",
+      "contentBlocks": [
+        {
+          "id": "7c8bbcbd62e1721115028904",
+          "variant": "cards",
+          "deviceFrame": "none",
+          "carouselBg": "transparent",
+          "aspectRatio": "16/9",
+          "objectFit": "cover",
+          "autoplay": true,
+          "autoplayInterval": "4",
+          "videoMuted": true,
+          "showDots": false,
+          "showCaptions": true,
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "slides": [
+            {
+              "id": "6778d2e51d1964b35afa88f9",
+              "mediaType": "image",
+              "image": {
+                "id": 43,
+                "alt": "Wrapper@2x",
+                "updatedAt": "2026-04-03T06:33:52.066Z",
+                "createdAt": "2026-04-03T06:33:52.066Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/wrapper_2x.png",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/wrapper_2x.png",
+                "filename": "wrapper@2x.png",
+                "mimeType": "image/png",
+                "filesize": 943489,
+                "width": 2112,
+                "height": 1188,
+                "focalX": 50,
+                "focalY": 50
+              },
+              "videoUrl": null,
+              "caption": "Qasa platform — main dashboard"
+            },
+            {
+              "id": "7b6832c60228251f3048b5e2",
+              "mediaType": "image",
+              "image": {
+                "id": 44,
+                "alt": "Wrap3",
+                "updatedAt": "2026-04-03T09:21:05.971Z",
+                "createdAt": "2026-04-03T09:21:05.969Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/wrap3.png",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/wrap3.png",
+                "filename": "wrap3.png",
+                "mimeType": "image/png",
+                "filesize": 689805,
+                "width": 1468,
+                "height": 928,
+                "focalX": 50,
+                "focalY": 50
+              },
+              "videoUrl": null,
+              "caption": "Tenant matching flow — early exploration"
+            },
+            {
+              "id": "5cb00da002f5491723fe9f67",
+              "mediaType": "image",
+              "image": {
+                "id": 45,
+                "alt": "Wrap4",
+                "updatedAt": "2026-04-03T09:34:55.049Z",
+                "createdAt": "2026-04-03T09:34:55.048Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/wrap4.png",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/wrap4.png",
+                "filename": "wrap4.png",
+                "mimeType": "image/png",
+                "filesize": 643592,
+                "width": 1440,
+                "height": 900,
+                "focalX": 50,
+                "focalY": 50
+              },
+              "videoUrl": null,
+              "caption": "Image upload improvements"
+            },
+            {
+              "id": "598af3a06f8a6e9a6e68df77",
+              "mediaType": "image",
+              "image": {
+                "id": 46,
+                "alt": "Wrap5",
+                "updatedAt": "2026-04-03T09:45:48.545Z",
+                "createdAt": "2026-04-03T09:45:48.544Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/wrap5.png",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/wrap5.png",
+                "filename": "wrap5.png",
+                "mimeType": "image/png",
+                "filesize": 629794,
+                "width": 1440,
+                "height": 810,
+                "focalX": 50,
+                "focalY": 50
+              },
+              "videoUrl": null,
+              "caption": "Final design iteration"
+            }
+          ],
+          "blockType": "imageCarousel"
+        },
+        {
+          "id": "69cfbcdfe21cfb5db6004d99",
+          "variant": "cards",
+          "deviceFrame": "iphone",
+          "carouselBg": "transparent",
+          "aspectRatio": "16/9",
+          "objectFit": "cover",
+          "autoplay": true,
+          "autoplayInterval": "4",
+          "videoMuted": true,
+          "showDots": false,
+          "showCaptions": true,
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "slides": [
+            {
+              "id": "69cfbcdfe21cfb5db6004d9a",
+              "mediaType": "image",
+              "image": {
+                "id": 49,
+                "alt": "Wrap10 2",
+                "updatedAt": "2026-04-03T13:13:47.959Z",
+                "createdAt": "2026-04-03T13:13:47.959Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/wrap10-2.png",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/wrap10-2.png",
+                "filename": "wrap10-2.png",
+                "mimeType": "image/png",
+                "filesize": 130632,
+                "width": 390,
+                "height": 844,
+                "focalX": 50,
+                "focalY": 50
+              },
+              "videoUrl": null,
+              "caption": "Qasa platform — main dashboard"
+            },
+            {
+              "id": "69cfbcdfe21cfb5db6004d9b",
+              "mediaType": "image",
+              "image": {
+                "id": 49,
+                "alt": "Wrap10 2",
+                "updatedAt": "2026-04-03T13:13:47.959Z",
+                "createdAt": "2026-04-03T13:13:47.959Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/wrap10-2.png",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/wrap10-2.png",
+                "filename": "wrap10-2.png",
+                "mimeType": "image/png",
+                "filesize": 130632,
+                "width": 390,
+                "height": 844,
+                "focalX": 50,
+                "focalY": 50
+              },
+              "videoUrl": null,
+              "caption": "Tenant matching flow — early exploration"
+            },
+            {
+              "id": "69cfbcdfe21cfb5db6004d9c",
+              "mediaType": "image",
+              "image": null,
+              "videoUrl": null,
+              "caption": "Image upload improvements"
+            },
+            {
+              "id": "69cfbcdfe21cfb5db6004d9d",
+              "mediaType": "image",
+              "image": null,
+              "videoUrl": null,
+              "caption": "Final design iteration"
+            }
+          ],
+          "blockType": "imageCarousel"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "client": "Vromm - Driving Instruction App",
+      "slug": "vromm-driving-app",
+      "role": "Product Design & Development",
+      "date": "2025",
+      "location": "Remote/Stockholm",
+      "url": "https://www.vromm.se",
+      "featured": false,
+      "color": "#3B82F6",
+      "description": "At Vromm, I lead product design and development — creating a smarter, more structured way for students and instructors to plan, track, and complete driving practice together. Built solo using AI-assisted workflows.",
+      "tags": [
+        "Product Design",
+        "React Native",
+        "AI",
+        "Startup",
+        "Education",
+        "Figma",
+        "AI Prototyping",
+        "AI-assisted Development",
+        "Cursor"
+      ],
+      "image": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/vromm",
+      "contentBlocks": [
+        {
+          "id": "01c38e5f354d6d2d6d8df5df",
+          "title": "Research & Discovery",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Conducted field research with driving students and instructors across Skåne. Mapped Trafikverket's 16-step curriculum to identify where students struggle most. Found that the gap between lessons — where students practice with parents — was the biggest opportunity for improvement.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        },
+        {
+          "id": "31a92c8d5e7ff7927a1afdde",
+          "title": "AI-Powered Development",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Used Cursor and AI-based tools to accelerate the entire design-to-development pipeline. React Native with Supabase backend. AI co-creation cut design and development time by 60-70%, allowing rapid iteration on gamified progress tracking and collaborative planning features.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        },
+        {
+          "id": "3fc9732350f292a06ea2d63f",
+          "title": "Product & Validation",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Active pilot with driving schools and private users in Skåne. The app maps real-world driving routes to Trafikverket's curriculum with gamified progress tracking. Student-instructor pairs can plan practice sessions collaboratively. Preparing for 2025 public launch.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textSection"
+        },
+        {
+          "id": "349b317c245b17ea563d1be0",
+          "text": "Really impressed with the user experience design and the integration with existing driving school workflows. This could transform how we teach driving.",
+          "author": "Maria Andersson",
+          "role": "Driving Instructor, Skåne",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "quote"
+        },
+        {
+          "id": "1af64c7562a5ee391fa2ce4d",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "items": [
+            {
+              "id": "12cc70f514f3ab3000774e19",
+              "value": "16",
+              "label": "Curriculum Steps"
+            },
+            {
+              "id": "5f60216b56551c5947ebe200",
+              "value": "60-70%",
+              "label": "Dev Time Saved with AI"
+            },
+            {
+              "id": "7f8d65de41889ec9578cde86",
+              "value": "2025",
+              "label": "Public Launch Year"
+            }
+          ],
+          "blockType": "stats"
+        },
+        {
+          "id": "2ac3b7184f52787d0b72ba39",
+          "title": "Gamified Progress Tracking",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Each of Trafikverket's 16 curriculum steps becomes a milestone in the app. Students can track their progress, earn badges, and see exactly where they are in their learning journey. The gamification keeps motivation high between lessons.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "image": {
+            "id": 17,
+            "alt": "Vromm - Driving Instruction App",
+            "updatedAt": "2026-03-20T08:14:35.621Z",
+            "createdAt": "2026-03-20T08:14:35.621Z",
+            "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/vromm.jpg",
+            "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/vromm.jpg",
+            "filename": "vromm.jpg",
+            "mimeType": "image/jpeg",
+            "filesize": 0,
+            "width": 800,
+            "height": 600,
+            "focalX": null,
+            "focalY": null
+          },
+          "caption": "Vromm — progress tracking interface",
+          "imagePosition": "right",
+          "deviceFrame": "none",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textWithImage"
+        },
+        {
+          "id": "584a208467468c76516f364e",
+          "title": "Collaborative Practice Planning",
+          "content": {
+            "root": {
+              "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Parents and teens can plan driving practice together — choosing routes, scheduling sessions, and tracking what curriculum steps each route covers. The app bridges the gap between professional lessons and private practice.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
+            }
+          },
+          "image": {
+            "id": 21,
+            "alt": "Vromm",
+            "updatedAt": "2026-03-20T08:29:25.070Z",
+            "createdAt": "2026-03-20T08:29:25.070Z",
+            "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/app_vromm.png",
+            "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/app_vromm.png",
+            "filename": "app_vromm.png",
+            "mimeType": "image/png",
+            "filesize": 0,
+            "width": 200,
+            "height": 200,
+            "focalX": null,
+            "focalY": null
+          },
+          "caption": "Vromm app — practice planning",
+          "imagePosition": "left",
+          "deviceFrame": "none",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "textWithImage"
+        },
+        {
+          "id": "72b463ba2b5678673a95355e",
+          "title": "AI Co-creation",
+          "text": "By using Cursor and AI-based tools throughout the design-to-development pipeline, we achieved a 60-70% reduction in development time. This wasn't about replacing human decisions — it was about eliminating the mechanical work between them.",
+          "style": "info",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "callout"
+        },
+        {
+          "id": "2ec8effd341fa58b030a19f7",
+          "variant": "slides",
+          "deviceFrame": "none",
+          "carouselBg": "black",
+          "aspectRatio": "16/9",
+          "objectFit": "cover",
+          "autoplay": true,
+          "autoplayInterval": "4",
+          "videoMuted": true,
+          "showDots": true,
+          "showCaptions": true,
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "slides": [
+            {
+              "id": "477a8bbd0b17a9024d7fe24a",
+              "mediaType": "image",
+              "image": {
+                "id": 17,
+                "alt": "Vromm - Driving Instruction App",
+                "updatedAt": "2026-03-20T08:14:35.621Z",
+                "createdAt": "2026-03-20T08:14:35.621Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/vromm.jpg",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/vromm.jpg",
+                "filename": "vromm.jpg",
+                "mimeType": "image/jpeg",
+                "filesize": 0,
+                "width": 800,
+                "height": 600,
+                "focalX": null,
+                "focalY": null
+              },
+              "videoUrl": null,
+              "caption": "Vromm — main dashboard"
+            },
+            {
+              "id": "6b17e9c605086c063a786f57",
+              "mediaType": "image",
+              "image": {
+                "id": 10,
+                "alt": "IMG 0756",
+                "updatedAt": "2026-02-19T21:25:18.207Z",
+                "createdAt": "2026-02-19T21:25:18.207Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/IMG_0756.png",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/IMG_0756.png",
+                "filename": "IMG_0756.png",
+                "mimeType": "image/png",
+                "filesize": 2044585,
+                "width": 1320,
+                "height": 2868,
+                "focalX": 50,
+                "focalY": 50
+              },
+              "videoUrl": null,
+              "caption": "Mobile app — route planning"
+            },
+            {
+              "id": "5387de21613a7cd034a22cb8",
+              "mediaType": "image",
+              "image": {
+                "id": 25,
+                "alt": "6FE8F799 19F7 47E1 B2AF FCBE42966B72",
+                "updatedAt": "2026-03-23T22:28:57.552Z",
+                "createdAt": "2026-03-23T22:28:57.552Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/6FE8F799-19F7-47E1-B2AF-FCBE42966B72.png",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/6FE8F799-19F7-47E1-B2AF-FCBE42966B72.png",
+                "filename": "6FE8F799-19F7-47E1-B2AF-FCBE42966B72.png",
+                "mimeType": "image/png",
+                "filesize": 458696,
+                "width": 944,
+                "height": 2046,
+                "focalX": 50,
+                "focalY": 50
+              },
+              "videoUrl": null,
+              "caption": "Curriculum step tracking"
+            },
+            {
+              "id": "26e666184c5447124038a4ac",
+              "mediaType": "image",
+              "image": {
+                "id": 26,
+                "alt": "20260113 171904",
+                "updatedAt": "2026-03-23T22:29:11.733Z",
+                "createdAt": "2026-03-23T22:29:11.733Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/20260113_171904.jpg",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/20260113_171904.jpg",
+                "filename": "20260113_171904.jpg",
+                "mimeType": "image/jpeg",
+                "filesize": 239276,
+                "width": 3024,
+                "height": 4032,
+                "focalX": 50,
+                "focalY": 50
+              },
+              "videoUrl": null,
+              "caption": "Practice session overview"
+            }
+          ],
+          "blockType": "imageCarousel"
+        },
+        {
+          "id": "56bf9e9827c2d6946c2b5988",
+          "columns": "2",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "items": [
+            {
+              "id": "62dba7602c0c8b7a1dbdd929",
+              "image": {
+                "id": 17,
+                "alt": "Vromm - Driving Instruction App",
+                "updatedAt": "2026-03-20T08:14:35.621Z",
+                "createdAt": "2026-03-20T08:14:35.621Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/vromm.jpg",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/vromm.jpg",
+                "filename": "vromm.jpg",
+                "mimeType": "image/jpeg",
+                "filesize": 0,
+                "width": 800,
+                "height": 600,
+                "focalX": null,
+                "focalY": null
+              },
+              "caption": "Desktop — instructor dashboard"
+            },
+            {
+              "id": "6cdce53335626970594fd55d",
+              "image": {
+                "id": 10,
+                "alt": "IMG 0756",
+                "updatedAt": "2026-02-19T21:25:18.207Z",
+                "createdAt": "2026-02-19T21:25:18.207Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/IMG_0756.png",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/IMG_0756.png",
+                "filename": "IMG_0756.png",
+                "mimeType": "image/png",
+                "filesize": 2044585,
+                "width": 1320,
+                "height": 2868,
+                "focalX": 50,
+                "focalY": 50
+              },
+              "caption": "Mobile — student view"
+            }
+          ],
+          "blockType": "imageGrid"
+        },
+        {
+          "id": "37d126f90033a5c12712eca6",
+          "image": {
+            "id": 17,
+            "alt": "Vromm - Driving Instruction App",
+            "updatedAt": "2026-03-20T08:14:35.621Z",
+            "createdAt": "2026-03-20T08:14:35.621Z",
+            "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/vromm.jpg",
+            "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/vromm.jpg",
+            "filename": "vromm.jpg",
+            "mimeType": "image/jpeg",
+            "filesize": 0,
+            "width": 800,
+            "height": 600,
+            "focalX": null,
+            "focalY": null
+          },
+          "caption": "Full-width: Vromm driving instruction platform overview",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "singleImage"
+        },
+        {
+          "id": "34595c72768eddeb7c131387",
+          "columns": "3",
+          "gap": "lg",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "cells": [
+            {
+              "id": "04e2a0cb39b0a6973082e697",
+              "span": "1",
+              "cellType": "image",
+              "title": null,
+              "text": null,
+              "image": {
+                "id": 17,
+                "alt": "Vromm - Driving Instruction App",
+                "updatedAt": "2026-03-20T08:14:35.621Z",
+                "createdAt": "2026-03-20T08:14:35.621Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/vromm.jpg",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/vromm.jpg",
+                "filename": "vromm.jpg",
+                "mimeType": "image/jpeg",
+                "filesize": 0,
+                "width": 800,
+                "height": 600,
+                "focalX": null,
+                "focalY": null
+              },
+              "caption": "Vromm app interface",
+              "cellDeviceFrame": "iphone",
+              "statValue": null,
+              "statLabel": null,
+              "quoteAuthor": null,
+              "quoteRole": null,
+              "embedUrl": null,
+              "calloutStyle": "info",
+              "bgStyle": "none",
+              "textColor": "default",
+              "textAlign": "left",
+              "mobileOrder": 1
+            },
+            {
+              "id": "7951ec75454063d361b0c681",
+              "span": "2",
+              "cellType": "text",
+              "title": "Built for Swedish Driving Schools",
+              "text": "The app follows Trafikverket's official 16-step curriculum. Each step is mapped to real driving routes, making it easy for instructors to assign practice and for students to track what they've covered. AI feedback loops help identify weak areas before the exam.",
+              "image": null,
+              "caption": null,
+              "cellDeviceFrame": "iphone",
+              "statValue": null,
+              "statLabel": null,
+              "quoteAuthor": null,
+              "quoteRole": null,
+              "embedUrl": null,
+              "calloutStyle": "info",
+              "bgStyle": "none",
+              "textColor": "default",
+              "textAlign": "left",
+              "mobileOrder": 2
+            }
+          ],
+          "blockType": "gridLayout"
+        },
+        {
+          "id": "1a667ae54740f6a94ce326cf",
+          "columns": "3",
+          "gap": "md",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "cells": [
+            {
+              "id": "3ecc558c14944568569f2825",
+              "span": "1",
+              "cellType": "card",
+              "title": "Route Planning",
+              "text": "Plan practice routes mapped to curriculum steps. GPS tracking shows what you've covered.",
+              "image": {
+                "id": 17,
+                "alt": "Vromm - Driving Instruction App",
+                "updatedAt": "2026-03-20T08:14:35.621Z",
+                "createdAt": "2026-03-20T08:14:35.621Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/vromm.jpg",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/vromm.jpg",
+                "filename": "vromm.jpg",
+                "mimeType": "image/jpeg",
+                "filesize": 0,
+                "width": 800,
+                "height": 600,
+                "focalX": null,
+                "focalY": null
+              },
+              "caption": null,
+              "cellDeviceFrame": "iphone",
+              "statValue": null,
+              "statLabel": null,
+              "quoteAuthor": null,
+              "quoteRole": null,
+              "embedUrl": null,
+              "calloutStyle": "info",
+              "bgStyle": "none",
+              "textColor": "default",
+              "textAlign": "left",
+              "mobileOrder": null
+            },
+            {
+              "id": "2fe6b0975d7019db09d94390",
+              "span": "1",
+              "cellType": "card",
+              "title": "Progress Tracking",
+              "text": "Gamified badges for each of the 16 steps. Motivation through visible progress.",
+              "image": {
+                "id": 25,
+                "alt": "6FE8F799 19F7 47E1 B2AF FCBE42966B72",
+                "updatedAt": "2026-03-23T22:28:57.552Z",
+                "createdAt": "2026-03-23T22:28:57.552Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/6FE8F799-19F7-47E1-B2AF-FCBE42966B72.png",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/6FE8F799-19F7-47E1-B2AF-FCBE42966B72.png",
+                "filename": "6FE8F799-19F7-47E1-B2AF-FCBE42966B72.png",
+                "mimeType": "image/png",
+                "filesize": 458696,
+                "width": 944,
+                "height": 2046,
+                "focalX": 50,
+                "focalY": 50
+              },
+              "caption": null,
+              "cellDeviceFrame": "iphone",
+              "statValue": null,
+              "statLabel": null,
+              "quoteAuthor": null,
+              "quoteRole": null,
+              "embedUrl": null,
+              "calloutStyle": "info",
+              "bgStyle": "none",
+              "textColor": "default",
+              "textAlign": "left",
+              "mobileOrder": null
+            },
+            {
+              "id": "2453b706744aa12a1c030f78",
+              "span": "1",
+              "cellType": "card",
+              "title": "Pair Sessions",
+              "text": "Student-instructor and student-parent collaboration with shared calendars.",
+              "image": {
+                "id": 26,
+                "alt": "20260113 171904",
+                "updatedAt": "2026-03-23T22:29:11.733Z",
+                "createdAt": "2026-03-23T22:29:11.733Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/20260113_171904.jpg",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/20260113_171904.jpg",
+                "filename": "20260113_171904.jpg",
+                "mimeType": "image/jpeg",
+                "filesize": 239276,
+                "width": 3024,
+                "height": 4032,
+                "focalX": 50,
+                "focalY": 50
+              },
+              "caption": null,
+              "cellDeviceFrame": "iphone",
+              "statValue": null,
+              "statLabel": null,
+              "quoteAuthor": null,
+              "quoteRole": null,
+              "embedUrl": null,
+              "calloutStyle": "info",
+              "bgStyle": "none",
+              "textColor": "default",
+              "textAlign": "left",
+              "mobileOrder": null
+            }
+          ],
+          "blockType": "gridLayout"
+        },
+        {
+          "id": "74e5ed5c2fb711dc2cb99839",
+          "device": "iphone",
+          "caption": "Vromm app — student dashboard",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "screens": [
+            {
+              "id": "268652cb0ee2e5f81420de30",
+              "mediaType": "image",
+              "image": {
+                "id": 25,
+                "alt": "6FE8F799 19F7 47E1 B2AF FCBE42966B72",
+                "updatedAt": "2026-03-23T22:28:57.552Z",
+                "createdAt": "2026-03-23T22:28:57.552Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/6FE8F799-19F7-47E1-B2AF-FCBE42966B72.png",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/6FE8F799-19F7-47E1-B2AF-FCBE42966B72.png",
+                "filename": "6FE8F799-19F7-47E1-B2AF-FCBE42966B72.png",
+                "mimeType": "image/png",
+                "filesize": 458696,
+                "width": 944,
+                "height": 2046,
+                "focalX": 50,
+                "focalY": 50
+              },
+              "videoUrl": null,
+              "label": null
+            },
+            {
+              "id": "00428080557b2099398c6b92",
+              "mediaType": "image",
+              "image": {
+                "id": 10,
+                "alt": "IMG 0756",
+                "updatedAt": "2026-02-19T21:25:18.207Z",
+                "createdAt": "2026-02-19T21:25:18.207Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/IMG_0756.png",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/IMG_0756.png",
+                "filename": "IMG_0756.png",
+                "mimeType": "image/png",
+                "filesize": 2044585,
+                "width": 1320,
+                "height": 2868,
+                "focalX": 50,
+                "focalY": 50
+              },
+              "videoUrl": null,
+              "label": "Route planning"
+            },
+            {
+              "id": "7e4d80db09f0bce87fea6985",
+              "mediaType": "image",
+              "image": {
+                "id": 26,
+                "alt": "20260113 171904",
+                "updatedAt": "2026-03-23T22:29:11.733Z",
+                "createdAt": "2026-03-23T22:29:11.733Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/20260113_171904.jpg",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/20260113_171904.jpg",
+                "filename": "20260113_171904.jpg",
+                "mimeType": "image/jpeg",
+                "filesize": 239276,
+                "width": 3024,
+                "height": 4032,
+                "focalX": 50,
+                "focalY": 50
+              },
+              "videoUrl": null,
+              "label": "Practice session"
+            }
+          ],
+          "blockType": "deviceFrame"
+        },
+        {
+          "id": "63ce4f6d12043ad34fd7fe02",
+          "device": "desktop",
+          "caption": "Instructor overview — desktop",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "screens": [
+            {
+              "id": "0a8640dd761e1d49212ff947",
+              "mediaType": "image",
+              "image": {
+                "id": 17,
+                "alt": "Vromm - Driving Instruction App",
+                "updatedAt": "2026-03-20T08:14:35.621Z",
+                "createdAt": "2026-03-20T08:14:35.621Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/vromm.jpg",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/vromm.jpg",
+                "filename": "vromm.jpg",
+                "mimeType": "image/jpeg",
+                "filesize": 0,
+                "width": 800,
+                "height": 600,
+                "focalX": null,
+                "focalY": null
+              },
+              "videoUrl": null,
+              "label": null
+            }
+          ],
+          "blockType": "deviceFrame"
+        },
+        {
+          "id": "60ca5cff4f64b95851a51ae3",
+          "layout": "overlay",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "devices": [
+            {
+              "id": "6a68a27f2fdd595951a1ad64",
+              "device": "desktop",
+              "mediaType": "image",
+              "image": {
+                "id": 17,
+                "alt": "Vromm - Driving Instruction App",
+                "updatedAt": "2026-03-20T08:14:35.621Z",
+                "createdAt": "2026-03-20T08:14:35.621Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/vromm.jpg",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/vromm.jpg",
+                "filename": "vromm.jpg",
+                "mimeType": "image/jpeg",
+                "filesize": 0,
+                "width": 800,
+                "height": 600,
+                "focalX": null,
+                "focalY": null
+              },
+              "videoUrl": null,
+              "caption": "Desktop dashboard"
+            },
+            {
+              "id": "4d0260b10937f1cd00c1c241",
+              "device": "iphone",
+              "mediaType": "image",
+              "image": {
+                "id": 25,
+                "alt": "6FE8F799 19F7 47E1 B2AF FCBE42966B72",
+                "updatedAt": "2026-03-23T22:28:57.552Z",
+                "createdAt": "2026-03-23T22:28:57.552Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/6FE8F799-19F7-47E1-B2AF-FCBE42966B72.png",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/6FE8F799-19F7-47E1-B2AF-FCBE42966B72.png",
+                "filename": "6FE8F799-19F7-47E1-B2AF-FCBE42966B72.png",
+                "mimeType": "image/png",
+                "filesize": 458696,
+                "width": 944,
+                "height": 2046,
+                "focalX": 50,
+                "focalY": 50
+              },
+              "videoUrl": null,
+              "caption": "Mobile companion"
+            }
+          ],
+          "blockType": "deviceShowcase"
+        },
+        {
+          "id": "296d68fd1b662a8e701402e6",
+          "layout": "side-by-side",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "devices": [
+            {
+              "id": "44978e4f568a54560d09c5ae",
+              "device": "iphone",
+              "mediaType": "image",
+              "image": {
+                "id": 25,
+                "alt": "6FE8F799 19F7 47E1 B2AF FCBE42966B72",
+                "updatedAt": "2026-03-23T22:28:57.552Z",
+                "createdAt": "2026-03-23T22:28:57.552Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/6FE8F799-19F7-47E1-B2AF-FCBE42966B72.png",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/6FE8F799-19F7-47E1-B2AF-FCBE42966B72.png",
+                "filename": "6FE8F799-19F7-47E1-B2AF-FCBE42966B72.png",
+                "mimeType": "image/png",
+                "filesize": 458696,
+                "width": 944,
+                "height": 2046,
+                "focalX": 50,
+                "focalY": 50
+              },
+              "videoUrl": null,
+              "caption": "Route planning"
+            },
+            {
+              "id": "784f537b3418cc3977cab13b",
+              "device": "iphone",
+              "mediaType": "image",
+              "image": {
+                "id": 10,
+                "alt": "IMG 0756",
+                "updatedAt": "2026-02-19T21:25:18.207Z",
+                "createdAt": "2026-02-19T21:25:18.207Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/IMG_0756.png",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/IMG_0756.png",
+                "filename": "IMG_0756.png",
+                "mimeType": "image/png",
+                "filesize": 2044585,
+                "width": 1320,
+                "height": 2868,
+                "focalX": 50,
+                "focalY": 50
+              },
+              "videoUrl": null,
+              "caption": "Progress tracking"
+            }
+          ],
+          "blockType": "deviceShowcase"
+        },
+        {
+          "id": "479cadf95c0e0911751f3ffc",
+          "beforeImage": {
+            "id": 7,
+            "alt": "Testar",
+            "updatedAt": "2026-02-19T20:16:06.641Z",
+            "createdAt": "2026-02-19T20:16:06.640Z",
+            "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/testar.png",
+            "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/testar.png",
+            "filename": "testar.png",
+            "mimeType": "image/png",
+            "filesize": 97036,
+            "width": 896,
+            "height": 672,
+            "focalX": 50,
+            "focalY": 50
+          },
+          "afterImage": {
+            "id": 9,
+            "alt": "Testar 2",
+            "updatedAt": "2026-02-19T21:24:36.300Z",
+            "createdAt": "2026-02-19T21:24:36.298Z",
+            "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/testar-2.png",
+            "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/testar-2.png",
+            "filename": "testar-2.png",
+            "mimeType": "image/png",
+            "filesize": 97036,
+            "width": 896,
+            "height": 672,
+            "focalX": 50,
+            "focalY": 50
+          },
+          "beforeLabel": "Before",
+          "afterLabel": "After",
+          "caption": "Before and after the redesign",
+          "deviceFrame": "none",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "blockType": "compareImage"
+        },
+        {
+          "id": "21c9337e7f4fc46672cfaa72",
+          "fullWidth": true,
+          "autoPlay": false,
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "slides": [
+            {
+              "id": "5fa33ea14589a5013b5b8512",
+              "title": "Vromm",
+              "subtitle": "Driving instruction, reimagined",
+              "content": "A React Native app that maps real-world driving routes to Trafikverket's 16 curriculum steps with gamified progress tracking.",
+              "image": {
+                "id": 17,
+                "alt": "Vromm - Driving Instruction App",
+                "updatedAt": "2026-03-20T08:14:35.621Z",
+                "createdAt": "2026-03-20T08:14:35.621Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/vromm.jpg",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/vromm.jpg",
+                "filename": "vromm.jpg",
+                "mimeType": "image/jpeg",
+                "filesize": 0,
+                "width": 800,
+                "height": 600,
+                "focalX": null,
+                "focalY": null
+              },
+              "imagePosition": "background",
+              "bgColor": "none",
+              "textColor": "white"
+            },
+            {
+              "id": "50a4e17a3156c7301c404302",
+              "title": "For Students & Instructors",
+              "subtitle": "Collaborative practice planning",
+              "content": "Parents and teens plan practice together. GPS tracking shows curriculum coverage. AI feedback identifies weak areas before the exam.",
+              "image": {
+                "id": 25,
+                "alt": "6FE8F799 19F7 47E1 B2AF FCBE42966B72",
+                "updatedAt": "2026-03-23T22:28:57.552Z",
+                "createdAt": "2026-03-23T22:28:57.552Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/6FE8F799-19F7-47E1-B2AF-FCBE42966B72.png",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/6FE8F799-19F7-47E1-B2AF-FCBE42966B72.png",
+                "filename": "6FE8F799-19F7-47E1-B2AF-FCBE42966B72.png",
+                "mimeType": "image/png",
+                "filesize": 458696,
+                "width": 944,
+                "height": 2046,
+                "focalX": 50,
+                "focalY": 50
+              },
+              "imagePosition": "right",
+              "bgColor": "none",
+              "textColor": "default"
+            },
+            {
+              "id": "300054c0223536bf5d3c42bb",
+              "title": "Built with AI",
+              "subtitle": "60-70% faster development",
+              "content": "Cursor and AI-based tools throughout the entire pipeline. Not replacing human decisions — eliminating the mechanical work between them.",
+              "image": null,
+              "imagePosition": "center",
+              "bgColor": "dark",
+              "textColor": "white"
+            }
+          ],
+          "blockType": "slideshow"
+        },
+        {
+          "id": "07afb728623291f0106f8c3f",
+          "title": "Technical Details",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "items": [
+            {
+              "id": "798b25a4627a413e403855fe",
+              "question": "What tech stack was used?",
+              "answer": "React Native with Expo, Supabase for backend and auth, Cursor for AI-assisted development. Maps integration via Mapbox for route visualization.",
+              "defaultOpen": true
+            },
+            {
+              "id": "427540ac6a1f1f9803a1534d",
+              "question": "How does the AI feedback work?",
+              "answer": "The app tracks driving patterns through GPS data and compares them against curriculum requirements. AI suggests which steps need more practice and recommends optimal routes for specific skills.",
+              "defaultOpen": false
+            },
+            {
+              "id": "23629aef4769323603b06b52",
+              "question": "What is the gamification model?",
+              "answer": "Badge-based progression through 16 curriculum steps. Students earn stars for consistency, route variety, and instructor verification. Leaderboards among peers create friendly competition.",
+              "defaultOpen": false
+            }
+          ],
+          "blockType": "accordion"
+        },
+        {
+          "id": "3c96855a7aa7e92a2ddba907",
+          "title": "App Screenshots",
+          "triggerStyle": "grid",
+          "columns": "3",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "modalItems": [
+            {
+              "id": "605545b4055b83f511c19484",
+              "image": {
+                "id": 17,
+                "alt": "Vromm - Driving Instruction App",
+                "updatedAt": "2026-03-20T08:14:35.621Z",
+                "createdAt": "2026-03-20T08:14:35.621Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/vromm.jpg",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/vromm.jpg",
+                "filename": "vromm.jpg",
+                "mimeType": "image/jpeg",
+                "filesize": 0,
+                "width": 800,
+                "height": 600,
+                "focalX": null,
+                "focalY": null
+              },
+              "title": "Dashboard",
+              "description": "Main student dashboard showing progress overview."
+            },
+            {
+              "id": "4b29f9296e1a303b3c06d069",
+              "image": {
+                "id": 25,
+                "alt": "6FE8F799 19F7 47E1 B2AF FCBE42966B72",
+                "updatedAt": "2026-03-23T22:28:57.552Z",
+                "createdAt": "2026-03-23T22:28:57.552Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/6FE8F799-19F7-47E1-B2AF-FCBE42966B72.png",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/6FE8F799-19F7-47E1-B2AF-FCBE42966B72.png",
+                "filename": "6FE8F799-19F7-47E1-B2AF-FCBE42966B72.png",
+                "mimeType": "image/png",
+                "filesize": 458696,
+                "width": 944,
+                "height": 2046,
+                "focalX": 50,
+                "focalY": 50
+              },
+              "title": "Route Planning",
+              "description": "Interactive map for planning practice routes."
+            },
+            {
+              "id": "29d9f9da4a32c69404166744",
+              "image": {
+                "id": 10,
+                "alt": "IMG 0756",
+                "updatedAt": "2026-02-19T21:25:18.207Z",
+                "createdAt": "2026-02-19T21:25:18.207Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/IMG_0756.png",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/IMG_0756.png",
+                "filename": "IMG_0756.png",
+                "mimeType": "image/png",
+                "filesize": 2044585,
+                "width": 1320,
+                "height": 2868,
+                "focalX": 50,
+                "focalY": 50
+              },
+              "title": "Mobile View",
+              "description": "Full mobile experience."
+            },
+            {
+              "id": "305c88c37ee81cea09de24ee",
+              "image": {
+                "id": 26,
+                "alt": "20260113 171904",
+                "updatedAt": "2026-03-23T22:29:11.733Z",
+                "createdAt": "2026-03-23T22:29:11.733Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/20260113_171904.jpg",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/20260113_171904.jpg",
+                "filename": "20260113_171904.jpg",
+                "mimeType": "image/jpeg",
+                "filesize": 239276,
+                "width": 3024,
+                "height": 4032,
+                "focalX": 50,
+                "focalY": 50
+              },
+              "title": "Session History",
+              "description": "Practice session log with curriculum mapping."
+            }
+          ],
+          "blockType": "modal"
+        },
+        {
+          "id": "2dd8cb06044528ff65df2421",
+          "blockHeight": "auto",
+          "blockAlign": "start",
+          "blockVisible": true,
+          "imgBg": "card",
+          "cssClass": null,
+          "blockName": null,
+          "cells": [
+            {
+              "id": "394dbb4c3f24a7c06a1ae754",
+              "colSpan": "2",
+              "rowSpan": "2",
+              "cellType": "image",
+              "title": null,
+              "text": null,
+              "image": {
+                "id": 17,
+                "alt": "Vromm - Driving Instruction App",
+                "updatedAt": "2026-03-20T08:14:35.621Z",
+                "createdAt": "2026-03-20T08:14:35.621Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/vromm.jpg",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/vromm.jpg",
+                "filename": "vromm.jpg",
+                "mimeType": "image/jpeg",
+                "filesize": 0,
+                "width": 800,
+                "height": 600,
+                "focalX": null,
+                "focalY": null
+              },
+              "statValue": null,
+              "author": null,
+              "bgStyle": "none"
+            },
+            {
+              "id": "25c1911177cc0d9914322687",
+              "colSpan": "1",
+              "rowSpan": "1",
+              "cellType": "stat",
+              "title": "Curriculum Steps",
+              "text": null,
+              "image": null,
+              "statValue": "16",
+              "author": null,
+              "bgStyle": "accent"
+            },
+            {
+              "id": "27f92f106e675ae34450d92f",
+              "colSpan": "1",
+              "rowSpan": "1",
+              "cellType": "stat",
+              "title": "Dev Time Saved",
+              "text": null,
+              "image": null,
+              "statValue": "60-70%",
+              "author": null,
+              "bgStyle": "card"
+            },
+            {
+              "id": "5b4e96490ccc899f00590780",
+              "colSpan": "2",
+              "rowSpan": "1",
+              "cellType": "text",
+              "title": "AI-Powered Development",
+              "text": "Cursor and AI tools throughout the pipeline. Not replacing decisions — eliminating mechanical work.",
+              "image": null,
+              "statValue": null,
+              "author": null,
+              "bgStyle": "card"
+            },
+            {
+              "id": "7aeafc511463caf841718c73",
+              "colSpan": "1",
+              "rowSpan": "1",
+              "cellType": "quote",
+              "title": null,
+              "text": "This could transform how we teach driving.",
+              "image": null,
+              "statValue": null,
+              "author": "Maria A.",
+              "bgStyle": "none"
+            },
+            {
+              "id": "3bf42c55228830a71d6a0173",
+              "colSpan": "1",
+              "rowSpan": "1",
+              "cellType": "card",
+              "title": "Gamified Progress",
+              "text": "Badge-based progression through Trafikverket curriculum.",
+              "image": {
+                "id": 25,
+                "alt": "6FE8F799 19F7 47E1 B2AF FCBE42966B72",
+                "updatedAt": "2026-03-23T22:28:57.552Z",
+                "createdAt": "2026-03-23T22:28:57.552Z",
+                "url": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/6FE8F799-19F7-47E1-B2AF-FCBE42966B72.png",
+                "thumbnailURL": "https://res.cloudinary.com/dihhcawgk/image/upload/daniellauding/6FE8F799-19F7-47E1-B2AF-FCBE42966B72.png",
+                "filename": "6FE8F799-19F7-47E1-B2AF-FCBE42966B72.png",
+                "mimeType": "image/png",
+                "filesize": 458696,
+                "width": 944,
+                "height": 2046,
+                "focalX": 50,
+                "focalY": 50
+              },
+              "statValue": null,
+              "author": null,
+              "bgStyle": "dark"
+            }
+          ],
+          "blockType": "bentoGrid"
+        }
+      ]
+    }
+  ],
+  "clients": [
+    {
+      "id": 29,
+      "name": "Pod1",
+      "url": "https://pod1.com",
+      "logo": null,
+      "order": 28
+    },
+    {
+      "id": 28,
+      "name": "Navii",
+      "url": "https://navii.se",
+      "logo": null,
+      "order": 27
+    },
+    {
+      "id": 27,
+      "name": "Funka",
+      "url": "https://funka.com",
+      "logo": null,
+      "order": 26
+    },
+    {
+      "id": 26,
+      "name": "Asteria",
+      "url": "https://www.asteria.ai",
+      "logo": null,
+      "order": 25
+    },
+    {
+      "id": 25,
+      "name": "Vromm",
+      "url": "https://www.vromm.se",
+      "logo": null,
+      "order": 24
+    },
+    {
+      "id": 24,
+      "name": "Standard Chartered",
+      "url": "https://www.sc.com",
+      "logo": null,
+      "order": 23
+    },
+    {
+      "id": 23,
+      "name": "UOB Singapore",
+      "url": "https://www.uob.com.sg",
+      "logo": null,
+      "order": 22
+    },
+    {
+      "id": 22,
+      "name": "UniCredit",
+      "url": "https://www.unicredit.it",
+      "logo": null,
+      "order": 21
+    },
+    {
+      "id": 21,
+      "name": "ABN Amro",
+      "url": "https://www.abnamro.com",
+      "logo": null,
+      "order": 20
+    },
+    {
+      "id": 20,
+      "name": "Hyper Island",
+      "url": "https://www.hyperisland.com",
+      "logo": null,
+      "order": 19
+    },
+    {
+      "id": 19,
+      "name": "XLN",
+      "url": "https://www.xln.se",
+      "logo": null,
+      "order": 18
+    },
+    {
+      "id": 18,
+      "name": "MDH University",
+      "url": "https://www.mdu.se",
+      "logo": null,
+      "order": 17
+    },
+    {
+      "id": 17,
+      "name": "SJ",
+      "url": "https://www.sj.se",
+      "logo": null,
+      "order": 16
+    },
+    {
+      "id": 16,
+      "name": "ÅBRO Bryggeri",
+      "url": "https://abro.se",
+      "logo": null,
+      "order": 15
+    },
+    {
+      "id": 15,
+      "name": "Actic",
+      "url": "https://actic.se",
+      "logo": null,
+      "order": 14
+    },
+    {
+      "id": 14,
+      "name": "Apegroup",
+      "url": "https://apegroup.com",
+      "logo": null,
+      "order": 13
+    },
+    {
+      "id": 13,
+      "name": "Identity Works",
+      "url": "https://identityworks.se",
+      "logo": null,
+      "order": 12
+    },
+    {
+      "id": 12,
+      "name": "DDB Stockholm",
+      "url": "https://www.ddb.com",
+      "logo": null,
+      "order": 11
+    },
+    {
+      "id": 11,
+      "name": "Record Union",
+      "url": "https://www.recordunion.com",
+      "logo": null,
+      "order": 10
+    },
+    {
+      "id": 10,
+      "name": "PayEx",
+      "url": "https://www.payex.com",
+      "logo": null,
+      "order": 9
+    },
+    {
+      "id": 9,
+      "name": "Fröjd Interactive",
+      "url": "https://frojd.se",
+      "logo": null,
+      "order": 8
+    },
+    {
+      "id": 8,
+      "name": "AKQA",
+      "url": "https://www.akqa.com",
+      "logo": null,
+      "order": 7
+    },
+    {
+      "id": 7,
+      "name": "Backbase",
+      "url": "https://www.backbase.com",
+      "logo": null,
+      "order": 6
+    },
+    {
+      "id": 6,
+      "name": "Qasa",
+      "url": "https://qasa.se",
+      "logo": null,
+      "order": 5
+    },
+    {
+      "id": 5,
+      "name": "SkiStar",
+      "url": "https://www.skistar.com",
+      "logo": null,
+      "order": 4
+    },
+    {
+      "id": 4,
+      "name": "KLM",
+      "url": "https://www.klm.com",
+      "logo": null,
+      "order": 3
+    },
+    {
+      "id": 3,
+      "name": "Länsförsäkringar",
+      "url": "https://www.lansforsakringar.se",
+      "logo": null,
+      "order": 2
+    },
+    {
+      "id": 2,
+      "name": "Swedbank",
+      "url": "https://www.swedbank.se",
+      "logo": null,
+      "order": 1
+    },
+    {
+      "id": 1,
+      "name": "Spotify",
+      "url": "https://www.spotify.com",
+      "logo": null,
+      "order": 0
+    }
+  ],
+  "experience": [
+    {
+      "id": 7,
+      "title": "Frontend Developer",
+      "company": "Various Projects",
+      "companyUrl": null,
+      "period": "2008 - Present",
+      "description": "15+ years of frontend development across startups to Fortune 500. HTML, CSS, JavaScript, React, Vue, TypeScript. From IE6 era to modern AI-assisted workflows."
+    },
+    {
+      "id": 6,
+      "title": "Art Director Consultant",
+      "company": "Länsförsäkringar",
+      "companyUrl": "https://www.lansforsakringar.se",
+      "period": "Mar 2016 - Feb 2017",
+      "description": "Modernized digital identity for one of Sweden's largest insurers. Created cross-platform design system for web, mobile, and internal portals. Won Best App & Web 2017 (as Instinctly)."
+    },
+    {
+      "id": 5,
+      "title": "Senior Product Design Consultant",
+      "company": "Spotify",
+      "companyUrl": "https://www.spotify.com",
+      "period": "Mar - Jun 2017",
+      "description": "Designed low-data streaming experience for emerging markets. Conducted field research in Brazil and launched Data Saver feature (as Instinctly)."
+    },
+    {
+      "id": 4,
+      "title": "Co-Founder & Lead Product Designer",
+      "company": "Asteria",
+      "companyUrl": "https://www.asteria.ai",
+      "period": "2017 - 2025",
+      "description": "Co-founded fintech company serving 400k+ users through Swedbank and PayEx partnerships. Led product vision and design strategy."
+    },
+    {
+      "id": 3,
+      "title": "Senior Product Design Consultant",
+      "company": "Qasa",
+      "companyUrl": "https://www.qasa.se",
+      "period": "May - Aug 2025",
+      "description": "Led product design for Match team. Built AI-enhanced prototyping tools using Figma, AI Prototyping, and improved tenant-landlord matching flows (as Instinctly)."
+    },
+    {
+      "id": 2,
+      "title": "Founder & Product Designer",
+      "company": "Vromm",
+      "companyUrl": "https://www.vromm.se",
+      "period": "2025 - Present",
+      "description": "Building AI-powered driving instruction app. Solo product design and development using React Native, Cursor, AI-assisted Development, and modern AI workflows. (as Instinctly)."
+    },
+    {
+      "id": 1,
+      "title": "Founder & Design Consultant",
+      "company": "Instinctly",
+      "companyUrl": "https://www.instinctly.se",
+      "period": "2007 - Present",
+      "description": "Design & development consultancy serving clients like Qasa, Spotify, Swedbank, Länsförsäkringar, and KLM. 15+ years of product design and development."
+    }
+  ],
+  "education": [
+    {
+      "id": 3,
+      "degree": "Digital Media Creative",
+      "school": "Hyper Island",
+      "year": "2009-2011"
+    },
+    {
+      "id": 2,
+      "degree": "Music Production & Theory",
+      "school": "Furuboda",
+      "year": "2023-2024"
+    },
+    {
+      "id": 1,
+      "degree": "JavaScript Bootcamp",
+      "school": "Technigo",
+      "year": "2025-2026"
+    }
+  ],
+  "skills": [
+    {
+      "id": 75,
+      "name": "Field Research",
+      "category": "other"
+    },
+    {
+      "id": 74,
+      "name": "SEO",
+      "category": "other"
+    },
+    {
+      "id": 73,
+      "name": "Google Analytics",
+      "category": "other"
+    },
+    {
+      "id": 72,
+      "name": "Web Project Management",
+      "category": "other"
+    },
+    {
+      "id": 71,
+      "name": "Concept Development",
+      "category": "other"
+    },
+    {
+      "id": 70,
+      "name": "Web Development",
+      "category": "other"
+    },
+    {
+      "id": 69,
+      "name": "Adobe Creative Suite",
+      "category": "other"
+    },
+    {
+      "id": 68,
+      "name": "Typography",
+      "category": "other"
+    },
+    {
+      "id": 67,
+      "name": "Wireframes",
+      "category": "other"
+    },
+    {
+      "id": 66,
+      "name": "Usability Testing",
+      "category": "other"
+    },
+    {
+      "id": 65,
+      "name": "Art Direction",
+      "category": "other"
+    },
+    {
+      "id": 64,
+      "name": "Experience Design",
+      "category": "other"
+    },
+    {
+      "id": 63,
+      "name": "Visual Design",
+      "category": "other"
+    },
+    {
+      "id": 62,
+      "name": "User Experience Design",
+      "category": "other"
+    },
+    {
+      "id": 61,
+      "name": "Usability",
+      "category": "other"
+    },
+    {
+      "id": 60,
+      "name": "User Interface",
+      "category": "other"
+    },
+    {
+      "id": 59,
+      "name": "Digital Media",
+      "category": "other"
+    },
+    {
+      "id": 58,
+      "name": "Graphic Design",
+      "category": "other"
+    },
+    {
+      "id": 57,
+      "name": "Graphics",
+      "category": "other"
+    },
+    {
+      "id": 56,
+      "name": "Information Design",
+      "category": "other"
+    },
+    {
+      "id": 55,
+      "name": "Concept Design",
+      "category": "other"
+    },
+    {
+      "id": 54,
+      "name": "User-centered Design",
+      "category": "other"
+    },
+    {
+      "id": 53,
+      "name": "Mobile Design",
+      "category": "other"
+    },
+    {
+      "id": 52,
+      "name": "Information Architecture",
+      "category": "other"
+    },
+    {
+      "id": 51,
+      "name": "User Interface Design",
+      "category": "other"
+    },
+    {
+      "id": 50,
+      "name": "HTML5",
+      "category": "other"
+    },
+    {
+      "id": 49,
+      "name": "User Experience",
+      "category": "other"
+    },
+    {
+      "id": 48,
+      "name": "Interaction Design",
+      "category": "other"
+    },
+    {
+      "id": 47,
+      "name": "Front-end Development",
+      "category": "other"
+    },
+    {
+      "id": 46,
+      "name": "Web Design",
+      "category": "other"
+    },
+    {
+      "id": 45,
+      "name": "JavaScript",
+      "category": "other"
+    },
+    {
+      "id": 44,
+      "name": "WordPress",
+      "category": "other"
+    },
+    {
+      "id": 43,
+      "name": "CSS",
+      "category": "other"
+    },
+    {
+      "id": 42,
+      "name": "HTML",
+      "category": "other"
+    },
+    {
+      "id": 41,
+      "name": "Adobe Photoshop",
+      "category": "other"
+    },
+    {
+      "id": 40,
+      "name": "Sketch",
+      "category": "other"
+    },
+    {
+      "id": 39,
+      "name": "Prototyping",
+      "category": "other"
+    },
+    {
+      "id": 38,
+      "name": "Front-End Design",
+      "category": "other"
+    },
+    {
+      "id": 37,
+      "name": "Accessibility",
+      "category": "other"
+    },
+    {
+      "id": 36,
+      "name": "Tailwind",
+      "category": "other"
+    },
+    {
+      "id": 35,
+      "name": "Growth",
+      "category": "other"
+    },
+    {
+      "id": 34,
+      "name": "Planning",
+      "category": "other"
+    },
+    {
+      "id": 33,
+      "name": "Business Strategy",
+      "category": "other"
+    },
+    {
+      "id": 32,
+      "name": "Wireframing",
+      "category": "other"
+    },
+    {
+      "id": 31,
+      "name": "Bootstrap",
+      "category": "other"
+    },
+    {
+      "id": 30,
+      "name": "Leadership",
+      "category": "other"
+    },
+    {
+      "id": 29,
+      "name": "Scrum",
+      "category": "other"
+    },
+    {
+      "id": 28,
+      "name": "React Router",
+      "category": "other"
+    },
+    {
+      "id": 27,
+      "name": "Redux.js",
+      "category": "other"
+    },
+    {
+      "id": 26,
+      "name": "Cross-team Collaboration",
+      "category": "other"
+    },
+    {
+      "id": 25,
+      "name": "Stakeholder Collaboration",
+      "category": "other"
+    },
+    {
+      "id": 24,
+      "name": "Mobile & Web Design",
+      "category": "other"
+    },
+    {
+      "id": 23,
+      "name": "Heuristic Evaluation",
+      "category": "other"
+    },
+    {
+      "id": 22,
+      "name": "Workshop Facilitation",
+      "category": "other"
+    },
+    {
+      "id": 21,
+      "name": "Gamification",
+      "category": "other"
+    },
+    {
+      "id": 20,
+      "name": "Supabase",
+      "category": "other"
+    },
+    {
+      "id": 19,
+      "name": "Expo",
+      "category": "other"
+    },
+    {
+      "id": 18,
+      "name": "Startup Strategy",
+      "category": "other"
+    },
+    {
+      "id": 17,
+      "name": "SaaS",
+      "category": "other"
+    },
+    {
+      "id": 16,
+      "name": "Fintech",
+      "category": "other"
+    },
+    {
+      "id": 15,
+      "name": "User Testing",
+      "category": "other"
+    },
+    {
+      "id": 14,
+      "name": "Design Sprints",
+      "category": "other"
+    },
+    {
+      "id": 13,
+      "name": "Lovable",
+      "category": "other"
+    },
+    {
+      "id": 12,
+      "name": "Cursor",
+      "category": "other"
+    },
+    {
+      "id": 11,
+      "name": "AI-assisted Development",
+      "category": "other"
+    },
+    {
+      "id": 10,
+      "name": "AI Prototyping",
+      "category": "other"
+    },
+    {
+      "id": 9,
+      "name": "Figma",
+      "category": "other"
+    },
+    {
+      "id": 8,
+      "name": "Next.js",
+      "category": "other"
+    },
+    {
+      "id": 7,
+      "name": "Vue.js",
+      "category": "other"
+    },
+    {
+      "id": 6,
+      "name": "React Native",
+      "category": "other"
+    },
+    {
+      "id": 5,
+      "name": "TypeScript",
+      "category": "other"
+    },
+    {
+      "id": 4,
+      "name": "React",
+      "category": "other"
+    },
+    {
+      "id": 3,
+      "name": "Design Systems",
+      "category": "other"
+    },
+    {
+      "id": 2,
+      "name": "UX/UI Design",
+      "category": "other"
+    },
+    {
+      "id": 1,
+      "name": "Product Design",
+      "category": "other"
+    }
+  ]
+}
