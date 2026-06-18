@@ -1,3 +1,5 @@
+import remote from './remoteContent';
+
 const about = [
 	{
 		id: 0,
@@ -6142,4 +6144,29 @@ The Asteria Web App is designed to help users navigate their cash flow effortles
 	},
 ];
 
+// ─── Live CMS overlay ────────────────────────────────────────────────────────
+// Overlay content from the live Payload CMS (fetched at build time, see
+// src/remoteContent.js) onto the static data where the shapes map cleanly.
+// Falls back to the static values above if a field is missing remotely.
+const p = remote && remote.personal;
+if (p && about[0]) {
+	about[0].name = p.name || about[0].name;
+	about[0].email = p.email || about[0].email;
+	about[0].description = p.bio || about[0].description;
+	if (p.roles && p.roles.length) about[0].roles = p.roles;
+	if (p.status) about[0].status = p.status;
+	if (p.location) about[0].location = p.location;
+}
+
+// Career timeline from the Payload `experience` collection (overlays about[0].timeline).
+if (remote && remote.experience && remote.experience.length && about[0]) {
+	about[0].timeline = remote.experience.map((e, i) => ({
+		id: i,
+		date: e.period,
+		title: e.company ? `${e.title} · ${e.company}` : e.title,
+		text: e.description,
+	}));
+}
+
 export { about, work };
+

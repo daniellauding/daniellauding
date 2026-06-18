@@ -80,7 +80,7 @@ async function main() {
       email: personal.email,
       phone: personal.phone,
       website: personal.website,
-      bio: personal.bio,
+      bio: typeof personal.bio === "string" ? personal.bio : lexicalToText(personal.bio),
       avatar: personal.avatar?.url || null,
       tools: (personal.tools || []).map((t) => t.tool || t).filter(Boolean),
       roles: (personal.roles || []).map((r) => r.role || r).filter(Boolean),
